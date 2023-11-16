@@ -6,6 +6,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import lombok.*;
+import net.accelbyte.sdk.api.iam.models.AccountcommonPermissionV3;
 
 @Getter
 @Setter
@@ -13,8 +14,7 @@ public class AccessTokenPayload {
 
   public static class Types {
 
-    @Getter
-    @Setter
+    @Data
     public static class Ban {
 
       @JsonProperty("ban")
@@ -33,8 +33,7 @@ public class AccessTokenPayload {
       private String targetedNamespace;
     }
 
-    @Getter
-    @Setter
+    @Data
     public static class Role {
 
       @JsonProperty("namespace")
@@ -44,8 +43,10 @@ public class AccessTokenPayload {
       private String roleId;
     }
 
-    @Getter
-    @Setter
+    @Data
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
     public static class Permission {
 
       @JsonProperty("Action")
@@ -53,6 +54,13 @@ public class AccessTokenPayload {
 
       @JsonProperty("Resource")
       private String resource;
+
+      public static Permission of(AccountcommonPermissionV3 permissionV3) {
+        return Permission.builder()
+                .resource(permissionV3.getResource())
+                .action(permissionV3.getAction())
+                .build();
+      }
     }
   }
 

@@ -13,11 +13,13 @@ import net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenRevocationV3;
 import net.accelbyte.sdk.api.iam.wrappers.OAuth20;
 import net.accelbyte.sdk.core.AccelByteConfig;
 import net.accelbyte.sdk.core.AccelByteSDK;
+import net.accelbyte.sdk.core.AccessTokenPayload;
 import net.accelbyte.sdk.core.client.HttpClient;
 import net.accelbyte.sdk.core.client.OkhttpClient;
 import net.accelbyte.sdk.core.repository.ConfigRepository;
 import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
+import net.accelbyte.sdk.core.validator.UserAuthContext;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer;
@@ -35,7 +37,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 public class TestIntegrationValidateToken extends TestIntegration {
   @BeforeAll
   public void setup() throws Exception {
-    super.setup(false);
+    super.setup(true);
   }
 
   @ParameterizedTest
@@ -167,6 +169,25 @@ public class TestIntegrationValidateToken extends TestIntegration {
     assertTrue(isGoodPermissionOk1);
     assertFalse(isBadPermissionOk1);
     assertFalse(isBadPermissionOk2);
+  }
+
+  @Test
+  public void testValidateUserTokenRolePermission() throws Exception {
+    final String token  = sdk.getSdkConfiguration().getTokenRepository().getToken();
+    final String userId = sdk.parseAccessToken(token, false).getSub();
+
+    final UserAuthContext authContext = UserAuthContext.builder()
+            .token(token)
+            .namespace(namespace)
+            .userId(userId)
+            .build();
+    final AccessTokenPayload.Types.Permission permission = AccessTokenPayload.Types.Permission.builder()
+            .resource("ADMIN:NAMESPACE:{namespace}:CLOUDSAVE:RECORD")
+            .action(2)
+            .build();
+    boolean result = sdk.validateToken(authContext, permission);
+
+    assertTrue(result);
   }
 
   @AfterAll

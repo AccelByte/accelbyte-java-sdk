@@ -6,6 +6,7 @@
 
 package net.accelbyte.sdk.core;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Strings;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
@@ -23,26 +24,17 @@ import java.security.interfaces.RSAPublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.RSAPublicKeySpec;
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.Base64;
+import java.util.*;
 import java.util.Base64.Decoder;
-import java.util.BitSet;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 import lombok.SneakyThrows;
 import lombok.extern.java.Log;
-import net.accelbyte.sdk.api.iam.models.BloomFilterJSON;
-import net.accelbyte.sdk.api.iam.models.OauthapiRevocationList;
-import net.accelbyte.sdk.api.iam.models.OauthcommonJWKKey;
-import net.accelbyte.sdk.api.iam.models.OauthcommonJWKSet;
-import net.accelbyte.sdk.api.iam.models.OauthmodelTokenResponse;
-import net.accelbyte.sdk.api.iam.models.OauthmodelTokenWithDeviceCookieResponseV3;
+import net.accelbyte.sdk.api.iam.models.*;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0.AuthorizeV3;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0.AuthorizeV3.CodeChallengeMethod;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0.GetJWKSV3;
@@ -51,15 +43,21 @@ import net.accelbyte.sdk.api.iam.operations.o_auth2_0.PlatformTokenGrantV3;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenGrantV3;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0.VerifyTokenV3;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.UserAuthenticationV3;
+import net.accelbyte.sdk.api.iam.operations.roles.AdminGetRoleV3;
 import net.accelbyte.sdk.api.iam.wrappers.OAuth20;
 import net.accelbyte.sdk.api.iam.wrappers.OAuth20Extension;
+import net.accelbyte.sdk.api.iam.wrappers.Roles;
 import net.accelbyte.sdk.core.client.HttpClient;
 import net.accelbyte.sdk.core.repository.*;
 import net.accelbyte.sdk.core.util.BloomFilter;
 import net.accelbyte.sdk.core.util.Helper;
+import net.accelbyte.sdk.core.validator.RoleCacheKey;
+import net.accelbyte.sdk.core.validator.UserAuthContext;
 import okhttp3.Credentials;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
+
+import static net.accelbyte.sdk.core.AccessTokenPayload.Types.*;
 
 @Log
 public class AccelByteSDK {
@@ -81,13 +79,31 @@ public class AccelByteSDK {
 
   private LoadingCache<String, Map<String, RSAPublicKey>> jwksCache;
   private LoadingCache<String, OauthapiRevocationList> revocationListCache;
+
+  private LoadingCache<RoleCacheKey, List<Permission>> rolePermissionsCache;
   private static final BloomFilter bloomFilter = new BloomFilter();
 
   // TODO: make this configurable
   private float tokenRefreshRatio = 0.8f;
 
+  private ObjectMapper objectMapper = new ObjectMapper();
+
   protected boolean internalValidateToken(
-      SignedJWT signedJWT, String token, String resource, int action) {
+    SignedJWT signedJWT, String token, String resource, int action
+  ) {
+    final UserAuthContext authContext = UserAuthContext.builder()
+            .token(token)
+            .build();
+    final Permission permission = Permission.builder()
+            .resource(resource)
+            .action(action)
+            .build();
+    return internalValidateToken(signedJWT, authContext, permission);
+  }
+
+  protected boolean internalValidateToken(
+      SignedJWT signedJWT, UserAuthContext authContext, Permission permission
+  ) {
     try {
       final JWTClaimsSet jwtClaimsSet = signedJWT.getJWTClaimsSet();
 
@@ -123,7 +139,7 @@ public class AccelByteSDK {
         final int k = revokedTokens.getK();
         final int m = revokedTokens.getM();
 
-        final boolean isTokenRevoked = bloomFilter.mightContain(token, k, BitSet.valueOf(bits), m);
+        final boolean isTokenRevoked = bloomFilter.mightContain(authContext.getToken(), k, BitSet.valueOf(bits), m);
 
         if (isTokenRevoked) {
           return false;
@@ -142,32 +158,177 @@ public class AccelByteSDK {
       } else {
         final OAuth20 oAuth20 = new OAuth20(this);
 
-        oAuth20.verifyTokenV3(VerifyTokenV3.builder().token(token).build());
+        oAuth20.verifyTokenV3(VerifyTokenV3.builder().token(authContext.getToken()).build());
       }
 
-      if (resource == null) {
+      if (Strings.isNullOrEmpty(permission.getResource())) {
         return true; // Check token only without checking resource
       }
 
       final List<Map<String, Object>> tokenPermissions =
           (List<Map<String, Object>>) jwtClaimsSet.getClaim(CLAIM_PERMISSIONS);
+      final AccessTokenPayload  accessTokenPayload = objectMapper.convertValue(jwtClaimsSet.toJSONObject(), AccessTokenPayload.class);
 
-      for (Map<String, Object> p : tokenPermissions) {
-        final String tokenPermissionResource = p.get(PERMISSION_RESOURCE).toString();
-        final int tokenPermissionAction = ((Long) p.get(PERMISSION_ACTION)).intValue();
-        if (IsResourceAllowed(tokenPermissionResource, resource)) {
-          if (IsActionAllowed(tokenPermissionAction, action)) {
-            return true;
-          }
-        }
-      }
-
-      return false;
+        return hasValidPermission(accessTokenPayload, authContext, permission);
     } catch (Exception e) {
       log.warning(e.getMessage());
     }
 
     return false;
+  }
+
+  private boolean hasValidPermission(
+    AccessTokenPayload tokenPayload, UserAuthContext authContext, Permission permission
+  ) {
+    if (permission == null) {
+      return true;
+    }
+
+    if (Strings.isNullOrEmpty(tokenPayload.getNamespace())) {
+      return false;
+    }
+    String tokenNamespace =  tokenPayload.getNamespace();
+    String expandedResource = expandResource(permission.getResource(), authContext.getNamespace(), authContext.getUserId());
+    
+    List<Permission> originPermissions = tokenPayload.getPermissions();
+    
+    if (validatePermission(originPermissions, expandedResource, permission.getAction())) {
+      return true;
+    }
+
+    String claimsUserId = tokenPayload.getSub();
+    List<Role> namespaceRoles = tokenPayload.getNamespaceRoles();
+
+    if (!Strings.isNullOrEmpty(claimsUserId) && !namespaceRoles.isEmpty()) {
+      List<Permission> allRoleNamespacePermissions = namespaceRoles.stream()
+              .map(it -> {
+                try {
+                  RoleCacheKey key = RoleCacheKey.of(it, claimsUserId);
+                  return rolePermissionsCache.get(key);
+                } catch (ExecutionException e) {
+                  log.warning(e.getMessage());
+                  return null;
+                }
+              })
+              .filter(Objects::nonNull)
+              .flatMap(List::stream)
+              .collect(Collectors.toList());
+      return !allRoleNamespacePermissions.isEmpty()
+             && validatePermission(allRoleNamespacePermissions, expandedResource, permission.getAction());
+    }
+
+    List<String> claimRoles = tokenPayload.getRoles();
+    if (claimRoles != null && !claimRoles.isEmpty()) {
+      List<Permission> allRolePermissions = claimRoles.stream()
+              .map(it -> {
+                try {
+                  RoleCacheKey key = RoleCacheKey.of(it, tokenNamespace, authContext.getUserId());
+                  return rolePermissionsCache.get(key);
+                } catch (ExecutionException e) {
+                  log.warning(e.getMessage());
+                  return null;
+                }
+              })
+              .filter(Objects::nonNull)
+              .flatMap(List::stream)
+              .collect(Collectors.toList());
+      return !allRolePermissions.isEmpty()
+              && validatePermission(allRolePermissions, expandedResource, permission.getAction());
+    }
+    return false;
+  }
+
+  private boolean validatePermission(
+    List<Permission> ownedPermissions, String requestedResource, int requestedAction
+  ) {
+    if (ownedPermissions == null) {
+      return false;
+    }
+
+    if (ownedPermissions.isEmpty()) {
+      return false;
+    }
+
+    String[] requestedResourceElem = requestedResource.trim().split(":");
+    for (Permission ownedPermission: ownedPermissions) {
+      String[] ownedResourceElem = ownedPermission.getResource().split(":");
+      if (ownedResourceElem.length == 0) {
+        continue;
+      }
+
+      int minResLen = Math.min(ownedResourceElem.length, requestedResourceElem.length);
+      boolean isResMatches = IntStream.range(0, minResLen)
+              .allMatch(i -> isResourceElementMatch(ownedResourceElem[i], requestedResourceElem[i]));
+
+      if (!isResMatches) {
+        continue;
+      }
+
+      if (isResourceMatch(ownedResourceElem, requestedResourceElem, ownedPermission.getAction(), requestedAction)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private boolean isResourceMatch(
+      String[] ownedResourceElem, String[] requestedResourceElem, int ownedAction, int requestedAction) {
+    int ownedLen = ownedResourceElem.length;
+    int requestedLen = requestedResourceElem.length;
+    boolean matches = true;
+
+    if (ownedLen < requestedLen) {
+      matches = handleShorterRequestedResource(ownedResourceElem, ownedLen);
+    } else {
+      matches = handleLongerRequestedResource(ownedResourceElem, ownedLen, requestedLen);
+    }
+
+    if (!matches) {
+      return false;
+    }
+
+    return (ownedAction & requestedAction) > 0;
+  }
+
+  private boolean handleLongerRequestedResource(String[] ownedResourceElem, int start, int end) {
+    for (int i = start; i < end; i++) {
+      if (!ownedResourceElem[i].equals("*")) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  private boolean handleShorterRequestedResource(String[] ownedResourceElem, int ownedLen) {
+    if (ownedResourceElem[ownedLen - 1].equals("*")) {
+      if (ownedLen < 2) {
+        return true;
+      }
+
+      String segment = ownedResourceElem[ownedLen - 2];
+      return !segment.equals("NAMESPACE") && !segment.equals("USER");
+    }
+
+    return false;
+  }
+
+  private boolean isResourceElementMatch(String resElem1, String resElem2) {
+    return resElem1.equals(resElem2) || resElem1.equals("*");
+  }
+
+  private String expandResource(String resource, String namespace, String userId) {
+    String expandedResource = resource;
+
+    if (!Strings.isNullOrEmpty(namespace)) {
+      expandedResource = expandedResource.replace("{namespace}", namespace);
+    }
+
+    if (!Strings.isNullOrEmpty(userId)) {
+      expandedResource = expandedResource.replace("{userId}", userId);
+    }
+
+    return expandedResource;
   }
 
   public AccelByteSDK(
@@ -189,6 +350,7 @@ public class AccelByteSDK {
             buildRevocationListLoadingCache(
                 this, tokenValidation.getRevocationListRefreshInterval());
       }
+      this.rolePermissionsCache = buildRolePermissionLoadingCache(this);
     }
   }
 
@@ -571,6 +733,20 @@ public class AccelByteSDK {
     return false;
   }
 
+  /**
+   * Validating user token in authContext against the required permission
+   */
+  public boolean validateToken(UserAuthContext authContext, Permission permission) {
+    try {
+      final SignedJWT signedJWT = SignedJWT.parse(authContext.getToken());
+      return internalValidateToken(signedJWT, authContext, permission);
+    } catch (Exception e) {
+      log.warning(e.getMessage());
+    }
+
+    return false;
+  }
+
   public AccessTokenPayload parseAccessToken(String token, Boolean validateFirst) {
     try {
       final SignedJWT signedJWT = SignedJWT.parse(token);
@@ -645,6 +821,40 @@ public class AccelByteSDK {
     final boolean isExpired = (tokenExpiresAtEpoch - utcNowEpoch) <= 0;
 
     return isExpired;
+  }
+
+  private LoadingCache<RoleCacheKey, List<Permission>> buildRolePermissionLoadingCache(AccelByteSDK sdk) {
+    final CacheLoader<RoleCacheKey, List<Permission>> rolePermissionLoader =
+      new CacheLoader<RoleCacheKey, List<Permission>>() {
+        @Override
+        public List<Permission> load(RoleCacheKey key) throws Exception {
+          final Roles rolesWrapper = new Roles(sdk);
+          final AdminGetRoleV3 param = AdminGetRoleV3.builder().roleId(key.getRoleId()).build();
+          final ModelRoleResponseV3 getRoleV3Result = rolesWrapper.adminGetRoleV3(param);
+
+          // go ref: getRolePermission
+          List<Permission> permissions = getRoleV3Result.getPermissions().stream()
+                  .map(Permission::of)
+                  .collect(Collectors.toList());
+
+          // go ref: getRolePermission2
+          permissions = permissions.stream()
+                  .peek(it -> {
+                    String expandedPermission = expandResource(
+                            it.getResource(), key.getNamespace(), key.getUserId());
+                    it.setResource(expandedPermission);
+                  })
+                  .collect(Collectors.toList());
+
+          return permissions;
+        }
+      };
+
+    // TODO: make this configurable if needed, currently the cache will have 5min TTL
+    int rolePermissionRefreshIntervalSeconds = 300;
+    return CacheBuilder.newBuilder()
+            .refreshAfterWrite(rolePermissionRefreshIntervalSeconds, TimeUnit.SECONDS)
+            .build(rolePermissionLoader);
   }
 
   private LoadingCache<String, Map<String, RSAPublicKey>> buildJWKSLoadingCache(
