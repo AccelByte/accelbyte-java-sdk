@@ -55,6 +55,10 @@ public class ApimodelsCreateConfigurationTemplateRequest extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String dsSource;
 
+  @JsonProperty("enableSecret")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean enableSecret;
+
   @JsonProperty("fallbackClaimKeys")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> fallbackClaimKeys;

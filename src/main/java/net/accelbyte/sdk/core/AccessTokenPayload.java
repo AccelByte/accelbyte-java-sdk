@@ -57,9 +57,9 @@ public class AccessTokenPayload {
 
       public static Permission of(AccountcommonPermissionV3 permissionV3) {
         return Permission.builder()
-                .resource(permissionV3.getResource())
-                .action(permissionV3.getAction())
-                .build();
+            .resource(permissionV3.getResource())
+            .action(permissionV3.getAction())
+            .build();
       }
     }
   }

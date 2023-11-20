@@ -173,15 +173,13 @@ public class TestIntegrationValidateToken extends TestIntegration {
 
   @Test
   public void testValidateUserTokenRolePermission() throws Exception {
-    final String token  = sdk.getSdkConfiguration().getTokenRepository().getToken();
+    final String token = sdk.getSdkConfiguration().getTokenRepository().getToken();
     final String userId = sdk.parseAccessToken(token, false).getSub();
 
-    final UserAuthContext authContext = UserAuthContext.builder()
-            .token(token)
-            .namespace(namespace)
-            .userId(userId)
-            .build();
-    final AccessTokenPayload.Types.Permission permission = AccessTokenPayload.Types.Permission.builder()
+    final UserAuthContext authContext =
+        UserAuthContext.builder().token(token).namespace(namespace).userId(userId).build();
+    final AccessTokenPayload.Types.Permission permission =
+        AccessTokenPayload.Types.Permission.builder()
             .resource("ADMIN:NAMESPACE:{namespace}:CLOUDSAVE:RECORD")
             .action(2)
             .build();

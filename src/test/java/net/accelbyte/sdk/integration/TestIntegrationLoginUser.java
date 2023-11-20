@@ -40,7 +40,7 @@ public class TestIntegrationLoginUser extends TestIntegration {
 
     final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRefreshRepository, configRepository);
 
-    boolean isLoginOk  = sdk.loginUser(this.username, this.password);
+    boolean isLoginOk = sdk.loginUser(this.username, this.password);
 
     assertTrue(isLoginOk);
   }
@@ -55,7 +55,7 @@ public class TestIntegrationLoginUser extends TestIntegration {
 
     final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRefreshRepository, configRepository);
 
-    boolean isLoginOk  = sdk.loginUser(this.username, this.password, "account");
+    boolean isLoginOk = sdk.loginUser(this.username, this.password, "account");
 
     assertTrue(isLoginOk);
   }

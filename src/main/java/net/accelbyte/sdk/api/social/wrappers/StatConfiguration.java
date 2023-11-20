@@ -23,6 +23,15 @@ public class StatConfiguration {
   }
 
   /**
+   * @see ImportStatCycle
+   */
+  public StatImportInfo importStatCycle(ImportStatCycle input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetStats
    */
   public StatPagingSlicedResult getStats(GetStats input) throws Exception {

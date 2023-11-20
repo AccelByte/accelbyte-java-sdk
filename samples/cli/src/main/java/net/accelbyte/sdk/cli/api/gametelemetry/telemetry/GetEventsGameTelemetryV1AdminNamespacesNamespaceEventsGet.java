@@ -59,6 +59,11 @@ public class GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet
   String eventPayload;
 
   @Option(
+      names = {"--flightId"},
+      description = "flightId")
+  String flightId;
+
+  @Option(
       names = {"--limit"},
       description = "limit")
   Integer limit;
@@ -72,6 +77,11 @@ public class GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet
       names = {"--startTime"},
       description = "startTime")
   String startTime;
+
+  @Option(
+      names = {"--userId"},
+      description = "userId")
+  String userId;
 
   @Option(
       names = {"--logging"},
@@ -106,9 +116,11 @@ public class GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet
                   .eventId(eventId)
                   .eventName(eventName)
                   .eventPayload(eventPayload)
+                  .flightId(flightId)
                   .limit(limit)
                   .offset(offset)
                   .startTime(startTime)
+                  .userId(userId)
                   .build();
       wrapper.getEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet(operation);
       log.info("Operation successful");

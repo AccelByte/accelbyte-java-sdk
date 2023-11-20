@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.iam.models;
+package net.accelbyte.sdk.api.match2.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,24 +23,24 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ModelGetPublisherUserV3Response extends Model {
+public class PlayerPlayerData extends Model {
 
-  @JsonProperty("namespace")
-  private String namespace;
+  @JsonProperty("Attributes")
+  private Map<String, ?> attributes;
 
-  @JsonProperty("userId")
-  private String userId;
+  @JsonProperty("PartyID")
+  private String partyID;
+
+  @JsonProperty("PlayerID")
+  private String playerID;
 
   @JsonIgnore
-  public ModelGetPublisherUserV3Response createFromJson(String json)
-      throws JsonProcessingException {
+  public PlayerPlayerData createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ModelGetPublisherUserV3Response> createFromJsonList(String json)
-      throws JsonProcessingException {
-    return new ObjectMapper()
-        .readValue(json, new TypeReference<List<ModelGetPublisherUserV3Response>>() {});
+  public List<PlayerPlayerData> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<PlayerPlayerData>>() {});
   }
 }

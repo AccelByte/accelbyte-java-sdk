@@ -21,6 +21,16 @@ public class Telemetry {
   }
 
   /**
+   * @see GetNamespacesGameTelemetryV1AdminNamespacesGet
+   */
+  public void getNamespacesGameTelemetryV1AdminNamespacesGet(
+      GetNamespacesGameTelemetryV1AdminNamespacesGet input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet
    */
   public void getEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet(

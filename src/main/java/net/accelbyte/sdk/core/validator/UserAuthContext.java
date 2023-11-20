@@ -7,10 +7,9 @@ import lombok.Data;
 @Builder
 public class UserAuthContext {
 
-    final String token;
+  final String token;
 
-    @Builder.Default String namespace = "";
+  @Builder.Default String namespace = "";
 
-    @Builder.Default String userId = "";
-
+  @Builder.Default String userId = "";
 }

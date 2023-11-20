@@ -555,7 +555,6 @@
 | `model.GetBulkUserBansRequest` | [ModelGetBulkUserBansRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelGetBulkUserBansRequest.java) |
 | `model.GetLinkHeadlessAccountConflictResponse` | [ModelGetLinkHeadlessAccountConflictResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelGetLinkHeadlessAccountConflictResponse.java) |
 | `model.GetPublisherUserResponse` | [ModelGetPublisherUserResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelGetPublisherUserResponse.java) |
-| `model.GetPublisherUserV3Response` | [ModelGetPublisherUserV3Response](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelGetPublisherUserV3Response.java) |
 | `model.GetUserBanV3Response` | [ModelGetUserBanV3Response](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelGetUserBanV3Response.java) |
 | `model.GetUserJusticePlatformAccountResponse` | [ModelGetUserJusticePlatformAccountResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelGetUserJusticePlatformAccountResponse.java) |
 | `model.GetUserMapping` | [ModelGetUserMapping](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelGetUserMapping.java) |

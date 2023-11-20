@@ -6,6 +6,8 @@
 
 package net.accelbyte.sdk.core;
 
+import static net.accelbyte.sdk.core.AccessTokenPayload.Types.*;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Strings;
 import com.google.common.cache.CacheBuilder;
@@ -31,7 +33,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-
 import lombok.SneakyThrows;
 import lombok.extern.java.Log;
 import net.accelbyte.sdk.api.iam.models.*;
@@ -57,12 +58,11 @@ import okhttp3.Credentials;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 
-import static net.accelbyte.sdk.core.AccessTokenPayload.Types.*;
-
 @Log
 public class AccelByteSDK {
   private static final String COOKIE_KEY_ACCESS_TOKEN = "access_token";
-  private static final String DEFAULT_LOGIN_USER_SCOPE = "commerce account social publishing analytics";
+  private static final String DEFAULT_LOGIN_USER_SCOPE =
+      "commerce account social publishing analytics";
   private static final String DEFAULT_CACHE_KEY = "default";
   private static final String CLAIM_PERMISSIONS = "permissions";
   private static final String CLAIM_SUB = "sub";
@@ -89,21 +89,14 @@ public class AccelByteSDK {
   private ObjectMapper objectMapper = new ObjectMapper();
 
   protected boolean internalValidateToken(
-    SignedJWT signedJWT, String token, String resource, int action
-  ) {
-    final UserAuthContext authContext = UserAuthContext.builder()
-            .token(token)
-            .build();
-    final Permission permission = Permission.builder()
-            .resource(resource)
-            .action(action)
-            .build();
+      SignedJWT signedJWT, String token, String resource, int action) {
+    final UserAuthContext authContext = UserAuthContext.builder().token(token).build();
+    final Permission permission = Permission.builder().resource(resource).action(action).build();
     return internalValidateToken(signedJWT, authContext, permission);
   }
 
   protected boolean internalValidateToken(
-      SignedJWT signedJWT, UserAuthContext authContext, Permission permission
-  ) {
+      SignedJWT signedJWT, UserAuthContext authContext, Permission permission) {
     try {
       final JWTClaimsSet jwtClaimsSet = signedJWT.getJWTClaimsSet();
 
@@ -139,7 +132,8 @@ public class AccelByteSDK {
         final int k = revokedTokens.getK();
         final int m = revokedTokens.getM();
 
-        final boolean isTokenRevoked = bloomFilter.mightContain(authContext.getToken(), k, BitSet.valueOf(bits), m);
+        final boolean isTokenRevoked =
+            bloomFilter.mightContain(authContext.getToken(), k, BitSet.valueOf(bits), m);
 
         if (isTokenRevoked) {
           return false;
@@ -167,9 +161,10 @@ public class AccelByteSDK {
 
       final List<Map<String, Object>> tokenPermissions =
           (List<Map<String, Object>>) jwtClaimsSet.getClaim(CLAIM_PERMISSIONS);
-      final AccessTokenPayload  accessTokenPayload = objectMapper.convertValue(jwtClaimsSet.toJSONObject(), AccessTokenPayload.class);
+      final AccessTokenPayload accessTokenPayload =
+          objectMapper.convertValue(jwtClaimsSet.toJSONObject(), AccessTokenPayload.class);
 
-        return hasValidPermission(accessTokenPayload, authContext, permission);
+      return hasValidPermission(accessTokenPayload, authContext, permission);
     } catch (Exception e) {
       log.warning(e.getMessage());
     }
@@ -178,8 +173,7 @@ public class AccelByteSDK {
   }
 
   private boolean hasValidPermission(
-    AccessTokenPayload tokenPayload, UserAuthContext authContext, Permission permission
-  ) {
+      AccessTokenPayload tokenPayload, UserAuthContext authContext, Permission permission) {
     if (permission == null) {
       return true;
     }
@@ -187,11 +181,13 @@ public class AccelByteSDK {
     if (Strings.isNullOrEmpty(tokenPayload.getNamespace())) {
       return false;
     }
-    String tokenNamespace =  tokenPayload.getNamespace();
-    String expandedResource = expandResource(permission.getResource(), authContext.getNamespace(), authContext.getUserId());
-    
+    String tokenNamespace = tokenPayload.getNamespace();
+    String expandedResource =
+        expandResource(
+            permission.getResource(), authContext.getNamespace(), authContext.getUserId());
+
     List<Permission> originPermissions = tokenPayload.getPermissions();
-    
+
     if (validatePermission(originPermissions, expandedResource, permission.getAction())) {
       return true;
     }
@@ -200,47 +196,52 @@ public class AccelByteSDK {
     List<Role> namespaceRoles = tokenPayload.getNamespaceRoles();
 
     if (!Strings.isNullOrEmpty(claimsUserId) && !namespaceRoles.isEmpty()) {
-      List<Permission> allRoleNamespacePermissions = namespaceRoles.stream()
-              .map(it -> {
-                try {
-                  RoleCacheKey key = RoleCacheKey.of(it, claimsUserId);
-                  return rolePermissionsCache.get(key);
-                } catch (ExecutionException e) {
-                  log.warning(e.getMessage());
-                  return null;
-                }
-              })
+      List<Permission> allRoleNamespacePermissions =
+          namespaceRoles.stream()
+              .map(
+                  it -> {
+                    try {
+                      RoleCacheKey key = RoleCacheKey.of(it, claimsUserId);
+                      return rolePermissionsCache.get(key);
+                    } catch (ExecutionException e) {
+                      log.warning(e.getMessage());
+                      return null;
+                    }
+                  })
               .filter(Objects::nonNull)
               .flatMap(List::stream)
               .collect(Collectors.toList());
       return !allRoleNamespacePermissions.isEmpty()
-             && validatePermission(allRoleNamespacePermissions, expandedResource, permission.getAction());
+          && validatePermission(
+              allRoleNamespacePermissions, expandedResource, permission.getAction());
     }
 
     List<String> claimRoles = tokenPayload.getRoles();
     if (claimRoles != null && !claimRoles.isEmpty()) {
-      List<Permission> allRolePermissions = claimRoles.stream()
-              .map(it -> {
-                try {
-                  RoleCacheKey key = RoleCacheKey.of(it, tokenNamespace, authContext.getUserId());
-                  return rolePermissionsCache.get(key);
-                } catch (ExecutionException e) {
-                  log.warning(e.getMessage());
-                  return null;
-                }
-              })
+      List<Permission> allRolePermissions =
+          claimRoles.stream()
+              .map(
+                  it -> {
+                    try {
+                      RoleCacheKey key =
+                          RoleCacheKey.of(it, tokenNamespace, authContext.getUserId());
+                      return rolePermissionsCache.get(key);
+                    } catch (ExecutionException e) {
+                      log.warning(e.getMessage());
+                      return null;
+                    }
+                  })
               .filter(Objects::nonNull)
               .flatMap(List::stream)
               .collect(Collectors.toList());
       return !allRolePermissions.isEmpty()
-              && validatePermission(allRolePermissions, expandedResource, permission.getAction());
+          && validatePermission(allRolePermissions, expandedResource, permission.getAction());
     }
     return false;
   }
 
   private boolean validatePermission(
-    List<Permission> ownedPermissions, String requestedResource, int requestedAction
-  ) {
+      List<Permission> ownedPermissions, String requestedResource, int requestedAction) {
     if (ownedPermissions == null) {
       return false;
     }
@@ -250,21 +251,24 @@ public class AccelByteSDK {
     }
 
     String[] requestedResourceElem = requestedResource.trim().split(":");
-    for (Permission ownedPermission: ownedPermissions) {
+    for (Permission ownedPermission : ownedPermissions) {
       String[] ownedResourceElem = ownedPermission.getResource().split(":");
       if (ownedResourceElem.length == 0) {
         continue;
       }
 
       int minResLen = Math.min(ownedResourceElem.length, requestedResourceElem.length);
-      boolean isResMatches = IntStream.range(0, minResLen)
-              .allMatch(i -> isResourceElementMatch(ownedResourceElem[i], requestedResourceElem[i]));
+      boolean isResMatches =
+          IntStream.range(0, minResLen)
+              .allMatch(
+                  i -> isResourceElementMatch(ownedResourceElem[i], requestedResourceElem[i]));
 
       if (!isResMatches) {
         continue;
       }
 
-      if (isResourceMatch(ownedResourceElem, requestedResourceElem, ownedPermission.getAction(), requestedAction)) {
+      if (isResourceMatch(
+          ownedResourceElem, requestedResourceElem, ownedPermission.getAction(), requestedAction)) {
         return true;
       }
     }
@@ -272,7 +276,10 @@ public class AccelByteSDK {
   }
 
   private boolean isResourceMatch(
-      String[] ownedResourceElem, String[] requestedResourceElem, int ownedAction, int requestedAction) {
+      String[] ownedResourceElem,
+      String[] requestedResourceElem,
+      int ownedAction,
+      int requestedAction) {
     int ownedLen = ownedResourceElem.length;
     int requestedLen = requestedResourceElem.length;
     boolean matches = true;
@@ -421,7 +428,7 @@ public class AccelByteSDK {
   }
 
   public boolean loginUser(String username, String password) {
-    return  loginUser(username, password, DEFAULT_LOGIN_USER_SCOPE);
+    return loginUser(username, password, DEFAULT_LOGIN_USER_SCOPE);
   }
 
   public boolean loginUser(String username, String password, String scope) {
@@ -733,9 +740,7 @@ public class AccelByteSDK {
     return false;
   }
 
-  /**
-   * Validating user token in authContext against the required permission
-   */
+  /** Validating user token in authContext against the required permission */
   public boolean validateToken(UserAuthContext authContext, Permission permission) {
     try {
       final SignedJWT signedJWT = SignedJWT.parse(authContext.getToken());
@@ -823,38 +828,42 @@ public class AccelByteSDK {
     return isExpired;
   }
 
-  private LoadingCache<RoleCacheKey, List<Permission>> buildRolePermissionLoadingCache(AccelByteSDK sdk) {
+  private LoadingCache<RoleCacheKey, List<Permission>> buildRolePermissionLoadingCache(
+      AccelByteSDK sdk) {
     final CacheLoader<RoleCacheKey, List<Permission>> rolePermissionLoader =
-      new CacheLoader<RoleCacheKey, List<Permission>>() {
-        @Override
-        public List<Permission> load(RoleCacheKey key) throws Exception {
-          final Roles rolesWrapper = new Roles(sdk);
-          final AdminGetRoleV3 param = AdminGetRoleV3.builder().roleId(key.getRoleId()).build();
-          final ModelRoleResponseV3 getRoleV3Result = rolesWrapper.adminGetRoleV3(param);
+        new CacheLoader<RoleCacheKey, List<Permission>>() {
+          @Override
+          public List<Permission> load(RoleCacheKey key) throws Exception {
+            final Roles rolesWrapper = new Roles(sdk);
+            final AdminGetRoleV3 param = AdminGetRoleV3.builder().roleId(key.getRoleId()).build();
+            final ModelRoleResponseV3 getRoleV3Result = rolesWrapper.adminGetRoleV3(param);
 
-          // go ref: getRolePermission
-          List<Permission> permissions = getRoleV3Result.getPermissions().stream()
-                  .map(Permission::of)
-                  .collect(Collectors.toList());
+            // go ref: getRolePermission
+            List<Permission> permissions =
+                getRoleV3Result.getPermissions().stream()
+                    .map(Permission::of)
+                    .collect(Collectors.toList());
 
-          // go ref: getRolePermission2
-          permissions = permissions.stream()
-                  .peek(it -> {
-                    String expandedPermission = expandResource(
-                            it.getResource(), key.getNamespace(), key.getUserId());
-                    it.setResource(expandedPermission);
-                  })
-                  .collect(Collectors.toList());
+            // go ref: getRolePermission2
+            permissions =
+                permissions.stream()
+                    .peek(
+                        it -> {
+                          String expandedPermission =
+                              expandResource(it.getResource(), key.getNamespace(), key.getUserId());
+                          it.setResource(expandedPermission);
+                        })
+                    .collect(Collectors.toList());
 
-          return permissions;
-        }
-      };
+            return permissions;
+          }
+        };
 
     // TODO: make this configurable if needed, currently the cache will have 5min TTL
     int rolePermissionRefreshIntervalSeconds = 300;
     return CacheBuilder.newBuilder()
-            .refreshAfterWrite(rolePermissionRefreshIntervalSeconds, TimeUnit.SECONDS)
-            .build(rolePermissionLoader);
+        .refreshAfterWrite(rolePermissionRefreshIntervalSeconds, TimeUnit.SECONDS)
+        .build(rolePermissionLoader);
   }
 
   private LoadingCache<String, Map<String, RSAPublicKey>> buildJWKSLoadingCache(

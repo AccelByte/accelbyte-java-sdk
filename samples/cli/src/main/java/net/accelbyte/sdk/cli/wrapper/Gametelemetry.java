@@ -16,6 +16,7 @@ import picocli.CommandLine.Command;
     name = "gametelemetry",
     mixinStandardHelpOptions = true,
     subcommands = {
+      GetNamespacesGameTelemetryV1AdminNamespacesGet.class,
       GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet.class,
       ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost.class,
       ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet.class,

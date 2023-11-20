@@ -28,10 +28,10 @@ public class OkhttpLogger implements HttpLogger<Request, Response> {
 
   public OkhttpLogger() {
     this(DEFAULT_LOG_FILE_PATH);
-  };
+  }
+  ;
 
-  public OkhttpLogger(String logFilePath)
-  {
+  public OkhttpLogger(String logFilePath) {
     if (logFilePath == null | logFilePath.isEmpty()) {
       throw new IllegalArgumentException("logFilePath cannot be null or empty");
     }

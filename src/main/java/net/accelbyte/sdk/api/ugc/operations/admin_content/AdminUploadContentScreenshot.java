@@ -21,14 +21,11 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUploadContentScreenshot
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [CREATE].
- *
- * <p>All request body are required except for contentType field. contentType values is used to
- * enforce the Content-Type header needed by the client to upload the content using the presigned
- * URL. If not specified, it will use fileExtension value. Supported file extensions: pjp, jpg,
- * jpeg, jfif, bmp, png.
- *
- * <p>Maximum description length: 1024.
+ * <p>Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [CREATE]. All request
+ * body are required except for contentType field. contentType values is used to enforce the
+ * Content-Type header needed by the client to upload the content using the presigned URL. If not
+ * specified, it will use fileExtension value. Supported file extensions: pjp, jpg, jpeg, jfif, bmp,
+ * png. Maximum description length: 1024.
  */
 @Getter
 @Setter

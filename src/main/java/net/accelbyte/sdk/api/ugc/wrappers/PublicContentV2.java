@@ -83,6 +83,26 @@ public class PublicContentV2 {
   }
 
   /**
+   * @see PublicUpdateContentByShareCodeV2
+   */
+  public ModelsCreateContentResponseV2 publicUpdateContentByShareCodeV2(
+      PublicUpdateContentByShareCodeV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicDeleteContentByShareCodeV2
+   */
+  public void publicDeleteContentByShareCodeV2(PublicDeleteContentByShareCodeV2 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicDeleteContentV2
    */
   public void publicDeleteContentV2(PublicDeleteContentV2 input) throws Exception {

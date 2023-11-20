@@ -726,6 +726,7 @@ eval_tap $? 153 'AdminListUsersV3' test.out
     --namespace "$AB_NAMESPACE" \
     --by 'D9vNAp4jinFpnQ5x' \
     --endDate 'F9wwbvMZyeDeRnVf' \
+    --includeTotal  \
     --limit '84' \
     --offset '45' \
     --platformBy 'Ua6xVVBcq3wZpFIY' \

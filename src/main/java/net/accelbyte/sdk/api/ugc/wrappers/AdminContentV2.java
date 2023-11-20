@@ -102,6 +102,16 @@ public class AdminContentV2 {
   }
 
   /**
+   * @see AdminGetContentBulkByShareCodesV2
+   */
+  public List<ModelsContentDownloadResponseV2> adminGetContentBulkByShareCodesV2(
+      AdminGetContentBulkByShareCodesV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminGetContentByShareCodeV2
    */
   public ModelsContentDownloadResponseV2 adminGetContentByShareCodeV2(
@@ -116,6 +126,16 @@ public class AdminContentV2 {
    */
   public ModelsContentDownloadResponseV2 adminGetContentByContentIDV2(
       AdminGetContentByContentIDV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see RollbackContentVersionV2
+   */
+  public ModelsContentDownloadResponse rollbackContentVersionV2(RollbackContentVersionV2 input)
+      throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
@@ -145,6 +165,36 @@ public class AdminContentV2 {
    * @see AdminDeleteContentScreenshotV2
    */
   public void adminDeleteContentScreenshotV2(AdminDeleteContentScreenshotV2 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see ListContentVersionsV2
+   */
+  public ModelsListContentVersionsResponse listContentVersionsV2(ListContentVersionsV2 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminUpdateContentByShareCodeV2
+   */
+  public ModelsCreateContentResponseV2 adminUpdateContentByShareCodeV2(
+      AdminUpdateContentByShareCodeV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminDeleteContentByShareCodeV2
+   */
+  public void adminDeleteContentByShareCodeV2(AdminDeleteContentByShareCodeV2 input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(

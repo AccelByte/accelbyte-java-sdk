@@ -104,11 +104,31 @@ public class PublicContentLegacy {
   }
 
   /**
+   * @see PublicUpdateContentByShareCode
+   */
+  public ModelsCreateContentResponse publicUpdateContentByShareCode(
+      PublicUpdateContentByShareCode input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see UpdateContentS3
    */
   public ModelsCreateContentResponse updateContentS3(UpdateContentS3 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicDeleteContentByShareCode
+   */
+  public void publicDeleteContentByShareCode(PublicDeleteContentByShareCode input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 

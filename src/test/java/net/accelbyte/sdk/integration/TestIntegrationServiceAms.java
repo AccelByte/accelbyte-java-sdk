@@ -3,8 +3,8 @@ package net.accelbyte.sdk.integration;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import net.accelbyte.sdk.api.ams.models.ApiAvailableInstanceTypesResponse;
 import net.accelbyte.sdk.api.ams.models.ApiAMSRegionsResponse;
+import net.accelbyte.sdk.api.ams.models.ApiAvailableInstanceTypesResponse;
 import net.accelbyte.sdk.api.ams.operations.ams_info.InfoRegions;
 import net.accelbyte.sdk.api.ams.operations.ams_info.InfoSupportedInstances;
 import net.accelbyte.sdk.api.ams.wrappers.AMSInfo;

@@ -66,7 +66,7 @@ public class PublicGetPublisherUserV3 implements Callable<Integer> {
               .namespace(namespace)
               .userId(userId)
               .build();
-      final ModelGetPublisherUserV3Response response = wrapper.publicGetPublisherUserV3(operation);
+      final ModelGetPublisherUserResponse response = wrapper.publicGetPublisherUserV3(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.api.social.wrappers;
 
+import java.io.*;
 import java.util.*;
 import net.accelbyte.sdk.api.social.models.*;
 import net.accelbyte.sdk.api.social.operations.stat_cycle_configuration.*;
@@ -44,6 +45,15 @@ public class StatCycleConfiguration {
    * @see BulkGetStatCycle
    */
   public BulkStatCycleResult bulkGetStatCycle(BulkGetStatCycle input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see ExportStatCycle
+   */
+  public InputStream exportStatCycle(ExportStatCycle input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

@@ -1,3 +1,13 @@
+<a name="v0.51.0"></a>
+## [v0.51.0]
+### feat
+- **sdk:** login user with scope
+- **:** validate role permission
+- **core:** okhttplogger - add logfilepath param
+### fix
+- **samples:** login or refresh - gc limit compile error
+
+
 <a name="v0.50.0"></a>
 ## [v0.50.0]
 ### fix

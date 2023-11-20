@@ -1602,7 +1602,7 @@ public class Users {
   /**
    * @see PublicGetPublisherUserV3
    */
-  public ModelGetPublisherUserV3Response publicGetPublisherUserV3(PublicGetPublisherUserV3 input)
+  public ModelGetPublisherUserResponse publicGetPublisherUserV3(PublicGetPublisherUserV3 input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(

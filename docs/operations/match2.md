@@ -44,6 +44,7 @@
 | `/match2/v1/namespaces/{namespace}/match-pools/{pool}` | DELETE | DeleteMatchPool | [DeleteMatchPool](../../src/main/java/net/accelbyte/sdk/api/match2/operations/match_pools/DeleteMatchPool.java) | [DeleteMatchPool](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/match_pools/DeleteMatchPool.java) |
 | `/match2/v1/namespaces/{namespace}/match-pools/{pool}/metrics` | GET | MatchPoolMetric | [MatchPoolMetric](../../src/main/java/net/accelbyte/sdk/api/match2/operations/match_pools/MatchPoolMetric.java) | [MatchPoolMetric](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/match_pools/MatchPoolMetric.java) |
 | `/match2/v1/namespaces/{namespace}/match-pools/{pool}/metrics/player` | GET | GetPlayerMetric | [GetPlayerMetric](../../src/main/java/net/accelbyte/sdk/api/match2/operations/match_pools/GetPlayerMetric.java) | [GetPlayerMetric](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/match_pools/GetPlayerMetric.java) |
+| `/match2/v1/namespaces/{namespace}/match-pools/{pool}/tickets` | GET | AdminGetMatchPoolTickets | [AdminGetMatchPoolTickets](../../src/main/java/net/accelbyte/sdk/api/match2/operations/match_pools/AdminGetMatchPoolTickets.java) | [AdminGetMatchPoolTickets](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/match_pools/AdminGetMatchPoolTickets.java) |
 
 ### Match-Tickets Wrapper:  [MatchTickets](../../src/main/java/net/accelbyte/sdk/api/match2/wrappers/MatchTickets.java)
 | Endpoint | Method | ID | Class | Example |
@@ -76,6 +77,7 @@
 | `api.BackfillProposalResponse` | [ApiBackfillProposalResponse](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiBackfillProposalResponse.java) |
 | `api.ListEnvironmentVariablesResponse` | [ApiListEnvironmentVariablesResponse](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiListEnvironmentVariablesResponse.java) |
 | `api.ListMatchFunctionsResponse` | [ApiListMatchFunctionsResponse](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiListMatchFunctionsResponse.java) |
+| `api.ListMatchPoolTicketsResponse` | [ApiListMatchPoolTicketsResponse](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiListMatchPoolTicketsResponse.java) |
 | `api.ListMatchPoolsResponse` | [ApiListMatchPoolsResponse](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiListMatchPoolsResponse.java) |
 | `api.ListRuleSetsResponse` | [ApiListRuleSetsResponse](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiListRuleSetsResponse.java) |
 | `api.Match` | [ApiMatch](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiMatch.java) |
@@ -99,12 +101,16 @@
 | `api.TicketMetricResultRecord` | [ApiTicketMetricResultRecord](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiTicketMetricResultRecord.java) |
 | `api.backFillRejectRequest` | [ApiBackFillRejectRequest](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiBackFillRejectRequest.java) |
 | `config.EnvironmentVariable` | [ConfigEnvironmentVariable](../../src/main/java/net/accelbyte/sdk/api/match2/models/ConfigEnvironmentVariable.java) |
+| `matchmaker.MatchTicketRecord` | [MatchmakerMatchTicketRecord](../../src/main/java/net/accelbyte/sdk/api/match2/models/MatchmakerMatchTicketRecord.java) |
 | `matchmaker.Party` | [MatchmakerParty](../../src/main/java/net/accelbyte/sdk/api/match2/models/MatchmakerParty.java) |
+| `matchmaker.ProposedProposal` | [MatchmakerProposedProposal](../../src/main/java/net/accelbyte/sdk/api/match2/models/MatchmakerProposedProposal.java) |
 | `matchmaker.Team` | [MatchmakerTeam](../../src/main/java/net/accelbyte/sdk/api/match2/models/MatchmakerTeam.java) |
+| `matchmaker.Ticket` | [MatchmakerTicket](../../src/main/java/net/accelbyte/sdk/api/match2/models/MatchmakerTicket.java) |
 | `models.Configuration` | [ModelsConfiguration](../../src/main/java/net/accelbyte/sdk/api/match2/models/ModelsConfiguration.java) |
 | `models.DSInformation` | [ModelsDSInformation](../../src/main/java/net/accelbyte/sdk/api/match2/models/ModelsDSInformation.java) |
 | `models.GameSession` | [ModelsGameSession](../../src/main/java/net/accelbyte/sdk/api/match2/models/ModelsGameSession.java) |
 | `models.Pagination` | [ModelsPagination](../../src/main/java/net/accelbyte/sdk/api/match2/models/ModelsPagination.java) |
 | `models.Server` | [ModelsServer](../../src/main/java/net/accelbyte/sdk/api/match2/models/ModelsServer.java) |
 | `models.User` | [ModelsUser](../../src/main/java/net/accelbyte/sdk/api/match2/models/ModelsUser.java) |
+| `player.PlayerData` | [PlayerPlayerData](../../src/main/java/net/accelbyte/sdk/api/match2/models/PlayerPlayerData.java) |
 | `response.Error` | [ResponseError](../../src/main/java/net/accelbyte/sdk/api/match2/models/ResponseError.java) |

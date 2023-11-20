@@ -46,6 +46,11 @@ public class AdminSearchUserV3 implements Callable<Integer> {
   String endDate;
 
   @Option(
+      names = {"--includeTotal"},
+      description = "includeTotal")
+  Boolean includeTotal;
+
+  @Option(
       names = {"--limit"},
       description = "limit")
   Integer limit;
@@ -101,6 +106,7 @@ public class AdminSearchUserV3 implements Callable<Integer> {
               .namespace(namespace)
               .by(by)
               .endDate(endDate)
+              .includeTotal(includeTotal)
               .limit(limit)
               .offset(offset)
               .platformBy(platformBy)

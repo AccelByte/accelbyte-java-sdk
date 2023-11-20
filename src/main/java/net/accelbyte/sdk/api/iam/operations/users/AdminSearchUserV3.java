@@ -85,6 +85,7 @@ public class AdminSearchUserV3 extends Operation {
 
   private String by;
   private String endDate;
+  private Boolean includeTotal;
   private Integer limit;
   private Integer offset;
   private String platformBy;
@@ -102,6 +103,7 @@ public class AdminSearchUserV3 extends Operation {
       String namespace,
       String by,
       String endDate,
+      Boolean includeTotal,
       Integer limit,
       Integer offset,
       String platformBy,
@@ -111,6 +113,7 @@ public class AdminSearchUserV3 extends Operation {
     this.namespace = namespace;
     this.by = by;
     this.endDate = endDate;
+    this.includeTotal = includeTotal;
     this.limit = limit;
     this.offset = offset;
     this.platformBy = platformBy;
@@ -135,6 +138,9 @@ public class AdminSearchUserV3 extends Operation {
     Map<String, List<String>> queryParams = new HashMap<>();
     queryParams.put("by", this.by == null ? null : Arrays.asList(this.by));
     queryParams.put("endDate", this.endDate == null ? null : Arrays.asList(this.endDate));
+    queryParams.put(
+        "includeTotal",
+        this.includeTotal == null ? null : Arrays.asList(String.valueOf(this.includeTotal)));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
@@ -168,6 +174,7 @@ public class AdminSearchUserV3 extends Operation {
     Map<String, String> result = new HashMap<>();
     result.put("by", "None");
     result.put("endDate", "None");
+    result.put("includeTotal", "None");
     result.put("limit", "None");
     result.put("offset", "None");
     result.put("platformBy", "None");

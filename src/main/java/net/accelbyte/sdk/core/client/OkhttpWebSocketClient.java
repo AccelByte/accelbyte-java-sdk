@@ -23,8 +23,7 @@ public class OkhttpWebSocketClient {
       TokenRepository tokenRepository,
       WebSocketListener listener)
       throws Exception {
-    final OkHttpClient client =
-            new OkHttpClient.Builder().readTimeout(0, TimeUnit.SECONDS).build();
+    final OkHttpClient client = new OkHttpClient.Builder().readTimeout(0, TimeUnit.SECONDS).build();
     String baseURL = configRepository.getBaseURL();
     if (baseURL == null || baseURL.isEmpty()) {
       throw new IllegalArgumentException("Base URL cannot be null or empty");

@@ -51,6 +51,8 @@ import picocli.CommandLine.Command;
       GetStatCycles.class,
       CreateStatCycle.class,
       BulkGetStatCycle.class,
+      ExportStatCycle.class,
+      ImportStatCycle.class,
       GetStatCycle.class,
       UpdateStatCycle.class,
       DeleteStatCycle.class,
