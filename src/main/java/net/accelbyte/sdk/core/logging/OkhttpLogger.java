@@ -22,12 +22,27 @@ import okio.Buffer;
 import okio.BufferedSource;
 
 public class OkhttpLogger implements HttpLogger<Request, Response> {
-  private static final String LOG_FILE_PATH = "http_log.txt";
+  private static final String DEFAULT_LOG_FILE_PATH = "http_log.txt";
+
+  private String logFilePath = null;
+
+  public OkhttpLogger() {
+    this(DEFAULT_LOG_FILE_PATH);
+  };
+
+  public OkhttpLogger(String logFilePath)
+  {
+    if (logFilePath == null | logFilePath.isEmpty()) {
+      throw new IllegalArgumentException("logFilePath cannot be null or empty");
+    }
+
+    this.logFilePath = logFilePath;
+  }
 
   @Override
   public void logRequest(Request request) {
     try {
-      final FileOutputStream fos = new FileOutputStream(LOG_FILE_PATH, true);
+      final FileOutputStream fos = new FileOutputStream(this.logFilePath, true);
       final OutputStreamWriter osw = new OutputStreamWriter(fos, StandardCharsets.UTF_8);
       BufferedWriter bw = null;
 
@@ -91,7 +106,7 @@ public class OkhttpLogger implements HttpLogger<Request, Response> {
     long ts = System.currentTimeMillis();
 
     try {
-      final FileOutputStream fos = new FileOutputStream(LOG_FILE_PATH, true);
+      final FileOutputStream fos = new FileOutputStream(this.logFilePath, true);
       final OutputStreamWriter osw = new OutputStreamWriter(fos, StandardCharsets.UTF_8);
       BufferedWriter bw = null;
 
