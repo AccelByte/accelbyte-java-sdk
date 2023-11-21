@@ -6,6 +6,8 @@
 - **core:** okhttplogger - add logfilepath param
 ### fix
 - **samples:** login or refresh - gc limit compile error
+### docs
+- **migrations:** add migration-guide-v0.50-to-v0.51.md
 
 
 <a name="v0.50.0"></a>
