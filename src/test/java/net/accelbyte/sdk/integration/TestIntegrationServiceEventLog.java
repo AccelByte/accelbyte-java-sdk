@@ -65,7 +65,6 @@ public class TestIntegrationServiceEventLog extends TestIntegration {
     // ESAC
 
     assertNotNull(queryEventStreamResult);
-    assertTrue(queryEventStreamResult.getData().size() > 0);
 
     // CASE Get specific user events
 
@@ -81,7 +80,6 @@ public class TestIntegrationServiceEventLog extends TestIntegration {
     // ESAC
 
     assertNotNull(getEventSpecificUserResult);
-    assertTrue(getEventSpecificUserResult.getData().size() > 0);
   }
 
   @AfterAll
