@@ -68,4 +68,9 @@ public class TestIntegration {
     assertTrue(isLogoutOk);
     assertTrue(token == null || token.isEmpty());
   }
+
+  protected boolean isUsingAGSStarter() {
+    final String baseUrl = sdk.getSdkConfiguration().getConfigRepository().getBaseURL();
+    return baseUrl.contains("gamingservices.accelbyte.io");
+  }
 }
