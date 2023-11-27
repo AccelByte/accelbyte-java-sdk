@@ -38,6 +38,10 @@ public class TestIntegrationServiceEventLog extends TestIntegration {
   @Test
   @Order(1)
   public void test() throws Exception {
+    if (isUsingAGSStarter()) {
+      return; // SKIP
+    }
+
     final Users usersWrapper = new Users(sdk);
     final EventV2 eventV2Wrapper = new EventV2(sdk);
 

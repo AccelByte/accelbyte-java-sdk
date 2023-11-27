@@ -57,6 +57,10 @@ class TestIntegrationServiceDsmc extends TestIntegration {
   @Test
   @Order(1)
   public void test() throws Exception {
+    if (isUsingAGSStarter()) {
+      return; // SKIP
+    }
+
     final String targetUsername = "dummy@example.com";
     final String targetNamespace = this.namespace;
     final String targetDeployment = "default";
