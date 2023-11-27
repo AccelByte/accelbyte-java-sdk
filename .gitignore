@@ -314,3 +314,6 @@ gradle-app.setting
 
 # Exclude .run directory
 .run/
+
+# macOS Files
+.DS_Store
