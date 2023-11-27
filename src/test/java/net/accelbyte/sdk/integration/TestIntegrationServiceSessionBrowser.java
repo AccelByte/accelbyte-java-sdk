@@ -29,6 +29,13 @@ public class TestIntegrationServiceSessionBrowser extends TestIntegration {
   @Test
   @Order(1)
   public void test() throws Exception {
+    if (isUsingAGSStarter()) {
+      boolean isLoginOk = sdk.loginClient();
+      if (!isLoginOk) {
+        return; // SKIP
+      }
+    }
+
     final String sessionUsername = "email@example.com";
     final String sessionGameVersion = "0.3.0";
     final String sessionType = "dedicated";

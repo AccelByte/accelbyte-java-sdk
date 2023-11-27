@@ -36,6 +36,13 @@ public class TestIntegrationServiceGdpr extends TestIntegration {
   @Test
   @Order(1)
   public void test() throws Exception {
+    if (isUsingAGSStarter()) {
+      boolean isLoginOk = sdk.loginClient();
+      if (!isLoginOk) {
+        return; // SKIP
+      }
+    }
+
     final String email1 = "email1@example.com";
     final String email2 = "email2@dummy.com";
 

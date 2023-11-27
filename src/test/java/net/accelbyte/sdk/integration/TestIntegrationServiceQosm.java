@@ -37,6 +37,12 @@ class TestIntegrationServiceQosm extends TestIntegration {
   @Test
   @Order(1)
   public void test() throws Exception {
+    if (isUsingAGSStarter()) {
+      boolean isLoginOk = sdk.loginClient();
+      if (!isLoginOk) {
+        return; // SKIP
+      }
+    }
 
     final Public qosmPublicWrapper = new Public(sdk);
     final Server qosmServerWrapper = new Server(sdk);
