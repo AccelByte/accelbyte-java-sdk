@@ -60,6 +60,25 @@ public class TestIntegrationLoginUser extends TestIntegration {
     assertTrue(isLoginOk);
   }
 
+  @Test
+  @Order(1)
+  public void testLoginUserWithNoScope() throws Exception {
+    if (!isUsingAGSStarter()) {
+      return; // SKIP
+    }
+
+    final HttpClient<?> httpClient = super.sdk.getSdkConfiguration().getHttpClient();
+    final DefaultTokenRefreshRepository tokenRefreshRepository =
+        new DefaultTokenRefreshRepository();
+    final ConfigRepository configRepository = super.sdk.getSdkConfiguration().getConfigRepository();
+
+    final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRefreshRepository, configRepository);
+
+    boolean isLoginOk = sdk.loginUser(this.username, this.password, "");
+
+    assertTrue(isLoginOk);
+  }
+
   @AfterAll
   public void tear() throws Exception {
     super.tear();
