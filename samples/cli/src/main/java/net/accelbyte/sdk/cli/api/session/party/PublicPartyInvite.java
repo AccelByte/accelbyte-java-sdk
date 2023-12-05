@@ -72,8 +72,10 @@ public class PublicPartyInvite implements Callable<Integer> {
               .partyId(partyId)
               .body(new ObjectMapper().readValue(body, ApimodelsSessionInviteRequest.class))
               .build();
-      wrapper.publicPartyInvite(operation);
-      log.info("Operation successful");
+      final ApimodelsSessionInviteResponse response = wrapper.publicPartyInvite(operation);
+      final String responseString =
+          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
+      log.info("Operation successful\n{}", responseString);
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

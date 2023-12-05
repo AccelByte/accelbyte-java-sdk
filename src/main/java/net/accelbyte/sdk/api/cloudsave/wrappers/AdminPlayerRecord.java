@@ -54,6 +54,16 @@ public class AdminPlayerRecord {
   }
 
   /**
+   * @see AdminGetPlayerRecordsHandlerV1
+   */
+  public ModelsBulkGetAdminPlayerRecordResponse adminGetPlayerRecordsHandlerV1(
+      AdminGetPlayerRecordsHandlerV1 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminGetPlayerRecordHandlerV1
    */
   public ModelsPlayerRecordResponse adminGetPlayerRecordHandlerV1(

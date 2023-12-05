@@ -60,6 +60,7 @@ public class QueryItems1 extends Operation {
   private String storeId;
   private String tags;
   private String targetNamespace;
+  private Boolean withTotal;
 
   /**
    * @param namespace required
@@ -85,7 +86,8 @@ public class QueryItems1 extends Operation {
       List<String> sortBy,
       String storeId,
       String tags,
-      String targetNamespace) {
+      String targetNamespace,
+      Boolean withTotal) {
     this.namespace = namespace;
     this.appType = appType;
     this.availableDate = availableDate;
@@ -104,6 +106,7 @@ public class QueryItems1 extends Operation {
     this.storeId = storeId;
     this.tags = tags;
     this.targetNamespace = targetNamespace;
+    this.withTotal = withTotal;
 
     securities.add("Bearer");
   }
@@ -150,6 +153,8 @@ public class QueryItems1 extends Operation {
     queryParams.put(
         "targetNamespace",
         this.targetNamespace == null ? null : Arrays.asList(this.targetNamespace));
+    queryParams.put(
+        "withTotal", this.withTotal == null ? null : Arrays.asList(String.valueOf(this.withTotal)));
     return queryParams;
   }
 
@@ -161,14 +166,14 @@ public class QueryItems1 extends Operation {
     return true;
   }
 
-  public FullItemPagingSlicedResult parseResponse(int code, String contentType, InputStream payload)
+  public FullItemPagingResult parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new FullItemPagingSlicedResult().createFromJson(json);
+    return new FullItemPagingResult().createFromJson(json);
   }
 
   @Override
@@ -191,6 +196,7 @@ public class QueryItems1 extends Operation {
     result.put("storeId", "None");
     result.put("tags", "None");
     result.put("targetNamespace", "None");
+    result.put("withTotal", "None");
     return result;
   }
 

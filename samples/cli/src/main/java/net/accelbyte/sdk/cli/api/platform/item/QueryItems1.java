@@ -121,6 +121,11 @@ public class QueryItems1 implements Callable<Integer> {
   String targetNamespace;
 
   @Option(
+      names = {"--withTotal"},
+      description = "withTotal")
+  Boolean withTotal;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -161,8 +166,9 @@ public class QueryItems1 implements Callable<Integer> {
               .storeId(storeId)
               .tags(tags)
               .targetNamespace(targetNamespace)
+              .withTotal(withTotal)
               .build();
-      final FullItemPagingSlicedResult response = wrapper.queryItems1(operation);
+      final FullItemPagingResult response = wrapper.queryItems1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

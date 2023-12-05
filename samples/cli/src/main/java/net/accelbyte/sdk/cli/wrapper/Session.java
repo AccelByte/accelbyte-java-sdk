@@ -77,6 +77,7 @@ import picocli.CommandLine.Command;
       PublicPromoteGameSessionLeader.class,
       LeaveGameSession.class,
       PublicGameSessionReject.class,
+      GetSessionServerSecret.class,
       AppendTeamGameSession.class,
       PublicPartyJoinCode.class,
       PublicGetParty.class,

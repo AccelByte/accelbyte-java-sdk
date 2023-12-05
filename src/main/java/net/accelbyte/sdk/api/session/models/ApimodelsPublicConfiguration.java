@@ -29,6 +29,10 @@ public class ApimodelsPublicConfiguration extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String psnBaseURL;
 
+  @JsonProperty("attributes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> attributes;
+
   @JsonProperty("autoJoin")
   private Boolean autoJoin;
 

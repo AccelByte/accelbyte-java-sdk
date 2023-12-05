@@ -41,6 +41,16 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>* twitch
  *
  * <p>* awscognito
+ *
+ * <p>*
+ *
+ * <p>* eaorigin
+ *
+ * <p>* snapchat
+ *
+ * <p>* twitch
+ *
+ * <p>* live
  */
 @Getter
 @Setter

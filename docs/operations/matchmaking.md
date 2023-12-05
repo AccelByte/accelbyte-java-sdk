@@ -106,6 +106,9 @@
 | `models.Role` | [ModelsRole](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsRole.java) |
 | `models.RuleSet` | [ModelsRuleSet](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsRuleSet.java) |
 | `models.RuleSetV1` | [ModelsRuleSetV1](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsRuleSetV1.java) |
+| `models.SelectionRule` | [ModelsSelectionRule](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsSelectionRule.java) |
+| `models.SortTicket` | [ModelsSortTicket](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsSortTicket.java) |
+| `models.SortTicketRule` | [ModelsSortTicketRule](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsSortTicketRule.java) |
 | `models.StatResumeResponse` | [ModelsStatResumeResponse](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsStatResumeResponse.java) |
 | `models.SubGameMode` | [ModelsSubGameMode](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsSubGameMode.java) |
 | `models.TicketMetricResultRecord` | [ModelsTicketMetricResultRecord](../../src/main/java/net/accelbyte/sdk/api/matchmaking/models/ModelsTicketMetricResultRecord.java) |

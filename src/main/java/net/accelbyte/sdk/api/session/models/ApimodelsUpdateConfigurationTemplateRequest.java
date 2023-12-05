@@ -33,6 +33,10 @@ public class ApimodelsUpdateConfigurationTemplateRequest extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String psnBaseUrl;
 
+  @JsonProperty("attributes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> attributes;
+
   @JsonProperty("autoJoin")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean autoJoin;

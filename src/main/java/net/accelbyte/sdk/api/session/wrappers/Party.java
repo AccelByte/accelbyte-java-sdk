@@ -90,9 +90,10 @@ public class Party {
   /**
    * @see PublicPartyInvite
    */
-  public void publicPartyInvite(PublicPartyInvite input) throws Exception {
+  public ApimodelsSessionInviteResponse publicPartyInvite(PublicPartyInvite input)
+      throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
-    input.handleEmptyResponse(
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 

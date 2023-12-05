@@ -9,6 +9,7 @@
 package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.ugc.admin_channel.*;
+import net.accelbyte.sdk.cli.api.ugc.admin_config.*;
 import net.accelbyte.sdk.cli.api.ugc.admin_content.*;
 import net.accelbyte.sdk.cli.api.ugc.admin_content_v2.*;
 import net.accelbyte.sdk.cli.api.ugc.admin_group.*;
@@ -93,6 +94,7 @@ import picocli.CommandLine.Command;
       PublicGetContentBulk.class,
       GetFollowedContent.class,
       GetLikedContent.class,
+      PublicGetContentBulkByShareCodes.class,
       PublicDownloadContentByShareCode.class,
       PublicDownloadContentByContentID.class,
       AddDownloadCount.class,
@@ -115,6 +117,7 @@ import picocli.CommandLine.Command;
       PublicDeleteContentByShareCode.class,
       UpdateContentDirect.class,
       DeleteContent.class,
+      UpdateContentShareCode.class,
       PublicGetUserContent.class,
       DeleteAllUserContents.class,
       UpdateScreenshots.class,
@@ -137,6 +140,8 @@ import picocli.CommandLine.Command;
       AdminUpdateOfficialContentV2.class,
       AdminUpdateOfficialContentFileLocation.class,
       AdminGenerateOfficialContentUploadURLV2.class,
+      AdminGetConfigs.class,
+      AdminUpdateConfig.class,
       AdminListContentV2.class,
       AdminBulkGetContentByIDsV2.class,
       AdminGetContentBulkByShareCodesV2.class,
@@ -160,6 +165,7 @@ import picocli.CommandLine.Command;
       PublicGetContentByChannelIDV2.class,
       PublicListContentV2.class,
       PublicBulkGetContentByIDV2.class,
+      PublicGetContentBulkByShareCodesV2.class,
       PublicGetContentByShareCodeV2.class,
       PublicGetContentByIDV2.class,
       PublicAddDownloadCountV2.class,
@@ -172,6 +178,7 @@ import picocli.CommandLine.Command;
       PublicDeleteContentV2.class,
       PublicUpdateContentV2.class,
       PublicUpdateContentFileLocation.class,
+      UpdateContentShareCodeV2.class,
       PublicGenerateContentUploadURLV2.class,
       PublicGetContentByUserIDV2.class,
       UpdateScreenshotsV2.class,

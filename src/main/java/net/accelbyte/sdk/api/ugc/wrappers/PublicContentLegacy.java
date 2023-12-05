@@ -53,6 +53,16 @@ public class PublicContentLegacy {
   }
 
   /**
+   * @see PublicGetContentBulkByShareCodes
+   */
+  public List<ModelsContentDownloadResponse> publicGetContentBulkByShareCodes(
+      PublicGetContentBulkByShareCodes input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicDownloadContentByShareCode
    */
   public ModelsContentDownloadResponse publicDownloadContentByShareCode(
@@ -150,6 +160,16 @@ public class PublicContentLegacy {
   public void deleteContent(DeleteContent input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see UpdateContentShareCode
+   */
+  public ModelsCreateContentResponse updateContentShareCode(UpdateContentShareCode input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 

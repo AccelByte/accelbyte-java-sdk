@@ -51,6 +51,11 @@ public class TokenGrantV3 implements Callable<Integer> {
   String codeVerifier;
 
   @Option(
+      names = {"--extendNamespace"},
+      description = "extendNamespace")
+  String extendNamespace;
+
+  @Option(
       names = {"--extendExp"},
       description = "extendExp")
   Boolean extendExp;
@@ -107,6 +112,7 @@ public class TokenGrantV3 implements Callable<Integer> {
               .clientId(clientId != null ? clientId : null)
               .code(code != null ? code : null)
               .codeVerifier(codeVerifier != null ? codeVerifier : null)
+              .extendNamespace(extendNamespace != null ? extendNamespace : null)
               .extendExp(extendExp != null ? extendExp : null)
               .password(password != null ? password : null)
               .redirectUri(redirectUri != null ? redirectUri : null)

@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.api.cloudsave.wrappers;
 
+import net.accelbyte.sdk.api.cloudsave.models.*;
 import net.accelbyte.sdk.api.cloudsave.operations.admin_concurrent_record.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
@@ -43,30 +44,30 @@ public class AdminConcurrentRecord {
   /**
    * @see AdminPutAdminPlayerRecordConcurrentHandlerV1
    */
-  public void adminPutAdminPlayerRecordConcurrentHandlerV1(
+  public ModelsPlayerRecordConcurrentUpdateResponse adminPutAdminPlayerRecordConcurrentHandlerV1(
       AdminPutAdminPlayerRecordConcurrentHandlerV1 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
-    input.handleEmptyResponse(
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
    * @see AdminPutPlayerRecordConcurrentHandlerV1
    */
-  public void adminPutPlayerRecordConcurrentHandlerV1(AdminPutPlayerRecordConcurrentHandlerV1 input)
-      throws Exception {
+  public ModelsPlayerRecordConcurrentUpdateResponse adminPutPlayerRecordConcurrentHandlerV1(
+      AdminPutPlayerRecordConcurrentHandlerV1 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
-    input.handleEmptyResponse(
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
    * @see AdminPutPlayerPublicRecordConcurrentHandlerV1
    */
-  public void adminPutPlayerPublicRecordConcurrentHandlerV1(
+  public ModelsPlayerRecordConcurrentUpdateResponse adminPutPlayerPublicRecordConcurrentHandlerV1(
       AdminPutPlayerPublicRecordConcurrentHandlerV1 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
-    input.handleEmptyResponse(
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 }

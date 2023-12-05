@@ -40,9 +40,21 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>* (psn) ps5
  *
- * <p>* xbox live
+ * <p>* epicgames
  *
- * <p>* steam
+ * <p>* twitch
+ *
+ * <p>* awscognito
+ *
+ * <p>*
+ *
+ * <p>* eaorigin
+ *
+ * <p>* snapchat
+ *
+ * <p>* twitch
+ *
+ * <p>* live
  */
 @Getter
 @Setter

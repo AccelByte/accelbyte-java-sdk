@@ -42,6 +42,13 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>It generates a token by checking the client credentials provided through Authorization header.
  *
+ * <p>5. Grant Type == `urn:ietf:params:oauth:grant-type:extend_client_credentials`:
+ *
+ * <p>It generates a token by checking the client credentials provided through Authorization header.
+ * It only allow publisher namespace client. In generated token: 1.There wil be no roles,
+ * namespace_roles & permission. 2.The scope will be fixed as 'extend'. 3.There will have a new
+ * field 'extend_namespace', the value is from token request body.
+ *
  * <p>## Access Token Content
  *
  * <p>Following is the access tokenâs content:
@@ -159,6 +166,7 @@ public class TokenGrantV3 extends Operation {
   private String clientId;
   private String code;
   private String codeVerifier;
+  private String extendNamespace;
   private Boolean extendExp;
   private String password;
   private String redirectUri;
@@ -177,6 +185,7 @@ public class TokenGrantV3 extends Operation {
       String clientId,
       String code,
       String codeVerifier,
+      String extendNamespace,
       Boolean extendExp,
       String password,
       String redirectUri,
@@ -187,6 +196,7 @@ public class TokenGrantV3 extends Operation {
     this.clientId = clientId;
     this.code = code;
     this.codeVerifier = codeVerifier;
+    this.extendNamespace = extendNamespace;
     this.extendExp = extendExp;
     this.password = password;
     this.redirectUri = redirectUri;
@@ -211,6 +221,9 @@ public class TokenGrantV3 extends Operation {
     }
     if (this.codeVerifier != null) {
       formDataParams.put("code_verifier", this.codeVerifier);
+    }
+    if (this.extendNamespace != null) {
+      formDataParams.put("extendNamespace", this.extendNamespace);
     }
     if (this.extendExp != null) {
       formDataParams.put(
@@ -256,7 +269,9 @@ public class TokenGrantV3 extends Operation {
     AuthorizationCode("authorization_code"),
     ClientCredentials("client_credentials"),
     Password("password"),
-    RefreshToken("refresh_token");
+    RefreshToken("refresh_token"),
+    UrnietfparamsoauthgrantTypeextendClientCredentials(
+        "urn:ietf:params:oauth:grant-type:extend_client_credentials");
 
     private String value;
 

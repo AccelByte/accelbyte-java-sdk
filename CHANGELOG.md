@@ -1,3 +1,9 @@
+<a name="v0.52.0"></a>
+## [v0.52.0]
+### fix
+- **:** make parse token payload ignore uknown
+
+
 <a name="v0.51.0"></a>
 ## [v0.51.0]
 ### feat

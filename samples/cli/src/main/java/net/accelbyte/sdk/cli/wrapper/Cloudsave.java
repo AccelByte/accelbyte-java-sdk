@@ -70,6 +70,7 @@ import picocli.CommandLine.Command;
       AdminPutPlayerRecordConcurrentHandlerV1.class,
       AdminPutPlayerPublicRecordConcurrentHandlerV1.class,
       AdminRetrievePlayerRecords.class,
+      AdminGetPlayerRecordsHandlerV1.class,
       AdminGetPlayerRecordHandlerV1.class,
       AdminPutPlayerRecordHandlerV1.class,
       AdminPostPlayerRecordHandlerV1.class,

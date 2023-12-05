@@ -95,6 +95,7 @@ public class AdminPutAdminPlayerRecordConcurrentHandlerV1 extends Operation {
 
   private String namespace;
   private String userId;
+  private Boolean responseBody;
   private ModelsAdminPlayerConcurrentRecordRequest body;
 
   /**
@@ -107,10 +108,15 @@ public class AdminPutAdminPlayerRecordConcurrentHandlerV1 extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public AdminPutAdminPlayerRecordConcurrentHandlerV1(
-      String key, String namespace, String userId, ModelsAdminPlayerConcurrentRecordRequest body) {
+      String key,
+      String namespace,
+      String userId,
+      Boolean responseBody,
+      ModelsAdminPlayerConcurrentRecordRequest body) {
     this.key = key;
     this.namespace = namespace;
     this.userId = userId;
+    this.responseBody = responseBody;
     this.body = body;
 
     securities.add("Bearer");
@@ -132,6 +138,15 @@ public class AdminPutAdminPlayerRecordConcurrentHandlerV1 extends Operation {
   }
 
   @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "responseBody",
+        this.responseBody == null ? null : Arrays.asList(String.valueOf(this.responseBody)));
+    return queryParams;
+  }
+
+  @Override
   public ModelsAdminPlayerConcurrentRecordRequest getBodyParams() {
     return this.body;
   }
@@ -150,11 +165,20 @@ public class AdminPutAdminPlayerRecordConcurrentHandlerV1 extends Operation {
     return true;
   }
 
-  public void handleEmptyResponse(int code, String contentType, InputStream payload)
-      throws HttpResponseException, IOException {
-    if (code != 204) {
+  public ModelsPlayerRecordConcurrentUpdateResponse parseResponse(
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
+    if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
+    final String json = Helper.convertInputStreamToString(payload);
+    return new ModelsPlayerRecordConcurrentUpdateResponse().createFromJson(json);
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("responseBody", "None");
+    return result;
   }
 }

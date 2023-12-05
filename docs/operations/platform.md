@@ -706,6 +706,7 @@
 | `FullAppInfo` | [FullAppInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/FullAppInfo.java) |
 | `FullCategoryInfo` | [FullCategoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/FullCategoryInfo.java) |
 | `FullItemInfo` | [FullItemInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/FullItemInfo.java) |
+| `FullItemPagingResult` | [FullItemPagingResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/FullItemPagingResult.java) |
 | `FullItemPagingSlicedResult` | [FullItemPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/FullItemPagingSlicedResult.java) |
 | `FullSectionInfo` | [FullSectionInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/FullSectionInfo.java) |
 | `FullViewInfo` | [FullViewInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/FullViewInfo.java) |
@@ -896,6 +897,7 @@
 | `ServicePluginConfigUpdate` | [ServicePluginConfigUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/ServicePluginConfigUpdate.java) |
 | `Slide` | [Slide](../../src/main/java/net/accelbyte/sdk/api/platform/models/Slide.java) |
 | `StackableEntitlementInfo` | [StackableEntitlementInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/StackableEntitlementInfo.java) |
+| `SteamAchievement` | [SteamAchievement](../../src/main/java/net/accelbyte/sdk/api/platform/models/SteamAchievement.java) |
 | `SteamAchievementUpdateRequest` | [SteamAchievementUpdateRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/SteamAchievementUpdateRequest.java) |
 | `SteamDLCSyncRequest` | [SteamDLCSyncRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/SteamDLCSyncRequest.java) |
 | `SteamIAPConfig` | [SteamIAPConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/SteamIAPConfig.java) |
@@ -927,7 +929,7 @@
 | `TicketSaleDecrementRequest` | [TicketSaleDecrementRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/TicketSaleDecrementRequest.java) |
 | `TicketSaleIncrementRequest` | [TicketSaleIncrementRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/TicketSaleIncrementRequest.java) |
 | `TicketSaleIncrementResult` | [TicketSaleIncrementResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/TicketSaleIncrementResult.java) |
-| `Time-limited balance` | [TimeLimitedBalance](../../src/main/java/net/accelbyte/sdk/api/platform/models/TimeLimitedBalance.java) |
+| `TimeLimitedBalance` | [TimeLimitedBalance](../../src/main/java/net/accelbyte/sdk/api/platform/models/TimeLimitedBalance.java) |
 | `TimedOwnership` | [TimedOwnership](../../src/main/java/net/accelbyte/sdk/api/platform/models/TimedOwnership.java) |
 | `TradeChainActionHistoryInfo` | [TradeChainActionHistoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/TradeChainActionHistoryInfo.java) |
 | `TradeChainedActionCommitRequest` | [TradeChainedActionCommitRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/TradeChainedActionCommitRequest.java) |
@@ -959,8 +961,7 @@
 | `XblReconcileResult` | [XblReconcileResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/XblReconcileResult.java) |
 | `XblUserAchievements` | [XblUserAchievements](../../src/main/java/net/accelbyte/sdk/api/platform/models/XblUserAchievements.java) |
 | `XblUserSessionRequest` | [XblUserSessionRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/XblUserSessionRequest.java) |
+| `XboxAchievement` | [XboxAchievement](../../src/main/java/net/accelbyte/sdk/api/platform/models/XboxAchievement.java) |
 | `XsollaConfig` | [XsollaConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/XsollaConfig.java) |
 | `XsollaPaywallConfig` | [XsollaPaywallConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/XsollaPaywallConfig.java) |
 | `XsollaPaywallConfigRequest` | [XsollaPaywallConfigRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/XsollaPaywallConfigRequest.java) |
-| `steam achievement` | [SteamAchievement](../../src/main/java/net/accelbyte/sdk/api/platform/models/SteamAchievement.java) |
-| `xbox achievement` | [XboxAchievement](../../src/main/java/net/accelbyte/sdk/api/platform/models/XboxAchievement.java) |

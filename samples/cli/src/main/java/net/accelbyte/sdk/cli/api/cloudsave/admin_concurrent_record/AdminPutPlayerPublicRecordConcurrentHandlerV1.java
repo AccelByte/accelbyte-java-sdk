@@ -47,6 +47,11 @@ public class AdminPutPlayerPublicRecordConcurrentHandlerV1 implements Callable<I
   String userId;
 
   @Option(
+      names = {"--responseBody"},
+      description = "responseBody")
+  Boolean responseBody;
+
+  @Option(
       names = {"--body"},
       description = "body")
   String body;
@@ -81,11 +86,15 @@ public class AdminPutPlayerPublicRecordConcurrentHandlerV1 implements Callable<I
                   .key(key)
                   .namespace(namespace)
                   .userId(userId)
+                  .responseBody(responseBody)
                   .body(
                       new ObjectMapper().readValue(body, ModelsAdminConcurrentRecordRequest.class))
                   .build();
-      wrapper.adminPutPlayerPublicRecordConcurrentHandlerV1(operation);
-      log.info("Operation successful");
+      final ModelsPlayerRecordConcurrentUpdateResponse response =
+          wrapper.adminPutPlayerPublicRecordConcurrentHandlerV1(operation);
+      final String responseString =
+          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
+      log.info("Operation successful\n{}", responseString);
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

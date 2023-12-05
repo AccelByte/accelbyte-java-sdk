@@ -17,7 +17,12 @@ import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
-/** get_events_game_telemetry_v1_admin_namespaces__namespace__events_get */
+/**
+ * get_events_game_telemetry_v1_admin_namespaces__namespace__events_get
+ *
+ * <p>This endpoint requires valid JWT token and telemetry permission This endpoint retrieves event
+ * list
+ */
 @Getter
 @Setter
 public class GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet extends Operation {

@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.api.cloudsave.wrappers;
 
+import net.accelbyte.sdk.api.cloudsave.models.*;
 import net.accelbyte.sdk.api.cloudsave.operations.concurrent_record.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
@@ -33,20 +34,20 @@ public class ConcurrentRecord {
   /**
    * @see PutPlayerRecordConcurrentHandlerV1
    */
-  public void putPlayerRecordConcurrentHandlerV1(PutPlayerRecordConcurrentHandlerV1 input)
-      throws Exception {
+  public ModelsPlayerRecordConcurrentUpdateResponse putPlayerRecordConcurrentHandlerV1(
+      PutPlayerRecordConcurrentHandlerV1 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
-    input.handleEmptyResponse(
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
    * @see PutPlayerPublicRecordConcurrentHandlerV1
    */
-  public void putPlayerPublicRecordConcurrentHandlerV1(
+  public ModelsPlayerRecordConcurrentUpdateResponse putPlayerPublicRecordConcurrentHandlerV1(
       PutPlayerPublicRecordConcurrentHandlerV1 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
-    input.handleEmptyResponse(
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 }

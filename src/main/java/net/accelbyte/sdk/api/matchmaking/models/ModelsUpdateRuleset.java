@@ -31,6 +31,9 @@ public class ModelsUpdateRuleset extends Model {
   @JsonProperty("alliance_flexing_rule")
   private List<ModelsAllianceFlexingRule> allianceFlexingRule;
 
+  @JsonProperty("batch_size")
+  private Integer batchSize;
+
   @JsonProperty("bucket_mmr_rule")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private ModelsBucketMMRRule bucketMmrRule;
@@ -47,13 +50,46 @@ public class ModelsUpdateRuleset extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsMatchingRule> matchingRules;
 
+  @JsonProperty("sort_ticket")
+  private ModelsSortTicket sortTicket;
+
+  @JsonProperty("sort_tickets")
+  private List<ModelsSortTicketRule> sortTickets;
+
   @JsonProperty("sub_game_modes")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private ModelsUpdateRulesetSubGameModes subGameModes;
 
+  @JsonProperty("ticket_flexing_selection")
+  private String ticketFlexingSelection;
+
+  @JsonProperty("ticket_flexing_selections")
+  private List<ModelsSelectionRule> ticketFlexingSelections;
+
   @JsonProperty("use_newest_ticket_for_flexing")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean useNewestTicketForFlexing;
+
+  @JsonIgnore
+  public String getTicketFlexingSelection() {
+    return this.ticketFlexingSelection;
+  }
+
+  @JsonIgnore
+  public TicketFlexingSelection getTicketFlexingSelectionAsEnum() {
+    return TicketFlexingSelection.valueOf(this.ticketFlexingSelection);
+  }
+
+  @JsonIgnore
+  public void setTicketFlexingSelection(final String ticketFlexingSelection) {
+    this.ticketFlexingSelection = ticketFlexingSelection;
+  }
+
+  @JsonIgnore
+  public void setTicketFlexingSelectionFromEnum(
+      final TicketFlexingSelection ticketFlexingSelection) {
+    this.ticketFlexingSelection = ticketFlexingSelection.toString();
+  }
 
   @JsonIgnore
   public ModelsUpdateRuleset createFromJson(String json) throws JsonProcessingException {
@@ -63,5 +99,38 @@ public class ModelsUpdateRuleset extends Model {
   @JsonIgnore
   public List<ModelsUpdateRuleset> createFromJsonList(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUpdateRuleset>>() {});
+  }
+
+  public enum TicketFlexingSelection {
+    Newest("newest"),
+    Oldest("oldest"),
+    Pivot("pivot"),
+    Random("random");
+
+    private String value;
+
+    TicketFlexingSelection(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class ModelsUpdateRulesetBuilder {
+    private String ticketFlexingSelection;
+
+    public ModelsUpdateRulesetBuilder ticketFlexingSelection(final String ticketFlexingSelection) {
+      this.ticketFlexingSelection = ticketFlexingSelection;
+      return this;
+    }
+
+    public ModelsUpdateRulesetBuilder ticketFlexingSelectionFromEnum(
+        final TicketFlexingSelection ticketFlexingSelection) {
+      this.ticketFlexingSelection = ticketFlexingSelection.toString();
+      return this;
+    }
   }
 }

@@ -47,6 +47,11 @@ public class PutPlayerPublicRecordConcurrentHandlerV1 implements Callable<Intege
   String userId;
 
   @Option(
+      names = {"--responseBody"},
+      description = "responseBody")
+  Boolean responseBody;
+
+  @Option(
       names = {"--body"},
       description = "body")
   String body;
@@ -80,10 +85,14 @@ public class PutPlayerPublicRecordConcurrentHandlerV1 implements Callable<Intege
                   .key(key)
                   .namespace(namespace)
                   .userId(userId)
+                  .responseBody(responseBody)
                   .body(new ObjectMapper().readValue(body, ModelsConcurrentRecordRequest.class))
                   .build();
-      wrapper.putPlayerPublicRecordConcurrentHandlerV1(operation);
-      log.info("Operation successful");
+      final ModelsPlayerRecordConcurrentUpdateResponse response =
+          wrapper.putPlayerPublicRecordConcurrentHandlerV1(operation);
+      final String responseString =
+          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
+      log.info("Operation successful\n{}", responseString);
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

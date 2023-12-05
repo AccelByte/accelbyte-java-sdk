@@ -53,6 +53,16 @@ public class PublicContentV2 {
   }
 
   /**
+   * @see PublicGetContentBulkByShareCodesV2
+   */
+  public List<ModelsContentDownloadResponseV2> publicGetContentBulkByShareCodesV2(
+      PublicGetContentBulkByShareCodesV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicGetContentByShareCodeV2
    */
   public ModelsContentDownloadResponseV2 publicGetContentByShareCodeV2(
@@ -126,6 +136,16 @@ public class PublicContentV2 {
    */
   public ModelsUpdateContentResponseV2 publicUpdateContentFileLocation(
       PublicUpdateContentFileLocation input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see UpdateContentShareCodeV2
+   */
+  public ModelsCreateContentResponseV2 updateContentShareCodeV2(UpdateContentShareCodeV2 input)
+      throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
