@@ -24,6 +24,7 @@ import picocli.CommandLine;
       Achievement.class,
       Ams.class,
       Basic.class,
+      Chat.class,
       Cloudsave.class,
       Dslogmanager.class,
       Dsmc.class,
