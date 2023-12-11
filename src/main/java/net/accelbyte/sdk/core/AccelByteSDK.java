@@ -127,7 +127,7 @@ public class AccelByteSDK {
         final BloomFilterJSON revokedTokens = revocationList.getRevokedTokens();
         final long[] bits =
             revokedTokens.getBits().stream()
-                .mapToLong(value -> Long.parseUnsignedLong(value.toString()))
+                .mapToLong(BigInteger::longValue)
                 .toArray();
         final int k = revokedTokens.getK();
         final int m = revokedTokens.getM();
@@ -159,8 +159,6 @@ public class AccelByteSDK {
         return true; // Check token only without checking resource
       }
 
-      final List<Map<String, Object>> tokenPermissions =
-          (List<Map<String, Object>>) jwtClaimsSet.getClaim(CLAIM_PERMISSIONS);
       final AccessTokenPayload accessTokenPayload =
           objectMapper.convertValue(jwtClaimsSet.toJSONObject(), AccessTokenPayload.class);
 
@@ -929,55 +927,4 @@ public class AccelByteSDK {
         .build(revocationLoader);
   }
 
-  private boolean IsResourceAllowed(String permissionResource, String requiredResource) {
-    final String[] tokenResourceParts = permissionResource.split(":");
-    final String[] requiredResourceParts = requiredResource.toString().split(":");
-
-    final int minResourcePartsLength =
-        tokenResourceParts.length < requiredResourceParts.length
-            ? tokenResourceParts.length
-            : requiredResourceParts.length;
-
-    for (int i = 0; i < minResourcePartsLength; i++) {
-      if (!tokenResourceParts[i].equals(requiredResourceParts[i])
-          && !tokenResourceParts[i].equals("*")) {
-        return false;
-      }
-    }
-
-    if (tokenResourceParts.length == requiredResourceParts.length) {
-      return true;
-    }
-
-    if (tokenResourceParts.length < requiredResourceParts.length) {
-      final String lastTokenResourcePart = tokenResourceParts[tokenResourceParts.length - 1];
-      if (lastTokenResourcePart.equals("*")) {
-        if (tokenResourceParts.length < 2) {
-          return true;
-        }
-        final String secondLastTokenResourcePart =
-            tokenResourceParts[tokenResourceParts.length - 2];
-        if (secondLastTokenResourcePart.equals("NAMESPACE")) {
-          return false;
-        }
-        if (secondLastTokenResourcePart.equals("USER")) {
-          return false;
-        }
-        return true;
-      }
-      return false;
-    }
-
-    for (int i = requiredResourceParts.length; i < tokenResourceParts.length; i++) {
-      if (tokenResourceParts[i] != "*") {
-        return false;
-      }
-    }
-
-    return true;
-  }
-
-  private boolean IsActionAllowed(int permissionAction, int requiredAction) {
-    return (permissionAction & requiredAction) == requiredAction;
-  }
 }
