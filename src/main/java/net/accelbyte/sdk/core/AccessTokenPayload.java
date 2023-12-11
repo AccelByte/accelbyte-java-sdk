@@ -123,6 +123,9 @@ public class AccessTokenPayload {
   @JsonProperty("union_namespace")
   private String unionNamespace;
 
+  @JsonProperty("extend_namespace")
+  private String extendNamespace;
+
   @JsonIgnore
   public AccessTokenPayload createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
