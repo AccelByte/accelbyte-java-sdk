@@ -12,4 +12,12 @@ public interface TokenRepository {
   String getToken() throws Exception;
 
   void removeToken() throws Exception;
+
+  default boolean registerTokenRepositoryCallback(TokenRepositoryCallback callback) {
+    return true;
+  }
+
+  default boolean unregisterTokenRepositoryCallback(TokenRepositoryCallback callback) {
+    return true;
+  }
 }
