@@ -20,10 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteChannelHandler
  *
- * <p>Required Permission: NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Delete]
- *
- * <p>Required Scope: social
- *
  * <p>Deletes a matchmaking channel. Matchmaking channels is a list of pool name that is eligible
  * for matchmaking processes. GameMode isolates each matchmaking pools.
  *

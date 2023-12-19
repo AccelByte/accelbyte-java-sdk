@@ -41,6 +41,11 @@ public class PublicGetItem implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--autoCalcEstimatedPrice"},
+      description = "autoCalcEstimatedPrice")
+  Boolean autoCalcEstimatedPrice;
+
+  @Option(
       names = {"--language"},
       description = "language")
   String language;
@@ -85,6 +90,7 @@ public class PublicGetItem implements Callable<Integer> {
           net.accelbyte.sdk.api.platform.operations.item.PublicGetItem.builder()
               .itemId(itemId)
               .namespace(namespace)
+              .autoCalcEstimatedPrice(autoCalcEstimatedPrice)
               .language(language)
               .populateBundle(populateBundle)
               .region(region)

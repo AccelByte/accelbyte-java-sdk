@@ -20,8 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteTicket
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:TICKET [DELETE] This endpoint will delete
- * ticket and all its reports.
+ * <p>This endpoint will delete ticket and all its reports.
  */
 @Getter
 @Setter

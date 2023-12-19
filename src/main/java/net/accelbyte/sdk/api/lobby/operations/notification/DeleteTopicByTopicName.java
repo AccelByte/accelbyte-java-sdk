@@ -20,8 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteTopicByTopicName
  *
- * <p>Required permission : `NAMESPACE:{namespace}:TOPIC [DELETE]` with scope `social`
- *
  * <p>delete topic information by topic name.
  *
  * <p>topic should be alphabets, no special char except underscore, uppercase and no spacing. for

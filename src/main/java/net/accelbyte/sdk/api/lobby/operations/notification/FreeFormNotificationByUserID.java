@@ -21,9 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * freeFormNotificationByUserID
  *
- * <p>Required permission : `NAMESPACE:{namespace}:USER:{userId}:NOTIFICATION [CREATE]` with scope
- * `social`
- *
  * <p>Sends notification to a user.
  */
 @Getter

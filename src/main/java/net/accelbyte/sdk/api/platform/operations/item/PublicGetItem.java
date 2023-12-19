@@ -45,6 +45,7 @@ public class PublicGetItem extends Operation {
   private String itemId;
 
   private String namespace;
+  private Boolean autoCalcEstimatedPrice;
   private String language;
   private Boolean populateBundle;
   private String region;
@@ -60,12 +61,14 @@ public class PublicGetItem extends Operation {
   public PublicGetItem(
       String itemId,
       String namespace,
+      Boolean autoCalcEstimatedPrice,
       String language,
       Boolean populateBundle,
       String region,
       String storeId) {
     this.itemId = itemId;
     this.namespace = namespace;
+    this.autoCalcEstimatedPrice = autoCalcEstimatedPrice;
     this.language = language;
     this.populateBundle = populateBundle;
     this.region = region;
@@ -89,6 +92,11 @@ public class PublicGetItem extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "autoCalcEstimatedPrice",
+        this.autoCalcEstimatedPrice == null
+            ? null
+            : Arrays.asList(String.valueOf(this.autoCalcEstimatedPrice)));
     queryParams.put("language", this.language == null ? null : Arrays.asList(this.language));
     queryParams.put(
         "populateBundle",
@@ -122,6 +130,7 @@ public class PublicGetItem extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("autoCalcEstimatedPrice", "None");
     result.put("language", "None");
     result.put("populateBundle", "None");
     result.put("region", "None");

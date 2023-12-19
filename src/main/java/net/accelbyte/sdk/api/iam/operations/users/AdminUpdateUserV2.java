@@ -21,34 +21,20 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateUserV2
  *
- * <p>## The endpoint is going to be deprecated
+ * <p>## The endpoint is going to be deprecated **Endpoint migration guide** - **Substitute
+ * endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId} [PATCH]_**
  *
- * <p>Endpoint migration guide
+ * <p>This Endpoint support update user based on given data. **Single request can update single
+ * field or multi fields.** Supported field {Country, DisplayName, LanguageTag} Country use
+ * ISO3166-1 alpha-2 two letter, e.g. US.
  *
- * <p>* Substitute endpoint: /iam/v3/admin/namespaces/{namespace}/users/{userId} [PATCH]
- *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:USER:{userId} [UPDATE]'
- *
- * <p>"+ "
- *
- * <p>This Endpoint support update user based on given data. Single request can update single field
- * or multi fields.
- *
- * <p>"+ "
- *
- * <p>Supported field {Country, DisplayName, LanguageTag}
- *
- * <p>"+ "
- *
- * <p>Country use ISO3166-1 alpha-2 two letter, e.g. US.
- *
- * <p>"+ " Several case of updating email address "+ " * User want to update email address of which
- * have been verified, NewEmailAddress response field will be filled with new email address. "+ " *
- * User want to update email address of which have not been verified, {LoginId, OldEmailAddress,
- * EmailAddress} response field will be filled with new email address. "+ " * User want to update
- * email address of which have been verified and updated before, {LoginId, OldEmailAddress,
- * EmailAddress} response field will be filled with verified email before. NewEmailAddress response
- * field will be filled with newest email address.
+ * <p>**Several case of updating email address** - User want to update email address of which have
+ * been verified, NewEmailAddress response field will be filled with new email address. - User want
+ * to update email address of which have not been verified, {LoginId, OldEmailAddress, EmailAddress}
+ * response field will be filled with new email address. - User want to update email address of
+ * which have been verified and updated before, {LoginId, OldEmailAddress, EmailAddress} response
+ * field will be filled with verified email before. NewEmailAddress response field will be filled
+ * with newest email address.
  *
  * @deprecated
  */

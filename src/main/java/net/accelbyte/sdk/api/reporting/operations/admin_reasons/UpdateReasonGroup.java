@@ -21,10 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateReasonGroup
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:REASON [UPDATE] Reason group title is case
- * insensitive, meaning you can't have reason if you already create a reason titled Reason If no
- * reasonIds passed when updating, the current reasons under the reason group will be kept (reasons
- * will not be removed from the group).
+ * <p>Reason group title is case insensitive, meaning you can't have **reason** if you already
+ * create a reason titled **Reason** If no reasonIds passed when updating, the current reasons under
+ * the reason group will be kept (reasons will not be removed from the group).
  */
 @Getter
 @Setter

@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * PublicSendMyMFAEmailCodeV4
  *
  * <p>This endpoint is used to send email code.
- *
- * <p>This endpoint Requires valid user access token
  */
 @Getter
 @Setter

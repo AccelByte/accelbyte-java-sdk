@@ -21,9 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * notificationWithTemplateByUserID
  *
- * <p>Required permission : `NAMESPACE:{namespace}:USER:{userId}:NOTIFICATION [CREATE]` with scope
- * `social`
- *
  * <p>Sends notification to a user with predefined template.
  *
  * <p>In the request body, specify which template slug (template identifier) to use and the template

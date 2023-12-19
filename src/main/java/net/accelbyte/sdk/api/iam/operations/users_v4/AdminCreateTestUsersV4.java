@@ -22,8 +22,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * AdminCreateTestUsersV4
  *
  * <p>Create test users and not send verification code email.
- *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:USER
  */
 @Getter
 @Setter

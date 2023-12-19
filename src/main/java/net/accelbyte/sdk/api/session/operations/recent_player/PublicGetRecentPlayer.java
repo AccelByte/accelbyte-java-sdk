@@ -6,54 +6,51 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.social.operations.stat_configuration;
+package net.accelbyte.sdk.api.session.operations.recent_player;
 
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import net.accelbyte.sdk.api.social.models.*;
+import net.accelbyte.sdk.api.session.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * importStatCycle
+ * publicGetRecentPlayer
  *
- * <p>Import stat cycle configurations for a given namespace from file. At current, only JSON file
- * is supported.
- *
- * <p>Other detail info: * *Required permission*: resource="ADMIN:NAMESPACE:{namespace}:STAT",
- * action=1 (CREATE)
+ * <p>Query recent player with given user id.
  */
 @Getter
 @Setter
-public class ImportStatCycle extends Operation {
+public class PublicGetRecentPlayer extends Operation {
   /** generated field's value */
-  private String path = "/social/v1/admin/namespaces/{namespace}/statCycles/import";
+  private String path = "/session/v1/public/namespaces/{namespace}/recent-player/{userId}";
 
-  private String method = "POST";
-  private List<String> consumes = Arrays.asList("multipart/form-data");
+  private String method = "GET";
+  private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
 
   /** fields as input parameter */
   private String namespace;
 
-  private Boolean replaceExisting;
-  private File file;
+  private String userId;
+  private Integer limit;
 
   /**
    * @param namespace required
+   * @param userId required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public ImportStatCycle(String namespace, Boolean replaceExisting, File file) {
+  public PublicGetRecentPlayer(String namespace, String userId, Integer limit) {
     this.namespace = namespace;
-    this.replaceExisting = replaceExisting;
-    this.file = file;
+    this.userId = userId;
+    this.limit = limit;
 
     securities.add("Bearer");
   }
@@ -64,25 +61,17 @@ public class ImportStatCycle extends Operation {
     if (this.namespace != null) {
       pathParams.put("namespace", this.namespace);
     }
+    if (this.userId != null) {
+      pathParams.put("userId", this.userId);
+    }
     return pathParams;
   }
 
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
-    queryParams.put(
-        "replaceExisting",
-        this.replaceExisting == null ? null : Arrays.asList(String.valueOf(this.replaceExisting)));
+    queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     return queryParams;
-  }
-
-  @Override
-  public Map<String, Object> getFormParams() {
-    Map<String, Object> formDataParams = new HashMap<>();
-    if (this.file != null) {
-      formDataParams.put("file", this.file);
-    }
-    return formDataParams;
   }
 
   @Override
@@ -90,23 +79,26 @@ public class ImportStatCycle extends Operation {
     if (this.namespace == null) {
       return false;
     }
+    if (this.userId == null) {
+      return false;
+    }
     return true;
   }
 
-  public StatImportInfo parseResponse(int code, String contentType, InputStream payload)
-      throws HttpResponseException, IOException {
-    if (code != 201) {
+  public ModelsRecentPlayerQueryResponse parseResponse(
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
+    if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new StatImportInfo().createFromJson(json);
+    return new ModelsRecentPlayerQueryResponse().createFromJson(json);
   }
 
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
-    result.put("replaceExisting", "None");
+    result.put("limit", "None");
     return result;
   }
 }

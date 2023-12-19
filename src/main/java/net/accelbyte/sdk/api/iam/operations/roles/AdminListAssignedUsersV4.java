@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminListAssignedUsersV4
  *
- * <p>Required permission ADMIN:ROLE [READ] Query all users that has the specified role. action
- * code: 10416
+ * <p>Query all users that has the specified role. action code: 10416
  */
 @Getter
 @Setter

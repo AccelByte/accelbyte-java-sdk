@@ -21,13 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * Verify2FACode
  *
- * <p>Verify 2FA code
- *
- * <p>This endpoint is used for verifying 2FA code.
- *
- * <p>## 2FA remember device
- *
- * <p>To remember device for 2FA, should provide cookie: device_token or header: Device-Token
+ * <p>Verify 2FA code This endpoint is used for verifying 2FA code. ## 2FA remember device To
+ * remember device for 2FA, should provide cookie: device_token or header: Device-Token
  */
 @Getter
 @Setter

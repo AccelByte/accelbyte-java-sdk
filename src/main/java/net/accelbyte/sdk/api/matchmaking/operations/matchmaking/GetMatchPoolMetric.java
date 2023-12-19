@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetMatchPoolMetric
  *
- * <p>Required Permission: NAMESPACE:{namespace}:MATCHMAKING:CHANNEL:METRICS [READ]
- *
- * <p>Required Scope: social
- *
  * <p>Get metric for a specific match pool
  *
  * <p>Result: queue_time in seconds

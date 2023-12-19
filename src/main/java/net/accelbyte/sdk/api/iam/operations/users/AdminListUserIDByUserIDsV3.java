@@ -21,9 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminListUserIDByUserIDsV3
  *
- * <p>List User By User ID This endpoint requires ADMIN:NAMESPACE:{namespace}:USER [READ]
- * permission. This endpoint intended to list user information from the given list of userID and
- * namespace
+ * <p>List User By User ID This endpoint intended to list user information from the given list of
+ * userID and namespace
  */
 @Getter
 @Setter

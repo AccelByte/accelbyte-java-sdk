@@ -20,10 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteUserFromSessionInChannel
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Delete]
- *
- * <p>Required Scope: social
- *
  * <p>Delete a user from a session in the channel.
  */
 @Getter

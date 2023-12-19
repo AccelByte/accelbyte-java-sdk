@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * AdminMakeFactorMyDefaultV4
  *
  * <p>This endpoint is used to make 2FA factor default.
- *
- * <p>This endpoint Requires valid user access token
  */
 @Getter
 @Setter

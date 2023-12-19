@@ -23,10 +23,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetAllSessionsInChannel
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Read]
- *
- * <p>Required Scope: social
- *
  * <p>Get all sessions in a channel.
  *
  * <p>if party_id value empty/null, field will not show in response body.

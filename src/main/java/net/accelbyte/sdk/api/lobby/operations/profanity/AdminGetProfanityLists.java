@@ -23,9 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminGetProfanityLists
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:PROFANITY [READ]` with scope `social`
- *
- * <p>get lists
+ * <p>Get lists
  */
 @Getter
 @Setter

@@ -21,11 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminInviteUserV4
  *
- * <p>Required permission 'ADMIN:USER:INVITE [CREATE]
- *
  * <p>Use this endpoint to invite admin or non-admin user and assign role to them. The role must be
- * scoped to namespace. An admin user can only assign role with namespaces that the admin user has
- * required permission which is same as the required permission of endpoint: [AdminAddUserRoleV4].
+ * scoped to namespace. An admin user can only assign role with **assignedNamespaces** if the admin
+ * user has required permission which is same as the required permission of endpoint:
+ * [AdminAddUserRoleV4].
  *
  * <p>Detail request body : - Email Address is required, List of email addresses that will be
  * invited - isAdmin is required, true if user is admin, false if user is not admin - Namespace is

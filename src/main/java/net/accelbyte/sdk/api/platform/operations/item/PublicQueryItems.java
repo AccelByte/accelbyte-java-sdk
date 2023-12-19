@@ -45,6 +45,7 @@ public class PublicQueryItems extends Operation {
   private String namespace;
 
   private String appType;
+  private Boolean autoCalcEstimatedPrice;
   private String baseAppId;
   private String categoryPath;
   private String features;
@@ -67,6 +68,7 @@ public class PublicQueryItems extends Operation {
   public PublicQueryItems(
       String namespace,
       String appType,
+      Boolean autoCalcEstimatedPrice,
       String baseAppId,
       String categoryPath,
       String features,
@@ -81,6 +83,7 @@ public class PublicQueryItems extends Operation {
       String tags) {
     this.namespace = namespace;
     this.appType = appType;
+    this.autoCalcEstimatedPrice = autoCalcEstimatedPrice;
     this.baseAppId = baseAppId;
     this.categoryPath = categoryPath;
     this.features = features;
@@ -110,6 +113,11 @@ public class PublicQueryItems extends Operation {
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
     queryParams.put("appType", this.appType == null ? null : Arrays.asList(this.appType));
+    queryParams.put(
+        "autoCalcEstimatedPrice",
+        this.autoCalcEstimatedPrice == null
+            ? null
+            : Arrays.asList(String.valueOf(this.autoCalcEstimatedPrice)));
     queryParams.put("baseAppId", this.baseAppId == null ? null : Arrays.asList(this.baseAppId));
     queryParams.put(
         "categoryPath", this.categoryPath == null ? null : Arrays.asList(this.categoryPath));
@@ -153,6 +161,7 @@ public class PublicQueryItems extends Operation {
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
     result.put("appType", "None");
+    result.put("autoCalcEstimatedPrice", "None");
     result.put("baseAppId", "None");
     result.put("categoryPath", "None");
     result.put("features", "None");

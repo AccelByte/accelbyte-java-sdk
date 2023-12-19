@@ -126,6 +126,11 @@
 | `/session/v1/public/namespaces/{namespace}/users/me/attributes` | POST | PublicStorePlayerAttributes | [PublicStorePlayerAttributes](../../src/main/java/net/accelbyte/sdk/api/session/operations/player/PublicStorePlayerAttributes.java) | [PublicStorePlayerAttributes](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/player/PublicStorePlayerAttributes.java) |
 | `/session/v1/public/namespaces/{namespace}/users/me/attributes` | DELETE | PublicDeletePlayerAttributes | [PublicDeletePlayerAttributes](../../src/main/java/net/accelbyte/sdk/api/session/operations/player/PublicDeletePlayerAttributes.java) | [PublicDeletePlayerAttributes](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/player/PublicDeletePlayerAttributes.java) |
 
+### Recent Player Wrapper:  [RecentPlayer](../../src/main/java/net/accelbyte/sdk/api/session/wrappers/RecentPlayer.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/session/v1/public/namespaces/{namespace}/recent-player/{userId}` | GET | PublicGetRecentPlayer | [PublicGetRecentPlayer](../../src/main/java/net/accelbyte/sdk/api/session/operations/recent_player/PublicGetRecentPlayer.java) | [PublicGetRecentPlayer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/recent_player/PublicGetRecentPlayer.java) |
+
 
 &nbsp;  
 
@@ -184,7 +189,9 @@
 | `models.PartyMembers` | [ModelsPartyMembers](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsPartyMembers.java) |
 | `models.PlatformCredentials` | [ModelsPlatformCredentials](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsPlatformCredentials.java) |
 | `models.PortConfigurationAMS` | [ModelsPortConfigurationAMS](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsPortConfigurationAMS.java) |
+| `models.RecentPlayerQueryResponse` | [ModelsRecentPlayerQueryResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsRecentPlayerQueryResponse.java) |
 | `models.RequestReconcileMaxActiveSession` | [ModelsRequestReconcileMaxActiveSession](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsRequestReconcileMaxActiveSession.java) |
 | `models.Team` | [ModelsTeam](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsTeam.java) |
+| `models.UserInfo` | [ModelsUserInfo](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsUserInfo.java) |
 | `models.UserPlatformInfo` | [ModelsUserPlatformInfo](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsUserPlatformInfo.java) |
 | `response.Error` | [ResponseError](../../src/main/java/net/accelbyte/sdk/api/session/models/ResponseError.java) |

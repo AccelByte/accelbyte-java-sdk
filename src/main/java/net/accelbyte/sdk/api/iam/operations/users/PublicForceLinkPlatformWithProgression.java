@@ -21,10 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicForceLinkPlatformWithProgression
  *
- * <p>Force update other account's Platform Account relation to current User Account.
- *
- * <p>This endpoint can transfer progression from 3rd platform binding account's to current account.
- * This endpoint need the same requestID which also used in Get link status.
+ * <p>Force update other account's Platform Account relation to current User Account. This endpoint
+ * can transfer progression from 3rd platform binding account's to current account. This endpoint
+ * need the same requestID which also used in [Get link
+ * status](#operations-Users-PublicGetAsyncStatus).
  */
 @Getter
 @Setter

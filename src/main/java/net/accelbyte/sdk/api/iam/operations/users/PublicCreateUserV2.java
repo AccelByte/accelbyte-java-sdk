@@ -21,23 +21,13 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicCreateUserV2
  *
- * <p>## The endpoint is going to be deprecated
+ * <p>## The endpoint is going to be deprecated **Endpoint migration guide** - **Substitute
+ * endpoint: _/iam/v3/public/namespaces/{namespace}/users [POST]_** - **Substitute endpoint:
+ * _/iam/v4/public/namespaces/{namespace}/users [POST]_** - **Note:** 1. v3 & v4 introduce optional
+ * verification code 2. format differenceï¼Pascal case => Camel case)
  *
- * <p>Endpoint migration guide
- *
- * <p>* Substitute endpoint: /iam/v3/public/namespaces/{namespace}/users [POST]
- *
- * <p>* Substitute endpoint: /iam/v4/public/namespaces/{namespace}/users [POST]
- *
- * <p>* Note: 1. v3 & v4 introduce optional verification code
- *
- * <p>2. format differenceï¼Pascal case => Camel case)
- *
- * <p>Available Authentication Types:
- *
- * <p>1. EMAILPASSWD : an authentication type used for new user registration through email.
- *
- * <p>Country use ISO3166-1 alpha-2 two letter, e.g. US.
+ * <p>Available Authentication Types: 1. *EMAILPASSWD*: an authentication type used for new user
+ * registration through email. Country use ISO3166-1 alpha-2 two letter, e.g. US.
  *
  * @deprecated
  */

@@ -47,6 +47,7 @@ public class PublicListActiveSections extends Operation {
   private String namespace;
 
   private String userId;
+  private Boolean autoCalcEstimatedPrice;
   private String language;
   private String region;
   private String storeId;
@@ -62,12 +63,14 @@ public class PublicListActiveSections extends Operation {
   public PublicListActiveSections(
       String namespace,
       String userId,
+      Boolean autoCalcEstimatedPrice,
       String language,
       String region,
       String storeId,
       String viewId) {
     this.namespace = namespace;
     this.userId = userId;
+    this.autoCalcEstimatedPrice = autoCalcEstimatedPrice;
     this.language = language;
     this.region = region;
     this.storeId = storeId;
@@ -91,6 +94,11 @@ public class PublicListActiveSections extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "autoCalcEstimatedPrice",
+        this.autoCalcEstimatedPrice == null
+            ? null
+            : Arrays.asList(String.valueOf(this.autoCalcEstimatedPrice)));
     queryParams.put("language", this.language == null ? null : Arrays.asList(this.language));
     queryParams.put("region", this.region == null ? null : Arrays.asList(this.region));
     queryParams.put("storeId", this.storeId == null ? null : Arrays.asList(this.storeId));
@@ -122,6 +130,7 @@ public class PublicListActiveSections extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("autoCalcEstimatedPrice", "None");
     result.put("language", "None");
     result.put("region", "None");
     result.put("storeId", "None");

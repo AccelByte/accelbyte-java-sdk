@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateTicketResolutions
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:TICKET [UPDATE] Update ticket resolution
- * status to either OPEN or CLOSED. It is mandatory to provide notes
+ * <p>Update ticket resolution status to either OPEN or CLOSED. It is mandatory to provide notes
  */
 @Getter
 @Setter

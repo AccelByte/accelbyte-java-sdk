@@ -21,9 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminListReasonGroups
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:REASON [READ] Return list of reason groups ID
- * and title under given namespace. To fetch the reasons inside a group, use get reason group
- * endpoint.
+ * <p>Return list of reason groups ID and title under given namespace. To fetch the reasons inside a
+ * group, use get reason group endpoint.
  */
 @Getter
 @Setter

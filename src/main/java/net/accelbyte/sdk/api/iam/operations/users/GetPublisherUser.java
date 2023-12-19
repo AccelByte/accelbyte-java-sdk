@@ -21,15 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetPublisherUser
  *
- * <p>## The endpoint is going to be deprecated
+ * <p>## The endpoint is going to be deprecated ### Endpoint migration guide - **Substitute
+ * endpoint: _/iam/v3/public/namespaces/{namespace}/users/{userId}/publisher [GET]_**
  *
- * <p>Endpoint migration guide
- *
- * <p>* Substitute endpoint: /iam/v3/public/namespaces/{namespace}/users/{userId}/publisher [GET]
- *
- * <p>Required permissions 'NAMESPACE:{namespace}:PUBLISHER:USER:{userId} [READ].
- *
- * <p>Restriction: Path Parameter namespace can be provided only with game namespace
+ * <p>**Restriction:** Path Parameter *namespace* can be provided only with game namespace
  *
  * @deprecated
  */

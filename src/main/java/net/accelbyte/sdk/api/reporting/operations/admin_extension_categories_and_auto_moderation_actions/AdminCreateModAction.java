@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminCreateModAction
  *
- * <p>Required permission: ADMIN:REPORTINGCONFIG [CREATE] Create auto moderation action
+ * <p>Create auto moderation action
  */
 @Getter
 @Setter

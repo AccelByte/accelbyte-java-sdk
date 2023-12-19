@@ -6,13 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.ams.images;
+package net.accelbyte.sdk.cli.api.ams.artifacts;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.ams.models.*;
-import net.accelbyte.sdk.api.ams.wrappers.Images;
+import net.accelbyte.sdk.api.ams.wrappers.Artifacts;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -60,13 +60,13 @@ public class FleetArtifactSamplingRulesGet implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final Images wrapper = new Images(sdk);
-      final net.accelbyte.sdk.api.ams.operations.images.FleetArtifactSamplingRulesGet operation =
-          net.accelbyte.sdk.api.ams.operations.images.FleetArtifactSamplingRulesGet.builder()
+      final Artifacts wrapper = new Artifacts(sdk);
+      final net.accelbyte.sdk.api.ams.operations.artifacts.FleetArtifactSamplingRulesGet operation =
+          net.accelbyte.sdk.api.ams.operations.artifacts.FleetArtifactSamplingRulesGet.builder()
               .fleetID(fleetID)
               .namespace(namespace)
               .build();
-      final ApiFleetArtifactsSampleRulesResponse response =
+      final ApiFleetArtifactsSampleRules response =
           wrapper.fleetArtifactSamplingRulesGet(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

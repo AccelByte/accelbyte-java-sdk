@@ -7,7 +7,6 @@
 package net.accelbyte.sdk.core.repository;
 
 import com.google.common.base.Strings;
-
 import java.util.Objects;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
@@ -55,7 +54,7 @@ public class DefaultTokenRepository implements TokenRepository {
   }
 
   protected void notifyOnAccessTokenRefreshed(String newToken) {
-    for (TokenRepositoryCallback callback: callbacks) {
+    for (TokenRepositoryCallback callback : callbacks) {
       executor.execute(() -> callback.onAccessTokenRefreshed(newToken));
     }
   }
@@ -69,5 +68,4 @@ public class DefaultTokenRepository implements TokenRepository {
   public boolean unregisterTokenRepositoryCallback(TokenRepositoryCallback callback) {
     return callbacks.remove(callback);
   }
-
 }

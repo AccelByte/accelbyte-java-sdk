@@ -60,6 +60,15 @@ public class StatCycleConfiguration {
   }
 
   /**
+   * @see ImportStatCycle
+   */
+  public StatImportInfo importStatCycle(ImportStatCycle input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetStatCycle
    */
   public StatCycleInfo getStatCycle(GetStatCycle input) throws Exception {

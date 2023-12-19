@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UpdatePlayTimeWeight
  *
- * <p>Required Permission: NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [UPDATE]
- *
- * <p>Required Scope: social
- *
  * <p>Update a connection weight between player and playtime.
  *
  * <p>This endpoint is intended to be called by admin for debugging purpose on social matchmaking

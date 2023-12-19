@@ -21,13 +21,27 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * QoSRegionsGet
  *
- * <p>Required Permission: NAMESPACE:{namespace}:QOS:SERVER [READ]
+ * <p>``` Required Permission: ADMIN:NAMESPACE:{namespace}:QOS:SERVER [READ]
+ *
+ * <p>This endpoint lists all QoS services available in all regions.
+ *
+ * <p>This endpoint is intended to be called by game client to find out all available regions. After
+ * getting a list of QoS on each region, game client is expected to ping each one with UDP
+ * connection as described below:
+ *
+ * <p>1. Make UDP connection to each QoS's IP:Port 2. Send string "PING" after connection
+ * established 3. Wait for string "PONG" response 4. Note the request-response latency for each QoS
+ * in each region
+ *
+ * <p>The game then can use ping latency information to either: 1. Inform the player on these
+ * latencies and let player choose preferred region 2. Send the latency list to Matchmaking Service
+ * so that player can be matched with other players in nearby regions
  */
 @Getter
 @Setter
 public class QoSRegionsGet extends Operation {
   /** generated field's value */
-  private String path = "/ams/v1/namespaces/{namespace}/qos";
+  private String path = "/ams/v1/admin/namespaces/{namespace}/qos";
 
   private String method = "GET";
   private List<String> consumes = Arrays.asList("application/json");

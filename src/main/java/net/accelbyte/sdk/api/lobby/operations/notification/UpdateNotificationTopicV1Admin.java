@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateNotificationTopicV1Admin
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:NOTIFICATION [UPDATE]` with scope `social`
- *
- * <p>update topic information by topic name.
+ * <p>Update topic information by topic name.
  *
  * <p>topic should be alphabets, no special char except underscore, uppercase and no spacing. for
  * example: TOPIC_TEST. Already existing topic can not be created

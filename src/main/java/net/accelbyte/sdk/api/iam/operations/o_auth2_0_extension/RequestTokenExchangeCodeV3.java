@@ -22,15 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * RequestTokenExchangeCodeV3
  *
  * <p>This endpoint is being used to request the code to exchange a new token. The target new
- * token's clientId should NOT be same with current using one.
+ * token's clientId should NOT be same with current using one. Path namespace should be target
+ * namespace. Client ID should match the target namespace.
  *
- * <p>It requires a valid user token.
- *
- * <p>Path namespace should be target namespace.
- *
- * <p>Client ID should match the target namespace.
- *
- * <p>The code in response can be consumed by /iam/v3/token/exchange
+ * <p>The code in response can be consumed by `/iam/v3/token/exchange`
  */
 @Getter
 @Setter

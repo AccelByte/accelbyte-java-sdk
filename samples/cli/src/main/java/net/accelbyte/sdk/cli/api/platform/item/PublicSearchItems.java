@@ -36,6 +36,11 @@ public class PublicSearchItems implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--autoCalcEstimatedPrice"},
+      description = "autoCalcEstimatedPrice")
+  Boolean autoCalcEstimatedPrice;
+
+  @Option(
       names = {"--itemType"},
       description = "itemType")
   String itemType;
@@ -94,6 +99,7 @@ public class PublicSearchItems implements Callable<Integer> {
       final net.accelbyte.sdk.api.platform.operations.item.PublicSearchItems operation =
           net.accelbyte.sdk.api.platform.operations.item.PublicSearchItems.builder()
               .namespace(namespace)
+              .autoCalcEstimatedPrice(autoCalcEstimatedPrice)
               .itemType(itemType)
               .limit(limit)
               .offset(offset)

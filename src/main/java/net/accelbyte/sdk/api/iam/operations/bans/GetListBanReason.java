@@ -21,13 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetListBanReason
  *
- * <p>## The endpoint is going to be deprecated
- *
- * <p>Required permission 'BAN:ADMIN [READ]' or 'ADMIN:BAN [READ]'
- *
- * <p>Endpoint migration guide
- *
- * <p>* Substitute endpoint: /iam/v3/admin/bans/reasons [GET]
+ * <p>## The endpoint is going to be deprecated ### Endpoint migration guide - **Substitute
+ * endpoint: _/iam/v3/admin/bans/reasons [GET]_**
  *
  * @deprecated
  */

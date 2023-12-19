@@ -1,7 +1,6 @@
 package net.accelbyte.sdk.core.repository;
 
-abstract public class TokenRepositoryCallback {
+public abstract class TokenRepositoryCallback {
 
-    public void onAccessTokenRefreshed(String newToken) {}
-
+  public void onAccessTokenRefreshed(String newToken) {}
 }

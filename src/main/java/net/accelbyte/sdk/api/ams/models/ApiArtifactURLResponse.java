@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.platform.models;
+package net.accelbyte.sdk.api.ams.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,25 +23,19 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class CatalogChangePagingSlicedResult extends Model {
+public class ApiArtifactURLResponse extends Model {
 
-  @JsonProperty("data")
-  private List<CatalogChangeInfo> data;
-
-  @JsonProperty("paging")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Paging paging;
+  @JsonProperty("url")
+  private String url;
 
   @JsonIgnore
-  public CatalogChangePagingSlicedResult createFromJson(String json)
-      throws JsonProcessingException {
+  public ApiArtifactURLResponse createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<CatalogChangePagingSlicedResult> createFromJsonList(String json)
+  public List<ApiArtifactURLResponse> createFromJsonList(String json)
       throws JsonProcessingException {
-    return new ObjectMapper()
-        .readValue(json, new TypeReference<List<CatalogChangePagingSlicedResult>>() {});
+    return new ObjectMapper().readValue(json, new TypeReference<List<ApiArtifactURLResponse>>() {});
   }
 }

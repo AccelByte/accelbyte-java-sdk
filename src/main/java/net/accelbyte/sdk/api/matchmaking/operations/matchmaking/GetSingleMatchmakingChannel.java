@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetSingleMatchmakingChannel
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [READ]
- *
- * <p>Required Scope: social
- *
  * <p>Reads single channel based on namespace and channel name
  *
  * <p>Action Code: 510112

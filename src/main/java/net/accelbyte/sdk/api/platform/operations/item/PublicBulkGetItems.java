@@ -46,6 +46,7 @@ public class PublicBulkGetItems extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private Boolean autoCalcEstimatedPrice;
   private String language;
   private String region;
   private String storeId;
@@ -59,8 +60,14 @@ public class PublicBulkGetItems extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public PublicBulkGetItems(
-      String namespace, String language, String region, String storeId, String itemIds) {
+      String namespace,
+      Boolean autoCalcEstimatedPrice,
+      String language,
+      String region,
+      String storeId,
+      String itemIds) {
     this.namespace = namespace;
+    this.autoCalcEstimatedPrice = autoCalcEstimatedPrice;
     this.language = language;
     this.region = region;
     this.storeId = storeId;
@@ -81,6 +88,11 @@ public class PublicBulkGetItems extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "autoCalcEstimatedPrice",
+        this.autoCalcEstimatedPrice == null
+            ? null
+            : Arrays.asList(String.valueOf(this.autoCalcEstimatedPrice)));
     queryParams.put("language", this.language == null ? null : Arrays.asList(this.language));
     queryParams.put("region", this.region == null ? null : Arrays.asList(this.region));
     queryParams.put("storeId", this.storeId == null ? null : Arrays.asList(this.storeId));
@@ -112,6 +124,7 @@ public class PublicBulkGetItems extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("autoCalcEstimatedPrice", "None");
     result.put("language", "None");
     result.put("region", "None");
     result.put("storeId", "None");

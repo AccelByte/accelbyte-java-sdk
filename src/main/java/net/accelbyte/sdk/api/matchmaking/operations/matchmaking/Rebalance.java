@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * Rebalance
  *
- * <p>Required Permission: NAMESPACE:{namespace}:MATCHMAKING:REBALANCE [Update]
- *
- * <p>Required Scope: social
- *
  * <p>Do rebalance the teams based on MMR from given matchID, consider attribute name "mmr"
  * (case-insensitive), or any first attribute with criteria "distance"
  *

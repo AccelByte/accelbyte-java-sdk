@@ -21,9 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateUserRoleV4
  *
- * <p>This endpoint requires ADMIN:NAMESPACE:{namespace}:ROLE:USER:* [UPDATE] permission.
- *
- * <p>User's roles will be replaced with roles from request body.
+ * <p>User's roles will be replaced with roles from request body. An admin user can only assign role
+ * with **assignedNamespaces** if the admin user has required permission which is same as the
+ * required permission of this endpoint.
  */
 @Getter
 @Setter

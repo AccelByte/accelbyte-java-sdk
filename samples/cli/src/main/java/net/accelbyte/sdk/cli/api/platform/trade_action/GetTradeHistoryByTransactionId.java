@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.cli.api.platform.trade_action;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.platform.models.*;
@@ -67,8 +68,11 @@ public class GetTradeHistoryByTransactionId implements Callable<Integer> {
                   .namespace(namespace)
                   .transactionId(transactionId)
                   .build();
-      wrapper.getTradeHistoryByTransactionId(operation);
-      log.info("Operation successful");
+      final TradeChainActionHistoryInfo response =
+          wrapper.getTradeHistoryByTransactionId(operation);
+      final String responseString =
+          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
+      log.info("Operation successful\n{}", responseString);
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

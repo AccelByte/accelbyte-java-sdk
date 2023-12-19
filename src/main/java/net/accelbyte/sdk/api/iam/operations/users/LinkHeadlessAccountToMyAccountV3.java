@@ -21,10 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * LinkHeadlessAccountToMyAccountV3
  *
- * <p>Note:
- *
- * <p>1. My account should be full account 2. My account not linked to headless account's third
- * platform.
+ * <p>Note: 1. My account should be full account 2. My account not linked to headless account's
+ * third platform.
  */
 @Getter
 @Setter

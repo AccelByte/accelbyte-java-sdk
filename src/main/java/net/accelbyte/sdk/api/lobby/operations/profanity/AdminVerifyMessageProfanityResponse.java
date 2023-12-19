@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminVerifyMessageProfanityResponse
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:PROFANITY [READ]` with scope `social`
- *
- * <p>verify a message directly from the UI or other services
+ * <p>Verify a message directly from the UI or other services
  */
 @Getter
 @Setter

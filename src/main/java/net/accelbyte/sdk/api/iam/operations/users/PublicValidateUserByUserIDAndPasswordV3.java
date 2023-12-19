@@ -20,12 +20,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicValidateUserByUserIDAndPasswordV3
  *
- * <p>This endpoint is used to validate the user password. Required valid user authorization and
- * valid user ID.
+ * <p>This endpoint is used to validate the user password. Require valid user ID.
  *
- * <p>Notes:
- *
- * <p>* This endpoint validate the user password by specifying the userId and password
+ * <p>Notes: - This endpoint validate the user password by specifying the userId and password
  */
 @Getter
 @Setter

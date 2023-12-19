@@ -7,7 +7,6 @@
 package net.accelbyte.sdk.integration;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import net.accelbyte.sdk.api.eventlog.models.ModelsEventResponseV2;
 import net.accelbyte.sdk.api.eventlog.models.ModelsGenericQueryPayload;

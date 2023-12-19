@@ -8,14 +8,12 @@
 
 package net.accelbyte.sdk.api.chat.models;
 
-import java.util.*;
-
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.*;
 import lombok.*;
-
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -23,44 +21,42 @@ import net.accelbyte.sdk.core.Model;
 @Getter
 @Setter
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
-@AllArgsConstructor(onConstructor=@__(@Deprecated))     
+@AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
 public class ModelsAddInboxCategoryRequest extends Model {
 
-    @JsonProperty("enabled")
-    private Boolean enabled;
+  @JsonProperty("enabled")
+  private Boolean enabled;
 
-    @JsonProperty("expiresIn")
-    private Integer expiresIn;
+  @JsonProperty("expiresIn")
+  private Integer expiresIn;
 
-    @JsonProperty("hook")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private ModelsCategoryHook hook;
+  @JsonProperty("hook")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ModelsCategoryHook hook;
 
-    @JsonProperty("jsonSchema")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private Map<String, ?> jsonSchema;
+  @JsonProperty("jsonSchema")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> jsonSchema;
 
-    @JsonProperty("name")
-    private String name;
+  @JsonProperty("name")
+  private String name;
 
-    @JsonProperty("saveInbox")
-    private Boolean saveInbox;
+  @JsonProperty("saveInbox")
+  private Boolean saveInbox;
 
-    @JsonProperty("sendNotification")
-    private Boolean sendNotification;
+  @JsonProperty("sendNotification")
+  private Boolean sendNotification;
 
+  @JsonIgnore
+  public ModelsAddInboxCategoryRequest createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsAddInboxCategoryRequest createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsAddInboxCategoryRequest> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsAddInboxCategoryRequest>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsAddInboxCategoryRequest> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsAddInboxCategoryRequest>>() {});
+  }
 }

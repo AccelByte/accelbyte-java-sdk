@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDeleteClientPermissionV3
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:CLIENT [UPDATE]' action code : 10304
+ * <p>action code : 10304
  */
 @Getter
 @Setter

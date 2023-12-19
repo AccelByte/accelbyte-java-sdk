@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * sendSpecificUserFreeformNotificationV1Admin
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:NOTIFICATION [CREATE]` with scope `social`
- *
  * <p>Sends notification to a user. Action Code: 50211
  */
 @Getter

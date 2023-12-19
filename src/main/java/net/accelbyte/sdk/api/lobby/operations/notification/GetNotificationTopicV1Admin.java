@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getNotificationTopicV1Admin
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:NOTIFICATION [READ]` with scope `social`
- *
- * <p>get topic information by topic name.
+ * <p>Get topic information by topic name.
  *
  * <p>Action Code: 50215
  */

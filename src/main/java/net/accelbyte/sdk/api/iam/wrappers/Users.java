@@ -1500,6 +1500,16 @@ public class Users {
   }
 
   /**
+   * @see PublicGetUsersPlatformInfosV3
+   */
+  public ModelUsersPlatformInfosResponse publicGetUsersPlatformInfosV3(
+      PublicGetUsersPlatformInfosV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see ResetPasswordV3
    */
   public void resetPasswordV3(ResetPasswordV3 input) throws Exception {

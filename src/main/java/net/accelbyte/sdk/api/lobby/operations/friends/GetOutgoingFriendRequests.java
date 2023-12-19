@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * get outgoing friend requests
  *
- * <p>Required permission : `NAMESPACE:{namespace}:USER:{userId}:FRIENDS [READ]` with scope `social`
- *
- * <p>get list of outgoing friend requests in a namespace.
+ * <p>Get list of outgoing friend requests in a namespace.
  */
 @Getter
 @Setter

@@ -21,13 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetUserInformation
  *
- * <p>## The endpoint is going to be deprecated
- *
- * <p>Endpoint migration guide
- *
- * <p>* Substitute endpoint: /iam/v3/public/namespaces/{namespace}/users/{userId}/information [GET]
- *
- * <p>Required permissions 'NAMESPACE:{namespace}:INFORMATION:USER:{userId} [READ]'.
+ * <p>## The endpoint is going to be deprecated ### Endpoint migration guide - **Substitute
+ * endpoint: _/iam/v3/public/namespaces/{namespace}/users/{userId}/information [GET]_**
  *
  * @deprecated
  */

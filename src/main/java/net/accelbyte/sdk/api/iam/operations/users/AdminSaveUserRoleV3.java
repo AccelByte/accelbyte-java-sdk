@@ -21,12 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminSaveUserRoleV3
  *
- * <p>This endpoint requires ADMIN:NAMESPACE:{namespace}:ROLE:USER:{userId} [UPDATE] permission.
- *
- * <p>User's roles will be updated with given roles (replacing current user's role). Request body
- * need to specify allowed namespace for given role to support new role restriction. Skipped the
- * check whether the user performing the request is a role manager / assigner since there is a plan
- * to discard the role manager / assigner.
+ * <p>User's roles will be replaced with roles from request body. An admin user can only assign role
+ * with **namespace** (in request body) if the admin user has required permission which is same as
+ * the required permission of endpoint: [AdminAddUserRoleV4].
  */
 @Getter
 @Setter

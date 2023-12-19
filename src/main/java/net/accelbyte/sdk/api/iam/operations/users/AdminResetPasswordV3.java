@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminResetPasswordV3
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:PASSWORD:USER:{userId} [UPDATE]'
+ * <p>Update User Password
  */
 @Getter
 @Setter

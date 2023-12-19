@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * ticketStatistic
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:TICKET [READ]
+ * <p>Ticket statistic can be filtered by: - category - extension category
  */
 @Getter
 @Setter

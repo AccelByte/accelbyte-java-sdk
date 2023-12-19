@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * ImportChannels
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Update]
- *
- * <p>Required Scope: social
- *
  * <p>Import channels configuration from file. It will merge with existing channels. Available
  * import strategy: - leaveOut: if channel with same key exist, the existing will be used and
  * imported one will be ignored (default) - replace: if channel with same key exist, the imported

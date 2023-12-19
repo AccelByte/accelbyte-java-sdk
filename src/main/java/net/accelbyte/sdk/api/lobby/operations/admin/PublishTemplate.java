@@ -20,8 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publishTemplate
  *
- * <p>Required permission : `NAMESPACE:{namespace}:TEMPLATE [CREATE]` with scope `social`
- *
  * <p>Publish notification template draft. Empty draft can not be published.
  */
 @Getter

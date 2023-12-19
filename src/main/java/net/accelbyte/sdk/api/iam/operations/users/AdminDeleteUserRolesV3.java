@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDeleteUserRolesV3
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:ROLE:USER:{userId} [DELETE]'
+ * <p>Delete User Roles
  */
 @Getter
 @Setter

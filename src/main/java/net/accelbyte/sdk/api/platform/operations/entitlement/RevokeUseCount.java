@@ -21,11 +21,15 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * revokeUseCount
  *
- * <p>Revoke specified use count of user entitlement. Other detail info:
+ * <p>Revoke specified use count of user entitlement. please use /{entitlementId}/revoke/byUseCount
+ * endpoint instead of this endpoint Other detail info:
  *
  * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT",
  * action=4 (UPDATE) * Returns : revoke entitlement
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class RevokeUseCount extends Operation {

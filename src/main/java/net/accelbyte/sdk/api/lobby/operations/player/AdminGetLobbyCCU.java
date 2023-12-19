@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminGetLobbyCCU
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:LOBBY:CCU [READ]` with scope `social`
- *
  * <p>Get the number of players connected to the Lobby in the given namespace.
  */
 @Getter

@@ -22,8 +22,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * UpdateThirdPartyLoginPlatformDomainV3
  *
  * <p>This is the API to set 3rd Platform domain.
- *
- * <p>It needs ADMIN:NAMESPACE:{namespace}:CLIENTDOMAIN [UPDATE] resource.
  */
 @Getter
 @Setter

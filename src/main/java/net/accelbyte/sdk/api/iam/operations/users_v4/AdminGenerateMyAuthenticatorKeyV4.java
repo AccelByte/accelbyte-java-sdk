@@ -23,8 +23,6 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>This endpoint is used to generate a secret key for 3rd-party authenticator app. A QR code URI
  * is also returned so that frontend can generate QR code image.
- *
- * <p>This endpoint Requires valid user access token
  */
 @Getter
 @Setter

@@ -21,10 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * addFriendsWithoutConfirmation
  *
- * <p>Required permission : `NAMESPACE:{namespace}:USER:{userId}:FRIENDS [CREATE]` with scope
- * `social`
- *
- * <p>friends request in a namespace.
+ * <p>Friends request in a namespace.
  */
 @Getter
 @Setter

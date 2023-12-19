@@ -46,9 +46,9 @@ public class DebitByWalletPlatform implements Callable<Integer> {
   String userId;
 
   @Option(
-      names = {"--body"},
-      description = "body")
-  String body;
+      names = {"--request"},
+      description = "request")
+  String request;
 
   @Option(
       names = {"--logging"},
@@ -76,7 +76,7 @@ public class DebitByWalletPlatform implements Callable<Integer> {
               .currencyCode(currencyCode)
               .namespace(namespace)
               .userId(userId)
-              .body(new ObjectMapper().readValue(body, DebitByWalletPlatformRequest.class))
+              .request(new ObjectMapper().readValue(request, DebitByWalletPlatformRequest.class))
               .build();
       final PlatformWallet response = wrapper.debitByWalletPlatform(operation);
       final String responseString =

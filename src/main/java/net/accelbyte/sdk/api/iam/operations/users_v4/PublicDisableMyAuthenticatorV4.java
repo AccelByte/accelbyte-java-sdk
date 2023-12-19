@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * PublicDisableMyAuthenticatorV4
  *
  * <p>This endpoint is used to disable 2FA authenticator.
- *
- * <p>This endpoint Requires valid user access token
  */
 @Getter
 @Setter

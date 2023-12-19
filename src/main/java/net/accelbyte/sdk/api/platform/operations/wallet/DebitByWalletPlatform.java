@@ -53,22 +53,23 @@ public class DebitByWalletPlatform extends Operation {
 
   private String namespace;
   private String userId;
-  private DebitByWalletPlatformRequest body;
+  private DebitByWalletPlatformRequest request;
 
   /**
    * @param currencyCode required
    * @param namespace required
    * @param userId required
+   * @param request required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public DebitByWalletPlatform(
-      String currencyCode, String namespace, String userId, DebitByWalletPlatformRequest body) {
+      String currencyCode, String namespace, String userId, DebitByWalletPlatformRequest request) {
     this.currencyCode = currencyCode;
     this.namespace = namespace;
     this.userId = userId;
-    this.body = body;
+    this.request = request;
 
     securities.add("Bearer");
   }
@@ -90,7 +91,7 @@ public class DebitByWalletPlatform extends Operation {
 
   @Override
   public DebitByWalletPlatformRequest getBodyParams() {
-    return this.body;
+    return this.request;
   }
 
   @Override

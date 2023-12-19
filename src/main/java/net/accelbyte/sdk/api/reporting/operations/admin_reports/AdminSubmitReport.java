@@ -21,17 +21,15 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminSubmitReport
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:TICKET [CREATE] Submit a report and will
- * return ticket for reported object. New ticket will be created if no OPEN ticket present for
- * reported object (based by objectId and objectType) in a namespace.
+ * <p>Submit a report and will return ticket for reported object. New ticket will be created if no
+ * OPEN ticket present for reported object (based by objectId and objectType) in a namespace.
  *
  * <p>Admin can only submit report once for each different user / object reported in the same OPEN
  * ticket. Reporting the same user / object in the same OPEN ticket will return HTTP code 409
  * (conflict).
  *
- * <p>Fill the 'reason' field with a 'reason title' Supported category:
- *
- * <p>* UGC * USER * CHAT * EXTENSION
+ * <p>Fill the 'reason' field with a 'reason title' Supported category: - UGC - USER - CHAT -
+ * EXTENSION
  */
 @Getter
 @Setter

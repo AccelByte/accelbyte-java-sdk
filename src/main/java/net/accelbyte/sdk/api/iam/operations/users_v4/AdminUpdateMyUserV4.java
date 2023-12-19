@@ -21,16 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateMyUserV4
  *
- * <p>Requires valid user access token
- *
- * <p>This Endpoint support update user based on given data. Single request can update single field
- * or multi fields.
- *
- * <p>Supported field {country, displayName, languageTag, dateOfBirth, userName}
- *
- * <p>Country use ISO3166-1 alpha-2 two letter, e.g. US.
- *
- * <p>Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
+ * <p>This Endpoint support update user based on given data. **Single request can update single
+ * field or multi fields.** Supported field {country, displayName, languageTag, dateOfBirth,
+ * avatarUrl, userName} Country use ISO3166-1 alpha-2 two letter, e.g. US. Date of Birth format :
+ * YYYY-MM-DD, e.g. 2019-04-29.
  *
  * <p>action code : 10103
  */

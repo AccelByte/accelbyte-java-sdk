@@ -41,6 +41,11 @@ public class PublicQueryItems implements Callable<Integer> {
   String appType;
 
   @Option(
+      names = {"--autoCalcEstimatedPrice"},
+      description = "autoCalcEstimatedPrice")
+  Boolean autoCalcEstimatedPrice;
+
+  @Option(
       names = {"--baseAppId"},
       description = "baseAppId")
   String baseAppId;
@@ -125,6 +130,7 @@ public class PublicQueryItems implements Callable<Integer> {
           net.accelbyte.sdk.api.platform.operations.item.PublicQueryItems.builder()
               .namespace(namespace)
               .appType(appType)
+              .autoCalcEstimatedPrice(autoCalcEstimatedPrice)
               .baseAppId(baseAppId)
               .categoryPath(categoryPath)
               .features(features)

@@ -22,8 +22,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminGetUnusedReasons
  *
  * <p>This endpoint get reasons not used by moderation rules.
- *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:REASON [READ]
  */
 @Getter
 @Setter

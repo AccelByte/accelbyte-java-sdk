@@ -21,12 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminAddUserRoleV4
  *
- * <p>This endpoint requires ADMIN:NAMESPACE:{namespace}:ROLE:USER:* [UPDATE] permission.
- *
- * <p>New role will be appended to user's current roles. Request body need to specify allowed
- * namespace for given role to support new role restriction. Skipped the check whether the user
- * performing the request is a role manager / assigner since there is a plan to discard the role
- * manager / assigner.
+ * <p>New role will be appended to user's current roles. An admin user can only assign role with
+ * **assignedNamespaces** if the admin user has required permission which is same as the required
+ * permission of this endpoint.
  */
 @Getter
 @Setter

@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetStatData
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Read]
- *
- * <p>Required Scope: social
- *
  * <p>Get a channel's stat data (mean, stddev, min, max) according to the stats collected from
  * statistics service. '
  */

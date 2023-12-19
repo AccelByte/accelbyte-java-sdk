@@ -21,9 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminUpdateThirdPartyConfig
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:THIRDPARTY:CONFIG [UPDATE]` with scope
- * `social`
- *
  * <p>Update third party config in a namespace.
  */
 @Getter

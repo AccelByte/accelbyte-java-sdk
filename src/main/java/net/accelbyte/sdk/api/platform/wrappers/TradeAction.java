@@ -33,19 +33,20 @@ public class TradeAction {
   /**
    * @see GetTradeHistoryByCriteria
    */
-  public void getTradeHistoryByCriteria(GetTradeHistoryByCriteria input) throws Exception {
+  public TradeActionPagingSlicedResult getTradeHistoryByCriteria(GetTradeHistoryByCriteria input)
+      throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
-    input.handleEmptyResponse(
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
    * @see GetTradeHistoryByTransactionId
    */
-  public void getTradeHistoryByTransactionId(GetTradeHistoryByTransactionId input)
-      throws Exception {
+  public TradeChainActionHistoryInfo getTradeHistoryByTransactionId(
+      GetTradeHistoryByTransactionId input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
-    input.handleEmptyResponse(
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 }

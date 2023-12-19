@@ -6,14 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.social.stat_configuration;
+package net.accelbyte.sdk.cli.api.iam.o_auth2_0;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.File;
 import java.util.*;
 import java.util.concurrent.Callable;
-import net.accelbyte.sdk.api.social.models.*;
-import net.accelbyte.sdk.api.social.wrappers.StatConfiguration;
+import net.accelbyte.sdk.api.iam.models.*;
+import net.accelbyte.sdk.api.iam.wrappers.OAuth20;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -26,25 +25,30 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "importStatCycle", mixinStandardHelpOptions = true)
-public class ImportStatCycle implements Callable<Integer> {
+@Command(name = "simultaneousLoginV3", mixinStandardHelpOptions = true)
+public class SimultaneousLoginV3 implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(ImportStatCycle.class);
-
-  @Option(
-      names = {"--namespace"},
-      description = "namespace")
-  String namespace;
+  private static final Logger log = LogManager.getLogger(SimultaneousLoginV3.class);
 
   @Option(
-      names = {"--replaceExisting"},
-      description = "replaceExisting")
-  Boolean replaceExisting;
+      names = {"--simultaneousPlatform"},
+      description = "simultaneousPlatform")
+  String simultaneousPlatform;
 
   @Option(
-      names = {"--file"},
-      description = "file")
-  File file;
+      names = {"--simultaneousTicket"},
+      description = "simultaneousTicket")
+  String simultaneousTicket;
+
+  @Option(
+      names = {"--nativePlatform"},
+      description = "nativePlatform")
+  String nativePlatform;
+
+  @Option(
+      names = {"--nativePlatformTicket"},
+      description = "nativePlatformTicket")
+  String nativePlatformTicket;
 
   @Option(
       names = {"--logging"},
@@ -52,7 +56,7 @@ public class ImportStatCycle implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new ImportStatCycle()).execute(args);
+    int exitCode = new CommandLine(new SimultaneousLoginV3()).execute(args);
     System.exit(exitCode);
   }
 
@@ -66,14 +70,15 @@ public class ImportStatCycle implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final StatConfiguration wrapper = new StatConfiguration(sdk);
-      final net.accelbyte.sdk.api.social.operations.stat_configuration.ImportStatCycle operation =
-          net.accelbyte.sdk.api.social.operations.stat_configuration.ImportStatCycle.builder()
-              .namespace(namespace)
-              .replaceExisting(replaceExisting)
-              .file(file != null ? file : null)
+      final OAuth20 wrapper = new OAuth20(sdk);
+      final net.accelbyte.sdk.api.iam.operations.o_auth2_0.SimultaneousLoginV3 operation =
+          net.accelbyte.sdk.api.iam.operations.o_auth2_0.SimultaneousLoginV3.builder()
+              .simultaneousPlatform(simultaneousPlatform != null ? simultaneousPlatform : null)
+              .simultaneousTicket(simultaneousTicket != null ? simultaneousTicket : null)
+              .nativePlatform(nativePlatform != null ? nativePlatform : null)
+              .nativePlatformTicket(nativePlatformTicket != null ? nativePlatformTicket : null)
               .build();
-      final StatImportInfo response = wrapper.importStatCycle(operation);
+      final OauthmodelTokenResponseV3 response = wrapper.simultaneousLoginV3(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

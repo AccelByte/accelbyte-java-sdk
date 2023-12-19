@@ -20,8 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteThirdPartyLoginPlatformCredentialV3
  *
- * <p>This is the API to Delete 3rd Platform Credential. It needs
- * ADMIN:NAMESPACE:{namespace}:PLATFORM:{platformId}:CLIENT [DELETE] resource
+ * <p>This is the API to Delete 3rd Platform Credential.
  */
 @Getter
 @Setter

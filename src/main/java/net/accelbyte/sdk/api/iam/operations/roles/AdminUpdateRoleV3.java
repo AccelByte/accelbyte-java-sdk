@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateRoleV3
  *
- * <p>Required permission 'ADMIN:ROLE [UPDATE]'
- *
  * <p>Update role request body: - roleName: specify role name, alphanumeric, cannot have special
  * character (required) - isWildcard: specify if role can be assigned to wildcard (*) namespace
  * (default false) - deletable: specify if role can be deleted or not (optional)

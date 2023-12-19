@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminGetGlobalConfig
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:LOBBY:CONFIG [READ]` with scope `social`
- * get dsmc global configuration.
+ * <p>Get dsmc global configuration.
  */
 @Getter
 @Setter

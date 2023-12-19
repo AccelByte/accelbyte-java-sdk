@@ -21,25 +21,15 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * createModerationRule
  *
- * <p>This endpoint create moderation rule.
- *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:RULE [CREATE]
- *
- * <p>Supported Category:
- *
- * <p>* UGC * USER * CHAT * EXTENSION
- *
- * <p>Supported Action (GOING TO DEPRECATE, for replacement please use "actions"):
+ * <p>This endpoint create moderation rule. Supported Category: - UGC - USER - CHAT - EXTENSION
+ * Supported Action (GOING TO DEPRECATE, for replacement please use "actions"):
  *
  * <p>* HideContent
  *
  * <p>Supported Actions:
  *
- * <p>* hideContent : Hide the content
- *
- * <p>* banAccount : Ban the user account
- *
- * <p>* deleteChat : Delete chat
+ * <p>* **hideContent**: Hide the content * **banAccount**: Ban the user account * **deleteChat**:
+ * Delete chat
  */
 @Getter
 @Setter

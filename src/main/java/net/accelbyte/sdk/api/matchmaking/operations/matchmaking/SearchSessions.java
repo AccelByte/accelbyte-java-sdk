@@ -28,10 +28,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>* Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/history/search
  * [GET]
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Read]
- *
- * <p>Required Scope: social
- *
  * <p>Search sessions.
  *
  * @deprecated

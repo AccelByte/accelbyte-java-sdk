@@ -21,25 +21,11 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateModerationRule
  *
- * <p>This endpoint update moderation rule.
+ * <p>This endpoint update moderation rule. Supported Category:- UGC - USER - CHAT - EXTENSION
+ * Supported Action (GOING TO DEPRECATE, for replacement please use "actions"): * HideContent
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:RULE [UPDATE]
- *
- * <p>Supported Category:
- *
- * <p>* UGC * USER * CHAT * EXTENSION
- *
- * <p>Supported Action (GOING TO DEPRECATE, for replacement please use "actions"):
- *
- * <p>* HideContent
- *
- * <p>Supported Actions:
- *
- * <p>* hideContent : Hide the content
- *
- * <p>* banAccount : Ban the user account
- *
- * <p>* deleteChat : Delete chat
+ * <p>Supported Actions: * **hideContent**: Hide the content * **banAccount**: Ban the user account
+ * * **deleteChat**: Delete chat
  */
 @Getter
 @Setter

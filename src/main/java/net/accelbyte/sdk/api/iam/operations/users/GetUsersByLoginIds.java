@@ -21,17 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetUsersByLoginIds
  *
- * <p>## The endpoint is going to be deprecated
- *
- * <p>Endpoint migration guide
- *
- * <p>* Substitute endpoint(query by email list):
- * /iam/v3/public/namespaces/{namespace}/users/bulk/basic [POST]
- *
- * <p>* Substitute endpoint(query by user id list):
- * /iam/v3/admin/namespaces/{namespace}/users/search/bulk [POST]
- *
- * <p>Required permission 'NAMESPACE:{namespace}:USER [READ]'
+ * <p>## The endpoint is going to be deprecated ### Endpoint migration guide - **Substitute
+ * endpoint(query by email list): _/iam/v3/public/namespaces/{namespace}/users/bulk/basic [POST]_**
+ * - **Substitute endpoint(query by user id list):
+ * _/iam/v3/admin/namespaces/{namespace}/users/search/bulk [POST]_**
  *
  * @deprecated
  */

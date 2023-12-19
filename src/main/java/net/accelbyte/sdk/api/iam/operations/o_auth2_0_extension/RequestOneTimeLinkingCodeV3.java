@@ -22,57 +22,12 @@ import net.accelbyte.sdk.core.util.Helper;
  * RequestOneTimeLinkingCodeV3
  *
  * <p>This endpoint is being used to request the one time code [8 length] for headless account to
- * link or upgrade to a full account.
- *
- * <p>It requires a valid user token.
- *
- * <p>Should specify the target platform id and current user should already linked to this platform.
- *
- * <p>Current user should be a headless account.
- *
- * <p>## Supported platforms:
- *
- * <p>* steam
- *
- * <p>* steamopenid
- *
- * <p>* facebook
- *
- * <p>* google
- *
- * <p>* oculus
- *
- * <p>* twitch
- *
- * <p>* discord
- *
- * <p>* android
- *
- * <p>* ios
- *
- * <p>* apple
- *
- * <p>* device
- *
- * <p>* justice
- *
- * <p>* epicgames
- *
- * <p>* ps4
- *
- * <p>* ps5
- *
- * <p>* nintendo
- *
- * <p>* awscognito
- *
- * <p>* live
- *
- * <p>* xblweb
- *
- * <p>* netflix
- *
- * <p>* snapchat
+ * link or upgrade to a full account. Should specify the target platform id and current user should
+ * already linked to this platform. Current user should be a headless account. ## Supported
+ * platforms: - **steam** - **steamopenid** - **facebook** - **google** - **oculus** - **twitch** -
+ * **discord** - **android** - **ios** - **apple** - **device** - **justice** - **epicgames** -
+ * **ps4** - **ps5** - **nintendo** - **awscognito** - **live** - **xblweb** - **netflix** -
+ * **snapchat**
  */
 @Getter
 @Setter

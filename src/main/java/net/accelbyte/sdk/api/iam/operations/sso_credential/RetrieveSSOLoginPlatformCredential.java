@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * RetrieveSSOLoginPlatformCredential
  *
- * <p>This is the API to Get SSO Platform Credential. It needs
- * ADMIN:NAMESPACE:{namespace}:PLATFORM:{platformId}:SSO [READ] resource
+ * <p>This is the API to Get SSO Platform Credential.
  */
 @Getter
 @Setter

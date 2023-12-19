@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminSetProfanityRuleForNamespace
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:PROFANITY [UPDATE]` with scope `social`
- *
- * <p>set current profanity rule
+ * <p>Set current profanity rule
  */
 @Getter
 @Setter

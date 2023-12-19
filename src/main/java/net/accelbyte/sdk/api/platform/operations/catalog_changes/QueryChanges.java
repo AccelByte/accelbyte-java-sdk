@@ -55,6 +55,7 @@ public class QueryChanges extends Operation {
   private String type;
   private String updatedAtEnd;
   private String updatedAtStart;
+  private Boolean withTotal;
 
   /**
    * @param namespace required
@@ -76,7 +77,8 @@ public class QueryChanges extends Operation {
       String status,
       String type,
       String updatedAtEnd,
-      String updatedAtStart) {
+      String updatedAtStart,
+      Boolean withTotal) {
     this.namespace = namespace;
     this.storeId = storeId;
     this.action = action;
@@ -90,6 +92,7 @@ public class QueryChanges extends Operation {
     this.type = type;
     this.updatedAtEnd = updatedAtEnd;
     this.updatedAtStart = updatedAtStart;
+    this.withTotal = withTotal;
 
     securities.add("Bearer");
   }
@@ -124,6 +127,8 @@ public class QueryChanges extends Operation {
         "updatedAtEnd", this.updatedAtEnd == null ? null : Arrays.asList(this.updatedAtEnd));
     queryParams.put(
         "updatedAtStart", this.updatedAtStart == null ? null : Arrays.asList(this.updatedAtStart));
+    queryParams.put(
+        "withTotal", this.withTotal == null ? null : Arrays.asList(String.valueOf(this.withTotal)));
     return queryParams;
   }
 
@@ -138,14 +143,14 @@ public class QueryChanges extends Operation {
     return true;
   }
 
-  public CatalogChangePagingSlicedResult parseResponse(
-      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
+  public CatalogChangePagingResult parseResponse(int code, String contentType, InputStream payload)
+      throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new CatalogChangePagingSlicedResult().createFromJson(json);
+    return new CatalogChangePagingResult().createFromJson(json);
   }
 
   @Override
@@ -162,6 +167,7 @@ public class QueryChanges extends Operation {
     result.put("type", "None");
     result.put("updatedAtEnd", "None");
     result.put("updatedAtStart", "None");
+    result.put("withTotal", "None");
     return result;
   }
 

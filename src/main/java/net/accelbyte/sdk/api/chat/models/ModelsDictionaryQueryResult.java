@@ -8,14 +8,12 @@
 
 package net.accelbyte.sdk.api.chat.models;
 
-import java.util.*;
-
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.*;
 import lombok.*;
-
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -23,30 +21,28 @@ import net.accelbyte.sdk.core.Model;
 @Getter
 @Setter
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
-@AllArgsConstructor(onConstructor=@__(@Deprecated))     
+@AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
 public class ModelsDictionaryQueryResult extends Model {
 
-    @JsonProperty("data")
-    private List<ModelsDictionaryWithChildren> data;
+  @JsonProperty("data")
+  private List<ModelsDictionaryWithChildren> data;
 
-    @JsonProperty("next")
-    private String next;
+  @JsonProperty("next")
+  private String next;
 
-    @JsonProperty("previous")
-    private String previous;
+  @JsonProperty("previous")
+  private String previous;
 
+  @JsonIgnore
+  public ModelsDictionaryQueryResult createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsDictionaryQueryResult createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsDictionaryQueryResult> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsDictionaryQueryResult>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsDictionaryQueryResult> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsDictionaryQueryResult>>() {});
+  }
 }

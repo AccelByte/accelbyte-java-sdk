@@ -18,11 +18,7 @@ import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
-/**
- * getReasonGroup
- *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:REASON [READ]
- */
+/** getReasonGroup */
 @Getter
 @Setter
 public class GetReasonGroup extends Operation {

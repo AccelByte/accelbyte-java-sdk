@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UpdateMatchmakingChannel
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Update]
- *
- * <p>Required Scope: social
- *
  * <p>Update channel based on namespace and channel name
  *
  * <p>Action Code: 510111

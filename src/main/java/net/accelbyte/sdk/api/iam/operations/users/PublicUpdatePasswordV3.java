@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicUpdatePasswordV3
  *
- * <p>Required valid user authorization. action code: 10107
+ * <p>action code: 10107
  */
 @Getter
 @Setter

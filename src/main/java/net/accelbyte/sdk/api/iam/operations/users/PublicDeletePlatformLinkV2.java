@@ -20,43 +20,17 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicDeletePlatformLinkV2
  *
- * <p>## The endpoint is going to be deprecated
+ * <p>## The endpoint is going to be deprecated **Endpoint migration guide** - **Substitute
+ * endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId} [DELETE]_** -
+ * **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}/all
+ * [DELETE]_**
  *
- * <p>Endpoint migration guide
- *
- * <p>* Substitute endpoint: /iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}
- * [DELETE]
- *
- * <p>* Substitute endpoint:
- * /iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}/all [DELETE]
- *
- * <p>## Supported platforms:
- *
- * <p>* steam
- *
- * <p>* steamopenid
- *
- * <p>* facebook
- *
- * <p>* google
- *
- * <p>* oculus
- *
- * <p>* twitch
- *
- * <p>* android
- *
- * <p>* ios
- *
- * <p>* device
- *
- * <p>* discord
+ * <p>## Supported platforms: - **steam** - **steamopenid** - **facebook** - **google** - **oculus**
+ * - **twitch** - **android** - **ios** - **device** - **discord**
  *
  * <p>Delete link of user's account with platform. 'justice' platform might have multiple accounts
  * from different namespaces linked. platform_namespace need to be specified when the platform ID is
- * 'justice'.
- *
- * <p>Delete link of justice platform will enable password token grant and password update.
+ * 'justice'. Delete link of justice platform will enable password token grant and password update.
  *
  * @deprecated
  */

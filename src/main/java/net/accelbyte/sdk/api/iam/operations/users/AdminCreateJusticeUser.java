@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminCreateJusticeUser
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:USER:{userId} [CREATE]
- *
  * <p>Create Justice User from Publisher User information. It will check first if Justice User on
  * target namespace already exist.
  */

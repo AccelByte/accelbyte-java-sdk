@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.ams.models;
+package net.accelbyte.sdk.api.cloudsave.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,24 +23,27 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ApiArtifactSamplingRuleResponse extends Model {
+public class ModelsBulkUpdatePlayerRecordResponse extends Model {
 
-  @JsonProperty("collect")
-  private Boolean collect;
+  @JsonProperty("detail")
+  private Map<String, ?> detail;
 
-  @JsonProperty("percentage")
-  private Float percentage;
+  @JsonProperty("key")
+  private String key;
+
+  @JsonProperty("success")
+  private Boolean success;
 
   @JsonIgnore
-  public ApiArtifactSamplingRuleResponse createFromJson(String json)
+  public ModelsBulkUpdatePlayerRecordResponse createFromJson(String json)
       throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ApiArtifactSamplingRuleResponse> createFromJsonList(String json)
+  public List<ModelsBulkUpdatePlayerRecordResponse> createFromJsonList(String json)
       throws JsonProcessingException {
     return new ObjectMapper()
-        .readValue(json, new TypeReference<List<ApiArtifactSamplingRuleResponse>>() {});
+        .readValue(json, new TypeReference<List<ModelsBulkUpdatePlayerRecordResponse>>() {});
   }
 }

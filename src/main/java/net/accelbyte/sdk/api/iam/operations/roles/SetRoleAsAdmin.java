@@ -20,17 +20,12 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * SetRoleAsAdmin
  *
- * <p>## The endpoint is going to be deprecated
- *
- * <p>Required permission 'ROLE:ADMIN [UPDATE]' or 'ADMIN:ROLE [UPDATE]'
- *
- * <p>Admin roles has its members listed in the role.
+ * <p>## The endpoint is going to be deprecated Admin roles has its members listed in the role.
  *
  * <p>Role can be set as admin role only when it has at least 1 manager.
  *
- * <p>Endpoint migration guide
- *
- * <p>* Substitute endpoint: /iam/v3/admin/roles/{roleId}/admin [POST]
+ * <p>### Endpoint migration guide - **Substitute endpoint: _/iam/v3/admin/roles/{roleId}/admin
+ * [POST]_**
  *
  * @deprecated
  */

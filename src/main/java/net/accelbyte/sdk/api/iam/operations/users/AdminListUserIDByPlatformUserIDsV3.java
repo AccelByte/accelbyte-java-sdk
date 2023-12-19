@@ -21,11 +21,11 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminListUserIDByPlatformUserIDsV3
  *
- * <p>Admin List User ID By Platform User ID Required permission 'ADMIN:NAMESPACE:{namespace}:USER
- * [READ]' This endpoint intended to list game user ID from the given namespace This endpoint return
- * list of user ID by given platform ID and list of platform user ID
+ * <p>Admin List User ID By Platform User ID This endpoint intended to list game user ID from the
+ * given namespace This endpoint return list of user ID by given platform ID and list of platform
+ * user ID
  *
- * <p>nintendo platform user ID : NSA ID need to be appended with Environment ID using colon as
+ * <p>**nintendo platform user ID**: NSA ID need to be appended with Environment ID using colon as
  * separator. e.g kmzwa8awaa:dd1
  */
 @Getter

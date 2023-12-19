@@ -21,14 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminBulkGetUsersPlatform
  *
- * <p>Notes:
- *
- * <p>* Required permission 'ADMIN:NAMESPACE:{namespace}:USER [READ]'
- *
- * <p>* This endpoint bulk get users' basic info by userId, max allowed 100 at a time
- *
- * <p>* If namespace is game, will search by game user Id, other wise will search by publisher
- * namespace
+ * <p>Notes: - This endpoint bulk get users' basic info by userId, max allowed 100 at a time - If
+ * namespace is game, will search by game user Id, other wise will search by publisher namespace
  */
 @Getter
 @Setter

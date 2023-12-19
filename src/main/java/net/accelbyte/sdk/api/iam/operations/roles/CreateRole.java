@@ -21,20 +21,14 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateRole
  *
- * <p>## The endpoint is going to be deprecated
- *
- * <p>Required permission 'ROLE:ADMIN [CREATE]' or 'ADMIN:ROLE [CREATE]'
- *
- * <p>Role can only be assigned to other users by the role's manager.
+ * <p>## The endpoint is going to be deprecated Role can only be assigned to other users by the
+ * role's manager.
  *
  * <p>If role is an administrator role (i.e. AdminRole == true), it will list out the role's
  * members.
  *
- * <p>Administrator role can be created only when at least 1 manager is specified.
- *
- * <p>Endpoint migration guide
- *
- * <p>* Substitute endpoint: /iam/v3/admin/roles [POST]
+ * <p>Administrator role can be created only when at least 1 manager is specified. ### Endpoint
+ * migration guide - **Substitute endpoint: _/iam/v3/admin/roles [POST]_**
  *
  * @deprecated
  */

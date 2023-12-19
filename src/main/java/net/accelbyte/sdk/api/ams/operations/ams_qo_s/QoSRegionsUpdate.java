@@ -18,7 +18,13 @@ import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
-/** QoSRegionsUpdate */
+/**
+ * QoSRegionsUpdate
+ *
+ * <p>``` Required Permission: ADMIN:NAMESPACE:{namespace}:QOS:SERVER [UPDATE]
+ *
+ * <p>This endpoint updates the registered QoS service's configurable configuration.
+ */
 @Getter
 @Setter
 public class QoSRegionsUpdate extends Operation {

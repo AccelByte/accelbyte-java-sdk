@@ -21,8 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetBannedUsersV3
  *
- * <p>Required permission 'ADMIN:BAN [READ]' Ban type is the code available for ban assignment. It
- * is applicable globally for any namespace. action code : 10201
+ * <p>Ban type is the code available for ban assignment. It is applicable globally for any
+ * namespace. action code : 10201
  */
 @Getter
 @Setter

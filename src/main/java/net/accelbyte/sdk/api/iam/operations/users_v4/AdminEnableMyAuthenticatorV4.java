@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * AdminEnableMyAuthenticatorV4
  *
  * <p>This endpoint is used to enable 2FA authenticator.
- *
- * <p>This endpoint Requires valid user access token
  */
 @Getter
 @Setter

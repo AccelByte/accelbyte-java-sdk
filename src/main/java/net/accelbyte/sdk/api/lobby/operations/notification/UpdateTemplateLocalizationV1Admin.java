@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateTemplateLocalizationV1Admin
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:NOTIFICATION [UPDATE]` with scope `social`
- *
- * <p>update template localization
+ * <p>Update template localization
  *
  * <p>Action Code: 50208
  */

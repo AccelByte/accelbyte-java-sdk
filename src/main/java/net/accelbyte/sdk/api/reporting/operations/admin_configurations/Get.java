@@ -21,9 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * Get
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:REPORTINGCONFIG [READ] TimeInterval is in
- * nanoseconds. When there's no configuration set, the response is the default value (configurable
- * through envar).
+ * <p>TimeInterval is in nanoseconds. When there's no configuration set, the response is the default
+ * value (configurable through envar).
  */
 @Getter
 @Setter

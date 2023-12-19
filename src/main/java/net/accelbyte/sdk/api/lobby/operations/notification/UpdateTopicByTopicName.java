@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateTopicByTopicName
  *
- * <p>Required permission : `NAMESPACE:{namespace}:TOPIC [UPDATE]` with scope `social`
- *
  * <p>update topic information by topic name.
  *
  * <p>topic should be alphabets, no special char except underscore, uppercase and no spacing. for

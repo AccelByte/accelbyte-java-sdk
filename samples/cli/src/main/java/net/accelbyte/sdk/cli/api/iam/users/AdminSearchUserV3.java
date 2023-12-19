@@ -81,6 +81,11 @@ public class AdminSearchUserV3 implements Callable<Integer> {
   String startDate;
 
   @Option(
+      names = {"--testAccount"},
+      description = "testAccount")
+  Boolean testAccount;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -113,6 +118,7 @@ public class AdminSearchUserV3 implements Callable<Integer> {
               .platformId(platformId)
               .query(query)
               .startDate(startDate)
+              .testAccount(testAccount)
               .build();
       final ModelSearchUsersResponseWithPaginationV3 response =
           wrapper.adminSearchUserV3(operation);

@@ -21,14 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * VerifyToken
  *
- * <p>## The endpoint is going to be deprecated
- *
- * <p>This endpoint requires all requests to have Authorization header set with Basic access
- * authentication constructed from client id and client secret. Endpoint migration guide
- *
- * <p>* Substitute endpoint: /iam/v3/oauth/verify [POST]
- *
- * <p>* Note: difference in V3 response: 1. format differenceï¼Pascal case => Camel case):
+ * <p>## The endpoint is going to be deprecated This endpoint requires all requests to have
+ * Authorization header set with Basic access authentication constructed from client id and client
+ * secret. ### Endpoint migration guide - **Substitute endpoint: _/iam/v3/oauth/verify [POST]_** -
+ * **Note: difference in V3 response:** 1. format differenceï¼Pascal case => Camel case):
  * permissions field from Action => action, Resource => resource
  *
  * @deprecated

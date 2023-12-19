@@ -8,14 +8,12 @@
 
 package net.accelbyte.sdk.api.chat.models;
 
-import java.util.*;
-
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.*;
 import lombok.*;
-
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -23,33 +21,29 @@ import net.accelbyte.sdk.core.Model;
 @Getter
 @Setter
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
-@AllArgsConstructor(onConstructor=@__(@Deprecated))     
+@AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
 public class ModelsMessageStats extends Model {
 
-    @JsonProperty("id")
-    private String id;
+  @JsonProperty("id")
+  private String id;
 
-    @JsonProperty("messageRead")
-    private Integer messageRead;
+  @JsonProperty("messageRead")
+  private Integer messageRead;
 
-    @JsonProperty("messageStored")
-    private Integer messageStored;
+  @JsonProperty("messageStored")
+  private Integer messageStored;
 
-    @JsonProperty("notificationSent")
-    private Integer notificationSent;
+  @JsonProperty("notificationSent")
+  private Integer notificationSent;
 
+  @JsonIgnore
+  public ModelsMessageStats createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsMessageStats createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsMessageStats> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsMessageStats>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsMessageStats> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsMessageStats>>() {});
+  }
 }

@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetListCountryAgeRestrictionV3
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:AGERESTRICTION [READ] action code : 10139
+ * <p>action code : 10139
  */
 @Getter
 @Setter

@@ -23,10 +23,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetAllPartyInChannel
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Read]
- *
- * <p>Required Scope: social
- *
  * <p>Get all parties queueing in a channel.
  */
 @Getter

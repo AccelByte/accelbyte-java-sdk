@@ -21,15 +21,11 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicCreateUserV3
  *
- * <p>Available Authentication Types:
+ * <p>Available Authentication Types: 1. **EMAILPASSWD**: an authentication type used for new user
+ * registration through email.
  *
- * <p>1. EMAILPASSWD : an authentication type used for new user registration through email.
- *
- * <p>Country use ISO3166-1 alpha-2 two letter, e.g. US.
- *
- * <p>Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
- *
- * <p>This endpoint support accepting agreements for the created user. Supply the accepted
+ * <p>Country use ISO3166-1 alpha-2 two letter, e.g. US. Date of Birth format : YYYY-MM-DD, e.g.
+ * 2019-04-29. This endpoint support accepting agreements for the created user. Supply the accepted
  * agreements in acceptedPolicies attribute.
  */
 @Getter

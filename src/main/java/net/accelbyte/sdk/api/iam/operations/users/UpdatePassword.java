@@ -21,13 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UpdatePassword
  *
- * <p>## The endpoint is going to be deprecated
- *
- * <p>Endpoint migration guide
- *
- * <p>* Substitute endpoint: /iam/v3/public/namespaces/{namespace}/users/me/password [PUT]
- *
- * <p>Required permission 'NAMESPACE:{namespace}:PASSWORD:USER:{userId} [UPDATE]'
+ * <p>## The endpoint is going to be deprecated ### Endpoint migration guide - **Substitute
+ * endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/password [PUT]_**
  *
  * @deprecated
  */

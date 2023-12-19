@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * QuerySessionHandler
  *
- * <p>Required Permission: NAMESPACE:{namespace}:SESSION [READ]
- *
- * <p>Required Scope: social
- *
  * <p>Queries the specified session's status. Game servers are expected to call this periodically as
  * long as it has a session in queue to see if there are new players being matched to the session.
  *

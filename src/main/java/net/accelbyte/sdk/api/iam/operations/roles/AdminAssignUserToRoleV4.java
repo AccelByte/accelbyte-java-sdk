@@ -21,10 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminAssignUserToRoleV4
  *
- * <p>Required permission ADMIN:ROLE [UPDATE]
- *
- * <p>Parameters: - userId: string (required) - namespace: string (userâs namespace) (required) -
- * assignedNamespaces: array of string (namespaces to be assigned on role) (required)
+ * <p>Parameters: - **userId**: string (required) - **namespace**: string (userâs namespace)
+ * (required) - **assignedNamespaces**: array of string (namespaces to be assigned on role)
+ * (required)
  *
  * <p>action code: 10410
  */

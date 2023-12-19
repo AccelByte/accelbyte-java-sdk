@@ -23,9 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminDebugProfanityFilters
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:PROFANITY [READ]` with scope `social`
- *
- * <p>get the list of filters that would modify the phrase
+ * <p>Get the list of filters that would modify the phrase
  */
 @Getter
 @Setter

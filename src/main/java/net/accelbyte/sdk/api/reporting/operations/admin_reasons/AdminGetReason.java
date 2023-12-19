@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminGetReason
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:REASON [READ]
+ * <p>This endpoint get a single reason.
  */
 @Getter
 @Setter

@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminAddProfanityFilterIntoList
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:PROFANITY [CREATE]` with scope `social`
- *
- * <p>add a single filter into the list
+ * <p>Add a single filter into the list
  */
 @Getter
 @Setter

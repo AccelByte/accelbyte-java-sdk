@@ -22,8 +22,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * PublicGetMyEnabledFactorsV4
  *
  * <p>This endpoint is used to get user enabled factors.
- *
- * <p>This endpoint Requires valid user access token
  */
 @Getter
 @Setter

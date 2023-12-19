@@ -21,27 +21,14 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicSendVerificationCodeV3
  *
- * <p>Required valid user authorization
- *
- * <p>The verification code is sent to email address
- *
- * <p>Available contexts for use :
- *
- * <p>1. UserAccountRegistration
- *
- * <p>a context type used for verifying email address in user account registration. It returns 409
- * if the email address already verified. It is the default context if the Context field is empty
- *
- * <p>2. UpdateEmailAddress
- *
- * <p>a context type used for verify user before updating email address.(Without email address
- * verified checking)
- *
- * <p>3. upgradeHeadlessAccount
- *
- * <p>The context is intended to be used whenever the email address wanted to be automatically
- * verified on upgrading a headless account. If this context used, IAM rejects the request if the
- * email address is already used by others by returning HTTP Status Code 409.
+ * <p>The verification code is sent to email address Available contexts for use : 1.
+ * **UserAccountRegistration** a context type used for verifying email address in user account
+ * registration. It returns 409 if the email address already verified. **_It is the default context
+ * if the Context field is empty_** 2. **UpdateEmailAddress** a context type used for verify user
+ * before updating email address.(Without email address verified checking) 3.
+ * **upgradeHeadlessAccount** The context is intended to be used whenever the email address wanted
+ * to be automatically verified on upgrading a headless account. If this context used, IAM rejects
+ * the request if the email address is already used by others by returning HTTP Status Code 409.
  *
  * <p>action code: 10116
  */

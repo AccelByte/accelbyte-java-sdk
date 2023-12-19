@@ -20,11 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDeleteRoleV4
  *
- * <p>Required permission ADMIN:ROLE [DELETE]
- *
- * <p>Removes role ID from user's Roles and NamespaceRoles before deleting the role.
- *
- * <p>action code: 10403
+ * <p>Removes role ID from user's Roles and NamespaceRoles before deleting the role. action code:
+ * 10403
  */
 @Getter
 @Setter

@@ -8,14 +8,12 @@
 
 package net.accelbyte.sdk.api.chat.models;
 
-import java.util.*;
-
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.*;
 import lombok.*;
-
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -23,54 +21,52 @@ import net.accelbyte.sdk.core.Model;
 @Getter
 @Setter
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
-@AllArgsConstructor(onConstructor=@__(@Deprecated))     
+@AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
 public class ModelsChannelTopicResponse extends Model {
 
-    @JsonProperty("createdAt")
-    private Integer createdAt;
+  @JsonProperty("createdAt")
+  private Integer createdAt;
 
-    @JsonProperty("createdBy")
-    private String createdBy;
+  @JsonProperty("createdBy")
+  private String createdBy;
 
-    @JsonProperty("description")
-    private String description;
+  @JsonProperty("description")
+  private String description;
 
-    @JsonProperty("isJoinable")
-    private Boolean isJoinable;
+  @JsonProperty("isJoinable")
+  private Boolean isJoinable;
 
-    @JsonProperty("messagePerMinutes")
-    private Float messagePerMinutes;
+  @JsonProperty("messagePerMinutes")
+  private Float messagePerMinutes;
 
-    @JsonProperty("name")
-    private String name;
+  @JsonProperty("name")
+  private String name;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("shardLimit")
-    private Integer shardLimit;
+  @JsonProperty("shardLimit")
+  private Integer shardLimit;
 
-    @JsonProperty("shardNumber")
-    private Integer shardNumber;
+  @JsonProperty("shardNumber")
+  private Integer shardNumber;
 
-    @JsonProperty("topicId")
-    private String topicId;
+  @JsonProperty("topicId")
+  private String topicId;
 
-    @JsonProperty("totalMember")
-    private Integer totalMember;
+  @JsonProperty("totalMember")
+  private Integer totalMember;
 
+  @JsonIgnore
+  public ModelsChannelTopicResponse createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsChannelTopicResponse createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsChannelTopicResponse> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsChannelTopicResponse>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsChannelTopicResponse> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsChannelTopicResponse>>() {});
+  }
 }

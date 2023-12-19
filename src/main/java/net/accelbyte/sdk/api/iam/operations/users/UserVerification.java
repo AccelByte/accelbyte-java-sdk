@@ -21,17 +21,11 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UserVerification
  *
- * <p>## The endpoint is going to be deprecated
- *
- * <p>Endpoint migration guide
- *
- * <p>* Substitute endpoint: /iam/v3/public/namespaces/{namespace}/users/me/code/verify [POST]
- *
- * <p>Required permission 'NAMESPACE:{namespace}:USER:{userId} [UPDATE]'
+ * <p>## The endpoint is going to be deprecated ### Endpoint migration guide - **Substitute
+ * endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/code/verify [POST]_**
  *
  * <p>Redeems a verification code sent to a user to verify the user's contact address is correct
- *
- * <p>Available ContactType : email or phone
+ * Available ContactType : *email* or *phone*
  *
  * @deprecated
  */

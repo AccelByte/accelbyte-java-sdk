@@ -20,11 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGenerateReportV4
  *
- * <p>This is the endpoint for an admin to generate device report.
- *
- * <p>Required permission
- *
- * <p>'ADMIN:NAMESPACE:{namespace}:DEVICE [READ]'
+ * <p>This is the endpoint for an admin to generate device report
  */
 @Getter
 @Setter

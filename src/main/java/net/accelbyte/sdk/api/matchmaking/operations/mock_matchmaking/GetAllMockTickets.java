@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetAllMockTickets
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Read]
- *
- * <p>Required Scope: social
- *
  * <p>Read all mock tickets in a channel. '
  */
 @Getter

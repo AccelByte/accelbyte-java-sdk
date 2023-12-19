@@ -8,14 +8,12 @@
 
 package net.accelbyte.sdk.api.chat.models;
 
-import java.util.*;
-
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.*;
 import lombok.*;
-
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -23,30 +21,26 @@ import net.accelbyte.sdk.core.Model;
 @Getter
 @Setter
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
-@AllArgsConstructor(onConstructor=@__(@Deprecated))     
+@AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
 public class ModelsUserInbox extends Model {
 
-    @JsonProperty("keep")
-    private Boolean keep;
+  @JsonProperty("keep")
+  private Boolean keep;
 
-    @JsonProperty("readAt")
-    private Integer readAt;
+  @JsonProperty("readAt")
+  private Integer readAt;
 
-    @JsonProperty("userId")
-    private String userId;
+  @JsonProperty("userId")
+  private String userId;
 
+  @JsonIgnore
+  public ModelsUserInbox createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsUserInbox createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsUserInbox> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUserInbox>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsUserInbox> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUserInbox>>() {});
+  }
 }

@@ -36,6 +36,11 @@ public class AdminListContentV2 implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--isOfficial"},
+      description = "isOfficial")
+  Boolean isOfficial;
+
+  @Option(
       names = {"--limit"},
       description = "limit")
   Integer limit;
@@ -94,6 +99,7 @@ public class AdminListContentV2 implements Callable<Integer> {
       final net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminListContentV2 operation =
           net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminListContentV2.builder()
               .namespace(namespace)
+              .isOfficial(isOfficial)
               .limit(limit)
               .name(name)
               .offset(offset)

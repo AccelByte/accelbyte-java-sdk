@@ -49,6 +49,7 @@ public class PublicListContentV2 extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private Boolean isOfficial;
   private Integer limit;
   private String name;
   private Integer offset;
@@ -65,6 +66,7 @@ public class PublicListContentV2 extends Operation {
   @Deprecated
   public PublicListContentV2(
       String namespace,
+      Boolean isOfficial,
       Integer limit,
       String name,
       Integer offset,
@@ -73,6 +75,7 @@ public class PublicListContentV2 extends Operation {
       List<String> tags,
       String type) {
     this.namespace = namespace;
+    this.isOfficial = isOfficial;
     this.limit = limit;
     this.name = name;
     this.offset = offset;
@@ -96,6 +99,9 @@ public class PublicListContentV2 extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "isOfficial",
+        this.isOfficial == null ? null : Arrays.asList(String.valueOf(this.isOfficial)));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put("name", this.name == null ? null : Arrays.asList(this.name));
     queryParams.put(
@@ -128,6 +134,7 @@ public class PublicListContentV2 extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("isOfficial", "None");
     result.put("limit", "None");
     result.put("name", "None");
     result.put("offset", "None");

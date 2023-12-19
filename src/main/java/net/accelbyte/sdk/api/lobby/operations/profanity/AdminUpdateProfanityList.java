@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminUpdateProfanityList
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:PROFANITY [UPDATE]` with scope `social`
- *
- * <p>update the list
+ * <p>Update the list
  */
 @Getter
 @Setter

@@ -152,7 +152,7 @@ public class TestIntegrationServiceSocial extends TestIntegration {
   @Order(2)
   public void testUserStat() throws Exception {
     if (isUsingAGSStarter()) {
-        return; // SKIP
+      return; // SKIP
     }
 
     final String statCode = "cs-server-sdk-test";

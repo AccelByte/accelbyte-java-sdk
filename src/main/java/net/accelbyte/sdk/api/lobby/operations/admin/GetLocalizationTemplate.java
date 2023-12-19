@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getLocalizationTemplate
  *
- * <p>Required permission : `NAMESPACE:{namespace}:TEMPLATE [READ]` with scope `social`
- *
  * <p>Get a template localization
  */
 @Getter

@@ -23,10 +23,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * BulkGetSessions
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Read]
- *
- * <p>Required Scope: social
- *
  * <p>Bulk get sessions.
  */
 @Getter

@@ -44,6 +44,7 @@ public class PublicSearchItems extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private Boolean autoCalcEstimatedPrice;
   private String itemType;
   private Integer limit;
   private Integer offset;
@@ -62,6 +63,7 @@ public class PublicSearchItems extends Operation {
   @Deprecated
   public PublicSearchItems(
       String namespace,
+      Boolean autoCalcEstimatedPrice,
       String itemType,
       Integer limit,
       Integer offset,
@@ -70,6 +72,7 @@ public class PublicSearchItems extends Operation {
       String keyword,
       String language) {
     this.namespace = namespace;
+    this.autoCalcEstimatedPrice = autoCalcEstimatedPrice;
     this.itemType = itemType;
     this.limit = limit;
     this.offset = offset;
@@ -93,6 +96,11 @@ public class PublicSearchItems extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "autoCalcEstimatedPrice",
+        this.autoCalcEstimatedPrice == null
+            ? null
+            : Arrays.asList(String.valueOf(this.autoCalcEstimatedPrice)));
     queryParams.put("itemType", this.itemType == null ? null : Arrays.asList(this.itemType));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
@@ -131,6 +139,7 @@ public class PublicSearchItems extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("autoCalcEstimatedPrice", "None");
     result.put("itemType", "None");
     result.put("limit", "None");
     result.put("offset", "None");

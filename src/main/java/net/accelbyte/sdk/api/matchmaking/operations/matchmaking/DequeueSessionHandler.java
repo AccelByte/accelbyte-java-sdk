@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DequeueSessionHandler
  *
- * <p>Required Permission: NAMESPACE:{namespace}:SESSION [UPDATE]
- *
- * <p>Required Scope: social
- *
  * <p>Dequeues joinable session so that it will not be matched with player's match request tickets.
  *
  * <p>This endpoint is intended to be called by game server to let matchmaker know that the game

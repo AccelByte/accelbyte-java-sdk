@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminGetProfanityListFiltersV1
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:PROFANITY [READ]` with scope `social`
- *
- * <p>get the list of filters inside the list.
+ * <p>Get the list of filters inside the list.
  */
 @Getter
 @Setter

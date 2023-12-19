@@ -21,7 +21,14 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicGetMyUserV3
  *
- * <p>Require valid user authorization Get my user data action code : 10147
+ * <p>Get my user data
+ *
+ * <p>__Supported 3rd platforms:__
+ *
+ * <p>* __PSN(ps4web, ps4, ps5)__ * display name * avatar * __Xbox(live, xblweb)__ * display name *
+ * __Steam(steam, steamopenid)__ * display name * avatar * __EpicGames(epicgames)__ * display name
+ *
+ * <p>action code : 10147
  */
 @Getter
 @Setter
@@ -35,14 +42,27 @@ public class PublicGetMyUserV3 extends Operation {
   private String locationQuery = null;
 
   /** fields as input parameter */
+  private Boolean includeAllPlatforms;
 
   /** */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public PublicGetMyUserV3() {
+  public PublicGetMyUserV3(Boolean includeAllPlatforms) {
+    this.includeAllPlatforms = includeAllPlatforms;
 
     securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "includeAllPlatforms",
+        this.includeAllPlatforms == null
+            ? null
+            : Arrays.asList(String.valueOf(this.includeAllPlatforms)));
+    return queryParams;
   }
 
   @Override
@@ -58,5 +78,12 @@ public class PublicGetMyUserV3 extends Operation {
     }
     final String json = Helper.convertInputStreamToString(payload);
     return new ModelUserResponseV3().createFromJson(json);
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("includeAllPlatforms", "None");
+    return result;
   }
 }

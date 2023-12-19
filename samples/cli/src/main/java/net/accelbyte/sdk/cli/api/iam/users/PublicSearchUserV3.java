@@ -51,6 +51,16 @@ public class PublicSearchUserV3 implements Callable<Integer> {
   Integer offset;
 
   @Option(
+      names = {"--platformBy"},
+      description = "platformBy")
+  String platformBy;
+
+  @Option(
+      names = {"--platformId"},
+      description = "platformId")
+  String platformId;
+
+  @Option(
       names = {"--query"},
       description = "query")
   String query;
@@ -82,6 +92,8 @@ public class PublicSearchUserV3 implements Callable<Integer> {
               .by(by)
               .limit(limit)
               .offset(offset)
+              .platformBy(platformBy)
+              .platformId(platformId)
               .query(query)
               .build();
       final ModelPublicUserInformationResponseV3 response = wrapper.publicSearchUserV3(operation);

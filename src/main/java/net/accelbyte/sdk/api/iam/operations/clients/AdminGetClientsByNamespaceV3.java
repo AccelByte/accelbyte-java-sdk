@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetClientsByNamespaceV3
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:CLIENT [READ]'
- *
  * <p>action code: 10308
  */
 @Getter

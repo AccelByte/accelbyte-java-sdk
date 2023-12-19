@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetUserByUserIdV3
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:USER:{userId} [READ]'
+ * <p>Admin Get User By User Id
  */
 @Getter
 @Setter

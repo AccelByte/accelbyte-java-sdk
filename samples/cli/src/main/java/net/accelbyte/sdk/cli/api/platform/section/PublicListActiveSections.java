@@ -41,6 +41,11 @@ public class PublicListActiveSections implements Callable<Integer> {
   String userId;
 
   @Option(
+      names = {"--autoCalcEstimatedPrice"},
+      description = "autoCalcEstimatedPrice")
+  Boolean autoCalcEstimatedPrice;
+
+  @Option(
       names = {"--language"},
       description = "language")
   String language;
@@ -85,6 +90,7 @@ public class PublicListActiveSections implements Callable<Integer> {
           net.accelbyte.sdk.api.platform.operations.section.PublicListActiveSections.builder()
               .namespace(namespace)
               .userId(userId)
+              .autoCalcEstimatedPrice(autoCalcEstimatedPrice)
               .language(language)
               .region(region)
               .storeId(storeId)

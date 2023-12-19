@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>This endpoint is being used to create headless account after 3rd platform authenticated, and
  * response token . The 'linkingToken' in request body is received from
- * "/platforms/{platformId}/token" when 3rd platform account is not linked to justice account yet.'
+ * "/platforms/{platformId}/token" when 3rd platform account is not linked to justice account yet.
  */
 @Getter
 @Setter

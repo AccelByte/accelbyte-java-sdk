@@ -8,14 +8,12 @@
 
 package net.accelbyte.sdk.api.chat.models;
 
-import java.util.*;
-
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.*;
 import lombok.*;
-
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -23,28 +21,24 @@ import net.accelbyte.sdk.core.Model;
 @Getter
 @Setter
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
-@AllArgsConstructor(onConstructor=@__(@Deprecated))     
+@AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
 public class TopicInfoMember extends Model {
 
-    @JsonProperty("leftAt")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private Integer leftAt;
+  @JsonProperty("leftAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer leftAt;
 
-    @JsonProperty("userId")
-    private String userId;
+  @JsonProperty("userId")
+  private String userId;
 
+  @JsonIgnore
+  public TopicInfoMember createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public TopicInfoMember createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<TopicInfoMember> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<TopicInfoMember>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<TopicInfoMember> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<TopicInfoMember>>() {});
+  }
 }

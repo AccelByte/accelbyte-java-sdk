@@ -20,8 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publishTemplateLocalizationV1Admin
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:NOTIFICATION [CREATE]` with scope `social`
- *
  * <p>Publish notification template draft. Empty draft can not be published.
  *
  * <p>Action Code: 50210

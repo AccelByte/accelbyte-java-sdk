@@ -23,11 +23,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicGetUserBan
  *
- * <p>## The endpoint is going to be deprecated
- *
- * <p>Endpoint migration guide
- *
- * <p>* Substitute endpoint: /iam/v3/public/namespaces/{namespace}/users/{userId}/bans [GET]
+ * <p>## The endpoint is going to be deprecated **Endpoint migration guide** - **Substitute
+ * endpoint: _/iam/v3/public/namespaces/{namespace}/users/{userId}/bans [GET]_**
  *
  * @deprecated
  */

@@ -21,11 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicVerifyHeadlessAccountV3
  *
- * <p>Require valid user authorization action code : 10124
+ * <p>action code : 10124
  *
- * <p>if set NeedVerificationCode = true, IAM will send verification code into email
- *
- * <p>user can use that verification code to verify user through
+ * <p>if set NeedVerificationCode = true, IAM will send verification code into email user can use
+ * that verification code to verify user through
  * /iam/v3/public/namespaces/{namespace}/users/me/code/verify
  */
 @Getter

@@ -21,34 +21,18 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * SendVerificationCode
  *
- * <p>## The endpoint is going to be deprecated
- *
- * <p>Endpoint migration guide
- *
- * <p>* Substitute endpoint: /iam/v3/public/namespaces/{namespace}/users/me/code/request [POST]
- *
- * <p>Required permission 'NAMESPACE:{namespace}:USER:{userId} [UPDATE]'
+ * <p>## The endpoint is going to be deprecated ### Endpoint migration guide - **Substitute
+ * endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/code/request [POST]_**
  *
  * <p>The verification code is sent to either the phone number or email address. It depends on the
- * LoginID's value.
- *
- * <p>Available contexts for use :
- *
- * <p>1. UserAccountRegistration
- *
- * <p>a context type used for verifying email address in user account registration. It returns 409
- * if the email address already verified. It is the default context if the Context field is empty
- *
- * <p>2. UpdateEmailAddress
- *
- * <p>a context type used for verify user before updating email address.(Without email address
- * verified checking)
- *
- * <p>3. upgradeHeadlessAccount
- *
- * <p>The context is intended to be used whenever the email address wanted to be automatically
- * verified on upgrading a headless account. If this context used, IAM rejects the request if the
- * loginId field's value is already used by others by returning HTTP Status Code 409.
+ * LoginID's value. Available contexts for use : 1. **UserAccountRegistration** a context type used
+ * for verifying email address in user account registration. It returns 409 if the email address
+ * already verified. **_It is the default context if the Context field is empty_** 2.
+ * **UpdateEmailAddress** a context type used for verify user before updating email address.(Without
+ * email address verified checking) 3. **upgradeHeadlessAccount** The context is intended to be used
+ * whenever the email address wanted to be automatically verified on upgrading a headless account.
+ * If this context used, IAM rejects the request if the loginId field's value is already used by
+ * others by returning HTTP Status Code 409.
  *
  * @deprecated
  */

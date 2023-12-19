@@ -20,8 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteNotificationTemplateSlugV1Admin
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:NOTIFICATION [DELETE]` with scope `social`
- *
  * <p>Delete template slug in notification template
  *
  * <p>Action Code: 50206

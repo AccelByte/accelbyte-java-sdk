@@ -21,14 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminLinkPlatformAccount
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:USER:{userId} [UPDATE]'
- *
  * <p>Force linking platform account to user User Account. This endpoint intended for admin to
- * forcefully link account to user. By default, these cases are not allowed
- *
- * <p>* The platform account current is linked by another account
- *
- * <p>* The target account ever linked this platform's another account
+ * forcefully link account to user. By default, these cases are not allowed - The platform account
+ * current is linked by another account - The target account ever linked this platform's another
+ * account
  */
 @Getter
 @Setter

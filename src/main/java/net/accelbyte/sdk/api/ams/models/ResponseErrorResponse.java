@@ -28,6 +28,9 @@ public class ResponseErrorResponse extends Model {
   @JsonProperty("errorMessage")
   private String errorMessage;
 
+  @JsonProperty("errorType")
+  private String errorType;
+
   @JsonProperty("traceId")
   private String traceId;
 

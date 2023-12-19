@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * QueueSessionHandler
  *
- * <p>Required Permission: NAMESPACE:{namespace}:SESSION [CREATE]
- *
- * <p>Required Scope: social
- *
  * <p>Queues joinable session so that it will be matched with player's match request tickets. The
  * session queued must be in a channel/game mode that is set to have joinable flag. The session will
  * be in queue until it is full or expired. Both the number of players and session queue timeout can

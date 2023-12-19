@@ -20,9 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * SendMFAAuthenticationCode
  *
- * <p>Send 2FA code
- *
- * <p>This endpoint is used for sending 2FA code.
+ * <p>Send 2FA code This endpoint is used for sending 2FA code.
  */
 @Getter
 @Setter

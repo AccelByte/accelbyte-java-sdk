@@ -20,8 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteTemplateLocalization
  *
- * <p>Required permission : `NAMESPACE:{namespace}:TEMPLATE [DELETE]` with scope `social`
- *
  * <p>Delete all template in a slug
  */
 @Getter

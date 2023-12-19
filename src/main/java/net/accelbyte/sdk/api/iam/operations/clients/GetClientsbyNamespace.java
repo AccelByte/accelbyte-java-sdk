@@ -23,11 +23,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetClientsbyNamespace
  *
- * <p>## The endpoint is going to be deprecated
- *
- * <p>Required permission 'NAMESPACE:{namespace}:CLIENT [READ]' Endpoint migration guide
- *
- * <p>* Substitute endpoint: /iam/v3/admin/namespaces/{namespace}/clients [GET]
+ * <p>## The endpoint is going to be deprecated **Endpoint migration guide** - **Substitute
+ * endpoint: _/iam/v3/admin/namespaces/{namespace}/clients [GET]_**
  *
  * @deprecated
  */

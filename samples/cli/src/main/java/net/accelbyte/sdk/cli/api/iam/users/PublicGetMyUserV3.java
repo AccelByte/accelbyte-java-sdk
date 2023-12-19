@@ -31,6 +31,11 @@ public class PublicGetMyUserV3 implements Callable<Integer> {
   private static final Logger log = LogManager.getLogger(PublicGetMyUserV3.class);
 
   @Option(
+      names = {"--includeAllPlatforms"},
+      description = "includeAllPlatforms")
+  Boolean includeAllPlatforms;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -52,7 +57,9 @@ public class PublicGetMyUserV3 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
       final net.accelbyte.sdk.api.iam.operations.users.PublicGetMyUserV3 operation =
-          net.accelbyte.sdk.api.iam.operations.users.PublicGetMyUserV3.builder().build();
+          net.accelbyte.sdk.api.iam.operations.users.PublicGetMyUserV3.builder()
+              .includeAllPlatforms(includeAllPlatforms)
+              .build();
       final ModelUserResponseV3 response = wrapper.publicGetMyUserV3(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

@@ -40,6 +40,10 @@ public class ModelPublicUserInformationV3 extends Model {
   @JsonProperty("userName")
   private String userName;
 
+  @JsonProperty("userPlatformInfos")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<ModelUserPlatformInfo> userPlatformInfos;
+
   @JsonIgnore
   public ModelPublicUserInformationV3 createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

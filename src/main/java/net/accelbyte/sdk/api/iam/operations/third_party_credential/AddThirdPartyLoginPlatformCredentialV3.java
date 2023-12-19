@@ -21,49 +21,26 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AddThirdPartyLoginPlatformCredentialV3
  *
- * <p>This is the API to Add 3rd Platform Credential.
+ * <p>This is the API to Add 3rd Platform Credential. - The secret for **apple** is base64 encoded
+ * private key. - No secret for **awscognito**, we only need to configure AWS Cognito Region and
+ * User Pool - The secret for **discord** is client secret of the twitch client id. - The secret for
+ * **epicgames** is client secret of the epicgames client id. - The secret for **facebook** is
+ * client secret of the facebook client id. - The secret for **google** is client secret of the
+ * google OAuth client. - No secret for **nintendo**, we only need to configure app id of the game -
+ * No secret for **netflix**, we configure the Root, Public, Private Key certificate pem file and
+ * target environment; value: [sandbox, production] - The secret for **oculus** is app secret of the
+ * oculus app. - The secret for **ps4, ps5, and ps4web** is client secret of the psn web server. -
+ * The secret for **steam** is the Steam Web API Key. - The secret for **steamopenid** is the Steam
+ * Web API Key. - The secret for **twitch** is client secret of the twitch client. - The secret for
+ * **live** is the Relying Party Private Key in base64 encode PEM format. - The secret for
+ * **xblwebapi** is client secret of the xbl client.
  *
- * <p>It needs ADMIN:NAMESPACE:{namespace}:PLATFORM:{platformId}:CLIENT [CREATE] resource.
- *
- * <p>The secret for apple is base64 encoded private key.
- *
- * <p>No secret for awscognito , we only need to configure AWS Cognito Region and User Pool
- *
- * <p>The secret for discord is client secret of the twitch client id.
- *
- * <p>The secret for epicgames is client secret of the epicgames client id.
- *
- * <p>The secret for facebook is client secret of the facebook client id.
- *
- * <p>The secret for google is client secret of the google OAuth client.
- *
- * <p>No secret for nintendo , we only need to configure app id of the game
- *
- * <p>No secret for netflix , we configure the Root, Public, Private Key certificate pem file and
- * target environment; value: [sandbox, production]
- *
- * <p>The secret for oculus is app secret of the oculus app.
- *
- * <p>The secret for ps4, ps5, and ps4web is client secret of the psn web server.
- *
- * <p>The secret for steam is the Steam Web API Key.
- *
- * <p>The secret for steamopenid is the Steam Web API Key.
- *
- * <p>The secret for twitch is client secret of the twitch client.
- *
- * <p>The secret for live is the Relying Party Private Key in base64 encode PEM format.
- *
- * <p>The secret for xblwebapi is client secret of the xbl client.
- *
- * <p>If generic oauth flow is set to true:
- *
- * <p>* Current supported value for TokenAuthenticationType are code, idToken and bearerToken
- *
- * <p>* `TokenClaimsMapping` is used to extract user info from idToken claims or user info endpoint
- * response accessed using bearerToken. Its a JSON format with key should be `name`, `email` and
- * `avatarUrl` since IAM will look up for these key when extracting user info. default claims keys :
- * userIdentity/sub, name, email and avatarUrl/picture
+ * <p>If generic oauth flow is set to true: - Current supported value for TokenAuthenticationType
+ * are **code, idToken and bearerToken** - `TokenClaimsMapping` is used to extract user info from
+ * idToken claims or user info endpoint response accessed using bearerToken. Its a JSON format with
+ * key should be `name`, `email` and `avatarUrl` since IAM will look up for these key when
+ * extracting user info. **default claims keys : userIdentity/sub, name, email and
+ * avatarUrl/picture**
  */
 @Getter
 @Setter

@@ -21,11 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminBanDeviceV4
  *
- * <p>This is the endpoint for an admin to ban a device.
- *
- * <p>Required permission
- *
- * <p>'ADMIN:NAMESPACE:{namespace}:DEVICE [CREATE]'
+ * <p>This is the endpoint for an admin to ban a device
  */
 @Getter
 @Setter

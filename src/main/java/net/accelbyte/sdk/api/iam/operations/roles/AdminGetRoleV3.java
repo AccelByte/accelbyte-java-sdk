@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetRoleV3
  *
- * <p>Required permission 'ADMIN:ROLE [READ]'
- *
  * <p>action code: 10419
  */
 @Getter

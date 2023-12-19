@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminCreateRoleV3
  *
- * <p>Required permission 'ADMIN:ROLE [CREATE]'
- *
  * <p>Create role request body: - roleName: specify role name, alphanumeric, cannot have special
  * character (required) - permissions: specify the permission that this role have - managers:
  * specify list of user that will act as the managers of this role - members: specify list of user

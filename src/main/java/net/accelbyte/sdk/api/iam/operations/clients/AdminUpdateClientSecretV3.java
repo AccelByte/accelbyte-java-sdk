@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateClientSecretV3
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:CLIENT [UPDATE]'
+ * <p>Update Client Secret
  */
 @Getter
 @Setter

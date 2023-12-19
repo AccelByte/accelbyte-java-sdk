@@ -188,6 +188,7 @@
 | `/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}/web/link` | GET | PublicWebLinkPlatform | [PublicWebLinkPlatform](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/PublicWebLinkPlatform.java) | [PublicWebLinkPlatform](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/PublicWebLinkPlatform.java) |
 | `/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}/web/link/establish` | GET | PublicWebLinkPlatformEstablish | [PublicWebLinkPlatformEstablish](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/PublicWebLinkPlatformEstablish.java) | [PublicWebLinkPlatformEstablish](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/PublicWebLinkPlatformEstablish.java) |
 | `/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}/web/link/process` | POST | PublicProcessWebLinkPlatformV3 | [PublicProcessWebLinkPlatformV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/PublicProcessWebLinkPlatformV3.java) | [PublicProcessWebLinkPlatformV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/PublicProcessWebLinkPlatformV3.java) |
+| `/iam/v3/public/namespaces/{namespace}/users/platforms` | POST | PublicGetUsersPlatformInfosV3 | [PublicGetUsersPlatformInfosV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/PublicGetUsersPlatformInfosV3.java) | [PublicGetUsersPlatformInfosV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/PublicGetUsersPlatformInfosV3.java) |
 | `/iam/v3/public/namespaces/{namespace}/users/reset` | POST | ResetPasswordV3 | [ResetPasswordV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/ResetPasswordV3.java) | [ResetPasswordV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/ResetPasswordV3.java) |
 | [DEPRECATED] `/iam/v3/public/namespaces/{namespace}/users/{userId}` | GET | PublicGetUserByUserIdV3 | [PublicGetUserByUserIdV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/PublicGetUserByUserIdV3.java) | [PublicGetUserByUserIdV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/PublicGetUserByUserIdV3.java) |
 | `/iam/v3/public/namespaces/{namespace}/users/{userId}/bans` | GET | PublicGetUserBanHistoryV3 | [PublicGetUserBanHistoryV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/PublicGetUserBanHistoryV3.java) | [PublicGetUserBanHistoryV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/PublicGetUserBanHistoryV3.java) |
@@ -344,6 +345,7 @@
 | `/iam/v3/oauth/platforms/{platformId}/token` | POST | PlatformTokenGrantV3 | [PlatformTokenGrantV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0/PlatformTokenGrantV3.java) | [PlatformTokenGrantV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0/PlatformTokenGrantV3.java) |
 | `/iam/v3/oauth/revocationlist` | GET | GetRevocationListV3 | [GetRevocationListV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0/GetRevocationListV3.java) | [GetRevocationListV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0/GetRevocationListV3.java) |
 | `/iam/v3/oauth/revoke` | POST | TokenRevocationV3 | [TokenRevocationV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0/TokenRevocationV3.java) | [TokenRevocationV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0/TokenRevocationV3.java) |
+| `/iam/v3/oauth/simultaneousLogin` | POST | SimultaneousLoginV3 | [SimultaneousLoginV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0/SimultaneousLoginV3.java) | [SimultaneousLoginV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0/SimultaneousLoginV3.java) |
 | `/iam/v3/oauth/token` | POST | TokenGrantV3 | [TokenGrantV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0/TokenGrantV3.java) | [TokenGrantV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0/TokenGrantV3.java) |
 | `/iam/v3/oauth/verify` | POST | VerifyTokenV3 | [VerifyTokenV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0/VerifyTokenV3.java) | [VerifyTokenV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0/VerifyTokenV3.java) |
 
@@ -378,6 +380,7 @@
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
 | `/iam/v4/admin/namespaces/{namespace}/test_users` | POST | AdminCreateTestUsersV4 | [AdminCreateTestUsersV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/AdminCreateTestUsersV4.java) | [AdminCreateTestUsersV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users_v4/AdminCreateTestUsersV4.java) |
+| `/iam/v4/admin/namespaces/{namespace}/users/bulk/accountType` | PATCH | AdminBulkUpdateUserAccountTypeV4 | [AdminBulkUpdateUserAccountTypeV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/AdminBulkUpdateUserAccountTypeV4.java) | [AdminBulkUpdateUserAccountTypeV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users_v4/AdminBulkUpdateUserAccountTypeV4.java) |
 | `/iam/v4/admin/namespaces/{namespace}/users/bulk/validate` | POST | AdminBulkCheckValidUserIDV4 | [AdminBulkCheckValidUserIDV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/AdminBulkCheckValidUserIDV4.java) | [AdminBulkCheckValidUserIDV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users_v4/AdminBulkCheckValidUserIDV4.java) |
 | `/iam/v4/admin/namespaces/{namespace}/users/{userId}` | PUT | AdminUpdateUserV4 | [AdminUpdateUserV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/AdminUpdateUserV4.java) | [AdminUpdateUserV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users_v4/AdminUpdateUserV4.java) |
 | `/iam/v4/admin/namespaces/{namespace}/users/{userId}/email` | PUT | AdminUpdateUserEmailAddressV4 | [AdminUpdateUserEmailAddressV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/AdminUpdateUserEmailAddressV4.java) | [AdminUpdateUserEmailAddressV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users_v4/AdminUpdateUserEmailAddressV4.java) |
@@ -523,6 +526,7 @@
 | `model.BackupCodesResponseV4` | [ModelBackupCodesResponseV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelBackupCodesResponseV4.java) |
 | `model.BanCreateRequest` | [ModelBanCreateRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelBanCreateRequest.java) |
 | `model.BanUpdateRequest` | [ModelBanUpdateRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelBanUpdateRequest.java) |
+| `model.BulkAccountTypeUpdateRequestV4` | [ModelBulkAccountTypeUpdateRequestV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelBulkAccountTypeUpdateRequestV4.java) |
 | `model.BulkBanCreateRequestV3` | [ModelBulkBanCreateRequestV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelBulkBanCreateRequestV3.java) |
 | `model.BulkUnbanCreateRequestV3` | [ModelBulkUnbanCreateRequestV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelBulkUnbanCreateRequestV3.java) |
 | `model.CheckValidUserIDRequestV4` | [ModelCheckValidUserIDRequestV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelCheckValidUserIDRequestV4.java) |
@@ -667,6 +671,7 @@
 | `model.UserPasswordUpdateV3Request` | [ModelUserPasswordUpdateV3Request](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserPasswordUpdateV3Request.java) |
 | `model.UserPermissionsResponseV3` | [ModelUserPermissionsResponseV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserPermissionsResponseV3.java) |
 | `model.UserPlatformInfo` | [ModelUserPlatformInfo](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserPlatformInfo.java) |
+| `model.UserPlatformInfos` | [ModelUserPlatformInfos](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserPlatformInfos.java) |
 | `model.UserPlatformMetadata` | [ModelUserPlatformMetadata](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserPlatformMetadata.java) |
 | `model.UserPublicInfoResponseV4` | [ModelUserPublicInfoResponseV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserPublicInfoResponseV4.java) |
 | `model.UserResponse` | [ModelUserResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserResponse.java) |
@@ -677,6 +682,8 @@
 | `model.UserVerificationRequest` | [ModelUserVerificationRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserVerificationRequest.java) |
 | `model.UserVerificationRequestV3` | [ModelUserVerificationRequestV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserVerificationRequestV3.java) |
 | `model.UserWithPlatformInfo` | [ModelUserWithPlatformInfo](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserWithPlatformInfo.java) |
+| `model.UsersPlatformInfosRequestV3` | [ModelUsersPlatformInfosRequestV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUsersPlatformInfosRequestV3.java) |
+| `model.UsersPlatformInfosResponse` | [ModelUsersPlatformInfosResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUsersPlatformInfosResponse.java) |
 | `model.ValidUserIDResponseV4` | [ModelValidUserIDResponseV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelValidUserIDResponseV4.java) |
 | `model.ValidationDetail` | [ModelValidationDetail](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelValidationDetail.java) |
 | `model.ValidationDetailPublic` | [ModelValidationDetailPublic](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelValidationDetailPublic.java) |

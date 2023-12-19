@@ -8,21 +8,18 @@
 
 package net.accelbyte.sdk.api.lobby.ws_models;
 
+import static net.accelbyte.sdk.core.util.Helper.generateUUID;
+import static net.accelbyte.sdk.core.util.Helper.parseWSM;
+
+import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import static net.accelbyte.sdk.core.util.Helper.generateUUID;
-import static net.accelbyte.sdk.core.util.Helper.parseWSM;
 
 @Getter
 @Setter
 public class RefreshTokenRequest {
   private String id;
-
   private String token;
 
   private RefreshTokenRequest() {}
@@ -55,7 +52,9 @@ public class RefreshTokenRequest {
     } else {
       stringBuilder.append("\n").append("id: ").append(generateUUID());
     }
-    stringBuilder.append("\n").append("token: ").append(token);
+    if (token != null) {
+      stringBuilder.append("\n").append("token: ").append(token);
+    }
     return stringBuilder.toString();
   }
 

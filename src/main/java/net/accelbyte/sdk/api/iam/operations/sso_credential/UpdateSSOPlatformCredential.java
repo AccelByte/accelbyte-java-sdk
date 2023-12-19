@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UpdateSSOPlatformCredential
  *
- * <p>This is the API to Delete SSO Platform Credential. It needs
- * ADMIN:NAMESPACE:{namespace}:PLATFORM:{platformId}:SSO [UPDATE] resource
+ * <p>This is the API to Delete SSO Platform Credential.
  */
 @Getter
 @Setter

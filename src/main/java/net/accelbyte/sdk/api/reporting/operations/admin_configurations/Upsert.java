@@ -21,9 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * Upsert
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:REPORTINGCONFIG [CREATE] The behaviour of
- * this endpoint is upsert based on the namespace. So, you can use this for both creating & updating
- * the configuration. TimeInterval is in nanoseconds.
+ * <p>The behaviour of this endpoint is upsert based on the namespace. So, you can use this for both
+ * creating & updating the configuration. TimeInterval is in nanoseconds.
  */
 @Getter
 @Setter

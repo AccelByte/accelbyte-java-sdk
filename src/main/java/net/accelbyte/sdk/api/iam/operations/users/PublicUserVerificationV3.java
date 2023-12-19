@@ -21,15 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicUserVerificationV3
  *
- * <p>Will consume code if validateOnly is set false
- *
- * <p>Required valid user authorization
- *
- * <p>Redeems a verification code sent to a user to verify the user's contact address is correct
- *
- * <p>Available ContactType : email
- *
- * <p>action code: 10107
+ * <p>Will consume code if validateOnly is set false Redeems a verification code sent to a user to
+ * verify the user's contact address is correct Available ContactType : **email** action code: 10107
  */
 @Getter
 @Setter

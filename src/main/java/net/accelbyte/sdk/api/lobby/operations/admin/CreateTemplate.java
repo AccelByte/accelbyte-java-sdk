@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * createTemplate
  *
- * <p>Required permission : `NAMESPACE:{namespace}:TEMPLATE [CREATE]` with scope `social`
- *
  * <p>Create new notification template. Include handlebars {{key}} for replaceable contexts. The the
  * key inside handlebars will be the key to be replaced when sending notification. Already existing
  * template with the same slug and language can not be created.

@@ -21,17 +21,12 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AddRoleMembers
  *
- * <p>## The endpoint is going to be deprecated
- *
- * <p>Required permission 'ROLE:ADMIN [UPDATE]' or 'ADMIN:ROLE [UPDATE]'
- *
- * <p>Admin roles has its members listed in the role.
+ * <p>## The endpoint is going to be deprecated Admin roles has its members listed in the role.
  *
  * <p>Role can only be assigned to other users by the role's manager.
  *
- * <p>Endpoint migration guide
- *
- * <p>* Substitute endpoint: /iam/v3/admin/roles/{roleId}/members [POST]
+ * <p>### Endpoint migration guide - **Substitute endpoint: _/iam/v3/admin/roles/{roleId}/members
+ * [POST]_**
  *
  * @deprecated
  */

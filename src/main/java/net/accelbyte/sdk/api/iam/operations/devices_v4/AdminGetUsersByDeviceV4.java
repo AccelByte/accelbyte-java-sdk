@@ -21,11 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetUsersByDeviceV4
  *
- * <p>This is the endpoint for an admin to get users that ever login on the device.
- *
- * <p>Required permission
- *
- * <p>'ADMIN:NAMESPACE:{namespace}:USER [READ]'
+ * <p>This is the endpoint for an admin to get users that ever login on the device
  */
 @Getter
 @Setter

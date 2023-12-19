@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDeleteUserPermissionBulkV3
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:PERMISSION:USER:{userId} [DELETE]'
+ * <p>Delete User Permission
  */
 @Getter
 @Setter

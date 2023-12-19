@@ -23,24 +23,23 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ApiFleetArtifactsSampleRulesResponse extends Model {
+public class ApiArtifactSamplingRule extends Model {
 
-  @JsonProperty("coredumps")
-  private ApiArtifactTypeSamplingRulesResponse coredumps;
+  @JsonProperty("collect")
+  private Boolean collect;
 
-  @JsonProperty("logs")
-  private ApiArtifactTypeSamplingRulesResponse logs;
+  @JsonProperty("percentage")
+  private Integer percentage;
 
   @JsonIgnore
-  public ApiFleetArtifactsSampleRulesResponse createFromJson(String json)
-      throws JsonProcessingException {
+  public ApiArtifactSamplingRule createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ApiFleetArtifactsSampleRulesResponse> createFromJsonList(String json)
+  public List<ApiArtifactSamplingRule> createFromJsonList(String json)
       throws JsonProcessingException {
     return new ObjectMapper()
-        .readValue(json, new TypeReference<List<ApiFleetArtifactsSampleRulesResponse>>() {});
+        .readValue(json, new TypeReference<List<ApiArtifactSamplingRule>>() {});
   }
 }

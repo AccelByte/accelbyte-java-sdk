@@ -22,8 +22,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * DeleteThirdPartyLoginPlatformDomainV3
  *
  * <p>This is the API to unregister 3rd Platform domain.
- *
- * <p>It needs ADMIN:NAMESPACE:{namespace}:CLIENTDOMAIN [DELETE] resource.
  */
 @Getter
 @Setter

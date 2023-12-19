@@ -21,11 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetUserSinglePlatformAccount
  *
- * <p>This endpoint gets user single platform account metadata.
- *
- * <p>Supported platforms are same with the supported login platforms.
- *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:USER:{userId} [READ]
+ * <p>This endpoint gets user single platform account metadata. Supported platforms are same with
+ * the supported login platforms.
  */
 @Getter
 @Setter

@@ -21,16 +21,11 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * SearchUser
  *
- * <p>## The endpoint is going to be deprecated
- *
- * <p>Endpoint migration guide
- *
- * <p>* Substitute endpoint: /iam/v3/admin/namespaces/{namespace}/users/search [GET]
- *
- * <p>Search all users that match the query on these fields: all login IDs (email address, phone
- * number, and platform user id), userID, display name, and on the specified namespace. If the query
- * is not defined, then it searches all users on the specified namespace. Required permission
- * 'ADMIN:NAMESPACE:{namespace}:USER:* [READ]'
+ * <p>## The endpoint is going to be deprecated ### Endpoint migration guide - **Substitute
+ * endpoint: _/iam/v3/admin/namespaces/{namespace}/users/search [GET]_** Search all users that match
+ * the query on these fields: all login IDs (email address, phone number, and platform user id),
+ * userID, display name, and on the specified namespace. If the query is not defined, then it
+ * searches all users on the specified namespace.
  *
  * @deprecated
  */

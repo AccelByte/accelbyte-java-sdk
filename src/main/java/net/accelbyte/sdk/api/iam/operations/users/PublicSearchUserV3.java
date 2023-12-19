@@ -21,13 +21,16 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicSearchUserV3
  *
- * <p>Requires valid user access token
- *
  * <p>This endpoint search all users on the specified namespace that match the query on these
- * fields: display name, and username. The query length should greater than 1ï¼otherwise will not
- * query the database. The default limit value is 100
+ * fields: display name, and username or by 3rd party display name. The query length should greater
+ * than 2ï¼otherwise will not query the database. The default limit value is 100. **Note: searching
+ * by 3rd party platform display name is exact query** --- When searching by 3rd party platform
+ * display name: 1. set __by__ to __thirdPartyPlatform__ 2. set __platformId__ to the supported
+ * platform id 3. set __platformBy__ to __platformDisplayName__ --- Supported platform id:
  *
- * <p>action code : 10132
+ * <p>* steam * steamopenid * facebook * google * oculus * oculusweb * twitch * discord * android *
+ * ios * apple * device * epicgames * ps4 * ps5 * ps4web * nintendo * awscognito * live * xblweb *
+ * netflix * snapchat * oidc platform id
  */
 @Getter
 @Setter
@@ -46,6 +49,8 @@ public class PublicSearchUserV3 extends Operation {
   private String by;
   private Integer limit;
   private Integer offset;
+  private String platformBy;
+  private String platformId;
   private String query;
 
   /**
@@ -55,11 +60,19 @@ public class PublicSearchUserV3 extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public PublicSearchUserV3(
-      String namespace, String by, Integer limit, Integer offset, String query) {
+      String namespace,
+      String by,
+      Integer limit,
+      Integer offset,
+      String platformBy,
+      String platformId,
+      String query) {
     this.namespace = namespace;
     this.by = by;
     this.limit = limit;
     this.offset = offset;
+    this.platformBy = platformBy;
+    this.platformId = platformId;
     this.query = query;
 
     securities.add("Bearer");
@@ -81,6 +94,8 @@ public class PublicSearchUserV3 extends Operation {
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+    queryParams.put("platformBy", this.platformBy == null ? null : Arrays.asList(this.platformBy));
+    queryParams.put("platformId", this.platformId == null ? null : Arrays.asList(this.platformId));
     queryParams.put("query", this.query == null ? null : Arrays.asList(this.query));
     return queryParams;
   }
@@ -109,6 +124,8 @@ public class PublicSearchUserV3 extends Operation {
     result.put("by", "None");
     result.put("limit", "None");
     result.put("offset", "None");
+    result.put("platformBy", "None");
+    result.put("platformId", "None");
     result.put("query", "None");
     return result;
   }

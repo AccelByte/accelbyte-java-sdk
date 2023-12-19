@@ -21,14 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicBulkGetUsers
  *
- * <p>Notes:
- *
- * <p>* This endpoint bulk get users' basic info by userId, max allowed 100 at a time
- *
- * <p>* If namespace is game, will search by game user Id, other wise will search by publisher
- * namespace
- *
- * <p>* Result will include displayName(if it exists)
+ * <p>Notes: - This endpoint bulk get users' basic info by userId, max allowed 100 at a time - If
+ * namespace is game, will search by game user Id, other wise will search by publisher namespace -
+ * **Result will include displayName(if it exists)**
  */
 @Getter
 @Setter

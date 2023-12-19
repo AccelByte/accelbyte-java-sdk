@@ -21,10 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminGetAllPlayerSessionAttribute
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:USER:{userId}:PLAYER:ATTRIBUTES [READ]`
- * with scope `social`
- *
- * <p>get all player's session attribute by user id in a namespace.
+ * <p>Get all player's session attribute by user id in a namespace.
  */
 @Getter
 @Setter

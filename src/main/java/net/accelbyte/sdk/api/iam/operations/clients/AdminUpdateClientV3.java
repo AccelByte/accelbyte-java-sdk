@@ -21,68 +21,34 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateClientV3
  *
- * <p>Updates an OAuth 2.0 client. Protected by the permission: ADMIN:NAMESPACE:{namespace}:CLIENT
- * [UPDATE]. Specify only the fields you want to update in the request payload, e.g.
- * {"ClientName":"E-commerce", "BaseUri":"https://example.net"} Note for Multi Tenant Mode:
+ * <p>Updates an OAuth 2.0 client. Specify only the fields you want to update in the request
+ * payload, e.g. {"ClientName":"E-commerce", "BaseUri":"https://example.net"}
  *
- * <p>1. The assigned permission(s) should be restricted in the Default Client permission
- * collection.
+ * <p>**Note for Multi Tenant Mode:** 1. The assigned permission(s) should be restricted in the
+ * Default Client permission collection.
  *
  * <p>action code: 10302
  *
- * <p>Fields Description:
- *
- * <p>* clientName : The client name. It should not be empty if the field exists in the body. e.g
- * E-commerce
- *
- * <p>* namespace : The namespace where the client lives. e.g sample-game
- *
- * <p>* redirectUri : Contains the redirect URI used in OAuth callback. It should not be empty if
- * the field exists in the body. e.g https://example.net/platform
- *
- * <p>* audiences : List of target client IDs who is intended to receive the token. e.g
- * ["eaaa65618fe24293b00a61454182b435", "40073ee9bc3446d3a051a71b48509a5d"]
- *
- * <p>* baseUri : A base URI of the application. It is used in the audience checking for making sure
- * the token is used by the right resource server. Required if the application type is a server. e.g
- * https://example.net/platform
- *
- * <p>* clientPermissions : Contains the client's permissions
- *
- * <p>* deletable : The flag to identify whether client is deletable (optional). e.g. true
- *
- * <p>* clientPlatform : available client platform (optional). default value: "".
- *
- * <p>* Playstation
- *
- * <p>* Xbox
- *
- * <p>* Steam
- *
- * <p>* Epic
- *
- * <p>* IOS
- *
- * <p>* GooglePlay
- *
- * <p>* Nintendo
- *
- * <p>* Oculus
- *
- * <p>* twoFactorEnabled : The flag to indicate whether 2FA validation is enable for this client.
- * default value: false
- *
- * <p>* oauthAccessTokenExpiration : a configurable expiration time for access_token , default
- * value: 0 (mean fetch value from environment variable)
- *
- * <p>* oauthRefreshTokenExpiration : a configurable expiration time for refresh_token , default
- * value: 0 (mean fetch value from environment variable)
- *
- * <p>* oauthAccessTokenExpirationTimeUnit : a configurable expiration time unit for access_token ,
- * will use previous value if not specified
- *
- * <p>* oauthRefreshTokenExpirationTimeUnit : a configurable expiration time unit for refresh_token
- * , will use previous value if not specified
+ * <p>**Fields Description:** - **clientName** : The client name. It should not be empty if the
+ * field exists in the body. e.g E-commerce - **namespace** : The namespace where the client lives.
+ * e.g sample-game - **redirectUri** : Contains the redirect URI used in OAuth callback. It should
+ * not be empty if the field exists in the body. e.g https://example.net/platform - **audiences** :
+ * List of target client IDs who is intended to receive the token. e.g
+ * ["eaaa65618fe24293b00a61454182b435", "40073ee9bc3446d3a051a71b48509a5d"] - **baseUri** : A base
+ * URI of the application. It is used in the audience checking for making sure the token is used by
+ * the right resource server. Required if the application type is a server. e.g
+ * https://example.net/platform - **clientPermissions** : Contains the client's permissions -
+ * **deletable** : The flag to identify whether client is deletable (optional). e.g. true -
+ * **clientPlatform** : available client platform (optional). default value: "". - Playstation -
+ * Xbox - Steam - Epic - IOS - GooglePlay - Nintendo - Oculus - **twoFactorEnabled**: The flag to
+ * indicate whether 2FA validation is enable for this client. default value: false -
+ * **oauthAccessTokenExpiration**: a configurable expiration time for **access_token**, default
+ * value: 0 (mean fetch value from environment variable) - **oauthRefreshTokenExpiration**: a
+ * configurable expiration time for **refresh_token**, default value: 0 (mean fetch value from
+ * environment variable) - **oauthAccessTokenExpirationTimeUnit**: a configurable expiration time
+ * unit for **access_token**, will use previous value if not specified -
+ * **oauthRefreshTokenExpirationTimeUnit**: a configurable expiration time unit for
+ * **refresh_token**, will use previous value if not specified
  */
 @Getter
 @Setter

@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminFindExtensionCategoryList
  *
- * <p>Required permission: ADMIN:REPORTINGCONFIG [READ] Get a list of extension category data with
- * the specified name
+ * <p>Get a list of extension category data with the specified name
  */
 @Getter
 @Setter

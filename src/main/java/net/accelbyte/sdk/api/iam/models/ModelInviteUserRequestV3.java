@@ -32,6 +32,7 @@ public class ModelInviteUserRequestV3 extends Model {
   private Boolean isAdmin;
 
   @JsonProperty("namespace")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String namespace;
 
   @JsonProperty("roles")

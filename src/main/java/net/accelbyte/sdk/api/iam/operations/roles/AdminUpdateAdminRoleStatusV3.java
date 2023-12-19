@@ -20,13 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateAdminRoleStatusV3
  *
- * <p>Required permission 'ADMIN:ROLE [UPDATE]'
- *
- * <p>Admin roles has its members listed in the role.
- *
- * <p>Role can be set as admin role only when it has at least 1 manager.
- *
- * <p>action code: 10412
+ * <p>Admin roles has its members listed in the role. Role can be set as admin role only when it has
+ * at least 1 manager. action code: 10412
  */
 @Getter
 @Setter

@@ -21,11 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateClientByNamespace
  *
- * <p>## The endpoint is going to be deprecated
- *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:CLIENT [CREATE]' Endpoint migration guide
- *
- * <p>* Substitute endpoint: /v3/admin/namespaces/{namespace}/clients [POST]
+ * <p>## The endpoint is going to be deprecated **Endpoint migration guide** - **Substitute
+ * endpoint: _/v3/admin/namespaces/{namespace}/clients [POST]_**
  *
  * @deprecated
  */

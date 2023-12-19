@@ -25,13 +25,23 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ModelUserPlatformInfo extends Model {
 
+  @JsonProperty("platformAvatarUrl")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String platformAvatarUrl;
+
   @JsonProperty("platformDisplayName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String platformDisplayName;
+
+  @JsonProperty("platformGroup")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String platformGroup;
 
   @JsonProperty("platformId")
   private String platformId;
 
   @JsonProperty("platformUserId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String platformUserId;
 
   @JsonIgnore

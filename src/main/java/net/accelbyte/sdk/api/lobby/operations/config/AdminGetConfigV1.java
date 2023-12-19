@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminGetConfigV1
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:LOBBY:CONFIG [READ]` with scope `social`
- *
- * <p>get lobby config of a namespace. default MaxDSWaitTime is 120 (second)
+ * <p>Get lobby config of a namespace. default MaxDSWaitTime is 120 (second)
  */
 @Getter
 @Setter

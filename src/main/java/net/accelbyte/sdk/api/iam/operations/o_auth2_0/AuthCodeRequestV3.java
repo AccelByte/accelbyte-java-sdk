@@ -20,45 +20,30 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AuthCodeRequestV3
  *
- * <p>Generate url to request auth code from third party platform
+ * <p>Generate url to request auth code from third party platform ## Supported platforms: -
+ * **steamopenid**This endpoint redirects to steam login page, then redirect back to platform
+ * authenticate endpoint after successfully authenticating user steam. - **xblweb**This endpoint
+ * redirects to xbox login page, then redirect back to platform authenticate endpoint after
+ * successfully authenticating xbox user. - **ps4web**This endpoint redirects to psn login page,
+ * then redirect back to platform authenticate endpoint after successfully authenticating psn user.
+ * - **epicgames**This endpoint redirects to Epicgames OAuth login page. then redirect to platform
+ * authenticate endpoint after successfully authenticating an Epicgames credential - **twitch**This
+ * endpoint redirects to twitch login page, then redirect back to platform authenticate endpoint
+ * after successfully authenticating twitch user. - **azure**This endpoint redirects to azure login
+ * page, then redirect back to platform authenticate(saml) endpoint after successfully
+ * authenticating azure user. - **facebook**This endpoint redirects to facebook login page, then
+ * redirect back to platform authenticate endpoint after successfully authenticating facebook user.
+ * - **google**This endpoint redirects to google login page, then redirect back to platform
+ * authenticate endpoint after successfully authenticating google user. - **snapchat**This endpoint
+ * redirects to snapchat login page, then redirect back to platform authenticate endpoint after
+ * successfully authenticating snapchat user. - **discord**This endpoint redirects to discord login
+ * page, then redirect back to platform authenticate endpoint after successfully authenticating
+ * discord user. - **amazon**This endpoint redirects to amazon login page, then redirect back to
+ * platform authenticate endpoint after successfully authenticating amazon user. - **oculusweb**This
+ * endpoint redirects to oculus login page, then redirect back to Login Website page after
+ * successfully authenticating oculus user.
  *
- * <p>## Supported platforms:
- *
- * <p>* steamopenid This endpoint redirects to steam login page, then redirect back to platform
- * authenticate endpoint after successfully authenticating user steam.
- *
- * <p>* xblweb This endpoint redirects to xbox login page, then redirect back to platform
- * authenticate endpoint after successfully authenticating xbox user.
- *
- * <p>* ps4web This endpoint redirects to psn login page, then redirect back to platform
- * authenticate endpoint after successfully authenticating psn user.
- *
- * <p>* epicgames This endpoint redirects to Epicgames OAuth login page. then redirect to platform
- * authenticate endpoint after successfully authenticating an Epicgames credential
- *
- * <p>* twitch This endpoint redirects to twitch login page, then redirect back to platform
- * authenticate endpoint after successfully authenticating twitch user.
- *
- * <p>* azure This endpoint redirects to azure login page, then redirect back to platform
- * authenticate(saml) endpoint after successfully authenticating azure user.
- *
- * <p>* facebook This endpoint redirects to facebook login page, then redirect back to platform
- * authenticate endpoint after successfully authenticating facebook user.
- *
- * <p>* google This endpoint redirects to google login page, then redirect back to platform
- * authenticate endpoint after successfully authenticating google user.
- *
- * <p>* snapchat This endpoint redirects to snapchat login page, then redirect back to platform
- * authenticate endpoint after successfully authenticating snapchat user.
- *
- * <p>* discord This endpoint redirects to discord login page, then redirect back to platform
- * authenticate endpoint after successfully authenticating discord user.
- *
- * <p>* amazon This endpoint redirects to amazon login page, then redirect back to platform
- * authenticate endpoint after successfully authenticating amazon user.
- *
- * <p>* oculusweb This endpoint redirects to oculus login page, then redirect back to Login Website
- * page after successfully authenticating oculus user. action code : 10702'
+ * <p>action code : 10702'
  */
 @Getter
 @Setter

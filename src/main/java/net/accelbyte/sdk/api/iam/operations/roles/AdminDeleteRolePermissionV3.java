@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDeleteRolePermissionV3
  *
- * <p>Required permission 'ADMIN:ROLE [UPDATE]' action code: 10406
+ * <p>action code: 10406
  */
 @Getter
 @Setter

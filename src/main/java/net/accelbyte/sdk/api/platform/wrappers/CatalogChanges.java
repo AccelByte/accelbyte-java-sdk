@@ -24,7 +24,7 @@ public class CatalogChanges {
   /**
    * @see QueryChanges
    */
-  public CatalogChangePagingSlicedResult queryChanges(QueryChanges input) throws Exception {
+  public CatalogChangePagingResult queryChanges(QueryChanges input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
@@ -52,6 +52,15 @@ public class CatalogChanges {
    * @see SelectAllRecords
    */
   public void selectAllRecords(SelectAllRecords input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see SelectAllRecordsByCriteria
+   */
+  public void selectAllRecordsByCriteria(SelectAllRecordsByCriteria input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

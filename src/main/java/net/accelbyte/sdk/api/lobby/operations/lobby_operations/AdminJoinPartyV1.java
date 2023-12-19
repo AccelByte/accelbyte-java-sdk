@@ -20,9 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminJoinPartyV1
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:PARTY:STORAGE [UPDATE]` with scope `social`
- *
- * <p>admin join a player into a party.
+ * <p>Admin join a player into a party.
  */
 @Getter
 @Setter

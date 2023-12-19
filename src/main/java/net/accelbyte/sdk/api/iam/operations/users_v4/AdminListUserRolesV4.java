@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminListUserRolesV4
  *
- * <p>This endpoint requires ADMIN:NAMESPACE:{namespace}:ROLE:USER:* [READ] permission.
- *
  * <p>List roles assigned to a user
  */
 @Getter

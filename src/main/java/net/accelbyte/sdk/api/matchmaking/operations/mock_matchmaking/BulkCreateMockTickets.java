@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * BulkCreateMockTickets
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Create]
- *
- * <p>Required Scope: social
- *
  * <p>Create and queue mock tickets into specified game mode's pool. The tickets input will be used
  * as is. '
  */

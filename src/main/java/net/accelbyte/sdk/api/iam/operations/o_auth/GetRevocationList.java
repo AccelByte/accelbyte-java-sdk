@@ -21,17 +21,12 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetRevocationList
  *
- * <p>## The endpoint is going to be deprecated
+ * <p>## The endpoint is going to be deprecated This endpoint will return a list of revoked users
+ * and revoked tokens. List of revoked tokens in bloom filter format. This endpoint requires all
+ * requests to have Authorization header set with Basic access authentication constructed from
+ * client id and client secret. The bloom filter uses MurmurHash3 algorithm for hashing the values
  *
- * <p>This endpoint will return a list of revoked users and revoked tokens. List of revoked tokens
- * in bloom filter format. This endpoint requires all requests to have Authorization header set with
- * Basic access authentication constructed from client id and client secret.
- *
- * <p>The bloom filter uses MurmurHash3 algorithm for hashing the values
- *
- * <p>Endpoint migration guide
- *
- * <p>* Substitute endpoint: /iam/v3/oauth/revocationlist [GET]
+ * <p>### Endpoint migration guide - **Substitute endpoint: _/iam/v3/oauth/revocationlist [GET]_**
  *
  * @deprecated
  */

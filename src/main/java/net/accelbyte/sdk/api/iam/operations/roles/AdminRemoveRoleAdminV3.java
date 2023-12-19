@@ -20,8 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminRemoveRoleAdminV3
  *
- * <p>Required permission 'ADMIN:ROLE [UPDATE]'
- *
  * <p>code: 10413
  */
 @Getter

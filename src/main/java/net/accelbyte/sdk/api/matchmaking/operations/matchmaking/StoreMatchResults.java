@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * StoreMatchResults
  *
- * <p>Required Permission: NAMESPACE:{namespace}:MATCHRESULT [CREATE]
- *
- * <p>Required Scope: social
- *
  * <p>Process match result into final attribute value and stores it to player attribute
  *
  * <p>Will return final attribute value

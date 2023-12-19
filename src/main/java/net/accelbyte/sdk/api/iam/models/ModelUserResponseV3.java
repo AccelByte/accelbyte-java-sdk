@@ -106,12 +106,20 @@ public class ModelUserResponseV3 extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String platformId;
 
+  @JsonProperty("platformInfos")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<ModelUserPlatformInfo> platformInfos;
+
   @JsonProperty("platformUserId")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String platformUserId;
 
   @JsonProperty("roles")
   private List<String> roles;
+
+  @JsonProperty("testAccount")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean testAccount;
 
   @JsonProperty("userId")
   private String userId;

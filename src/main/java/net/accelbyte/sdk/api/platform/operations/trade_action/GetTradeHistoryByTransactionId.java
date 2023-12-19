@@ -13,6 +13,7 @@ import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
@@ -80,11 +81,13 @@ public class GetTradeHistoryByTransactionId extends Operation {
     return true;
   }
 
-  public void handleEmptyResponse(int code, String contentType, InputStream payload)
-      throws HttpResponseException, IOException {
-    if (code != 200 && code != 204) {
+  public TradeChainActionHistoryInfo parseResponse(
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
+    if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
+    final String json = Helper.convertInputStreamToString(payload);
+    return new TradeChainActionHistoryInfo().createFromJson(json);
   }
 }

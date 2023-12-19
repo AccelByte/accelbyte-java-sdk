@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * AdminDownloadMyBackupCodesV4
  *
  * <p>This endpoint is used to download backup codes.
- *
- * <p>This endpoint Requires valid user access token
  */
 @Getter
 @Setter

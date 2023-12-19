@@ -21,50 +21,15 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicPlatformUnlinkV3
  *
- * <p>Required valid user authorization.
- *
- * <p>## Supported platforms:
- *
- * <p>* steam
- *
- * <p>* steamopenid
- *
- * <p>* facebook
- *
- * <p>* google
- *
- * <p>* oculus
- *
- * <p>* twitch
- *
- * <p>* android
- *
- * <p>* ios
- *
- * <p>* apple
- *
- * <p>* device
- *
- * <p>* discord
- *
- * <p>* awscognito
- *
- * <p>* epicgames
- *
- * <p>* nintendo
+ * <p>## Supported platforms: - **steam** - **steamopenid** - **facebook** - **google** - **oculus**
+ * - **twitch** - **android** - **ios** - **apple** - **device** - **discord** - **awscognito** -
+ * **epicgames** - **nintendo**
  *
  * <p>Unlink user's account from a specific platform. 'justice' platform might have multiple
- * accounts from different namespaces linked.
- *
- * <p>platformNamespace need to be specified when the platform ID is 'justice'.
- *
- * <p>Unlink user's account from justice platform will enable password token grant and password
- * update.
- *
- * <p>If you want to unlink user's account in a game namespace, you have to specify
- * platformNamespace to that game namespace.
- *
- * <p>action code : 10121
+ * accounts from different namespaces linked. _platformNamespace_ need to be specified when the
+ * platform ID is 'justice'. Unlink user's account from justice platform will enable password token
+ * grant and password update. If you want to unlink user's account in a game namespace, you have to
+ * specify _platformNamespace_ to that game namespace. action code : 10121
  */
 @Getter
 @Setter

@@ -6,50 +6,56 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.ams.operations.images;
+package net.accelbyte.sdk.api.iam.operations.users;
 
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import net.accelbyte.sdk.api.ams.models.*;
+import net.accelbyte.sdk.api.iam.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * FleetArtifactSamplingRulesGet
+ * PublicGetUsersPlatformInfosV3
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:AMS:ARTIFACTS [READ]
+ * <p>Note: 1. the max count of user ids in the request is 100 2. if platform id is not empty, the
+ * result will only contain the corresponding platform infos 3. if platform id is empty, the result
+ * will contain all the supported platform infos
+ *
+ * <p>__Supported 3rd platforms:__
+ *
+ * <p>* __PSN(ps4web, ps4, ps5)__ * display name * avatar * __Xbox(live, xblweb)__ * display name *
+ * __Steam(steam, steamopenid)__ * display name * avatar * __EpicGames(epicgames)__ * display name
  */
 @Getter
 @Setter
-public class FleetArtifactSamplingRulesGet extends Operation {
+public class PublicGetUsersPlatformInfosV3 extends Operation {
   /** generated field's value */
-  private String path =
-      "/ams/v1/admin/namespaces/{namespace}/fleets/{fleetID}/artifacts-sampling-rules";
+  private String path = "/iam/v3/public/namespaces/{namespace}/users/platforms";
 
-  private String method = "GET";
+  private String method = "POST";
   private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
 
   /** fields as input parameter */
-  private String fleetID;
-
   private String namespace;
 
+  private ModelUsersPlatformInfosRequestV3 body;
+
   /**
-   * @param fleetID required
    * @param namespace required
+   * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public FleetArtifactSamplingRulesGet(String fleetID, String namespace) {
-    this.fleetID = fleetID;
+  public PublicGetUsersPlatformInfosV3(String namespace, ModelUsersPlatformInfosRequestV3 body) {
     this.namespace = namespace;
+    this.body = body;
 
     securities.add("Bearer");
   }
@@ -57,9 +63,6 @@ public class FleetArtifactSamplingRulesGet extends Operation {
   @Override
   public Map<String, String> getPathParams() {
     Map<String, String> pathParams = new HashMap<>();
-    if (this.fleetID != null) {
-      pathParams.put("fleetID", this.fleetID);
-    }
     if (this.namespace != null) {
       pathParams.put("namespace", this.namespace);
     }
@@ -67,23 +70,25 @@ public class FleetArtifactSamplingRulesGet extends Operation {
   }
 
   @Override
+  public ModelUsersPlatformInfosRequestV3 getBodyParams() {
+    return this.body;
+  }
+
+  @Override
   public boolean isValid() {
-    if (this.fleetID == null) {
-      return false;
-    }
     if (this.namespace == null) {
       return false;
     }
     return true;
   }
 
-  public ApiFleetArtifactsSampleRulesResponse parseResponse(
+  public ModelUsersPlatformInfosResponse parseResponse(
       int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ApiFleetArtifactsSampleRulesResponse().createFromJson(json);
+    return new ModelUsersPlatformInfosResponse().createFromJson(json);
   }
 }

@@ -1,3 +1,25 @@
+<a name="v0.53.0"></a>
+## [v0.53.0]
+### ci
+- **nightly:** add integration tests for AGS starter
+### chore
+- **git:** ignore macOS files
+### test
+- **login:** add login user with no scope test
+- **core:** add using AGS starter flag
+- **eventlog:** remove count assert
+- **integration:** adjust tests to use client credentials for AGS starter environments
+- **integration:** disable some tests for AGS starter environments
+- **integration:** fix dsmc client game version
+### feat
+- **api:** bootstrap chat service support
+- **:** support extend delegate token
+### fix
+- **:** auto refresh websocket connection
+### docs
+- **:** update docs portal links
+
+
 <a name="v0.52.0"></a>
 ## [v0.52.0]
 ### fix

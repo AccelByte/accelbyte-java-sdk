@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetMockMatchesByTimestamp
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Read]
- *
- * <p>Required Scope: social
- *
  * <p>Read mock matches that has timestamp older than specified timestamp in a channel resulted from
  * matching mock tickets. '
  */

@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetMyUserV3
  *
- * <p>Require valid user authorization Get my user data action code : 10147
+ * <p>Get my user data action code : 10147
  */
 @Getter
 @Setter

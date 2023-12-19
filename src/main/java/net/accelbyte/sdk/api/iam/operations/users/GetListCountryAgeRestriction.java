@@ -23,13 +23,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetListCountryAgeRestriction
  *
- * <p>## The endpoint is going to be deprecated
- *
- * <p>Endpoint migration guide
- *
- * <p>* Substitute endpoint: /iam/v3/admin/namespaces/{namespace}/agerestrictions/countries [GET]
- *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:AGERESTRICTION [READ]'
+ * <p>## The endpoint is going to be deprecated **Endpoint migration guide** - **Substitute
+ * endpoint: _/iam/v3/admin/namespaces/{namespace}/agerestrictions/countries [GET]_**
  *
  * @deprecated
  */

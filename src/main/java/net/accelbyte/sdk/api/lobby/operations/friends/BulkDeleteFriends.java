@@ -21,10 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * bulkDeleteFriends
  *
- * <p>Required permission : `NAMESPACE:{namespace}:USER:{userId}:FRIENDS [DELETE]` with scope
- * `social`
- *
- * <p>friends request in a namespace.
+ * <p>Friends request in a namespace.
  */
 @Getter
 @Setter

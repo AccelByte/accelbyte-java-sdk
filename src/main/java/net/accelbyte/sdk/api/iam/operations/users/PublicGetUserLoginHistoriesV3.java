@@ -21,15 +21,11 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicGetUserLoginHistoriesV3
  *
- * <p>Required valid user authorization.
- *
- * <p>Notes for this endpoint:
- *
- * <p>* This endpoint retrieve the first page of the data if `after` and `before` parameters is
- * empty. * The maximum value of the limit is 100 and the minimum value of the limit is 1. * This
- * endpoint retrieve the next page of the data if we provide `after` parameters with valid Unix
- * timestamp. * This endpoint retrieve the previous page of the data if we provide `before`
- * parameter with valid data Unix timestamp.
+ * <p>Notes for this endpoint: - This endpoint retrieve the first page of the data if `after` and
+ * `before` parameters is empty. - The maximum value of the limit is 100 and the minimum value of
+ * the limit is 1. - This endpoint retrieve the next page of the data if we provide `after`
+ * parameters with valid Unix timestamp. - This endpoint retrieve the previous page of the data if
+ * we provide `before` parameter with valid data Unix timestamp.
  */
 @Getter
 @Setter

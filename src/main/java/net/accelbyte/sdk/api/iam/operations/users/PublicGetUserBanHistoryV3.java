@@ -21,13 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicGetUserBanHistoryV3
  *
- * <p>Required valid user authorization.
- *
- * <p>Notes:
- *
- * <p>* This endpoint retrieve the first page of the data if after and before parameters is empty
- *
- * <p>* The pagination is not working yet
+ * <p>Notes: - This endpoint retrieve the first page of the data if after and before parameters is
+ * empty - **The pagination is not working yet**
  */
 @Getter
 @Setter

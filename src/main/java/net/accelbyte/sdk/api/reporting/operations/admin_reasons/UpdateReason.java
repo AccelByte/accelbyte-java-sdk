@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateReason
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:REASON [UPDATE]
+ * <p>This endpoint update a reason for a namespace with ID.
  */
 @Getter
 @Setter

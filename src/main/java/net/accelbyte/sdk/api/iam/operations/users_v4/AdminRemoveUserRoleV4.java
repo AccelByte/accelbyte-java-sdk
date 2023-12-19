@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminRemoveUserRoleV4
  *
- * <p>This endpoint requires ADMIN:NAMESPACE:{namespace}:ROLE:USER:* [Delete] permission.
- *
  * <p>Remove a role from user's roles.
  */
 @Getter

@@ -20,10 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDeleteUserRoleV3
  *
- * <p>This endpoint removes role from user. Required permission
- * ADMIN:NAMESPACE:{namespace}:ROLE:USER:{userId} [DELETE]
- *
- * <p>action code: 10110
+ * <p>This endpoint removes role from user action code: 10110
  */
 @Getter
 @Setter

@@ -21,13 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminVerifyAccountV3
  *
- * <p>Will verify account and consume code if validateOnly is set false in request body
- *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:USER:{userId} [UPDATE]'
- *
- * <p>Redeems a verification code sent to a user to verify the user's contact address is correct
- *
- * <p>Available ContactType : email or phone
+ * <p>Will verify account and consume code if validateOnly is set false in request body Redeems a
+ * verification code sent to a user to verify the user's contact address is correct Available
+ * ContactType : **email** or **phone**
  */
 @Getter
 @Setter

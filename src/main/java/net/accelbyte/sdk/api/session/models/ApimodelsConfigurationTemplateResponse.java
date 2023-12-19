@@ -59,6 +59,7 @@ public class ApimodelsConfigurationTemplateResponse extends Model {
   private String dsSource;
 
   @JsonProperty("enableSecret")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean enableSecret;
 
   @JsonProperty("fallbackClaimKeys")
@@ -80,6 +81,10 @@ public class ApimodelsConfigurationTemplateResponse extends Model {
 
   @JsonProperty("last")
   private String last;
+
+  @JsonProperty("leaderElectionGracePeriod")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer leaderElectionGracePeriod;
 
   @JsonProperty("maxActiveSessions")
   @JsonInclude(JsonInclude.Include.NON_NULL)

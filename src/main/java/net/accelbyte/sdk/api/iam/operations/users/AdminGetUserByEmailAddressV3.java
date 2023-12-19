@@ -21,11 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetUserByEmailAddressV3
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:USER [READ]'
- *
- * <p>This endpoint search user who owns the given email address
- *
- * <p>action code : 10132
+ * <p>This endpoint search user who owns the given email address action code : 10132
  */
 @Getter
 @Setter

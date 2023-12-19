@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * PublicDisableMyBackupCodesV4
  *
  * <p>This endpoint is used to enable 2FA backup codes.
- *
- * <p>This endpoint Requires valid user access token
  */
 @Getter
 @Setter

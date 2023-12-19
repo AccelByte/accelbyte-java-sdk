@@ -23,11 +23,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>## The endpoint is going to be deprecated
  *
- * <p>Endpoint migration guide
- *
- * <p>* Substitute endpoint: /iam/v3/public/namespaces/{namespace}/users/me/headless/verify [POST]
- *
- * <p>Required permission 'NAMESPACE:{namespace}:USER:{userId} [UPDATE]'
+ * <p>### Endpoint migration guide - **Substitute endpoint:
+ * _/iam/v3/public/namespaces/{namespace}/users/me/headless/verify [POST]_**
  *
  * @deprecated
  */

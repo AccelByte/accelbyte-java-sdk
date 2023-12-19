@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * createNotificationTopicV1Admin
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:NOTIFICATION [CREATE]` with scope `social`
- *
  * <p>Create new notification topic.
  *
  * <p>topic should be alphabets, no special char except underscore, uppercase and no spacing. for

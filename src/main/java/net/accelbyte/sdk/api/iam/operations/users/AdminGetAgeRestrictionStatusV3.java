@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetAgeRestrictionStatusV3
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:AGERESTRICTION [READ]' action code: 10138
+ * <p>action code: 10138
  */
 @Getter
 @Setter

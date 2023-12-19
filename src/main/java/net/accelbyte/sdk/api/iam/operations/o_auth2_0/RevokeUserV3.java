@@ -21,16 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * RevokeUserV3
  *
  * <p>This endpoint revokes all access tokens and refresh tokens a user has prior the revocation
- * time.
- *
- * <p>This endpoint requires authorized requests header with valid access token.
- *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:USER:{userId} [UPDATE]'
- *
- * <p>It is a convenient feature for the developer (or admin) who wanted to revokes all user's
- * access tokens and refresh tokens generated before some period of time.
- *
- * <p>action code : 10707
+ * time. This endpoint requires authorized requests header with valid access token. It is a
+ * convenient feature for the developer (or admin) who wanted to revokes all user's access tokens
+ * and refresh tokens generated before some period of time. action code : 10707
  */
 @Getter
 @Setter

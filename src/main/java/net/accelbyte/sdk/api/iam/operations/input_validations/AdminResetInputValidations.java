@@ -20,8 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminResetInputValidations
  *
- * <p>Required permission 'ADMIN:CONFIGURATION' [DELETE]
- *
  * <p>This endpoint is used to reset input validation to the default input validation configurations
  */
 @Getter

@@ -21,19 +21,13 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AddSSOLoginPlatformCredential
  *
- * <p>This is the API to Add SSO Platform Credential. It needs
- * ADMIN:NAMESPACE:{namespace}:PLATFORM:{platformId}:SSO [CREATE] resource.
- *
- * <p>## Supported platforms:
- *
- * <p>* discourse the ssoUrl of the discourse is the discourse forum url. example:
- * https://forum.example.com
- *
- * <p>* azure with SAML appId is an application identifier in IdP, in azure it's called EntityID
- * acsUrl is an endpoint on the service provider where the identity provider will redirect to with
- * its authentication response. example: /iam/v3/sso/saml/azuresaml/authenticate
- * federationMetadataUrl is an endpoint on the Identity Provider(IdP) to get IdP federation metadata
- * for service provider to build trust relationship
+ * <p>This is the API to Add SSO Platform Credential. ## Supported platforms: - **discourse** the
+ * ssoUrl of the discourse is the discourse forum url. example: https://forum.example.com - **azure
+ * with SAML** **appId** is an application identifier in IdP, in azure it's called EntityID
+ * **acsUrl** is an endpoint on the service provider where the identity provider will redirect to
+ * with its authentication response. example: /iam/v3/sso/saml/azuresaml/authenticate
+ * **federationMetadataUrl** is an endpoint on the Identity Provider(IdP) to get IdP federation
+ * metadata for service provider to build trust relationship
  */
 @Getter
 @Setter

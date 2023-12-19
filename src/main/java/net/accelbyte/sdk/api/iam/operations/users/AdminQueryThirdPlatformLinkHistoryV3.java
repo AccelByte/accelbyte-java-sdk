@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminQueryThirdPlatformLinkHistoryV3
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:USER [READ]
- *
- * <p>* if limit is not defined, The default limit is 100
+ * <p>if limit is not defined, The default limit is 100
  */
 @Getter
 @Setter

@@ -20,10 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminVerifyUserWithoutVerificationCodeV3
  *
- * <p>This endpoint force verify user. Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}
- * [UPDATE]
- *
- * <p>action code: 10118
+ * <p>This endpoint force verify user action code: 10118
  */
 @Getter
 @Setter

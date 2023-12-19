@@ -20,12 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * TokenRevocationV3
  *
- * <p>This endpoint revokes a token.
- *
- * <p>This endpoint requires authorized requests header with Basic Authentication from client that
- * establish the token.
- *
- * <p>action code: 10706
+ * <p>This endpoint revokes a token. This endpoint requires authorized requests header with Basic
+ * Authentication from client that establish the token. action code: 10706
  */
 @Getter
 @Setter

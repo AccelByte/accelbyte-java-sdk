@@ -21,12 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicGetUserByPlatformUserIDV3
  *
- * <p>Get User By Platform User ID
- *
- * <p>This endpoint return user information by given platform ID and platform user ID
- *
- * <p>nintendo platform user ID : NSA ID need to be appended with Environment ID using colon as
- * separator. e.g kmzwa8awaa:dd1
+ * <p>Get User By Platform User ID This endpoint return user information by given platform ID and
+ * platform user ID **nintendo platform user ID**: NSA ID need to be appended with Environment ID
+ * using colon as separator. e.g kmzwa8awaa:dd1
  */
 @Getter
 @Setter

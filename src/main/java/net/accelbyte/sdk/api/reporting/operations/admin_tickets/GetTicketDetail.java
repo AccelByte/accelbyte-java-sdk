@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getTicketDetail
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:TICKET [READ]
+ * <p>This endpoint will return ticket detail with ticket id.
  */
 @Getter
 @Setter

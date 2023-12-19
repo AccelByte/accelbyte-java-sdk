@@ -20,47 +20,19 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PlatformUnlink
  *
- * <p>## The endpoint is going to be deprecated
+ * <p>## The endpoint is going to be deprecated ### Endpoint migration guide - **Substitute
+ * endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId} [DELETE]_** -
+ * **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}/all
+ * [DELETE]_**
  *
- * <p>Endpoint migration guide
- *
- * <p>* Substitute endpoint: /iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}
- * [DELETE]
- *
- * <p>* Substitute endpoint:
- * /iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}/all [DELETE]
- *
- * <p>Required permission 'NAMESPACE:{namespace}:USER:{userId} [UPDATE]'.
- *
- * <p>## Supported platforms:
- *
- * <p>* steam
- *
- * <p>* steamopenid
- *
- * <p>* facebook
- *
- * <p>* google
- *
- * <p>* oculus
- *
- * <p>* twitch
- *
- * <p>* android
- *
- * <p>* ios
- *
- * <p>* device
- *
- * <p>* justice : A user might have several 'justiceâ platform on different namespaces. Thatâs
- * why the platform_namespace need to be specified when the platform ID is âjusticeâ. The
- * platform_namespace is the designated userâs namespace.
- *
- * <p>Unlink user's account with platform. 'justice' platform might have multiple accounts from
- * different namespaces linked. platform_namespace need to be specified when the platform ID is
- * 'justice'.
- *
- * <p>Unlinking justice platform will enable password token grant and password update.
+ * <p>## Supported platforms: - **steam** - **steamopenid** - **facebook** - **google** - **oculus**
+ * - **twitch** - **android** - **ios** - **device** - **justice**: A user might have several
+ * 'justiceâ platform on different namespaces. Thatâs why the platform_namespace need to be
+ * specified when the platform ID is âjusticeâ. The platform_namespace is the designated
+ * userâs namespace. Unlink user's account with platform. 'justice' platform might have multiple
+ * accounts from different namespaces linked. platform_namespace need to be specified when the
+ * platform ID is 'justice'. Unlinking justice platform will enable password token grant and
+ * password update.
  *
  * @deprecated
  */

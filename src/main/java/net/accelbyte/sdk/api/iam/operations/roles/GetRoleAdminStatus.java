@@ -21,15 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetRoleAdminStatus
  *
- * <p>## The endpoint is going to be deprecated
+ * <p>## The endpoint is going to be deprecated Admin roles has its members listed in the role.
  *
- * <p>Required permission 'ROLE [READ]
- *
- * <p>Admin roles has its members listed in the role.
- *
- * <p>Endpoint migration guide
- *
- * <p>* Substitute endpoint: /iam/v3/admin/roles/{roleId}/admin [GET]
+ * <p>### Endpoint migration guide - **Substitute endpoint: _/iam/v3/admin/roles/{roleId}/admin
+ * [GET]_**
  *
  * @deprecated
  */

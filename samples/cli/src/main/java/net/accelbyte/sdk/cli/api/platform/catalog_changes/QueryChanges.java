@@ -96,6 +96,11 @@ public class QueryChanges implements Callable<Integer> {
   String updatedAtStart;
 
   @Option(
+      names = {"--withTotal"},
+      description = "withTotal")
+  Boolean withTotal;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -131,8 +136,9 @@ public class QueryChanges implements Callable<Integer> {
               .type(type)
               .updatedAtEnd(updatedAtEnd)
               .updatedAtStart(updatedAtStart)
+              .withTotal(withTotal)
               .build();
-      final CatalogChangePagingSlicedResult response = wrapper.queryChanges(operation);
+      final CatalogChangePagingResult response = wrapper.queryChanges(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

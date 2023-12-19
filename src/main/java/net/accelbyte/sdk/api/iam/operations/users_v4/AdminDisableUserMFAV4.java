@@ -20,9 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDisableUserMFAV4
  *
- * <p>This endpoint requires ADMIN:NAMESPACE:{namespace}:USER:{userId} [DELETE] permission
- *
- * <p>This endpoint is used to disable user 2FA.
+ * <p>**This endpoint is used to disable user 2FA.**
  */
 @Getter
 @Setter

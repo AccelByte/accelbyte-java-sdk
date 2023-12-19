@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicGetUserPublicInfoByUserIdV4
  *
- * <p>This endpoint requires a valid user token and only returns user's public information.
- *
- * <p>action code: 10129
+ * <p>This endpoint only returns user's public information. action code: 10129
  */
 @Getter
 @Setter

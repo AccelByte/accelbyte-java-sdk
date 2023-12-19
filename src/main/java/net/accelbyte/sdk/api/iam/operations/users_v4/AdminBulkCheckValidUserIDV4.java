@@ -21,11 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminBulkCheckValidUserIDV4
  *
- * <p>Use this endpoint to check if userID exists or not
- *
- * <p>Required permission ' ADMIN:NAMESPACE:{namespace}:USER [READ]'
- *
- * <p>Maximum number of userID to be checked is 50
+ * <p>Use this endpoint to check if userID exists or not Maximum number of userID to be checked is
+ * 50
  */
 @Getter
 @Setter

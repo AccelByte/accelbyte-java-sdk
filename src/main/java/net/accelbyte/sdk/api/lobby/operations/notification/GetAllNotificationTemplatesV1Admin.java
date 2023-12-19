@@ -23,8 +23,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getAllNotificationTemplatesV1Admin
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:NOTIFICATION [READ]` with scope `social`
- *
  * <p>Get all templates in a namespace
  *
  * <p>Action Code: 50203

@@ -41,11 +41,6 @@ public class GetSessionServerSecret implements Callable<Integer> {
   String sessionId;
 
   @Option(
-      names = {"--body"},
-      description = "body")
-  String body;
-
-  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -70,7 +65,6 @@ public class GetSessionServerSecret implements Callable<Integer> {
           net.accelbyte.sdk.api.session.operations.game_session.GetSessionServerSecret.builder()
               .namespace(namespace)
               .sessionId(sessionId)
-              .body(new ObjectMapper().readValue(body, ApimodelsServerSecret.class))
               .build();
       final ApimodelsServerSecret response = wrapper.getSessionServerSecret(operation);
       final String responseString =

@@ -28,10 +28,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>* Substitute endpoint: /sessionbrowser/admin/namespaces/{namespace}/sessions/history/search
  * [GET]
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Read]
- *
- * <p>Required Scope: social
- *
  * <p>Search sessions. Optimize the query by differentiating query with filter namespace only and
  * filter with namespace & other filter (partyID, userID, matchID). Query with filter namespace only
  * will not group whole session data while query with filter namespace & other filter will include

@@ -21,9 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminBulkBlockPlayersV1
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:USER:{userId}:PLAYER:BLOCK [CREATE]` with
- * scope `social`
- *
  * <p>Bulk block player in a namespace by list of user id
  */
 @Getter

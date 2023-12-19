@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminFindActionList
  *
- * <p>Required permission: ADMIN:REPORTINGCONFIG [READ] Get a list of auto moderation actions
+ * <p>Get a list of auto moderation actions
  */
 @Getter
 @Setter

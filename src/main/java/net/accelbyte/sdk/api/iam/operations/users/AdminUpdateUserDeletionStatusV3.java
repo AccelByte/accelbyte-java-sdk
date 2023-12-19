@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateUserDeletionStatusV3
  *
- * <p>Required permissions 'ADMIN:NAMESPACE:{namespace}:DELETIONSTATUS:USER:{userId} [UPDATE]'
- * action code : 10144
+ * <p>action code : 10144
  */
 @Getter
 @Setter

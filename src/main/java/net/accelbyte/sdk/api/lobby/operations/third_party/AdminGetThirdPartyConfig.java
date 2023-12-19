@@ -21,10 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminGetThirdPartyConfig
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:THIRDPARTY:CONFIG [READ]` with scope
- * `social`
- *
- * <p>get third party config for specified namespace.
+ * <p>Get third party config for specified namespace.
  */
 @Getter
 @Setter

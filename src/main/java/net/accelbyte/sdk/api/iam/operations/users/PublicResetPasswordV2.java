@@ -21,11 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicResetPasswordV2
  *
- * <p>## The endpoint is going to be deprecated
- *
- * <p>Endpoint migration guide
- *
- * <p>* Substitute endpoint: /iam/v3/public/namespaces/{namespace}/users/reset [POST]
+ * <p>## The endpoint is going to be deprecated **Endpoint migration guide** - **Substitute
+ * endpoint: _/iam/v3/public/namespaces/{namespace}/users/reset [POST]_**
  *
  * @deprecated
  */

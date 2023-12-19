@@ -21,11 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetRoleAdminStatusV3
  *
- * <p>Required permission 'ADMIN:ROLE [READ]'
- *
- * <p>Admin roles has its members listed in the role.
- *
- * <p>action code: 10420
+ * <p>Admin roles has its members listed in the role. action code: 10420
  */
 @Getter
 @Setter

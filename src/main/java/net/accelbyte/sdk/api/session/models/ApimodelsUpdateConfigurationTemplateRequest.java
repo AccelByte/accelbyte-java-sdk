@@ -79,6 +79,10 @@ public class ApimodelsUpdateConfigurationTemplateRequest extends Model {
   @JsonProperty("joinability")
   private String joinability;
 
+  @JsonProperty("leaderElectionGracePeriod")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer leaderElectionGracePeriod;
+
   @JsonProperty("maxActiveSessions")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer maxActiveSessions;

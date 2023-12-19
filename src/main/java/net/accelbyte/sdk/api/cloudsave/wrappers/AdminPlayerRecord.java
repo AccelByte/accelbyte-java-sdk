@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.api.cloudsave.wrappers;
 
+import java.util.*;
 import net.accelbyte.sdk.api.cloudsave.models.*;
 import net.accelbyte.sdk.api.cloudsave.operations.admin_player_record.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
@@ -48,6 +49,16 @@ public class AdminPlayerRecord {
    */
   public ModelsListPlayerRecordKeysResponse adminRetrievePlayerRecords(
       AdminRetrievePlayerRecords input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminPutPlayerRecordsHandlerV1
+   */
+  public List<ModelsBulkUpdatePlayerRecordResponse> adminPutPlayerRecordsHandlerV1(
+      AdminPutPlayerRecordsHandlerV1 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

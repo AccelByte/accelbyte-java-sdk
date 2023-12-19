@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetCountryBlacklistV3
  *
- * <p>Admin get country blacklist:
- *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:MISC [READ]
+ * <p>Admin get country blacklist
  */
 @Getter
 @Setter

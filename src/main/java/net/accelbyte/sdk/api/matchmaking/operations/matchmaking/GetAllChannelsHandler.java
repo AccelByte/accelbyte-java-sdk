@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetAllChannelsHandler
  *
- * <p>Required Permission: NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [READ]
- *
- * <p>Required Scope: social
- *
  * <p>Reads all available channels in a namespace
  */
 @Getter

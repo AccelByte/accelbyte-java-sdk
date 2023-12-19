@@ -18,7 +18,11 @@ import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
-/** adminGetReasons */
+/**
+ * adminGetReasons
+ *
+ * <p>This endpoint get reasons with pagination
+ */
 @Getter
 @Setter
 public class AdminGetReasons extends Operation {

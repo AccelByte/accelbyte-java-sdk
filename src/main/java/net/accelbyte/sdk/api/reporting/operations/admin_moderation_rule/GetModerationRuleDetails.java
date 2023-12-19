@@ -22,8 +22,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * getModerationRuleDetails
  *
  * <p>This endpoint get moderation rule.
- *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:RULE [READ]
  */
 @Getter
 @Setter

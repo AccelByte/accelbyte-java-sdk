@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicGetPublisherUserV3
  *
- * <p>Required permissions 'NAMESPACE:{namespace}:USER:{userId}:PUBLISHER [READ].
- *
- * <p>Restriction: Path Parameter namespace can be provided only with game namespace
+ * <p>**Restriction:** Path Parameter **namespace** can be provided only with game namespace
  */
 @Getter
 @Setter

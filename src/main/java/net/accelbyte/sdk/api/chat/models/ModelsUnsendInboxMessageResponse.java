@@ -8,29 +8,26 @@
 
 package net.accelbyte.sdk.api.chat.models;
 
-import java.util.*;
-
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+import java.util.*;
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ModelsUnsendInboxMessageResponse extends Model {
 
+  @JsonIgnore
+  public ModelsUnsendInboxMessageResponse createFromJson(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsUnsendInboxMessageResponse createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsUnsendInboxMessageResponse> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUnsendInboxMessageResponse>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsUnsendInboxMessageResponse> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsUnsendInboxMessageResponse>>() {});
+  }
 }

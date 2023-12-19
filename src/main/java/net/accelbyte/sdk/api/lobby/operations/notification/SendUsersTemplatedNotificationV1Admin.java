@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * sendUsersTemplatedNotificationV1Admin
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:NOTIFICATION [CREATE]` with scope `social`
- *
  * <p>Sends notification to all connected users in a namespace with predefined template.
  *
  * <p>In the request body, specify which template slug (template identifier) to use and the template

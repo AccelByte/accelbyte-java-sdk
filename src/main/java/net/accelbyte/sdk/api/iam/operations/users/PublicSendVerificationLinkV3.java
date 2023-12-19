@@ -21,11 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicSendVerificationLinkV3
  *
- * <p>Required valid user authorization
- *
- * <p>The verification link is sent to email address
- *
- * <p>It will not send request if user email is already verified
+ * <p>The verification link is sent to email address It will not send request if user email is
+ * already verified
  */
 @Getter
 @Setter

@@ -20,11 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteRole
  *
- * <p>## The endpoint is going to be deprecated
- *
- * <p>Required permission 'ROLE:ADMIN [DELETE]' or 'ADMIN:ROLE [DELETE]' Endpoint migration guide
- *
- * <p>* Substitute endpoint: /iam/v3/admin/roles/{roleId} [DELETE]
+ * <p>## The endpoint is going to be deprecated ### Endpoint migration guide - **Substitute
+ * endpoint: _/iam/v3/admin/roles/{roleId} [DELETE]_**
  *
  * @deprecated
  */

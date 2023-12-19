@@ -25,7 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>This endpoint return user information by given platform ID and platform user ID
  *
- * <p>nintendo platform user ID : NSA ID need to be appended with Environment ID using colon as
+ * <p>**nintendo platform user ID**: NSA ID need to be appended with Environment ID using colon as
  * separator. e.g kmzwa8awaa:dd1
  */
 @Getter

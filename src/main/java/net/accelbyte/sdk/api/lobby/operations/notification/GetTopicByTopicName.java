@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getTopicByTopicName
  *
- * <p>Required permission : `NAMESPACE:{namespace}:TOPIC [READ]` with scope `social`
- *
  * <p>get topic information by topic name.
  */
 @Getter

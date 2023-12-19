@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateChannelHandler
  *
- * <p>Required Permission: NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [CREATE]
- *
- * <p>Required Scope: social
- *
  * <p>Creates a new matchmaking channel.
  *
  * <p>Matchmaking channels is a list of pool name that is eligible for matchmaking processes.

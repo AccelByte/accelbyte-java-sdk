@@ -48,20 +48,17 @@ public class GetSessionServerSecret extends Operation {
   private String namespace;
 
   private String sessionId;
-  private ApimodelsServerSecret body;
 
   /**
    * @param namespace required
    * @param sessionId required
-   * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public GetSessionServerSecret(String namespace, String sessionId, ApimodelsServerSecret body) {
+  public GetSessionServerSecret(String namespace, String sessionId) {
     this.namespace = namespace;
     this.sessionId = sessionId;
-    this.body = body;
 
     securities.add("Bearer");
   }
@@ -76,11 +73,6 @@ public class GetSessionServerSecret extends Operation {
       pathParams.put("sessionId", this.sessionId);
     }
     return pathParams;
-  }
-
-  @Override
-  public ApimodelsServerSecret getBodyParams() {
-    return this.body;
   }
 
   @Override

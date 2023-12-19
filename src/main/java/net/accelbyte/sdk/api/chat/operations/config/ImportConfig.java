@@ -10,93 +10,82 @@ package net.accelbyte.sdk.api.chat.operations.config;
 
 import java.io.*;
 import java.util.*;
-
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-
 import net.accelbyte.sdk.api.chat.models.*;
-import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * ImportConfig
  *
- * 
- * Import config configuration from file. The existing configuration will be replaced.
- * The json file to import can be obtained from the /export endpoint.
+ * <p>Import config configuration from file. The existing configuration will be replaced. The json
+ * file to import can be obtained from the /export endpoint.
  */
 @Getter
 @Setter
 public class ImportConfig extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/chat/v1/admin/config/namespaces/{namespace}/import";
-    private String method = "POST";
-    private List<String> consumes = Arrays.asList("multipart/form-data");
-    private List<String> produces = Arrays.asList("application/json");
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private String namespace;
-    private File file;
+  /** generated field's value */
+  private String path = "/chat/v1/admin/config/namespaces/{namespace}/import";
 
-    /**
-    * @param namespace required
-    */
-    @Builder
-    // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
-    @Deprecated
-    public ImportConfig(
-            String namespace,
-            File file
-    )
-    {
-        this.namespace = namespace;
-        this.file = file;
-        
-        securities.add("Bearer");
+  private String method = "POST";
+  private List<String> consumes = Arrays.asList("multipart/form-data");
+  private List<String> produces = Arrays.asList("application/json");
+  private String locationQuery = null;
+
+  /** fields as input parameter */
+  private String namespace;
+
+  private File file;
+
+  /**
+   * @param namespace required
+   */
+  @Builder
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
+  @Deprecated
+  public ImportConfig(String namespace, File file) {
+    this.namespace = namespace;
+    this.file = file;
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, String> getPathParams() {
+    Map<String, String> pathParams = new HashMap<>();
+    if (this.namespace != null) {
+      pathParams.put("namespace", this.namespace);
     }
+    return pathParams;
+  }
 
-    @Override
-    public Map<String, String> getPathParams(){
-        Map<String, String> pathParams = new HashMap<>();
-        if (this.namespace != null){
-            pathParams.put("namespace", this.namespace);
-        }
-        return pathParams;
+  @Override
+  public Map<String, Object> getFormParams() {
+    Map<String, Object> formDataParams = new HashMap<>();
+    if (this.file != null) {
+      formDataParams.put("file", this.file);
     }
+    return formDataParams;
+  }
 
-
-
-
-    @Override
-    public Map<String, Object> getFormParams(){
-        Map<String, Object> formDataParams = new HashMap<>();
-        if (this.file != null) {
-            formDataParams.put("file", this.file);
-        }
-        return formDataParams;
+  @Override
+  public boolean isValid() {
+    if (this.namespace == null) {
+      return false;
     }
+    return true;
+  }
 
-    @Override
-    public boolean isValid() {
-        if(this.namespace == null) {
-            return false;
-        }
-        return true;
+  public ModelsImportConfigResponse parseResponse(int code, String contentType, InputStream payload)
+      throws HttpResponseException, IOException {
+    if (code != 200) {
+      final String json = Helper.convertInputStreamToString(payload);
+      throw new HttpResponseException(code, json);
     }
-
-    public ModelsImportConfigResponse parseResponse(int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
-        if(code != 200){
-            final String json = Helper.convertInputStreamToString(payload);
-            throw new HttpResponseException(code, json);    
-        }
-        final String json = Helper.convertInputStreamToString(payload);
-        return new ModelsImportConfigResponse().createFromJson(json);
-    }
-
+    final String json = Helper.convertInputStreamToString(payload);
+    return new ModelsImportConfigResponse().createFromJson(json);
+  }
 }

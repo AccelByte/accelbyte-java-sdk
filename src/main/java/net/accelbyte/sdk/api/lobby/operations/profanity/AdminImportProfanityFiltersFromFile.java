@@ -20,9 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminImportProfanityFiltersFromFile
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:PROFANITY [CREATE]` with scope `social`
- *
- * <p>import a file with filters
+ * <p>Import a file with filters
  */
 @Getter
 @Setter

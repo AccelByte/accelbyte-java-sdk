@@ -20,9 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteTemplateLocalizationV1Admin
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:NOTIFICATION [DELETE]` with scope `social`
- *
- * <p>delete template localization
+ * <p>Delete template localization
  *
  * <p>Action Code: 50209
  */

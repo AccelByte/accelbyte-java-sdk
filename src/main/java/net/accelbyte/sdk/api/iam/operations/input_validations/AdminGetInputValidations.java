@@ -21,11 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetInputValidations
  *
- * <p>Required permission 'ADMIN:CONFIGURATION'[READ]
- *
- * <p>This endpoint is to get list of input validation configuration.
- *
- * <p>`regex` parameter will be returned if `isCustomRegex` is true. Otherwise, it will be empty.
+ * <p>This endpoint is to get list of input validation configuration. `regex` parameter will be
+ * returned if `isCustomRegex` is true. Otherwise, it will be empty.
  */
 @Getter
 @Setter

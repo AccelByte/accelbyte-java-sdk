@@ -22,8 +22,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminGetAllReasons
  *
  * <p>This endpoint get all reasons without pagination.
- *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:REASON [READ]
  */
 @Getter
 @Setter

@@ -21,9 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * listTickets
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:TICKET [READ] Tickets list can be ordered by:
- * - createdAt - reportsCount - status (currently there are OPEN, AUTO_MODERATED and CLOSED
- * statuses, desc order will put ticket with CLOSED status at the top)
+ * <p>Tickets list can be ordered by: - createdAt - reportsCount - status (currently there are OPEN,
+ * AUTO_MODERATED and CLOSED statuses, desc order will put ticket with CLOSED status at the top)
  */
 @Getter
 @Setter

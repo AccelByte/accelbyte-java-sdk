@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminCreateRoleV4
  *
- * <p>Required permission: ADMIN:ROLE [CREATE]
- *
  * <p>Create role request body: - roleName: specify role name, alphanumeric, cannot have special
  * character (required) - adminRole: specify if role is for admin user (default false) - isWildcard:
  * specify if role can be assigned to wildcard (*) namespace (default false) - deletable: specify if

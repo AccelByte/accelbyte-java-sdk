@@ -21,11 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetBulkUserBanV3
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:BAN:USER [READ]'
- *
- * <p>This endpoint returns user bans of userIDs specified in the payload
- *
- * <p>action code : 10127
+ * <p>This endpoint returns user bans of userIDs specified in the payload action code : 10127
  */
 @Getter
 @Setter

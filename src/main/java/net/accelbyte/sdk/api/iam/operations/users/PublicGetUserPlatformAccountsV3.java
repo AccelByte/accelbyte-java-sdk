@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicGetUserPlatformAccountsV3
  *
- * <p>This endpoint retrieves platform accounts linked to user. Required valid user authorization.
- *
- * <p>action code: 10128
+ * <p>This endpoint retrieves platform accounts linked to user. action code: 10128
  */
 @Getter
 @Setter

@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminGetUserPartyV1
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:PARTY:STORAGE [READ]` with scope `social`
- *
- * <p>get party data in a namespace.
+ * <p>Get party data in a namespace.
  */
 @Getter
 @Setter

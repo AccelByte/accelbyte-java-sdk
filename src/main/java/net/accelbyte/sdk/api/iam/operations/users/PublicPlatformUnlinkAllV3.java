@@ -20,8 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicPlatformUnlinkAllV3
  *
- * <p>Required valid user authorization.
- *
  * <p>Unlink user's account from third platform in all namespaces.
  *
  * <p>This API support to handling platform group use case: i.e. 1. Steam group: steam, steamopenid

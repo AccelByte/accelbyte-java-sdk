@@ -20,9 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminAddUserRoleV3
  *
- * <p>This endpoint adds role to user. Required permission
- * ADMIN:NAMESPACE:{namespace}:ROLE:USER:{userId} [UPDATE]
- *
  * <p>action code: 10109
  */
 @Getter

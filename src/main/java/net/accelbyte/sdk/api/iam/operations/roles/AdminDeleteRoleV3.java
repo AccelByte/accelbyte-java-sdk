@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDeleteRoleV3
  *
- * <p>Required permission ''ADMIN:ROLE [DELETE]'' action code: 10403
+ * <p>action code: 10403
  */
 @Getter
 @Setter

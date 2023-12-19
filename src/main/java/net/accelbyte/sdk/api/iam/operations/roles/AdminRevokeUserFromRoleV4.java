@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminRevokeUserFromRoleV4
  *
- * <p>Required permission ADMIN:ROLE [UPDATE]
- *
  * <p>Current implementation will revoke user from role in all assigned namespaces.
  *
  * <p>Parameters: - userId: string (required) - namespace: string (userâs namespace) (required)

@@ -20,10 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CleanAllMocks
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Update]
- *
- * <p>Required Scope: social
- *
  * <p>Delete all mock tickets and matches in a channel. '
  */
 @Getter

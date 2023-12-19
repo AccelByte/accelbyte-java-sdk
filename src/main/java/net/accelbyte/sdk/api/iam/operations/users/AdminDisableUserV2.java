@@ -21,19 +21,12 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDisableUserV2
  *
- * <p>## The endpoint is going to be deprecated
+ * <p>## The endpoint is going to be deprecated **Endpoint migration guide** - **Substitute
+ * endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/status [PATCH]_**
  *
- * <p>Endpoint migration guide
- *
- * <p>* Substitute endpoint: /iam/v3/admin/namespaces/{namespace}/users/{userId}/status [PATCH]
- *
- * <p>Required permissions 'ADMIN:NAMESPACE:{namespace}:USERSTATUS:USER:{userId} [UPDATE]'
- *
- * <p>For Deletion Account purpose fill the reason with:
- *
- * <p>* DeactivateAccount : if your deletion request comes from user
- *
- * <p>* AdminDeactivateAccount : if your deletion request comes from admin
+ * <p>For **Deletion Account** purpose fill the reason with: - **DeactivateAccount** : if your
+ * deletion request comes from user - **AdminDeactivateAccount** : if your deletion request comes
+ * from admin
  *
  * @deprecated
  */

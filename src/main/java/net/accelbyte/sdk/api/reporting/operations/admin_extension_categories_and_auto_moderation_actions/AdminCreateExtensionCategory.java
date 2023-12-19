@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminCreateExtensionCategory
  *
- * <p>Required permission: ADMIN:REPORTINGCONFIG [CREATE] Create extension category data
+ * <p>Create extension category data
  */
 @Getter
 @Setter

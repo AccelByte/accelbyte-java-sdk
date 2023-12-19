@@ -23,10 +23,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateMockTickets
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Create]
- *
- * <p>Required Scope: social
- *
  * <p>Create and queue mock tickets into specified game mode's pool. Ticket's MMRs will be
  * randomized using Normal distribution according to the input mean and standard deviation. All mock
  * tickets and matches will be cleaned up automatically after 1 day. '

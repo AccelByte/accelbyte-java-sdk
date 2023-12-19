@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.ams.models;
+package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,24 +23,28 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ApiArtifactTypeSamplingRulesResponse extends Model {
+public class CatalogChangePagingResult extends Model {
 
-  @JsonProperty("crashed")
-  private ApiArtifactSamplingRuleResponse crashed;
+  @JsonProperty("data")
+  private List<CatalogChangeInfo> data;
 
-  @JsonProperty("success")
-  private ApiArtifactSamplingRuleResponse success;
+  @JsonProperty("paging")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Paging paging;
+
+  @JsonProperty("total")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer total;
 
   @JsonIgnore
-  public ApiArtifactTypeSamplingRulesResponse createFromJson(String json)
-      throws JsonProcessingException {
+  public CatalogChangePagingResult createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ApiArtifactTypeSamplingRulesResponse> createFromJsonList(String json)
+  public List<CatalogChangePagingResult> createFromJsonList(String json)
       throws JsonProcessingException {
     return new ObjectMapper()
-        .readValue(json, new TypeReference<List<ApiArtifactTypeSamplingRulesResponse>>() {});
+        .readValue(json, new TypeReference<List<CatalogChangePagingResult>>() {});
   }
 }

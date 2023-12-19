@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * createReason
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:REASON [CREATE]
+ * <p>This endpoint create a reason for a namespace.
  */
 @Getter
 @Setter

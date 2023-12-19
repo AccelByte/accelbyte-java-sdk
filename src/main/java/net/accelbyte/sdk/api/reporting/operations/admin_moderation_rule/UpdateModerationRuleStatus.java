@@ -22,8 +22,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * updateModerationRuleStatus
  *
  * <p>This endpoint enable/disable moderation rule status.
- *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:RULE [UPDATE]
  */
 @Getter
 @Setter

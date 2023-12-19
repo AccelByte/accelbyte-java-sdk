@@ -29,9 +29,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * ticket. Reporting the same user / object in the same OPEN ticket will return HTTP code 409
  * (conflict).
  *
- * <p>Fill the 'reason' field with a 'reason title' Supported category:
- *
- * <p>* UGC * USER * CHAT * EXTENSION
+ * <p>Fill the 'reason' field with a 'reason title' Supported category: - UGC - USER - CHAT -
+ * EXTENSION
  */
 @Getter
 @Setter

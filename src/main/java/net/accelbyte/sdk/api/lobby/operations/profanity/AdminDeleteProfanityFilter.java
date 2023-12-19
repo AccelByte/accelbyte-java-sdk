@@ -23,9 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminDeleteProfanityFilter
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:PROFANITY [DELETE]` with scope `social`
- *
- * <p>delete the filter from the list
+ * <p>Delete the filter from the list
  */
 @Getter
 @Setter

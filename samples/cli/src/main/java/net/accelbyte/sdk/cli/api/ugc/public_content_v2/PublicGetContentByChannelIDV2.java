@@ -46,6 +46,11 @@ public class PublicGetContentByChannelIDV2 implements Callable<Integer> {
   Integer limit;
 
   @Option(
+      names = {"--name"},
+      description = "name")
+  String name;
+
+  @Option(
       names = {"--offset"},
       description = "offset")
   Integer offset;
@@ -83,6 +88,7 @@ public class PublicGetContentByChannelIDV2 implements Callable<Integer> {
                   .channelId(channelId)
                   .namespace(namespace)
                   .limit(limit)
+                  .name(name)
                   .offset(offset)
                   .sortBy(sortBy)
                   .build();

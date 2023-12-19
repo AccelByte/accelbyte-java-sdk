@@ -21,15 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetAgeRestrictionStatusV2
  *
- * <p>## The endpoint is going to be deprecated
- *
- * <p>Endpoint migration guide
- *
- * <p>* Substitute endpoint: /iam/v3/admin/namespaces/{namespace}/agerestrictions [GET]
- *
- * <p>* Note: difference in V3 response, format difference: Pascal case => Camel case
- *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:AGERESTRICTION [READ]'
+ * <p>## The endpoint is going to be deprecated **Endpoint migration guide** - **Substitute
+ * endpoint: _/iam/v3/admin/namespaces/{namespace}/agerestrictions [GET]_** - **Note:** difference
+ * in V3 response, format difference: Pascal case => Camel case
  *
  * @deprecated
  */

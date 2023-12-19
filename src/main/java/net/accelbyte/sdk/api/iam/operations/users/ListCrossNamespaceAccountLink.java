@@ -20,14 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * ListCrossNamespaceAccountLink
  *
- * <p>## The endpoint is going to be deprecated
- *
- * <p>Endpoint migration guide
- *
- * <p>* Substitute endpoint: /iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}
- * [POST]
- *
- * <p>Required permission 'NAMESPACE:{namespace}:USER:{userId} [UPDATE]'.
+ * <p>## The endpoint is going to be deprecated ### Endpoint migration guide - **Substitute
+ * endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId} [POST]_**
  *
  * <p>Access token from original namespace is needed as authorization header. Access token from
  * designated account needed as form parameter to verify the ownership of that account. When

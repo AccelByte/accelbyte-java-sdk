@@ -21,11 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetUserBanV3
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:BAN:USER:{userId} [READ]'
- *
  * <p>This endpoint retrieve the first page of the data if after and before parameters is empty
- *
- * <p>action code : 10126
+ * action code : 10126
  */
 @Getter
 @Setter

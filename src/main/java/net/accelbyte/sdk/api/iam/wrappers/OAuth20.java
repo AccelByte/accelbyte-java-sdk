@@ -142,6 +142,15 @@ public class OAuth20 {
   }
 
   /**
+   * @see SimultaneousLoginV3
+   */
+  public OauthmodelTokenResponseV3 simultaneousLoginV3(SimultaneousLoginV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see TokenGrantV3
    */
   public OauthmodelTokenWithDeviceCookieResponseV3 tokenGrantV3(TokenGrantV3 input)

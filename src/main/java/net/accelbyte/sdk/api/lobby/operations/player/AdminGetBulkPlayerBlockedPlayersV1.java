@@ -21,10 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminGetBulkPlayerBlockedPlayersV1
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:USER:{userId}:PLAYER:BLOCK [READ]` with
- * scope `social`
- *
- * <p>get blocked players data by bulk user ids in a namespace.
+ * <p>Get blocked players data by bulk user ids in a namespace.
  */
 @Getter
 @Setter

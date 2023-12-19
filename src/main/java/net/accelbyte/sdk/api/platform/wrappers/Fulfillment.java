@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.api.platform.wrappers;
 
+import java.util.*;
 import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.operations.fulfillment.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
@@ -44,6 +45,15 @@ public class Fulfillment {
    * @see RedeemCode
    */
   public FulfillmentResult redeemCode(RedeemCode input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PreCheckFulfillItem
+   */
+  public List<FulfillmentItem> preCheckFulfillItem(PreCheckFulfillItem input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

@@ -21,11 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDecryptDeviceV4
  *
- * <p>This is the endpoint for an admin to decrypt device id.
- *
- * <p>Required permission
- *
- * <p>'ADMIN:NAMESPACE:{namespace}:DEVICE [READ]'
+ * <p>This is the endpoint for an admin to decrypt device id
  */
 @Getter
 @Setter

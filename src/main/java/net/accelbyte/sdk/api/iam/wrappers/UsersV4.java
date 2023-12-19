@@ -33,6 +33,16 @@ public class UsersV4 {
   }
 
   /**
+   * @see AdminBulkUpdateUserAccountTypeV4
+   */
+  public void adminBulkUpdateUserAccountTypeV4(AdminBulkUpdateUserAccountTypeV4 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminBulkCheckValidUserIDV4
    */
   public ModelListValidUserIDResponseV4 adminBulkCheckValidUserIDV4(

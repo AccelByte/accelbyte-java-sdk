@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateCountryAgeRestrictionV3
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:AGERESTRICTION [UPDATE]' action code: 10123
+ * <p>action code: 10123
  */
 @Getter
 @Setter

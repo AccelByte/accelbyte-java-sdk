@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AddUserIntoSessionInChannel
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Create]
- *
- * <p>Required Scope: social
- *
  * <p>Add user into the session in a channel.
  */
 @Getter

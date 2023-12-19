@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getReportsByTicket
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:TICKET [READ] List reports ordered by
- * createdAt in descending order.
+ * <p>List reports ordered by createdAt in descending order.
  */
 @Getter
 @Setter

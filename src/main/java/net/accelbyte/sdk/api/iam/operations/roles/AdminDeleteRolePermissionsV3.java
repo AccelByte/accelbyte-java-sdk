@@ -17,11 +17,7 @@ import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
-/**
- * AdminDeleteRolePermissionsV3
- *
- * <p>Required permission 'ADMIN:ROLE [UPDATE]'
- */
+/** AdminDeleteRolePermissionsV3 */
 @Getter
 @Setter
 public class AdminDeleteRolePermissionsV3 extends Operation {

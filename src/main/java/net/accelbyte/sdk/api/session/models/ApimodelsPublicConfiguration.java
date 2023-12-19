@@ -71,6 +71,10 @@ public class ApimodelsPublicConfiguration extends Model {
   @JsonProperty("joinability")
   private String joinability;
 
+  @JsonProperty("leaderElectionGracePeriod")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer leaderElectionGracePeriod;
+
   @JsonProperty("maxActiveSession")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer maxActiveSession;

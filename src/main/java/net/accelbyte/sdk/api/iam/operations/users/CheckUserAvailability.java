@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CheckUserAvailability
  *
- * <p>Check user's account availability. Available field : - displayName
+ * <p>Check user's account availability. Available field : - displayName - username
  *
  * <p>If request include access token with user ID data, that user ID will be excluded from
  * availability check. For example, in case user update his emailAddress, he can use his own

@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * get list of friends
  *
- * <p>Required permission : `NAMESPACE:{namespace}:USER:{userId}:FRIENDS [READ]` with scope `social`
- *
- * <p>get list of friends in a namespace.
+ * <p>Get list of friends in a namespace.
  */
 @Getter
 @Setter

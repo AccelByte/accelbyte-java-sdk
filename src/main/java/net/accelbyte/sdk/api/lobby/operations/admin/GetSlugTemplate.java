@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getSlugTemplate
  *
- * <p>Required permission : `NAMESPACE:{namespace}:TEMPLATE [READ]` with scope `social`
- *
  * <p>Get all templates in a namespace
  */
 @Getter

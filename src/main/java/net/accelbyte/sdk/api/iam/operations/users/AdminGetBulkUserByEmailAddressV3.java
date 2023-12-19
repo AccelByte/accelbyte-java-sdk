@@ -21,11 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetBulkUserByEmailAddressV3
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:USER [READ]'
- *
- * <p>This endpoint search user by the list of email addresses
- *
- * <p>action code : 10132
+ * <p>This endpoint search user by the list of email addresses action code : 10132
  */
 @Getter
 @Setter

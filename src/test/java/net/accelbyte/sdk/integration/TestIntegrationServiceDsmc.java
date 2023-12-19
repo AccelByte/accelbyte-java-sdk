@@ -75,8 +75,7 @@ class TestIntegrationServiceDsmc extends TestIntegration {
         new net.accelbyte.sdk.api.dsmc.wrappers.Session(sdk);
     final Admin dsmcAdminWrapper = new Admin(sdk);
     final Session sessionBrowserWrapper = new Session(sdk);
-    final DeploymentConfig dsmcDeploymentConfigWrapper = 
-        new DeploymentConfig(sdk);
+    final DeploymentConfig dsmcDeploymentConfigWrapper = new DeploymentConfig(sdk);
 
     // CASE List local servers
 
@@ -89,12 +88,10 @@ class TestIntegrationServiceDsmc extends TestIntegration {
     assertNotNull(listLocalServerResult);
 
     // CASE Get deployment
-    
-    ModelsDeploymentWithOverride getDeploymentResult = 
-        dsmcDeploymentConfigWrapper.getDeployment(GetDeployment.builder()
-              .deployment(targetDeployment)
-              .namespace(namespace)
-              .build());
+
+    ModelsDeploymentWithOverride getDeploymentResult =
+        dsmcDeploymentConfigWrapper.getDeployment(
+            GetDeployment.builder().deployment(targetDeployment).namespace(namespace).build());
 
     // ESAC
 

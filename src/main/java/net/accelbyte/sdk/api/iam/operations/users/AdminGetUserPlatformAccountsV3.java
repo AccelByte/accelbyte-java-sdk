@@ -21,16 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetUserPlatformAccountsV3
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:USER:{userId} [READ]'.
- *
- * <p>## Justice Platform Account
- *
- * <p>The permission âADMIN:NAMESPACE:{namespace}:JUSTICE:USER:{userId}â [READ] is required in
- * order to read the UserID who linked with the user.
- *
- * <p>Gets platform accounts that are already linked with user account
- *
- * <p>action code : 10128
+ * <p>## Justice Platform Account The permission
+ * âADMIN:NAMESPACE:{namespace}:JUSTICE:USER:{userId}â [READ] is required in order to read the
+ * UserID who linked with the user. Gets platform accounts that are already linked with user account
+ * action code : 10128
  */
 @Getter
 @Setter

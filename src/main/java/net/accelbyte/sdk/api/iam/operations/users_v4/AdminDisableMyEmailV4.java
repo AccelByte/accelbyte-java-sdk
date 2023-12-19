@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * AdminDisableMyEmailV4
  *
  * <p>This endpoint is used to disable 2FA email.
- *
- * <p>This endpoint Requires valid user access token
  */
 @Getter
 @Setter

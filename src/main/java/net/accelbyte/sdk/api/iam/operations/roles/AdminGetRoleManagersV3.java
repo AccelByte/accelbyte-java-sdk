@@ -21,11 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetRoleManagersV3
  *
- * <p>Required permission 'ADMIN:ROLE [READ]'
- *
- * <p>Role can only be assigned to other users by the role's manager.
- *
- * <p>action code: 10415
+ * <p>Role can only be assigned to other users by the role's manager. action code: 10415
  */
 @Getter
 @Setter

@@ -21,12 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicSendRegistrationCode
  *
- * <p>This endpoint will validate the request's email address.
- *
- * <p>If it already been used, will response 409.
- *
- * <p>If it is available, we will send a verification code to this email address. This code can be
- * verified by this endpoint.
+ * <p>This endpoint will validate the request's email address. If it already been used, will
+ * response 409. If it is available, we will send a verification code to this email address. This
+ * code can be verified by this [endpoint](#operations-Users-PublicVerifyRegistrationCode).
  */
 @Getter
 @Setter

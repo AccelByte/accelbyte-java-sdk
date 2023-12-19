@@ -22,20 +22,20 @@ public class AMSQoS {
   }
 
   /**
-   * @see QoSRegionsUpdate
-   */
-  public void qoSRegionsUpdate(QoSRegionsUpdate input) throws Exception {
-    final HttpResponse httpResponse = sdk.runRequest(input);
-    input.handleEmptyResponse(
-        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-  }
-
-  /**
    * @see QoSRegionsGet
    */
   public ApiQoSEndpointResponse qoSRegionsGet(QoSRegionsGet input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see QoSRegionsUpdate
+   */
+  public void qoSRegionsUpdate(QoSRegionsUpdate input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 }

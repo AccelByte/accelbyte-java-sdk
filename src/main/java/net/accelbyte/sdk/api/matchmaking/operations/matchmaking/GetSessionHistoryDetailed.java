@@ -30,10 +30,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>* Substitute endpoint:
  * /sessionbrowser/admin/namespaces/{namespace}/sessions/{sessionId}/history/detailed [GET]
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CHANNEL [Read]
- *
- * <p>Required Scope: social
- *
  * <p>Get session history detailed.
  *
  * <p>if party_id value empty/null, field will not show in response body.

@@ -20,21 +20,13 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * RevokeAUser
  *
- * <p>## The endpoint is going to be deprecated
+ * <p>## The endpoint is going to be deprecated This endpoint revokes a user. This endpoint requires
+ * all requests to have Authorization header set with Bearer access authentication with valid access
+ * token. When other clients know that the userID has been revoked and the token is issued before
+ * the revocation, forcing a new token will contain banned permissions.
  *
- * <p>This endpoint revokes a user.
- *
- * <p>This endpoint requires all requests to have Authorization header set with Bearer access
- * authentication with valid access token.
- *
- * <p>Required permission 'NAMESPACE:{namespace}:USER:{userID}:ADMIN [UPDATE]'
- *
- * <p>When other clients know that the userID has been revoked and the token is issued before the
- * revocation, forcing a new token will contain banned permissions.
- *
- * <p>Endpoint migration guide
- *
- * <p>* Substitute endpoint: /iam/v3/oauth/admin/namespaces/{namespace}/users/{userId}/revoke [POST]
+ * <p>### Endpoint migration guide - **Substitute endpoint:
+ * _/iam/v3/oauth/admin/namespaces/{namespace}/users/{userId}/revoke [POST]_**
  *
  * @deprecated
  */

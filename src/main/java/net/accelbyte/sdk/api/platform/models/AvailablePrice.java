@@ -31,8 +31,20 @@ public class AvailablePrice extends Model {
   @JsonProperty("currencyNamespace")
   private String currencyNamespace;
 
+  @JsonProperty("discountExpireAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String discountExpireAt;
+
+  @JsonProperty("discountPurchaseAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String discountPurchaseAt;
+
   @JsonProperty("discountedPrice")
   private Integer discountedPrice;
+
+  @JsonProperty("expireAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String expireAt;
 
   @JsonProperty("price")
   private Integer price;
@@ -40,6 +52,10 @@ public class AvailablePrice extends Model {
   @JsonProperty("priceDetails")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<SubItemAvailablePrice> priceDetails;
+
+  @JsonProperty("purchaseAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String purchaseAt;
 
   @JsonIgnore
   public AvailablePrice createFromJson(String json) throws JsonProcessingException {

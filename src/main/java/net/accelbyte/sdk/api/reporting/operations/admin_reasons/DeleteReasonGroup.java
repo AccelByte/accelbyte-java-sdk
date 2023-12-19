@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteReasonGroup
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:REASON [DELETE]
+ * <p>This endpoint delete a reason group for a namespace with ID.
  */
 @Getter
 @Setter

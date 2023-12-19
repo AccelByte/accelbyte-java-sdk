@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * deleteModerationRule
  *
  * <p>This endpoint delete moderation rule.
- *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:RULE [DELETE]
  */
 @Getter
 @Setter

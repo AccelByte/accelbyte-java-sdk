@@ -47,7 +47,7 @@ public class TestIntegrationValidateToken extends TestIntegration {
     if (isUsingAGSStarter()) {
       return; // SKIP
     }
-  
+
     // Setup
 
     final DefaultConfigRepository configRepo1 = new DefaultConfigRepository();

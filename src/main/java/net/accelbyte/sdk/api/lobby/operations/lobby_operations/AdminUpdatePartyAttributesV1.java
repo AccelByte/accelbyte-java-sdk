@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminUpdatePartyAttributesV1
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:PARTY:STORAGE [UPDATE]` with scope `social`
- *
- * <p>update party attributes in a namespace.
+ * <p>Update party attributes in a namespace.
  */
 @Getter
 @Setter

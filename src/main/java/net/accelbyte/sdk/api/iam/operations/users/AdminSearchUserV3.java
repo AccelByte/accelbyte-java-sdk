@@ -21,51 +21,28 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminSearchUserV3
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:USER [READ]
- *
- * <p>Endpoint behavior :
- *
- * <p>* by default this endpoint searches all users on the specified namespace
- *
- * <p>* if query parameter is defined, endpoint will search users whose email address, display name,
- * username, or third party partially match with the query
- *
- * <p>* if startDate and endDate parameters is defined, endpoint will search users which created on
- * the certain date range
- *
- * <p>* if query, startDate and endDate parameters are defined, endpoint will search users whose
- * email address and display name match and created on the certain date range
- *
- * <p>* if startDate parameter is defined, endpoint will search users that created start from the
- * defined date
- *
- * <p>* if endDate parameter is defined, endpoint will search users that created until the defined
- * date
- *
- * <p>* if platformId parameter is defined and by parameter is using thirdparty, endpoint will
- * search users based on the platformId they have linked to
- *
- * <p>* if platformBy parameter is defined and by parameter is using thirdparty, endpoint will
- * search users based on the platformUserId or platformDisplayName they have linked to, example
- * value: platformUserId or platformDisplayName
- *
- * <p>* if limit is not defined, The default limit is 100
+ * <p>Endpoint behavior : - by default this endpoint searches all users on the specified namespace -
+ * if query parameter is defined, endpoint will search users whose email address, display name,
+ * username, or third party partially match with the query - if startDate and endDate parameters is
+ * defined, endpoint will search users which created on the certain date range - if query, startDate
+ * and endDate parameters are defined, endpoint will search users whose email address and display
+ * name match and created on the certain date range - if startDate parameter is defined, endpoint
+ * will search users that created start from the defined date - if endDate parameter is defined,
+ * endpoint will search users that created until the defined date - if platformId parameter is
+ * defined and by parameter is using thirdparty, endpoint will search users based on the platformId
+ * they have linked to - if platformBy parameter is defined and by parameter is using thirdparty,
+ * endpoint will search users based on the platformUserId or platformDisplayName they have linked
+ * to, example value: platformUserId or platformDisplayName - if limit is not defined, The default
+ * limit is 100
  *
  * <p>In multi tenant mode :
  *
- * <p>* if super admin search in super admin namespace, the result will be all game admin user
- *
- * <p>* if super admin search in game studio namespace, the result will be all game admin user and
- * players under the game studio namespace
- *
- * <p>* if super admin search in game namespace, the result will be all game admin users and players
- * under the game namespace
- *
- * <p>* if game admin search in their game studio namespace, the result will be all game admin user
- * in the studio namespace
- *
- * <p>* if game admin search in their game namespace, the result will be all player in the game
- * namespace
+ * <p>- if super admin search in super admin namespace, the result will be all game admin user - if
+ * super admin search in game studio namespace, the result will be all game admin user and players
+ * under the game studio namespace - if super admin search in game namespace, the result will be all
+ * game admin users and players under the game namespace - if game admin search in their game studio
+ * namespace, the result will be all game admin user in the studio namespace - if game admin search
+ * in their game namespace, the result will be all player in the game namespace
  *
  * <p>action code : 10133
  */
@@ -92,6 +69,7 @@ public class AdminSearchUserV3 extends Operation {
   private String platformId;
   private String query;
   private String startDate;
+  private Boolean testAccount;
 
   /**
    * @param namespace required
@@ -109,7 +87,8 @@ public class AdminSearchUserV3 extends Operation {
       String platformBy,
       String platformId,
       String query,
-      String startDate) {
+      String startDate,
+      Boolean testAccount) {
     this.namespace = namespace;
     this.by = by;
     this.endDate = endDate;
@@ -120,6 +99,7 @@ public class AdminSearchUserV3 extends Operation {
     this.platformId = platformId;
     this.query = query;
     this.startDate = startDate;
+    this.testAccount = testAccount;
 
     securities.add("Bearer");
   }
@@ -148,6 +128,9 @@ public class AdminSearchUserV3 extends Operation {
     queryParams.put("platformId", this.platformId == null ? null : Arrays.asList(this.platformId));
     queryParams.put("query", this.query == null ? null : Arrays.asList(this.query));
     queryParams.put("startDate", this.startDate == null ? null : Arrays.asList(this.startDate));
+    queryParams.put(
+        "testAccount",
+        this.testAccount == null ? null : Arrays.asList(String.valueOf(this.testAccount)));
     return queryParams;
   }
 
@@ -181,6 +164,7 @@ public class AdminSearchUserV3 extends Operation {
     result.put("platformId", "None");
     result.put("query", "None");
     result.put("startDate", "None");
+    result.put("testAccount", "None");
     return result;
   }
 }

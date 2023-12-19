@@ -9,7 +9,6 @@
 package net.accelbyte.sdk.api.chat.wrappers;
 
 import java.util.*;
-
 import net.accelbyte.sdk.api.chat.models.*;
 import net.accelbyte.sdk.api.chat.operations.operations.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
@@ -17,21 +16,19 @@ import net.accelbyte.sdk.core.HttpResponse;
 
 public class Operations {
 
-    private AccelByteSDK sdk;
+  private AccelByteSDK sdk;
 
-    public Operations(AccelByteSDK sdk){
-        this.sdk = sdk;
-    }
+  public Operations(AccelByteSDK sdk) {
+    this.sdk = sdk;
+  }
 
-    /**
-     * @see PublicGetMessages
-     */
-    public List<LogAppMessageDeclaration> publicGetMessages(PublicGetMessages input) throws Exception {
-        final HttpResponse httpResponse = sdk.runRequest(input);
-        return input
-            .parseResponse(
-        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload()
-        );
-    }
-
+  /**
+   * @see PublicGetMessages
+   */
+  public List<LogAppMessageDeclaration> publicGetMessages(PublicGetMessages input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }
