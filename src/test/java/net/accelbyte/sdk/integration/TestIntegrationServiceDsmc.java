@@ -14,13 +14,16 @@ import java.util.Arrays;
 import java.util.HashMap;
 import lombok.SneakyThrows;
 import net.accelbyte.sdk.api.dsmc.models.ModelsClaimSessionRequest;
+import net.accelbyte.sdk.api.dsmc.models.ModelsDeploymentWithOverride;
 import net.accelbyte.sdk.api.dsmc.models.ModelsListServerResponse;
 import net.accelbyte.sdk.api.dsmc.models.ModelsRequestMatchMember;
 import net.accelbyte.sdk.api.dsmc.models.ModelsRequestMatchParty;
 import net.accelbyte.sdk.api.dsmc.models.ModelsRequestMatchingAlly;
 import net.accelbyte.sdk.api.dsmc.operations.admin.ListLocalServer;
+import net.accelbyte.sdk.api.dsmc.operations.deployment_config.GetDeployment;
 import net.accelbyte.sdk.api.dsmc.operations.session.ClaimServer;
 import net.accelbyte.sdk.api.dsmc.wrappers.Admin;
+import net.accelbyte.sdk.api.dsmc.wrappers.DeploymentConfig;
 import net.accelbyte.sdk.api.sessionbrowser.models.ModelsAdminSessionResponse;
 import net.accelbyte.sdk.api.sessionbrowser.models.ModelsCreateSessionRequest;
 import net.accelbyte.sdk.api.sessionbrowser.models.ModelsGameSessionSetting;
@@ -66,12 +69,14 @@ class TestIntegrationServiceDsmc extends TestIntegration {
     final String targetDeployment = "default";
     final String gameMode = "GAME_MODE";
     final String partyId = "PARTY_ID";
-    final String version = "0.3.0";
+    final String sessionType = "dedicated";
 
     final net.accelbyte.sdk.api.dsmc.wrappers.Session dsmcSessionWrapper =
         new net.accelbyte.sdk.api.dsmc.wrappers.Session(sdk);
     final Admin dsmcAdminWrapper = new Admin(sdk);
     final Session sessionBrowserWrapper = new Session(sdk);
+    final DeploymentConfig dsmcDeploymentConfigWrapper = 
+        new DeploymentConfig(sdk);
 
     // CASE List local servers
 
@@ -83,12 +88,27 @@ class TestIntegrationServiceDsmc extends TestIntegration {
 
     assertNotNull(listLocalServerResult);
 
+    // CASE Get deployment
+    
+    ModelsDeploymentWithOverride getDeploymentResult = 
+        dsmcDeploymentConfigWrapper.getDeployment(GetDeployment.builder()
+              .deployment(targetDeployment)
+              .namespace(namespace)
+              .build());
+
+    // ESAC
+
+    assertNotNull(getDeploymentResult);
+    assertNotNull(getDeploymentResult.getGameVersion());
+
+    final String gameVersion = getDeploymentResult.getGameVersion();
+
     // Create a session (SessionBrowser)
 
     final ModelsCreateSessionRequest createSessionBody =
         ModelsCreateSessionRequest.builder()
-            .sessionType("dedicated")
-            .gameVersion(version)
+            .sessionType(sessionType)
+            .gameVersion(gameVersion)
             .namespace(targetNamespace)
             .username(targetUsername)
             .gameSessionSetting(
@@ -113,7 +133,7 @@ class TestIntegrationServiceDsmc extends TestIntegration {
 
     final net.accelbyte.sdk.api.dsmc.models.ModelsCreateSessionRequest createSessionDsmcBody =
         net.accelbyte.sdk.api.dsmc.models.ModelsCreateSessionRequest.builder()
-            .clientVersion(version)
+            .clientVersion(gameVersion)
             .configuration("")
             .deployment(targetDeployment)
             .gameMode(gameMode)
