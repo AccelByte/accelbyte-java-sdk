@@ -18,6 +18,7 @@
 - **:** auto refresh websocket connection
 ### docs
 - **:** update docs portal links
+- **migrations:** add migration-guide-v0.52-to-v0.53.md
 
 
 <a name="v0.52.0"></a>
