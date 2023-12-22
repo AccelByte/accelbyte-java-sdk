@@ -349,9 +349,15 @@ public class AccelByteSDK {
           (TokenValidation) this.sdkConfiguration.getConfigRepository();
       if (tokenValidation.getLocalTokenValidationEnabled()) {
         this.jwksCache = buildJWKSLoadingCache(this, tokenValidation.getJwksRefreshInterval());
-        this.revocationListCache =
-            buildRevocationListLoadingCache(
+        this.revocationListCache = buildRevocationListLoadingCache(
                 this, tokenValidation.getRevocationListRefreshInterval());
+        try {
+          // ensure the cache is ready, to prevent concurrent request being blocked when cache not yet initialized
+          this.jwksCache.get(DEFAULT_CACHE_KEY);
+          this.revocationListCache.get(DEFAULT_CACHE_KEY);
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        }
       }
       this.rolePermissionsCache = buildRolePermissionLoadingCache(this);
     }
