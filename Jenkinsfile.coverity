@@ -16,19 +16,19 @@ pipeline {
     stage('Coverity') {
       agent {
         docker {
-          image 'rbs1518/cov-analysis:2022.6-java'
+          image 'dhanarab/cov-analysis:2023.6.2-java-1'
           reuseNode true
         }
       }
       steps {
         script {
-          sh "rm -rfv cov-int java-server-sdk.bz2"
+          sh "rm -rfv cov-int java-server-sdk.tar.gz"
           sh "chmod a+x ./gradlew"
           sh "JAVA_OPTS=\"-Xmx1g\" cov-build --dir cov-int ./gradlew clean build -x test --no-daemon"    // https://github.com/gradle/gradle/issues/7746#issuecomment-439582166
-          sh "tar caf java-server-sdk.bz2 cov-int"
+          sh "tar caf java-server-sdk.tar.gz cov-int"
           withCredentials([usernamePassword(credentialsId: 'coverity-accelbyte-java-sdk', passwordVariable: 'COVERITY_TOKEN', usernameVariable: 'COVERITY_EMAIL')]) {
             gitCommitHashShort = git.getCommitHashShort()
-            sh "curl --form token=\$COVERITY_TOKEN --form email=\$COVERITY_EMAIL --form file=@java-server-sdk.bz2 --form version='${gitCommitHashShort}' --form description='Automated Coverity Scan' 'https://scan.coverity.com/builds?project=accelbyte-java-sdk'"
+            sh "curl --form token=\$COVERITY_TOKEN --form email=\$COVERITY_EMAIL --form file=@java-server-sdk.tar.gz --form version='${gitCommitHashShort}' --form description='Automated Coverity Scan' 'https://scan.coverity.com/builds?project=accelbyte-java-sdk'"
           }
         }
       }
