@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetActiveMatchmakingGameSessions
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:SESSIONBROWSER:SESSION [READ]
- *
- * <p>Required scope: social
+ * <p>Get all active session for matchmaking game, this return only dedicated session type
  */
 @Getter
 @Setter

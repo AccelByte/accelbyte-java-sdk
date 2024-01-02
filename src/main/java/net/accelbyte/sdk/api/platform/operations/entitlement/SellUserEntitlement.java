@@ -43,7 +43,7 @@ public class SellUserEntitlement extends Operation {
 
   private String namespace;
   private String userId;
-  private EntitlementSoldRequest body;
+  private AdminEntitlementSoldRequest body;
 
   /**
    * @param entitlementId required
@@ -54,7 +54,7 @@ public class SellUserEntitlement extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public SellUserEntitlement(
-      String entitlementId, String namespace, String userId, EntitlementSoldRequest body) {
+      String entitlementId, String namespace, String userId, AdminEntitlementSoldRequest body) {
     this.entitlementId = entitlementId;
     this.namespace = namespace;
     this.userId = userId;
@@ -79,7 +79,7 @@ public class SellUserEntitlement extends Operation {
   }
 
   @Override
-  public EntitlementSoldRequest getBodyParams() {
+  public AdminEntitlementSoldRequest getBodyParams() {
     return this.body;
   }
 

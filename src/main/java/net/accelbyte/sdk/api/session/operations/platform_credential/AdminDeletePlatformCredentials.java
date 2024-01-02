@@ -20,8 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminDeletePlatformCredentials
  *
- * <p>Delete platform credentials used for Native Session sync. Requires
- * ADMIN:NAMESPACE:{namespace}:SESSION:PLATFORMCREDENTIAL [DELETE]
+ * <p>Delete platform credentials used for Native Session sync.
  */
 @Getter
 @Setter

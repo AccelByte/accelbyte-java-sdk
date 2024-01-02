@@ -71,6 +71,11 @@ public class QueryEntitlements implements Callable<Integer> {
   Integer offset;
 
   @Option(
+      names = {"--origin"},
+      description = "origin")
+  String origin;
+
+  @Option(
       names = {"--userId"},
       description = "userId")
   String userId;
@@ -106,6 +111,7 @@ public class QueryEntitlements implements Callable<Integer> {
               .itemId(itemId)
               .limit(limit)
               .offset(offset)
+              .origin(origin)
               .userId(userId)
               .build();
       final EntitlementPagingSlicedResult response = wrapper.queryEntitlements(operation);

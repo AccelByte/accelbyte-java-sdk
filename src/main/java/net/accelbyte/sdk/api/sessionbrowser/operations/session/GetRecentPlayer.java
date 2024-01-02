@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetRecentPlayer
  *
- * <p>Required permission: NAMESPACE:{namespace}:SESSIONBROWSER:RECENTPLAYER [READ]
- *
- * <p>Required scope: social
- *
  * <p>Query recent player by user ID
  */
 @Getter

@@ -27,7 +27,7 @@ import net.accelbyte.sdk.core.util.Helper;
 @Setter
 public class PublicGetRecentPlayer extends Operation {
   /** generated field's value */
-  private String path = "/session/v1/public/namespaces/{namespace}/recent-player/{userId}";
+  private String path = "/session/v1/public/namespaces/{namespace}/recent-player";
 
   private String method = "GET";
   private List<String> consumes = Arrays.asList("application/json");
@@ -37,20 +37,19 @@ public class PublicGetRecentPlayer extends Operation {
   /** fields as input parameter */
   private String namespace;
 
-  private String userId;
   private Integer limit;
+  private String userId;
 
   /**
    * @param namespace required
-   * @param userId required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public PublicGetRecentPlayer(String namespace, String userId, Integer limit) {
+  public PublicGetRecentPlayer(String namespace, Integer limit, String userId) {
     this.namespace = namespace;
-    this.userId = userId;
     this.limit = limit;
+    this.userId = userId;
 
     securities.add("Bearer");
   }
@@ -61,9 +60,6 @@ public class PublicGetRecentPlayer extends Operation {
     if (this.namespace != null) {
       pathParams.put("namespace", this.namespace);
     }
-    if (this.userId != null) {
-      pathParams.put("userId", this.userId);
-    }
     return pathParams;
   }
 
@@ -71,15 +67,13 @@ public class PublicGetRecentPlayer extends Operation {
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
+    queryParams.put("userId", this.userId == null ? null : Arrays.asList(this.userId));
     return queryParams;
   }
 
   @Override
   public boolean isValid() {
     if (this.namespace == null) {
-      return false;
-    }
-    if (this.userId == null) {
       return false;
     }
     return true;
@@ -99,6 +93,7 @@ public class PublicGetRecentPlayer extends Operation {
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
     result.put("limit", "None");
+    result.put("userId", "None");
     return result;
   }
 }

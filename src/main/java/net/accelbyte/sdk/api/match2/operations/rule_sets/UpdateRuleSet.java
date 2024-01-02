@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UpdateRuleSet
  *
- * <p>Required Permission: NAMESPACE:{namespace}:MATCHMAKING:RULES [UPDATE]
- *
- * <p>Required Scope: social
- *
  * <p>Updates an existing matchmaking rule set.
  *
  * <p>To use custom rules set please set enable_custom_match_function=true. Default (false).

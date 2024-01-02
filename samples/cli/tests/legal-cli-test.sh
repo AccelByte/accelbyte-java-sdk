@@ -83,7 +83,7 @@ eval_tap $? 5 'RetrieveAllLegalPolicies' test.out
 
 #- 6 CreatePolicy
 ./ng net.accelbyte.sdk.cli.Main legal createPolicy \
-    --body '{"affectedClientIds": ["diRilZ7oFgx4c8Ou", "mKtPDKJDXn7Z4U68", "su8XfqlqNiTvB6Sd"], "affectedCountries": ["AdIhUDrwoZ5MecdK", "i5r6QEa1ysLEzth6", "mXhzkzWkFeZSoEAc"], "basePolicyName": "BdW19m4eu6d5tA5j", "description": "UmiTqpyhPFdxLzFQ", "namespace": "N05MYzYiKWe5dNRl", "tags": ["jv7IPrDQQRgat0Se", "vkLGMS0lyuI9a2I9", "u6Vpbsx5w8hqUI06"], "typeId": "UpOXGSLmCVuHOPlL"}' \
+    --body '{"affectedClientIds": ["su8XfqlqNiTvB6Sd", "diRilZ7oFgx4c8Ou", "mKtPDKJDXn7Z4U68"], "affectedCountries": ["AdIhUDrwoZ5MecdK", "i5r6QEa1ysLEzth6", "mXhzkzWkFeZSoEAc"], "basePolicyName": "BdW19m4eu6d5tA5j", "description": "UmiTqpyhPFdxLzFQ", "namespace": "N05MYzYiKWe5dNRl", "tags": ["vkLGMS0lyuI9a2I9", "u6Vpbsx5w8hqUI06", "jv7IPrDQQRgat0Se"], "typeId": "UpOXGSLmCVuHOPlL"}' \
     > test.out 2>&1
 eval_tap $? 6 'CreatePolicy' test.out
 
@@ -149,7 +149,7 @@ eval_tap $? 15 'SetDefaultPolicy' test.out
 #- 16 RetrieveAcceptedAgreementsForMultiUsers
 ./ng net.accelbyte.sdk.cli.Main legal retrieveAcceptedAgreementsForMultiUsers \
     --namespace "$AB_NAMESPACE" \
-    --body '{"currentPublishedOnly": true, "userIds": ["VPHbn4Xxtu7LQREN", "jEEztx1WsYSiZqan", "0nSBJroav91GXlvP"]}' \
+    --body '{"currentPublishedOnly": true, "userIds": ["jEEztx1WsYSiZqan", "0nSBJroav91GXlvP", "VPHbn4Xxtu7LQREN"]}' \
     > test.out 2>&1
 eval_tap $? 16 'RetrieveAcceptedAgreementsForMultiUsers' test.out
 
@@ -181,7 +181,7 @@ eval_tap $? 19 'RetrieveAllLegalPoliciesByNamespace' test.out
 #- 20 CreatePolicy1
 ./ng net.accelbyte.sdk.cli.Main legal createPolicy1 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"affectedClientIds": ["8l9lyNApflxqMrj3", "oZk03QXcKMDYDDxH", "SZjtqXyJ58f7Gc26"], "affectedCountries": ["FHyPLtI8ilbyDPUI", "SaiGVkydwYWQG26y", "UZNmTBcvrbYCwZtx"], "basePolicyName": "j88cekdqCt81P1kt", "description": "fIovmv9gsR5cJcHm", "tags": ["9a9LJE8HoRS1X2PF", "AAMwzHPxB1UskYs4", "3SZLxoRDFuuuySj2"], "typeId": "Yw20DOqOBSC2DKHR"}' \
+    --body '{"affectedClientIds": ["oZk03QXcKMDYDDxH", "8l9lyNApflxqMrj3", "SZjtqXyJ58f7Gc26"], "affectedCountries": ["UZNmTBcvrbYCwZtx", "FHyPLtI8ilbyDPUI", "SaiGVkydwYWQG26y"], "basePolicyName": "j88cekdqCt81P1kt", "description": "fIovmv9gsR5cJcHm", "tags": ["3SZLxoRDFuuuySj2", "9a9LJE8HoRS1X2PF", "AAMwzHPxB1UskYs4"], "typeId": "Yw20DOqOBSC2DKHR"}' \
     > test.out 2>&1
 eval_tap $? 20 'CreatePolicy1' test.out
 
@@ -196,7 +196,7 @@ eval_tap $? 21 'RetrieveSinglePolicy1' test.out
 ./ng net.accelbyte.sdk.cli.Main legal partialUpdatePolicy1 \
     --basePolicyId 'CjfcnLRfxeCSz9WE' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"affectedClientIds": ["t2vQR3biBfsu4jms", "RE2w1yEkLgh3tIYt", "i8KlloeH0JT1ydua"], "affectedCountries": ["IHeHSKLCa3xreNDU", "dpGT2t24aOMh5eC3", "4SqYUTLDx9gIiDan"], "basePolicyName": "WehwH3q31A806DJg", "description": "as4b6z3LNUj7fdgL", "tags": ["A84Z8YYk6QEgJjBb", "80zfFyabWAgIUXiI", "EDoNf3n0hEoRCAcf"]}' \
+    --body '{"affectedClientIds": ["i8KlloeH0JT1ydua", "t2vQR3biBfsu4jms", "RE2w1yEkLgh3tIYt"], "affectedCountries": ["dpGT2t24aOMh5eC3", "4SqYUTLDx9gIiDan", "IHeHSKLCa3xreNDU"], "basePolicyName": "WehwH3q31A806DJg", "description": "as4b6z3LNUj7fdgL", "tags": ["A84Z8YYk6QEgJjBb", "EDoNf3n0hEoRCAcf", "80zfFyabWAgIUXiI"]}' \
     > test.out 2>&1
 eval_tap $? 22 'PartialUpdatePolicy1' test.out
 

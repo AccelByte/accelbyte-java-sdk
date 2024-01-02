@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * RemovePlayerFromSession
  *
- * <p>Required permission: NAMESPACE:{namespace}:SESSIONBROWSER:SESSION [UPDATE]
- *
- * <p>Required scope: social
- *
  * <p>Remove player from game session
  */
 @Getter

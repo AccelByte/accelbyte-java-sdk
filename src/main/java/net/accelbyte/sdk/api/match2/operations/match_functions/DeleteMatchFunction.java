@@ -20,10 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteMatchFunction
  *
- * <p>Required Permission: NAMESPACE:{namespace}:MATCHMAKING:FUNCTIONS [DELETE]
- *
- * <p>Required Scope: social
- *
  * <p>Deletes an existing match function.
  */
 @Getter

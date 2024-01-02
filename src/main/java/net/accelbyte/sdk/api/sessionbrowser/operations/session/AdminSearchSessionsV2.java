@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminSearchSessionsV2
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:SESSION [Read]
- *
- * <p>Required Scope: social
- *
  * <p>Search sessions. Optimize the query by differentiating query with filter namespace only and
  * filter with namespace & other filter (partyID, userID, matchID). Query with filter namespace only
  * will not group whole session data while query with filter namespace & other filter will include

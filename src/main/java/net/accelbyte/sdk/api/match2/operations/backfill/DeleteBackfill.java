@@ -20,11 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteBackfill
  *
- * <p>Required Permission: NAMESPACE:{namespace}:MATCHMAKING:BACKFILL [DELETE]
- *
- * <p>Required Scope: social
- *
- * <p>Delete backfill ticket
+ * <p>Delete backfill ticket.
  */
 @Getter
 @Setter

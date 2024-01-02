@@ -73,6 +73,14 @@ public class EntitlementIfc extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String namespace;
 
+  @JsonProperty("noOrigin")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean noOrigin;
+
+  @JsonProperty("origin")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String origin;
+
   @JsonProperty("sku")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String sku;
@@ -143,6 +151,26 @@ public class EntitlementIfc extends Model {
   @JsonIgnore
   public void setClazzFromEnum(final Clazz clazz) {
     this.clazz = clazz.toString();
+  }
+
+  @JsonIgnore
+  public String getOrigin() {
+    return this.origin;
+  }
+
+  @JsonIgnore
+  public Origin getOriginAsEnum() {
+    return Origin.valueOf(this.origin);
+  }
+
+  @JsonIgnore
+  public void setOrigin(final String origin) {
+    this.origin = origin;
+  }
+
+  @JsonIgnore
+  public void setOriginFromEnum(final Origin origin) {
+    this.origin = origin.toString();
   }
 
   @JsonIgnore
@@ -234,6 +262,31 @@ public class EntitlementIfc extends Model {
     }
   }
 
+  public enum Origin {
+    Epic("Epic"),
+    GooglePlay("GooglePlay"),
+    IOS("IOS"),
+    Nintendo("Nintendo"),
+    Oculus("Oculus"),
+    Other("Other"),
+    Playstation("Playstation"),
+    Steam("Steam"),
+    System("System"),
+    Twitch("Twitch"),
+    Xbox("Xbox");
+
+    private String value;
+
+    Origin(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public enum Status {
     ACTIVE("ACTIVE"),
     CONSUMED("CONSUMED"),
@@ -272,6 +325,7 @@ public class EntitlementIfc extends Model {
   public static class EntitlementIfcBuilder {
     private String appType;
     private String clazz;
+    private String origin;
     private String status;
     private String type;
 
@@ -292,6 +346,16 @@ public class EntitlementIfc extends Model {
 
     public EntitlementIfcBuilder clazzFromEnum(final Clazz clazz) {
       this.clazz = clazz.toString();
+      return this;
+    }
+
+    public EntitlementIfcBuilder origin(final String origin) {
+      this.origin = origin;
+      return this;
+    }
+
+    public EntitlementIfcBuilder originFromEnum(final Origin origin) {
+      this.origin = origin.toString();
       return this;
     }
 

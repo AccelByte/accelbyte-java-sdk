@@ -32,7 +32,7 @@ public class RevokeUserV3 extends Operation {
   private String path = "/iam/v3/oauth/admin/namespaces/{namespace}/users/{userId}/revoke";
 
   private String method = "POST";
-  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> consumes = Arrays.asList("*/*");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
 

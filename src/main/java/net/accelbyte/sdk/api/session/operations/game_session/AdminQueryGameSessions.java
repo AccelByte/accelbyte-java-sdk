@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminQueryGameSessions
  *
- * <p>Get all game sessions. Requires ADMIN:NAMESPACE:{namespace}:SESSION:GAME [READ]
+ * <p>Get all game sessions.
  */
 @Getter
 @Setter

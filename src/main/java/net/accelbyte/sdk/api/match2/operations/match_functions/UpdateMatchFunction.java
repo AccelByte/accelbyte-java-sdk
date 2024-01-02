@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UpdateMatchFunction
  *
- * <p>Required Permission: NAMESPACE:{namespace}:MATCHMAKING:FUNCTIONS [UPDATE]
- *
- * <p>Required Scope: social
- *
  * <p>Update existing matchmaking function.
  */
 @Getter

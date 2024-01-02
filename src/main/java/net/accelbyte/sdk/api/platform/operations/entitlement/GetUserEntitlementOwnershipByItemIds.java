@@ -47,6 +47,7 @@ public class GetUserEntitlementOwnershipByItemIds extends Operation {
 
   private String userId;
   private List<String> ids;
+  private String platform;
 
   /**
    * @param namespace required
@@ -55,10 +56,12 @@ public class GetUserEntitlementOwnershipByItemIds extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public GetUserEntitlementOwnershipByItemIds(String namespace, String userId, List<String> ids) {
+  public GetUserEntitlementOwnershipByItemIds(
+      String namespace, String userId, List<String> ids, String platform) {
     this.namespace = namespace;
     this.userId = userId;
     this.ids = ids;
+    this.platform = platform;
 
     securities.add("Bearer");
   }
@@ -79,6 +82,7 @@ public class GetUserEntitlementOwnershipByItemIds extends Operation {
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
     queryParams.put("ids", this.ids == null ? null : this.ids);
+    queryParams.put("platform", this.platform == null ? null : Arrays.asList(this.platform));
     return queryParams;
   }
 
@@ -107,6 +111,7 @@ public class GetUserEntitlementOwnershipByItemIds extends Operation {
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
     result.put("ids", "multi");
+    result.put("platform", "None");
     return result;
   }
 }

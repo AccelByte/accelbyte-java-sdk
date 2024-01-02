@@ -21,11 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateBackfill
  *
- * <p>Required Permission: NAMESPACE:{namespace}:MATCHMAKING:BACKFILL [CREATE]
- *
- * <p>Required Scope: social
- *
- * <p>Create backfill ticket
+ * <p>Create backfill ticket.
  */
 @Getter
 @Setter

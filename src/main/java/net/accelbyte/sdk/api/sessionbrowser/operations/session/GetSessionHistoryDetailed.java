@@ -23,10 +23,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetSessionHistoryDetailed
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:SESSIONBROWSER:SESSION [Read]
- *
- * <p>Required Scope: social
- *
  * <p>Get session history detailed.
  *
  * <p>if party_id value empty/null, field will not show in response body.

@@ -45,6 +45,7 @@ public class GetUserEntitlementOwnershipBySku extends Operation {
 
   private String userId;
   private String entitlementClazz;
+  private String platform;
   private String sku;
 
   /**
@@ -56,10 +57,11 @@ public class GetUserEntitlementOwnershipBySku extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public GetUserEntitlementOwnershipBySku(
-      String namespace, String userId, String entitlementClazz, String sku) {
+      String namespace, String userId, String entitlementClazz, String platform, String sku) {
     this.namespace = namespace;
     this.userId = userId;
     this.entitlementClazz = entitlementClazz;
+    this.platform = platform;
     this.sku = sku;
 
     securities.add("Bearer");
@@ -83,6 +85,7 @@ public class GetUserEntitlementOwnershipBySku extends Operation {
     queryParams.put(
         "entitlementClazz",
         this.entitlementClazz == null ? null : Arrays.asList(this.entitlementClazz));
+    queryParams.put("platform", this.platform == null ? null : Arrays.asList(this.platform));
     queryParams.put("sku", this.sku == null ? null : Arrays.asList(this.sku));
     return queryParams;
   }
@@ -115,6 +118,7 @@ public class GetUserEntitlementOwnershipBySku extends Operation {
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
     result.put("entitlementClazz", "None");
+    result.put("platform", "None");
     result.put("sku", "None");
     return result;
   }

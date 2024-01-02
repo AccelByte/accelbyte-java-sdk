@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetSession
  *
- * <p>Required permission: NAMESPACE:{namespace}:SESSIONBROWSER:SESSION [READ]
- *
- * <p>Required scope: social
- *
  * <p>Get the session by session ID
  */
 @Getter

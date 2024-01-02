@@ -15,6 +15,7 @@ import net.accelbyte.sdk.cli.api.session.environment_variable.*;
 import net.accelbyte.sdk.cli.api.session.game_session.*;
 import net.accelbyte.sdk.cli.api.session.global_configuration.*;
 import net.accelbyte.sdk.cli.api.session.max_active.*;
+import net.accelbyte.sdk.cli.api.session.native_session.*;
 import net.accelbyte.sdk.cli.api.session.operations.*;
 import net.accelbyte.sdk.cli.api.session.party.*;
 import net.accelbyte.sdk.cli.api.session.platform_credential.*;
@@ -53,6 +54,7 @@ import picocli.CommandLine.Command;
       AdminDeleteBulkGameSessions.class,
       AdminSetDSReady.class,
       AdminUpdateGameSessionMember.class,
+      AdminGetListNativeSession.class,
       AdminQueryParties.class,
       AdminGetPlatformCredentials.class,
       AdminUpdatePlatformCredentials.class,

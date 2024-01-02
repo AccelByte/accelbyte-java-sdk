@@ -33,6 +33,10 @@ public class ItemRevocation extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ?> customRevocation;
 
+  @JsonProperty("entitlementOrigin")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String entitlementOrigin;
+
   @JsonProperty("entitlementRevocations")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<EntitlementRevocation> entitlementRevocations;
@@ -72,6 +76,26 @@ public class ItemRevocation extends Model {
   @JsonProperty("strategy")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String strategy;
+
+  @JsonIgnore
+  public String getEntitlementOrigin() {
+    return this.entitlementOrigin;
+  }
+
+  @JsonIgnore
+  public EntitlementOrigin getEntitlementOriginAsEnum() {
+    return EntitlementOrigin.valueOf(this.entitlementOrigin);
+  }
+
+  @JsonIgnore
+  public void setEntitlementOrigin(final String entitlementOrigin) {
+    this.entitlementOrigin = entitlementOrigin;
+  }
+
+  @JsonIgnore
+  public void setEntitlementOriginFromEnum(final EntitlementOrigin entitlementOrigin) {
+    this.entitlementOrigin = entitlementOrigin.toString();
+  }
 
   @JsonIgnore
   public String getItemType() {
@@ -123,6 +147,31 @@ public class ItemRevocation extends Model {
     return new ObjectMapper().readValue(json, new TypeReference<List<ItemRevocation>>() {});
   }
 
+  public enum EntitlementOrigin {
+    Epic("Epic"),
+    GooglePlay("GooglePlay"),
+    IOS("IOS"),
+    Nintendo("Nintendo"),
+    Oculus("Oculus"),
+    Other("Other"),
+    Playstation("Playstation"),
+    Steam("Steam"),
+    System("System"),
+    Twitch("Twitch"),
+    Xbox("Xbox");
+
+    private String value;
+
+    EntitlementOrigin(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public enum ItemType {
     APP("APP"),
     BUNDLE("BUNDLE"),
@@ -165,8 +214,20 @@ public class ItemRevocation extends Model {
   }
 
   public static class ItemRevocationBuilder {
+    private String entitlementOrigin;
     private String itemType;
     private String status;
+
+    public ItemRevocationBuilder entitlementOrigin(final String entitlementOrigin) {
+      this.entitlementOrigin = entitlementOrigin;
+      return this;
+    }
+
+    public ItemRevocationBuilder entitlementOriginFromEnum(
+        final EntitlementOrigin entitlementOrigin) {
+      this.entitlementOrigin = entitlementOrigin.toString();
+      return this;
+    }
 
     public ItemRevocationBuilder itemType(final String itemType) {
       this.itemType = itemType;

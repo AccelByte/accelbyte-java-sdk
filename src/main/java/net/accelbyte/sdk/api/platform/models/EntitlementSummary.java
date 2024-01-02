@@ -53,6 +53,14 @@ public class EntitlementSummary extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
+  @JsonProperty("noOrigin")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean noOrigin;
+
+  @JsonProperty("origin")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String origin;
+
   @JsonProperty("stackable")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean stackable;
@@ -96,6 +104,26 @@ public class EntitlementSummary extends Model {
   @JsonIgnore
   public void setClazzFromEnum(final Clazz clazz) {
     this.clazz = clazz.toString();
+  }
+
+  @JsonIgnore
+  public String getOrigin() {
+    return this.origin;
+  }
+
+  @JsonIgnore
+  public Origin getOriginAsEnum() {
+    return Origin.valueOf(this.origin);
+  }
+
+  @JsonIgnore
+  public void setOrigin(final String origin) {
+    this.origin = origin;
+  }
+
+  @JsonIgnore
+  public void setOriginFromEnum(final Origin origin) {
+    this.origin = origin.toString();
   }
 
   @JsonIgnore
@@ -149,6 +177,31 @@ public class EntitlementSummary extends Model {
     }
   }
 
+  public enum Origin {
+    Epic("Epic"),
+    GooglePlay("GooglePlay"),
+    IOS("IOS"),
+    Nintendo("Nintendo"),
+    Oculus("Oculus"),
+    Other("Other"),
+    Playstation("Playstation"),
+    Steam("Steam"),
+    System("System"),
+    Twitch("Twitch"),
+    Xbox("Xbox");
+
+    private String value;
+
+    Origin(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public enum Type {
     CONSUMABLE("CONSUMABLE"),
     DURABLE("DURABLE");
@@ -167,6 +220,7 @@ public class EntitlementSummary extends Model {
 
   public static class EntitlementSummaryBuilder {
     private String clazz;
+    private String origin;
     private String type;
 
     public EntitlementSummaryBuilder clazz(final String clazz) {
@@ -176,6 +230,16 @@ public class EntitlementSummary extends Model {
 
     public EntitlementSummaryBuilder clazzFromEnum(final Clazz clazz) {
       this.clazz = clazz.toString();
+      return this;
+    }
+
+    public EntitlementSummaryBuilder origin(final String origin) {
+      this.origin = origin;
+      return this;
+    }
+
+    public EntitlementSummaryBuilder originFromEnum(final Origin origin) {
+      this.origin = origin.toString();
       return this;
     }
 

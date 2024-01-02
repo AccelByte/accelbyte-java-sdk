@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetTotalActiveSession
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:SESSIONBROWSER:SESSION [READ]
- *
- * <p>Required scope: social
+ * <p>Get all active session
  */
 @Getter
 @Setter

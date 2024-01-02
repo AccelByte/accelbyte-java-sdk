@@ -25,6 +25,14 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class DLCRecord extends Model {
 
+  @JsonProperty("entitlementOriginSyncResult")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<EntitlementOriginSyncResult> entitlementOriginSyncResult;
+
+  @JsonProperty("entitlementOriginSyncStatus")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String entitlementOriginSyncStatus;
+
   @JsonProperty("id")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String id;
@@ -70,6 +78,27 @@ public class DLCRecord extends Model {
   private Integer version;
 
   @JsonIgnore
+  public String getEntitlementOriginSyncStatus() {
+    return this.entitlementOriginSyncStatus;
+  }
+
+  @JsonIgnore
+  public EntitlementOriginSyncStatus getEntitlementOriginSyncStatusAsEnum() {
+    return EntitlementOriginSyncStatus.valueOf(this.entitlementOriginSyncStatus);
+  }
+
+  @JsonIgnore
+  public void setEntitlementOriginSyncStatus(final String entitlementOriginSyncStatus) {
+    this.entitlementOriginSyncStatus = entitlementOriginSyncStatus;
+  }
+
+  @JsonIgnore
+  public void setEntitlementOriginSyncStatusFromEnum(
+      final EntitlementOriginSyncStatus entitlementOriginSyncStatus) {
+    this.entitlementOriginSyncStatus = entitlementOriginSyncStatus.toString();
+  }
+
+  @JsonIgnore
   public String getStatus() {
     return this.status;
   }
@@ -99,6 +128,23 @@ public class DLCRecord extends Model {
     return new ObjectMapper().readValue(json, new TypeReference<List<DLCRecord>>() {});
   }
 
+  public enum EntitlementOriginSyncStatus {
+    NOTSYNCED("NOT_SYNCED"),
+    SYNCED("SYNCED"),
+    SYNCEDFAILED("SYNCED_FAILED");
+
+    private String value;
+
+    EntitlementOriginSyncStatus(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public enum Status {
     FULFILLED("FULFILLED"),
     REVOKED("REVOKED"),
@@ -117,7 +163,19 @@ public class DLCRecord extends Model {
   }
 
   public static class DLCRecordBuilder {
+    private String entitlementOriginSyncStatus;
     private String status;
+
+    public DLCRecordBuilder entitlementOriginSyncStatus(final String entitlementOriginSyncStatus) {
+      this.entitlementOriginSyncStatus = entitlementOriginSyncStatus;
+      return this;
+    }
+
+    public DLCRecordBuilder entitlementOriginSyncStatusFromEnum(
+        final EntitlementOriginSyncStatus entitlementOriginSyncStatus) {
+      this.entitlementOriginSyncStatus = entitlementOriginSyncStatus.toString();
+      return this;
+    }
 
     public DLCRecordBuilder status(final String status) {
       this.status = status;

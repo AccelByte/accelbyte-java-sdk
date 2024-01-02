@@ -59,9 +59,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * DSManualSetReady (optional, default: false): The DS need to call specific end point to flag the
  * DS for game session is ready to accept client connection. - EnableSecret (optional, default:
  * false): if configuration template is created with TypeDS and EnableSecret is True, A secret will
- * be created - LeaderElectionGracePeriod this is on second (optional, default:0) this is only use
- * for party session, if value > 0 if leader disconnect will be wait until value reach and leader
- * will be change after reach
+ * be created
  */
 @Getter
 @Setter

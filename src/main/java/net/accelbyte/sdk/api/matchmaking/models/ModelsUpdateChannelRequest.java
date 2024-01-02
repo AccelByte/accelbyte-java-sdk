@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ModelsUpdateChannelRequest extends Model {
 
+  @JsonProperty("blocked_player_option")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String blockedPlayerOption;
+
   @JsonProperty("deployment")
   private String deployment;
 
@@ -73,6 +77,26 @@ public class ModelsUpdateChannelRequest extends Model {
   private Boolean useSubGamemode;
 
   @JsonIgnore
+  public String getBlockedPlayerOption() {
+    return this.blockedPlayerOption;
+  }
+
+  @JsonIgnore
+  public BlockedPlayerOption getBlockedPlayerOptionAsEnum() {
+    return BlockedPlayerOption.valueOf(this.blockedPlayerOption);
+  }
+
+  @JsonIgnore
+  public void setBlockedPlayerOption(final String blockedPlayerOption) {
+    this.blockedPlayerOption = blockedPlayerOption;
+  }
+
+  @JsonIgnore
+  public void setBlockedPlayerOptionFromEnum(final BlockedPlayerOption blockedPlayerOption) {
+    this.blockedPlayerOption = blockedPlayerOption.toString();
+  }
+
+  @JsonIgnore
   public ModelsUpdateChannelRequest createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
@@ -82,5 +106,37 @@ public class ModelsUpdateChannelRequest extends Model {
       throws JsonProcessingException {
     return new ObjectMapper()
         .readValue(json, new TypeReference<List<ModelsUpdateChannelRequest>>() {});
+  }
+
+  public enum BlockedPlayerOption {
+    BlockedPlayerCanMatch("blockedPlayerCanMatch"),
+    BlockedPlayerCanMatchOnDifferentTeam("blockedPlayerCanMatchOnDifferentTeam"),
+    BlockedPlayerCannotMatch("blockedPlayerCannotMatch");
+
+    private String value;
+
+    BlockedPlayerOption(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class ModelsUpdateChannelRequestBuilder {
+    private String blockedPlayerOption;
+
+    public ModelsUpdateChannelRequestBuilder blockedPlayerOption(final String blockedPlayerOption) {
+      this.blockedPlayerOption = blockedPlayerOption;
+      return this;
+    }
+
+    public ModelsUpdateChannelRequestBuilder blockedPlayerOptionFromEnum(
+        final BlockedPlayerOption blockedPlayerOption) {
+      this.blockedPlayerOption = blockedPlayerOption.toString();
+      return this;
+    }
   }
 }

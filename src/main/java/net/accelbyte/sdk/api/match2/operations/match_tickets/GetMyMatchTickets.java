@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetMyMatchTickets
  *
- * <p>Required Permission: NAMESPACE:{namespace}:MATCHMAKING:TICKET [READ]
- *
- * <p>Required Scope: social
- *
  * <p>Get my match tickets.
  */
 @Getter

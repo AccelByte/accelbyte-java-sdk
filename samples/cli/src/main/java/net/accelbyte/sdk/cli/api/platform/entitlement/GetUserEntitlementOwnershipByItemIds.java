@@ -47,6 +47,11 @@ public class GetUserEntitlementOwnershipByItemIds implements Callable<Integer> {
   List<String> ids;
 
   @Option(
+      names = {"--platform"},
+      description = "platform")
+  String platform;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -75,6 +80,7 @@ public class GetUserEntitlementOwnershipByItemIds implements Callable<Integer> {
                   .namespace(namespace)
                   .userId(userId)
                   .ids(ids)
+                  .platform(platform)
                   .build();
       final List<EntitlementOwnership> response =
           wrapper.getUserEntitlementOwnershipByItemIds(operation);

@@ -33,6 +33,14 @@ public class EntitlementUpdate extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> nullFieldList;
 
+  @JsonProperty("origin")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String origin;
+
+  @JsonProperty("reason")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String reason;
+
   @JsonProperty("startDate")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String startDate;
@@ -44,6 +52,26 @@ public class EntitlementUpdate extends Model {
   @JsonProperty("useCount")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer useCount;
+
+  @JsonIgnore
+  public String getOrigin() {
+    return this.origin;
+  }
+
+  @JsonIgnore
+  public Origin getOriginAsEnum() {
+    return Origin.valueOf(this.origin);
+  }
+
+  @JsonIgnore
+  public void setOrigin(final String origin) {
+    this.origin = origin;
+  }
+
+  @JsonIgnore
+  public void setOriginFromEnum(final Origin origin) {
+    this.origin = origin.toString();
+  }
 
   @JsonIgnore
   public String getStatus() {
@@ -75,6 +103,31 @@ public class EntitlementUpdate extends Model {
     return new ObjectMapper().readValue(json, new TypeReference<List<EntitlementUpdate>>() {});
   }
 
+  public enum Origin {
+    Epic("Epic"),
+    GooglePlay("GooglePlay"),
+    IOS("IOS"),
+    Nintendo("Nintendo"),
+    Oculus("Oculus"),
+    Other("Other"),
+    Playstation("Playstation"),
+    Steam("Steam"),
+    System("System"),
+    Twitch("Twitch"),
+    Xbox("Xbox");
+
+    private String value;
+
+    Origin(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public enum Status {
     ACTIVE("ACTIVE"),
     CONSUMED("CONSUMED"),
@@ -95,7 +148,18 @@ public class EntitlementUpdate extends Model {
   }
 
   public static class EntitlementUpdateBuilder {
+    private String origin;
     private String status;
+
+    public EntitlementUpdateBuilder origin(final String origin) {
+      this.origin = origin;
+      return this;
+    }
+
+    public EntitlementUpdateBuilder originFromEnum(final Origin origin) {
+      this.origin = origin.toString();
+      return this;
+    }
 
     public EntitlementUpdateBuilder status(final String status) {
       this.status = status;

@@ -27,7 +27,10 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT", action=2
  * (READ)
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class PublicGetUserEntitlementByItemId extends Operation {

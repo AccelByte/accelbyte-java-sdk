@@ -20,10 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteMatchTicket
  *
- * <p>Required Permission: NAMESPACE:{namespace}:MATCHMAKING:TICKET [DELETE]
- *
- * <p>Required Scope: social
- *
  * <p>Deletes an existing matchmaking ticket.
  */
 @Getter

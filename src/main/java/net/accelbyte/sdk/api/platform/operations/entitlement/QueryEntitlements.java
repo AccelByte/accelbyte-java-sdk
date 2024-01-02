@@ -49,6 +49,7 @@ public class QueryEntitlements extends Operation {
   private List<String> itemId;
   private Integer limit;
   private Integer offset;
+  private String origin;
   private String userId;
 
   /**
@@ -66,6 +67,7 @@ public class QueryEntitlements extends Operation {
       List<String> itemId,
       Integer limit,
       Integer offset,
+      String origin,
       String userId) {
     this.namespace = namespace;
     this.activeOnly = activeOnly;
@@ -75,6 +77,7 @@ public class QueryEntitlements extends Operation {
     this.itemId = itemId;
     this.limit = limit;
     this.offset = offset;
+    this.origin = origin;
     this.userId = userId;
 
     securities.add("Bearer");
@@ -106,6 +109,7 @@ public class QueryEntitlements extends Operation {
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+    queryParams.put("origin", this.origin == null ? null : Arrays.asList(this.origin));
     queryParams.put("userId", this.userId == null ? null : Arrays.asList(this.userId));
     return queryParams;
   }
@@ -138,6 +142,7 @@ public class QueryEntitlements extends Operation {
     result.put("itemId", "multi");
     result.put("limit", "None");
     result.put("offset", "None");
+    result.put("origin", "None");
     result.put("userId", "None");
     return result;
   }
@@ -181,9 +186,35 @@ public class QueryEntitlements extends Operation {
     }
   }
 
+  public enum Origin {
+    Epic("Epic"),
+    GooglePlay("GooglePlay"),
+    IOS("IOS"),
+    Nintendo("Nintendo"),
+    Oculus("Oculus"),
+    Other("Other"),
+    Playstation("Playstation"),
+    Steam("Steam"),
+    System("System"),
+    Twitch("Twitch"),
+    Xbox("Xbox");
+
+    private String value;
+
+    Origin(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public static class QueryEntitlementsBuilder {
     private String appType;
     private String entitlementClazz;
+    private String origin;
 
     public QueryEntitlementsBuilder appType(final String appType) {
       this.appType = appType;
@@ -203,6 +234,16 @@ public class QueryEntitlements extends Operation {
     public QueryEntitlementsBuilder entitlementClazzFromEnum(
         final EntitlementClazz entitlementClazz) {
       this.entitlementClazz = entitlementClazz.toString();
+      return this;
+    }
+
+    public QueryEntitlementsBuilder origin(final String origin) {
+      this.origin = origin;
+      return this;
+    }
+
+    public QueryEntitlementsBuilder originFromEnum(final Origin origin) {
+      this.origin = origin.toString();
       return this;
     }
   }

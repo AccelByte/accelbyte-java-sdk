@@ -20,7 +20,11 @@ import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
-/** getUserIncomingFriends */
+/**
+ * getUserIncomingFriends
+ *
+ * <p>Get list of incoming friends in a namespace.
+ */
 @Getter
 @Setter
 public class GetUserIncomingFriends extends Operation {

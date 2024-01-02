@@ -20,7 +20,11 @@ import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
-/** getUserIncomingFriendsWithTime */
+/**
+ * getUserIncomingFriendsWithTime
+ *
+ * <p>Get list of incoming friends with requested time info in a namespace.
+ */
 @Getter
 @Setter
 public class GetUserIncomingFriendsWithTime extends Operation {

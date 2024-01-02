@@ -28,6 +28,10 @@ public class ModelsCreateContentResponse extends Model {
   @JsonProperty("channelId")
   private String channelId;
 
+  @JsonProperty("contentStatus")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String contentStatus;
+
   @JsonProperty("contentType")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String contentType;
@@ -93,6 +97,26 @@ public class ModelsCreateContentResponse extends Model {
   private String userId;
 
   @JsonIgnore
+  public String getContentStatus() {
+    return this.contentStatus;
+  }
+
+  @JsonIgnore
+  public ContentStatus getContentStatusAsEnum() {
+    return ContentStatus.valueOf(this.contentStatus);
+  }
+
+  @JsonIgnore
+  public void setContentStatus(final String contentStatus) {
+    this.contentStatus = contentStatus;
+  }
+
+  @JsonIgnore
+  public void setContentStatusFromEnum(final ContentStatus contentStatus) {
+    this.contentStatus = contentStatus.toString();
+  }
+
+  @JsonIgnore
   public ModelsCreateContentResponse createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
@@ -102,5 +126,36 @@ public class ModelsCreateContentResponse extends Model {
       throws JsonProcessingException {
     return new ObjectMapper()
         .readValue(json, new TypeReference<List<ModelsCreateContentResponse>>() {});
+  }
+
+  public enum ContentStatus {
+    PUBLISHED("PUBLISHED"),
+    UNDERREVIEW("UNDER_REVIEW");
+
+    private String value;
+
+    ContentStatus(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class ModelsCreateContentResponseBuilder {
+    private String contentStatus;
+
+    public ModelsCreateContentResponseBuilder contentStatus(final String contentStatus) {
+      this.contentStatus = contentStatus;
+      return this;
+    }
+
+    public ModelsCreateContentResponseBuilder contentStatusFromEnum(
+        final ContentStatus contentStatus) {
+      this.contentStatus = contentStatus.toString();
+      return this;
+    }
   }
 }

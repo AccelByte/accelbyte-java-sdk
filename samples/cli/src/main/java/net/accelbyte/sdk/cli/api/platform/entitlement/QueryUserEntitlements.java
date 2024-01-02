@@ -66,6 +66,11 @@ public class QueryUserEntitlements implements Callable<Integer> {
   List<String> features;
 
   @Option(
+      names = {"--fuzzyMatchName"},
+      description = "fuzzyMatchName")
+  Boolean fuzzyMatchName;
+
+  @Option(
       names = {"--itemId"},
       description = "itemId")
   List<String> itemId;
@@ -79,6 +84,11 @@ public class QueryUserEntitlements implements Callable<Integer> {
       names = {"--offset"},
       description = "offset")
   Integer offset;
+
+  @Option(
+      names = {"--origin"},
+      description = "origin")
+  String origin;
 
   @Option(
       names = {"--logging"},
@@ -110,9 +120,11 @@ public class QueryUserEntitlements implements Callable<Integer> {
               .entitlementClazz(entitlementClazz)
               .entitlementName(entitlementName)
               .features(features)
+              .fuzzyMatchName(fuzzyMatchName)
               .itemId(itemId)
               .limit(limit)
               .offset(offset)
+              .origin(origin)
               .build();
       final EntitlementPagingSlicedResult response = wrapper.queryUserEntitlements(operation);
       final String responseString =

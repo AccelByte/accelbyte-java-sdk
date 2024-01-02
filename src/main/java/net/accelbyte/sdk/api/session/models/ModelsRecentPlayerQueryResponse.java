@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsRecentPlayerQueryResponse extends Model {
 
   @JsonProperty("data")
-  private List<ModelsUserInfo> data;
+  private List<ModelsUserInfoResponse> data;
 
   @JsonIgnore
   public ModelsRecentPlayerQueryResponse createFromJson(String json)

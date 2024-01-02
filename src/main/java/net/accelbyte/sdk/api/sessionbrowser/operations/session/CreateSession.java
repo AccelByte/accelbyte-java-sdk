@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateSession
  *
- * <p>Required permission: NAMESPACE:{namespace}:SESSIONBROWSER:SESSION [CREATE]
- *
- * <p>Required scope: social
- *
  * <p>This end point intended to be called directly by P2P game client host or by DSMC
  */
 @Getter

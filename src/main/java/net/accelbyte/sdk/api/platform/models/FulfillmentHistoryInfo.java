@@ -36,6 +36,10 @@ public class FulfillmentHistoryInfo extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<CreditSummary> creditSummaries;
 
+  @JsonProperty("entitlementOrigin")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String entitlementOrigin;
+
   @JsonProperty("entitlementSummaries")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<EntitlementSummary> entitlementSummaries;
@@ -76,6 +80,26 @@ public class FulfillmentHistoryInfo extends Model {
   private String userId;
 
   @JsonIgnore
+  public String getEntitlementOrigin() {
+    return this.entitlementOrigin;
+  }
+
+  @JsonIgnore
+  public EntitlementOrigin getEntitlementOriginAsEnum() {
+    return EntitlementOrigin.valueOf(this.entitlementOrigin);
+  }
+
+  @JsonIgnore
+  public void setEntitlementOrigin(final String entitlementOrigin) {
+    this.entitlementOrigin = entitlementOrigin;
+  }
+
+  @JsonIgnore
+  public void setEntitlementOriginFromEnum(final EntitlementOrigin entitlementOrigin) {
+    this.entitlementOrigin = entitlementOrigin.toString();
+  }
+
+  @JsonIgnore
   public String getStatus() {
     return this.status;
   }
@@ -106,6 +130,31 @@ public class FulfillmentHistoryInfo extends Model {
     return new ObjectMapper().readValue(json, new TypeReference<List<FulfillmentHistoryInfo>>() {});
   }
 
+  public enum EntitlementOrigin {
+    Epic("Epic"),
+    GooglePlay("GooglePlay"),
+    IOS("IOS"),
+    Nintendo("Nintendo"),
+    Oculus("Oculus"),
+    Other("Other"),
+    Playstation("Playstation"),
+    Steam("Steam"),
+    System("System"),
+    Twitch("Twitch"),
+    Xbox("Xbox");
+
+    private String value;
+
+    EntitlementOrigin(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public enum Status {
     FAIL("FAIL"),
     SUCCESS("SUCCESS");
@@ -123,7 +172,19 @@ public class FulfillmentHistoryInfo extends Model {
   }
 
   public static class FulfillmentHistoryInfoBuilder {
+    private String entitlementOrigin;
     private String status;
+
+    public FulfillmentHistoryInfoBuilder entitlementOrigin(final String entitlementOrigin) {
+      this.entitlementOrigin = entitlementOrigin;
+      return this;
+    }
+
+    public FulfillmentHistoryInfoBuilder entitlementOriginFromEnum(
+        final EntitlementOrigin entitlementOrigin) {
+      this.entitlementOrigin = entitlementOrigin.toString();
+      return this;
+    }
 
     public FulfillmentHistoryInfoBuilder status(final String status) {
       this.status = status;

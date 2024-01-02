@@ -23,27 +23,24 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ModelsUserInfo extends Model {
+public class ApimodelsNativeSessionPagingResponse extends Model {
 
-  @JsonProperty("namespace")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String namespace;
+  @JsonProperty("data")
+  private List<ModelNativeSession> data;
 
-  @JsonProperty("platformName")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String platformName;
-
-  @JsonProperty("userID")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String userID;
+  @JsonProperty("paging")
+  private ApimodelsPagination paging;
 
   @JsonIgnore
-  public ModelsUserInfo createFromJson(String json) throws JsonProcessingException {
+  public ApimodelsNativeSessionPagingResponse createFromJson(String json)
+      throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ModelsUserInfo> createFromJsonList(String json) throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsUserInfo>>() {});
+  public List<ApimodelsNativeSessionPagingResponse> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ApimodelsNativeSessionPagingResponse>>() {});
   }
 }

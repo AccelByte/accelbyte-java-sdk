@@ -18,7 +18,11 @@ import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
-/** userRejectFriendRequest */
+/**
+ * userRejectFriendRequest
+ *
+ * <p>User reject a friend request.
+ */
 @Getter
 @Setter
 public class UserRejectFriendRequest extends Operation {

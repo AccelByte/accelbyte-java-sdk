@@ -24,6 +24,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>This endpoint ONLY accept **Client Token** This endpoint is utilized for specific scenarios
  * where **email notifications are disabled** The user's email will be marked as verified
  *
+ * <p>Note: - emailAddress or password field are optional - request body can't be empty
+ *
  * <p>action code : 10103
  */
 @Getter

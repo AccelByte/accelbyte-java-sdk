@@ -24,7 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>[SERVICE COMMUNICATION ONLY] Fulfill rewards. Other detail info:
  *
  * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT",
- * action=1 (CREATED) * Returns : fulfillment result
+ * action=1 (CREATED) * Returns : fulfillment result * rewards Item unsupported Type : SUBSCRIPTION
  */
 @Getter
 @Setter

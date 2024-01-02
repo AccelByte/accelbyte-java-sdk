@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * EnvironmentVariableList
  *
- * <p>Required Permission: ADMIN:MATCHMAKING:CONFIGURATION:ENVIRONMENTVARIABLE [READ]
- *
- * <p>Required Scope: social
- *
  * <p>List environment variables.
  */
 @Getter

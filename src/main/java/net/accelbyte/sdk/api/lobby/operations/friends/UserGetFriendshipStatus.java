@@ -18,7 +18,11 @@ import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
-/** userGetFriendshipStatus */
+/**
+ * userGetFriendshipStatus
+ *
+ * <p>User get friendship status.
+ */
 @Getter
 @Setter
 public class UserGetFriendshipStatus extends Operation {

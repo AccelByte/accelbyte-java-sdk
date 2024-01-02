@@ -51,6 +51,11 @@ public class GetUserEntitlementByItemId implements Callable<Integer> {
   String entitlementClazz;
 
   @Option(
+      names = {"--platform"},
+      description = "platform")
+  String platform;
+
+  @Option(
       names = {"--itemId"},
       description = "itemId")
   String itemId;
@@ -84,6 +89,7 @@ public class GetUserEntitlementByItemId implements Callable<Integer> {
                   .userId(userId)
                   .activeOnly(activeOnly)
                   .entitlementClazz(entitlementClazz)
+                  .platform(platform)
                   .itemId(itemId)
                   .build();
       final EntitlementInfo response = wrapper.getUserEntitlementByItemId(operation);

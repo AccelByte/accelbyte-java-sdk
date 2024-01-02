@@ -51,6 +51,14 @@ public class AppEntitlementInfo extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
+  @JsonProperty("noOrigin")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean noOrigin;
+
+  @JsonProperty("origin")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String origin;
+
   @JsonProperty("sku")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String sku;
@@ -87,6 +95,26 @@ public class AppEntitlementInfo extends Model {
   @JsonIgnore
   public void setAppTypeFromEnum(final AppType appType) {
     this.appType = appType.toString();
+  }
+
+  @JsonIgnore
+  public String getOrigin() {
+    return this.origin;
+  }
+
+  @JsonIgnore
+  public Origin getOriginAsEnum() {
+    return Origin.valueOf(this.origin);
+  }
+
+  @JsonIgnore
+  public void setOrigin(final String origin) {
+    this.origin = origin;
+  }
+
+  @JsonIgnore
+  public void setOriginFromEnum(final Origin origin) {
+    this.origin = origin.toString();
   }
 
   @JsonIgnore
@@ -137,6 +165,31 @@ public class AppEntitlementInfo extends Model {
     }
   }
 
+  public enum Origin {
+    Epic("Epic"),
+    GooglePlay("GooglePlay"),
+    IOS("IOS"),
+    Nintendo("Nintendo"),
+    Oculus("Oculus"),
+    Other("Other"),
+    Playstation("Playstation"),
+    Steam("Steam"),
+    System("System"),
+    Twitch("Twitch"),
+    Xbox("Xbox");
+
+    private String value;
+
+    Origin(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public enum Status {
     ACTIVE("ACTIVE"),
     CONSUMED("CONSUMED"),
@@ -158,6 +211,7 @@ public class AppEntitlementInfo extends Model {
 
   public static class AppEntitlementInfoBuilder {
     private String appType;
+    private String origin;
     private String status;
 
     public AppEntitlementInfoBuilder appType(final String appType) {
@@ -167,6 +221,16 @@ public class AppEntitlementInfo extends Model {
 
     public AppEntitlementInfoBuilder appTypeFromEnum(final AppType appType) {
       this.appType = appType.toString();
+      return this;
+    }
+
+    public AppEntitlementInfoBuilder origin(final String origin) {
+      this.origin = origin;
+      return this;
+    }
+
+    public AppEntitlementInfoBuilder originFromEnum(final Origin origin) {
+      this.origin = origin.toString();
       return this;
     }
 

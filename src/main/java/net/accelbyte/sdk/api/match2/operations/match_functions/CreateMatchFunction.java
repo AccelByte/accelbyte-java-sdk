@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateMatchFunction
  *
- * <p>Required Permission: NAMESPACE:{namespace}:MATCHMAKING:FUNCTIONS [CREATE]
- *
- * <p>Required Scope: social
- *
  * <p>Creates a new matchmaking function.
  */
 @Getter

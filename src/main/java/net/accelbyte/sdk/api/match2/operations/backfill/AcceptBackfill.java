@@ -21,11 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AcceptBackfill
  *
- * <p>Required Permission: NAMESPACE:{namespace}:MATCHMAKING:BACKFILL [UPDATE]
- *
- * <p>Required Scope: social
- *
- * <p>Accept backfill proposal
+ * <p>Accept backfill proposal.
  */
 @Getter
 @Setter

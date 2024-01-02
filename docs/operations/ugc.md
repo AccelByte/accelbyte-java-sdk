@@ -201,6 +201,14 @@
 | `/ugc/v2/admin/namespaces/{namespace}/configs` | GET | AdminGetConfigs | [AdminGetConfigs](../../src/main/java/net/accelbyte/sdk/api/ugc/operations/admin_config/AdminGetConfigs.java) | [AdminGetConfigs](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ugc/admin_config/AdminGetConfigs.java) |
 | `/ugc/v2/admin/namespaces/{namespace}/configs/{key}` | PATCH | AdminUpdateConfig | [AdminUpdateConfig](../../src/main/java/net/accelbyte/sdk/api/ugc/operations/admin_config/AdminUpdateConfig.java) | [AdminUpdateConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ugc/admin_config/AdminUpdateConfig.java) |
 
+### Admin Staging Content Wrapper:  [AdminStagingContent](../../src/main/java/net/accelbyte/sdk/api/ugc/wrappers/AdminStagingContent.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/ugc/v2/admin/namespaces/{namespace}/staging-contents` | GET | AdminListStagingContents | [AdminListStagingContents](../../src/main/java/net/accelbyte/sdk/api/ugc/operations/admin_staging_content/AdminListStagingContents.java) | [AdminListStagingContents](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ugc/admin_staging_content/AdminListStagingContents.java) |
+| `/ugc/v2/admin/namespaces/{namespace}/staging-contents/{contentId}` | GET | AdminGetStagingContentByID | [AdminGetStagingContentByID](../../src/main/java/net/accelbyte/sdk/api/ugc/operations/admin_staging_content/AdminGetStagingContentByID.java) | [AdminGetStagingContentByID](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ugc/admin_staging_content/AdminGetStagingContentByID.java) |
+| `/ugc/v2/admin/namespaces/{namespace}/staging-contents/{contentId}/approve` | POST | AdminApproveStagingContent | [AdminApproveStagingContent](../../src/main/java/net/accelbyte/sdk/api/ugc/operations/admin_staging_content/AdminApproveStagingContent.java) | [AdminApproveStagingContent](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ugc/admin_staging_content/AdminApproveStagingContent.java) |
+| `/ugc/v2/admin/namespaces/{namespace}/users/{userId}/staging-contents` | GET | AdminListUserStagingContents | [AdminListUserStagingContents](../../src/main/java/net/accelbyte/sdk/api/ugc/operations/admin_staging_content/AdminListUserStagingContents.java) | [AdminListUserStagingContents](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ugc/admin_staging_content/AdminListUserStagingContents.java) |
+
 ### Public Content V2 Wrapper:  [PublicContentV2](../../src/main/java/net/accelbyte/sdk/api/ugc/wrappers/PublicContentV2.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -235,6 +243,14 @@
 | `/ugc/v2/public/namespaces/{namespace}/contents/{contentId}/like` | GET | PublicListContentLikeV2 | [PublicListContentLikeV2](../../src/main/java/net/accelbyte/sdk/api/ugc/operations/public_like_v2/PublicListContentLikeV2.java) | [PublicListContentLikeV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ugc/public_like_v2/PublicListContentLikeV2.java) |
 | `/ugc/v2/public/namespaces/{namespace}/contents/{contentId}/like` | PUT | UpdateContentLikeStatusV2 | [UpdateContentLikeStatusV2](../../src/main/java/net/accelbyte/sdk/api/ugc/operations/public_like_v2/UpdateContentLikeStatusV2.java) | [UpdateContentLikeStatusV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ugc/public_like_v2/UpdateContentLikeStatusV2.java) |
 
+### Public Staging Content Wrapper:  [PublicStagingContent](../../src/main/java/net/accelbyte/sdk/api/ugc/wrappers/PublicStagingContent.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/ugc/v2/public/namespaces/{namespace}/users/{userId}/staging-contents` | GET | ListUserStagingContents | [ListUserStagingContents](../../src/main/java/net/accelbyte/sdk/api/ugc/operations/public_staging_content/ListUserStagingContents.java) | [ListUserStagingContents](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ugc/public_staging_content/ListUserStagingContents.java) |
+| `/ugc/v2/public/namespaces/{namespace}/users/{userId}/staging-contents/{contentId}` | GET | GetUserStagingContentByID | [GetUserStagingContentByID](../../src/main/java/net/accelbyte/sdk/api/ugc/operations/public_staging_content/GetUserStagingContentByID.java) | [GetUserStagingContentByID](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ugc/public_staging_content/GetUserStagingContentByID.java) |
+| `/ugc/v2/public/namespaces/{namespace}/users/{userId}/staging-contents/{contentId}` | PUT | UpdateStagingContent | [UpdateStagingContent](../../src/main/java/net/accelbyte/sdk/api/ugc/operations/public_staging_content/UpdateStagingContent.java) | [UpdateStagingContent](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ugc/public_staging_content/UpdateStagingContent.java) |
+| `/ugc/v2/public/namespaces/{namespace}/users/{userId}/staging-contents/{contentId}` | DELETE | DeleteUserStagingContentByID | [DeleteUserStagingContentByID](../../src/main/java/net/accelbyte/sdk/api/ugc/operations/public_staging_content/DeleteUserStagingContentByID.java) | [DeleteUserStagingContentByID](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ugc/public_staging_content/DeleteUserStagingContentByID.java) |
+
 
 &nbsp;  
 
@@ -247,6 +263,7 @@
 | `models.AdminGetContentBulkRequest` | [ModelsAdminGetContentBulkRequest](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsAdminGetContentBulkRequest.java) |
 | `models.AdminUpdateContentRequest` | [ModelsAdminUpdateContentRequest](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsAdminUpdateContentRequest.java) |
 | `models.AdminUpdateContentRequestV2` | [ModelsAdminUpdateContentRequestV2](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsAdminUpdateContentRequestV2.java) |
+| `models.ApproveStagingContentRequest` | [ModelsApproveStagingContentRequest](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsApproveStagingContentRequest.java) |
 | `models.ChannelRequest` | [ModelsChannelRequest](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsChannelRequest.java) |
 | `models.ChannelResponse` | [ModelsChannelResponse](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsChannelResponse.java) |
 | `models.ConfigResponse` | [ModelsConfigResponse](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsConfigResponse.java) |
@@ -291,6 +308,7 @@
 | `models.PaginatedGetTagResponse` | [ModelsPaginatedGetTagResponse](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsPaginatedGetTagResponse.java) |
 | `models.PaginatedGetTypeResponse` | [ModelsPaginatedGetTypeResponse](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsPaginatedGetTypeResponse.java) |
 | `models.PaginatedGroupResponse` | [ModelsPaginatedGroupResponse](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsPaginatedGroupResponse.java) |
+| `models.PaginatedListStagingContentResponse` | [ModelsPaginatedListStagingContentResponse](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsPaginatedListStagingContentResponse.java) |
 | `models.PagingCursor` | [ModelsPagingCursor](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsPagingCursor.java) |
 | `models.PayloadURL` | [ModelsPayloadURL](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsPayloadURL.java) |
 | `models.PreviewURL` | [ModelsPreviewURL](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsPreviewURL.java) |
@@ -298,6 +316,7 @@
 | `models.PublicCreateContentRequestS3` | [ModelsPublicCreateContentRequestS3](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsPublicCreateContentRequestS3.java) |
 | `models.PublicGetContentBulkRequest` | [ModelsPublicGetContentBulkRequest](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsPublicGetContentBulkRequest.java) |
 | `models.ScreenshotResponse` | [ModelsScreenshotResponse](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsScreenshotResponse.java) |
+| `models.StagingContentResponse` | [ModelsStagingContentResponse](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsStagingContentResponse.java) |
 | `models.UpdateChannelRequest` | [ModelsUpdateChannelRequest](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsUpdateChannelRequest.java) |
 | `models.UpdateConfigRequest` | [ModelsUpdateConfigRequest](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsUpdateConfigRequest.java) |
 | `models.UpdateContentRequest` | [ModelsUpdateContentRequest](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsUpdateContentRequest.java) |
@@ -307,6 +326,7 @@
 | `models.UpdateFileLocationRequest` | [ModelsUpdateFileLocationRequest](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsUpdateFileLocationRequest.java) |
 | `models.UpdateScreenshotRequest` | [ModelsUpdateScreenshotRequest](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsUpdateScreenshotRequest.java) |
 | `models.UpdateScreenshotResponse` | [ModelsUpdateScreenshotResponse](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsUpdateScreenshotResponse.java) |
+| `models.UpdateStagingContentRequest` | [ModelsUpdateStagingContentRequest](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsUpdateStagingContentRequest.java) |
 | `models.UserFollowRequest` | [ModelsUserFollowRequest](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsUserFollowRequest.java) |
 | `models.UserFollowResponse` | [ModelsUserFollowResponse](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsUserFollowResponse.java) |
 | `models.createScreenshotRequestItem` | [ModelsCreateScreenshotRequestItem](../../src/main/java/net/accelbyte/sdk/api/ugc/models/ModelsCreateScreenshotRequestItem.java) |

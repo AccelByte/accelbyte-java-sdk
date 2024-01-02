@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateMatchPool
  *
- * <p>Required Permission: NAMESPACE:{namespace}:MATCHMAKING:POOL [CREATE]
- *
- * <p>Required Scope: social
- *
  * <p>Creates a new matchmaking pool.
  *
  * <p>A pool is isolated from other pools (i.e. tickets may be matched with other tickets in the

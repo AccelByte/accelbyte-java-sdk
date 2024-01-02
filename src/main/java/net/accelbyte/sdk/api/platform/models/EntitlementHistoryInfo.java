@@ -40,6 +40,10 @@ public class EntitlementHistoryInfo extends Model {
   @JsonProperty("operator")
   private String operator;
 
+  @JsonProperty("origin")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String origin;
+
   @JsonProperty("reason")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String reason;
@@ -79,6 +83,26 @@ public class EntitlementHistoryInfo extends Model {
   }
 
   @JsonIgnore
+  public String getOrigin() {
+    return this.origin;
+  }
+
+  @JsonIgnore
+  public Origin getOriginAsEnum() {
+    return Origin.valueOf(this.origin);
+  }
+
+  @JsonIgnore
+  public void setOrigin(final String origin) {
+    this.origin = origin;
+  }
+
+  @JsonIgnore
+  public void setOriginFromEnum(final Origin origin) {
+    this.origin = origin.toString();
+  }
+
+  @JsonIgnore
   public EntitlementHistoryInfo createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
@@ -110,8 +134,34 @@ public class EntitlementHistoryInfo extends Model {
     }
   }
 
+  public enum Origin {
+    Epic("Epic"),
+    GooglePlay("GooglePlay"),
+    IOS("IOS"),
+    Nintendo("Nintendo"),
+    Oculus("Oculus"),
+    Other("Other"),
+    Playstation("Playstation"),
+    Steam("Steam"),
+    System("System"),
+    Twitch("Twitch"),
+    Xbox("Xbox");
+
+    private String value;
+
+    Origin(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public static class EntitlementHistoryInfoBuilder {
     private String action;
+    private String origin;
 
     public EntitlementHistoryInfoBuilder action(final String action) {
       this.action = action;
@@ -120,6 +170,16 @@ public class EntitlementHistoryInfo extends Model {
 
     public EntitlementHistoryInfoBuilder actionFromEnum(final Action action) {
       this.action = action.toString();
+      return this;
+    }
+
+    public EntitlementHistoryInfoBuilder origin(final String origin) {
+      this.origin = origin;
+      return this;
+    }
+
+    public EntitlementHistoryInfoBuilder originFromEnum(final Origin origin) {
+      this.origin = origin.toString();
       return this;
     }
   }

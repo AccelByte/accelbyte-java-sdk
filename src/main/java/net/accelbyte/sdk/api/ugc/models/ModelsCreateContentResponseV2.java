@@ -28,6 +28,9 @@ public class ModelsCreateContentResponseV2 extends Model {
   @JsonProperty("channelId")
   private String channelId;
 
+  @JsonProperty("contentStatus")
+  private String contentStatus;
+
   @JsonProperty("contentType")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String contentType;
@@ -90,6 +93,26 @@ public class ModelsCreateContentResponseV2 extends Model {
   private String userId;
 
   @JsonIgnore
+  public String getContentStatus() {
+    return this.contentStatus;
+  }
+
+  @JsonIgnore
+  public ContentStatus getContentStatusAsEnum() {
+    return ContentStatus.valueOf(this.contentStatus);
+  }
+
+  @JsonIgnore
+  public void setContentStatus(final String contentStatus) {
+    this.contentStatus = contentStatus;
+  }
+
+  @JsonIgnore
+  public void setContentStatusFromEnum(final ContentStatus contentStatus) {
+    this.contentStatus = contentStatus.toString();
+  }
+
+  @JsonIgnore
   public ModelsCreateContentResponseV2 createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
@@ -99,5 +122,36 @@ public class ModelsCreateContentResponseV2 extends Model {
       throws JsonProcessingException {
     return new ObjectMapper()
         .readValue(json, new TypeReference<List<ModelsCreateContentResponseV2>>() {});
+  }
+
+  public enum ContentStatus {
+    PUBLISHED("PUBLISHED"),
+    UNDERREVIEW("UNDER_REVIEW");
+
+    private String value;
+
+    ContentStatus(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class ModelsCreateContentResponseV2Builder {
+    private String contentStatus;
+
+    public ModelsCreateContentResponseV2Builder contentStatus(final String contentStatus) {
+      this.contentStatus = contentStatus;
+      return this;
+    }
+
+    public ModelsCreateContentResponseV2Builder contentStatusFromEnum(
+        final ContentStatus contentStatus) {
+      this.contentStatus = contentStatus.toString();
+      return this;
+    }
   }
 }

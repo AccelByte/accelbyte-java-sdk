@@ -48,6 +48,7 @@ public class EntitlementDecrementResult extends Model {
   private List<String> features;
 
   @JsonProperty("grantedAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String grantedAt;
 
   @JsonProperty("grantedCode")
@@ -68,10 +69,19 @@ public class EntitlementDecrementResult extends Model {
   private ItemSnapshot itemSnapshot;
 
   @JsonProperty("name")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String name;
 
   @JsonProperty("namespace")
   private String namespace;
+
+  @JsonProperty("noOrigin")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean noOrigin;
+
+  @JsonProperty("origin")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String origin;
 
   @JsonProperty("replayed")
   @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -90,6 +100,7 @@ public class EntitlementDecrementResult extends Model {
   private String sku;
 
   @JsonProperty("source")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String source;
 
   @JsonProperty("stackable")
@@ -108,6 +119,7 @@ public class EntitlementDecrementResult extends Model {
   private String storeId;
 
   @JsonProperty("type")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String type;
 
   @JsonProperty("updatedAt")
@@ -118,6 +130,7 @@ public class EntitlementDecrementResult extends Model {
   private Integer useCount;
 
   @JsonProperty("userId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String userId;
 
   @JsonIgnore
@@ -158,6 +171,26 @@ public class EntitlementDecrementResult extends Model {
   @JsonIgnore
   public void setClazzFromEnum(final Clazz clazz) {
     this.clazz = clazz.toString();
+  }
+
+  @JsonIgnore
+  public String getOrigin() {
+    return this.origin;
+  }
+
+  @JsonIgnore
+  public Origin getOriginAsEnum() {
+    return Origin.valueOf(this.origin);
+  }
+
+  @JsonIgnore
+  public void setOrigin(final String origin) {
+    this.origin = origin;
+  }
+
+  @JsonIgnore
+  public void setOriginFromEnum(final Origin origin) {
+    this.origin = origin.toString();
   }
 
   @JsonIgnore
@@ -271,6 +304,31 @@ public class EntitlementDecrementResult extends Model {
     }
   }
 
+  public enum Origin {
+    Epic("Epic"),
+    GooglePlay("GooglePlay"),
+    IOS("IOS"),
+    Nintendo("Nintendo"),
+    Oculus("Oculus"),
+    Other("Other"),
+    Playstation("Playstation"),
+    Steam("Steam"),
+    System("System"),
+    Twitch("Twitch"),
+    Xbox("Xbox");
+
+    private String value;
+
+    Origin(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public enum Source {
     ACHIEVEMENT("ACHIEVEMENT"),
     GIFT("GIFT"),
@@ -332,6 +390,7 @@ public class EntitlementDecrementResult extends Model {
   public static class EntitlementDecrementResultBuilder {
     private String appType;
     private String clazz;
+    private String origin;
     private String source;
     private String status;
     private String type;
@@ -353,6 +412,16 @@ public class EntitlementDecrementResult extends Model {
 
     public EntitlementDecrementResultBuilder clazzFromEnum(final Clazz clazz) {
       this.clazz = clazz.toString();
+      return this;
+    }
+
+    public EntitlementDecrementResultBuilder origin(final String origin) {
+      this.origin = origin;
+      return this;
+    }
+
+    public EntitlementDecrementResultBuilder originFromEnum(final Origin origin) {
+      this.origin = origin.toString();
       return this;
     }
 

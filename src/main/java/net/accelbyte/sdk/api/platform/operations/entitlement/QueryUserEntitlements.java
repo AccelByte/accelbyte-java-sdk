@@ -48,9 +48,11 @@ public class QueryUserEntitlements extends Operation {
   private String entitlementClazz;
   private String entitlementName;
   private List<String> features;
+  private Boolean fuzzyMatchName;
   private List<String> itemId;
   private Integer limit;
   private Integer offset;
+  private String origin;
 
   /**
    * @param namespace required
@@ -67,9 +69,11 @@ public class QueryUserEntitlements extends Operation {
       String entitlementClazz,
       String entitlementName,
       List<String> features,
+      Boolean fuzzyMatchName,
       List<String> itemId,
       Integer limit,
-      Integer offset) {
+      Integer offset,
+      String origin) {
     this.namespace = namespace;
     this.userId = userId;
     this.activeOnly = activeOnly;
@@ -77,9 +81,11 @@ public class QueryUserEntitlements extends Operation {
     this.entitlementClazz = entitlementClazz;
     this.entitlementName = entitlementName;
     this.features = features;
+    this.fuzzyMatchName = fuzzyMatchName;
     this.itemId = itemId;
     this.limit = limit;
     this.offset = offset;
+    this.origin = origin;
 
     securities.add("Bearer");
   }
@@ -110,10 +116,14 @@ public class QueryUserEntitlements extends Operation {
         "entitlementName",
         this.entitlementName == null ? null : Arrays.asList(this.entitlementName));
     queryParams.put("features", this.features == null ? null : this.features);
+    queryParams.put(
+        "fuzzyMatchName",
+        this.fuzzyMatchName == null ? null : Arrays.asList(String.valueOf(this.fuzzyMatchName)));
     queryParams.put("itemId", this.itemId == null ? null : this.itemId);
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+    queryParams.put("origin", this.origin == null ? null : Arrays.asList(this.origin));
     return queryParams;
   }
 
@@ -146,9 +156,11 @@ public class QueryUserEntitlements extends Operation {
     result.put("entitlementClazz", "None");
     result.put("entitlementName", "None");
     result.put("features", "multi");
+    result.put("fuzzyMatchName", "None");
     result.put("itemId", "multi");
     result.put("limit", "None");
     result.put("offset", "None");
+    result.put("origin", "None");
     return result;
   }
 
@@ -191,9 +203,35 @@ public class QueryUserEntitlements extends Operation {
     }
   }
 
+  public enum Origin {
+    Epic("Epic"),
+    GooglePlay("GooglePlay"),
+    IOS("IOS"),
+    Nintendo("Nintendo"),
+    Oculus("Oculus"),
+    Other("Other"),
+    Playstation("Playstation"),
+    Steam("Steam"),
+    System("System"),
+    Twitch("Twitch"),
+    Xbox("Xbox");
+
+    private String value;
+
+    Origin(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public static class QueryUserEntitlementsBuilder {
     private String appType;
     private String entitlementClazz;
+    private String origin;
 
     public QueryUserEntitlementsBuilder appType(final String appType) {
       this.appType = appType;
@@ -213,6 +251,16 @@ public class QueryUserEntitlements extends Operation {
     public QueryUserEntitlementsBuilder entitlementClazzFromEnum(
         final EntitlementClazz entitlementClazz) {
       this.entitlementClazz = entitlementClazz.toString();
+      return this;
+    }
+
+    public QueryUserEntitlementsBuilder origin(final String origin) {
+      this.origin = origin;
+      return this;
+    }
+
+    public QueryUserEntitlementsBuilder originFromEnum(final Origin origin) {
+      this.origin = origin.toString();
       return this;
     }
   }

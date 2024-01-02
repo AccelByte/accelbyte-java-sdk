@@ -76,7 +76,7 @@ public class ConsumeUserEntitlement implements Callable<Integer> {
               .entitlementId(entitlementId)
               .namespace(namespace)
               .userId(userId)
-              .body(new ObjectMapper().readValue(body, EntitlementDecrement.class))
+              .body(new ObjectMapper().readValue(body, AdminEntitlementDecrement.class))
               .build();
       final EntitlementDecrementResult response = wrapper.consumeUserEntitlement(operation);
       final String responseString =

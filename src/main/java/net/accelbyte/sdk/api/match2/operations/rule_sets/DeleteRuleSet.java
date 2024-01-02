@@ -20,10 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteRuleSet
  *
- * <p>Required Permission: NAMESPACE:{namespace}:MATCHMAKING:RULES [DELETE]
- *
- * <p>Required Scope: social
- *
  * <p>Deletes an existing rule set.
  */
 @Getter

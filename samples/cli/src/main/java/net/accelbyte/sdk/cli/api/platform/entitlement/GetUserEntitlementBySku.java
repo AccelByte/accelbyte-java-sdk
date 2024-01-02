@@ -51,6 +51,11 @@ public class GetUserEntitlementBySku implements Callable<Integer> {
   String entitlementClazz;
 
   @Option(
+      names = {"--platform"},
+      description = "platform")
+  String platform;
+
+  @Option(
       names = {"--sku"},
       description = "sku")
   String sku;
@@ -84,6 +89,7 @@ public class GetUserEntitlementBySku implements Callable<Integer> {
                   .userId(userId)
                   .activeOnly(activeOnly)
                   .entitlementClazz(entitlementClazz)
+                  .platform(platform)
                   .sku(sku)
                   .build();
       final EntitlementInfo response = wrapper.getUserEntitlementBySku(operation);

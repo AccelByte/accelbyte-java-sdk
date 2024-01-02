@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UpdateSession
  *
- * <p>Required permission: NAMESPACE:{namespace}:SESSIONBROWSER:SESSION [UPDATE]
- *
- * <p>Required scope: social
- *
  * <p>Update game session, used to update the current player
  */
 @Getter

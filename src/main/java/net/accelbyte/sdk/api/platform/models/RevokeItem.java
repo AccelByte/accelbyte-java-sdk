@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class RevokeItem extends Model {
 
+  @JsonProperty("entitlementOrigin")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String entitlementOrigin;
+
   @JsonProperty("itemIdentity")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String itemIdentity;
@@ -36,6 +40,26 @@ public class RevokeItem extends Model {
   @JsonProperty("origin")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String origin;
+
+  @JsonIgnore
+  public String getEntitlementOrigin() {
+    return this.entitlementOrigin;
+  }
+
+  @JsonIgnore
+  public EntitlementOrigin getEntitlementOriginAsEnum() {
+    return EntitlementOrigin.valueOf(this.entitlementOrigin);
+  }
+
+  @JsonIgnore
+  public void setEntitlementOrigin(final String entitlementOrigin) {
+    this.entitlementOrigin = entitlementOrigin;
+  }
+
+  @JsonIgnore
+  public void setEntitlementOriginFromEnum(final EntitlementOrigin entitlementOrigin) {
+    this.entitlementOrigin = entitlementOrigin.toString();
+  }
 
   @JsonIgnore
   public String getItemIdentityType() {
@@ -87,6 +111,31 @@ public class RevokeItem extends Model {
     return new ObjectMapper().readValue(json, new TypeReference<List<RevokeItem>>() {});
   }
 
+  public enum EntitlementOrigin {
+    Epic("Epic"),
+    GooglePlay("GooglePlay"),
+    IOS("IOS"),
+    Nintendo("Nintendo"),
+    Oculus("Oculus"),
+    Other("Other"),
+    Playstation("Playstation"),
+    Steam("Steam"),
+    System("System"),
+    Twitch("Twitch"),
+    Xbox("Xbox");
+
+    private String value;
+
+    EntitlementOrigin(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public enum ItemIdentityType {
     ITEMID("ITEM_ID"),
     ITEMSKU("ITEM_SKU");
@@ -129,8 +178,19 @@ public class RevokeItem extends Model {
   }
 
   public static class RevokeItemBuilder {
+    private String entitlementOrigin;
     private String itemIdentityType;
     private String origin;
+
+    public RevokeItemBuilder entitlementOrigin(final String entitlementOrigin) {
+      this.entitlementOrigin = entitlementOrigin;
+      return this;
+    }
+
+    public RevokeItemBuilder entitlementOriginFromEnum(final EntitlementOrigin entitlementOrigin) {
+      this.entitlementOrigin = entitlementOrigin.toString();
+      return this;
+    }
 
     public RevokeItemBuilder itemIdentityType(final String itemIdentityType) {
       this.itemIdentityType = itemIdentityType;

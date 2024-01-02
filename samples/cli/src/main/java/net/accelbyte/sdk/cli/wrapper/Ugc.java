@@ -13,6 +13,7 @@ import net.accelbyte.sdk.cli.api.ugc.admin_config.*;
 import net.accelbyte.sdk.cli.api.ugc.admin_content.*;
 import net.accelbyte.sdk.cli.api.ugc.admin_content_v2.*;
 import net.accelbyte.sdk.cli.api.ugc.admin_group.*;
+import net.accelbyte.sdk.cli.api.ugc.admin_staging_content.*;
 import net.accelbyte.sdk.cli.api.ugc.admin_tag.*;
 import net.accelbyte.sdk.cli.api.ugc.admin_type.*;
 import net.accelbyte.sdk.cli.api.ugc.anonymization.*;
@@ -26,6 +27,7 @@ import net.accelbyte.sdk.cli.api.ugc.public_follow.*;
 import net.accelbyte.sdk.cli.api.ugc.public_group.*;
 import net.accelbyte.sdk.cli.api.ugc.public_like_legacy.*;
 import net.accelbyte.sdk.cli.api.ugc.public_like_v2.*;
+import net.accelbyte.sdk.cli.api.ugc.public_staging_content.*;
 import net.accelbyte.sdk.cli.api.ugc.public_tag.*;
 import net.accelbyte.sdk.cli.api.ugc.public_type.*;
 import picocli.CommandLine.Command;
@@ -153,6 +155,9 @@ import picocli.CommandLine.Command;
       AdminDeleteContentScreenshotV2.class,
       ListContentVersionsV2.class,
       AdminGetOfficialGroupContentsV2.class,
+      AdminListStagingContents.class,
+      AdminGetStagingContentByID.class,
+      AdminApproveStagingContent.class,
       AdminUpdateContentByShareCodeV2.class,
       AdminDeleteContentByShareCodeV2.class,
       AdminDeleteUserContentV2.class,
@@ -162,6 +167,7 @@ import picocli.CommandLine.Command;
       AdminGetContentByUserIDV2.class,
       AdminUpdateContentHideStatusV2.class,
       AdminGetUserGroupContentsV2.class,
+      AdminListUserStagingContents.class,
       PublicGetContentByChannelIDV2.class,
       PublicListContentV2.class,
       PublicBulkGetContentByIDV2.class,
@@ -185,6 +191,10 @@ import picocli.CommandLine.Command;
       UploadContentScreenshotV2.class,
       DeleteContentScreenshotV2.class,
       PublicGetGroupContentsV2.class,
+      ListUserStagingContents.class,
+      GetUserStagingContentByID.class,
+      UpdateStagingContent.class,
+      DeleteUserStagingContentByID.class,
     })
 public class Ugc implements Runnable {
 

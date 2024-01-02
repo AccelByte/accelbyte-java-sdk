@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * RuleSetDetails
  *
- * <p>Required Permission: NAMESPACE:{namespace}:MATCHMAKING:RULES [READ]
- *
- * <p>Required Scope: social
- *
  * <p>Get details for a specific rule set
  */
 @Getter

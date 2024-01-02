@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDeleteSession
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:SESSIONBROWSER:SESSION [DELETE]
- *
- * <p>Required scope: social
- *
  * <p>Admin delete the session by session ID
  */
 @Getter

@@ -33,6 +33,10 @@ public class FulfillmentRequest extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String endDate;
 
+  @JsonProperty("entitlementOrigin")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String entitlementOrigin;
+
   @JsonProperty("itemId")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String itemId;
@@ -85,6 +89,26 @@ public class FulfillmentRequest extends Model {
   private String storeId;
 
   @JsonIgnore
+  public String getEntitlementOrigin() {
+    return this.entitlementOrigin;
+  }
+
+  @JsonIgnore
+  public EntitlementOrigin getEntitlementOriginAsEnum() {
+    return EntitlementOrigin.valueOf(this.entitlementOrigin);
+  }
+
+  @JsonIgnore
+  public void setEntitlementOrigin(final String entitlementOrigin) {
+    this.entitlementOrigin = entitlementOrigin;
+  }
+
+  @JsonIgnore
+  public void setEntitlementOriginFromEnum(final EntitlementOrigin entitlementOrigin) {
+    this.entitlementOrigin = entitlementOrigin.toString();
+  }
+
+  @JsonIgnore
   public String getOrigin() {
     return this.origin;
   }
@@ -132,6 +156,31 @@ public class FulfillmentRequest extends Model {
   @JsonIgnore
   public List<FulfillmentRequest> createFromJsonList(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, new TypeReference<List<FulfillmentRequest>>() {});
+  }
+
+  public enum EntitlementOrigin {
+    Epic("Epic"),
+    GooglePlay("GooglePlay"),
+    IOS("IOS"),
+    Nintendo("Nintendo"),
+    Oculus("Oculus"),
+    Other("Other"),
+    Playstation("Playstation"),
+    Steam("Steam"),
+    System("System"),
+    Twitch("Twitch"),
+    Xbox("Xbox");
+
+    private String value;
+
+    EntitlementOrigin(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
   }
 
   public enum Origin {
@@ -190,8 +239,20 @@ public class FulfillmentRequest extends Model {
   }
 
   public static class FulfillmentRequestBuilder {
+    private String entitlementOrigin;
     private String origin;
     private String source;
+
+    public FulfillmentRequestBuilder entitlementOrigin(final String entitlementOrigin) {
+      this.entitlementOrigin = entitlementOrigin;
+      return this;
+    }
+
+    public FulfillmentRequestBuilder entitlementOriginFromEnum(
+        final EntitlementOrigin entitlementOrigin) {
+      this.entitlementOrigin = entitlementOrigin.toString();
+      return this;
+    }
 
     public FulfillmentRequestBuilder origin(final String origin) {
       this.origin = origin;

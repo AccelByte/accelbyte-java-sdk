@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteSessionLocalDS
  *
- * <p>Required permission: NAMESPACE:{namespace}:SESSIONBROWSER:SESSION [DELETE]
- *
- * <p>Required scope: social
- *
  * <p>Only use for local DS entry, will error when calling non local DS entry
  */
 @Getter

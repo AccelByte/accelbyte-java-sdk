@@ -1,3 +1,13 @@
+<a name="v0.54.0"></a>
+## [v0.54.0]
+### fix
+- **:** local token validation performance
+### ci
+- **coverity:** update cov-analysis to 2023.6.2
+### test
+- **integration:** add chat service
+
+
 <a name="v0.53.0"></a>
 ## [v0.53.0]
 ### ci

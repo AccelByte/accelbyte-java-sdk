@@ -18,7 +18,11 @@ import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
-/** userUnfriendRequest */
+/**
+ * userUnfriendRequest
+ *
+ * <p>User unfriend a friend.
+ */
 @Getter
 @Setter
 public class UserUnfriendRequest extends Operation {

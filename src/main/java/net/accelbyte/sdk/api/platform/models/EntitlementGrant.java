@@ -43,6 +43,10 @@ public class EntitlementGrant extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String language;
 
+  @JsonProperty("origin")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String origin;
+
   @JsonProperty("quantity")
   private Integer quantity;
 
@@ -61,6 +65,26 @@ public class EntitlementGrant extends Model {
   @JsonProperty("storeId")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String storeId;
+
+  @JsonIgnore
+  public String getOrigin() {
+    return this.origin;
+  }
+
+  @JsonIgnore
+  public Origin getOriginAsEnum() {
+    return Origin.valueOf(this.origin);
+  }
+
+  @JsonIgnore
+  public void setOrigin(final String origin) {
+    this.origin = origin;
+  }
+
+  @JsonIgnore
+  public void setOriginFromEnum(final Origin origin) {
+    this.origin = origin.toString();
+  }
 
   @JsonIgnore
   public String getSource() {
@@ -92,6 +116,31 @@ public class EntitlementGrant extends Model {
     return new ObjectMapper().readValue(json, new TypeReference<List<EntitlementGrant>>() {});
   }
 
+  public enum Origin {
+    Epic("Epic"),
+    GooglePlay("GooglePlay"),
+    IOS("IOS"),
+    Nintendo("Nintendo"),
+    Oculus("Oculus"),
+    Other("Other"),
+    Playstation("Playstation"),
+    Steam("Steam"),
+    System("System"),
+    Twitch("Twitch"),
+    Xbox("Xbox");
+
+    private String value;
+
+    Origin(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public enum Source {
     ACHIEVEMENT("ACHIEVEMENT"),
     GIFT("GIFT"),
@@ -116,7 +165,18 @@ public class EntitlementGrant extends Model {
   }
 
   public static class EntitlementGrantBuilder {
+    private String origin;
     private String source;
+
+    public EntitlementGrantBuilder origin(final String origin) {
+      this.origin = origin;
+      return this;
+    }
+
+    public EntitlementGrantBuilder originFromEnum(final Origin origin) {
+      this.origin = origin.toString();
+      return this;
+    }
 
     public EntitlementGrantBuilder source(final String source) {
       this.source = source;

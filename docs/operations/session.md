@@ -81,6 +81,11 @@
 | `/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}/teams` | POST | AppendTeamGameSession | [AppendTeamGameSession](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/AppendTeamGameSession.java) | [AppendTeamGameSession](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/AppendTeamGameSession.java) |
 | `/session/v1/public/namespaces/{namespace}/users/me/gamesessions` | GET | PublicQueryMyGameSessions | [PublicQueryMyGameSessions](../../src/main/java/net/accelbyte/sdk/api/session/operations/game_session/PublicQueryMyGameSessions.java) | [PublicQueryMyGameSessions](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/game_session/PublicQueryMyGameSessions.java) |
 
+### Native Session Wrapper:  [NativeSession](../../src/main/java/net/accelbyte/sdk/api/session/wrappers/NativeSession.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/session/v1/admin/namespaces/{namespace}/native-sessions` | GET | AdminGetListNativeSession | [AdminGetListNativeSession](../../src/main/java/net/accelbyte/sdk/api/session/operations/native_session/AdminGetListNativeSession.java) | [AdminGetListNativeSession](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/native_session/AdminGetListNativeSession.java) |
+
 ### Party Wrapper:  [Party](../../src/main/java/net/accelbyte/sdk/api/session/wrappers/Party.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -129,7 +134,7 @@
 ### Recent Player Wrapper:  [RecentPlayer](../../src/main/java/net/accelbyte/sdk/api/session/wrappers/RecentPlayer.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
-| `/session/v1/public/namespaces/{namespace}/recent-player/{userId}` | GET | PublicGetRecentPlayer | [PublicGetRecentPlayer](../../src/main/java/net/accelbyte/sdk/api/session/operations/recent_player/PublicGetRecentPlayer.java) | [PublicGetRecentPlayer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/recent_player/PublicGetRecentPlayer.java) |
+| `/session/v1/public/namespaces/{namespace}/recent-player` | GET | PublicGetRecentPlayer | [PublicGetRecentPlayer](../../src/main/java/net/accelbyte/sdk/api/session/operations/recent_player/PublicGetRecentPlayer.java) | [PublicGetRecentPlayer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/recent_player/PublicGetRecentPlayer.java) |
 
 
 &nbsp;  
@@ -156,6 +161,7 @@
 | `apimodels.GlobalConfigurationResponse` | [ApimodelsGlobalConfigurationResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsGlobalConfigurationResponse.java) |
 | `apimodels.JoinByCodeRequest` | [ApimodelsJoinByCodeRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsJoinByCodeRequest.java) |
 | `apimodels.KickResponse` | [ApimodelsKickResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsKickResponse.java) |
+| `apimodels.NativeSessionPagingResponse` | [ApimodelsNativeSessionPagingResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsNativeSessionPagingResponse.java) |
 | `apimodels.Pagination` | [ApimodelsPagination](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsPagination.java) |
 | `apimodels.PartyQueryResponse` | [ApimodelsPartyQueryResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsPartyQueryResponse.java) |
 | `apimodels.PartySessionResponse` | [ApimodelsPartySessionResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsPartySessionResponse.java) |
@@ -180,6 +186,8 @@
 | `apimodels.UpdateGameSessionRequest` | [ApimodelsUpdateGameSessionRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsUpdateGameSessionRequest.java) |
 | `apimodels.UpdatePartyRequest` | [ApimodelsUpdatePartyRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsUpdatePartyRequest.java) |
 | `apimodels.UserResponse` | [ApimodelsUserResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsUserResponse.java) |
+| `model.NativeSession` | [ModelNativeSession](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelNativeSession.java) |
+| `model.NativeSessionMember` | [ModelNativeSessionMember](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelNativeSessionMember.java) |
 | `models.DSMConfigRecord` | [ModelsDSMConfigRecord](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsDSMConfigRecord.java) |
 | `models.DefaultDSMCConfig` | [ModelsDefaultDSMCConfig](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsDefaultDSMCConfig.java) |
 | `models.GameServer` | [ModelsGameServer](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsGameServer.java) |
@@ -192,6 +200,6 @@
 | `models.RecentPlayerQueryResponse` | [ModelsRecentPlayerQueryResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsRecentPlayerQueryResponse.java) |
 | `models.RequestReconcileMaxActiveSession` | [ModelsRequestReconcileMaxActiveSession](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsRequestReconcileMaxActiveSession.java) |
 | `models.Team` | [ModelsTeam](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsTeam.java) |
-| `models.UserInfo` | [ModelsUserInfo](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsUserInfo.java) |
+| `models.UserInfoResponse` | [ModelsUserInfoResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsUserInfoResponse.java) |
 | `models.UserPlatformInfo` | [ModelsUserPlatformInfo](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsUserPlatformInfo.java) |
 | `response.Error` | [ResponseError](../../src/main/java/net/accelbyte/sdk/api/session/models/ResponseError.java) |

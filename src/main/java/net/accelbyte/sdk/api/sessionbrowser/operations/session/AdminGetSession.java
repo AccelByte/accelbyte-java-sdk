@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetSession
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:SESSIONBROWSER:SESSION [READ]
- *
- * <p>Required scope: social
- *
  * <p>Get the session by session ID for admin user
  */
 @Getter

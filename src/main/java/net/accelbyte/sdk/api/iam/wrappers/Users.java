@@ -1142,6 +1142,16 @@ public class Users {
   }
 
   /**
+   * @see AdminDeleteUserLinkingHistoryByPlatformIDV3
+   */
+  public void adminDeleteUserLinkingHistoryByPlatformIDV3(
+      AdminDeleteUserLinkingHistoryByPlatformIDV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminGetThirdPartyPlatformTokenLinkStatusV3
    */
   public ModelTokenThirdPartyLinkStatusResponse adminGetThirdPartyPlatformTokenLinkStatusV3(

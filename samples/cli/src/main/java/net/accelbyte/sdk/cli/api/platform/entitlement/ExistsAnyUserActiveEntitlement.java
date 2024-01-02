@@ -51,6 +51,11 @@ public class ExistsAnyUserActiveEntitlement implements Callable<Integer> {
   List<String> itemIds;
 
   @Option(
+      names = {"--platform"},
+      description = "platform")
+  String platform;
+
+  @Option(
       names = {"--skus"},
       description = "skus")
   List<String> skus;
@@ -84,6 +89,7 @@ public class ExistsAnyUserActiveEntitlement implements Callable<Integer> {
                   .userId(userId)
                   .appIds(appIds)
                   .itemIds(itemIds)
+                  .platform(platform)
                   .skus(skus)
                   .build();
       final Ownership response = wrapper.existsAnyUserActiveEntitlement(operation);

@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetBackfill
  *
- * <p>Required Permission: NAMESPACE:{namespace}:MATCHMAKING:BACKFILL [GET]
- *
- * <p>Required Scope: social
- *
  * <p>Get backfill ticket by ID
  */
 @Getter

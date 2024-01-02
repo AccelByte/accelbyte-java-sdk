@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * MatchFunctionList
  *
- * <p>Required Permission: NAMESPACE:{namespace}:MATCHMAKING:FUNCTIONS [READ]
- *
- * <p>Required Scope: social
- *
  * <p>List existing match functions.
  */
 @Getter

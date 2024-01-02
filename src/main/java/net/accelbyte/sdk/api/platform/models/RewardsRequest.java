@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class RewardsRequest extends Model {
 
+  @JsonProperty("entitlementOrigin")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String entitlementOrigin;
+
   @JsonProperty("metadata")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ?> metadata;
@@ -43,6 +47,26 @@ public class RewardsRequest extends Model {
   @JsonProperty("transactionId")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String transactionId;
+
+  @JsonIgnore
+  public String getEntitlementOrigin() {
+    return this.entitlementOrigin;
+  }
+
+  @JsonIgnore
+  public EntitlementOrigin getEntitlementOriginAsEnum() {
+    return EntitlementOrigin.valueOf(this.entitlementOrigin);
+  }
+
+  @JsonIgnore
+  public void setEntitlementOrigin(final String entitlementOrigin) {
+    this.entitlementOrigin = entitlementOrigin;
+  }
+
+  @JsonIgnore
+  public void setEntitlementOriginFromEnum(final EntitlementOrigin entitlementOrigin) {
+    this.entitlementOrigin = entitlementOrigin.toString();
+  }
 
   @JsonIgnore
   public String getOrigin() {
@@ -92,6 +116,31 @@ public class RewardsRequest extends Model {
   @JsonIgnore
   public List<RewardsRequest> createFromJsonList(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, new TypeReference<List<RewardsRequest>>() {});
+  }
+
+  public enum EntitlementOrigin {
+    Epic("Epic"),
+    GooglePlay("GooglePlay"),
+    IOS("IOS"),
+    Nintendo("Nintendo"),
+    Oculus("Oculus"),
+    Other("Other"),
+    Playstation("Playstation"),
+    Steam("Steam"),
+    System("System"),
+    Twitch("Twitch"),
+    Xbox("Xbox");
+
+    private String value;
+
+    EntitlementOrigin(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
   }
 
   public enum Origin {
@@ -150,8 +199,20 @@ public class RewardsRequest extends Model {
   }
 
   public static class RewardsRequestBuilder {
+    private String entitlementOrigin;
     private String origin;
     private String source;
+
+    public RewardsRequestBuilder entitlementOrigin(final String entitlementOrigin) {
+      this.entitlementOrigin = entitlementOrigin;
+      return this;
+    }
+
+    public RewardsRequestBuilder entitlementOriginFromEnum(
+        final EntitlementOrigin entitlementOrigin) {
+      this.entitlementOrigin = entitlementOrigin.toString();
+      return this;
+    }
 
     public RewardsRequestBuilder origin(final String origin) {
       this.origin = origin;

@@ -46,6 +46,11 @@ public class GetUserEntitlementOwnershipByItemId implements Callable<Integer> {
   String entitlementClazz;
 
   @Option(
+      names = {"--platform"},
+      description = "platform")
+  String platform;
+
+  @Option(
       names = {"--itemId"},
       description = "itemId")
   String itemId;
@@ -79,6 +84,7 @@ public class GetUserEntitlementOwnershipByItemId implements Callable<Integer> {
                   .namespace(namespace)
                   .userId(userId)
                   .entitlementClazz(entitlementClazz)
+                  .platform(platform)
                   .itemId(itemId)
                   .build();
       final TimedOwnership response = wrapper.getUserEntitlementOwnershipByItemId(operation);

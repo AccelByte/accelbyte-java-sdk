@@ -42,6 +42,26 @@ public class Entitlement {
   }
 
   /**
+   * @see EnableEntitlementOriginFeature
+   */
+  public EntitlementConfigInfo enableEntitlementOriginFeature(EnableEntitlementOriginFeature input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see GetEntitlementConfigInfo
+   */
+  public EntitlementConfigInfo getEntitlementConfigInfo(GetEntitlementConfigInfo input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GrantEntitlements
    */
   public BulkEntitlementGrantResult grantEntitlements(GrantEntitlements input) throws Exception {
@@ -63,6 +83,26 @@ public class Entitlement {
    * @see GetEntitlement
    */
   public EntitlementInfo getEntitlement(GetEntitlement input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see GetPlatformEntitlementConfig
+   */
+  public EntitlementPlatformConfigInfo getPlatformEntitlementConfig(
+      GetPlatformEntitlementConfig input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see UpdatePlatformEntitlementConfig
+   */
+  public EntitlementPlatformConfigInfo updatePlatformEntitlementConfig(
+      UpdatePlatformEntitlementConfig input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
@@ -402,7 +442,9 @@ public class Entitlement {
 
   /**
    * @see PublicGetUserEntitlementByItemId
+   * @deprecated
    */
+  @Deprecated
   public EntitlementInfo publicGetUserEntitlementByItemId(PublicGetUserEntitlementByItemId input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -412,7 +454,9 @@ public class Entitlement {
 
   /**
    * @see PublicGetUserEntitlementBySku
+   * @deprecated
    */
+  @Deprecated
   public EntitlementInfo publicGetUserEntitlementBySku(PublicGetUserEntitlementBySku input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);

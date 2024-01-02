@@ -46,6 +46,11 @@ public class GetUserEntitlementOwnershipBySku implements Callable<Integer> {
   String entitlementClazz;
 
   @Option(
+      names = {"--platform"},
+      description = "platform")
+  String platform;
+
+  @Option(
       names = {"--sku"},
       description = "sku")
   String sku;
@@ -78,6 +83,7 @@ public class GetUserEntitlementOwnershipBySku implements Callable<Integer> {
                   .namespace(namespace)
                   .userId(userId)
                   .entitlementClazz(entitlementClazz)
+                  .platform(platform)
                   .sku(sku)
                   .build();
       final TimedOwnership response = wrapper.getUserEntitlementOwnershipBySku(operation);

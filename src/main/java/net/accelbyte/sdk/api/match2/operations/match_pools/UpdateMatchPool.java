@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UpdateMatchPool
  *
- * <p>Required Permission: NAMESPACE:{namespace}:MATCHMAKING:POOL [UPDATE]
- *
- * <p>Required Scope: social
- *
  * <p>Updates an existing matchmaking pool.
  *
  * <p>ticket_expiration_seconds and backfill_ticket_expiration_seconds will be set to 300 seconds (5

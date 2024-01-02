@@ -46,6 +46,11 @@ public class GetUserActiveEntitlementsByItemIds implements Callable<Integer> {
   List<String> ids;
 
   @Option(
+      names = {"--platform"},
+      description = "platform")
+  String platform;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -73,6 +78,7 @@ public class GetUserActiveEntitlementsByItemIds implements Callable<Integer> {
                   .namespace(namespace)
                   .userId(userId)
                   .ids(ids)
+                  .platform(platform)
                   .build();
       final List<EntitlementInfo> response = wrapper.getUserActiveEntitlementsByItemIds(operation);
       final String responseString =

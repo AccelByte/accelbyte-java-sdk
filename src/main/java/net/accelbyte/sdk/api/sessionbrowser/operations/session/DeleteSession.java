@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteSession
  *
- * <p>Required permission: NAMESPACE:{namespace}:SESSIONBROWSER:SESSION [DELETE]
- *
- * <p>Required scope: social
- *
  * <p>Delete the session (p2p) by session ID
  */
 @Getter

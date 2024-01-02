@@ -46,6 +46,7 @@ public class ExistsAnyUserActiveEntitlement extends Operation {
   private String userId;
   private List<String> appIds;
   private List<String> itemIds;
+  private String platform;
   private List<String> skus;
 
   /**
@@ -60,11 +61,13 @@ public class ExistsAnyUserActiveEntitlement extends Operation {
       String userId,
       List<String> appIds,
       List<String> itemIds,
+      String platform,
       List<String> skus) {
     this.namespace = namespace;
     this.userId = userId;
     this.appIds = appIds;
     this.itemIds = itemIds;
+    this.platform = platform;
     this.skus = skus;
 
     securities.add("Bearer");
@@ -87,6 +90,7 @@ public class ExistsAnyUserActiveEntitlement extends Operation {
     Map<String, List<String>> queryParams = new HashMap<>();
     queryParams.put("appIds", this.appIds == null ? null : this.appIds);
     queryParams.put("itemIds", this.itemIds == null ? null : this.itemIds);
+    queryParams.put("platform", this.platform == null ? null : Arrays.asList(this.platform));
     queryParams.put("skus", this.skus == null ? null : this.skus);
     return queryParams;
   }
@@ -117,6 +121,7 @@ public class ExistsAnyUserActiveEntitlement extends Operation {
     Map<String, String> result = new HashMap<>();
     result.put("appIds", "multi");
     result.put("itemIds", "multi");
+    result.put("platform", "None");
     result.put("skus", "multi");
     return result;
   }

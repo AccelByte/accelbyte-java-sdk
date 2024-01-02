@@ -28,7 +28,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * the platform members.
  *
  * <p>Notes: The third party platform and platform group covered for this is: - (psn) ps4web - (psn)
- * ps4 - (psn) ps5 - epicgames - twitch - awscognito - - eaorigin - snapchat - twitch - live
+ * ps4 - (psn) ps5 - epicgames - twitch - awscognito - amazon - eaorigin - snapchat - twitch - live
  */
 @Getter
 @Setter

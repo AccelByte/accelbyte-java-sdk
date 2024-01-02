@@ -20,10 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteMatchPool
  *
- * <p>Required Permission: NAMESPACE:{namespace}:MATCHMAKING:POOL [DELETE]
- *
- * <p>Required Scope: social
- *
  * <p>Deletes an existing matchmaking pool.
  */
 @Getter

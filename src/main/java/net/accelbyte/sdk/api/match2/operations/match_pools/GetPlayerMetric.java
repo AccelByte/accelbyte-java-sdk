@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetPlayerMetric
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:POOL:METRICS [READ]
- *
- * <p>Required Scope: social
- *
  * <p>Get player metric for a specific match pool
  */
 @Getter

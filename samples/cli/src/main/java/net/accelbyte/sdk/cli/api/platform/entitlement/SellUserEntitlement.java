@@ -76,7 +76,7 @@ public class SellUserEntitlement implements Callable<Integer> {
               .entitlementId(entitlementId)
               .namespace(namespace)
               .userId(userId)
-              .body(new ObjectMapper().readValue(body, EntitlementSoldRequest.class))
+              .body(new ObjectMapper().readValue(body, AdminEntitlementSoldRequest.class))
               .build();
       final EntitlementSoldResult response = wrapper.sellUserEntitlement(operation);
       final String responseString =

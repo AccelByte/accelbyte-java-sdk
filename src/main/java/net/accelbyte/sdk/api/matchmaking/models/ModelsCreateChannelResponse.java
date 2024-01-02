@@ -25,6 +25,9 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ModelsCreateChannelResponse extends Model {
 
+  @JsonProperty("blocked_player_option")
+  private String blockedPlayerOption;
+
   @JsonProperty("deployment")
   private String deployment;
 

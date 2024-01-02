@@ -25,7 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * publisher access to game and game access to publisher If targetNamespace filled with publisher
  * namespace then this endpoint will return its game user id and game namespace If targetNamespace
  * filled with game namespace then this endpoint will return its publisher user id and publisher
- * namespace
+ * namespace. Will create game user id if not exists.
  */
 @Getter
 @Setter

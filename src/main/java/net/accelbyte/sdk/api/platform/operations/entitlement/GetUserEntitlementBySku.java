@@ -45,6 +45,7 @@ public class GetUserEntitlementBySku extends Operation {
   private String userId;
   private Boolean activeOnly;
   private String entitlementClazz;
+  private String platform;
   private String sku;
 
   /**
@@ -56,11 +57,17 @@ public class GetUserEntitlementBySku extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public GetUserEntitlementBySku(
-      String namespace, String userId, Boolean activeOnly, String entitlementClazz, String sku) {
+      String namespace,
+      String userId,
+      Boolean activeOnly,
+      String entitlementClazz,
+      String platform,
+      String sku) {
     this.namespace = namespace;
     this.userId = userId;
     this.activeOnly = activeOnly;
     this.entitlementClazz = entitlementClazz;
+    this.platform = platform;
     this.sku = sku;
 
     securities.add("Bearer");
@@ -87,6 +94,7 @@ public class GetUserEntitlementBySku extends Operation {
     queryParams.put(
         "entitlementClazz",
         this.entitlementClazz == null ? null : Arrays.asList(this.entitlementClazz));
+    queryParams.put("platform", this.platform == null ? null : Arrays.asList(this.platform));
     queryParams.put("sku", this.sku == null ? null : Arrays.asList(this.sku));
     return queryParams;
   }
@@ -120,6 +128,7 @@ public class GetUserEntitlementBySku extends Operation {
     Map<String, String> result = new HashMap<>();
     result.put("activeOnly", "None");
     result.put("entitlementClazz", "None");
+    result.put("platform", "None");
     result.put("sku", "None");
     return result;
   }

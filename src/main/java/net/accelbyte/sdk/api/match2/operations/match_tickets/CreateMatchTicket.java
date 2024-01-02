@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateMatchTicket
  *
- * <p>Required Permission: NAMESPACE:{namespace}:MATCHMAKING:TICKET [CREATE]
- *
- * <p>Required Scope: social
- *
  * <p>Creates a new request for matchmaking.
  *
  * <p>Cross Platform: Allow player to play game with "any" registered platforms. 1. Cross Platform

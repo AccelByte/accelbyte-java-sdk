@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AddPlayerToSession
  *
- * <p>Required permission: NAMESPACE:{namespace}:SESSIONBROWSER:SESSION [UPDATE]
- *
- * <p>Required scope: social
- *
  * <p>Add player to game session
  */
 @Getter

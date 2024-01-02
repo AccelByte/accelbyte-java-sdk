@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminQuerySession
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:SESSIONBROWSER:SESSION [READ]
- *
- * <p>Required scope: social
+ * <p>Query to available game session
  */
 @Getter
 @Setter

@@ -18,7 +18,11 @@ import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
-/** userAcceptFriendRequest */
+/**
+ * userAcceptFriendRequest
+ *
+ * <p>User accept friend.
+ */
 @Getter
 @Setter
 public class UserAcceptFriendRequest extends Operation {

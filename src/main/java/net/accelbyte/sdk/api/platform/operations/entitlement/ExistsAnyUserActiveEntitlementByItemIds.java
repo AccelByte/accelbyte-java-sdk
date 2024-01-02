@@ -44,6 +44,7 @@ public class ExistsAnyUserActiveEntitlementByItemIds extends Operation {
   private String namespace;
 
   private String userId;
+  private String platform;
   private List<String> itemIds;
 
   /**
@@ -55,9 +56,10 @@ public class ExistsAnyUserActiveEntitlementByItemIds extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public ExistsAnyUserActiveEntitlementByItemIds(
-      String namespace, String userId, List<String> itemIds) {
+      String namespace, String userId, String platform, List<String> itemIds) {
     this.namespace = namespace;
     this.userId = userId;
+    this.platform = platform;
     this.itemIds = itemIds;
 
     securities.add("Bearer");
@@ -78,6 +80,7 @@ public class ExistsAnyUserActiveEntitlementByItemIds extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("platform", this.platform == null ? null : Arrays.asList(this.platform));
     queryParams.put("itemIds", this.itemIds == null ? null : this.itemIds);
     return queryParams;
   }
@@ -109,6 +112,7 @@ public class ExistsAnyUserActiveEntitlementByItemIds extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("platform", "None");
     result.put("itemIds", "multi");
     return result;
   }

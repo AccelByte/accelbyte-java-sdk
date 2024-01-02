@@ -26,9 +26,11 @@ import net.accelbyte.sdk.core.Model;
 public class ModelUserIdentityUpdateRequestV3 extends Model {
 
   @JsonProperty("emailAddress")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String emailAddress;
 
   @JsonProperty("password")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String password;
 
   @JsonIgnore

@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminGetMatchPoolTickets
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:MATCHMAKING:POOL:TICKETS [READ]
- *
- * <p>Required Scope: social
- *
  * <p>Get tickets in queue for a specific match pool
  *
  * <p>Result: number of tickets and list of ticket detail in a match pool.

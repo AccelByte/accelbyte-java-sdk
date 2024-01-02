@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * MatchPoolDetails
  *
- * <p>Required Permission: NAMESPACE:{namespace}:MATCHMAKING:POOL [READ]
- *
- * <p>Required Scope: social
- *
  * <p>Get details for a specific match pool
  */
 @Getter

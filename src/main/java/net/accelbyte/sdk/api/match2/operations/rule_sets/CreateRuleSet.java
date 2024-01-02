@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateRuleSet
  *
- * <p>Required Permission: NAMESPACE:{namespace}:MATCHMAKING:RULES [CREATE]
- *
- * <p>Required Scope: social
- *
  * <p>Creates a new rules set.
  *
  * <p>A rule set has a name and contains arbitrary data which is meaningful to some particular match
