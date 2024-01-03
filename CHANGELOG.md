@@ -6,6 +6,8 @@
 - **coverity:** update cov-analysis to 2023.6.2
 ### test
 - **integration:** add chat service
+### docs
+- **migrations:** add migration-guide-v0.53-to-v0.54.md
 
 
 <a name="v0.53.0"></a>
