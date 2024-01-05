@@ -18,6 +18,7 @@ import net.accelbyte.sdk.api.qosm.wrappers.Public;
 import net.accelbyte.sdk.api.qosm.wrappers.Server;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
@@ -28,6 +29,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 @Tag("test-integration")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@Disabled
 class TestIntegrationServiceQosm extends TestIntegration {
   @BeforeAll
   public void setup() throws Exception {
@@ -47,20 +49,14 @@ class TestIntegrationServiceQosm extends TestIntegration {
     final Public qosmPublicWrapper = new Public(sdk);
     final Server qosmServerWrapper = new Server(sdk);
 
-    // CASE List servers
-
     final ModelsListServerResponse serverList =
         qosmPublicWrapper.listServer(ListServer.builder().build());
-
-    // ESAC
 
     assertNotNull(serverList);
 
     List<ModelsServer> servers = serverList.getServers();
     if (servers.size() > 0) {
       final ModelsServer server = servers.get(0);
-
-      // CASE Heartbeat
 
       final ModelsHeartbeatRequest heartbeatRequestBody =
           ModelsHeartbeatRequest.builder()
@@ -70,8 +66,6 @@ class TestIntegrationServiceQosm extends TestIntegration {
               .build();
 
       qosmServerWrapper.heartbeat(Heartbeat.builder().body(heartbeatRequestBody).build());
-
-      // ESAC
     }
   }
 

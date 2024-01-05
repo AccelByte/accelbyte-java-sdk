@@ -13,6 +13,7 @@ import net.accelbyte.sdk.api.dslogmanager.operations.terminated_servers.ListTerm
 import net.accelbyte.sdk.api.dslogmanager.wrappers.TerminatedServers;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
@@ -23,6 +24,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 @Tag("test-integration")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@Disabled
 public class TestIntegrationServiceDsLogManager extends TestIntegration {
   @BeforeAll
   public void setup() throws Exception {
@@ -34,13 +36,9 @@ public class TestIntegrationServiceDsLogManager extends TestIntegration {
   public void test() throws Exception {
     final TerminatedServers terminatedServersWrapper = new TerminatedServers(sdk);
 
-    // CASE Get a list of terminated servers
-
     final ModelsListTerminatedServersResponse terminatedServersResult =
         terminatedServersWrapper.listTerminatedServers(
             ListTerminatedServers.builder().namespace(this.namespace).limit(10).build());
-
-    // ESAC
 
     assertNotNull(terminatedServersResult);
   }

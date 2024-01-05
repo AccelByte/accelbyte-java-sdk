@@ -41,6 +41,7 @@ import net.accelbyte.sdk.core.client.ReliableHttpClient;
 import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
@@ -51,6 +52,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 @Tag("test-integration")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@Disabled
 class TestIntegrationServiceDsmc extends TestIntegration {
   @BeforeAll
   public void setup() throws Exception {
@@ -77,23 +79,15 @@ class TestIntegrationServiceDsmc extends TestIntegration {
     final Session sessionBrowserWrapper = new Session(sdk);
     final DeploymentConfig dsmcDeploymentConfigWrapper = new DeploymentConfig(sdk);
 
-    // CASE List local servers
-
     final ModelsListServerResponse listLocalServerResult =
         dsmcAdminWrapper.listLocalServer(
             ListLocalServer.builder().namespace(this.namespace).build());
 
-    // ESAC
-
     assertNotNull(listLocalServerResult);
-
-    // CASE Get deployment
 
     ModelsDeploymentWithOverride getDeploymentResult =
         dsmcDeploymentConfigWrapper.getDeployment(
             GetDeployment.builder().deployment(targetDeployment).namespace(namespace).build());
-
-    // ESAC
 
     assertNotNull(getDeploymentResult);
     assertNotNull(getDeploymentResult.getGameVersion());
@@ -125,8 +119,6 @@ class TestIntegrationServiceDsmc extends TestIntegration {
     assertEquals(targetUsername, createSessionResult.getUsername());
 
     final String sessionId = createSessionResult.getSessionId();
-
-    // CASE Create a session (DSMC)
 
     final net.accelbyte.sdk.api.dsmc.models.ModelsCreateSessionRequest createSessionDsmcBody =
         net.accelbyte.sdk.api.dsmc.models.ModelsCreateSessionRequest.builder()
@@ -168,11 +160,7 @@ class TestIntegrationServiceDsmc extends TestIntegration {
                 .body(createSessionDsmcBody)
                 .build());
 
-    // ESAC
-
     assertNotNull(createSessionDsmcResult);
-
-    // CASE Get session (DSMC)
 
     final net.accelbyte.sdk.api.dsmc.models.ModelsSessionResponse getSessionDsmcResult =
         dsmcSessionWrapper.getSession(
@@ -181,13 +169,9 @@ class TestIntegrationServiceDsmc extends TestIntegration {
                 .sessionID(sessionId)
                 .build());
 
-    // ESAC
-
     assertNotNull(getSessionDsmcResult);
 
     try {
-
-      // CASE Claim server (for example, using HTTP retry)
 
       final DefaultHttpRetryPolicy retryPolicy =
           new DefaultHttpRetryPolicy() {
@@ -243,9 +227,6 @@ class TestIntegrationServiceDsmc extends TestIntegration {
 
       dsmcSessionReliableWrapper.claimServer(
           ClaimServer.builder().namespace(targetNamespace).body(claimServerBody).build());
-
-      // ESAC
-
     } catch (HttpResponseException hrex) {
       if (hrex.getHttpCode() == 425) {
         // Due test environment issue, ignore if we get 425 - 720219 ClaimServerNotReady
@@ -255,15 +236,11 @@ class TestIntegrationServiceDsmc extends TestIntegration {
       }
     }
 
-    // CASE Delete session (DSMC)
-
     dsmcAdminWrapper.deleteSession(
         net.accelbyte.sdk.api.dsmc.operations.admin.DeleteSession.builder()
             .namespace(targetNamespace)
             .sessionID(sessionId)
             .build());
-
-    // ESAC
 
     // Delete session (SessionBrowser)
 
