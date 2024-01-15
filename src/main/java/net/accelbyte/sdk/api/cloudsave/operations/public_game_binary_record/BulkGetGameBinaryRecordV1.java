@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * bulkGetGameBinaryRecordV1
  *
- * <p>Required valid user token Required scope: `social`
- *
  * <p>Bulk get game binary records. Maximum key per request 20.
  */
 @Getter

@@ -21,8 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * testAliPayConfigById
  *
- * <p>Test AliPay configuration in payment merchant config. Reference: [Alipay
- * Document](https://docs.open.alipay.com/270/alipay.trade.page.pay). Other detail info:
+ * <p>[Not Supported Yet In Starter] Test AliPay configuration in payment merchant config.
+ * Reference: [Alipay Document](https://docs.open.alipay.com/270/alipay.trade.page.pay). Other
+ * detail info:
  *
  * <p>* Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ) * Returns : test
  * alipay config

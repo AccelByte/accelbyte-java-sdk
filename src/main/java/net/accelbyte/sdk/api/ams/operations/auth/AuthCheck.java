@@ -17,7 +17,11 @@ import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
-/** AuthCheck */
+/**
+ * AuthCheck
+ *
+ * <p>Check if fleet commander is authorized to talk to AMS with this IAM
+ */
 @Getter
 @Setter
 public class AuthCheck extends Operation {

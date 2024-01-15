@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getPaymentMerchantConfig
  *
- * <p>Get payment merchant config by id. Other detail info:
+ * <p>[Not Supported Yet In Starter] Get payment merchant config by id. Other detail info:
  *
  * <p>* Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ) * Returns : payment
  * merchant config info

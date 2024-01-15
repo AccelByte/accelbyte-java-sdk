@@ -20,10 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deletePlayerRecordHandlerV1
  *
- * <p>Required Permission | `NAMESPACE:{namespace}:USER:{userId}:CLOUDSAVE:RECORD [DELETE]`
- * --------------------|----------------------------------------------------------------- Required
- * Scope | `social`
- *
  * <p>Delete player record by its key. Only user that own the player record could delete it.
  */
 @Getter

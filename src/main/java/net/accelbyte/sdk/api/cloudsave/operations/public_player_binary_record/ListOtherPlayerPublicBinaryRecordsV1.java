@@ -21,9 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * listOtherPlayerPublicBinaryRecordsV1
  *
- * <p>Required Permission: `NAMESPACE:{namespace}:USER:{userId}:PUBLIC:CLOUDSAVE:RECORD [READ]`
- * Required Scope: `social`
- *
  * <p>Retrieve list of other player public binary records under given namespace.
  */
 @Getter

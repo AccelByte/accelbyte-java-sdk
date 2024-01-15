@@ -21,9 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * createPluginConfig
  *
- * <p>Required permission: `ADMIN:NAMESPACE:{namespace}:CLOUDSAVE:PLUGINS [CREATE]` Required scope:
- * `social`
- *
  * <p>## Description
  *
  * <p>This endpoints will create new grpc plugins configuration per namespace

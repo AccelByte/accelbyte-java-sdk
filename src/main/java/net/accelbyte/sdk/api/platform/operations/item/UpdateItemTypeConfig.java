@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateItemTypeConfig
  *
- * <p>This API is used to update an item type config.
+ * <p>[Not Supported Yet In Starter] This API is used to update an item type config.
  *
  * <p>* Required permission : resource="ADMIN:ITEM:CONFIG", action=4 (UPDATE) * Returns : item type
  * config data

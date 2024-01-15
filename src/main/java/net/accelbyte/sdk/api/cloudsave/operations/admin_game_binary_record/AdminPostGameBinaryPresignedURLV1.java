@@ -21,9 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminPostGameBinaryPresignedURLV1
  *
- * <p>Required permission: `ADMIN:NAMESPACE:{namespace}:CLOUDSAVE:RECORD [CREATE]` Required scope:
- * `social`
- *
  * <p>Request presigned URL to upload the binary record to s3.
  *
  * <p>Other detail info:

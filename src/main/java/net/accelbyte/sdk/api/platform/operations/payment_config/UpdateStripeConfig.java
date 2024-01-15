@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateStripeConfig
  *
- * <p>Update stripe config. Other detail info:
+ * <p>[Not Supported Yet In Starter] Update stripe config. Other detail info:
  *
  * <p>* Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE) * Returns : updated
  * payment merchant config

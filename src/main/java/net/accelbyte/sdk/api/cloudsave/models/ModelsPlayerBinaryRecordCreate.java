@@ -39,6 +39,26 @@ public class ModelsPlayerBinaryRecordCreate extends Model {
   private String setBy;
 
   @JsonIgnore
+  public String getSetBy() {
+    return this.setBy;
+  }
+
+  @JsonIgnore
+  public SetBy getSetByAsEnum() {
+    return SetBy.valueOf(this.setBy);
+  }
+
+  @JsonIgnore
+  public void setSetBy(final String setBy) {
+    this.setBy = setBy;
+  }
+
+  @JsonIgnore
+  public void setSetByFromEnum(final SetBy setBy) {
+    this.setBy = setBy.toString();
+  }
+
+  @JsonIgnore
   public ModelsPlayerBinaryRecordCreate createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
@@ -48,5 +68,35 @@ public class ModelsPlayerBinaryRecordCreate extends Model {
       throws JsonProcessingException {
     return new ObjectMapper()
         .readValue(json, new TypeReference<List<ModelsPlayerBinaryRecordCreate>>() {});
+  }
+
+  public enum SetBy {
+    CLIENT("CLIENT"),
+    SERVER("SERVER");
+
+    private String value;
+
+    SetBy(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class ModelsPlayerBinaryRecordCreateBuilder {
+    private String setBy;
+
+    public ModelsPlayerBinaryRecordCreateBuilder setBy(final String setBy) {
+      this.setBy = setBy;
+      return this;
+    }
+
+    public ModelsPlayerBinaryRecordCreateBuilder setByFromEnum(final SetBy setBy) {
+      this.setBy = setBy.toString();
+      return this;
+    }
   }
 }

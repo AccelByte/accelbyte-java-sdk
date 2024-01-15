@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * RetrievePlayerRecords
  *
- * <p>Required valid user token
- *
- * <p>Required scope: `social`
- *
  * <p>Retrieve list of player records key under given namespace.
  */
 @Getter

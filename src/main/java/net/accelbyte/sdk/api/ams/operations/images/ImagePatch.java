@@ -21,6 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * ImagePatch
  *
+ * <p>This allows editing of the image name, toggling `IsProtected`, or adding & removal of tags
+ *
  * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [UPDATE]
  */
 @Getter

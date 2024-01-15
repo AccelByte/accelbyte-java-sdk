@@ -20,6 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * LocalWatchdogConnect
  *
+ * <p>This is to support local ds development scenarios
+ *
  * <p>Required Permission: NAMESPACE:{namespace}:AMS:LOCALDS [CREATE]
  */
 @Getter

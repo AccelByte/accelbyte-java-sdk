@@ -21,9 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getGameRecordsBulk
  *
- * <p>Required Permission | `NAMESPACE:{namespace}:CLOUDSAVE:RECORD [READ]`
- * --------------------|------------------------------------------------- Required Scope | `social`
- *
  * <p>Bulk get game records. Maximum key per request 20.
  */
 @Getter

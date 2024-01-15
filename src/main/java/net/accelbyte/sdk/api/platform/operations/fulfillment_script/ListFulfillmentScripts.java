@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * listFulfillmentScripts
  *
- * <p>List all fulfillment scripts. Other detail info:
+ * <p>[Not Supported Yet In Starter] List all fulfillment scripts. Other detail info:
  *
  * <p>* Required permission : resource="ADMIN:FULFILLMENT", action=2 (READ)
  */

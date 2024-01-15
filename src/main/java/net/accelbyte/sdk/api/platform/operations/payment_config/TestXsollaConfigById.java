@@ -21,8 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * testXsollaConfigById
  *
- * <p>Test xsolla configuration in payment merchant config. Reference: [Xsolla
- * Document](https://developers.xsolla.com/?#simple-checkout). Other detail info:
+ * <p>[Not Supported Yet In Starter] Test xsolla configuration in payment merchant config.
+ * Reference: [Xsolla Document](https://developers.xsolla.com/?#simple-checkout). Other detail info:
  *
  * <p>* Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ) * Returns : test
  * xsolla config

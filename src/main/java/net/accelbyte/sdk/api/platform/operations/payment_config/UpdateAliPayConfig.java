@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateAliPayConfig
  *
- * <p>Update alipay configuration. Other detail info:
+ * <p>[Not Supported Yet In Starter] Update alipay configuration. Other detail info:
  *
  * <p>* Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE) * Returns : updated
  * payment merchant config

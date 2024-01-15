@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminGetGameRecordHandlerV1
  *
- * <p>Required permission: `ADMIN:NAMESPACE:{namespace}:CLOUDSAVE:RECORD [READ]`
- *
- * <p>Required scope: `social`
- *
  * <p>Get a record by its key in namespace-level.
  */
 @Getter

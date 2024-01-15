@@ -21,11 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getOtherPlayerPublicRecordKeyHandlerV1
  *
- * <p>Required valid user token with permission:
- * `NAMESPACE:{namespace}:USER:*:PUBLIC:CLOUDSAVE:RECORD [READ]`
- *
- * <p>Required scope: `social`
- *
  * <p>Retrieve list of other public player records key under given namespace.
  */
 @Getter

@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getPaymentTaxConfig
  *
- * <p>Get payment global tax config. Other detail info:
+ * <p>[Not Supported Yet In Starter] Get payment global tax config. Other detail info:
  *
  * <p>* Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ) * Returns : payment
  * provider list

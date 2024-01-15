@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * testXsollaConfig
  *
- * <p>Check xsolla configuration, Reference: [Xsolla
+ * <p>[Not Supported Yet In Starter] Check xsolla configuration, Reference: [Xsolla
  * Document](https://developers.xsolla.com/?#simple-checkout).
  *
  * <p>#### Check List:

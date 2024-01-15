@@ -32,7 +32,7 @@ public class ApiQoSServer extends Model {
   private String ip;
 
   @JsonProperty("last_update")
-  private ApiTime lastUpdate;
+  private String lastUpdate;
 
   @JsonProperty("port")
   private Integer port;

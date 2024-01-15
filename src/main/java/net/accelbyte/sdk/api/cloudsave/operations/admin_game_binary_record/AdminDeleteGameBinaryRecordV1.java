@@ -20,9 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminDeleteGameBinaryRecordV1
  *
- * <p>Required permission: `ADMIN:NAMESPACE:{namespace}:CLOUDSAVE:RECORD [DELETE]` Required scope:
- * `social`
- *
  * <p>Delete a game binary record.
  */
 @Getter

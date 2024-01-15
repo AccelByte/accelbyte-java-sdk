@@ -21,13 +21,13 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AccountGet
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [READ]
+ * <p>Required Permission: NAMESPACE:{namespace}:AMS:ACCOUNT [READ]
  */
 @Getter
 @Setter
 public class AccountGet extends Operation {
   /** generated field's value */
-  private String path = "/ams/v1/admin/namespaces/{namespace}/account";
+  private String path = "/ams/v1/namespaces/{namespace}/account";
 
   private String method = "GET";
   private List<String> consumes = Arrays.asList("application/json");

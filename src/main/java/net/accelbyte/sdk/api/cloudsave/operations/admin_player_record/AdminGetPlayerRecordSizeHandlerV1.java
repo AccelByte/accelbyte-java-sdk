@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminGetPlayerRecordSizeHandlerV1
  *
- * <p>Required permission: `ADMIN:NAMESPACE:{namespace}:USER:{userId}:CLOUDSAVE:RECORD [READ]`
- *
- * <p>Required scope: `social`
- *
  * <p>Get a size of the player record
  */
 @Getter

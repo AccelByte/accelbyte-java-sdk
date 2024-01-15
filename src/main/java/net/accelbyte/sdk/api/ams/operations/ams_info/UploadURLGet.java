@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.cloudsave.operations.admin_game_record;
+package net.accelbyte.sdk.api.ams.operations.ams_info;
 
 import java.io.*;
 import java.util.*;
@@ -17,67 +17,37 @@ import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
-/**
- * adminDeleteGameRecordHandlerV1
- *
- * <p>This endpoints delete game record in namespace-level
- */
+/** UploadURLGet */
 @Getter
 @Setter
-public class AdminDeleteGameRecordHandlerV1 extends Operation {
+public class UploadURLGet extends Operation {
   /** generated field's value */
-  private String path = "/cloudsave/v1/admin/namespaces/{namespace}/records/{key}";
+  private String path = "/ams/v1/upload-url";
 
-  private String method = "DELETE";
-  private List<String> consumes = Arrays.asList("application/json");
+  private String method = "GET";
+  private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
 
   /** fields as input parameter */
-  private String key;
 
-  private String namespace;
-
-  /**
-   * @param key required
-   * @param namespace required
-   */
+  /** */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public AdminDeleteGameRecordHandlerV1(String key, String namespace) {
-    this.key = key;
-    this.namespace = namespace;
+  public UploadURLGet() {
 
     securities.add("Bearer");
   }
 
   @Override
-  public Map<String, String> getPathParams() {
-    Map<String, String> pathParams = new HashMap<>();
-    if (this.key != null) {
-      pathParams.put("key", this.key);
-    }
-    if (this.namespace != null) {
-      pathParams.put("namespace", this.namespace);
-    }
-    return pathParams;
-  }
-
-  @Override
   public boolean isValid() {
-    if (this.key == null) {
-      return false;
-    }
-    if (this.namespace == null) {
-      return false;
-    }
     return true;
   }
 
   public void handleEmptyResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
-    if (code != 204) {
+    if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }

@@ -26,6 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelUsersPlatformInfosRequestV3 extends Model {
 
   @JsonProperty("platformId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String platformId;
 
   @JsonProperty("userIds")

@@ -21,58 +21,44 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * postPlayerPublicRecordHandlerV1
  *
- * <p>Required Permission | `NAMESPACE:{namespace}:USER:{userId}:PUBLIC:CLOUDSAVE:RECORD [WRITE]`
- * --------------------|-----------------------------------------------------------------------
- * Required Scope | `social`
- *
  * <p>## Description
  *
  * <p>This endpoints will create new player public record or append the existing player public
  * record.
  *
- * <p>Append example:
+ * <p>**Append example:**
  *
  * <p>Example 1 - Existing JSON:
  *
- * <p>{ "data1": "value" }
+ * <p>`{ "data1": "value" }`
  *
  * <p>- New JSON:
  *
- * <p>{ "data2": "new value" }
+ * <p>`{ "data2": "new value" }`
  *
  * <p>- Result:
  *
- * <p>{ "data1": "value", "data2": "new value" }
+ * <p>`{ "data1": "value", "data2": "new value" }`
  *
  * <p>Example 2 - Existing JSON:
  *
- * <p>{ "data1": { "data2": "value" }
+ * <p>`{ "data1": { "data2": "value" }`
  *
  * <p>- New JSON:
  *
- * <p>{ "data1": { "data3": "new value" }
+ * <p>`{ "data1": { "data3": "new value" }`
  *
  * <p>- Result:
  *
- * <p>{ "data1": { "data2": "value", "data3": "new value" }
+ * <p>`{ "data1": { "data2": "value", "data3": "new value" }`
  *
- * <p>## Restriction
- *
- * <p>This is the restriction of Key Naming for the record: 1. Cannot use "." as the key name -
- *
- * <p>{ "data.2": "value" }
- *
- * <p>2. Cannot use "$" as the prefix in key names -
- *
- * <p>{ "$data": "value" }
- *
- * <p>3. Cannot use empty string in key names -
- *
- * <p>{ "": "value" }
+ * <p>## Restriction This is the restriction of Key Naming for the record: 1. Cannot use **"."** as
+ * the key name - `{ "data.2": "value" }` 2. Cannot use **"$"** as the prefix in key names - `{
+ * "$data": "value" }` 3. Cannot use empty string in key names - `{ "": "value" }`
  *
  * <p>## Reserved Word
  *
- * <p>Reserved Word List: __META
+ * <p>Reserved Word List: **__META**
  *
  * <p>The reserved word cannot be used as a field in record value, If still defining the field when
  * creating or updating the record, it will be ignored.
@@ -81,11 +67,11 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>This endpoint is going to deprecate in the future please don't use it.
  *
- * <p>For alternative, please use these endpoints: - POST
- * /cloudsave/v1/namespaces/{namespace}/users/{userId}/records/{key} and utilizing __META
- * functionality - PUT /cloudsave/v1/namespaces/{namespace}/users/{userId}/records/{key} and
- * utilizing __META functionality - DELETE
- * /cloudsave/v1/namespaces/{namespace}/users/{userId}/records/{key}
+ * <p>For alternative, please use these endpoints: - **POST
+ * /cloudsave/v1/namespaces/{namespace}/users/{userId}/records/{key}** and utilizing **__META**
+ * functionality - **PUT /cloudsave/v1/namespaces/{namespace}/users/{userId}/records/{key}** and
+ * utilizing **__META** functionality - **DELETE
+ * /cloudsave/v1/namespaces/{namespace}/users/{userId}/records/{key}**
  */
 @Getter
 @Setter

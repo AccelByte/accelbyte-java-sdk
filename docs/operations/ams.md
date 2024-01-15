@@ -19,10 +19,11 @@
 ### Account Wrapper:  [Account](../../src/main/java/net/accelbyte/sdk/api/ams/wrappers/Account.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
-| `/ams/v1/admin/namespaces/{namespace}/account` | GET | AccountGet | [AccountGet](../../src/main/java/net/accelbyte/sdk/api/ams/operations/account/AccountGet.java) | [AccountGet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/account/AccountGet.java) |
-| `/ams/v1/admin/namespaces/{namespace}/account` | POST | AccountCreate | [AccountCreate](../../src/main/java/net/accelbyte/sdk/api/ams/operations/account/AccountCreate.java) | [AccountCreate](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/account/AccountCreate.java) |
-| `/ams/v1/admin/namespaces/{namespace}/account/link` | GET | AccountLinkTokenGet | [AccountLinkTokenGet](../../src/main/java/net/accelbyte/sdk/api/ams/operations/account/AccountLinkTokenGet.java) | [AccountLinkTokenGet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/account/AccountLinkTokenGet.java) |
-| `/ams/v1/admin/namespaces/{namespace}/account/link` | POST | AccountLink | [AccountLink](../../src/main/java/net/accelbyte/sdk/api/ams/operations/account/AccountLink.java) | [AccountLink](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/account/AccountLink.java) |
+| `/ams/v1/admin/namespaces/{namespace}/account` | GET | AdminAccountGet | [AdminAccountGet](../../src/main/java/net/accelbyte/sdk/api/ams/operations/account/AdminAccountGet.java) | [AdminAccountGet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/account/AdminAccountGet.java) |
+| `/ams/v1/admin/namespaces/{namespace}/account` | POST | AdminAccountCreate | [AdminAccountCreate](../../src/main/java/net/accelbyte/sdk/api/ams/operations/account/AdminAccountCreate.java) | [AdminAccountCreate](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/account/AdminAccountCreate.java) |
+| `/ams/v1/admin/namespaces/{namespace}/account/link` | GET | AdminAccountLinkTokenGet | [AdminAccountLinkTokenGet](../../src/main/java/net/accelbyte/sdk/api/ams/operations/account/AdminAccountLinkTokenGet.java) | [AdminAccountLinkTokenGet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/account/AdminAccountLinkTokenGet.java) |
+| `/ams/v1/admin/namespaces/{namespace}/account/link` | POST | AdminAccountLinkTokenPost | [AdminAccountLinkTokenPost](../../src/main/java/net/accelbyte/sdk/api/ams/operations/account/AdminAccountLinkTokenPost.java) | [AdminAccountLinkTokenPost](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/account/AdminAccountLinkTokenPost.java) |
+| `/ams/v1/namespaces/{namespace}/account` | GET | AccountGet | [AccountGet](../../src/main/java/net/accelbyte/sdk/api/ams/operations/account/AccountGet.java) | [AccountGet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/account/AccountGet.java) |
 
 ### Artifacts Wrapper:  [Artifacts](../../src/main/java/net/accelbyte/sdk/api/ams/wrappers/Artifacts.java)
 | Endpoint | Method | ID | Class | Example |
@@ -71,6 +72,7 @@
 |---|---|---|---|---|
 | `/ams/v1/admin/namespaces/{namespace}/regions` | GET | InfoRegions | [InfoRegions](../../src/main/java/net/accelbyte/sdk/api/ams/operations/ams_info/InfoRegions.java) | [InfoRegions](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/ams_info/InfoRegions.java) |
 | `/ams/v1/admin/namespaces/{namespace}/supported-instances` | GET | InfoSupportedInstances | [InfoSupportedInstances](../../src/main/java/net/accelbyte/sdk/api/ams/operations/ams_info/InfoSupportedInstances.java) | [InfoSupportedInstances](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/ams_info/InfoSupportedInstances.java) |
+| `/ams/v1/upload-url` | GET | UploadURLGet | [UploadURLGet](../../src/main/java/net/accelbyte/sdk/api/ams/operations/ams_info/UploadURLGet.java) | [UploadURLGet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/ams_info/UploadURLGet.java) |
 
 ### Watchdogs Wrapper:  [Watchdogs](../../src/main/java/net/accelbyte/sdk/api/ams/wrappers/Watchdogs.java)
 | Endpoint | Method | ID | Class | Example |
@@ -128,10 +130,6 @@
 | `api.QoSServer` | [ApiQoSServer](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiQoSServer.java) |
 | `api.ReferencingFleet` | [ApiReferencingFleet](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiReferencingFleet.java) |
 | `api.RegionConfig` | [ApiRegionConfig](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiRegionConfig.java) |
-| `api.Time` | [ApiTime](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiTime.java) |
 | `api.Timeout` | [ApiTimeout](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiTimeout.java) |
 | `api.UpdateServerRequest` | [ApiUpdateServerRequest](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiUpdateServerRequest.java) |
 | `response.ErrorResponse` | [ResponseErrorResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ResponseErrorResponse.java) |
-| `time.Location` | [TimeLocation](../../src/main/java/net/accelbyte/sdk/api/ams/models/TimeLocation.java) |
-| `time.zone` | [TimeZone](../../src/main/java/net/accelbyte/sdk/api/ams/models/TimeZone.java) |
-| `time.zoneTrans` | [TimeZoneTrans](../../src/main/java/net/accelbyte/sdk/api/ams/models/TimeZoneTrans.java) |

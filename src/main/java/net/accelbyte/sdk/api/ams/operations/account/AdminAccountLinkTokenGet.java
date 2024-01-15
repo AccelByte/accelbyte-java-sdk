@@ -19,13 +19,17 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * AccountLinkTokenGet
+ * AdminAccountLinkTokenGet
+ *
+ * <p>The link token returned can be used to connect another namespace to the account in which the
+ * provided namespace is linked. This route fails if there is no account linked to the specified
+ * namespace.
  *
  * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [READ]
  */
 @Getter
 @Setter
-public class AccountLinkTokenGet extends Operation {
+public class AdminAccountLinkTokenGet extends Operation {
   /** generated field's value */
   private String path = "/ams/v1/admin/namespaces/{namespace}/account/link";
 
@@ -43,7 +47,7 @@ public class AccountLinkTokenGet extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public AccountLinkTokenGet(String namespace) {
+  public AdminAccountLinkTokenGet(String namespace) {
     this.namespace = namespace;
 
     securities.add("Bearer");

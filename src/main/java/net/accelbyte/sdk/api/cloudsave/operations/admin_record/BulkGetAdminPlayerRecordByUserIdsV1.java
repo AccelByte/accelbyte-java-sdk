@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * bulkGetAdminPlayerRecordByUserIdsV1
  *
- * <p>Required Permission | `ADMIN:NAMESPACE:{namespace}:CLOUDSAVE:RECORD [READ]`
- * --------------------|------------------------------------------------------- Required Scope |
- * `social`
- *
  * <p>Bulk get admin player record by userIds, max allowed 20 at a time.
  */
 @Getter

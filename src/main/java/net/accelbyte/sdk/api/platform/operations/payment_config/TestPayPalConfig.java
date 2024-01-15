@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * testPayPalConfig
  *
- * <p>Test PayPal configuration.
+ * <p>[Not Supported Yet In Starter] Test PayPal configuration.
  *
  * <p>#### Check List:
  *

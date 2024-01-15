@@ -24,7 +24,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>This API is used to create a reward. Other detail info:
  *
  * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:REWARD", action=1 (CREATE) *
- * Returns : created reward data
+ * Returns : created reward data * Acceptable values for rewardItem's identityType are : ITEM_ID or
+ * ITEM_SKU
  */
 @Getter
 @Setter

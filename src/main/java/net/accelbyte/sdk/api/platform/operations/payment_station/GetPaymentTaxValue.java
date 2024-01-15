@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getPaymentTaxValue
  *
- * <p>Check and get a payment order's should pay tax. Other detail info:
+ * <p>[Not Supported Yet In Starter] Check and get a payment order's should pay tax. Other detail
+ * info:
  *
  * <p>* Returns : tax result
  */

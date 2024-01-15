@@ -21,6 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * createPaymentOrderByDedicated
  *
+ * <p>[Not Supported Yet In Starter]
+ *
  * <p>This API is used to create payment order from non justice service. e.g. from dedicated server,
  * the result contains the payment station url.
  *

@@ -22,7 +22,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * listExtOrderNoByExtTxId
  *
- * <p>List external order No by external transaction id. Other detail info:
+ * <p>[Not Supported Yet In Starter] List external order No by external transaction id. Other detail
+ * info:
  *
  * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT", action=2 (READ) *
  * Returns : payment orders

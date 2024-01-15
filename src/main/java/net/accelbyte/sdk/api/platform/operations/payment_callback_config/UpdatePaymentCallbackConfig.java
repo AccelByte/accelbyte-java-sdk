@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updatePaymentCallbackConfig
  *
- * <p>Update payment callback configuration. Other detail info:
+ * <p>[Not Supported Yet In Starter] Update payment callback configuration. Other detail info:
  *
  * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT:CONFIG", action=4
  * (UPDATE) * Returns : Payment callback config

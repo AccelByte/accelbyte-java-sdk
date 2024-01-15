@@ -25,10 +25,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "accountLinkTokenGet", mixinStandardHelpOptions = true)
-public class AccountLinkTokenGet implements Callable<Integer> {
+@Command(name = "adminAccountCreate", mixinStandardHelpOptions = true)
+public class AdminAccountCreate implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(AccountLinkTokenGet.class);
+  private static final Logger log = LogManager.getLogger(AdminAccountCreate.class);
 
   @Option(
       names = {"--namespace"},
@@ -36,12 +36,17 @@ public class AccountLinkTokenGet implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--body"},
+      description = "body")
+  String body;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new AccountLinkTokenGet()).execute(args);
+    int exitCode = new CommandLine(new AdminAccountCreate()).execute(args);
     System.exit(exitCode);
   }
 
@@ -56,11 +61,12 @@ public class AccountLinkTokenGet implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Account wrapper = new Account(sdk);
-      final net.accelbyte.sdk.api.ams.operations.account.AccountLinkTokenGet operation =
-          net.accelbyte.sdk.api.ams.operations.account.AccountLinkTokenGet.builder()
+      final net.accelbyte.sdk.api.ams.operations.account.AdminAccountCreate operation =
+          net.accelbyte.sdk.api.ams.operations.account.AdminAccountCreate.builder()
               .namespace(namespace)
+              .body(new ObjectMapper().readValue(body, ApiAccountCreateRequest.class))
               .build();
-      final ApiAccountLinkTokenResponse response = wrapper.accountLinkTokenGet(operation);
+      final ApiAccountCreateResponse response = wrapper.adminAccountCreate(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

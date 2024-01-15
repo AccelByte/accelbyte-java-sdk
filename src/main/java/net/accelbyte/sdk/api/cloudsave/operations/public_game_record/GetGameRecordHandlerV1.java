@@ -21,9 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getGameRecordHandlerV1
  *
- * <p>Required Permission | `NAMESPACE:{namespace}:CLOUDSAVE:RECORD [READ]`
- * --------------------|------------------------------------------------- Required Scope | `social`
- *
  * <p>Get game record by its key.
  */
 @Getter

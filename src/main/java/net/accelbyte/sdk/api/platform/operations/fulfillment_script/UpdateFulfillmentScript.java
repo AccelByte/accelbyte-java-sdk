@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateFulfillmentScript
  *
- * <p>[AGS Premium Feature] Update fulfillment script. Other detail info:
+ * <p>[Not Supported Yet In Starter] Update fulfillment script. Other detail info:
  *
  * <p>* Required permission : resource="ADMIN:FULFILLMENT", action=4 (UPDATE)
  */

@@ -8,7 +8,6 @@
 
 package net.accelbyte.sdk.api.lobby.ws_models;
 
-import static net.accelbyte.sdk.core.util.Helper.convertWSMListToListInteger;
 import static net.accelbyte.sdk.core.util.Helper.convertWSMListToListString;
 import static net.accelbyte.sdk.core.util.Helper.generateUUID;
 import static net.accelbyte.sdk.core.util.Helper.listToWSMList;
@@ -23,7 +22,7 @@ import lombok.Setter;
 @Setter
 public class FriendsStatusResponse {
   private List<String> activity;
-  private List<Integer> availability;
+  private List<String> availability;
   private Integer code;
   private List<String> friendIds;
   private String id;
@@ -36,7 +35,7 @@ public class FriendsStatusResponse {
   @Deprecated
   public FriendsStatusResponse(
       List<String> activity,
-      List<Integer> availability,
+      List<String> availability,
       Integer code,
       List<String> friendIds,
       String id,
@@ -62,7 +61,7 @@ public class FriendsStatusResponse {
             : null;
     result.availability =
         response.get("availability") != null
-            ? convertWSMListToListInteger(response.get("availability"))
+            ? convertWSMListToListString(response.get("availability"))
             : null;
     result.code = response.get("code") != null ? Integer.valueOf(response.get("code")) : null;
     result.friendIds =

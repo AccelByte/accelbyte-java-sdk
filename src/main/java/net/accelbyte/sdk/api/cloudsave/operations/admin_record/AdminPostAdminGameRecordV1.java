@@ -21,52 +21,39 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminPostAdminGameRecordV1
  *
- * <p>Required permission: `ADMIN:NAMESPACE:{namespace}:CLOUDSAVE:RECORD [CREATE]` Required scope:
- * `social`
- *
  * <p>## Description
  *
  * <p>This endpoints will create new admin game record or append the existing admin game record.
  *
- * <p>Append example:
+ * <p>**Append example:**
  *
  * <p>Example 1 - Existing JSON:
  *
- * <p>{ "data1": "value" }
+ * <p>`{ "data1": "value" }`
  *
  * <p>- New JSON:
  *
- * <p>{ "data2": "new value" }
+ * <p>`{ "data2": "new value" }`
  *
  * <p>- Result:
  *
- * <p>{ "data1": "value", "data2": "new value" }
+ * <p>`{ "data1": "value", "data2": "new value" }`
  *
  * <p>Example 2 - Existing JSON:
  *
- * <p>{ "data1": { "data2": "value" }
+ * <p>`{ "data1": { "data2": "value" }`
  *
  * <p>- New JSON:
  *
- * <p>{ "data1": { "data3": "new value" }
+ * <p>`{ "data1": { "data3": "new value" }`
  *
  * <p>- Result:
  *
- * <p>{ "data1": { "data2": "value", "data3": "new value" }
+ * <p>`{ "data1": { "data2": "value", "data3": "new value" }`
  *
- * <p>## Restriction
- *
- * <p>This is the restriction of Key Naming for the record: 1. Cannot use "." as the key name -
- *
- * <p>{ "data.2": "value" }
- *
- * <p>2. Cannot use "$" as the prefix in key names -
- *
- * <p>{ "$data": "value" }
- *
- * <p>3. Cannot use empty string in key names -
- *
- * <p>{ "": "value" }
+ * <p>## Restriction This is the restriction of Key Naming for the record: 1. Cannot use **"."** as
+ * the key name - `{ "data.2": "value" }` 2. Cannot use **"$"** as the prefix in key names - `{
+ * "$data": "value" }` 3. Cannot use empty string in key names - `{ "": "value" }`
  */
 @Getter
 @Setter

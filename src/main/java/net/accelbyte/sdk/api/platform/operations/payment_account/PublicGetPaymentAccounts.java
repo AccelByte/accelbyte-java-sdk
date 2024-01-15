@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicGetPaymentAccounts
  *
- * <p>Get payment accounts. Other detail info:
+ * <p>[Not Supported Yet In Starter] Get payment accounts. Other detail info:
  *
  * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:PAYMENT:ACCOUNT",
  * action=2 (READ) * Returns : Payment account list

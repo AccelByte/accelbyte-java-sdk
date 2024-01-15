@@ -21,9 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getPluginConfig
  *
- * <p>Required permission: `ADMIN:NAMESPACE:{namespace}:CLOUDSAVE:PLUGINS [READ]` Required scope:
- * `social`
- *
  * <p>## Description
  *
  * <p>This endpoints will get grpc plugins configuration

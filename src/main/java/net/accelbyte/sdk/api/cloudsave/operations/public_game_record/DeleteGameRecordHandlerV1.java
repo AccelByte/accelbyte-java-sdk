@@ -20,10 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteGameRecordHandlerV1
  *
- * <p>Required Permission | `NAMESPACE:{namespace}:CLOUDSAVE:RECORD [DELETE]`
- * --------------------|--------------------------------------------------- Required Scope |
- * `social`
- *
  * <p>Delete records by its key
  */
 @Getter

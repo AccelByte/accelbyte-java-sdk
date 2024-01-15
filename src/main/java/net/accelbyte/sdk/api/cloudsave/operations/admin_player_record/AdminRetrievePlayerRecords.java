@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminRetrievePlayerRecords
  *
- * <p>Required permission: `ADMIN:NAMESPACE:{namespace}:USER:{userId}:RECORD [READ]`
- *
- * <p>Required scope: `social`
- *
  * <p>Retrieve list of player records key and userID under given namespace.
  */
 @Getter

@@ -21,9 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminListPlayerBinaryRecordsV1
  *
- * <p>Required permission: `ADMIN:NAMESPACE:{namespace}:USER:{userId}:CLOUDSAVE:RECORD [READ]`
- * Required scope: `social`
- *
  * <p>Retrieve list of player binary records by namespace.
  */
 @Getter

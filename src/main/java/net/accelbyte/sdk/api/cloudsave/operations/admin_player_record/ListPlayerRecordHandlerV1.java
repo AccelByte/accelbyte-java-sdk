@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * listPlayerRecordHandlerV1
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:CLOUDSAVE:RECORD [READ]
- *
- * <p>Required scope: `social`
- *
  * <p>Retrieve list of player records key and userID under given namespace.
  *
  * @deprecated

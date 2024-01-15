@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * createFulfillmentScript
  *
- * <p>[AGS Premium Feature] Create fulfillment script. Other detail info:
+ * <p>[Not Supported Yet In Starter] Create fulfillment script. Other detail info:
  *
  * <p>* Required permission : resource="ADMIN:FULFILLMENT", action=1 (CREATE)
  *

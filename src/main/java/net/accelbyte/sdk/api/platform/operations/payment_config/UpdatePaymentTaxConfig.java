@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updatePaymentTaxConfig
  *
- * <p>Update payment tax config.
+ * <p>[Not Supported Yet In Starter] Update payment tax config.
  *
  * <p>Request Body Parameters:
  *

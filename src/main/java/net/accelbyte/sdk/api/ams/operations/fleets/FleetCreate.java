@@ -21,6 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * FleetCreate
  *
+ * <p>Optionally, sampling rules for the fleet can also be specified
+ *
  * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:FLEET [CREATE]
  */
 @Getter

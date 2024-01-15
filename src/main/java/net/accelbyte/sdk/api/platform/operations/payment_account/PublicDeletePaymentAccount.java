@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicDeletePaymentAccount
  *
- * <p>Delete payment account. Other detail info:
+ * <p>[Not Supported Yet In Starter] Delete payment account. Other detail info:
  *
  * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:PAYMENT:ACCOUNT",
  * action=8 (DELETE) * Returns :

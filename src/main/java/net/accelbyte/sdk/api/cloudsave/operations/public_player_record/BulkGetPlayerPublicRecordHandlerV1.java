@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * bulkGetPlayerPublicRecordHandlerV1
  *
- * <p>Required Permission | `NAMESPACE:{namespace}:PUBLIC:CLOUDSAVE:RECORD [READ]`
- * --------------------|-------------------------------------------------------- Required Scope |
- * `social`
- *
  * <p>Bulk get other player's record that is public by userIds, max allowed 20 at a time. Only
  * record with `isPublic=true` that can be retrieved using this endpoint.
  */

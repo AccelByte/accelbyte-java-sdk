@@ -6,13 +6,12 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.ams.account;
+package net.accelbyte.sdk.cli.api.ams.ams_info;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.ams.models.*;
-import net.accelbyte.sdk.api.ams.wrappers.Account;
+import net.accelbyte.sdk.api.ams.wrappers.AMSInfo;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,20 +24,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "accountLink", mixinStandardHelpOptions = true)
-public class AccountLink implements Callable<Integer> {
+@Command(name = "uploadURLGet", mixinStandardHelpOptions = true)
+public class UploadURLGet implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(AccountLink.class);
-
-  @Option(
-      names = {"--namespace"},
-      description = "namespace")
-  String namespace;
-
-  @Option(
-      names = {"--body"},
-      description = "body")
-  String body;
+  private static final Logger log = LogManager.getLogger(UploadURLGet.class);
 
   @Option(
       names = {"--logging"},
@@ -46,7 +35,7 @@ public class AccountLink implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new AccountLink()).execute(args);
+    int exitCode = new CommandLine(new UploadURLGet()).execute(args);
     System.exit(exitCode);
   }
 
@@ -60,16 +49,11 @@ public class AccountLink implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final Account wrapper = new Account(sdk);
-      final net.accelbyte.sdk.api.ams.operations.account.AccountLink operation =
-          net.accelbyte.sdk.api.ams.operations.account.AccountLink.builder()
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ApiAccountLinkRequest.class))
-              .build();
-      final ApiAccountLinkResponse response = wrapper.accountLink(operation);
-      final String responseString =
-          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-      log.info("Operation successful\n{}", responseString);
+      final AMSInfo wrapper = new AMSInfo(sdk);
+      final net.accelbyte.sdk.api.ams.operations.ams_info.UploadURLGet operation =
+          net.accelbyte.sdk.api.ams.operations.ams_info.UploadURLGet.builder().build();
+      wrapper.uploadURLGet(operation);
+      log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

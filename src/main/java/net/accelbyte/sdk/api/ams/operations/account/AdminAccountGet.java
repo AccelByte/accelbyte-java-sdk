@@ -19,17 +19,17 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * AccountLink
+ * AdminAccountGet
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [CREATE]
+ * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [READ]
  */
 @Getter
 @Setter
-public class AccountLink extends Operation {
+public class AdminAccountGet extends Operation {
   /** generated field's value */
-  private String path = "/ams/v1/admin/namespaces/{namespace}/account/link";
+  private String path = "/ams/v1/admin/namespaces/{namespace}/account";
 
-  private String method = "POST";
+  private String method = "GET";
   private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
@@ -37,18 +37,14 @@ public class AccountLink extends Operation {
   /** fields as input parameter */
   private String namespace;
 
-  private ApiAccountLinkRequest body;
-
   /**
    * @param namespace required
-   * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public AccountLink(String namespace, ApiAccountLinkRequest body) {
+  public AdminAccountGet(String namespace) {
     this.namespace = namespace;
-    this.body = body;
 
     securities.add("Bearer");
   }
@@ -63,11 +59,6 @@ public class AccountLink extends Operation {
   }
 
   @Override
-  public ApiAccountLinkRequest getBodyParams() {
-    return this.body;
-  }
-
-  @Override
   public boolean isValid() {
     if (this.namespace == null) {
       return false;
@@ -75,13 +66,13 @@ public class AccountLink extends Operation {
     return true;
   }
 
-  public ApiAccountLinkResponse parseResponse(int code, String contentType, InputStream payload)
+  public ApiAccountResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
-    if (code != 201) {
+    if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ApiAccountLinkResponse().createFromJson(json);
+    return new ApiAccountResponse().createFromJson(json);
   }
 }

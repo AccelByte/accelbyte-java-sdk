@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getGameBinaryRecordV1
  *
- * <p>Required permission: `NAMESPACE:{namespace}:CLOUDSAVE:RECORD [READ]` Required scope: `social`
- *
  * <p>Get a game binary record by its key.
  */
 @Getter

@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminBulkGetAdminGameRecordV1
  *
- * <p>Required Permission | `ADMIN:NAMESPACE:{namespace}:CLOUDSAVE:RECORD [READ]`
- * --------------------|------------------------------------------------------- Required Scope |
- * `social`
- *
  * <p>Bulk get admin game records. Maximum key per request 20.
  */
 @Getter

@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateWxPayConfigCert
  *
- * <p>Upload wxpay cert file. Other detail info:
+ * <p>[Not Supported Yet In Starter] Upload wxpay cert file. Other detail info:
  *
  * <p>* Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE) * Returns : updated
  * payment merchant config

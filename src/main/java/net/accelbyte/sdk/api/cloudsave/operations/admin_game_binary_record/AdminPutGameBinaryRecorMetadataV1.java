@@ -21,9 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminPutGameBinaryRecorMetadataV1
  *
- * <p>Required permission: `ADMIN:NAMESPACE:{namespace}:CLOUDSAVE:RECORD [UPDATE]` Required scope:
- * `social`
- *
  * <p>Update a game binary record metadata by its key
  */
 @Getter

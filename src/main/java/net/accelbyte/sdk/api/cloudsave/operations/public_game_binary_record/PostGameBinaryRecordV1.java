@@ -21,16 +21,13 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * postGameBinaryRecordV1
  *
- * <p>Required permission: `NAMESPACE:{namespace}:CLOUDSAVE:RECORD [CREATE]` Required scope:
- * `social`
- *
  * <p>Create a game binary record.
  *
  * <p>Other detail info:
  *
  * <p>`key` should follow these rules: 1. support uppercase and lowercase letters, numbers, and
- * separators "-" , "_" , "." are allowed 2. begin and end with letters or numbers 3. spaces are not
- * allowed 4. separators must not appears twice in a row
+ * separators **"-"**, **"_"**, **"."** are allowed 2. begin and end with letters or numbers 3.
+ * spaces are not allowed 4. separators must not appears twice in a row
  *
  * <p>Supported file types: jpeg, jpg, png, bmp, gif, mp3, webp, and bin.
  */

@@ -20,10 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminDeleteAdminGameRecordV1
  *
- * <p>Required permission: `ADMIN:NAMESPACE:{namespace}:CLOUDSAVE:RECORD [DELETE]`
- *
- * <p>Required scope: `social`
- *
  * <p>This endpoints delete game record in namespace-level
  */
 @Getter

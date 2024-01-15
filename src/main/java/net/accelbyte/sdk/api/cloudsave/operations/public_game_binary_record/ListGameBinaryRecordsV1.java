@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * listGameBinaryRecordsV1
  *
- * <p>Required permission: `NAMESPACE:{namespace}:CLOUDSAVE:RECORD [READ]` Required scope: `social`
- *
  * <p>Retrieve list of binary records by namespace.
  */
 @Getter

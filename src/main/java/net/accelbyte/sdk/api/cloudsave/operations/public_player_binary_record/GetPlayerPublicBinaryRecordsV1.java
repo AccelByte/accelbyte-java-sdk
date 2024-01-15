@@ -21,9 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getPlayerPublicBinaryRecordsV1
  *
- * <p>Required Permission: `NAMESPACE:{namespace}:USER:{userId}:PUBLIC:CLOUDSAVE:RECORD [READ]`
- * Required Scope: `social`
- *
  * <p>Get other player's public binary record. Only record with `isPublic=true` can be retrieved
  * using this endpoint.
  */

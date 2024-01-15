@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getPlayerRecordsBulkHandlerV1
  *
- * <p>Required valid user token
- *
- * <p>Required scope: `social`
- *
  * <p>Retrieve player record key and payload in bulk under given namespace.
  *
  * <p>Maximum bulk key limit per request 20

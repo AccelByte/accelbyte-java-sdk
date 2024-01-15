@@ -25,10 +25,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "accountCreate", mixinStandardHelpOptions = true)
-public class AccountCreate implements Callable<Integer> {
+@Command(name = "adminAccountLinkTokenPost", mixinStandardHelpOptions = true)
+public class AdminAccountLinkTokenPost implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(AccountCreate.class);
+  private static final Logger log = LogManager.getLogger(AdminAccountLinkTokenPost.class);
 
   @Option(
       names = {"--namespace"},
@@ -46,7 +46,7 @@ public class AccountCreate implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new AccountCreate()).execute(args);
+    int exitCode = new CommandLine(new AdminAccountLinkTokenPost()).execute(args);
     System.exit(exitCode);
   }
 
@@ -61,12 +61,12 @@ public class AccountCreate implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Account wrapper = new Account(sdk);
-      final net.accelbyte.sdk.api.ams.operations.account.AccountCreate operation =
-          net.accelbyte.sdk.api.ams.operations.account.AccountCreate.builder()
+      final net.accelbyte.sdk.api.ams.operations.account.AdminAccountLinkTokenPost operation =
+          net.accelbyte.sdk.api.ams.operations.account.AdminAccountLinkTokenPost.builder()
               .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ApiAccountCreateRequest.class))
+              .body(new ObjectMapper().readValue(body, ApiAccountLinkRequest.class))
               .build();
-      final ApiAccountCreateResponse response = wrapper.accountCreate(operation);
+      final ApiAccountLinkResponse response = wrapper.adminAccountLinkTokenPost(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

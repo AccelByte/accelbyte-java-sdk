@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * testAdyenConfig
  *
- * <p>Test adyen configuration.
+ * <p>[Not Supported Yet In Starter] Test adyen configuration.
  *
  * <p>#### Check List:
  *

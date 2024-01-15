@@ -20,10 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminDeleteAdminPlayerRecordV1
  *
- * <p>Required permission: `ADMIN:NAMESPACE:{namespace}:USER:{userId}:CLOUDSAVE:RECORD [DELETE]`
- *
- * <p>Required scope: `social`
- *
  * <p>Delete a record (arbitrary JSON data) in user-level with given key.
  */
 @Getter

@@ -21,9 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * bulkGetPlayerPublicBinaryRecordsV1
  *
- * <p>Required Permission: `NAMESPACE:{namespace}:USER:{userId}:PUBLIC:CLOUDSAVE:RECORD [READ]`
- * Required Scope: `social`
- *
  * <p>Bulk get other player's public binary record by userIds, max allowed 20 at a time. Only record
  * with `isPublic=true` can be retrieved using this endpoint.
  */

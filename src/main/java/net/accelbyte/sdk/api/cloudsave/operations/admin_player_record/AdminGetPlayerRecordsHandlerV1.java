@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminGetPlayerRecordsHandlerV1
  *
- * <p>Required Permission | `ADMIN:NAMESPACE:{namespace}:USER:*:CLOUDSAVE:RECORD [READ]`
- * --------------------|-------------------------------------------------------------- Required
- * Scope | `social`
- *
  * <p>Retrieve player record key and payload in bulk under given namespace. Maximum bulk key limit
  * per request 20.
  */

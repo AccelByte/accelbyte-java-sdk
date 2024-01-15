@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * testCheckoutConfig
  *
- * <p>Test checkout.com configuration.
+ * <p>[Not Supported Yet In Starter] Test checkout.com configuration.
  *
  * <p>#### Check List:
  *

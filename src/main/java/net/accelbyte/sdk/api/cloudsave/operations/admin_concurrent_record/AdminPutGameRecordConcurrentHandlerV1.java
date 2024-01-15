@@ -21,59 +21,40 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminPutGameRecordConcurrentHandlerV1
  *
- * <p>Required Permission | `ADMIN:NAMESPACE:{namespace}:CLOUDSAVE:RECORD [UPDATE]`
- * --------------------|--------------------------------------------------------- Required Scope |
- * `social`
- *
  * <p>## Description
  *
  * <p>This endpoints will create new game record or replace the existing game record.
  *
- * <p>Replace behaviour: The existing value will be replaced completely with the new value.
+ * <p>**Replace behaviour:** The existing value will be replaced completely with the new value.
  *
  * <p>Example - Existing JSON:
  *
- * <p>{ "data1": "value" }
+ * <p>`{ "data1": "value" }`
  *
  * <p>- New JSON:
  *
- * <p>{ "data2": "new value" }
+ * <p>`{ "data2": "new value" }`
  *
  * <p>- Result:
  *
- * <p>{ "data2": "new value" }
+ * <p>`{ "data2": "new value" }`
  *
- * <p>## Restriction
- *
- * <p>This is the restriction of Key Naming for the record: 1. Cannot use "." as the key name -
- *
- * <p>{ "data.2": "value" }
- *
- * <p>2. Cannot use "$" as the prefix in key names -
- *
- * <p>{ "$data": "value" }
- *
- * <p>3. Cannot use empty string in key names -
- *
- * <p>{ "": "value" }
+ * <p>## Restriction This is the restriction of Key Naming for the record: 1. Cannot use **"."** as
+ * the key name - `{ "data.2": "value" }` 2. Cannot use **"$"** as the prefix in key names - `{
+ * "$data": "value" }` 3. Cannot use empty string in key names - `{ "": "value" }`
  *
  * <p>## Reserved Word
  *
- * <p>Reserved Word List: __META
+ * <p>Reserved Word List: **__META**
  *
  * <p>The reserved word cannot be used as a field in record value, If still defining the field when
  * creating or updating the record, it will be ignored.
  *
- * <p>## Parameters Notes
- *
- * <p>1. set_by (default: CLIENT, type: string) Indicate which party that could modify the game
- * record. SERVER: record can be modified by server only. CLIENT: record can be modified by client
- * and server. 2. updatedAt (required: true) Time format style: RFC3339 3. value Json Request Body
- * Example:
- *
- * <p>{ "set_by": "SERVER", "value": {}, "updatedAt": "2022-03-17T10:42:15.444Z" }
- *
- * <p>## Optimistic Concurrency Control
+ * <p>## Parameters Notes 1. set_by (default: CLIENT, type: string) Indicate which party that could
+ * modify the game record. SERVER: record can be modified by server only. CLIENT: record can be
+ * modified by client and server. 2. updatedAt (required: true) Time format style: RFC3339 3. value
+ * Json **Request Body Example:** ``` { "set_by": "SERVER", "value": {}, "updatedAt":
+ * "2022-03-17T10:42:15.444Z" } ``` ## Optimistic Concurrency Control
  *
  * <p>This endpoint implement optimistic concurrency control to avoid race condition. If the record
  * has been updated since the client fetch it, the server will return HTTP status code 412

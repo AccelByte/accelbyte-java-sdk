@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * createPaymentProviderConfig
  *
- * <p>Create payment provider config.
+ * <p>[Not Supported Yet In Starter] Create payment provider config.
  *
  * <p>Request Body Parameters:
  *

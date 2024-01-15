@@ -77,9 +77,17 @@ public class ModelsConfig extends Model {
   @JsonProperty("SpamMuteDuration")
   private Integer spamMuteDuration;
 
+  @JsonProperty("defaultDictionaryLoaded")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean defaultDictionaryLoaded;
+
   @JsonProperty("enableClanChat")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean enableClanChat;
+
+  @JsonProperty("useDefaultDictionary")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean useDefaultDictionary;
 
   @JsonIgnore
   public ModelsConfig createFromJson(String json) throws JsonProcessingException {

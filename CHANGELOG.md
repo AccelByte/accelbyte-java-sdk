@@ -1,3 +1,11 @@
+<a name="v0.55.0"></a>
+## [v0.55.0]
+### test
+- **integration:** armada is deprecated
+### fix
+- **test:** disable gdpr integration test for ags starter
+
+
 <a name="v0.54.0"></a>
 ## [v0.54.0]
 ### fix

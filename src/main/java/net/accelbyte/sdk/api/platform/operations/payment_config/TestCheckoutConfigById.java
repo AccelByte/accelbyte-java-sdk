@@ -21,8 +21,11 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * testCheckoutConfigById
  *
- * <p>Test checkout.com configuration in payment merchant config. Other detail info: * Required
- * permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ) * Returns : test result
+ * <p>[Not Supported Yet In Starter] Test checkout.com configuration in payment merchant config.
+ * Other detail info:
+ *
+ * <p>* Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ) * Returns : test
+ * result
  */
 @Getter
 @Setter

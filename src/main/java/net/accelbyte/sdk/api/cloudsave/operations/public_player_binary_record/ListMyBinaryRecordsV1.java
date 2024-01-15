@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * listMyBinaryRecordsV1
  *
- * <p>Required valid user token Required scope: `social`
- *
  * <p>Retrieve list of my binary records by namespace.
  */
 @Getter

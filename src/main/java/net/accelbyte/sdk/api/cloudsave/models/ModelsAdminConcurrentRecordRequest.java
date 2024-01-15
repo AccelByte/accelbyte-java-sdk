@@ -35,6 +35,26 @@ public class ModelsAdminConcurrentRecordRequest extends Model {
   private Map<String, ?> value;
 
   @JsonIgnore
+  public String getSetBy() {
+    return this.setBy;
+  }
+
+  @JsonIgnore
+  public SetBy getSetByAsEnum() {
+    return SetBy.valueOf(this.setBy);
+  }
+
+  @JsonIgnore
+  public void setSetBy(final String setBy) {
+    this.setBy = setBy;
+  }
+
+  @JsonIgnore
+  public void setSetByFromEnum(final SetBy setBy) {
+    this.setBy = setBy.toString();
+  }
+
+  @JsonIgnore
   public ModelsAdminConcurrentRecordRequest createFromJson(String json)
       throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
@@ -45,5 +65,35 @@ public class ModelsAdminConcurrentRecordRequest extends Model {
       throws JsonProcessingException {
     return new ObjectMapper()
         .readValue(json, new TypeReference<List<ModelsAdminConcurrentRecordRequest>>() {});
+  }
+
+  public enum SetBy {
+    CLIENT("CLIENT"),
+    SERVER("SERVER");
+
+    private String value;
+
+    SetBy(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class ModelsAdminConcurrentRecordRequestBuilder {
+    private String setBy;
+
+    public ModelsAdminConcurrentRecordRequestBuilder setBy(final String setBy) {
+      this.setBy = setBy;
+      return this;
+    }
+
+    public ModelsAdminConcurrentRecordRequestBuilder setByFromEnum(final SetBy setBy) {
+      this.setBy = setBy.toString();
+      return this;
+    }
   }
 }

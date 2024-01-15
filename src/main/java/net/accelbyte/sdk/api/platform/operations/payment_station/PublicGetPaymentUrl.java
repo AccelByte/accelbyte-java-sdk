@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicGetPaymentUrl
  *
- * <p>Get payment url. Other detail info:
+ * <p>[Not Supported Yet In Starter] Get payment url. Other detail info:
  *
  * <p>* Returns : Get payment link
  */

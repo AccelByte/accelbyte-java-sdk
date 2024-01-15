@@ -22,7 +22,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getAggregatePaymentProviders
  *
- * <p>Get aggregate payment providers, such as XSOLLA, ADYEN. Other detail info:
+ * <p>[Not Supported Yet In Starter] Get aggregate payment providers, such as XSOLLA, ADYEN. Other
+ * detail info:
  *
  * <p>* Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ) * Returns : payment
  * provider list

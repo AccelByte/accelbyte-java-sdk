@@ -69,6 +69,10 @@ public class ModelsUpdateChannelRequest extends Model {
   @JsonProperty("socialMatchmaking")
   private Boolean socialMatchmaking;
 
+  @JsonProperty("sub_gamemode_selection")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String subGamemodeSelection;
+
   @JsonProperty("ticket_observability_enable")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean ticketObservabilityEnable;
@@ -94,6 +98,26 @@ public class ModelsUpdateChannelRequest extends Model {
   @JsonIgnore
   public void setBlockedPlayerOptionFromEnum(final BlockedPlayerOption blockedPlayerOption) {
     this.blockedPlayerOption = blockedPlayerOption.toString();
+  }
+
+  @JsonIgnore
+  public String getSubGamemodeSelection() {
+    return this.subGamemodeSelection;
+  }
+
+  @JsonIgnore
+  public SubGamemodeSelection getSubGamemodeSelectionAsEnum() {
+    return SubGamemodeSelection.valueOf(this.subGamemodeSelection);
+  }
+
+  @JsonIgnore
+  public void setSubGamemodeSelection(final String subGamemodeSelection) {
+    this.subGamemodeSelection = subGamemodeSelection;
+  }
+
+  @JsonIgnore
+  public void setSubGamemodeSelectionFromEnum(final SubGamemodeSelection subGamemodeSelection) {
+    this.subGamemodeSelection = subGamemodeSelection.toString();
   }
 
   @JsonIgnore
@@ -125,8 +149,25 @@ public class ModelsUpdateChannelRequest extends Model {
     }
   }
 
+  public enum SubGamemodeSelection {
+    Random("random"),
+    TicketOrder("ticketOrder");
+
+    private String value;
+
+    SubGamemodeSelection(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public static class ModelsUpdateChannelRequestBuilder {
     private String blockedPlayerOption;
+    private String subGamemodeSelection;
 
     public ModelsUpdateChannelRequestBuilder blockedPlayerOption(final String blockedPlayerOption) {
       this.blockedPlayerOption = blockedPlayerOption;
@@ -136,6 +177,18 @@ public class ModelsUpdateChannelRequest extends Model {
     public ModelsUpdateChannelRequestBuilder blockedPlayerOptionFromEnum(
         final BlockedPlayerOption blockedPlayerOption) {
       this.blockedPlayerOption = blockedPlayerOption.toString();
+      return this;
+    }
+
+    public ModelsUpdateChannelRequestBuilder subGamemodeSelection(
+        final String subGamemodeSelection) {
+      this.subGamemodeSelection = subGamemodeSelection;
+      return this;
+    }
+
+    public ModelsUpdateChannelRequestBuilder subGamemodeSelectionFromEnum(
+        final SubGamemodeSelection subGamemodeSelection) {
+      this.subGamemodeSelection = subGamemodeSelection.toString();
       return this;
     }
   }

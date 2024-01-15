@@ -21,11 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminGetPlayerPublicRecordHandlerV1
  *
- * <p>Required permission: `ADMIN:NAMESPACE:{namespace}:USER:{userId}:PUBLIC:CLOUDSAVE:RECORD
- * [READ]`
- *
- * <p>Required scope: `social`
- *
  * <p>Get a record in user-level (arbitrary JSON data) by its key.
  */
 @Getter

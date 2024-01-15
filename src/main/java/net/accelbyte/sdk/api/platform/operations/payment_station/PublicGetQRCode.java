@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicGetQRCode
  *
- * <p>Get qrcode. Other detail info:
+ * <p>[Not Supported Yet In Starter] Get qrcode. Other detail info:
  *
  * <p>* Returns : QRCode image stream
  */

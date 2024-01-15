@@ -23,10 +23,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminPutPlayerRecordsHandlerV1
  *
- * <p>Required Permission | `ADMIN:NAMESPACE:{namespace}:USER:*:CLOUDSAVE:RECORD [UPDATE]`
- * --------------------|---------------------------------------------------------------- Required
- * Scope | `social`
- *
  * <p>This endpoints will create new player record or replace the existing player record in bulk.
  * Maximum bulk key limit per request 10.
  */

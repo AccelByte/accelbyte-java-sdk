@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deletePaymentProviderConfig
  *
- * <p>Delete payment provider config. Other detail info:
+ * <p>[Not Supported Yet In Starter] Delete payment provider config. Other detail info:
  *
  * <p>* Required permission : resource="ADMIN:PAYMENT:CONFIG", action=8 (DELETE) * Returns : payment
  * provider config

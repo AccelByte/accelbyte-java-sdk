@@ -22,8 +22,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getPaymentPublicConfig
  *
- * <p>Get payment provider public config, at current only Strip provide public config. Other detail
- * info:
+ * <p>[Not Supported Yet In Starter] Get payment provider public config, at current only Strip
+ * provide public config. Other detail info:
  *
  * <p>* Returns : Public config
  */

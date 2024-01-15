@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * bulkGetMyBinaryRecordV1
  *
- * <p>Required valid user token Required scope: `social`
- *
  * <p>Retrieve player record key and payload in bulk under given namespace. Maximum bulk key limit
  * per request 20
  */

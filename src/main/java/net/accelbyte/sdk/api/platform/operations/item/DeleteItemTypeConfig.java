@@ -20,8 +20,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteItemTypeConfig
  *
- * <p>This API is used to delete an item type config permanently.Other detail info: * Required
- * permission : resource="ADMIN:ITEM:CONFIG", action=8 (DELETE)
+ * <p>[Not Supported Yet In Starter] This API is used to delete an item type config
+ * permanently.Other detail info:
+ *
+ * <p>* Required permission : resource="ADMIN:ITEM:CONFIG", action=8 (DELETE)
  */
 @Getter
 @Setter

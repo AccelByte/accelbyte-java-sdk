@@ -20,9 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deletePluginConfig
  *
- * <p>Required permission: `ADMIN:NAMESPACE:{namespace}:CLOUDSAVE:PLUGINS [DELETE]` Required scope:
- * `social`
- *
  * <p>## Description
  *
  * <p>This endpoints will delete grpc plugins configuration

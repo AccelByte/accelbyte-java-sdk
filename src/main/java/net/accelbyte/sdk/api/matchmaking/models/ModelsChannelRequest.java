@@ -74,6 +74,10 @@ public class ModelsChannelRequest extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean socialMatchmaking;
 
+  @JsonProperty("sub_gamemode_selection")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String subGamemodeSelection;
+
   @JsonProperty("ticket_observability_enable")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean ticketObservabilityEnable;
@@ -103,6 +107,26 @@ public class ModelsChannelRequest extends Model {
   }
 
   @JsonIgnore
+  public String getSubGamemodeSelection() {
+    return this.subGamemodeSelection;
+  }
+
+  @JsonIgnore
+  public SubGamemodeSelection getSubGamemodeSelectionAsEnum() {
+    return SubGamemodeSelection.valueOf(this.subGamemodeSelection);
+  }
+
+  @JsonIgnore
+  public void setSubGamemodeSelection(final String subGamemodeSelection) {
+    this.subGamemodeSelection = subGamemodeSelection;
+  }
+
+  @JsonIgnore
+  public void setSubGamemodeSelectionFromEnum(final SubGamemodeSelection subGamemodeSelection) {
+    this.subGamemodeSelection = subGamemodeSelection.toString();
+  }
+
+  @JsonIgnore
   public ModelsChannelRequest createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
@@ -129,8 +153,25 @@ public class ModelsChannelRequest extends Model {
     }
   }
 
+  public enum SubGamemodeSelection {
+    Random("random"),
+    TicketOrder("ticketOrder");
+
+    private String value;
+
+    SubGamemodeSelection(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public static class ModelsChannelRequestBuilder {
     private String blockedPlayerOption;
+    private String subGamemodeSelection;
 
     public ModelsChannelRequestBuilder blockedPlayerOption(final String blockedPlayerOption) {
       this.blockedPlayerOption = blockedPlayerOption;
@@ -140,6 +181,17 @@ public class ModelsChannelRequest extends Model {
     public ModelsChannelRequestBuilder blockedPlayerOptionFromEnum(
         final BlockedPlayerOption blockedPlayerOption) {
       this.blockedPlayerOption = blockedPlayerOption.toString();
+      return this;
+    }
+
+    public ModelsChannelRequestBuilder subGamemodeSelection(final String subGamemodeSelection) {
+      this.subGamemodeSelection = subGamemodeSelection;
+      return this;
+    }
+
+    public ModelsChannelRequestBuilder subGamemodeSelectionFromEnum(
+        final SubGamemodeSelection subGamemodeSelection) {
+      this.subGamemodeSelection = subGamemodeSelection.toString();
       return this;
     }
   }

@@ -21,6 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * refundPaymentOrderByDedicated
  *
+ * <p>[Not Supported Yet In Starter]
+ *
  * <p>This API is used to refund payment order by paymentOrderNo from non justice service. e.g.
  * dedicated server.
  *

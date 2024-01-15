@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getFulfillmentScript
  *
- * <p>Get fulfillment script by id. Other detail info:
+ * <p>[Not Supported Yet In Starter] Get fulfillment script by id. Other detail info:
  *
  * <p>* Required permission : resource="ADMIN:FULFILLMENT", action=2 (READ) * Returns : get
  * fulfillment script

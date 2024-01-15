@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * pay
  *
- * <p>Do payment(For now, this only support checkout.com). Other detail info:
+ * <p>[Not Supported Yet In Starter] Do payment(For now, this only support checkout.com). Other
+ * detail info:
  *
  * <p>* Returns : Payment process result
  */

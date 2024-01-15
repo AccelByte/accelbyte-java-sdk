@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class OauthmodelTokenThirdPartyResponse extends Model {
 
+  @JsonProperty("platformUserId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String platformUserId;
+
   @JsonProperty("platform_token")
   private String platformToken;
 

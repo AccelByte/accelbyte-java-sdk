@@ -21,9 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getPlayerBinaryRecordV1
  *
- * <p>Required permission: `NAMESPACE:{namespace}:USER:{userId}:CLOUDSAVE:RECORD [READ]` Required
- * scope: `social` Get a player binary record by its key. Private Record: Only user who own the
- * record could retrieve it.
+ * <p>Get a player binary record by its key. **Private Record**: Only user who own the record could
+ * retrieve it.
  */
 @Getter
 @Setter

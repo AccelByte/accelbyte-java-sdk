@@ -20,19 +20,17 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicDeletePlayerPublicRecordHandlerV1
  *
- * <p>Required valid user authorization Required scope: `social`
- *
  * <p>Delete player public record.
  *
  * <p>## Warning: This endpoint is going to deprecate
  *
  * <p>This endpoint is going to deprecate in the future please don't use it.
  *
- * <p>For alternative, please use these endpoints: - POST
- * /cloudsave/v1/namespaces/{namespace}/users/{userId}/records/{key} and utilizing __META
- * functionality - PUT /cloudsave/v1/namespaces/{namespace}/users/{userId}/records/{key} and
- * utilizing __META functionality - DELETE
- * /cloudsave/v1/namespaces/{namespace}/users/{userId}/records/{key}
+ * <p>For alternative, please use these endpoints: - **POST
+ * /cloudsave/v1/namespaces/{namespace}/users/{userId}/records/{key}** and utilizing **__META**
+ * functionality - **PUT /cloudsave/v1/namespaces/{namespace}/users/{userId}/records/{key}** and
+ * utilizing **__META** functionality - **DELETE
+ * /cloudsave/v1/namespaces/{namespace}/users/{userId}/records/{key}**
  */
 @Getter
 @Setter

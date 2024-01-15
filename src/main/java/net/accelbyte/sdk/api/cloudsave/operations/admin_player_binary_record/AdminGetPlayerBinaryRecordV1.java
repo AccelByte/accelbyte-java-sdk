@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminGetPlayerBinaryRecordV1
  *
- * <p>Required permission: `ADMIN:NAMESPACE:{namespace}:USER:{userId}:CLOUDSAVE:RECORD [READ]`
- * Required scope: `social` Get a player binary record by its key.
+ * <p>Get a player binary record by its key.
  */
 @Getter
 @Setter

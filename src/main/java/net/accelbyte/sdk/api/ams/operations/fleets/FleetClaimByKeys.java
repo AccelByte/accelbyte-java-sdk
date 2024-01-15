@@ -21,6 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * FleetClaimByKeys
  *
+ * <p>Claim a dedicated server from fleets with matching claim keys
+ *
  * <p>Required Permission: NAMESPACE:{namespace}:AMS:SERVER:CLAIM [UPDATE]
  */
 @Getter

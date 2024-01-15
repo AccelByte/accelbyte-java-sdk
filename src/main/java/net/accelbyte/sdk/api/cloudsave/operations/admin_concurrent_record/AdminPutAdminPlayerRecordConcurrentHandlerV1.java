@@ -21,55 +21,38 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminPutAdminPlayerRecordConcurrentHandlerV1
  *
- * <p>Required Permission | `ADMIN:NAMESPACE:{namespace}:USER:{userId}:CLOUDSAVE:RECORD [UPDATE]`
- * --------------------|-----------------------------------------------------------------------
- * Required Scope | `social`
- *
  * <p>## Description
  *
  * <p>This endpoints will create new admin player record or replace the existing admin player
  * record.
  *
- * <p>Replace behaviour: The existing value will be replaced completely with the new value.
+ * <p>**Replace behaviour:** The existing value will be replaced completely with the new value.
  *
  * <p>Example - Existing JSON:
  *
- * <p>{ "data1": "value" }
+ * <p>`{ "data1": "value" }`
  *
  * <p>- New JSON:
  *
- * <p>{ "data2": "new value" }
+ * <p>`{ "data2": "new value" }`
  *
  * <p>- Result:
  *
- * <p>{ "data2": "new value" }
+ * <p>`{ "data2": "new value" }`
  *
- * <p>## Restriction
- *
- * <p>This is the restriction of Key Naming for the record: 1. Cannot use "." as the key name -
- *
- * <p>{ "data.2": "value" }
- *
- * <p>2. Cannot use "$" as the prefix in key names -
- *
- * <p>{ "$data": "value" }
- *
- * <p>3. Cannot use empty string in key names -
- *
- * <p>{ "": "value" }
+ * <p>## Restriction This is the restriction of Key Naming for the record: 1. Cannot use **"."** as
+ * the key name - `{ "data.2": "value" }` 2. Cannot use **"$"** as the prefix in key names - `{
+ * "$data": "value" }` 3. Cannot use empty string in key names - `{ "": "value" }`
  *
  * <p>## Reserved Word
  *
- * <p>Reserved Word List: __META
+ * <p>Reserved Word List: **__META**
  *
  * <p>The reserved word cannot be used as a field in record value, If still defining the field when
  * creating or updating the record, it will be ignored.
  *
- * <p>## Parameters Notes
- *
- * <p>1. updatedAt (required: true) Time format style: RFC3339 2. value Json Request Body Example:
- *
- * <p>{ "value": {}, "updatedAt": "2022-03-17T10:42:15.444Z" }
+ * <p>## Parameters Notes 1. updatedAt (required: true) Time format style: RFC3339 2. value Json
+ * **Request Body Example:** ``` { "value": {}, "updatedAt": "2022-03-17T10:42:15.444Z" } ```
  *
  * <p>## Optimistic Concurrency Control
  *

@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getPlayerPublicRecordHandlerV1
  *
- * <p>Required Permission | `NAMESPACE:{namespace}:USER:{userId}:PUBLIC:CLOUDSAVE:RECORD [READ]`
- * --------------------|----------------------------------------------------------------------
- * Required Scope | `social`
- *
  * <p>Get other player's record that is public. Only record with `isPublic=true` that can be
  * retrieved using this endpoint.
  */

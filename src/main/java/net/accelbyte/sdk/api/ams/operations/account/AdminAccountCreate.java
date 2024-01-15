@@ -19,13 +19,13 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * AccountCreate
+ * AdminAccountCreate
  *
  * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [CREATE]
  */
 @Getter
 @Setter
-public class AccountCreate extends Operation {
+public class AdminAccountCreate extends Operation {
   /** generated field's value */
   private String path = "/ams/v1/admin/namespaces/{namespace}/account";
 
@@ -46,7 +46,7 @@ public class AccountCreate extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public AccountCreate(String namespace, ApiAccountCreateRequest body) {
+  public AdminAccountCreate(String namespace, ApiAccountCreateRequest body) {
     this.namespace = namespace;
     this.body = body;
 

@@ -29,13 +29,16 @@ public class ApiArtifactResponse extends Model {
   private String artifactType;
 
   @JsonProperty("createdOn")
-  private ApiTime createdOn;
+  private String createdOn;
 
   @JsonProperty("dsId")
   private String dsId;
 
   @JsonProperty("expiresOn")
-  private ApiTime expiresOn;
+  private String expiresOn;
+
+  @JsonProperty("filename")
+  private String filename;
 
   @JsonProperty("fleetId")
   private String fleetId;
@@ -54,9 +57,6 @@ public class ApiArtifactResponse extends Model {
 
   @JsonProperty("status")
   private String status;
-
-  @JsonProperty("storagePath")
-  private String storagePath;
 
   @JsonIgnore
   public ApiArtifactResponse createFromJson(String json) throws JsonProcessingException {

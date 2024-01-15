@@ -41,6 +41,11 @@ public class ArtifactGet implements Callable<Integer> {
   String artifactType;
 
   @Option(
+      names = {"--count"},
+      description = "count")
+  Integer count;
+
+  @Option(
       names = {"--endDate"},
       description = "endDate")
   String endDate;
@@ -66,9 +71,19 @@ public class ArtifactGet implements Callable<Integer> {
   Integer minSize;
 
   @Option(
+      names = {"--offset"},
+      description = "offset")
+  Integer offset;
+
+  @Option(
       names = {"--region"},
       description = "region")
   String region;
+
+  @Option(
+      names = {"--serverId"},
+      description = "serverId")
+  String serverId;
 
   @Option(
       names = {"--startDate"},
@@ -105,12 +120,15 @@ public class ArtifactGet implements Callable<Integer> {
           net.accelbyte.sdk.api.ams.operations.artifacts.ArtifactGet.builder()
               .namespace(namespace)
               .artifactType(artifactType)
+              .count(count)
               .endDate(endDate)
               .fleetID(fleetID)
               .imageID(imageID)
               .maxSize(maxSize)
               .minSize(minSize)
+              .offset(offset)
               .region(region)
+              .serverId(serverId)
               .startDate(startDate)
               .status(status)
               .build();

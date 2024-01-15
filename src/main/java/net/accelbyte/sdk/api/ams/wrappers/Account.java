@@ -22,27 +22,27 @@ public class Account {
   }
 
   /**
-   * @see AccountGet
+   * @see AdminAccountGet
    */
-  public ApiAccountResponse accountGet(AccountGet input) throws Exception {
+  public ApiAccountResponse adminAccountGet(AdminAccountGet input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
-   * @see AccountCreate
+   * @see AdminAccountCreate
    */
-  public ApiAccountCreateResponse accountCreate(AccountCreate input) throws Exception {
+  public ApiAccountCreateResponse adminAccountCreate(AdminAccountCreate input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
-   * @see AccountLinkTokenGet
+   * @see AdminAccountLinkTokenGet
    */
-  public ApiAccountLinkTokenResponse accountLinkTokenGet(AccountLinkTokenGet input)
+  public ApiAccountLinkTokenResponse adminAccountLinkTokenGet(AdminAccountLinkTokenGet input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -50,9 +50,19 @@ public class Account {
   }
 
   /**
-   * @see AccountLink
+   * @see AdminAccountLinkTokenPost
    */
-  public ApiAccountLinkResponse accountLink(AccountLink input) throws Exception {
+  public ApiAccountLinkResponse adminAccountLinkTokenPost(AdminAccountLinkTokenPost input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AccountGet
+   */
+  public ApiAccountResponse accountGet(AccountGet input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

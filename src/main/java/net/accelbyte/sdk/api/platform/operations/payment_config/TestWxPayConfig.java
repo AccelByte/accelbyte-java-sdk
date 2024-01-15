@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * testWxPayConfig
  *
- * <p>Test WxPay configuration. Reference: [WxPay
+ * <p>[Not Supported Yet In Starter] Test WxPay configuration. Reference: [WxPay
  * Document](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_1). Other detail info:
  *
  * <p>* Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE) * Returns : test

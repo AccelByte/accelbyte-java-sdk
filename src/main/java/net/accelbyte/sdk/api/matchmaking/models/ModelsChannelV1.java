@@ -73,6 +73,9 @@ public class ModelsChannelV1 extends Model {
   @JsonProperty("socialMatchmaking")
   private Boolean socialMatchmaking;
 
+  @JsonProperty("sub_gamemode_selection")
+  private String subGamemodeSelection;
+
   @JsonProperty("ticket_observability_enable")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean ticketObservabilityEnable;

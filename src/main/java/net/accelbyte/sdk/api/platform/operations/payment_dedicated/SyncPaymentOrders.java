@@ -21,8 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * syncPaymentOrders
  *
- * <p>Sync payment orders. If response contains nextEvaluatedKey, please use it as query param in
- * the next call to fetch the next batch, a batch has 1000 elements or less. Other detail info:
+ * <p>[Not Supported Yet In Starter] Sync payment orders. If response contains nextEvaluatedKey,
+ * please use it as query param in the next call to fetch the next batch, a batch has 1000 elements
+ * or less. Other detail info:
  *
  * <p>* Required permission : resource="ADMIN:PAYMENT", action=2 (READ) * Returns : sync payment
  * orders

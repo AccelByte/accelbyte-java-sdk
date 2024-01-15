@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * bulkGetPlayerRecordSizeHandlerV1
  *
- * <p>Required Permission | `ADMIN:NAMESPACE:{namespace}:CLOUDSAVE:RECORD [READ]`
- * --------------------|------------------------------------------------------- Required Scope |
- * `social`
- *
  * <p>Bulk get player's record size, max allowed 20 at a time, that can be retrieved using this
  * endpoint.
  */

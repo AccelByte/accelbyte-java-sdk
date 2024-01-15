@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * testStripeConfig
  *
- * <p>Test stripe configuration.
+ * <p>[Not Supported Yet In Starter] Test stripe configuration.
  *
  * <p>#### Check List:
  *

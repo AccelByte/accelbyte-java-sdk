@@ -46,6 +46,26 @@ public class ModelsGameBinaryRecordResponse extends Model {
   private String updatedAt;
 
   @JsonIgnore
+  public String getSetBy() {
+    return this.setBy;
+  }
+
+  @JsonIgnore
+  public SetBy getSetByAsEnum() {
+    return SetBy.valueOf(this.setBy);
+  }
+
+  @JsonIgnore
+  public void setSetBy(final String setBy) {
+    this.setBy = setBy;
+  }
+
+  @JsonIgnore
+  public void setSetByFromEnum(final SetBy setBy) {
+    this.setBy = setBy.toString();
+  }
+
+  @JsonIgnore
   public ModelsGameBinaryRecordResponse createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
@@ -55,5 +75,35 @@ public class ModelsGameBinaryRecordResponse extends Model {
       throws JsonProcessingException {
     return new ObjectMapper()
         .readValue(json, new TypeReference<List<ModelsGameBinaryRecordResponse>>() {});
+  }
+
+  public enum SetBy {
+    CLIENT("CLIENT"),
+    SERVER("SERVER");
+
+    private String value;
+
+    SetBy(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class ModelsGameBinaryRecordResponseBuilder {
+    private String setBy;
+
+    public ModelsGameBinaryRecordResponseBuilder setBy(final String setBy) {
+      this.setBy = setBy;
+      return this;
+    }
+
+    public ModelsGameBinaryRecordResponseBuilder setByFromEnum(final SetBy setBy) {
+      this.setBy = setBy.toString();
+      return this;
+    }
   }
 }

@@ -23,6 +23,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * ArtifactGet
  *
+ * <p>Get all artifacts matching the provided search criteria. When criteria is not specified the
+ * data returned won't have been filtered on those parameters
+ *
  * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:AMS:ARTIFACT [READ]
  */
 @Getter
@@ -40,12 +43,15 @@ public class ArtifactGet extends Operation {
   private String namespace;
 
   private String artifactType;
+  private Integer count;
   private String endDate;
   private String fleetID;
   private String imageID;
   private Integer maxSize;
   private Integer minSize;
+  private Integer offset;
   private String region;
+  private String serverId;
   private String startDate;
   private String status;
 
@@ -58,22 +64,28 @@ public class ArtifactGet extends Operation {
   public ArtifactGet(
       String namespace,
       String artifactType,
+      Integer count,
       String endDate,
       String fleetID,
       String imageID,
       Integer maxSize,
       Integer minSize,
+      Integer offset,
       String region,
+      String serverId,
       String startDate,
       String status) {
     this.namespace = namespace;
     this.artifactType = artifactType;
+    this.count = count;
     this.endDate = endDate;
     this.fleetID = fleetID;
     this.imageID = imageID;
     this.maxSize = maxSize;
     this.minSize = minSize;
+    this.offset = offset;
     this.region = region;
+    this.serverId = serverId;
     this.startDate = startDate;
     this.status = status;
 
@@ -94,6 +106,7 @@ public class ArtifactGet extends Operation {
     Map<String, List<String>> queryParams = new HashMap<>();
     queryParams.put(
         "artifactType", this.artifactType == null ? null : Arrays.asList(this.artifactType));
+    queryParams.put("count", this.count == null ? null : Arrays.asList(String.valueOf(this.count)));
     queryParams.put("endDate", this.endDate == null ? null : Arrays.asList(this.endDate));
     queryParams.put("fleetID", this.fleetID == null ? null : Arrays.asList(this.fleetID));
     queryParams.put("imageID", this.imageID == null ? null : Arrays.asList(this.imageID));
@@ -101,7 +114,10 @@ public class ArtifactGet extends Operation {
         "maxSize", this.maxSize == null ? null : Arrays.asList(String.valueOf(this.maxSize)));
     queryParams.put(
         "minSize", this.minSize == null ? null : Arrays.asList(String.valueOf(this.minSize)));
+    queryParams.put(
+        "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
     queryParams.put("region", this.region == null ? null : Arrays.asList(this.region));
+    queryParams.put("serverId", this.serverId == null ? null : Arrays.asList(this.serverId));
     queryParams.put("startDate", this.startDate == null ? null : Arrays.asList(this.startDate));
     queryParams.put("status", this.status == null ? null : Arrays.asList(this.status));
     return queryParams;
@@ -129,12 +145,15 @@ public class ArtifactGet extends Operation {
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
     result.put("artifactType", "None");
+    result.put("count", "None");
     result.put("endDate", "None");
     result.put("fleetID", "None");
     result.put("imageID", "None");
     result.put("maxSize", "None");
     result.put("minSize", "None");
+    result.put("offset", "None");
     result.put("region", "None");
+    result.put("serverId", "None");
     result.put("startDate", "None");
     result.put("status", "None");
     return result;

@@ -21,11 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getPlayerRecordHandlerV1
  *
- * <p>Required Permission | `NAMESPACE:{namespace}:USER:{userId}:CLOUDSAVE:RECORD [READ]`
- * --------------------|--------------------------------------------------------------- Required
- * Scope | `social`
- *
- * <p>Get player record by its key. Private Record: Only user that own the player record could
+ * <p>Get player record by its key. **Private Record**: Only user that own the player record could
  * retrieve it.
  */
 @Getter

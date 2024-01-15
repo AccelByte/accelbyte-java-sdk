@@ -21,6 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * FleetUpdate
  *
+ * <p>Optionally, sampling rules for the fleet can also be updated
+ *
  * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:FLEET [UPDATE]
  */
 @Getter

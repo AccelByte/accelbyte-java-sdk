@@ -21,8 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * syncInGameItem
  *
- * <p>This API is used to sync an in game item in game namespace to publisher namespace, only
- * INGAMEITEM, CODE, COINS and SEASON are supported
+ * <p>[Not Supported Yet In Starter] This API is used to sync an in game item in game namespace to
+ * publisher namespace, only INGAMEITEM, CODE, COINS and SEASON are supported
  *
  * <p>The synced item has an additional field targetItemId besides targetNamespace, mostly this item
  * should not modified manually again.

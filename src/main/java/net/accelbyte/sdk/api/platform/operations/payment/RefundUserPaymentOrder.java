@@ -21,8 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * refundUserPaymentOrder
  *
- * <p>[SERVICE COMMUNICATION ONLY] This API is used to refund order by paymentOrderNo from justice
- * service. Other detail info:
+ * <p>[Not Supported Yet In Starter] [SERVICE COMMUNICATION ONLY] This API is used to refund order
+ * by paymentOrderNo from justice service. Other detail info:
  *
  * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:PAYMENT", action=4
  * (UPDATE)
