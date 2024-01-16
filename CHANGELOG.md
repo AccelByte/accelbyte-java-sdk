@@ -4,6 +4,8 @@
 - **integration:** armada is deprecated
 ### fix
 - **test:** disable gdpr integration test for ags starter
+### docs
+- **migrations:** add migration-guide-v0.54-to-v0.55.md
 
 
 <a name="v0.54.0"></a>
