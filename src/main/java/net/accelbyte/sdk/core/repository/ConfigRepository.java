@@ -17,6 +17,10 @@ public interface ConfigRepository {
 
   boolean isAmazonTraceId();
 
+  default boolean isFlightIdEnabled() {
+    return true;
+  }
+
   void activateAmazonTraceId(String version);
 
   void deactivateAmazonTraceId();

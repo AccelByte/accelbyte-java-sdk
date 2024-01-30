@@ -338,7 +338,15 @@ public class AccelByteSDK {
       HttpClient<?> httpClient,
       TokenRepository tokenRepository,
       ConfigRepository configRepository) {
-    this(new AccelByteConfig(httpClient, tokenRepository, configRepository));
+    this(httpClient, tokenRepository, configRepository, FlightIdRepository.getInstance());
+  }
+
+  AccelByteSDK(
+          HttpClient<?> httpClient,
+          TokenRepository tokenRepository,
+          ConfigRepository configRepository,
+          FlightIdRepository flightIdRepository) {
+    this(new AccelByteConfig(httpClient, tokenRepository, configRepository, flightIdRepository));
   }
 
   public AccelByteSDK(AccelByteConfig sdkConfiguration) {
@@ -402,6 +410,15 @@ public class AccelByteSDK {
     if (configRepository.isAmazonTraceId()) {
       final String version = configRepository.getAmazonTraceIdVersion();
       headers.put(HttpHeaders.X_AMZN_TRACE_ID, Helper.generateAmazonTraceId(version));
+    }
+
+    final FlightIdRepository flightIdRepository = sdkConfiguration.getFlightIdRepository();
+    if (configRepository.isFlightIdEnabled()) {
+      if (operation.hasXFlightId()) {
+        headers.put(HttpHeaders.X_FLIGHT_ID, operation.getXFlightId());
+      } else {
+        headers.put(HttpHeaders.X_FLIGHT_ID, flightIdRepository.getFlightId());
+      }
     }
 
     if (configRepository.isClientInfoHeader()) {

@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.google.common.base.Strings;
 import lombok.Getter;
 import lombok.Setter;
 import net.accelbyte.sdk.core.util.Helper;
@@ -25,6 +27,7 @@ public abstract class Operation {
   protected String preferredSecurityMethod = "";
   protected List<String> securities = new ArrayList<>();
   protected String locationQuery = "";
+  /*package-private*/ String xFlightId = "";
 
   public Map<String, String> getPathParams() {
     return new HashMap<>();
@@ -56,6 +59,15 @@ public abstract class Operation {
   }
 
   public abstract boolean isValid();
+
+  /**
+   * if true will override global flightId in SDK level, and the operation
+   * will use flightId specified for this operation
+   * {@link AccelByteConfig#flightIdRepository}
+   */
+  public boolean hasXFlightId() {
+    return !Strings.isNullOrEmpty(xFlightId);
+  }
 
   protected Map<String, String> getCollectionFormatMap() {
     return new HashMap<>();
