@@ -33,6 +33,10 @@ public class AppEntitlementInfo extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String appType;
 
+  @JsonProperty("collectionId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String collectionId;
+
   @JsonProperty("endDate")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String endDate;

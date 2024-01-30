@@ -75,6 +75,10 @@ public class ApimodelsPublicConfiguration extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer leaderElectionGracePeriod;
 
+  @JsonProperty("manualRejoin")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean manualRejoin;
+
   @JsonProperty("maxActiveSession")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer maxActiveSession;

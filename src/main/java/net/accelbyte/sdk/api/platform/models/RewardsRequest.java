@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class RewardsRequest extends Model {
 
+  @JsonProperty("entitlementCollectionId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String entitlementCollectionId;
+
   @JsonProperty("entitlementOrigin")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String entitlementOrigin;

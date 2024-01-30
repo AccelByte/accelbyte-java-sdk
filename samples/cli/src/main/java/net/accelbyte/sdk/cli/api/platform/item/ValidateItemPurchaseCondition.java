@@ -36,6 +36,11 @@ public class ValidateItemPurchaseCondition implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--platform"},
+      description = "platform")
+  String platform;
+
+  @Option(
       names = {"--userId"},
       description = "userId")
   String userId;
@@ -69,6 +74,7 @@ public class ValidateItemPurchaseCondition implements Callable<Integer> {
       final net.accelbyte.sdk.api.platform.operations.item.ValidateItemPurchaseCondition operation =
           net.accelbyte.sdk.api.platform.operations.item.ValidateItemPurchaseCondition.builder()
               .namespace(namespace)
+              .platform(platform)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, ItemPurchaseConditionValidateRequest.class))
               .build();

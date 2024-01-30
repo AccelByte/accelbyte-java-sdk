@@ -60,6 +60,10 @@ public class ItemSnapshot extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean flexible;
 
+  @JsonProperty("inventoryConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private InventoryConfig inventoryConfig;
+
   @JsonProperty("itemId")
   private String itemId;
 

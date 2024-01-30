@@ -57,7 +57,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * true, code will not be generated for party session automatically. - DSManualSetReady (optional,
  * default: false): The DS need to call specific end point to flag the DS for game session is ready
  * to accept client connection. - EnableSecret (optional, default: false): if configuration template
- * is created with TypeDS and EnableSecret is True, A secret will be created
+ * is created with TypeDS and EnableSecret is True, A secret will be created. - ManualRejoin
+ * (optional, default: false): indicates if game client will handle manual rejoin upon websocket
+ * reconnection when enabled.
  */
 @Getter
 @Setter

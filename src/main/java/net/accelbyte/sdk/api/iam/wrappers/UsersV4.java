@@ -33,6 +33,15 @@ public class UsersV4 {
   }
 
   /**
+   * @see AdminCreateUserV4
+   */
+  public AccountCreateUserResponseV4 adminCreateUserV4(AdminCreateUserV4 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminBulkUpdateUserAccountTypeV4
    */
   public void adminBulkUpdateUserAccountTypeV4(AdminBulkUpdateUserAccountTypeV4 input)

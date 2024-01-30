@@ -342,10 +342,10 @@ public class AccelByteSDK {
   }
 
   AccelByteSDK(
-          HttpClient<?> httpClient,
-          TokenRepository tokenRepository,
-          ConfigRepository configRepository,
-          FlightIdRepository flightIdRepository) {
+      HttpClient<?> httpClient,
+      TokenRepository tokenRepository,
+      ConfigRepository configRepository,
+      FlightIdRepository flightIdRepository) {
     this(new AccelByteConfig(httpClient, tokenRepository, configRepository, flightIdRepository));
   }
 

@@ -29,10 +29,10 @@ public class AccelByteConfig {
   }
 
   public AccelByteConfig(
-          HttpClient<?> httpClient,
-          TokenRepository tokenRepository,
-          ConfigRepository configRepository,
-          FlightIdRepository flightIdRepository) {
+      HttpClient<?> httpClient,
+      TokenRepository tokenRepository,
+      ConfigRepository configRepository,
+      FlightIdRepository flightIdRepository) {
     this.httpClient = httpClient;
     this.tokenRepository = tokenRepository;
     this.configRepository = configRepository;

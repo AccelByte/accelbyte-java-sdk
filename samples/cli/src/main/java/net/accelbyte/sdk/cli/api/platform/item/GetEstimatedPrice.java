@@ -36,6 +36,11 @@ public class GetEstimatedPrice implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--platform"},
+      description = "platform")
+  String platform;
+
+  @Option(
       names = {"--region"},
       description = "region")
   String region;
@@ -79,6 +84,7 @@ public class GetEstimatedPrice implements Callable<Integer> {
       final net.accelbyte.sdk.api.platform.operations.item.GetEstimatedPrice operation =
           net.accelbyte.sdk.api.platform.operations.item.GetEstimatedPrice.builder()
               .namespace(namespace)
+              .platform(platform)
               .region(region)
               .storeId(storeId)
               .itemIds(itemIds)

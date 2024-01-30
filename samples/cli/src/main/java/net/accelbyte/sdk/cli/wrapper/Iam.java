@@ -336,6 +336,7 @@ import picocli.CommandLine.Command;
       AdminUnbanDeviceV4.class,
       AdminGetUsersByDeviceV4.class,
       AdminCreateTestUsersV4.class,
+      AdminCreateUserV4.class,
       AdminBulkUpdateUserAccountTypeV4.class,
       AdminBulkCheckValidUserIDV4.class,
       AdminUpdateUserV4.class,

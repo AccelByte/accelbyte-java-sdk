@@ -42,6 +42,34 @@ public class Store {
   }
 
   /**
+   * @see GetCatalogDefinition
+   */
+  public List<CatalogDefinitionInfo> getCatalogDefinition(GetCatalogDefinition input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see DownloadCSVTemplates
+   */
+  public InputStream downloadCSVTemplates(DownloadCSVTemplates input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see ExportStoreByCSV
+   */
+  public InputStream exportStoreByCSV(ExportStoreByCSV input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see ImportStore
    * @deprecated
    */
@@ -130,6 +158,25 @@ public class Store {
    */
   @Deprecated
   public InputStream exportStore(ExportStore input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see QueryImportHistory
+   */
+  public ImportStoreHistoryPagingResult queryImportHistory(QueryImportHistory input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see ImportStoreByCSV
+   */
+  public ImportStoreResult importStoreByCSV(ImportStoreByCSV input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

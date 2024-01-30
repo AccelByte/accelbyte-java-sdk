@@ -34,9 +34,10 @@ public class Clawback {
   /**
    * @see MockPlayStationStreamEvent
    */
-  public void mockPlayStationStreamEvent(MockPlayStationStreamEvent input) throws Exception {
+  public ClawbackInfo mockPlayStationStreamEvent(MockPlayStationStreamEvent input)
+      throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
-    input.handleEmptyResponse(
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 }

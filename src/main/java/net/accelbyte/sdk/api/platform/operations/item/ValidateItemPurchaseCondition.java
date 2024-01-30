@@ -39,6 +39,7 @@ public class ValidateItemPurchaseCondition extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private String platform;
   private String userId;
   private ItemPurchaseConditionValidateRequest body;
 
@@ -50,8 +51,9 @@ public class ValidateItemPurchaseCondition extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public ValidateItemPurchaseCondition(
-      String namespace, String userId, ItemPurchaseConditionValidateRequest body) {
+      String namespace, String platform, String userId, ItemPurchaseConditionValidateRequest body) {
     this.namespace = namespace;
+    this.platform = platform;
     this.userId = userId;
     this.body = body;
 
@@ -70,6 +72,7 @@ public class ValidateItemPurchaseCondition extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("platform", this.platform == null ? null : Arrays.asList(this.platform));
     queryParams.put("userId", this.userId == null ? null : Arrays.asList(this.userId));
     return queryParams;
   }
@@ -104,6 +107,7 @@ public class ValidateItemPurchaseCondition extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("platform", "None");
     result.put("userId", "None");
     return result;
   }

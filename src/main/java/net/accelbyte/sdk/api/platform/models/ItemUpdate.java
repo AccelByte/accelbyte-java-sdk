@@ -72,6 +72,10 @@ public class ItemUpdate extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<Image> images;
 
+  @JsonProperty("inventoryConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private InventoryConfig inventoryConfig;
+
   @JsonProperty("itemIds")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> itemIds;

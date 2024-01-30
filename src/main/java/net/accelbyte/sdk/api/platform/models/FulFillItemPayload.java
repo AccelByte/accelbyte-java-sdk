@@ -28,6 +28,10 @@ public class FulFillItemPayload extends Model {
   @JsonProperty("count")
   private Integer count;
 
+  @JsonProperty("entitlementCollectionId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String entitlementCollectionId;
+
   @JsonProperty("entitlementOrigin")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String entitlementOrigin;

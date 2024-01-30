@@ -37,6 +37,10 @@ public class EntitlementIfc extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String clazz;
 
+  @JsonProperty("collectionId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String collectionId;
+
   @JsonProperty("createdAt")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String createdAt;

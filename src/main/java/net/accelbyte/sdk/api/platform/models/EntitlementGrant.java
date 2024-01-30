@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class EntitlementGrant extends Model {
 
+  @JsonProperty("collectionId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String collectionId;
+
   @JsonProperty("endDate")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String endDate;

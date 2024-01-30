@@ -90,6 +90,10 @@ public class BundledItemInfo extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<Image> images;
 
+  @JsonProperty("inventoryConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private InventoryConfig inventoryConfig;
+
   @JsonProperty("itemId")
   private String itemId;
 

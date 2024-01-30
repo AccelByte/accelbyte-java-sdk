@@ -441,6 +441,16 @@ public class Entitlement {
   }
 
   /**
+   * @see PublicGetUserEntitlementsByIds
+   */
+  public List<EntitlementInfo> publicGetUserEntitlementsByIds(PublicGetUserEntitlementsByIds input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicGetUserEntitlementByItemId
    * @deprecated
    */
@@ -538,6 +548,26 @@ public class Entitlement {
    */
   public EntitlementSoldResult publicSellUserEntitlement(PublicSellUserEntitlement input)
       throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicSplitUserEntitlement
+   */
+  public EntitlementSplitResult publicSplitUserEntitlement(PublicSplitUserEntitlement input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicTransferUserEntitlement
+   */
+  public EntitlementTransferResult publicTransferUserEntitlement(
+      PublicTransferUserEntitlement input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

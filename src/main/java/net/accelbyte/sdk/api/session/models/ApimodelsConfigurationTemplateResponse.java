@@ -86,6 +86,10 @@ public class ApimodelsConfigurationTemplateResponse extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer leaderElectionGracePeriod;
 
+  @JsonProperty("manualRejoin")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean manualRejoin;
+
   @JsonProperty("maxActiveSessions")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer maxActiveSessions;

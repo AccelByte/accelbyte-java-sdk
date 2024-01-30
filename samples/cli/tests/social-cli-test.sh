@@ -367,7 +367,7 @@ eval_tap $? 49 'DeleteStat' test.out
 ./ng net.accelbyte.sdk.cli.Main social updateStat \
     --namespace "$AB_NAMESPACE" \
     --statCode 'lxcft2ulIJzPyrVE' \
-    --body '{"cycleIds": ["m1MiaI1mX2tJoARt", "iOG4UcqsuGKHhMRW", "LVd3DlhLuIpomM8s"], "defaultValue": 0.06079653984735289, "description": "bBe7udsMrok0WvGY", "ignoreAdditionalDataOnValueRejected": false, "isPublic": false, "name": "WjLfFmteue9nzJ6f", "tags": ["yerCSa8SRgwsAj1i", "H24T805tVg8JqU0j", "ZpjvsugAOS7u8RiW"]}' \
+    --body '{"cycleIds": ["m1MiaI1mX2tJoARt", "iOG4UcqsuGKHhMRW", "LVd3DlhLuIpomM8s"], "defaultValue": 0.06079653984735289, "description": "bBe7udsMrok0WvGY", "ignoreAdditionalDataOnValueRejected": false, "isPublic": false, "name": "WjLfFmteue9nzJ6f", "tags": ["yerCSa8SRgwsAj1i", "ZpjvsugAOS7u8RiW", "H24T805tVg8JqU0j"]}' \
     > test.out 2>&1
 eval_tap $? 50 'UpdateStat' test.out
 
@@ -555,7 +555,7 @@ eval_tap $? 71 'BulkResetUserStatItem2' test.out
 #- 72 CreateStat1
 ./ng net.accelbyte.sdk.cli.Main social createStat1 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"cycleIds": ["NqoTow0qiOiC4j0i", "2W7l6jHMA2rG3nak", "opAywelu01nryEJ0"], "defaultValue": 0.16832769118301072, "description": "tm0ZPLkLOsp0LZ5n", "ignoreAdditionalDataOnValueRejected": false, "incrementOnly": false, "isPublic": false, "maximum": 0.949860147176814, "minimum": 0.5331541531348575, "name": "l8kUXzt6bSc6bWvg", "setAsGlobal": true, "setBy": "SERVER", "statCode": "hrTrcBE2ItBS3KtK", "tags": ["ZWe8aoFzAyBME74H", "UtipUWYhWV1qx8Cz", "PML52faXUr9Sk4lq"]}' \
+    --body '{"cycleIds": ["opAywelu01nryEJ0", "2W7l6jHMA2rG3nak", "NqoTow0qiOiC4j0i"], "defaultValue": 0.16832769118301072, "description": "tm0ZPLkLOsp0LZ5n", "ignoreAdditionalDataOnValueRejected": false, "incrementOnly": false, "isPublic": false, "maximum": 0.949860147176814, "minimum": 0.5331541531348575, "name": "l8kUXzt6bSc6bWvg", "setAsGlobal": true, "setBy": "SERVER", "statCode": "hrTrcBE2ItBS3KtK", "tags": ["UtipUWYhWV1qx8Cz", "PML52faXUr9Sk4lq", "ZWe8aoFzAyBME74H"]}' \
     > test.out 2>&1
 eval_tap $? 72 'CreateStat1' test.out
 

@@ -35,6 +35,10 @@ public class AdminOrderCreate extends Model {
   @JsonProperty("discountedPrice")
   private Integer discountedPrice;
 
+  @JsonProperty("entitlementPlatform")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String entitlementPlatform;
+
   @JsonProperty("ext")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ?> ext;
@@ -77,6 +81,26 @@ public class AdminOrderCreate extends Model {
   private String sectionId;
 
   @JsonIgnore
+  public String getEntitlementPlatform() {
+    return this.entitlementPlatform;
+  }
+
+  @JsonIgnore
+  public EntitlementPlatform getEntitlementPlatformAsEnum() {
+    return EntitlementPlatform.valueOf(this.entitlementPlatform);
+  }
+
+  @JsonIgnore
+  public void setEntitlementPlatform(final String entitlementPlatform) {
+    this.entitlementPlatform = entitlementPlatform;
+  }
+
+  @JsonIgnore
+  public void setEntitlementPlatformFromEnum(final EntitlementPlatform entitlementPlatform) {
+    this.entitlementPlatform = entitlementPlatform.toString();
+  }
+
+  @JsonIgnore
   public String getPlatform() {
     return this.platform;
   }
@@ -106,6 +130,29 @@ public class AdminOrderCreate extends Model {
     return new ObjectMapper().readValue(json, new TypeReference<List<AdminOrderCreate>>() {});
   }
 
+  public enum EntitlementPlatform {
+    Epic("Epic"),
+    GooglePlay("GooglePlay"),
+    IOS("IOS"),
+    Nintendo("Nintendo"),
+    Oculus("Oculus"),
+    Other("Other"),
+    Playstation("Playstation"),
+    Steam("Steam"),
+    Xbox("Xbox");
+
+    private String value;
+
+    EntitlementPlatform(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public enum Platform {
     Epic("Epic"),
     GooglePlay("GooglePlay"),
@@ -130,7 +177,19 @@ public class AdminOrderCreate extends Model {
   }
 
   public static class AdminOrderCreateBuilder {
+    private String entitlementPlatform;
     private String platform;
+
+    public AdminOrderCreateBuilder entitlementPlatform(final String entitlementPlatform) {
+      this.entitlementPlatform = entitlementPlatform;
+      return this;
+    }
+
+    public AdminOrderCreateBuilder entitlementPlatformFromEnum(
+        final EntitlementPlatform entitlementPlatform) {
+      this.entitlementPlatform = entitlementPlatform.toString();
+      return this;
+    }
 
     public AdminOrderCreateBuilder platform(final String platform) {
       this.platform = platform;

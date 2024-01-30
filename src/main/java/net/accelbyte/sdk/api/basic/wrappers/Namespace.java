@@ -68,6 +68,24 @@ public class Namespace {
   }
 
   /**
+   * @see GetChildNamespaces
+   */
+  public List<NamespaceInfo> getChildNamespaces(GetChildNamespaces input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see GetNamespaceContext
+   */
+  public NamespaceContext getNamespaceContext(GetNamespaceContext input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetGameNamespaces
    */
   public List<NamespaceInfo> getGameNamespaces(GetGameNamespaces input) throws Exception {

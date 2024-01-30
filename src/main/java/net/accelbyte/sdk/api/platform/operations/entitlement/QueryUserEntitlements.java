@@ -45,6 +45,7 @@ public class QueryUserEntitlements extends Operation {
   private String userId;
   private Boolean activeOnly;
   private String appType;
+  private String collectionId;
   private String entitlementClazz;
   private String entitlementName;
   private List<String> features;
@@ -66,6 +67,7 @@ public class QueryUserEntitlements extends Operation {
       String userId,
       Boolean activeOnly,
       String appType,
+      String collectionId,
       String entitlementClazz,
       String entitlementName,
       List<String> features,
@@ -78,6 +80,7 @@ public class QueryUserEntitlements extends Operation {
     this.userId = userId;
     this.activeOnly = activeOnly;
     this.appType = appType;
+    this.collectionId = collectionId;
     this.entitlementClazz = entitlementClazz;
     this.entitlementName = entitlementName;
     this.features = features;
@@ -109,6 +112,8 @@ public class QueryUserEntitlements extends Operation {
         "activeOnly",
         this.activeOnly == null ? null : Arrays.asList(String.valueOf(this.activeOnly)));
     queryParams.put("appType", this.appType == null ? null : Arrays.asList(this.appType));
+    queryParams.put(
+        "collectionId", this.collectionId == null ? null : Arrays.asList(this.collectionId));
     queryParams.put(
         "entitlementClazz",
         this.entitlementClazz == null ? null : Arrays.asList(this.entitlementClazz));
@@ -153,6 +158,7 @@ public class QueryUserEntitlements extends Operation {
     Map<String, String> result = new HashMap<>();
     result.put("activeOnly", "None");
     result.put("appType", "None");
+    result.put("collectionId", "None");
     result.put("entitlementClazz", "None");
     result.put("entitlementName", "None");
     result.put("features", "multi");

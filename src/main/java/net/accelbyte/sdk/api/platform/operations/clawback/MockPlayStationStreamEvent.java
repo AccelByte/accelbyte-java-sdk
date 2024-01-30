@@ -78,11 +78,13 @@ public class MockPlayStationStreamEvent extends Operation {
     return true;
   }
 
-  public void handleEmptyResponse(int code, String contentType, InputStream payload)
+  public ClawbackInfo parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
-    if (code != 200 && code != 204) {
+    if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
+    final String json = Helper.convertInputStreamToString(payload);
+    return new ClawbackInfo().createFromJson(json);
   }
 }

@@ -36,6 +36,10 @@ public class StackableEntitlementInfo extends Model {
   @JsonProperty("clazz")
   private String clazz;
 
+  @JsonProperty("collectionId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String collectionId;
+
   @JsonProperty("createdAt")
   private String createdAt;
 
@@ -82,6 +86,10 @@ public class StackableEntitlementInfo extends Model {
   @JsonProperty("origin")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String origin;
+
+  @JsonProperty("platformAvailable")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean platformAvailable;
 
   @JsonProperty("sku")
   @JsonInclude(JsonInclude.Include.NON_NULL)

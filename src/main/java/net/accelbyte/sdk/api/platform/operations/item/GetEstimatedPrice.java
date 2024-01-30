@@ -37,6 +37,7 @@ public class GetEstimatedPrice extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private String platform;
   private String region;
   private String storeId;
   private String itemIds;
@@ -51,8 +52,14 @@ public class GetEstimatedPrice extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public GetEstimatedPrice(
-      String namespace, String region, String storeId, String itemIds, String userId) {
+      String namespace,
+      String platform,
+      String region,
+      String storeId,
+      String itemIds,
+      String userId) {
     this.namespace = namespace;
+    this.platform = platform;
     this.region = region;
     this.storeId = storeId;
     this.itemIds = itemIds;
@@ -73,6 +80,7 @@ public class GetEstimatedPrice extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("platform", this.platform == null ? null : Arrays.asList(this.platform));
     queryParams.put("region", this.region == null ? null : Arrays.asList(this.region));
     queryParams.put("storeId", this.storeId == null ? null : Arrays.asList(this.storeId));
     queryParams.put("itemIds", this.itemIds == null ? null : Arrays.asList(this.itemIds));
@@ -107,6 +115,7 @@ public class GetEstimatedPrice extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("platform", "None");
     result.put("region", "None");
     result.put("storeId", "None");
     result.put("itemIds", "None");

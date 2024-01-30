@@ -33,6 +33,10 @@ public class FulfillmentRequest extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String endDate;
 
+  @JsonProperty("entitlementCollectionId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String entitlementCollectionId;
+
   @JsonProperty("entitlementOrigin")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String entitlementOrigin;

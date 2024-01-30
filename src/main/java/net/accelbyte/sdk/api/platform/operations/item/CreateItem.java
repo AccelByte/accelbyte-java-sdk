@@ -248,7 +248,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=1 (CREATE) *
  * Returns : created item data
  *
- * <p>## Restrictions for item extension and localization extension
+ * <p>## Restrictions for item extension and localization extension and inventory config custom
+ * attributes
  *
  * <p>1. Cannot use "." as the key name -
  *

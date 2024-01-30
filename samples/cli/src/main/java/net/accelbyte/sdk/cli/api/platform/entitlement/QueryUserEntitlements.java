@@ -51,6 +51,11 @@ public class QueryUserEntitlements implements Callable<Integer> {
   String appType;
 
   @Option(
+      names = {"--collectionId"},
+      description = "collectionId")
+  String collectionId;
+
+  @Option(
       names = {"--entitlementClazz"},
       description = "entitlementClazz")
   String entitlementClazz;
@@ -117,6 +122,7 @@ public class QueryUserEntitlements implements Callable<Integer> {
               .userId(userId)
               .activeOnly(activeOnly)
               .appType(appType)
+              .collectionId(collectionId)
               .entitlementClazz(entitlementClazz)
               .entitlementName(entitlementName)
               .features(features)

@@ -37,6 +37,7 @@ public class ImportStoreItemInfo extends Model {
   private String itemType;
 
   @JsonProperty("localizations")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, Localization> localizations;
 
   @JsonProperty("name")
