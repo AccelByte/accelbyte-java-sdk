@@ -30,33 +30,12 @@ pipeline {
     }
     stage('Test') {
       stages {
-        stage('Deploy Justice Codegen') {
-          steps {
-            sshagent(credentials: [bitbucketCredentialsSsh]) {
-              sh "rm -rf .justice-codegen-sdk-mock-server"
-              sh "git clone --depth 1 git@bitbucket.org:accelbyte/justice-codegen-sdk-mock-server.git .justice-codegen-sdk-mock-server"
-            }
-          }
-        }
-        stage('CLI Tests') {
-          steps {            
-            sh "make test_cli SDK_MOCK_SERVER_PATH=.justice-codegen-sdk-mock-server"
-          }
-          post {
-            always {
-              script {
-                archiveArtifacts artifacts: 'samples/cli/tests/*.tap'
-                step([$class: "TapPublisher", testResults: "samples/cli/tests/*.tap"])
-              }
-            }
-          }
-        }
         stage('Integration Tests') {
           options {
-            lock("justice-demo-serversdktest")
+            lock("justice-starter-serversdktest")
           }
           steps {
-            withCredentials([file(credentialsId: 'justice-codegen-sdk-integration-test-env', variable: 'ENV_FILE_PATH')]) {
+            withCredentials([file(credentialsId: 'justice-codegen-sdk-integration-starter-test-env', variable: 'ENV_FILE_PATH')]) {
               sh 'make test_integration ENV_FILE_PATH=$ENV_FILE_PATH'
             }
           }
