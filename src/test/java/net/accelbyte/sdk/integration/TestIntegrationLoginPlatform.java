@@ -39,6 +39,10 @@ public class TestIntegrationLoginPlatform extends TestIntegration {
   @Test
   @Order(1)
   public void test() throws Exception {
+    if (isUsingAGSStarter()) {
+      return; // SKIP
+    }
+
     final OkHttpClient phClient = new OkHttpClient();
     final String phantAuthBaseUrl = TestHelper.getPhantauthBaseUrl();
 
