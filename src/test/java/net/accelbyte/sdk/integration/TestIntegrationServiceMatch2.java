@@ -70,6 +70,10 @@ public class TestIntegrationServiceMatch2 extends TestIntegration {
   @Test
   @Order(1)
   public void testMatchPool() throws Exception {
+    if (isUsingAGSStarter()) {
+      return; // SKIP Temporarily disabled in AGS Starter due to issue in session service
+    }
+
     final String nameSuffix = TestHelper.generateRandomId(4);
 
     final String cfgTemplateName = "java_sdk_template_" + nameSuffix;

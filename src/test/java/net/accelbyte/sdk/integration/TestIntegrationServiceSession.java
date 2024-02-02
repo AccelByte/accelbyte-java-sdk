@@ -37,7 +37,6 @@ import net.accelbyte.sdk.api.session.operations.configuration_template.AdminDele
 import net.accelbyte.sdk.api.session.operations.configuration_template.AdminGetConfigurationTemplateV1;
 import net.accelbyte.sdk.api.session.operations.configuration_template.AdminUpdateConfigurationTemplateV1;
 import net.accelbyte.sdk.api.session.operations.game_session.*;
-import net.accelbyte.sdk.api.session.operations.game_session.PublicQueryGameSessionsByAttributes;
 import net.accelbyte.sdk.api.session.operations.party.PublicGetParty;
 import net.accelbyte.sdk.api.session.operations.party.PublicPartyJoinCode;
 import net.accelbyte.sdk.api.session.wrappers.ConfigurationTemplate;
@@ -68,6 +67,10 @@ public class TestIntegrationServiceSession extends TestIntegration {
   @Test
   @Order(1)
   public void testConfigurationTemplate() throws Exception {
+    if (isUsingAGSStarter()) {
+      return; // SKIP Temporarily disabled in AGS Starter due to issue in session service
+    }
+
     final String cfgTemplateName = "java_sdk_template_" + TestHelper.generateRandomId(4);
 
     final ConfigurationTemplate configurationTemplateWrapper = new ConfigurationTemplate(sdk);
@@ -144,6 +147,10 @@ public class TestIntegrationServiceSession extends TestIntegration {
   @Test
   @Order(1)
   public void testGameSession() throws Exception {
+    if (isUsingAGSStarter()) {
+      return; // SKIP Temporarily disabled in AGS Starter due to issue in session service
+    }
+
     final String cfgTemplateName = "java_sdk_template_" + TestHelper.generateRandomId(4);
 
     final ConfigurationTemplate configurationTemplateWrapper = new ConfigurationTemplate(sdk);
@@ -338,6 +345,10 @@ public class TestIntegrationServiceSession extends TestIntegration {
   @Test
   @Order(1)
   public void testParty() throws Exception {
+    if (isUsingAGSStarter()) {
+      return; // SKIP Temporarily disabled in AGS Starter due to issue in session service
+    }
+
     final String cfgTemplateName = "java_sdk_template_" + TestHelper.generateRandomId(4);
 
     final ConfigurationTemplate configurationTemplateWrapper = new ConfigurationTemplate(sdk);
