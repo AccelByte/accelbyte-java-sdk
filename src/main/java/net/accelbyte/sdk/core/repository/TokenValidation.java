@@ -13,4 +13,8 @@ public interface TokenValidation {
   public void setRevocationListRefreshInterval(int seconds);
 
   public int getRevocationListRefreshInterval();
+
+  public void setNamespaceContextRefreshInterval(int seconds);
+
+  public int getNamespaceContextRefreshInterval();
 }

@@ -22,6 +22,7 @@ public class DefaultConfigRepository implements ConfigRepository, TokenValidatio
   private boolean localTokenValidationEnabled = false;
   private int jwksRefreshIntervalSeconds = 300;
   private int revocationListRefreshIntervalSeconds = 300;
+  private int namespaceContextIntervalSeconds = 300;
 
   @Override
   public String getClientId() {
@@ -117,5 +118,15 @@ public class DefaultConfigRepository implements ConfigRepository, TokenValidatio
   @Override
   public int getRevocationListRefreshInterval() {
     return this.revocationListRefreshIntervalSeconds;
+  }
+
+  @Override
+  public void setNamespaceContextRefreshInterval(int seconds) {
+    this.namespaceContextIntervalSeconds = seconds;
+  }
+
+  @Override
+  public int getNamespaceContextRefreshInterval() {
+    return this.namespaceContextIntervalSeconds;
   }
 }
