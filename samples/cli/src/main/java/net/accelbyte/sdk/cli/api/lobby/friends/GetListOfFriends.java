@@ -46,6 +46,11 @@ public class GetListOfFriends implements Callable<Integer> {
   String friendId;
 
   @Option(
+      names = {"--friendIds"},
+      description = "friendIds")
+  List<String> friendIds;
+
+  @Option(
       names = {"--limit"},
       description = "limit")
   Integer limit;
@@ -81,6 +86,7 @@ public class GetListOfFriends implements Callable<Integer> {
               .namespace(namespace)
               .userId(userId)
               .friendId(friendId)
+              .friendIds(friendIds)
               .limit(limit)
               .offset(offset)
               .build();

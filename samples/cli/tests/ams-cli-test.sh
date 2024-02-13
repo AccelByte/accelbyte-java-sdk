@@ -270,28 +270,28 @@ eval_tap $? 30 'AccountGet' test.out
 ./ng net.accelbyte.sdk.cli.Main ams fleetClaimByID \
     --fleetID '8T3GpAnkCmBUqg2S' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"region": "CnqntX9y1aZSWMiV"}' \
+    --body '{"region": "CnqntX9y1aZSWMiV", "sessionId": "i10sG6vxkfUcmqRR"}' \
     > test.out 2>&1
 eval_tap $? 31 'FleetClaimByID' test.out
 
 #- 32 LocalWatchdogConnect
 ./ng net.accelbyte.sdk.cli.Main ams localWatchdogConnect \
     --namespace "$AB_NAMESPACE" \
-    --watchdogID 'i10sG6vxkfUcmqRR' \
+    --watchdogID 'bceJ5i0EeDxOgBnh' \
     > test.out 2>&1
 eval_tap $? 32 'LocalWatchdogConnect' test.out
 
 #- 33 FleetClaimByKeys
 ./ng net.accelbyte.sdk.cli.Main ams fleetClaimByKeys \
     --namespace "$AB_NAMESPACE" \
-    --body '{"claimKeys": ["bceJ5i0EeDxOgBnh", "hqElIaDml48wdNFL", "Tm5T50x9WT0GfH2r"], "regions": ["tOa4EXsXzOXQAk4m", "qrxzTtuLl4XlbGL8", "QOxtjzm8y2wNhmwo"]}' \
+    --body '{"claimKeys": ["hqElIaDml48wdNFL", "Tm5T50x9WT0GfH2r", "tOa4EXsXzOXQAk4m"], "regions": ["qrxzTtuLl4XlbGL8", "QOxtjzm8y2wNhmwo", "YZyI4EFZKBcYrCEA"], "sessionId": "E7WIsfmx40NLRc6m"}' \
     > test.out 2>&1
 eval_tap $? 33 'FleetClaimByKeys' test.out
 
 #- 34 WatchdogConnect
 ./ng net.accelbyte.sdk.cli.Main ams watchdogConnect \
     --namespace "$AB_NAMESPACE" \
-    --watchdogID 'YZyI4EFZKBcYrCEA' \
+    --watchdogID '8heKnWhzfe2Nubeo' \
     > test.out 2>&1
 eval_tap $? 34 'WatchdogConnect' test.out
 

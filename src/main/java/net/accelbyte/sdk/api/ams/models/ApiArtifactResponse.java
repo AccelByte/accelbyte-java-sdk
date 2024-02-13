@@ -52,6 +52,9 @@ public class ApiArtifactResponse extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
+  @JsonProperty("region")
+  private String region;
+
   @JsonProperty("sizeBytes")
   private Integer sizeBytes;
 

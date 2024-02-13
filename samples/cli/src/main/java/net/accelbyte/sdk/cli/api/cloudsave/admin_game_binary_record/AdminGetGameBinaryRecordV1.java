@@ -69,7 +69,8 @@ public class AdminGetGameBinaryRecordV1 implements Callable<Integer> {
                   .key(key)
                   .namespace(namespace)
                   .build();
-      final ModelsGameBinaryRecordResponse response = wrapper.adminGetGameBinaryRecordV1(operation);
+      final ModelsGameBinaryRecordAdminResponse response =
+          wrapper.adminGetGameBinaryRecordV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

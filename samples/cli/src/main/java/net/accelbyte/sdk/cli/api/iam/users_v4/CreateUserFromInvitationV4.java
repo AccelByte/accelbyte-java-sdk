@@ -70,8 +70,7 @@ public class CreateUserFromInvitationV4 implements Callable<Integer> {
           net.accelbyte.sdk.api.iam.operations.users_v4.CreateUserFromInvitationV4.builder()
               .invitationId(invitationId)
               .namespace(namespace)
-              .body(
-                  new ObjectMapper().readValue(body, ModelUserCreateFromInvitationRequestV4.class))
+              .body(new ObjectMapper().readValue(body, AccountCreateUserRequestV4.class))
               .build();
       final AccountCreateUserResponseV4 response = wrapper.createUserFromInvitationV4(operation);
       final String responseString =

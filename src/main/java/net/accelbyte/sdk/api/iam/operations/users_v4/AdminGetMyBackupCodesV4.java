@@ -23,7 +23,10 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>This endpoint is used to get 8-digits backup codes. Each code is a one-time code and will be
  * deleted once used.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminGetMyBackupCodesV4 extends Operation {

@@ -60,6 +60,7 @@ public class ApimodelsUpdateConfigurationTemplateRequest extends Model {
   private String dsSource;
 
   @JsonProperty("enableSecret")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean enableSecret;
 
   @JsonProperty("fallbackClaimKeys")

@@ -34,6 +34,10 @@ public class ModelsGameBinaryRecordCreate extends Model {
   @JsonProperty("set_by")
   private String setBy;
 
+  @JsonProperty("ttl_config")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ModelsTTLConfigDTO ttlConfig;
+
   @JsonIgnore
   public String getSetBy() {
     return this.setBy;

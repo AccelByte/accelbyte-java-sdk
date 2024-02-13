@@ -24,7 +24,7 @@ public class AdminGameBinaryRecord {
   /**
    * @see AdminListGameBinaryRecordsV1
    */
-  public ModelsListGameBinaryRecordsResponse adminListGameBinaryRecordsV1(
+  public ModelsListGameBinaryRecordsAdminResponse adminListGameBinaryRecordsV1(
       AdminListGameBinaryRecordsV1 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -44,8 +44,8 @@ public class AdminGameBinaryRecord {
   /**
    * @see AdminGetGameBinaryRecordV1
    */
-  public ModelsGameBinaryRecordResponse adminGetGameBinaryRecordV1(AdminGetGameBinaryRecordV1 input)
-      throws Exception {
+  public ModelsGameBinaryRecordAdminResponse adminGetGameBinaryRecordV1(
+      AdminGetGameBinaryRecordV1 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
@@ -54,8 +54,8 @@ public class AdminGameBinaryRecord {
   /**
    * @see AdminPutGameBinaryRecordV1
    */
-  public ModelsGameBinaryRecordResponse adminPutGameBinaryRecordV1(AdminPutGameBinaryRecordV1 input)
-      throws Exception {
+  public ModelsGameBinaryRecordAdminResponse adminPutGameBinaryRecordV1(
+      AdminPutGameBinaryRecordV1 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
@@ -73,7 +73,7 @@ public class AdminGameBinaryRecord {
   /**
    * @see AdminPutGameBinaryRecorMetadataV1
    */
-  public ModelsGameBinaryRecordResponse adminPutGameBinaryRecorMetadataV1(
+  public ModelsGameBinaryRecordAdminResponse adminPutGameBinaryRecorMetadataV1(
       AdminPutGameBinaryRecorMetadataV1 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(

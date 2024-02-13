@@ -50,6 +50,10 @@ public class AccountCreateTestUserRequestV4 extends Model {
   @JsonProperty("passwordMD5Sum")
   private String passwordMD5Sum;
 
+  @JsonProperty("uniqueDisplayName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String uniqueDisplayName;
+
   @JsonProperty("username")
   private String username;
 

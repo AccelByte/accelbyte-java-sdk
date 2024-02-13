@@ -26,9 +26,11 @@ import net.accelbyte.sdk.core.Model;
 public class ModelUserRequestFriendRequest extends Model {
 
   @JsonProperty("friendId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String friendId;
 
   @JsonProperty("friendPublicId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String friendPublicId;
 
   @JsonIgnore

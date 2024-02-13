@@ -39,6 +39,7 @@ public class GetListOfFriends extends Operation {
 
   private String userId;
   private String friendId;
+  private List<String> friendIds;
   private Integer limit;
   private Integer offset;
 
@@ -50,10 +51,16 @@ public class GetListOfFriends extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public GetListOfFriends(
-      String namespace, String userId, String friendId, Integer limit, Integer offset) {
+      String namespace,
+      String userId,
+      String friendId,
+      List<String> friendIds,
+      Integer limit,
+      Integer offset) {
     this.namespace = namespace;
     this.userId = userId;
     this.friendId = friendId;
+    this.friendIds = friendIds;
     this.limit = limit;
     this.offset = offset;
 
@@ -76,6 +83,7 @@ public class GetListOfFriends extends Operation {
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
     queryParams.put("friendId", this.friendId == null ? null : Arrays.asList(this.friendId));
+    queryParams.put("friendIds", this.friendIds == null ? null : this.friendIds);
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
@@ -107,6 +115,7 @@ public class GetListOfFriends extends Operation {
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
     result.put("friendId", "None");
+    result.put("friendIds", "csv");
     result.put("limit", "None");
     result.put("offset", "None");
     return result;

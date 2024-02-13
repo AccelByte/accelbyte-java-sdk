@@ -28,6 +28,10 @@ public class ModelUserPublicInfoResponseV4 extends Model {
   @JsonProperty("displayName")
   private String displayName;
 
+  @JsonProperty("uniqueDisplayName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String uniqueDisplayName;
+
   @JsonProperty("userId")
   private String userId;
 

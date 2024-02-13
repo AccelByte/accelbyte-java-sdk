@@ -50,6 +50,10 @@ public class AccountUpgradeHeadlessAccountWithVerificationCodeRequestV4 extends 
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean reachMinimumAge;
 
+  @JsonProperty("uniqueDisplayName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String uniqueDisplayName;
+
   @JsonProperty("username")
   private String username;
 

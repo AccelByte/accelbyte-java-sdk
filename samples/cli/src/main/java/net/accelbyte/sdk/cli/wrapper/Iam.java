@@ -10,6 +10,7 @@ package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.iam.bans.*;
 import net.accelbyte.sdk.cli.api.iam.clients.*;
+import net.accelbyte.sdk.cli.api.iam.config.*;
 import net.accelbyte.sdk.cli.api.iam.country.*;
 import net.accelbyte.sdk.cli.api.iam.devices_v4.*;
 import net.accelbyte.sdk.cli.api.iam.input_validations.*;
@@ -155,6 +156,7 @@ import picocli.CommandLine.Command;
       AdminUpdateClientPermissionV3.class,
       AdminAddClientPermissionsV3.class,
       AdminDeleteClientPermissionV3.class,
+      AdminGetConfigValueV3.class,
       AdminGetCountryListV3.class,
       AdminGetCountryBlacklistV3.class,
       AdminAddCountryBlacklistV3.class,
@@ -268,6 +270,7 @@ import picocli.CommandLine.Command;
       PublicGetInputValidations.class,
       PublicGetInputValidationByField.class,
       PublicGetCountryAgeRestrictionV3.class,
+      PublicGetConfigValueV3.class,
       PublicGetCountryListV3.class,
       RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3.class,
       RetrieveActiveOIDCClientsPublicV3.class,
@@ -367,6 +370,9 @@ import picocli.CommandLine.Command;
       AdminDisableMyBackupCodesV4.class,
       AdminDownloadMyBackupCodesV4.class,
       AdminEnableMyBackupCodesV4.class,
+      AdminGetBackupCodesV4.class,
+      AdminGenerateBackupCodesV4.class,
+      AdminEnableBackupCodesV4.class,
       AdminSendMyMFAEmailCodeV4.class,
       AdminDisableMyEmailV4.class,
       AdminEnableMyEmailV4.class,
@@ -388,6 +394,9 @@ import picocli.CommandLine.Command;
       PublicDisableMyBackupCodesV4.class,
       PublicDownloadMyBackupCodesV4.class,
       PublicEnableMyBackupCodesV4.class,
+      PublicGetBackupCodesV4.class,
+      PublicGenerateBackupCodesV4.class,
+      PublicEnableBackupCodesV4.class,
       PublicRemoveTrustedDeviceV4.class,
       PublicSendMyMFAEmailCodeV4.class,
       PublicDisableMyEmailV4.class,

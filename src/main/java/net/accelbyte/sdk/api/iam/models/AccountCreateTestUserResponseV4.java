@@ -46,6 +46,10 @@ public class AccountCreateTestUserResponseV4 extends Model {
   @JsonProperty("password")
   private String password;
 
+  @JsonProperty("uniqueDisplayName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String uniqueDisplayName;
+
   @JsonProperty("userId")
   private String userId;
 

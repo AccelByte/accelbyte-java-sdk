@@ -43,6 +43,10 @@ public class ModelUserCreateResponseV3 extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
+  @JsonProperty("uniqueDisplayName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String uniqueDisplayName;
+
   @JsonProperty("userId")
   private String userId;
 

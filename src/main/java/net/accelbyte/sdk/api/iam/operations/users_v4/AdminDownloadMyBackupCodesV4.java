@@ -21,7 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * AdminDownloadMyBackupCodesV4
  *
  * <p>This endpoint is used to download backup codes.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminDownloadMyBackupCodesV4 extends Operation {

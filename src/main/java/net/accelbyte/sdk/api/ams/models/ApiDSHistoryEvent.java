@@ -31,9 +31,6 @@ public class ApiDSHistoryEvent extends Model {
   @JsonProperty("exitCode")
   private Integer exitCode;
 
-  @JsonProperty("gameSession")
-  private String gameSession;
-
   @JsonProperty("ipAddress")
   private String ipAddress;
 

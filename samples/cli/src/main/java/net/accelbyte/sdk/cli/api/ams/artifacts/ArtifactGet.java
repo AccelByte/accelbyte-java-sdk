@@ -132,7 +132,7 @@ public class ArtifactGet implements Callable<Integer> {
               .startDate(startDate)
               .status(status)
               .build();
-      final List<ApiArtifactResponse> response = wrapper.artifactGet(operation);
+      final ApiArtifactListResponse response = wrapper.artifactGet(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

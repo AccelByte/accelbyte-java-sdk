@@ -27,6 +27,9 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>EMAILPASSWD: an authentication type used for new user registration through email.
  *
+ * <p>**Note**: * **uniqueDisplayName**: this is required when
+ * uniqueDisplayNameEnabled/UNIQUE_DISPLAY_NAME_ENABLED is true.
+ *
  * <p>Country use ISO3166-1 alpha-2 two letter, e.g. US.
  *
  * <p>Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
@@ -53,7 +56,7 @@ public class CreateUserFromInvitationV4 extends Operation {
   private String invitationId;
 
   private String namespace;
-  private ModelUserCreateFromInvitationRequestV4 body;
+  private AccountCreateUserRequestV4 body;
 
   /**
    * @param invitationId required
@@ -64,7 +67,7 @@ public class CreateUserFromInvitationV4 extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public CreateUserFromInvitationV4(
-      String invitationId, String namespace, ModelUserCreateFromInvitationRequestV4 body) {
+      String invitationId, String namespace, AccountCreateUserRequestV4 body) {
     this.invitationId = invitationId;
     this.namespace = namespace;
     this.body = body;
@@ -85,7 +88,7 @@ public class CreateUserFromInvitationV4 extends Operation {
   }
 
   @Override
-  public ModelUserCreateFromInvitationRequestV4 getBodyParams() {
+  public AccountCreateUserRequestV4 getBodyParams() {
     return this.body;
   }
 

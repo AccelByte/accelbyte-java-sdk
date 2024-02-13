@@ -28,6 +28,9 @@ public class ApiFleetClaimReq extends Model {
   @JsonProperty("region")
   private String region;
 
+  @JsonProperty("sessionId")
+  private String sessionId;
+
   @JsonIgnore
   public ApiFleetClaimReq createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

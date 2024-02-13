@@ -100,6 +100,15 @@ public class Player {
   }
 
   /**
+   * @see PublicPlayerBlockPlayersV1
+   */
+  public void publicPlayerBlockPlayersV1(PublicPlayerBlockPlayersV1 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicGetPlayerBlockedPlayersV1
    */
   public ModelsGetAllPlayerBlockedUsersResponse publicGetPlayerBlockedPlayersV1(
@@ -116,6 +125,15 @@ public class Player {
       PublicGetPlayerBlockedByPlayersV1 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicUnblockPlayerV1
+   */
+  public void publicUnblockPlayerV1(PublicUnblockPlayerV1 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 }

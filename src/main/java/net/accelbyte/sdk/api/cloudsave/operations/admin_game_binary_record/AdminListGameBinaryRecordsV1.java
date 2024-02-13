@@ -84,14 +84,14 @@ public class AdminListGameBinaryRecordsV1 extends Operation {
     return true;
   }
 
-  public ModelsListGameBinaryRecordsResponse parseResponse(
+  public ModelsListGameBinaryRecordsAdminResponse parseResponse(
       int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ModelsListGameBinaryRecordsResponse().createFromJson(json);
+    return new ModelsListGameBinaryRecordsAdminResponse().createFromJson(json);
   }
 
   @Override

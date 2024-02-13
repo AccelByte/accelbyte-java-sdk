@@ -1,3 +1,14 @@
+<a name="v0.57.0"></a>
+## [v0.57.0]
+### ci
+- **nightly-starter:** separate from nightly
+### test
+- **integration:** temporarily disable configuration template tests in ags starter
+- **integration:** disable TestIntegrationLoginPlatform in ags starter
+### feat
+- **:** namespace revamp token validation
+
+
 <a name="v0.56.0"></a>
 ## [v0.56.0]
 ### feat

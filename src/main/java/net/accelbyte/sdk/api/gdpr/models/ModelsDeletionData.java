@@ -34,6 +34,9 @@ public class ModelsDeletionData extends Model {
   @JsonProperty("Status")
   private String status;
 
+  @JsonProperty("UniqueDisplayName")
+  private String uniqueDisplayName;
+
   @JsonProperty("UserID")
   private String userID;
 

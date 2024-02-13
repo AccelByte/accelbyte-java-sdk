@@ -72,7 +72,11 @@ public class FleetArtifactSamplingRulesSet implements Callable<Integer> {
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ApiFleetArtifactsSampleRules.class))
               .build();
-      wrapper.fleetArtifactSamplingRulesSet(operation);
+      final ApiFleetArtifactsSampleRules response =
+          wrapper.fleetArtifactSamplingRulesSet(operation);
+      final String responseString =
+          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
+      log.info("Operation successful\n{}", responseString);
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

@@ -77,7 +77,7 @@ public class AdminPutGameBinaryRecorMetadataV1 implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, ModelsGameBinaryRecordMetadataRequest.class))
                   .build();
-      final ModelsGameBinaryRecordResponse response =
+      final ModelsGameBinaryRecordAdminResponse response =
           wrapper.adminPutGameBinaryRecorMetadataV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

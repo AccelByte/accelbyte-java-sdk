@@ -74,7 +74,7 @@ public class TestFlightId {
     sdk.loginUser(
         "testUser",
         "testPassword"); // this call will fail, but it's fine since we only need to capture the
-                         // request header
+    // request header
 
     // then
     List<LoggedRequest> requests =

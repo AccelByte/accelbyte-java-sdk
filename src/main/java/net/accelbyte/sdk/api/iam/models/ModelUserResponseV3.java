@@ -121,6 +121,10 @@ public class ModelUserResponseV3 extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean testAccount;
 
+  @JsonProperty("uniqueDisplayName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String uniqueDisplayName;
+
   @JsonProperty("userId")
   private String userId;
 

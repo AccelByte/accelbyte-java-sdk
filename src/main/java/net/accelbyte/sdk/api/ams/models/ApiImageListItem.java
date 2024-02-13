@@ -28,6 +28,9 @@ public class ApiImageListItem extends Model {
   @JsonProperty("createdAt")
   private String createdAt;
 
+  @JsonProperty("executable")
+  private String executable;
+
   @JsonProperty("id")
   private String id;
 

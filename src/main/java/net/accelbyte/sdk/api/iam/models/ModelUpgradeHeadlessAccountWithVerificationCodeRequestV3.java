@@ -46,6 +46,10 @@ public class ModelUpgradeHeadlessAccountWithVerificationCodeRequestV3 extends Mo
   @JsonProperty("password")
   private String password;
 
+  @JsonProperty("uniqueDisplayName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String uniqueDisplayName;
+
   @JsonProperty("validateOnly")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean validateOnly;

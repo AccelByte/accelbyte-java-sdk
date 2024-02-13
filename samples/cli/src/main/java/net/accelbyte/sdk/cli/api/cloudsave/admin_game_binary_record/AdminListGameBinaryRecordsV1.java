@@ -81,7 +81,7 @@ public class AdminListGameBinaryRecordsV1 implements Callable<Integer> {
                   .offset(offset)
                   .query(query)
                   .build();
-      final ModelsListGameBinaryRecordsResponse response =
+      final ModelsListGameBinaryRecordsAdminResponse response =
           wrapper.adminListGameBinaryRecordsV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

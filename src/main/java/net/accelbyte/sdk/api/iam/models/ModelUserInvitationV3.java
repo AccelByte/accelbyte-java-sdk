@@ -39,6 +39,10 @@ public class ModelUserInvitationV3 extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String id;
 
+  @JsonProperty("isNewStudio")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean isNewStudio;
+
   @JsonProperty("namespace")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String namespace;
@@ -49,6 +53,10 @@ public class ModelUserInvitationV3 extends Model {
 
   @JsonProperty("roles")
   private List<AccountcommonNamespaceRole> roles;
+
+  @JsonProperty("studioNamespace")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String studioNamespace;
 
   @JsonIgnore
   public ModelUserInvitationV3 createFromJson(String json) throws JsonProcessingException {

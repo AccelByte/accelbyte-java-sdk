@@ -34,6 +34,10 @@ public class ModelUserBaseInfo extends Model {
   @JsonProperty("platformUserIds")
   private Map<String, String> platformUserIds;
 
+  @JsonProperty("uniqueDisplayName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String uniqueDisplayName;
+
   @JsonProperty("userId")
   private String userId;
 

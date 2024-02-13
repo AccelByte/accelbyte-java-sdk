@@ -37,6 +37,9 @@ public class AccountcommonUserWithLinkedPlatformAccounts extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
+  @JsonProperty("uniqueDisplayName")
+  private String uniqueDisplayName;
+
   @JsonProperty("userId")
   private String userId;
 

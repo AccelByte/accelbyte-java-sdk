@@ -24,6 +24,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Available Authentication Types: 1. **EMAILPASSWD**: an authentication type used for new user
  * registration through email.
  *
+ * <p>**Note**: * **uniqueDisplayName**: this is required when
+ * uniqueDisplayNameEnabled/UNIQUE_DISPLAY_NAME_ENABLED is true.
+ *
  * <p>Country use ISO3166-1 alpha-2 two letter, e.g. US. Date of Birth format : YYYY-MM-DD, e.g.
  * 2019-04-29. This endpoint support accepting agreements for the created user. Supply the accepted
  * agreements in acceptedPolicies attribute.

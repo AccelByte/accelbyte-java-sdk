@@ -92,6 +92,10 @@ public class AccountUserResponseV4 extends Model {
   @JsonProperty("roles")
   private List<String> roles;
 
+  @JsonProperty("uniqueDisplayName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String uniqueDisplayName;
+
   @JsonProperty("userId")
   private String userId;
 

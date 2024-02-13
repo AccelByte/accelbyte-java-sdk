@@ -83,6 +83,10 @@ public class OauthmodelTokenResponseV3 extends Model {
   @JsonProperty("token_type")
   private String tokenType;
 
+  @JsonProperty("unique_display_name")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String uniqueDisplayName;
+
   @JsonProperty("user_id")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String userId;

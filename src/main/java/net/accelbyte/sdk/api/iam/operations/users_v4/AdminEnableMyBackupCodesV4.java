@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * AdminEnableMyBackupCodesV4
  *
  * <p>This endpoint is used to enable 2FA backup codes.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminEnableMyBackupCodesV4 extends Operation {

@@ -75,7 +75,8 @@ public class AdminPostGameRecordHandlerV1 implements Callable<Integer> {
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelsGameRecordRequest.class))
                   .build();
-      final ModelsGameRecordResponse response = wrapper.adminPostGameRecordHandlerV1(operation);
+      final ModelsGameRecordAdminResponse response =
+          wrapper.adminPostGameRecordHandlerV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -114,6 +114,10 @@ public class ModelUserResponse extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String xuid;
 
+  @JsonProperty("uniqueDisplayName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String uniqueDisplayName;
+
   @JsonIgnore
   public ModelUserResponse createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

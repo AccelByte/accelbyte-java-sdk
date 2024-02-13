@@ -24,6 +24,7 @@
 | `/friends/sync/namespaces/{namespace}/me` | PATCH | SyncNativeFriends | [SyncNativeFriends](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/friends/SyncNativeFriends.java) | [SyncNativeFriends](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/friends/SyncNativeFriends.java) |
 | `/lobby/v1/admin/friend/namespaces/{namespace}/users/{userId}` | GET | GetListOfFriends | [GetListOfFriends](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/friends/GetListOfFriends.java) | [GetListOfFriends](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/friends/GetListOfFriends.java) |
 | `/lobby/v1/admin/friend/namespaces/{namespace}/users/{userId}/incoming` | GET | GetIncomingFriendRequests | [GetIncomingFriendRequests](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/friends/GetIncomingFriendRequests.java) | [GetIncomingFriendRequests](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/friends/GetIncomingFriendRequests.java) |
+| `/lobby/v1/admin/friend/namespaces/{namespace}/users/{userId}/of-friends` | GET | AdminListFriendsOfFriends | [AdminListFriendsOfFriends](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/friends/AdminListFriendsOfFriends.java) | [AdminListFriendsOfFriends](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/friends/AdminListFriendsOfFriends.java) |
 | `/lobby/v1/admin/friend/namespaces/{namespace}/users/{userId}/outgoing` | GET | GetOutgoingFriendRequests | [GetOutgoingFriendRequests](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/friends/GetOutgoingFriendRequests.java) | [GetOutgoingFriendRequests](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/friends/GetOutgoingFriendRequests.java) |
 
 ### config Wrapper:  [Config](../../src/main/java/net/accelbyte/sdk/api/lobby/wrappers/Config.java)
@@ -110,8 +111,10 @@
 | `/lobby/v1/admin/player/namespaces/{namespace}/users/{userId}/blocked` | GET | AdminGetPlayerBlockedPlayersV1 | [AdminGetPlayerBlockedPlayersV1](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/player/AdminGetPlayerBlockedPlayersV1.java) | [AdminGetPlayerBlockedPlayersV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/player/AdminGetPlayerBlockedPlayersV1.java) |
 | `/lobby/v1/admin/player/namespaces/{namespace}/users/{userId}/blocked-by` | GET | AdminGetPlayerBlockedByPlayersV1 | [AdminGetPlayerBlockedByPlayersV1](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/player/AdminGetPlayerBlockedByPlayersV1.java) | [AdminGetPlayerBlockedByPlayersV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/player/AdminGetPlayerBlockedByPlayersV1.java) |
 | `/lobby/v1/admin/player/namespaces/{namespace}/users/{userId}/bulk/block` | POST | AdminBulkBlockPlayersV1 | [AdminBulkBlockPlayersV1](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/player/AdminBulkBlockPlayersV1.java) | [AdminBulkBlockPlayersV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/player/AdminBulkBlockPlayersV1.java) |
+| `/lobby/v1/public/player/namespaces/{namespace}/users/me/block` | POST | PublicPlayerBlockPlayersV1 | [PublicPlayerBlockPlayersV1](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/player/PublicPlayerBlockPlayersV1.java) | [PublicPlayerBlockPlayersV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/player/PublicPlayerBlockPlayersV1.java) |
 | `/lobby/v1/public/player/namespaces/{namespace}/users/me/blocked` | GET | PublicGetPlayerBlockedPlayersV1 | [PublicGetPlayerBlockedPlayersV1](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/player/PublicGetPlayerBlockedPlayersV1.java) | [PublicGetPlayerBlockedPlayersV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/player/PublicGetPlayerBlockedPlayersV1.java) |
 | `/lobby/v1/public/player/namespaces/{namespace}/users/me/blocked-by` | GET | PublicGetPlayerBlockedByPlayersV1 | [PublicGetPlayerBlockedByPlayersV1](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/player/PublicGetPlayerBlockedByPlayersV1.java) | [PublicGetPlayerBlockedByPlayersV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/player/PublicGetPlayerBlockedByPlayersV1.java) |
+| `/lobby/v1/public/player/namespaces/{namespace}/users/me/unblock` | POST | PublicUnblockPlayerV1 | [PublicUnblockPlayerV1](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/player/PublicUnblockPlayerV1.java) | [PublicUnblockPlayerV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/player/PublicUnblockPlayerV1.java) |
 
 ### profanity Wrapper:  [Profanity](../../src/main/java/net/accelbyte/sdk/api/lobby/wrappers/Profanity.java)
 | Endpoint | Method | ID | Class | Example |
@@ -162,6 +165,8 @@
 | `model.FreeFormNotificationRequest` | [ModelFreeFormNotificationRequest](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelFreeFormNotificationRequest.java) |
 | `model.FreeFormNotificationRequestV1` | [ModelFreeFormNotificationRequestV1](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelFreeFormNotificationRequestV1.java) |
 | `model.FriendWithPlatform` | [ModelFriendWithPlatform](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelFriendWithPlatform.java) |
+| `model.FriendshipConnection` | [ModelFriendshipConnection](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelFriendshipConnection.java) |
+| `model.FriendshipConnectionResponse` | [ModelFriendshipConnectionResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelFriendshipConnectionResponse.java) |
 | `model.GetAllNotificationTemplateSlugResp` | [ModelGetAllNotificationTemplateSlugResp](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelGetAllNotificationTemplateSlugResp.java) |
 | `model.GetAllNotificationTopicsResponse` | [ModelGetAllNotificationTopicsResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelGetAllNotificationTopicsResponse.java) |
 | `model.GetFriendsResponse` | [ModelGetFriendsResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelGetFriendsResponse.java) |
@@ -210,6 +215,7 @@
 | `models.AdminUpdateProfanityList` | [ModelsAdminUpdateProfanityList](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsAdminUpdateProfanityList.java) |
 | `models.AdminVerifyMessageProfanityRequest` | [ModelsAdminVerifyMessageProfanityRequest](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsAdminVerifyMessageProfanityRequest.java) |
 | `models.AdminVerifyMessageProfanityResponse` | [ModelsAdminVerifyMessageProfanityResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsAdminVerifyMessageProfanityResponse.java) |
+| `models.BlockPlayerRequest` | [ModelsBlockPlayerRequest](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsBlockPlayerRequest.java) |
 | `models.BlockedByPlayerData` | [ModelsBlockedByPlayerData](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsBlockedByPlayerData.java) |
 | `models.BlockedPlayerData` | [ModelsBlockedPlayerData](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsBlockedPlayerData.java) |
 | `models.Config` | [ModelsConfig](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsConfig.java) |
@@ -234,6 +240,7 @@
 | `models.ProfanityFilter` | [ModelsProfanityFilter](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsProfanityFilter.java) |
 | `models.ProfanityRule` | [ModelsProfanityRule](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsProfanityRule.java) |
 | `models.SetPlayerSessionAttributeRequest` | [ModelsSetPlayerSessionAttributeRequest](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsSetPlayerSessionAttributeRequest.java) |
+| `models.UnblockPlayerRequest` | [ModelsUnblockPlayerRequest](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsUnblockPlayerRequest.java) |
 | `models.UpdateConfigRequest` | [ModelsUpdateConfigRequest](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsUpdateConfigRequest.java) |
 | `models.UpdateConfigResponse` | [ModelsUpdateConfigResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsUpdateConfigResponse.java) |
 | `response.Error` | [ResponseError](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ResponseError.java) |

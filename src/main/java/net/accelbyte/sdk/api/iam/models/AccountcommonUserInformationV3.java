@@ -43,6 +43,10 @@ public class AccountcommonUserInformationV3 extends Model {
   @JsonProperty("platformUsers")
   private List<AccountcommonPlatformUserInformationV3> platformUsers;
 
+  @JsonProperty("uniqueDisplayName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String uniqueDisplayName;
+
   @JsonProperty("username")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String username;

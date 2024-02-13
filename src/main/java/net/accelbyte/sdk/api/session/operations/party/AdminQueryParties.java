@@ -37,6 +37,7 @@ public class AdminQueryParties extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private String isSoftDeleted;
   private String joinability;
   private String key;
   private String leaderID;
@@ -57,6 +58,7 @@ public class AdminQueryParties extends Operation {
   @Deprecated
   public AdminQueryParties(
       String namespace,
+      String isSoftDeleted,
       String joinability,
       String key,
       String leaderID,
@@ -69,6 +71,7 @@ public class AdminQueryParties extends Operation {
       String partyID,
       String value) {
     this.namespace = namespace;
+    this.isSoftDeleted = isSoftDeleted;
     this.joinability = joinability;
     this.key = key;
     this.leaderID = leaderID;
@@ -96,6 +99,8 @@ public class AdminQueryParties extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "isSoftDeleted", this.isSoftDeleted == null ? null : Arrays.asList(this.isSoftDeleted));
     queryParams.put(
         "joinability", this.joinability == null ? null : Arrays.asList(this.joinability));
     queryParams.put("key", this.key == null ? null : Arrays.asList(this.key));
@@ -134,6 +139,7 @@ public class AdminQueryParties extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("isSoftDeleted", "None");
     result.put("joinability", "None");
     result.put("key", "None");
     result.put("leaderID", "None");

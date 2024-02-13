@@ -24,7 +24,12 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>This endpoint create user from saved roles when creating invitation and submitted data. User
  * will be able to login after completing submitting the data through this endpoint. Available
  * Authentication Types: EMAILPASSWD: an authentication type used for new user registration through
- * email. Country use ISO3166-1 alpha-2 two letter, e.g. US. Date of Birth format : YYYY-MM-DD, e.g.
+ * email.
+ *
+ * <p>**Note**: * **uniqueDisplayName**: this is required when
+ * uniqueDisplayNameEnabled/UNIQUE_DISPLAY_NAME_ENABLED is true.
+ *
+ * <p>Country use ISO3166-1 alpha-2 two letter, e.g. US. Date of Birth format : YYYY-MM-DD, e.g.
  * 2019-04-29.
  */
 @Getter
@@ -42,7 +47,7 @@ public class CreateUserFromInvitationV3 extends Operation {
   private String invitationId;
 
   private String namespace;
-  private ModelUserCreateFromInvitationRequestV3 body;
+  private ModelUserCreateRequestV3 body;
 
   /**
    * @param invitationId required
@@ -53,7 +58,7 @@ public class CreateUserFromInvitationV3 extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public CreateUserFromInvitationV3(
-      String invitationId, String namespace, ModelUserCreateFromInvitationRequestV3 body) {
+      String invitationId, String namespace, ModelUserCreateRequestV3 body) {
     this.invitationId = invitationId;
     this.namespace = namespace;
     this.body = body;
@@ -74,7 +79,7 @@ public class CreateUserFromInvitationV3 extends Operation {
   }
 
   @Override
-  public ModelUserCreateFromInvitationRequestV3 getBodyParams() {
+  public ModelUserCreateRequestV3 getBodyParams() {
     return this.body;
   }
 

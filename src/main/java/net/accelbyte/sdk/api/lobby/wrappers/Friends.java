@@ -185,6 +185,16 @@ public class Friends {
   }
 
   /**
+   * @see AdminListFriendsOfFriends
+   */
+  public ModelFriendshipConnectionResponse adminListFriendsOfFriends(
+      AdminListFriendsOfFriends input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetOutgoingFriendRequests
    */
   public ModelLoadOutgoingFriendsWithTimeResponse getOutgoingFriendRequests(

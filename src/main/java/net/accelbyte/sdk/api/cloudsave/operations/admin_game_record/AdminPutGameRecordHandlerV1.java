@@ -52,9 +52,11 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>**Metadata List:** 1. set_by (default: CLIENT, type: string) Indicate which party that could
  * modify the game record. SERVER: record can be modified by server only. CLIENT: record can be
- * modified by client and server.
+ * modified by client and server. 2. ttl_config (default: *empty*, type: object) Indicate the TTL
+ * configuration for the game record. action: - DELETE: record will be deleted after TTL is reached
  *
- * <p>**Request Body Example:** ``` { "__META": { "set_by": "SERVER" } ... } ```
+ * <p>**Request Body Example:** ``` { "__META": { "set_by": "SERVER", "ttl_config": { "expires_at":
+ * "2026-01-02T15:04:05Z", // should be in RFC3339 format "action": "DELETE" } } ... } ```
  */
 @Getter
 @Setter
@@ -117,13 +119,13 @@ public class AdminPutGameRecordHandlerV1 extends Operation {
     return true;
   }
 
-  public ModelsGameRecordResponse parseResponse(int code, String contentType, InputStream payload)
-      throws HttpResponseException, IOException {
+  public ModelsGameRecordAdminResponse parseResponse(
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ModelsGameRecordResponse().createFromJson(json);
+    return new ModelsGameRecordAdminResponse().createFromJson(json);
   }
 }

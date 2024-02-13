@@ -85,13 +85,13 @@ public class AdminPutGameBinaryRecorMetadataV1 extends Operation {
     return true;
   }
 
-  public ModelsGameBinaryRecordResponse parseResponse(
+  public ModelsGameBinaryRecordAdminResponse parseResponse(
       int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ModelsGameBinaryRecordResponse().createFromJson(json);
+    return new ModelsGameBinaryRecordAdminResponse().createFromJson(json);
   }
 }

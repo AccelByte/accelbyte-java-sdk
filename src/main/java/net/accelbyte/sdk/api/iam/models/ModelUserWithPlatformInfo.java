@@ -36,6 +36,10 @@ public class ModelUserWithPlatformInfo extends Model {
   @JsonProperty("platformInfos")
   private List<ModelUserPlatformInfo> platformInfos;
 
+  @JsonProperty("uniqueDisplayName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String uniqueDisplayName;
+
   @JsonProperty("userId")
   private String userId;
 

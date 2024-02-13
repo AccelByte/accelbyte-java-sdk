@@ -79,6 +79,9 @@ public class ModelPublicUserResponseV3 extends Model {
   @JsonProperty("roles")
   private List<String> roles;
 
+  @JsonProperty("uniqueDisplayName")
+  private String uniqueDisplayName;
+
   @JsonProperty("userId")
   private String userId;
 

@@ -32,6 +32,12 @@
 | `/cloudsave/v1/admin/namespaces/{namespace}/binaries/{key}/metadata` | PUT | AdminPutGameBinaryRecorMetadataV1 | [AdminPutGameBinaryRecorMetadataV1](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/admin_game_binary_record/AdminPutGameBinaryRecorMetadataV1.java) | [AdminPutGameBinaryRecorMetadataV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/admin_game_binary_record/AdminPutGameBinaryRecorMetadataV1.java) |
 | `/cloudsave/v1/admin/namespaces/{namespace}/binaries/{key}/presigned` | POST | AdminPostGameBinaryPresignedURLV1 | [AdminPostGameBinaryPresignedURLV1](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/admin_game_binary_record/AdminPostGameBinaryPresignedURLV1.java) | [AdminPostGameBinaryPresignedURLV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/admin_game_binary_record/AdminPostGameBinaryPresignedURLV1.java) |
 
+### TTLConfig Wrapper:  [TTLConfig](../../src/main/java/net/accelbyte/sdk/api/cloudsave/wrappers/TTLConfig.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/cloudsave/v1/admin/namespaces/{namespace}/binaries/{key}/ttl` | DELETE | DeleteGameBinaryRecordTTLConfig | [DeleteGameBinaryRecordTTLConfig](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/ttl_config/DeleteGameBinaryRecordTTLConfig.java) | [DeleteGameBinaryRecordTTLConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/ttl_config/DeleteGameBinaryRecordTTLConfig.java) |
+| `/cloudsave/v1/admin/namespaces/{namespace}/records/{key}/ttl` | DELETE | DeleteGameRecordTTLConfig | [DeleteGameRecordTTLConfig](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/ttl_config/DeleteGameRecordTTLConfig.java) | [DeleteGameRecordTTLConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/ttl_config/DeleteGameRecordTTLConfig.java) |
+
 ### AdminConcurrentRecord Wrapper:  [AdminConcurrentRecord](../../src/main/java/net/accelbyte/sdk/api/cloudsave/wrappers/AdminConcurrentRecord.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -57,6 +63,14 @@
 | `/cloudsave/v1/admin/namespaces/{namespace}/records/{key}` | PUT | AdminPutGameRecordHandlerV1 | [AdminPutGameRecordHandlerV1](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/admin_game_record/AdminPutGameRecordHandlerV1.java) | [AdminPutGameRecordHandlerV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/admin_game_record/AdminPutGameRecordHandlerV1.java) |
 | `/cloudsave/v1/admin/namespaces/{namespace}/records/{key}` | POST | AdminPostGameRecordHandlerV1 | [AdminPostGameRecordHandlerV1](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/admin_game_record/AdminPostGameRecordHandlerV1.java) | [AdminPostGameRecordHandlerV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/admin_game_record/AdminPostGameRecordHandlerV1.java) |
 | `/cloudsave/v1/admin/namespaces/{namespace}/records/{key}` | DELETE | AdminDeleteGameRecordHandlerV1 | [AdminDeleteGameRecordHandlerV1](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/admin_game_record/AdminDeleteGameRecordHandlerV1.java) | [AdminDeleteGameRecordHandlerV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/admin_game_record/AdminDeleteGameRecordHandlerV1.java) |
+
+### Tags Wrapper:  [Tags](../../src/main/java/net/accelbyte/sdk/api/cloudsave/wrappers/Tags.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/cloudsave/v1/admin/namespaces/{namespace}/tags` | GET | AdminListTagsHandlerV1 | [AdminListTagsHandlerV1](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/tags/AdminListTagsHandlerV1.java) | [AdminListTagsHandlerV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/tags/AdminListTagsHandlerV1.java) |
+| `/cloudsave/v1/admin/namespaces/{namespace}/tags` | POST | AdminPostTagHandlerV1 | [AdminPostTagHandlerV1](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/tags/AdminPostTagHandlerV1.java) | [AdminPostTagHandlerV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/tags/AdminPostTagHandlerV1.java) |
+| `/cloudsave/v1/admin/namespaces/{namespace}/tags/{tag}` | DELETE | AdminDeleteTagHandlerV1 | [AdminDeleteTagHandlerV1](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/tags/AdminDeleteTagHandlerV1.java) | [AdminDeleteTagHandlerV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/tags/AdminDeleteTagHandlerV1.java) |
+| `/cloudsave/v1/namespaces/{namespace}/tags` | GET | PublicListTagsHandlerV1 | [PublicListTagsHandlerV1](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/tags/PublicListTagsHandlerV1.java) | [PublicListTagsHandlerV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/tags/PublicListTagsHandlerV1.java) |
 
 ### AdminPlayerRecord Wrapper:  [AdminPlayerRecord](../../src/main/java/net/accelbyte/sdk/api/cloudsave/wrappers/AdminPlayerRecord.java)
 | Endpoint | Method | ID | Class | Example |
@@ -184,17 +198,21 @@
 | `models.ConcurrentRecordRequest` | [ModelsConcurrentRecordRequest](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsConcurrentRecordRequest.java) |
 | `models.CustomConfig` | [ModelsCustomConfig](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsCustomConfig.java) |
 | `models.CustomFunction` | [ModelsCustomFunction](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsCustomFunction.java) |
+| `models.GameBinaryRecordAdminResponse` | [ModelsGameBinaryRecordAdminResponse](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsGameBinaryRecordAdminResponse.java) |
 | `models.GameBinaryRecordCreate` | [ModelsGameBinaryRecordCreate](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsGameBinaryRecordCreate.java) |
 | `models.GameBinaryRecordMetadataRequest` | [ModelsGameBinaryRecordMetadataRequest](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsGameBinaryRecordMetadataRequest.java) |
 | `models.GameBinaryRecordResponse` | [ModelsGameBinaryRecordResponse](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsGameBinaryRecordResponse.java) |
+| `models.GameRecordAdminResponse` | [ModelsGameRecordAdminResponse](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsGameRecordAdminResponse.java) |
 | `models.GameRecordRequest` | [ModelsGameRecordRequest](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsGameRecordRequest.java) |
 | `models.GameRecordResponse` | [ModelsGameRecordResponse](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsGameRecordResponse.java) |
 | `models.ListAdminGameRecordKeysResponse` | [ModelsListAdminGameRecordKeysResponse](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsListAdminGameRecordKeysResponse.java) |
 | `models.ListAdminPlayerRecordKeysResponse` | [ModelsListAdminPlayerRecordKeysResponse](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsListAdminPlayerRecordKeysResponse.java) |
+| `models.ListGameBinaryRecordsAdminResponse` | [ModelsListGameBinaryRecordsAdminResponse](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsListGameBinaryRecordsAdminResponse.java) |
 | `models.ListGameBinaryRecordsResponse` | [ModelsListGameBinaryRecordsResponse](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsListGameBinaryRecordsResponse.java) |
 | `models.ListGameRecordKeysResponse` | [ModelsListGameRecordKeysResponse](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsListGameRecordKeysResponse.java) |
 | `models.ListPlayerBinaryRecordsResponse` | [ModelsListPlayerBinaryRecordsResponse](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsListPlayerBinaryRecordsResponse.java) |
 | `models.ListPlayerRecordKeysResponse` | [ModelsListPlayerRecordKeysResponse](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsListPlayerRecordKeysResponse.java) |
+| `models.ListTagsResponse` | [ModelsListTagsResponse](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsListTagsResponse.java) |
 | `models.Pagination` | [ModelsPagination](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsPagination.java) |
 | `models.PlayerBinaryRecordCreate` | [ModelsPlayerBinaryRecordCreate](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsPlayerBinaryRecordCreate.java) |
 | `models.PlayerBinaryRecordMetadataPublicRequest` | [ModelsPlayerBinaryRecordMetadataPublicRequest](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsPlayerBinaryRecordMetadataPublicRequest.java) |
@@ -210,6 +228,9 @@
 | `models.PublicGameBinaryRecordCreate` | [ModelsPublicGameBinaryRecordCreate](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsPublicGameBinaryRecordCreate.java) |
 | `models.PublicPlayerBinaryRecordCreate` | [ModelsPublicPlayerBinaryRecordCreate](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsPublicPlayerBinaryRecordCreate.java) |
 | `models.ResponseError` | [ModelsResponseError](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsResponseError.java) |
+| `models.TTLConfigDTO` | [ModelsTTLConfigDTO](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsTTLConfigDTO.java) |
+| `models.TagInfo` | [ModelsTagInfo](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsTagInfo.java) |
+| `models.TagRequest` | [ModelsTagRequest](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsTagRequest.java) |
 | `models.UploadBinaryRecordRequest` | [ModelsUploadBinaryRecordRequest](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsUploadBinaryRecordRequest.java) |
 | `models.UploadBinaryRecordResponse` | [ModelsUploadBinaryRecordResponse](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsUploadBinaryRecordResponse.java) |
 | `models.UserKeyRequest` | [ModelsUserKeyRequest](../../src/main/java/net/accelbyte/sdk/api/cloudsave/models/ModelsUserKeyRequest.java) |

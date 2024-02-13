@@ -68,7 +68,7 @@ public class AdminGetGameRecordHandlerV1 implements Callable<Integer> {
                   .key(key)
                   .namespace(namespace)
                   .build();
-      final ModelsGameRecordResponse response = wrapper.adminGetGameRecordHandlerV1(operation);
+      final ModelsGameRecordAdminResponse response = wrapper.adminGetGameRecordHandlerV1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -95,6 +95,7 @@
 | `api.AccountLinkResponse` | [ApiAccountLinkResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiAccountLinkResponse.java) |
 | `api.AccountLinkTokenResponse` | [ApiAccountLinkTokenResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiAccountLinkTokenResponse.java) |
 | `api.AccountResponse` | [ApiAccountResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiAccountResponse.java) |
+| `api.ArtifactListResponse` | [ApiArtifactListResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiArtifactListResponse.java) |
 | `api.ArtifactResponse` | [ApiArtifactResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiArtifactResponse.java) |
 | `api.ArtifactSamplingRule` | [ApiArtifactSamplingRule](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiArtifactSamplingRule.java) |
 | `api.ArtifactTypeSamplingRules` | [ApiArtifactTypeSamplingRules](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiArtifactTypeSamplingRules.java) |

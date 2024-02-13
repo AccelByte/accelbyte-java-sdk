@@ -260,8 +260,7 @@ public class AccelByteSDK {
       int minResLen = Math.min(ownedResourceElem.length, requestedResourceElem.length);
       boolean isResMatches =
           IntStream.range(0, minResLen)
-              .allMatch(
-                  i -> isResourceElementMatch(i, ownedResourceElem, requestedResourceElem));
+              .allMatch(i -> isResourceElementMatch(i, ownedResourceElem, requestedResourceElem));
 
       if (!isResMatches) {
         continue;
@@ -319,20 +318,24 @@ public class AccelByteSDK {
 
     return false;
   }
-  private boolean isResourceElementMatch(int index, String[] ownedResourceElem, String[] requestedResourceElem) {
+
+  private boolean isResourceElementMatch(
+      int index, String[] ownedResourceElem, String[] requestedResourceElem) {
     String ownElem = ownedResourceElem[index];
     String reqElem = requestedResourceElem[index];
 
     if (!ownElem.equals(reqElem) && !ownElem.equals("*")) {
       if (index > 0 && ownElem.endsWith("-")) {
         String prevOwnElem = ownedResourceElem[index - 1];
-        if (prevOwnElem.endsWith("NAMESPACE") ) {
-          if (reqElem.contains("-") && reqElem.split("-").length == 2 && reqElem.startsWith(ownElem)) {
-              return true;
+        if (prevOwnElem.endsWith("NAMESPACE")) {
+          if (reqElem.contains("-")
+              && reqElem.split("-").length == 2
+              && reqElem.startsWith(ownElem)) {
+            return true;
           }
 
           if (reqElem.equals(ownElem + "-")) {
-              return true;
+            return true;
           }
 
           NamespaceContext namespaceContext = null;
@@ -344,11 +347,10 @@ public class AccelByteSDK {
             throw new RuntimeException(e);
           }
           if (namespaceContext != null
-                  && namespaceContext.getType().equals("Game")
-                  && reqElem.startsWith(namespaceContext.getStudioNamespace())) {
+              && namespaceContext.getType().equals("Game")
+              && reqElem.startsWith(namespaceContext.getStudioNamespace())) {
             return true;
           }
-
         }
       }
       return false;
@@ -391,7 +393,8 @@ public class AccelByteSDK {
     if (this.sdkConfiguration.getConfigRepository() instanceof TokenValidation) {
       final TokenValidation tokenValidation =
           (TokenValidation) this.sdkConfiguration.getConfigRepository();
-      this.namespaceContextCache = buildNamespaceContextCache(this, tokenValidation.getJwksRefreshInterval());
+      this.namespaceContextCache =
+          buildNamespaceContextCache(this, tokenValidation.getJwksRefreshInterval());
       if (tokenValidation.getLocalTokenValidationEnabled()) {
         this.jwksCache = buildJWKSLoadingCache(this, tokenValidation.getJwksRefreshInterval());
         this.revocationListCache =
@@ -990,21 +993,22 @@ public class AccelByteSDK {
   // TODO figure out how to decouple IAM + basic
   // because now IAM depends on module basic
   private LoadingCache<String, NamespaceContext> buildNamespaceContextCache(
-          AccelByteSDK sdk, int refreshIntervalSeconds) {
+      AccelByteSDK sdk, int refreshIntervalSeconds) {
     final CacheLoader<String, NamespaceContext> revocationLoader =
-            new CacheLoader<String, NamespaceContext>() {
-              @Override
-              public NamespaceContext load(String key) throws Exception {
-                final Namespace namespaceWrapper = new Namespace(sdk);
-                final NamespaceContext namespaceContext =
-                        namespaceWrapper.getNamespaceContext(GetNamespaceContext.builder().namespace(key).build());
+        new CacheLoader<String, NamespaceContext>() {
+          @Override
+          public NamespaceContext load(String key) throws Exception {
+            final Namespace namespaceWrapper = new Namespace(sdk);
+            final NamespaceContext namespaceContext =
+                namespaceWrapper.getNamespaceContext(
+                    GetNamespaceContext.builder().namespace(key).build());
 
-                return namespaceContext;
-              }
-            };
+            return namespaceContext;
+          }
+        };
 
     return CacheBuilder.newBuilder()
-            .refreshAfterWrite(refreshIntervalSeconds, TimeUnit.SECONDS)
-            .build(revocationLoader);
+        .refreshAfterWrite(refreshIntervalSeconds, TimeUnit.SECONDS)
+        .build(revocationLoader);
   }
 }

@@ -34,6 +34,10 @@ public class ModelInviteUserRequestV4 extends Model {
   @JsonProperty("isAdmin")
   private Boolean isAdmin;
 
+  @JsonProperty("isNewStudio")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean isNewStudio;
+
   @JsonProperty("namespace")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String namespace;

@@ -8,7 +8,6 @@
 
 package net.accelbyte.sdk.api.ams.wrappers;
 
-import java.util.*;
 import net.accelbyte.sdk.api.ams.models.*;
 import net.accelbyte.sdk.api.ams.operations.artifacts.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
@@ -25,7 +24,7 @@ public class Artifacts {
   /**
    * @see ArtifactGet
    */
-  public List<ApiArtifactResponse> artifactGet(ArtifactGet input) throws Exception {
+  public ApiArtifactListResponse artifactGet(ArtifactGet input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
@@ -71,9 +70,10 @@ public class Artifacts {
   /**
    * @see FleetArtifactSamplingRulesSet
    */
-  public void fleetArtifactSamplingRulesSet(FleetArtifactSamplingRulesSet input) throws Exception {
+  public ApiFleetArtifactsSampleRules fleetArtifactSamplingRulesSet(
+      FleetArtifactSamplingRulesSet input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
-    input.handleEmptyResponse(
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 }

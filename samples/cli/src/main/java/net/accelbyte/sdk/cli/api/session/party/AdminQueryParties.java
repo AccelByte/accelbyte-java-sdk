@@ -36,6 +36,11 @@ public class AdminQueryParties implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--isSoftDeleted"},
+      description = "isSoftDeleted")
+  String isSoftDeleted;
+
+  @Option(
       names = {"--joinability"},
       description = "joinability")
   String joinability;
@@ -114,6 +119,7 @@ public class AdminQueryParties implements Callable<Integer> {
       final net.accelbyte.sdk.api.session.operations.party.AdminQueryParties operation =
           net.accelbyte.sdk.api.session.operations.party.AdminQueryParties.builder()
               .namespace(namespace)
+              .isSoftDeleted(isSoftDeleted)
               .joinability(joinability)
               .key(key)
               .leaderID(leaderID)

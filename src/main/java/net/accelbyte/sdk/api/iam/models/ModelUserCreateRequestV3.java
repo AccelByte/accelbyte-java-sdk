@@ -58,6 +58,10 @@ public class ModelUserCreateRequestV3 extends Model {
   @JsonProperty("reachMinimumAge")
   private Boolean reachMinimumAge;
 
+  @JsonProperty("uniqueDisplayName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String uniqueDisplayName;
+
   @JsonIgnore
   public ModelUserCreateRequestV3 createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
