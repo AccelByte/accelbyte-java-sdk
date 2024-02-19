@@ -36,10 +36,6 @@ public class TestIntegrationServiceLegal extends TestIntegration {
   @Test
   @Order(1)
   public void test() throws Exception {
-    final String localizedPolicyVersionId = "152b9b0f-7b8e-4a9e-8a9d-8c82420ad8b3";
-    final String policyVersionId = "a76ea12c-14fd-46c5-886f-fd3d0ded4408";
-    final String policyId = "6adb3d65-b428-4dbc-a08d-e5126c644557"; // The marketing policy
-
     final Agreement agreementWrapper = new Agreement(sdk);
 
     // CASE Get agreements
@@ -50,25 +46,6 @@ public class TestIntegrationServiceLegal extends TestIntegration {
     // ESAC
 
     assertNotNull(agreements);
-
-    // CASE Update marketing preference consent
-
-    final List<AcceptAgreementRequest> acceptAgreementsBody =
-        Arrays.asList(
-            new AcceptAgreementRequest[] {
-              AcceptAgreementRequest.builder()
-                  .localizedPolicyVersionId(localizedPolicyVersionId)
-                  .policyVersionId(policyVersionId)
-                  .policyId(policyId)
-                  .isAccepted(true)
-                  .isNeedToSendEventMarketing(false)
-                  .build()
-            });
-
-    agreementWrapper.changePreferenceConsent(
-        ChangePreferenceConsent.builder().body(acceptAgreementsBody).build());
-
-    // ESAC
   }
 
   @AfterAll
