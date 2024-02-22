@@ -92,7 +92,6 @@ achievementsWrapper.adminDeleteAchievement(
         .achievementCode(achievementCode)
         .build());
 ```
-
 ## Basic
 
 Source: [TestIntegrationServiceBasic.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceBasic.java)
@@ -125,7 +124,7 @@ final UserProfilePrivateInfo getProfileResult =
 
 ```java
 final UserProfileUpdate updateProfileBody =
-        UserProfileUpdate.builder().timeZone(profileTimeZone).build();
+    UserProfileUpdate.builder().timeZone(profileTimeZone).build();
 
 final UserProfilePrivateInfo updateProfileResult =
     userProfileWrapper.updateMyProfile(
@@ -141,7 +140,6 @@ final UserProfilePrivateInfo deleteUserProfileResult =
     userProfileWrapper.deleteUserProfile(
         DeleteUserProfile.builder().namespace(this.namespace).userId(userId).build());
 ```
-
 ## CloudSave
 
 Source: [TestIntegrationServiceCloudSave.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceCloudSave.java)
@@ -197,144 +195,66 @@ publicGameRecordWrapper.deleteGameRecordHandlerV1(
     DeleteGameRecordHandlerV1.builder().namespace(this.namespace).key(gameRecordKey).build());
 ```
 
-## DSLogManager
-
-Source: [TestIntegrationServiceDsLogManager.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceDsLogManager.java)
-
-### Get a list of terminated servers
+### Create a player record
 
 ```java
-final ModelsListTerminatedServersResponse terminatedServersResult =
-    terminatedServersWrapper.listTerminatedServers(
-        ListTerminatedServers.builder().namespace(this.namespace).limit(10).build());
-```
-
-## DSMC
-
-Source: [TestIntegrationServiceDsmc.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceDsmc.java)
-
-### List local servers
-
-```java
-final ModelsListServerResponse listLocalServerResult =
-    dsmcAdminWrapper.listLocalServer(
-        ListLocalServer.builder().namespace(this.namespace).build());
-```
-
-### Create a session (DSMC)
-
-```java
-final net.accelbyte.sdk.api.dsmc.models.ModelsCreateSessionRequest createSessionDsmcBody =
-    net.accelbyte.sdk.api.dsmc.models.ModelsCreateSessionRequest.builder()
-        .clientVersion(version)
-        .configuration("")
-        .deployment(targetDeployment)
-        .gameMode(gameMode)
-        .matchingAllies(
-            Arrays.asList(
-                new ModelsRequestMatchingAlly[] {
-                  ModelsRequestMatchingAlly.builder()
-                      .matchingParties(
-                          Arrays.asList(
-                              new ModelsRequestMatchParty[] {
-                                ModelsRequestMatchParty.builder()
-                                    .partyAttributes(new HashMap<String, Object>())
-                                    .partyId(partyId)
-                                    .partyMembers(
-                                        Arrays.asList(
-                                            new ModelsRequestMatchMember[] {
-                                              ModelsRequestMatchMember.builder()
-                                                  .userId(this.username)
-                                                  .build()
-                                            }))
-                                    .build()
-                              }))
-                      .build()
-                }))
-        .region("")
-        .podName("")
-        .sessionId(sessionId)
-        .namespace(targetNamespace)
+final DummyPlayerRecord createPlayerRecordBody =
+    DummyPlayerRecord.builder()
+        .Foo(playerRecordFoo)
+        .FooBar(playerRecordFooBar)
+        .FooValue(playerRecordFooValue)
         .build();
 
-final net.accelbyte.sdk.api.dsmc.models.ModelsSessionResponse createSessionDsmcResult =
-    dsmcSessionWrapper.createSession(
-        net.accelbyte.sdk.api.dsmc.operations.session.CreateSession.builder()
-            .namespace(targetNamespace)
-            .body(createSessionDsmcBody)
-            .build());
-```
-
-### Get session (DSMC)
-
-```java
-final net.accelbyte.sdk.api.dsmc.models.ModelsSessionResponse getSessionDsmcResult =
-    dsmcSessionWrapper.getSession(
-        net.accelbyte.sdk.api.dsmc.operations.session.GetSession.builder()
-            .namespace(targetNamespace)
-            .sessionID(sessionId)
-            .build());
-```
-
-### Claim server (for example, using HTTP retry)
-
-```java
-final DefaultHttpRetryPolicy retryPolicy =
-    new DefaultHttpRetryPolicy() {
-      @Override
-      public boolean doRetry(
-          int attempt, Operation operation, HttpResponse response, Exception exception) {
-        // Custom logic to handle DSMC claim server 425 server is not ready
-        if (attempt < this.getMaxRetry()) {
-          if (response != null && response.getCode() == 425) {
-            try {
-              final int multiplier =
-                  this.getRetryIntervalType() == RetryIntervalType.EXPONENTIAL ? attempt : 1;
-              // Wait before retry
-              Thread.sleep(this.getRetryInterval() * multiplier);
-            } catch (InterruptedException ie) {
-              Thread.currentThread().interrupt();
-            }
-
-            return true;
-          }
-        }
-
-        return false;
-      }
-    };
-
-final AccelByteSDK reliableSdk =
-    new AccelByteSDK(
-        new ReliableHttpClient(retryPolicy),
-        sdk.getSdkConfiguration().getTokenRepository(),
-        sdk.getSdkConfiguration().getConfigRepository());
-
-retryPolicy.setRetryIntervalType(RetryIntervalType.LINEAR);
-retryPolicy.setCallTimeout(5000);
-retryPolicy.setMaxRetry(20);
-retryPolicy.setRetryInterval(2000);
-
-final net.accelbyte.sdk.api.dsmc.wrappers.Session dsmcSessionReliableWrapper =
-    new net.accelbyte.sdk.api.dsmc.wrappers.Session(reliableSdk);
-
-ModelsClaimSessionRequest claimServerBody =
-    ModelsClaimSessionRequest.builder().sessionId(sessionId).build();
-
-dsmcSessionReliableWrapper.claimServer(
-    ClaimServer.builder().namespace(targetNamespace).body(claimServerBody).build());
-```
-
-### Delete session (DSMC)
-
-```java
-dsmcAdminWrapper.deleteSession(
-    net.accelbyte.sdk.api.dsmc.operations.admin.DeleteSession.builder()
-        .namespace(targetNamespace)
-        .sessionID(sessionId)
+publicPlayerRecord.postPlayerRecordHandlerV1(
+    PostPlayerRecordHandlerV1.builder()
+        .namespace(this.namespace)
+        .userId(userId)
+        .key(playerRecordKey)
+        .body(createPlayerRecordBody)
         .build());
 ```
 
+### Get a player record
+
+```java
+final ModelsPlayerRecordResponse getPlayerRecordResult =
+    publicPlayerRecord.getPlayerRecordHandlerV1(
+        GetPlayerRecordHandlerV1.builder()
+            .namespace(this.namespace)
+            .userId(userId)
+            .key(playerRecordKey)
+            .build());
+```
+
+### Update a player record
+
+```java
+DummyPlayerRecord updateRecord =
+    DummyPlayerRecord.builder()
+        .Foo(playerRecordFoo)
+        .FooBar(playerRecordFooBarUpdate)
+        .FooValue(playerRecordFooValue)
+        .build();
+
+publicPlayerRecord.putPlayerRecordHandlerV1(
+    PutPlayerRecordHandlerV1.builder()
+        .namespace(this.namespace)
+        .userId(userId)
+        .key(playerRecordKey)
+        .body(updateRecord)
+        .build());
+```
+
+### Delete a player record
+
+```java
+publicPlayerRecord.deletePlayerRecordHandlerV1(
+    DeletePlayerRecordHandlerV1.builder()
+        .namespace(this.namespace)
+        .userId(userId)
+        .key(playerRecordKey)
+        .build());
+```
 ## EventLog
 
 Source: [TestIntegrationServiceEventLog.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceEventLog.java)
@@ -369,7 +289,6 @@ final ModelsEventResponseV2 getEventSpecificUserResult =
             .pageSize(10)
             .build());
 ```
-
 ## GameTelemetry
 
 Source: [TestIntegrationServiceGameTelemetry.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceGameTelemetry.java)
@@ -411,7 +330,6 @@ final Map<String, ?> getTelemetry =
             .steamId(steamId)
             .build());
 ```
-
 ## GDPR
 
 Source: [TestIntegrationServiceGdpr.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceGdpr.java)
@@ -453,7 +371,6 @@ dataRetrievalWrapper.deleteAdminEmailConfiguration(
         .emails(Arrays.asList(new String[] {email2}))
         .build());
 ```
-
 ## Group
 
 Source: [TestIntegrationServiceGroup.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceGroup.java)
@@ -534,7 +451,6 @@ configurationWrapper.deleteGroupConfigurationV1(
         .configurationCode(configCode)
         .build());
 ```
-
 ## IAM
 
 Source: [TestIntegrationServiceIam.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceIam.java)
@@ -605,7 +521,6 @@ final ModelUserResponseV3 updateUserResult =
 usersWrapper.adminDeleteUserInformationV3(
     AdminDeleteUserInformationV3.builder().namespace(this.namespace).userId(userId).build());
 ```
-
 ## Leaderboard
 
 Source: [TestIntegrationServiceLeaderboard.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceLeaderboard.java)
@@ -617,7 +532,7 @@ final ModelsLeaderboardConfigReq createLeaderboardBody =
     ModelsLeaderboardConfigReq.builder()
         .leaderboardCode(leaderboardCode)
         .name(leaderboardName)
-        .statCode("1")
+        .statCode(leaderboardCode)
         .seasonPeriod(36)
         .descending(false)
         .startTime(startTime)
@@ -651,7 +566,7 @@ final ModelsGetLeaderboardConfigResp getLeaderboardResult =
 final ModelsUpdateLeaderboardConfigReq updateLeaderboardBody =
     ModelsUpdateLeaderboardConfigReq.builder()
         .name(leaderboardName)
-        .statCode("1")
+        .statCode(leaderboardCode)
         .startTime(startTime)
         .seasonPeriod(40)
         .build();
@@ -674,7 +589,6 @@ leaderboardConfigWrapper.deleteLeaderboardConfigurationAdminV1(
         .leaderboardCode(leaderboardCode)
         .build());
 ```
-
 ## Legal
 
 Source: [TestIntegrationServiceLegal.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceLegal.java)
@@ -685,26 +599,6 @@ Source: [TestIntegrationServiceLegal.java](../src/test/java/net/accelbyte/sdk/in
 final List<RetrieveAcceptedAgreementResponse> agreements =
     agreementWrapper.retrieveAgreementsPublic(RetrieveAgreementsPublic.builder().build());
 ```
-
-### Update marketing preference consent
-
-```java
-final List<AcceptAgreementRequest> acceptAgreementsBody =
-    Arrays.asList(
-        new AcceptAgreementRequest[] {
-          AcceptAgreementRequest.builder()
-              .localizedPolicyVersionId(localizedPolicyVersionId)
-              .policyVersionId(policyVersionId)
-              .policyId(policyId)
-              .isAccepted(true)
-              .isNeedToSendEventMarketing(false)
-              .build()
-        });
-
-agreementWrapper.changePreferenceConsent(
-    ChangePreferenceConsent.builder().body(acceptAgreementsBody).build());
-```
-
 ## Lobby
 
 Source: [TestIntegrationServiceLobby.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceLobby.java)
@@ -718,7 +612,6 @@ final ModelFreeFormNotificationRequest notifBody =
 adminWrapper.freeFormNotification(
     FreeFormNotification.builder().namespace(this.namespace).body(notifBody).build());
 ```
-
 ## Matchmaking
 
 Source: [TestIntegrationServiceMatchmaking.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceMatchmaking.java)
@@ -807,7 +700,6 @@ matchmakingWrapper.updateMatchmakingChannel(
 matchmakingWrapper.deleteChannelHandler(
     DeleteChannelHandler.builder().namespace(this.namespace).channel(channelName).build());
 ```
-
 ## MatchmakingV2
 
 Source: [TestIntegrationServiceMatch2.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceMatch2.java)
@@ -890,7 +782,6 @@ matchPoolsWrapper.deleteMatchPool(
 ruleSetsWrapper.deleteRuleSet(
     DeleteRuleSet.builder().namespace(namespace).ruleset(rulesetName).build());
 ```
-
 ## Platform
 
 Source: [TestIntegrationServicePlatform.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServicePlatform.java)
@@ -986,31 +877,6 @@ java.nio.file.Files.copy(
     java.nio.file.StandardCopyOption.REPLACE_EXISTING);
 org.apache.commons.io.IOUtils.closeQuietly(exportRewardsResult);
 ```
-
-## QOSM
-
-Source: [TestIntegrationServiceQosm.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceQosm.java)
-
-### List servers
-
-```java
-final ModelsListServerResponse serverList =
-    qosmPublicWrapper.listServer(ListServer.builder().build());
-```
-
-### Heartbeat
-
-```java
-final ModelsHeartbeatRequest heartbeatRequestBody =
-    ModelsHeartbeatRequest.builder()
-        .ip(server.getIp())
-        .port(server.getPort())
-        .region(server.getRegion())
-        .build();
-
-qosmServerWrapper.heartbeat(Heartbeat.builder().body(heartbeatRequestBody).build());
-```
-
 ## Reporting
 
 Source: [TestIntegrationServiceReporting.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceReporting.java)
@@ -1062,7 +928,6 @@ final RestapiSubmitReportResponse submitReportResponse =
 adminReasonsWrapper.deleteReason(
     DeleteReason.builder().namespace(namespace).reasonId(reasonId).build());
 ```
-
 ## SeasonPass
 
 Source: [TestIntegrationServiceSeasonPass.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceSeasonPass.java)
@@ -1138,7 +1003,6 @@ seasonWrapper.deleteSeason(
         .seasonId(createSeasonResult.getId())
         .build());
 ```
-
 ## Session
 
 Source: [TestIntegrationServiceSession.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceSession.java)
@@ -1297,7 +1161,6 @@ player2PartyWrapper.publicPartyLeave(
         .partyId(partyId)
         .build());
 ```
-
 ## SessionBrowser
 
 Source: [TestIntegrationServiceSessionBrowser.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceSessionBrowser.java)
@@ -1351,11 +1214,10 @@ final ModelsSessionResponse updateSessionResult =
 ### Delete a session
 
 ```java
-final ModelsSessionResponse deleteSessionResult =
-    sessionWrapper.deleteSession(
-        DeleteSession.builder().namespace(this.namespace).sessionID(sessionId).build());
+final ModelsAdminSessionResponse deleteSessionResult =
+    sessionWrapper.adminDeleteSession(
+        AdminDeleteSession.builder().namespace(this.namespace).sessionID(sessionId).build());
 ```
-
 ## Social
 
 Source: [TestIntegrationServiceSocial.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceSocial.java)
@@ -1474,7 +1336,6 @@ userStatisticWrapper.deleteUserStatItems(
         .statCode(statCode)
         .build());
 ```
-
 ## UGC
 
 Source: [TestIntegrationServiceUgc.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceUgc.java)
