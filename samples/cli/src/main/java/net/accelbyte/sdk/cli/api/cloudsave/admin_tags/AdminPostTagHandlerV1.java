@@ -6,13 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.cloudsave.tags;
+package net.accelbyte.sdk.cli.api.cloudsave.admin_tags;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.cloudsave.models.*;
-import net.accelbyte.sdk.api.cloudsave.wrappers.Tags;
+import net.accelbyte.sdk.api.cloudsave.wrappers.AdminTags;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,10 +25,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "adminListTagsHandlerV1", mixinStandardHelpOptions = true)
-public class AdminListTagsHandlerV1 implements Callable<Integer> {
+@Command(name = "adminPostTagHandlerV1", mixinStandardHelpOptions = true)
+public class AdminPostTagHandlerV1 implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(AdminListTagsHandlerV1.class);
+  private static final Logger log = LogManager.getLogger(AdminPostTagHandlerV1.class);
 
   @Option(
       names = {"--namespace"},
@@ -36,12 +36,17 @@ public class AdminListTagsHandlerV1 implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--body"},
+      description = "body")
+  String body;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new AdminListTagsHandlerV1()).execute(args);
+    int exitCode = new CommandLine(new AdminPostTagHandlerV1()).execute(args);
     System.exit(exitCode);
   }
 
@@ -55,15 +60,14 @@ public class AdminListTagsHandlerV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final Tags wrapper = new Tags(sdk);
-      final net.accelbyte.sdk.api.cloudsave.operations.tags.AdminListTagsHandlerV1 operation =
-          net.accelbyte.sdk.api.cloudsave.operations.tags.AdminListTagsHandlerV1.builder()
+      final AdminTags wrapper = new AdminTags(sdk);
+      final net.accelbyte.sdk.api.cloudsave.operations.admin_tags.AdminPostTagHandlerV1 operation =
+          net.accelbyte.sdk.api.cloudsave.operations.admin_tags.AdminPostTagHandlerV1.builder()
               .namespace(namespace)
+              .body(new ObjectMapper().readValue(body, ModelsTagRequest.class))
               .build();
-      final ModelsListTagsResponse response = wrapper.adminListTagsHandlerV1(operation);
-      final String responseString =
-          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-      log.info("Operation successful\n{}", responseString);
+      wrapper.adminPostTagHandlerV1(operation);
+      log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

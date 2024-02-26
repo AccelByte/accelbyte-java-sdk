@@ -64,7 +64,7 @@ public class PublicPartialUpdateUserV3 implements Callable<Integer> {
       final net.accelbyte.sdk.api.iam.operations.users.PublicPartialUpdateUserV3 operation =
           net.accelbyte.sdk.api.iam.operations.users.PublicPartialUpdateUserV3.builder()
               .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ModelUserUpdateRequestV3.class))
+              .body(new ObjectMapper().readValue(body, ModelPublicUserUpdateRequestV3.class))
               .build();
       final ModelUserResponseV3 response = wrapper.publicPartialUpdateUserV3(operation);
       final String responseString =

@@ -8,11 +8,8 @@ package net.accelbyte.sdk.integration;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import java.util.Arrays;
 import java.util.List;
-import net.accelbyte.sdk.api.legal.models.AcceptAgreementRequest;
 import net.accelbyte.sdk.api.legal.models.RetrieveAcceptedAgreementResponse;
-import net.accelbyte.sdk.api.legal.operations.agreement.ChangePreferenceConsent;
 import net.accelbyte.sdk.api.legal.operations.agreement.RetrieveAgreementsPublic;
 import net.accelbyte.sdk.api.legal.wrappers.Agreement;
 import org.junit.jupiter.api.AfterAll;

@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.cloudsave.operations.tags;
+package net.accelbyte.sdk.api.cloudsave.operations.public_tags;
 
 import java.io.*;
 import java.util.*;
@@ -19,17 +19,17 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * adminListTagsHandlerV1
+ * publicListTagsHandlerV1
  *
  * <p>## Description
  *
- * <p>Endpoint to list out available tags
+ * <p>Retrieve list of available tags by namespace
  */
 @Getter
 @Setter
-public class AdminListTagsHandlerV1 extends Operation {
+public class PublicListTagsHandlerV1 extends Operation {
   /** generated field's value */
-  private String path = "/cloudsave/v1/admin/namespaces/{namespace}/tags";
+  private String path = "/cloudsave/v1/namespaces/{namespace}/tags";
 
   private String method = "GET";
   private List<String> consumes = Arrays.asList("application/json");
@@ -39,14 +39,19 @@ public class AdminListTagsHandlerV1 extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private Integer limit;
+  private Integer offset;
+
   /**
    * @param namespace required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public AdminListTagsHandlerV1(String namespace) {
+  public PublicListTagsHandlerV1(String namespace, Integer limit, Integer offset) {
     this.namespace = namespace;
+    this.limit = limit;
+    this.offset = offset;
 
     securities.add("Bearer");
   }
@@ -58,6 +63,15 @@ public class AdminListTagsHandlerV1 extends Operation {
       pathParams.put("namespace", this.namespace);
     }
     return pathParams;
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
+    queryParams.put(
+        "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+    return queryParams;
   }
 
   @Override
@@ -76,5 +90,13 @@ public class AdminListTagsHandlerV1 extends Operation {
     }
     final String json = Helper.convertInputStreamToString(payload);
     return new ModelsListTagsResponse().createFromJson(json);
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("limit", "None");
+    result.put("offset", "None");
+    return result;
   }
 }

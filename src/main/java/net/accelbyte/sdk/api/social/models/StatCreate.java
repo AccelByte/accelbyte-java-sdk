@@ -36,6 +36,10 @@ public class StatCreate extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String description;
 
+  @JsonProperty("globalAggregationMethod")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String globalAggregationMethod;
+
   @JsonProperty("ignoreAdditionalDataOnValueRejected")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean ignoreAdditionalDataOnValueRejected;
@@ -74,6 +78,27 @@ public class StatCreate extends Model {
   private List<String> tags;
 
   @JsonIgnore
+  public String getGlobalAggregationMethod() {
+    return this.globalAggregationMethod;
+  }
+
+  @JsonIgnore
+  public GlobalAggregationMethod getGlobalAggregationMethodAsEnum() {
+    return GlobalAggregationMethod.valueOf(this.globalAggregationMethod);
+  }
+
+  @JsonIgnore
+  public void setGlobalAggregationMethod(final String globalAggregationMethod) {
+    this.globalAggregationMethod = globalAggregationMethod;
+  }
+
+  @JsonIgnore
+  public void setGlobalAggregationMethodFromEnum(
+      final GlobalAggregationMethod globalAggregationMethod) {
+    this.globalAggregationMethod = globalAggregationMethod.toString();
+  }
+
+  @JsonIgnore
   public String getSetBy() {
     return this.setBy;
   }
@@ -103,6 +128,24 @@ public class StatCreate extends Model {
     return new ObjectMapper().readValue(json, new TypeReference<List<StatCreate>>() {});
   }
 
+  public enum GlobalAggregationMethod {
+    LAST("LAST"),
+    MAX("MAX"),
+    MIN("MIN"),
+    TOTAL("TOTAL");
+
+    private String value;
+
+    GlobalAggregationMethod(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public enum SetBy {
     CLIENT("CLIENT"),
     SERVER("SERVER");
@@ -120,7 +163,19 @@ public class StatCreate extends Model {
   }
 
   public static class StatCreateBuilder {
+    private String globalAggregationMethod;
     private String setBy;
+
+    public StatCreateBuilder globalAggregationMethod(final String globalAggregationMethod) {
+      this.globalAggregationMethod = globalAggregationMethod;
+      return this;
+    }
+
+    public StatCreateBuilder globalAggregationMethodFromEnum(
+        final GlobalAggregationMethod globalAggregationMethod) {
+      this.globalAggregationMethod = globalAggregationMethod.toString();
+      return this;
+    }
 
     public StatCreateBuilder setBy(final String setBy) {
       this.setBy = setBy;

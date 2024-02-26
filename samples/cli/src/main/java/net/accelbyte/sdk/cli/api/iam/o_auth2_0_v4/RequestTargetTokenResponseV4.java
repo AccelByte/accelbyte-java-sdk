@@ -6,12 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.cloudsave.tags;
+package net.accelbyte.sdk.cli.api.iam.o_auth2_0_v4;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
-import net.accelbyte.sdk.api.cloudsave.models.*;
-import net.accelbyte.sdk.api.cloudsave.wrappers.Tags;
+import net.accelbyte.sdk.api.iam.models.*;
+import net.accelbyte.sdk.api.iam.wrappers.OAuth20V4;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -24,20 +25,20 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "adminDeleteTagHandlerV1", mixinStandardHelpOptions = true)
-public class AdminDeleteTagHandlerV1 implements Callable<Integer> {
+@Command(name = "requestTargetTokenResponseV4", mixinStandardHelpOptions = true)
+public class RequestTargetTokenResponseV4 implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(AdminDeleteTagHandlerV1.class);
-
-  @Option(
-      names = {"--namespace"},
-      description = "namespace")
-  String namespace;
+  private static final Logger log = LogManager.getLogger(RequestTargetTokenResponseV4.class);
 
   @Option(
-      names = {"--tag"},
-      description = "tag")
-  String tag;
+      names = {"--additionalData"},
+      description = "additionalData")
+  String additionalData;
+
+  @Option(
+      names = {"--code"},
+      description = "code")
+  String code;
 
   @Option(
       names = {"--logging"},
@@ -45,7 +46,7 @@ public class AdminDeleteTagHandlerV1 implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new AdminDeleteTagHandlerV1()).execute(args);
+    int exitCode = new CommandLine(new RequestTargetTokenResponseV4()).execute(args);
     System.exit(exitCode);
   }
 
@@ -59,14 +60,18 @@ public class AdminDeleteTagHandlerV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final Tags wrapper = new Tags(sdk);
-      final net.accelbyte.sdk.api.cloudsave.operations.tags.AdminDeleteTagHandlerV1 operation =
-          net.accelbyte.sdk.api.cloudsave.operations.tags.AdminDeleteTagHandlerV1.builder()
-              .namespace(namespace)
-              .tag(tag)
-              .build();
-      wrapper.adminDeleteTagHandlerV1(operation);
-      log.info("Operation successful");
+      final OAuth20V4 wrapper = new OAuth20V4(sdk);
+      final net.accelbyte.sdk.api.iam.operations.o_auth2_0_v4.RequestTargetTokenResponseV4
+          operation =
+              net.accelbyte.sdk.api.iam.operations.o_auth2_0_v4.RequestTargetTokenResponseV4
+                  .builder()
+                  .additionalData(additionalData != null ? additionalData : null)
+                  .code(code != null ? code : null)
+                  .build();
+      final OauthmodelTokenResponseV3 response = wrapper.requestTargetTokenResponseV4(operation);
+      final String responseString =
+          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
+      log.info("Operation successful\n{}", responseString);
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

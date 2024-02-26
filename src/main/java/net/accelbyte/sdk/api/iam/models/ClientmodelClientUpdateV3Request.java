@@ -51,6 +51,10 @@ public class ClientmodelClientUpdateV3Request extends Model {
   @JsonProperty("description")
   private String description;
 
+  @JsonProperty("modulePermissions")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<AccountcommonClientModulePermission> modulePermissions;
+
   @JsonProperty("namespace")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String namespace;
@@ -78,6 +82,9 @@ public class ClientmodelClientUpdateV3Request extends Model {
   @JsonProperty("scopes")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> scopes;
+
+  @JsonProperty("skipLoginQueue")
+  private Boolean skipLoginQueue;
 
   @JsonProperty("twoFactorEnabled")
   @JsonInclude(JsonInclude.Include.NON_NULL)

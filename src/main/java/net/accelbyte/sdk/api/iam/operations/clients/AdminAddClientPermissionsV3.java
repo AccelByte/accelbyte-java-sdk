@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminAddClientPermissionsV3
  *
- * <p>**Note for Multi Tenant Mode:** 1. The assigned permission(s) should be restricted in the
- * Default Client permission collection. action code: 10303
+ * <p>**Note for Multi Tenant Mode:** This is for super admin only. action code: 10303
  */
 @Getter
 @Setter

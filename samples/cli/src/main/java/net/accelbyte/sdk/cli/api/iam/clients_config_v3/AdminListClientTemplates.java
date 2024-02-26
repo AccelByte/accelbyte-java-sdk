@@ -6,13 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.cloudsave.tags;
+package net.accelbyte.sdk.cli.api.iam.clients_config_v3;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
-import net.accelbyte.sdk.api.cloudsave.models.*;
-import net.accelbyte.sdk.api.cloudsave.wrappers.Tags;
+import net.accelbyte.sdk.api.iam.models.*;
+import net.accelbyte.sdk.api.iam.wrappers.ClientsConfigV3;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,20 +25,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "adminPostTagHandlerV1", mixinStandardHelpOptions = true)
-public class AdminPostTagHandlerV1 implements Callable<Integer> {
+@Command(name = "adminListClientTemplates", mixinStandardHelpOptions = true)
+public class AdminListClientTemplates implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(AdminPostTagHandlerV1.class);
-
-  @Option(
-      names = {"--namespace"},
-      description = "namespace")
-  String namespace;
-
-  @Option(
-      names = {"--body"},
-      description = "body")
-  String body;
+  private static final Logger log = LogManager.getLogger(AdminListClientTemplates.class);
 
   @Option(
       names = {"--logging"},
@@ -46,7 +36,7 @@ public class AdminPostTagHandlerV1 implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new AdminPostTagHandlerV1()).execute(args);
+    int exitCode = new CommandLine(new AdminListClientTemplates()).execute(args);
     System.exit(exitCode);
   }
 
@@ -60,14 +50,16 @@ public class AdminPostTagHandlerV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final Tags wrapper = new Tags(sdk);
-      final net.accelbyte.sdk.api.cloudsave.operations.tags.AdminPostTagHandlerV1 operation =
-          net.accelbyte.sdk.api.cloudsave.operations.tags.AdminPostTagHandlerV1.builder()
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ModelsTagRequest.class))
-              .build();
-      wrapper.adminPostTagHandlerV1(operation);
-      log.info("Operation successful");
+      final ClientsConfigV3 wrapper = new ClientsConfigV3(sdk);
+      final net.accelbyte.sdk.api.iam.operations.clients_config_v3.AdminListClientTemplates
+          operation =
+              net.accelbyte.sdk.api.iam.operations.clients_config_v3.AdminListClientTemplates
+                  .builder()
+                  .build();
+      final ClientmodelListTemplatesResponse response = wrapper.adminListClientTemplates(operation);
+      final String responseString =
+          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
+      log.info("Operation successful\n{}", responseString);
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

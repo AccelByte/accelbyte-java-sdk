@@ -37,6 +37,10 @@ public class StatUpdate extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String description;
 
+  @JsonProperty("globalAggregationMethod")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String globalAggregationMethod;
+
   @JsonProperty("ignoreAdditionalDataOnValueRejected")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean ignoreAdditionalDataOnValueRejected;
@@ -54,6 +58,27 @@ public class StatUpdate extends Model {
   private List<String> tags;
 
   @JsonIgnore
+  public String getGlobalAggregationMethod() {
+    return this.globalAggregationMethod;
+  }
+
+  @JsonIgnore
+  public GlobalAggregationMethod getGlobalAggregationMethodAsEnum() {
+    return GlobalAggregationMethod.valueOf(this.globalAggregationMethod);
+  }
+
+  @JsonIgnore
+  public void setGlobalAggregationMethod(final String globalAggregationMethod) {
+    this.globalAggregationMethod = globalAggregationMethod;
+  }
+
+  @JsonIgnore
+  public void setGlobalAggregationMethodFromEnum(
+      final GlobalAggregationMethod globalAggregationMethod) {
+    this.globalAggregationMethod = globalAggregationMethod.toString();
+  }
+
+  @JsonIgnore
   public StatUpdate createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
@@ -61,5 +86,38 @@ public class StatUpdate extends Model {
   @JsonIgnore
   public List<StatUpdate> createFromJsonList(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, new TypeReference<List<StatUpdate>>() {});
+  }
+
+  public enum GlobalAggregationMethod {
+    LAST("LAST"),
+    MAX("MAX"),
+    MIN("MIN"),
+    TOTAL("TOTAL");
+
+    private String value;
+
+    GlobalAggregationMethod(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class StatUpdateBuilder {
+    private String globalAggregationMethod;
+
+    public StatUpdateBuilder globalAggregationMethod(final String globalAggregationMethod) {
+      this.globalAggregationMethod = globalAggregationMethod;
+      return this;
+    }
+
+    public StatUpdateBuilder globalAggregationMethodFromEnum(
+        final GlobalAggregationMethod globalAggregationMethod) {
+      this.globalAggregationMethod = globalAggregationMethod.toString();
+      return this;
+    }
   }
 }

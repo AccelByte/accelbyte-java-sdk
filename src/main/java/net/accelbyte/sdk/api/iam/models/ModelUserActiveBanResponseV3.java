@@ -34,6 +34,9 @@ public class ModelUserActiveBanResponseV3 extends Model {
   @JsonProperty("endDate")
   private String endDate;
 
+  @JsonProperty("targetedNamespace")
+  private String targetedNamespace;
+
   @JsonIgnore
   public ModelUserActiveBanResponseV3 createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

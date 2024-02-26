@@ -46,6 +46,10 @@ public class ClientmodelClientResponse extends Model {
   @JsonProperty("TwoFactorEnabled")
   private Boolean twoFactorEnabled;
 
+  @JsonProperty("modulePermissions")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<AccountcommonClientModulePermission> modulePermissions;
+
   @JsonIgnore
   public ClientmodelClientResponse createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

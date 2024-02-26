@@ -6,53 +6,55 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.cloudsave.wrappers;
+package net.accelbyte.sdk.api.iam.wrappers;
 
-import net.accelbyte.sdk.api.cloudsave.models.*;
-import net.accelbyte.sdk.api.cloudsave.operations.tags.*;
+import net.accelbyte.sdk.api.iam.models.*;
+import net.accelbyte.sdk.api.iam.operations.clients_config_v3.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
 
-public class Tags {
+public class ClientsConfigV3 {
 
   private AccelByteSDK sdk;
 
-  public Tags(AccelByteSDK sdk) {
+  public ClientsConfigV3(AccelByteSDK sdk) {
     this.sdk = sdk;
   }
 
   /**
-   * @see AdminListTagsHandlerV1
+   * @see AdminListClientAvailablePermissions
    */
-  public ModelsListTagsResponse adminListTagsHandlerV1(AdminListTagsHandlerV1 input)
-      throws Exception {
+  public ClientmodelListClientPermissionSet adminListClientAvailablePermissions(
+      AdminListClientAvailablePermissions input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
-   * @see AdminPostTagHandlerV1
+   * @see AdminUpdateAvailablePermissionsByModule
    */
-  public void adminPostTagHandlerV1(AdminPostTagHandlerV1 input) throws Exception {
+  public void adminUpdateAvailablePermissionsByModule(AdminUpdateAvailablePermissionsByModule input)
+      throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
-   * @see AdminDeleteTagHandlerV1
+   * @see AdminDeleteConfigPermissionsByGroup
    */
-  public void adminDeleteTagHandlerV1(AdminDeleteTagHandlerV1 input) throws Exception {
+  public void adminDeleteConfigPermissionsByGroup(AdminDeleteConfigPermissionsByGroup input)
+      throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
-   * @see PublicListTagsHandlerV1
+   * @see AdminListClientTemplates
    */
-  public ModelsListTagsResponse publicListTagsHandlerV1(PublicListTagsHandlerV1 input)
+  public ClientmodelListTemplatesResponse adminListClientTemplates(AdminListClientTemplates input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(

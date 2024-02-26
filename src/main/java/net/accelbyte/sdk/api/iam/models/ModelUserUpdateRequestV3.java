@@ -45,6 +45,10 @@ public class ModelUserUpdateRequestV3 extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String languageTag;
 
+  @JsonProperty("skipLoginQueue")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean skipLoginQueue;
+
   @JsonProperty("uniqueDisplayName")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String uniqueDisplayName;

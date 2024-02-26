@@ -52,7 +52,7 @@ public class UpdateUserV3 extends Operation {
   /** fields as input parameter */
   private String namespace;
 
-  private ModelUserUpdateRequestV3 body;
+  private ModelPublicUserUpdateRequestV3 body;
 
   /**
    * @param namespace required
@@ -61,7 +61,7 @@ public class UpdateUserV3 extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public UpdateUserV3(String namespace, ModelUserUpdateRequestV3 body) {
+  public UpdateUserV3(String namespace, ModelPublicUserUpdateRequestV3 body) {
     this.namespace = namespace;
     this.body = body;
 
@@ -78,7 +78,7 @@ public class UpdateUserV3 extends Operation {
   }
 
   @Override
-  public ModelUserUpdateRequestV3 getBodyParams() {
+  public ModelPublicUserUpdateRequestV3 getBodyParams() {
     return this.body;
   }
 

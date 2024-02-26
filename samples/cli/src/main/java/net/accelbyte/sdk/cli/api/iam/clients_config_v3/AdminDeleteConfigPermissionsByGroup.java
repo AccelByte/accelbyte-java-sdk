@@ -6,13 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.cloudsave.tags;
+package net.accelbyte.sdk.cli.api.iam.clients_config_v3;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
-import net.accelbyte.sdk.api.cloudsave.models.*;
-import net.accelbyte.sdk.api.cloudsave.wrappers.Tags;
+import net.accelbyte.sdk.api.iam.models.*;
+import net.accelbyte.sdk.api.iam.wrappers.ClientsConfigV3;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,15 +25,15 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "publicListTagsHandlerV1", mixinStandardHelpOptions = true)
-public class PublicListTagsHandlerV1 implements Callable<Integer> {
+@Command(name = "adminDeleteConfigPermissionsByGroup", mixinStandardHelpOptions = true)
+public class AdminDeleteConfigPermissionsByGroup implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(PublicListTagsHandlerV1.class);
+  private static final Logger log = LogManager.getLogger(AdminDeleteConfigPermissionsByGroup.class);
 
   @Option(
-      names = {"--namespace"},
-      description = "namespace")
-  String namespace;
+      names = {"--body"},
+      description = "body")
+  String body;
 
   @Option(
       names = {"--logging"},
@@ -41,7 +41,7 @@ public class PublicListTagsHandlerV1 implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new PublicListTagsHandlerV1()).execute(args);
+    int exitCode = new CommandLine(new AdminDeleteConfigPermissionsByGroup()).execute(args);
     System.exit(exitCode);
   }
 
@@ -55,15 +55,18 @@ public class PublicListTagsHandlerV1 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final Tags wrapper = new Tags(sdk);
-      final net.accelbyte.sdk.api.cloudsave.operations.tags.PublicListTagsHandlerV1 operation =
-          net.accelbyte.sdk.api.cloudsave.operations.tags.PublicListTagsHandlerV1.builder()
-              .namespace(namespace)
-              .build();
-      final ModelsListTagsResponse response = wrapper.publicListTagsHandlerV1(operation);
-      final String responseString =
-          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-      log.info("Operation successful\n{}", responseString);
+      final ClientsConfigV3 wrapper = new ClientsConfigV3(sdk);
+      final net.accelbyte.sdk.api.iam.operations.clients_config_v3
+              .AdminDeleteConfigPermissionsByGroup
+          operation =
+              net.accelbyte.sdk.api.iam.operations.clients_config_v3
+                  .AdminDeleteConfigPermissionsByGroup.builder()
+                  .body(
+                      new ObjectMapper()
+                          .readValue(body, ClientmodelPermissionSetDeleteGroupRequest.class))
+                  .build();
+      wrapper.adminDeleteConfigPermissionsByGroup(operation);
+      log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

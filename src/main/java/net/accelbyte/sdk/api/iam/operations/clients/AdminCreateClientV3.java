@@ -24,11 +24,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Add a new OAuth 2.0 client A new client automatically granted with these scopes: commerce,
  * account, analytics, publishing, social.
  *
- * <p>**Note for Multi Tenant Mode:** New Confidential Client will have Default Client Role assigned
- * to it. The role will have all permissions to access all APIs that's supported by game server SDK
- * and DS uploader. However if **Game Admin** create Confidential Client and the permission(s) are
- * specified in request body, then the Default Client Role will not be assigned. But in this case,
- * the assigned permissions will be restricted in the Default Client Permission collection only.
+ * <p>**Note for Multi Tenant Mode (Confidential Client):** Only Super admin can set permission with
+ * resource & action. Studio admin & game admin need set permission with permission module.
  *
  * <p>action code: 10301
  *

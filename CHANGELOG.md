@@ -1,3 +1,17 @@
+<a name="v0.58.0"></a>
+## [v0.58.0]
+### feat
+- **sdk:** initial dsartifact support
+### test
+- **integration:** legal - remove hardcoded test
+### chore
+- **github:** update github creds
+### docs
+- **common-use-cases:** update
+### ci
+- **generate:** update common use cases doc
+
+
 <a name="v0.57.0"></a>
 ## [v0.57.0]
 ### ci

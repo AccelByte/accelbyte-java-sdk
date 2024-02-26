@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDeleteClientPermissionV3
  *
- * <p>action code : 10304
+ * <p>**Note for Multi Tenant Mode:** This is for super admin only. action code : 10304
  */
 @Getter
 @Setter

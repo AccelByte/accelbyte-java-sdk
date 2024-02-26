@@ -10,6 +10,7 @@ package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.iam.bans.*;
 import net.accelbyte.sdk.cli.api.iam.clients.*;
+import net.accelbyte.sdk.cli.api.iam.clients_config_v3.*;
 import net.accelbyte.sdk.cli.api.iam.config.*;
 import net.accelbyte.sdk.cli.api.iam.country.*;
 import net.accelbyte.sdk.cli.api.iam.devices_v4.*;
@@ -17,6 +18,7 @@ import net.accelbyte.sdk.cli.api.iam.input_validations.*;
 import net.accelbyte.sdk.cli.api.iam.o_auth.*;
 import net.accelbyte.sdk.cli.api.iam.o_auth2_0.*;
 import net.accelbyte.sdk.cli.api.iam.o_auth2_0_extension.*;
+import net.accelbyte.sdk.cli.api.iam.o_auth2_0_v4.*;
 import net.accelbyte.sdk.cli.api.iam.roles.*;
 import net.accelbyte.sdk.cli.api.iam.sso.*;
 import net.accelbyte.sdk.cli.api.iam.sso_credential.*;
@@ -136,6 +138,10 @@ import picocli.CommandLine.Command;
       PublicDeletePlatformLinkV2.class,
       AdminGetBansTypeV3.class,
       AdminGetListBanReasonV3.class,
+      AdminListClientAvailablePermissions.class,
+      AdminUpdateAvailablePermissionsByModule.class,
+      AdminDeleteConfigPermissionsByGroup.class,
+      AdminListClientTemplates.class,
       AdminGetInputValidations.class,
       AdminUpdateInputValidations.class,
       AdminResetInputValidations.class,
@@ -325,7 +331,6 @@ import picocli.CommandLine.Command;
       LoginSSOClient.class,
       LogoutSSOClient.class,
       RequestTargetTokenResponseV3.class,
-      PlatformTokenRefreshV3Deprecate.class,
       AdminGetDevicesByUserV4.class,
       AdminGetBannedDevicesV4.class,
       AdminGetUserDeviceBansV4.class,
@@ -379,6 +384,13 @@ import picocli.CommandLine.Command;
       AdminGetMyEnabledFactorsV4.class,
       AdminMakeFactorMyDefaultV4.class,
       AdminInviteUserV4.class,
+      AuthenticationWithPlatformLinkV4.class,
+      GenerateTokenByNewHeadlessAccountV4.class,
+      Verify2faCodeV4.class,
+      PlatformTokenGrantV4.class,
+      SimultaneousLoginV4.class,
+      TokenGrantV4.class,
+      RequestTargetTokenResponseV4.class,
       PublicCreateTestUserV4.class,
       PublicCreateUserV4.class,
       CreateUserFromInvitationV4.class,

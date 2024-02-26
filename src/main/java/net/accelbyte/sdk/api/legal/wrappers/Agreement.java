@@ -103,7 +103,9 @@ public class Agreement {
 
   /**
    * @see IndirectBulkAcceptVersionedPolicy1
+   * @deprecated
    */
+  @Deprecated
   public AcceptAgreementResponse indirectBulkAcceptVersionedPolicy1(
       IndirectBulkAcceptVersionedPolicy1 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);

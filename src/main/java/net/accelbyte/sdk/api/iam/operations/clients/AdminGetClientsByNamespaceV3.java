@@ -42,6 +42,7 @@ public class AdminGetClientsByNamespaceV3 extends Operation {
   private String clientType;
   private Integer limit;
   private Integer offset;
+  private Boolean skipLoginQueue;
 
   /**
    * @param namespace required
@@ -55,13 +56,15 @@ public class AdminGetClientsByNamespaceV3 extends Operation {
       String clientName,
       String clientType,
       Integer limit,
-      Integer offset) {
+      Integer offset,
+      Boolean skipLoginQueue) {
     this.namespace = namespace;
     this.clientId = clientId;
     this.clientName = clientName;
     this.clientType = clientType;
     this.limit = limit;
     this.offset = offset;
+    this.skipLoginQueue = skipLoginQueue;
 
     securities.add("Bearer");
   }
@@ -84,6 +87,9 @@ public class AdminGetClientsByNamespaceV3 extends Operation {
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+    queryParams.put(
+        "skipLoginQueue",
+        this.skipLoginQueue == null ? null : Arrays.asList(String.valueOf(this.skipLoginQueue)));
     return queryParams;
   }
 
@@ -113,6 +119,7 @@ public class AdminGetClientsByNamespaceV3 extends Operation {
     result.put("clientType", "None");
     result.put("limit", "None");
     result.put("offset", "None");
+    result.put("skipLoginQueue", "None");
     return result;
   }
 }

@@ -41,6 +41,8 @@ public class RequestTokenExchangeCodeV3 extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private String codeChallenge;
+  private String codeChallengeMethod;
   private String clientId;
 
   /**
@@ -50,8 +52,11 @@ public class RequestTokenExchangeCodeV3 extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public RequestTokenExchangeCodeV3(String namespace, String clientId) {
+  public RequestTokenExchangeCodeV3(
+      String namespace, String codeChallenge, String codeChallengeMethod, String clientId) {
     this.namespace = namespace;
+    this.codeChallenge = codeChallenge;
+    this.codeChallengeMethod = codeChallengeMethod;
     this.clientId = clientId;
 
     securities.add("Bearer");
@@ -64,6 +69,17 @@ public class RequestTokenExchangeCodeV3 extends Operation {
       pathParams.put("namespace", this.namespace);
     }
     return pathParams;
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "code_challenge", this.codeChallenge == null ? null : Arrays.asList(this.codeChallenge));
+    queryParams.put(
+        "code_challenge_method",
+        this.codeChallengeMethod == null ? null : Arrays.asList(this.codeChallengeMethod));
+    return queryParams;
   }
 
   @Override
@@ -94,5 +110,44 @@ public class RequestTokenExchangeCodeV3 extends Operation {
     }
     final String json = Helper.convertInputStreamToString(payload);
     return new OauthmodelTargetTokenCodeResponse().createFromJson(json);
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("code_challenge", "None");
+    result.put("code_challenge_method", "None");
+    return result;
+  }
+
+  public enum CodeChallengeMethod {
+    S256("S256"),
+    Plain("plain");
+
+    private String value;
+
+    CodeChallengeMethod(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class RequestTokenExchangeCodeV3Builder {
+    private String codeChallengeMethod;
+
+    public RequestTokenExchangeCodeV3Builder codeChallengeMethod(final String codeChallengeMethod) {
+      this.codeChallengeMethod = codeChallengeMethod;
+      return this;
+    }
+
+    public RequestTokenExchangeCodeV3Builder codeChallengeMethodFromEnum(
+        final CodeChallengeMethod codeChallengeMethod) {
+      this.codeChallengeMethod = codeChallengeMethod.toString();
+      return this;
+    }
   }
 }

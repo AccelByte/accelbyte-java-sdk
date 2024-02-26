@@ -273,6 +273,14 @@
 | `/iam/v4/admin/roles/{roleId}/users` | POST | AdminAssignUserToRoleV4 | [AdminAssignUserToRoleV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/roles/AdminAssignUserToRoleV4.java) | [AdminAssignUserToRoleV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/roles/AdminAssignUserToRoleV4.java) |
 | `/iam/v4/admin/roles/{roleId}/users` | DELETE | AdminRevokeUserFromRoleV4 | [AdminRevokeUserFromRoleV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/roles/AdminRevokeUserFromRoleV4.java) | [AdminRevokeUserFromRoleV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/roles/AdminRevokeUserFromRoleV4.java) |
 
+### Clients Config V3 Wrapper:  [ClientsConfigV3](../../src/main/java/net/accelbyte/sdk/api/iam/wrappers/ClientsConfigV3.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/iam/v3/admin/clientConfig/permissions` | GET | AdminListClientAvailablePermissions | [AdminListClientAvailablePermissions](../../src/main/java/net/accelbyte/sdk/api/iam/operations/clients_config_v3/AdminListClientAvailablePermissions.java) | [AdminListClientAvailablePermissions](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/clients_config_v3/AdminListClientAvailablePermissions.java) |
+| `/iam/v3/admin/clientConfig/permissions` | PUT | AdminUpdateAvailablePermissionsByModule | [AdminUpdateAvailablePermissionsByModule](../../src/main/java/net/accelbyte/sdk/api/iam/operations/clients_config_v3/AdminUpdateAvailablePermissionsByModule.java) | [AdminUpdateAvailablePermissionsByModule](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/clients_config_v3/AdminUpdateAvailablePermissionsByModule.java) |
+| `/iam/v3/admin/clientConfig/permissions` | DELETE | AdminDeleteConfigPermissionsByGroup | [AdminDeleteConfigPermissionsByGroup](../../src/main/java/net/accelbyte/sdk/api/iam/operations/clients_config_v3/AdminDeleteConfigPermissionsByGroup.java) | [AdminDeleteConfigPermissionsByGroup](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/clients_config_v3/AdminDeleteConfigPermissionsByGroup.java) |
+| `/iam/v3/admin/clientConfig/templates` | GET | AdminListClientTemplates | [AdminListClientTemplates](../../src/main/java/net/accelbyte/sdk/api/iam/operations/clients_config_v3/AdminListClientTemplates.java) | [AdminListClientTemplates](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/clients_config_v3/AdminListClientTemplates.java) |
+
 ### InputValidations Wrapper:  [InputValidations](../../src/main/java/net/accelbyte/sdk/api/iam/wrappers/InputValidations.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -334,7 +342,6 @@
 | `/iam/v3/platforms/{platformId}/authenticate` | GET | PlatformAuthenticationV3 | [PlatformAuthenticationV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0_extension/PlatformAuthenticationV3.java) | [PlatformAuthenticationV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0_extension/PlatformAuthenticationV3.java) |
 | `/iam/v3/platforms/{platformId}/token/verify` | POST | PlatformTokenRefreshV3 | [PlatformTokenRefreshV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0_extension/PlatformTokenRefreshV3.java) | [PlatformTokenRefreshV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0_extension/PlatformTokenRefreshV3.java) |
 | `/iam/v3/token/exchange` | POST | RequestTargetTokenResponseV3 | [RequestTargetTokenResponseV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0_extension/RequestTargetTokenResponseV3.java) | [RequestTargetTokenResponseV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0_extension/RequestTargetTokenResponseV3.java) |
-| [DEPRECATED] `/iam/v3/v3/platforms/{platformId}/token/verify` | POST | PlatformTokenRefreshV3Deprecate | [PlatformTokenRefreshV3Deprecate](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0_extension/PlatformTokenRefreshV3Deprecate.java) | [PlatformTokenRefreshV3Deprecate](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0_extension/PlatformTokenRefreshV3Deprecate.java) |
 
 ### OAuth2.0 Wrapper:  [OAuth20](../../src/main/java/net/accelbyte/sdk/api/iam/wrappers/OAuth20.java)
 | Endpoint | Method | ID | Class | Example |
@@ -443,6 +450,17 @@
 | `/iam/v4/public/namespaces/{namespace}/users/{userId}` | GET | PublicGetUserPublicInfoByUserIdV4 | [PublicGetUserPublicInfoByUserIdV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/PublicGetUserPublicInfoByUserIdV4.java) | [PublicGetUserPublicInfoByUserIdV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users_v4/PublicGetUserPublicInfoByUserIdV4.java) |
 | `/iam/v4/public/users/invite` | POST | PublicInviteUserV4 | [PublicInviteUserV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/PublicInviteUserV4.java) | [PublicInviteUserV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users_v4/PublicInviteUserV4.java) |
 
+### OAuth2.0 V4 Wrapper:  [OAuth20V4](../../src/main/java/net/accelbyte/sdk/api/iam/wrappers/OAuth20V4.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/iam/v4/oauth/authenticateWithLink` | POST | AuthenticationWithPlatformLinkV4 | [AuthenticationWithPlatformLinkV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0_v4/AuthenticationWithPlatformLinkV4.java) | [AuthenticationWithPlatformLinkV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0_v4/AuthenticationWithPlatformLinkV4.java) |
+| `/iam/v4/oauth/headless/token` | POST | GenerateTokenByNewHeadlessAccountV4 | [GenerateTokenByNewHeadlessAccountV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0_v4/GenerateTokenByNewHeadlessAccountV4.java) | [GenerateTokenByNewHeadlessAccountV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0_v4/GenerateTokenByNewHeadlessAccountV4.java) |
+| `/iam/v4/oauth/mfa/verify` | POST | Verify2faCodeV4 | [Verify2faCodeV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0_v4/Verify2faCodeV4.java) | [Verify2faCodeV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0_v4/Verify2faCodeV4.java) |
+| `/iam/v4/oauth/platforms/{platformId}/token` | POST | PlatformTokenGrantV4 | [PlatformTokenGrantV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0_v4/PlatformTokenGrantV4.java) | [PlatformTokenGrantV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0_v4/PlatformTokenGrantV4.java) |
+| `/iam/v4/oauth/simultaneousLogin` | POST | SimultaneousLoginV4 | [SimultaneousLoginV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0_v4/SimultaneousLoginV4.java) | [SimultaneousLoginV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0_v4/SimultaneousLoginV4.java) |
+| `/iam/v4/oauth/token` | POST | TokenGrantV4 | [TokenGrantV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0_v4/TokenGrantV4.java) | [TokenGrantV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0_v4/TokenGrantV4.java) |
+| `/iam/v4/oauth/token/exchange` | POST | RequestTargetTokenResponseV4 | [RequestTargetTokenResponseV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/o_auth2_0_v4/RequestTargetTokenResponseV4.java) | [RequestTargetTokenResponseV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/o_auth2_0_v4/RequestTargetTokenResponseV4.java) |
+
 
 &nbsp;  
 
@@ -464,6 +482,7 @@
 | `account.createUserResponseV4` | [AccountCreateUserResponseV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountCreateUserResponseV4.java) |
 | `account.upgradeHeadlessAccountRequestV4` | [AccountUpgradeHeadlessAccountRequestV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountUpgradeHeadlessAccountRequestV4.java) |
 | `account.upgradeHeadlessAccountWithVerificationCodeRequestV4` | [AccountUpgradeHeadlessAccountWithVerificationCodeRequestV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountUpgradeHeadlessAccountWithVerificationCodeRequestV4.java) |
+| `accountcommon.AllowedPermission` | [AccountcommonAllowedPermission](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonAllowedPermission.java) |
 | `accountcommon.AvatarConfig` | [AccountcommonAvatarConfig](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonAvatarConfig.java) |
 | `accountcommon.Ban` | [AccountcommonBan](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonBan.java) |
 | `accountcommon.BanReason` | [AccountcommonBanReason](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonBanReason.java) |
@@ -474,10 +493,13 @@
 | `accountcommon.BannedByV3` | [AccountcommonBannedByV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonBannedByV3.java) |
 | `accountcommon.Bans` | [AccountcommonBans](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonBans.java) |
 | `accountcommon.BansV3` | [AccountcommonBansV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonBansV3.java) |
+| `accountcommon.ClientModulePermission` | [AccountcommonClientModulePermission](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonClientModulePermission.java) |
 | `accountcommon.ClientPermission` | [AccountcommonClientPermission](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonClientPermission.java) |
+| `accountcommon.ClientPermissionSet` | [AccountcommonClientPermissionSet](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonClientPermissionSet.java) |
 | `accountcommon.ClientPermissionV3` | [AccountcommonClientPermissionV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonClientPermissionV3.java) |
 | `accountcommon.ClientPermissions` | [AccountcommonClientPermissions](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonClientPermissions.java) |
 | `accountcommon.ClientPermissionsV3` | [AccountcommonClientPermissionsV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonClientPermissionsV3.java) |
+| `accountcommon.ClientSelectedGroup` | [AccountcommonClientSelectedGroup](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonClientSelectedGroup.java) |
 | `accountcommon.ConflictedUserPlatformAccounts` | [AccountcommonConflictedUserPlatformAccounts](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonConflictedUserPlatformAccounts.java) |
 | `accountcommon.Country` | [AccountcommonCountry](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonCountry.java) |
 | `accountcommon.CountryAgeRestriction` | [AccountcommonCountryAgeRestriction](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonCountryAgeRestriction.java) |
@@ -492,6 +514,7 @@
 | `accountcommon.Pagination` | [AccountcommonPagination](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonPagination.java) |
 | `accountcommon.PaginationV3` | [AccountcommonPaginationV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonPaginationV3.java) |
 | `accountcommon.Permission` | [AccountcommonPermission](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonPermission.java) |
+| `accountcommon.PermissionGroup` | [AccountcommonPermissionGroup](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonPermissionGroup.java) |
 | `accountcommon.PermissionV3` | [AccountcommonPermissionV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonPermissionV3.java) |
 | `accountcommon.Permissions` | [AccountcommonPermissions](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonPermissions.java) |
 | `accountcommon.PermissionsV3` | [AccountcommonPermissionsV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonPermissionsV3.java) |
@@ -521,11 +544,19 @@
 | `clientmodel.ClientCreationResponse` | [ClientmodelClientCreationResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ClientmodelClientCreationResponse.java) |
 | `clientmodel.ClientCreationV3Request` | [ClientmodelClientCreationV3Request](../../src/main/java/net/accelbyte/sdk/api/iam/models/ClientmodelClientCreationV3Request.java) |
 | `clientmodel.ClientResponse` | [ClientmodelClientResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ClientmodelClientResponse.java) |
+| `clientmodel.ClientTemplate` | [ClientmodelClientTemplate](../../src/main/java/net/accelbyte/sdk/api/iam/models/ClientmodelClientTemplate.java) |
 | `clientmodel.ClientUpdateRequest` | [ClientmodelClientUpdateRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ClientmodelClientUpdateRequest.java) |
 | `clientmodel.ClientUpdateSecretRequest` | [ClientmodelClientUpdateSecretRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ClientmodelClientUpdateSecretRequest.java) |
 | `clientmodel.ClientUpdateV3Request` | [ClientmodelClientUpdateV3Request](../../src/main/java/net/accelbyte/sdk/api/iam/models/ClientmodelClientUpdateV3Request.java) |
 | `clientmodel.ClientV3Response` | [ClientmodelClientV3Response](../../src/main/java/net/accelbyte/sdk/api/iam/models/ClientmodelClientV3Response.java) |
 | `clientmodel.ClientsV3Response` | [ClientmodelClientsV3Response](../../src/main/java/net/accelbyte/sdk/api/iam/models/ClientmodelClientsV3Response.java) |
+| `clientmodel.DefaultFieldValue` | [ClientmodelDefaultFieldValue](../../src/main/java/net/accelbyte/sdk/api/iam/models/ClientmodelDefaultFieldValue.java) |
+| `clientmodel.DefaultFieldValue.value` | [ClientmodelDefaultFieldValueValue](../../src/main/java/net/accelbyte/sdk/api/iam/models/ClientmodelDefaultFieldValueValue.java) |
+| `clientmodel.ListClientPermissionSet` | [ClientmodelListClientPermissionSet](../../src/main/java/net/accelbyte/sdk/api/iam/models/ClientmodelListClientPermissionSet.java) |
+| `clientmodel.ListTemplatesResponse` | [ClientmodelListTemplatesResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ClientmodelListTemplatesResponse.java) |
+| `clientmodel.ListUpsertModulesRequest` | [ClientmodelListUpsertModulesRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ClientmodelListUpsertModulesRequest.java) |
+| `clientmodel.PermissionSetDeleteGroupRequest` | [ClientmodelPermissionSetDeleteGroupRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ClientmodelPermissionSetDeleteGroupRequest.java) |
+| `clientmodel.PermissionSetUpsertRequest` | [ClientmodelPermissionSetUpsertRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ClientmodelPermissionSetUpsertRequest.java) |
 | `clientmodel.V3ClientUpdateSecretRequest` | [ClientmodelV3ClientUpdateSecretRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ClientmodelV3ClientUpdateSecretRequest.java) |
 | `legal.AcceptedPoliciesRequest` | [LegalAcceptedPoliciesRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/LegalAcceptedPoliciesRequest.java) |
 | `model.AccountProgressionInfo` | [ModelAccountProgressionInfo](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelAccountProgressionInfo.java) |
@@ -617,6 +648,7 @@
 | `model.PublicUserInformationV3` | [ModelPublicUserInformationV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelPublicUserInformationV3.java) |
 | `model.PublicUserResponse` | [ModelPublicUserResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelPublicUserResponse.java) |
 | `model.PublicUserResponseV3` | [ModelPublicUserResponseV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelPublicUserResponseV3.java) |
+| `model.PublicUserUpdateRequestV3` | [ModelPublicUserUpdateRequestV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelPublicUserUpdateRequestV3.java) |
 | `model.PublicUsersResponse` | [ModelPublicUsersResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelPublicUsersResponse.java) |
 | `model.RemoveUserRoleV4Request` | [ModelRemoveUserRoleV4Request](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelRemoveUserRoleV4Request.java) |
 | `model.ResetPasswordRequest` | [ModelResetPasswordRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelResetPasswordRequest.java) |
@@ -710,10 +742,12 @@
 | `oauthcommon.UserRevocationListRecord` | [OauthcommonUserRevocationListRecord](../../src/main/java/net/accelbyte/sdk/api/iam/models/OauthcommonUserRevocationListRecord.java) |
 | `oauthmodel.CountryLocationResponse` | [OauthmodelCountryLocationResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/OauthmodelCountryLocationResponse.java) |
 | `oauthmodel.ErrorResponse` | [OauthmodelErrorResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/OauthmodelErrorResponse.java) |
+| `oauthmodel.LoginQueueTicketResponse` | [OauthmodelLoginQueueTicketResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/OauthmodelLoginQueueTicketResponse.java) |
 | `oauthmodel.OneTimeLinkingCodeResponse` | [OauthmodelOneTimeLinkingCodeResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/OauthmodelOneTimeLinkingCodeResponse.java) |
 | `oauthmodel.OneTimeLinkingCodeValidationResponse` | [OauthmodelOneTimeLinkingCodeValidationResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/OauthmodelOneTimeLinkingCodeValidationResponse.java) |
 | `oauthmodel.PlatformTokenRefreshResponseV3` | [OauthmodelPlatformTokenRefreshResponseV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/OauthmodelPlatformTokenRefreshResponseV3.java) |
 | `oauthmodel.TargetTokenCodeResponse` | [OauthmodelTargetTokenCodeResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/OauthmodelTargetTokenCodeResponse.java) |
+| `oauthmodel.TicketEndpointAction` | [OauthmodelTicketEndpointAction](../../src/main/java/net/accelbyte/sdk/api/iam/models/OauthmodelTicketEndpointAction.java) |
 | `oauthmodel.TokenIntrospectResponse` | [OauthmodelTokenIntrospectResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/OauthmodelTokenIntrospectResponse.java) |
 | `oauthmodel.TokenResponse` | [OauthmodelTokenResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/OauthmodelTokenResponse.java) |
 | `oauthmodel.TokenResponseV3` | [OauthmodelTokenResponseV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/OauthmodelTokenResponseV3.java) |

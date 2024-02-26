@@ -36,6 +36,16 @@ public class RequestTokenExchangeCodeV3 implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--codeChallenge"},
+      description = "codeChallenge")
+  String codeChallenge;
+
+  @Option(
+      names = {"--codeChallengeMethod"},
+      description = "codeChallengeMethod")
+  String codeChallengeMethod;
+
+  @Option(
       names = {"--clientId"},
       description = "clientId")
   String clientId;
@@ -66,6 +76,8 @@ public class RequestTokenExchangeCodeV3 implements Callable<Integer> {
               net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.RequestTokenExchangeCodeV3
                   .builder()
                   .namespace(namespace)
+                  .codeChallenge(codeChallenge)
+                  .codeChallengeMethod(codeChallengeMethod)
                   .clientId(clientId != null ? clientId : null)
                   .build();
       final OauthmodelTargetTokenCodeResponse response =

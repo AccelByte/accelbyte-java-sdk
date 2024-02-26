@@ -6,31 +6,32 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.cloudsave.operations.tags;
+package net.accelbyte.sdk.api.cloudsave.operations.admin_tags;
 
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import net.accelbyte.sdk.api.cloudsave.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * adminDeleteTagHandlerV1
+ * adminListTagsHandlerV1
  *
  * <p>## Description
  *
- * <p>Endpoint to delete a tag
+ * <p>Retrieve list of available tags by namespace
  */
 @Getter
 @Setter
-public class AdminDeleteTagHandlerV1 extends Operation {
+public class AdminListTagsHandlerV1 extends Operation {
   /** generated field's value */
-  private String path = "/cloudsave/v1/admin/namespaces/{namespace}/tags/{tag}";
+  private String path = "/cloudsave/v1/admin/namespaces/{namespace}/tags";
 
-  private String method = "DELETE";
+  private String method = "GET";
   private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
@@ -38,18 +39,19 @@ public class AdminDeleteTagHandlerV1 extends Operation {
   /** fields as input parameter */
   private String namespace;
 
-  private String tag;
+  private Integer limit;
+  private Integer offset;
 
   /**
    * @param namespace required
-   * @param tag required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public AdminDeleteTagHandlerV1(String namespace, String tag) {
+  public AdminListTagsHandlerV1(String namespace, Integer limit, Integer offset) {
     this.namespace = namespace;
-    this.tag = tag;
+    this.limit = limit;
+    this.offset = offset;
 
     securities.add("Bearer");
   }
@@ -60,10 +62,16 @@ public class AdminDeleteTagHandlerV1 extends Operation {
     if (this.namespace != null) {
       pathParams.put("namespace", this.namespace);
     }
-    if (this.tag != null) {
-      pathParams.put("tag", this.tag);
-    }
     return pathParams;
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
+    queryParams.put(
+        "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+    return queryParams;
   }
 
   @Override
@@ -71,17 +79,24 @@ public class AdminDeleteTagHandlerV1 extends Operation {
     if (this.namespace == null) {
       return false;
     }
-    if (this.tag == null) {
-      return false;
-    }
     return true;
   }
 
-  public void handleEmptyResponse(int code, String contentType, InputStream payload)
+  public ModelsListTagsResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
-    if (code != 201) {
+    if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
+    final String json = Helper.convertInputStreamToString(payload);
+    return new ModelsListTagsResponse().createFromJson(json);
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("limit", "None");
+    result.put("offset", "None");
+    return result;
   }
 }

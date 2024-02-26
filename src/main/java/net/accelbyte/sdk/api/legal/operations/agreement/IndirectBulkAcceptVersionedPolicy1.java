@@ -26,7 +26,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * registration. Other detail info:
  *
  * <p>* Required permission : login user
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class IndirectBulkAcceptVersionedPolicy1 extends Operation {

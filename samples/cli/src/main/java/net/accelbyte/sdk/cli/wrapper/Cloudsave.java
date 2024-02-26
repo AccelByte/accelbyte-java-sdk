@@ -14,13 +14,14 @@ import net.accelbyte.sdk.cli.api.cloudsave.admin_game_record.*;
 import net.accelbyte.sdk.cli.api.cloudsave.admin_player_binary_record.*;
 import net.accelbyte.sdk.cli.api.cloudsave.admin_player_record.*;
 import net.accelbyte.sdk.cli.api.cloudsave.admin_record.*;
+import net.accelbyte.sdk.cli.api.cloudsave.admin_tags.*;
 import net.accelbyte.sdk.cli.api.cloudsave.concurrent_record.*;
 import net.accelbyte.sdk.cli.api.cloudsave.plugin_config.*;
 import net.accelbyte.sdk.cli.api.cloudsave.public_game_binary_record.*;
 import net.accelbyte.sdk.cli.api.cloudsave.public_game_record.*;
 import net.accelbyte.sdk.cli.api.cloudsave.public_player_binary_record.*;
 import net.accelbyte.sdk.cli.api.cloudsave.public_player_record.*;
-import net.accelbyte.sdk.cli.api.cloudsave.tags.*;
+import net.accelbyte.sdk.cli.api.cloudsave.public_tags.*;
 import net.accelbyte.sdk.cli.api.cloudsave.ttl_config.*;
 import picocli.CommandLine.Command;
 

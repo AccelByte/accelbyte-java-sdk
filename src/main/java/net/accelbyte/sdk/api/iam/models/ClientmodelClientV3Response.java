@@ -52,6 +52,10 @@ public class ClientmodelClientV3Response extends Model {
   @JsonProperty("modifiedAt")
   private String modifiedAt;
 
+  @JsonProperty("modulePermissions")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<AccountcommonClientModulePermission> modulePermissions;
+
   @JsonProperty("namespace")
   private String namespace;
 
@@ -87,6 +91,9 @@ public class ClientmodelClientV3Response extends Model {
 
   @JsonProperty("scopes")
   private List<String> scopes;
+
+  @JsonProperty("skipLoginQueue")
+  private Boolean skipLoginQueue;
 
   @JsonProperty("twoFactorEnabled")
   private Boolean twoFactorEnabled;

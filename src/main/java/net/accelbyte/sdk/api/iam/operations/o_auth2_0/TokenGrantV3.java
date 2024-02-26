@@ -30,10 +30,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * == `client_credentials`: It generates a token by checking the client credentials provided through
  * Authorization header. 5. Grant Type ==
  * `urn:ietf:params:oauth:grant-type:extend_client_credentials`: It generates a token by checking
- * the client credentials provided through Authorization header. It only allow publisher namespace
- * client. In generated token: 1. There wil be no roles, namespace_roles & permission. 2. The scope
- * will be fixed as 'extend'. 3. There will have a new field 'extend_namespace', the value is from
- * token request body.
+ * the client credentials provided through Authorization header. It only allow publisher/studio
+ * namespace client. In generated token: 1. There wil be no roles, namespace_roles & permission. 2.
+ * The scope will be fixed as 'extend'. 3. There will have a new field 'extend_namespace', the value
+ * is from token request body.
  *
  * <p>## Access Token Content Following is the access tokenâs content: - **namespace**. It is the
  * namespace the token was generated from. - **display_name**. The display name of the sub. It is

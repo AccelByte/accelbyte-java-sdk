@@ -68,6 +68,7 @@ public class AdminSearchUserV3 extends Operation {
   private String platformBy;
   private String platformId;
   private String query;
+  private Boolean skipLoginQueue;
   private String startDate;
   private Boolean testAccount;
 
@@ -87,6 +88,7 @@ public class AdminSearchUserV3 extends Operation {
       String platformBy,
       String platformId,
       String query,
+      Boolean skipLoginQueue,
       String startDate,
       Boolean testAccount) {
     this.namespace = namespace;
@@ -98,6 +100,7 @@ public class AdminSearchUserV3 extends Operation {
     this.platformBy = platformBy;
     this.platformId = platformId;
     this.query = query;
+    this.skipLoginQueue = skipLoginQueue;
     this.startDate = startDate;
     this.testAccount = testAccount;
 
@@ -127,6 +130,9 @@ public class AdminSearchUserV3 extends Operation {
     queryParams.put("platformBy", this.platformBy == null ? null : Arrays.asList(this.platformBy));
     queryParams.put("platformId", this.platformId == null ? null : Arrays.asList(this.platformId));
     queryParams.put("query", this.query == null ? null : Arrays.asList(this.query));
+    queryParams.put(
+        "skipLoginQueue",
+        this.skipLoginQueue == null ? null : Arrays.asList(String.valueOf(this.skipLoginQueue)));
     queryParams.put("startDate", this.startDate == null ? null : Arrays.asList(this.startDate));
     queryParams.put(
         "testAccount",
@@ -163,6 +169,7 @@ public class AdminSearchUserV3 extends Operation {
     result.put("platformBy", "None");
     result.put("platformId", "None");
     result.put("query", "None");
+    result.put("skipLoginQueue", "None");
     result.put("startDate", "None");
     result.put("testAccount", "None");
     return result;

@@ -61,6 +61,11 @@ public class AdminGetClientsByNamespaceV3 implements Callable<Integer> {
   Integer offset;
 
   @Option(
+      names = {"--skipLoginQueue"},
+      description = "skipLoginQueue")
+  Boolean skipLoginQueue;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -89,6 +94,7 @@ public class AdminGetClientsByNamespaceV3 implements Callable<Integer> {
               .clientType(clientType)
               .limit(limit)
               .offset(offset)
+              .skipLoginQueue(skipLoginQueue)
               .build();
       final ClientmodelClientsV3Response response = wrapper.adminGetClientsByNamespaceV3(operation);
       final String responseString =

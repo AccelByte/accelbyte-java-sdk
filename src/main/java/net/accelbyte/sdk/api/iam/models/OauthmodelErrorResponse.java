@@ -56,6 +56,10 @@ public class OauthmodelErrorResponse extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String linkingToken;
 
+  @JsonProperty("login_queue_ticket")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private OauthmodelLoginQueueTicketResponse loginQueueTicket;
+
   @JsonProperty("messageVariables")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, String> messageVariables;

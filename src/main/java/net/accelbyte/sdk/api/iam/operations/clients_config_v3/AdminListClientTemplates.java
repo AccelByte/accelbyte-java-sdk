@@ -6,75 +6,57 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.cloudsave.operations.tags;
+package net.accelbyte.sdk.api.iam.operations.clients_config_v3;
 
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import net.accelbyte.sdk.api.cloudsave.models.*;
+import net.accelbyte.sdk.api.iam.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * publicListTagsHandlerV1
+ * AdminListClientTemplates
  *
- * <p>## Description
- *
- * <p>Endpoint to list out available tags
+ * <p>List client templates
  */
 @Getter
 @Setter
-public class PublicListTagsHandlerV1 extends Operation {
+public class AdminListClientTemplates extends Operation {
   /** generated field's value */
-  private String path = "/cloudsave/v1/namespaces/{namespace}/tags";
+  private String path = "/iam/v3/admin/clientConfig/templates";
 
   private String method = "GET";
-  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
 
   /** fields as input parameter */
-  private String namespace;
 
-  /**
-   * @param namespace required
-   */
+  /** */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public PublicListTagsHandlerV1(String namespace) {
-    this.namespace = namespace;
+  public AdminListClientTemplates() {
 
     securities.add("Bearer");
   }
 
   @Override
-  public Map<String, String> getPathParams() {
-    Map<String, String> pathParams = new HashMap<>();
-    if (this.namespace != null) {
-      pathParams.put("namespace", this.namespace);
-    }
-    return pathParams;
-  }
-
-  @Override
   public boolean isValid() {
-    if (this.namespace == null) {
-      return false;
-    }
     return true;
   }
 
-  public ModelsListTagsResponse parseResponse(int code, String contentType, InputStream payload)
-      throws HttpResponseException, IOException {
+  public ClientmodelListTemplatesResponse parseResponse(
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ModelsListTagsResponse().createFromJson(json);
+    return new ClientmodelListTemplatesResponse().createFromJson(json);
   }
 }

@@ -64,13 +64,12 @@
 | `/cloudsave/v1/admin/namespaces/{namespace}/records/{key}` | POST | AdminPostGameRecordHandlerV1 | [AdminPostGameRecordHandlerV1](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/admin_game_record/AdminPostGameRecordHandlerV1.java) | [AdminPostGameRecordHandlerV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/admin_game_record/AdminPostGameRecordHandlerV1.java) |
 | `/cloudsave/v1/admin/namespaces/{namespace}/records/{key}` | DELETE | AdminDeleteGameRecordHandlerV1 | [AdminDeleteGameRecordHandlerV1](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/admin_game_record/AdminDeleteGameRecordHandlerV1.java) | [AdminDeleteGameRecordHandlerV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/admin_game_record/AdminDeleteGameRecordHandlerV1.java) |
 
-### Tags Wrapper:  [Tags](../../src/main/java/net/accelbyte/sdk/api/cloudsave/wrappers/Tags.java)
+### AdminTags Wrapper:  [AdminTags](../../src/main/java/net/accelbyte/sdk/api/cloudsave/wrappers/AdminTags.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
-| `/cloudsave/v1/admin/namespaces/{namespace}/tags` | GET | AdminListTagsHandlerV1 | [AdminListTagsHandlerV1](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/tags/AdminListTagsHandlerV1.java) | [AdminListTagsHandlerV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/tags/AdminListTagsHandlerV1.java) |
-| `/cloudsave/v1/admin/namespaces/{namespace}/tags` | POST | AdminPostTagHandlerV1 | [AdminPostTagHandlerV1](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/tags/AdminPostTagHandlerV1.java) | [AdminPostTagHandlerV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/tags/AdminPostTagHandlerV1.java) |
-| `/cloudsave/v1/admin/namespaces/{namespace}/tags/{tag}` | DELETE | AdminDeleteTagHandlerV1 | [AdminDeleteTagHandlerV1](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/tags/AdminDeleteTagHandlerV1.java) | [AdminDeleteTagHandlerV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/tags/AdminDeleteTagHandlerV1.java) |
-| `/cloudsave/v1/namespaces/{namespace}/tags` | GET | PublicListTagsHandlerV1 | [PublicListTagsHandlerV1](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/tags/PublicListTagsHandlerV1.java) | [PublicListTagsHandlerV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/tags/PublicListTagsHandlerV1.java) |
+| `/cloudsave/v1/admin/namespaces/{namespace}/tags` | GET | AdminListTagsHandlerV1 | [AdminListTagsHandlerV1](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/admin_tags/AdminListTagsHandlerV1.java) | [AdminListTagsHandlerV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/admin_tags/AdminListTagsHandlerV1.java) |
+| `/cloudsave/v1/admin/namespaces/{namespace}/tags` | POST | AdminPostTagHandlerV1 | [AdminPostTagHandlerV1](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/admin_tags/AdminPostTagHandlerV1.java) | [AdminPostTagHandlerV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/admin_tags/AdminPostTagHandlerV1.java) |
+| `/cloudsave/v1/admin/namespaces/{namespace}/tags/{tag}` | DELETE | AdminDeleteTagHandlerV1 | [AdminDeleteTagHandlerV1](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/admin_tags/AdminDeleteTagHandlerV1.java) | [AdminDeleteTagHandlerV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/admin_tags/AdminDeleteTagHandlerV1.java) |
 
 ### AdminPlayerRecord Wrapper:  [AdminPlayerRecord](../../src/main/java/net/accelbyte/sdk/api/cloudsave/wrappers/AdminPlayerRecord.java)
 | Endpoint | Method | ID | Class | Example |
@@ -127,6 +126,11 @@
 | `/cloudsave/v1/namespaces/{namespace}/records/{key}` | PUT | PutGameRecordHandlerV1 | [PutGameRecordHandlerV1](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/public_game_record/PutGameRecordHandlerV1.java) | [PutGameRecordHandlerV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/public_game_record/PutGameRecordHandlerV1.java) |
 | `/cloudsave/v1/namespaces/{namespace}/records/{key}` | POST | PostGameRecordHandlerV1 | [PostGameRecordHandlerV1](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/public_game_record/PostGameRecordHandlerV1.java) | [PostGameRecordHandlerV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/public_game_record/PostGameRecordHandlerV1.java) |
 | `/cloudsave/v1/namespaces/{namespace}/records/{key}` | DELETE | DeleteGameRecordHandlerV1 | [DeleteGameRecordHandlerV1](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/public_game_record/DeleteGameRecordHandlerV1.java) | [DeleteGameRecordHandlerV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/public_game_record/DeleteGameRecordHandlerV1.java) |
+
+### PublicTags Wrapper:  [PublicTags](../../src/main/java/net/accelbyte/sdk/api/cloudsave/wrappers/PublicTags.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/cloudsave/v1/namespaces/{namespace}/tags` | GET | PublicListTagsHandlerV1 | [PublicListTagsHandlerV1](../../src/main/java/net/accelbyte/sdk/api/cloudsave/operations/public_tags/PublicListTagsHandlerV1.java) | [PublicListTagsHandlerV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/cloudsave/public_tags/PublicListTagsHandlerV1.java) |
 
 ### PublicPlayerBinaryRecord Wrapper:  [PublicPlayerBinaryRecord](../../src/main/java/net/accelbyte/sdk/api/cloudsave/wrappers/PublicPlayerBinaryRecord.java)
 | Endpoint | Method | ID | Class | Example |
