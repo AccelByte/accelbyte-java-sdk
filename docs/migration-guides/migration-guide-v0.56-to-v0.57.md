@@ -16,22 +16,22 @@ The following operation(s) has been updated:
 The following operation(s) has been updated:
 - operation `net.accelbyte.sdk.api.cloudsave.operations.admin_game_binary_record.AdminGetGameBinaryRecordV1`
     - return type changed from `ModelsGameBinaryRecordResponse` to `ModelsGameBinaryRecordAdminResponse`
-- operation net.accelbyte.sdk.api.cloudsave.operations.admin_game_binary_record.AdminListGameBinaryRecordsV1
+- operation `net.accelbyte.sdk.api.cloudsave.operations.admin_game_binary_record.AdminListGameBinaryRecordsV1`
     - return type changed from `ModelsListGameBinaryRecordsResponse` to `ModelsListGameBinaryRecordsAdminResponse`    
-- operation net.accelbyte.sdk.api.cloudsave.operations.admin_game_binary_record.AdminPutGameBinaryRecordV1
+- operation `net.accelbyte.sdk.api.cloudsave.operations.admin_game_binary_record.AdminPutGameBinaryRecordV1`
     - return type changed from `ModelsGameBinaryRecordResponse` to `ModelsGameBinaryRecordAdminResponse`    
-- operation net.accelbyte.sdk.api.cloudsave.operations.admin_game_binary_record.AdminGetGameBinaryRecordV1
+- operation `net.accelbyte.sdk.api.cloudsave.operations.admin_game_binary_record.AdminGetGameBinaryRecordV1`
     - return type changed from `ModelsGameBinaryRecordResponse` to `ModelsGameBinaryRecordAdminResponse`
-- operation net.accelbyte.sdk.api.cloudsave.operations.admin_game_record.AdminGetGameRecordHandlerV1
+- operation `net.accelbyte.sdk.api.cloudsave.operations.admin_game_record.AdminGetGameRecordHandlerV1`
     - return type changed from `ModelsGameRecordResponse` to `ModelsGameRecordAdminResponse`
-- operation net.accelbyte.sdk.api.cloudsave.operations.admin_game_record.AdminPostGameRecordHandlerV1`
+- operation `net.accelbyte.sdk.api.cloudsave.operations.admin_game_record.AdminPostGameRecordHandlerV1`
     - return type changed from `ModelsGameRecordResponse` to `ModelsGameRecordAdminResponse`
-- operation net.accelbyte.sdk.api.cloudsave.operations.admin_game_record.AdminPutGameRecordHandlerV1
+- operation `net.accelbyte.sdk.api.cloudsave.operations.admin_game_record.AdminPutGameRecordHandlerV1`
     - return type changed from `ModelsGameRecordResponse` to `ModelsGameRecordAdminResponse`
 
 ### IAM
 The following operation(s) has been updated:
 - operation `net.accelbyte.sdk.api.iam.operations.users.CreateUserFromInvitationV3`
     - body type changed from `ModelUserCreateFromInvitationRequestV3` to `ModelUserCreateRequestV3`
-- operation net.accelbyte.sdk.api.iam.operations.users_v4.CreateUserFromInvitationV4
+- operation `net.accelbyte.sdk.api.iam.operations.users_v4.CreateUserFromInvitationV4`
     - body type changed from `ModelUserCreateFromInvitationRequestV4` to `AccountCreateUserRequestV4`
