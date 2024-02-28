@@ -8,6 +8,7 @@ package net.accelbyte.sdk.cli;
 
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.cli.wrapper.*;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import picocli.CommandLine;
@@ -48,6 +49,7 @@ import picocli.CommandLine;
       Social.class,
       Ugc.class,
       Inventory.class,
+      Challenge.class
     })
 public class Main implements Callable<Integer> {
 
