@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetContentBulkByShareCodesV2
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:USER:*:CONTENT [READ]. Maximum sharecodes per
- * request 100
+ * <p>Maximum sharecodes per request 100
  */
 @Getter
 @Setter

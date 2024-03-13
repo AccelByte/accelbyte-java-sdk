@@ -29,7 +29,7 @@ public class PartyDataUpdateNotif {
   private List<String> members;
   private String namespace;
   private String partyId;
-  private Integer updatedAt;
+  private String updatedAt;
 
   private PartyDataUpdateNotif() {}
 
@@ -43,7 +43,7 @@ public class PartyDataUpdateNotif {
       List<String> members,
       String namespace,
       String partyId,
-      Integer updatedAt) {
+      String updatedAt) {
     this.customAttributes = customAttributes;
     this.invitees = invitees;
     this.leader = leader;
@@ -75,8 +75,7 @@ public class PartyDataUpdateNotif {
             : null;
     result.namespace = response.get("namespace") != null ? response.get("namespace") : null;
     result.partyId = response.get("partyId") != null ? response.get("partyId") : null;
-    result.updatedAt =
-        response.get("updatedAt") != null ? Integer.valueOf(response.get("updatedAt")) : null;
+    result.updatedAt = response.get("updatedAt") != null ? response.get("updatedAt") : null;
     return result;
   }
 

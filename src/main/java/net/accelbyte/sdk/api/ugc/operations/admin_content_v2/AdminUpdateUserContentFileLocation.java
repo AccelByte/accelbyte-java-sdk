@@ -22,7 +22,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * AdminUpdateUserContentFileLocation
  *
  * <p>This endpoint should be used after calling generate user content upload url endpoint to commit
- * the changes. Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [UPDATE].
+ * the changes
  */
 @Getter
 @Setter

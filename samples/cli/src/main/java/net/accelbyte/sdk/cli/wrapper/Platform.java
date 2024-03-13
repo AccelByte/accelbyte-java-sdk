@@ -448,6 +448,7 @@ import picocli.CommandLine.Command;
       PublicGetUserEntitlementsByIds.class,
       PublicGetUserEntitlementByItemId.class,
       PublicGetUserEntitlementBySku.class,
+      PublicUserEntitlementHistory.class,
       PublicExistsAnyUserActiveEntitlement.class,
       PublicGetUserAppEntitlementOwnershipByAppId.class,
       PublicGetUserEntitlementOwnershipByItemId.class,

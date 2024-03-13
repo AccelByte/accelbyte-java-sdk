@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateGroup
  *
- * <p>Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP [CREATE]
+ * <p>Create group
  */
 @Getter
 @Setter

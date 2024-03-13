@@ -20,8 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteLeaderboardConfigurationAdminV1
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [DELETE]'
- *
  * <p>This endpoint delete a leaderboard configuration
  */
 @Getter

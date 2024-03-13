@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UpdateStagingContent
  *
- * <p>Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [UPDATE].
+ * <p>Update staging content
  */
 @Getter
 @Setter

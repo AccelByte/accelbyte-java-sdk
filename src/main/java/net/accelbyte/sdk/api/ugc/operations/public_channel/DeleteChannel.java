@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteChannel
  *
- * <p>Required permission NAMESPACE:{namespace}:USER:{userId}:CHANNEL [DELETE]
+ * <p>Delete user channel
  */
 @Getter
 @Setter

@@ -45,6 +45,10 @@ public class ModelsPlayerBinaryRecordResponse extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String setBy;
 
+  @JsonProperty("tags")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> tags;
+
   @JsonProperty("updated_at")
   private String updatedAt;
 

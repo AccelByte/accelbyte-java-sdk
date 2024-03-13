@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGenerateOfficialContentUploadURLV2
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [UPDATE].
+ * <p>Generate official content upload URL
  */
 @Getter
 @Setter

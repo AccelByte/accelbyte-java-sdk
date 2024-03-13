@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicDeleteContentV2
  *
- * <p>Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [DELETE].
+ * <p>Delete existing content
  */
 @Getter
 @Setter

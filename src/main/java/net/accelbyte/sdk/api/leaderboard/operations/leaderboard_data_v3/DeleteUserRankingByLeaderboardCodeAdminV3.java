@@ -22,8 +22,6 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>[Test Facility Only]
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [DELETE]'
- *
  * <p>This endpoint will delete user ranking by leaderboard code
  *
  * <p>Note: this endpoint only works on development environment.

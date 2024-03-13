@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetType
  *
- * <p>Requires valid user token
+ * <p>Get available types paginated
  */
 @Getter
 @Setter

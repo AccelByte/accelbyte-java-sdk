@@ -33,6 +33,10 @@ public class ModelsPlayerBinaryRecordMetadataRequest extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String setBy;
 
+  @JsonProperty("tags")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> tags;
+
   @JsonIgnore
   public String getSetBy() {
     return this.setBy;

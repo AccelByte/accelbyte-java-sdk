@@ -45,6 +45,7 @@ public class ApiFleetParameters extends Model {
   private List<ApiRegionConfig> regions;
 
   @JsonProperty("samplingRules")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private ApiFleetArtifactsSampleRules samplingRules;
 
   @JsonIgnore

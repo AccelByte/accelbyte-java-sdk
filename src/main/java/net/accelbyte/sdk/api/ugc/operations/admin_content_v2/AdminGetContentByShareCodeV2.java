@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetContentByShareCodeV2
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:USER:*:CONTENT [READ].
+ * <p>Get content by share code
  */
 @Getter
 @Setter

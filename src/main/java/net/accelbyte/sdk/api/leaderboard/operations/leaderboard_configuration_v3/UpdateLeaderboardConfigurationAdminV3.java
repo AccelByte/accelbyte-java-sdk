@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateLeaderboardConfigurationAdminV3
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [UPDATE]'
- *
  * <p>Fields :
  *
  * <p>* leaderboardCode: unique leaderboard config code must be lowercase and maximum length is 48

@@ -39,7 +39,7 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 ./ng ng-cp 1>&2
 
 echo "TAP version 13"
-echo "1..37"
+echo "1..38"
 
 #- 1 Login
 ./ng net.accelbyte.sdk.cli.Main loginClient \
@@ -247,68 +247,75 @@ eval_tap $? 26 'InfoRegions' test.out
     > test.out 2>&1
 eval_tap $? 27 'FleetServerInfo' test.out
 
-#- 28 ServerHistory
-./ng net.accelbyte.sdk.cli.Main ams serverHistory \
+#- 28 FleetServerConnectionInfo
+./ng net.accelbyte.sdk.cli.Main ams fleetServerConnectionInfo \
     --namespace "$AB_NAMESPACE" \
     --serverID 'RByjlBiuFM3FIoVk' \
     > test.out 2>&1
-eval_tap $? 28 'ServerHistory' test.out
+eval_tap $? 28 'FleetServerConnectionInfo' test.out
 
-#- 29 InfoSupportedInstances
+#- 29 ServerHistory
+./ng net.accelbyte.sdk.cli.Main ams serverHistory \
+    --namespace "$AB_NAMESPACE" \
+    --serverID '8T3GpAnkCmBUqg2S' \
+    > test.out 2>&1
+eval_tap $? 29 'ServerHistory' test.out
+
+#- 30 InfoSupportedInstances
 ./ng net.accelbyte.sdk.cli.Main ams infoSupportedInstances \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 29 'InfoSupportedInstances' test.out
+eval_tap $? 30 'InfoSupportedInstances' test.out
 
-#- 30 AccountGet
+#- 31 AccountGet
 ./ng net.accelbyte.sdk.cli.Main ams accountGet \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 30 'AccountGet' test.out
+eval_tap $? 31 'AccountGet' test.out
 
-#- 31 FleetClaimByID
+#- 32 FleetClaimByID
 ./ng net.accelbyte.sdk.cli.Main ams fleetClaimByID \
-    --fleetID '8T3GpAnkCmBUqg2S' \
+    --fleetID 'CnqntX9y1aZSWMiV' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"region": "CnqntX9y1aZSWMiV", "sessionId": "i10sG6vxkfUcmqRR"}' \
+    --body '{"region": "i10sG6vxkfUcmqRR", "sessionId": "bceJ5i0EeDxOgBnh"}' \
     > test.out 2>&1
-eval_tap $? 31 'FleetClaimByID' test.out
+eval_tap $? 32 'FleetClaimByID' test.out
 
-#- 32 LocalWatchdogConnect
+#- 33 LocalWatchdogConnect
 ./ng net.accelbyte.sdk.cli.Main ams localWatchdogConnect \
     --namespace "$AB_NAMESPACE" \
-    --watchdogID 'bceJ5i0EeDxOgBnh' \
+    --watchdogID 'hqElIaDml48wdNFL' \
     > test.out 2>&1
-eval_tap $? 32 'LocalWatchdogConnect' test.out
+eval_tap $? 33 'LocalWatchdogConnect' test.out
 
-#- 33 FleetClaimByKeys
+#- 34 FleetClaimByKeys
 ./ng net.accelbyte.sdk.cli.Main ams fleetClaimByKeys \
     --namespace "$AB_NAMESPACE" \
-    --body '{"claimKeys": ["hqElIaDml48wdNFL", "Tm5T50x9WT0GfH2r", "tOa4EXsXzOXQAk4m"], "regions": ["qrxzTtuLl4XlbGL8", "QOxtjzm8y2wNhmwo", "YZyI4EFZKBcYrCEA"], "sessionId": "E7WIsfmx40NLRc6m"}' \
+    --body '{"claimKeys": ["Tm5T50x9WT0GfH2r", "tOa4EXsXzOXQAk4m", "qrxzTtuLl4XlbGL8"], "regions": ["QOxtjzm8y2wNhmwo", "YZyI4EFZKBcYrCEA", "E7WIsfmx40NLRc6m"], "sessionId": "8heKnWhzfe2Nubeo"}' \
     > test.out 2>&1
-eval_tap $? 33 'FleetClaimByKeys' test.out
+eval_tap $? 34 'FleetClaimByKeys' test.out
 
-#- 34 WatchdogConnect
+#- 35 WatchdogConnect
 ./ng net.accelbyte.sdk.cli.Main ams watchdogConnect \
     --namespace "$AB_NAMESPACE" \
-    --watchdogID '8heKnWhzfe2Nubeo' \
+    --watchdogID 'KFeIaFQCYoDPICpn' \
     > test.out 2>&1
-eval_tap $? 34 'WatchdogConnect' test.out
+eval_tap $? 35 'WatchdogConnect' test.out
 
-#- 35 UploadURLGet
+#- 36 UploadURLGet
 ./ng net.accelbyte.sdk.cli.Main ams uploadURLGet \
     > test.out 2>&1
-eval_tap $? 35 'UploadURLGet' test.out
+eval_tap $? 36 'UploadURLGet' test.out
 
-#- 36 Func1
+#- 37 Func1
 ./ng net.accelbyte.sdk.cli.Main ams func1 \
     > test.out 2>&1
-eval_tap $? 36 'Func1' test.out
+eval_tap $? 37 'Func1' test.out
 
-#- 37 BasicHealthCheck
+#- 38 BasicHealthCheck
 ./ng net.accelbyte.sdk.cli.Main ams basicHealthCheck \
     > test.out 2>&1
-eval_tap $? 37 'BasicHealthCheck' test.out
+eval_tap $? 38 'BasicHealthCheck' test.out
 
 
 rm -f "tmp.dat"

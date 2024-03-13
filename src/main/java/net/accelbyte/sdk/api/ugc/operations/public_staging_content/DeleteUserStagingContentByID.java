@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteUserStagingContentByID
  *
- * <p>Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [DELETE].
+ * <p>Delete user staging content by ID
  */
 @Getter
 @Setter

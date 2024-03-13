@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicCreateContentV2
  *
- * <p>Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [CREATE].
+ * <p>Create a new content
  */
 @Getter
 @Setter

@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDeleteOfficialContentV2
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [DELETE].
+ * <p>Delete existing official content
  */
 @Getter
 @Setter

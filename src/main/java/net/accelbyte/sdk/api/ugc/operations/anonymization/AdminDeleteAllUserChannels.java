@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDeleteAllUserChannels
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CHANNEL [DELETE]
+ * <p>Delete all user channel
  */
 @Getter
 @Setter

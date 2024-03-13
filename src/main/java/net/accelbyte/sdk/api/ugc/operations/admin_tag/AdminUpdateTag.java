@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateTag
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:UGCCONFIG [UPDATE] updates a tag
+ * <p>Update existing tag
  */
 @Getter
 @Setter

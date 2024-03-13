@@ -34,6 +34,10 @@ public class ModelsAdminGameRecordResponse extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
+  @JsonProperty("tags")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> tags;
+
   @JsonProperty("updated_at")
   private String updatedAt;
 

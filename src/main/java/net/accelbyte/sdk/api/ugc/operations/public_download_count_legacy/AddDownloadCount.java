@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AddDownloadCount
  *
- * <p>Requires valid user token
+ * <p>This endpoint can be used to count how many the ugc downloaded
  */
 @Getter
 @Setter

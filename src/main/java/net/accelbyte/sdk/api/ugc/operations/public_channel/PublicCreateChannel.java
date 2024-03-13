@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicCreateChannel
  *
- * <p>Required permission NAMESPACE:{namespace}:USER:{userId}:CHANNEL [CREATE]
+ * <p>Create user channel
  */
 @Getter
 @Setter

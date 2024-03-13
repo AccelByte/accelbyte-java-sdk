@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class XblIAPConfigInfo extends Model {
 
+  @JsonProperty("businessPartnerCertExpiredTime")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String businessPartnerCertExpiredTime;
+
   @JsonProperty("businessPartnerCertFileName")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String businessPartnerCertFileName;

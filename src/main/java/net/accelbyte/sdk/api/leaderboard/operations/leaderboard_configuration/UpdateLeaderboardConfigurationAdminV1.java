@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateLeaderboardConfigurationAdminV1
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [UPDATE]'
- *
  * <p>Fields :
  *
  * <p>* Maximum length for leaderboard name is 128 characters.

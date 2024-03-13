@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateScreenshotsV2
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [UPDATE]. Maximum
- * description length: 1024.
+ * <p>Maximum description length: 1024
  */
 @Getter
 @Setter

@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminListStagingContents
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [READ].
+ * <p>List content that need admin's approval
  */
 @Getter
 @Setter

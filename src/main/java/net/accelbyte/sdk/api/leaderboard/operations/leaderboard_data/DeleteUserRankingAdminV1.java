@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteUserRankingAdminV1
  *
- * <p>Delete user ranking Required permission: ADMIN:NAMESPACE:{namespace}:LEADERBOARD:USER [DELETE]
+ * <p>Delete user ranking
  *
  * <p>Remove entry with provided userId from leaderboard. If leaderboard with given leaderboard code
  * not found, it will return http status not found (404). If the leaderboard is found and no entry

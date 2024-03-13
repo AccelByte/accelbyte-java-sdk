@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetChannels
  *
- * <p>Required permission NAMESPACE:{namespace}:USER:{userId}:CHANNEL [READ]
+ * <p>Get user channel paginated
  */
 @Getter
 @Setter

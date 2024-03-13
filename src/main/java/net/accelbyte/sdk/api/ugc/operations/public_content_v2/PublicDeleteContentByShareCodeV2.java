@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicDeleteContentByShareCodeV2
  *
- * <p>Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [DELETE].
+ * <p>Delete existing content by share code
  */
 @Getter
 @Setter

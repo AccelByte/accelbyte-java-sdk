@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminCreateTag
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:UGCCONFIG [CREATE] creates a new tag
+ * <p>Creates a new tag
  */
 @Getter
 @Setter

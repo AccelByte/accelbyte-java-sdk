@@ -21,29 +21,20 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetLikedContent
  *
- * <p>Requires valid user token.
- *
- * <p>For advance tag filtering supports & as AND operator and | as OR operator and parentheses ()
+ * <p>For advance tag filtering supports & as AND operator and | as OR operator and parentheses ( )
  * for priority. e.g:
  *
- * <p>`tags=red`
- *
- * <p>`tags=red&animal;`
- *
- * <p>`tags=red|animal`
- *
- * <p>`tags=red&animal;|wild`
- *
- * <p>`tags=red&(animal|wild)`
+ * <p>*tags=red* *tags=red&animal;* *tags=red|animal* *tags=red&animal;|wild*
+ * *tags=red&(animal|wild)*
  *
  * <p>The precedence of logical operator is AND > OR, so if no parentheses, AND logical operator
  * will be executed first.
  *
- * <p>Allowed character for operand: alphanumeric, underscore `_` and dash `-`
+ * <p>Allowed character for operand: alphanumeric, underscore _ and dash -
  *
- * <p>Allowed character for operator: `&` `|` `(` `)`
+ * <p>Allowed character for operator: & | ( )
  *
- * <p>Please note that value of tags query param should be URL encoded
+ * <p>**Please note that value of tags query param should be URL encoded**
  */
 @Getter
 @Setter

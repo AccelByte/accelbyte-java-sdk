@@ -22,7 +22,7 @@ public class PersonalChatNotif {
   private String from;
   private String id;
   private String payload;
-  private Integer receivedAt;
+  private String receivedAt;
   private String to;
 
   private PersonalChatNotif() {}
@@ -30,7 +30,7 @@ public class PersonalChatNotif {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public PersonalChatNotif(String from, String id, String payload, Integer receivedAt, String to) {
+  public PersonalChatNotif(String from, String id, String payload, String receivedAt, String to) {
     this.from = from;
     this.id = id;
     this.payload = payload;
@@ -48,8 +48,7 @@ public class PersonalChatNotif {
     result.from = response.get("from") != null ? response.get("from") : null;
     result.id = response.get("id") != null ? response.get("id") : null;
     result.payload = response.get("payload") != null ? response.get("payload") : null;
-    result.receivedAt =
-        response.get("receivedAt") != null ? Integer.valueOf(response.get("receivedAt")) : null;
+    result.receivedAt = response.get("receivedAt") != null ? response.get("receivedAt") : null;
     result.to = response.get("to") != null ? response.get("to") : null;
     return result;
   }

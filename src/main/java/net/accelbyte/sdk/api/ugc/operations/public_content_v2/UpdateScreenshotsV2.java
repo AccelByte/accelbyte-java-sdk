@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UpdateScreenshotsV2
  *
- * <p>Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [UPDATE]. Maximum description
- * length: 1024.
+ * <p>Maximum description length: 1024
  */
 @Getter
 @Setter

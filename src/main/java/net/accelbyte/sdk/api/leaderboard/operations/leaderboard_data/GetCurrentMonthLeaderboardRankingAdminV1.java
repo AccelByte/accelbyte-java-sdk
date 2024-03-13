@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetCurrentMonthLeaderboardRankingAdminV1
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
- *
  * <p>Get rankings in current month leaderboard.
  */
 @Getter

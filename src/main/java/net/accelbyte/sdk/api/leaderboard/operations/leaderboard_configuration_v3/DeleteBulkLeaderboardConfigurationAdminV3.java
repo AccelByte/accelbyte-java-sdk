@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteBulkLeaderboardConfigurationAdminV3
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [DELETE]'
- *
  * <p>This endpoint delete multiple leaderboards configuration in one request
  */
 @Getter

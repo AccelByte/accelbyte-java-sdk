@@ -8,13 +8,12 @@
 
 package net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import net.accelbyte.sdk.api.gametelemetry.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
@@ -81,13 +80,13 @@ public class ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytime
     return true;
   }
 
-  public Map<String, ?> parseResponse(int code, String contentType, InputStream payload)
+  public PlayTimeResponse parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ObjectMapper().readValue(json, new TypeReference<Map<String, ?>>() {});
+    return new PlayTimeResponse().createFromJson(json);
   }
 }

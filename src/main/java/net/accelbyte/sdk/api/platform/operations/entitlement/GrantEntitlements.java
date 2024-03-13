@@ -21,11 +21,16 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * grantEntitlements
  *
- * <p>Grant entitlements to multiple users, skipped granting will be treated as fail. Other detail
- * info:
+ * <p>Grant entitlements to multiple users, skipped granting will be treated as fail.
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:ENTITLEMENT", action=4 (UPDATE)
- * * Returns : bulk grant entitlements result
+ * <p>Notes:
+ *
+ * <p>Support Item Types:
+ *
+ * <p>* APP * INGAMEITEM * CODE * SUBSCRIPTION * MEDIA * OPTIONBOX * LOOTBOX
+ *
+ * <p>Other detail info: * Required permission : resource="ADMIN:NAMESPACE:{namespace}:ENTITLEMENT",
+ * action=4 (UPDATE) * Returns : bulk grant entitlements result
  */
 @Getter
 @Setter

@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteGroup
  *
- * <p>Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP [DELETE]
+ * <p>Delete user group by group ID
  */
 @Getter
 @Setter

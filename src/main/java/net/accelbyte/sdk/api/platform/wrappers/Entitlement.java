@@ -475,6 +475,16 @@ public class Entitlement {
   }
 
   /**
+   * @see PublicUserEntitlementHistory
+   */
+  public List<UserEntitlementHistoryPagingSlicedResult> publicUserEntitlementHistory(
+      PublicUserEntitlementHistory input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicExistsAnyUserActiveEntitlement
    */
   public Ownership publicExistsAnyUserActiveEntitlement(PublicExistsAnyUserActiveEntitlement input)

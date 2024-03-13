@@ -112,6 +112,12 @@
 | `/session/v1/admin/namespaces/{namespace}/platform-credentials` | PUT | AdminUpdatePlatformCredentials | [AdminUpdatePlatformCredentials](../../src/main/java/net/accelbyte/sdk/api/session/operations/platform_credential/AdminUpdatePlatformCredentials.java) | [AdminUpdatePlatformCredentials](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/platform_credential/AdminUpdatePlatformCredentials.java) |
 | `/session/v1/admin/namespaces/{namespace}/platform-credentials` | DELETE | AdminDeletePlatformCredentials | [AdminDeletePlatformCredentials](../../src/main/java/net/accelbyte/sdk/api/session/operations/platform_credential/AdminDeletePlatformCredentials.java) | [AdminDeletePlatformCredentials](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/platform_credential/AdminDeletePlatformCredentials.java) |
 
+### Recent Player Wrapper:  [RecentPlayer](../../src/main/java/net/accelbyte/sdk/api/session/wrappers/RecentPlayer.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/session/v1/admin/namespaces/{namespace}/recent-player` | GET | AdminGetRecentPlayer | [AdminGetRecentPlayer](../../src/main/java/net/accelbyte/sdk/api/session/operations/recent_player/AdminGetRecentPlayer.java) | [AdminGetRecentPlayer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/recent_player/AdminGetRecentPlayer.java) |
+| `/session/v1/public/namespaces/{namespace}/recent-player` | GET | PublicGetRecentPlayer | [PublicGetRecentPlayer](../../src/main/java/net/accelbyte/sdk/api/session/operations/recent_player/PublicGetRecentPlayer.java) | [PublicGetRecentPlayer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/recent_player/PublicGetRecentPlayer.java) |
+
 ### Session Storage Wrapper:  [SessionStorage](../../src/main/java/net/accelbyte/sdk/api/session/wrappers/SessionStorage.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -130,11 +136,6 @@
 | `/session/v1/public/namespaces/{namespace}/users/me/attributes` | GET | PublicGetPlayerAttributes | [PublicGetPlayerAttributes](../../src/main/java/net/accelbyte/sdk/api/session/operations/player/PublicGetPlayerAttributes.java) | [PublicGetPlayerAttributes](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/player/PublicGetPlayerAttributes.java) |
 | `/session/v1/public/namespaces/{namespace}/users/me/attributes` | POST | PublicStorePlayerAttributes | [PublicStorePlayerAttributes](../../src/main/java/net/accelbyte/sdk/api/session/operations/player/PublicStorePlayerAttributes.java) | [PublicStorePlayerAttributes](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/player/PublicStorePlayerAttributes.java) |
 | `/session/v1/public/namespaces/{namespace}/users/me/attributes` | DELETE | PublicDeletePlayerAttributes | [PublicDeletePlayerAttributes](../../src/main/java/net/accelbyte/sdk/api/session/operations/player/PublicDeletePlayerAttributes.java) | [PublicDeletePlayerAttributes](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/player/PublicDeletePlayerAttributes.java) |
-
-### Recent Player Wrapper:  [RecentPlayer](../../src/main/java/net/accelbyte/sdk/api/session/wrappers/RecentPlayer.java)
-| Endpoint | Method | ID | Class | Example |
-|---|---|---|---|---|
-| `/session/v1/public/namespaces/{namespace}/recent-player` | GET | PublicGetRecentPlayer | [PublicGetRecentPlayer](../../src/main/java/net/accelbyte/sdk/api/session/operations/recent_player/PublicGetRecentPlayer.java) | [PublicGetRecentPlayer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/recent_player/PublicGetRecentPlayer.java) |
 
 
 &nbsp;  

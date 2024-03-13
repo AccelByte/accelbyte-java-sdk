@@ -200,6 +200,7 @@
 | `/platform/public/namespaces/{namespace}/users/{userId}/entitlements/byIds` | GET | PublicGetUserEntitlementsByIds | [PublicGetUserEntitlementsByIds](../../src/main/java/net/accelbyte/sdk/api/platform/operations/entitlement/PublicGetUserEntitlementsByIds.java) | [PublicGetUserEntitlementsByIds](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/entitlement/PublicGetUserEntitlementsByIds.java) |
 | [DEPRECATED] `/platform/public/namespaces/{namespace}/users/{userId}/entitlements/byItemId` | GET | PublicGetUserEntitlementByItemId | [PublicGetUserEntitlementByItemId](../../src/main/java/net/accelbyte/sdk/api/platform/operations/entitlement/PublicGetUserEntitlementByItemId.java) | [PublicGetUserEntitlementByItemId](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/entitlement/PublicGetUserEntitlementByItemId.java) |
 | [DEPRECATED] `/platform/public/namespaces/{namespace}/users/{userId}/entitlements/bySku` | GET | PublicGetUserEntitlementBySku | [PublicGetUserEntitlementBySku](../../src/main/java/net/accelbyte/sdk/api/platform/operations/entitlement/PublicGetUserEntitlementBySku.java) | [PublicGetUserEntitlementBySku](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/entitlement/PublicGetUserEntitlementBySku.java) |
+| `/platform/public/namespaces/{namespace}/users/{userId}/entitlements/history` | GET | PublicUserEntitlementHistory | [PublicUserEntitlementHistory](../../src/main/java/net/accelbyte/sdk/api/platform/operations/entitlement/PublicUserEntitlementHistory.java) | [PublicUserEntitlementHistory](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/entitlement/PublicUserEntitlementHistory.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/entitlements/ownership/any` | GET | PublicExistsAnyUserActiveEntitlement | [PublicExistsAnyUserActiveEntitlement](../../src/main/java/net/accelbyte/sdk/api/platform/operations/entitlement/PublicExistsAnyUserActiveEntitlement.java) | [PublicExistsAnyUserActiveEntitlement](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/entitlement/PublicExistsAnyUserActiveEntitlement.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/entitlements/ownership/byAppId` | GET | PublicGetUserAppEntitlementOwnershipByAppId | [PublicGetUserAppEntitlementOwnershipByAppId](../../src/main/java/net/accelbyte/sdk/api/platform/operations/entitlement/PublicGetUserAppEntitlementOwnershipByAppId.java) | [PublicGetUserAppEntitlementOwnershipByAppId](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/entitlement/PublicGetUserAppEntitlementOwnershipByAppId.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/entitlements/ownership/byItemId` | GET | PublicGetUserEntitlementOwnershipByItemId | [PublicGetUserEntitlementOwnershipByItemId](../../src/main/java/net/accelbyte/sdk/api/platform/operations/entitlement/PublicGetUserEntitlementOwnershipByItemId.java) | [PublicGetUserEntitlementOwnershipByItemId](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/entitlement/PublicGetUserEntitlementOwnershipByItemId.java) |
@@ -691,6 +692,7 @@
 | `EntitlementIfc` | [EntitlementIfc](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementIfc.java) |
 | `EntitlementInfo` | [EntitlementInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementInfo.java) |
 | `EntitlementLootBoxReward` | [EntitlementLootBoxReward](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementLootBoxReward.java) |
+| `EntitlementOriginSyncResult` | [EntitlementOriginSyncResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementOriginSyncResult.java) |
 | `EntitlementOwnership` | [EntitlementOwnership](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementOwnership.java) |
 | `EntitlementPagingSlicedResult` | [EntitlementPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementPagingSlicedResult.java) |
 | `EntitlementPlatformConfigInfo` | [EntitlementPlatformConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementPlatformConfigInfo.java) |
@@ -880,6 +882,7 @@
 | `Predicate` | [Predicate](../../src/main/java/net/accelbyte/sdk/api/platform/models/Predicate.java) |
 | `PredicateValidateResult` | [PredicateValidateResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/PredicateValidateResult.java) |
 | `PublicCustomConfigInfo` | [PublicCustomConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/PublicCustomConfigInfo.java) |
+| `PublicEntitlementHistoryInfo` | [PublicEntitlementHistoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/PublicEntitlementHistoryInfo.java) |
 | `PurchaseCondition` | [PurchaseCondition](../../src/main/java/net/accelbyte/sdk/api/platform/models/PurchaseCondition.java) |
 | `PurchaseConditionUpdate` | [PurchaseConditionUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/PurchaseConditionUpdate.java) |
 | `PurchasedItemCount` | [PurchasedItemCount](../../src/main/java/net/accelbyte/sdk/api/platform/models/PurchasedItemCount.java) |
@@ -978,6 +981,7 @@
 | `TwitchSyncResult` | [TwitchSyncResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/TwitchSyncResult.java) |
 | `UserDLC` | [UserDLC](../../src/main/java/net/accelbyte/sdk/api/platform/models/UserDLC.java) |
 | `UserDLCRecord` | [UserDLCRecord](../../src/main/java/net/accelbyte/sdk/api/platform/models/UserDLCRecord.java) |
+| `UserEntitlementHistoryPagingSlicedResult` | [UserEntitlementHistoryPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/UserEntitlementHistoryPagingSlicedResult.java) |
 | `ValidationErrorEntity` | [ValidationErrorEntity](../../src/main/java/net/accelbyte/sdk/api/platform/models/ValidationErrorEntity.java) |
 | `ViewCreate` | [ViewCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/ViewCreate.java) |
 | `ViewInfo` | [ViewInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/ViewInfo.java) |
@@ -1001,4 +1005,3 @@
 | `XsollaConfig` | [XsollaConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/XsollaConfig.java) |
 | `XsollaPaywallConfig` | [XsollaPaywallConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/XsollaPaywallConfig.java) |
 | `XsollaPaywallConfigRequest` | [XsollaPaywallConfigRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/XsollaPaywallConfigRequest.java) |
-| `entitlement origin sync result` | [EntitlementOriginSyncResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementOriginSyncResult.java) |

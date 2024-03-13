@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetGroups
  *
- * <p>Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP [READ].
+ * <p>Get user groups paginated
  */
 @Getter
 @Setter

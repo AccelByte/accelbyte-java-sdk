@@ -25,6 +25,14 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApiAccountLimits extends Model {
 
+  @JsonProperty("allowedNodeClasses")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> allowedNodeClasses;
+
+  @JsonProperty("allowedRegions")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> allowedRegions;
+
   @JsonProperty("fleetCount")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer fleetCount;
@@ -32,6 +40,10 @@ public class ApiAccountLimits extends Model {
   @JsonProperty("fleetVmCount")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer fleetVmCount;
+
+  @JsonProperty("imageStorageQuotaBytes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer imageStorageQuotaBytes;
 
   @JsonIgnore
   public ApiAccountLimits createFromJson(String json) throws JsonProcessingException {

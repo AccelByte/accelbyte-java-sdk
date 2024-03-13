@@ -52,6 +52,7 @@
 |---|---|---|---|---|
 | `/ams/v1/admin/namespaces/{namespace}/fleets/{fleetID}/servers/history` | GET | FleetServerHistory | [FleetServerHistory](../../src/main/java/net/accelbyte/sdk/api/ams/operations/servers/FleetServerHistory.java) | [FleetServerHistory](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/servers/FleetServerHistory.java) |
 | `/ams/v1/admin/namespaces/{namespace}/servers/{serverID}` | GET | FleetServerInfo | [FleetServerInfo](../../src/main/java/net/accelbyte/sdk/api/ams/operations/servers/FleetServerInfo.java) | [FleetServerInfo](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/servers/FleetServerInfo.java) |
+| `/ams/v1/admin/namespaces/{namespace}/servers/{serverID}/connectioninfo` | GET | FleetServerConnectionInfo | [FleetServerConnectionInfo](../../src/main/java/net/accelbyte/sdk/api/ams/operations/servers/FleetServerConnectionInfo.java) | [FleetServerConnectionInfo](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/servers/FleetServerConnectionInfo.java) |
 | `/ams/v1/admin/namespaces/{namespace}/servers/{serverID}/history` | GET | ServerHistory | [ServerHistory](../../src/main/java/net/accelbyte/sdk/api/ams/operations/servers/ServerHistory.java) | [ServerHistory](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/servers/ServerHistory.java) |
 
 ### Images Wrapper:  [Images](../../src/main/java/net/accelbyte/sdk/api/ams/wrappers/Images.java)
@@ -115,6 +116,7 @@
 | `api.FleetListResponse` | [ApiFleetListResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetListResponse.java) |
 | `api.FleetParameters` | [ApiFleetParameters](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetParameters.java) |
 | `api.FleetRegionalServerCounts` | [ApiFleetRegionalServerCounts](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetRegionalServerCounts.java) |
+| `api.FleetServerConnectionInfoResponse` | [ApiFleetServerConnectionInfoResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetServerConnectionInfoResponse.java) |
 | `api.FleetServerHistoryEventResponse` | [ApiFleetServerHistoryEventResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetServerHistoryEventResponse.java) |
 | `api.FleetServerHistoryResponse` | [ApiFleetServerHistoryResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetServerHistoryResponse.java) |
 | `api.FleetServerInfoResponse` | [ApiFleetServerInfoResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetServerInfoResponse.java) |
@@ -131,6 +133,10 @@
 | `api.QoSServer` | [ApiQoSServer](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiQoSServer.java) |
 | `api.ReferencingFleet` | [ApiReferencingFleet](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiReferencingFleet.java) |
 | `api.RegionConfig` | [ApiRegionConfig](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiRegionConfig.java) |
+| `api.Time` | [ApiTime](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiTime.java) |
 | `api.Timeout` | [ApiTimeout](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiTimeout.java) |
 | `api.UpdateServerRequest` | [ApiUpdateServerRequest](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiUpdateServerRequest.java) |
 | `response.ErrorResponse` | [ResponseErrorResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ResponseErrorResponse.java) |
+| `time.Location` | [TimeLocation](../../src/main/java/net/accelbyte/sdk/api/ams/models/TimeLocation.java) |
+| `time.zone` | [TimeZone](../../src/main/java/net/accelbyte/sdk/api/ams/models/TimeZone.java) |
+| `time.zoneTrans` | [TimeZoneTrans](../../src/main/java/net/accelbyte/sdk/api/ams/models/TimeZoneTrans.java) |

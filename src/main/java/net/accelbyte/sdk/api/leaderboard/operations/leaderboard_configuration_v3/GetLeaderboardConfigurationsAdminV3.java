@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getLeaderboardConfigurationsAdminV3
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
- *
  * <p>This endpoint return all leaderboard configurations
  */
 @Getter

@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminBulkGetContentByIDsV2
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:USER:*:CONTENT [READ]. Maximum contentId per
- * request 100
+ * <p>Maximum contentId per request 100
  */
 @Getter
 @Setter

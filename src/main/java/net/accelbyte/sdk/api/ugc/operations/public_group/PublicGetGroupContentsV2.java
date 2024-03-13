@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicGetGroupContentsV2
  *
- * <p>Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [READ].
+ * <p>Get content belong to a group
  */
 @Getter
 @Setter

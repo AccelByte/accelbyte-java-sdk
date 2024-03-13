@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDeleteType
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:UGCCONFIG [DELETE]
+ * <p>Delete existing type
  */
 @Getter
 @Setter

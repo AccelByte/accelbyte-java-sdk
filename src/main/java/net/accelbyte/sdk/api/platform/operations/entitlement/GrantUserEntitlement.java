@@ -23,10 +23,21 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * grantUserEntitlement
  *
- * <p>Grant user entitlement. Other detail info:
+ * <p>Grant user entitlement.
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT",
- * action=1 (CREATE) * Returns : granted entitlement
+ * <p>Notes:
+ *
+ * <p>will skip un-supported item if input un-supported item types, please use
+ * /admin/namespaces/{namespace}/users/{userId}/fulfillment endpoint if want to fulfill other item
+ * type, like coin item
+ *
+ * <p>Support Item Types:
+ *
+ * <p>* APP * INGAMEITEM * CODE * SUBSCRIPTION * MEDIA * OPTIONBOX * LOOTBOX
+ *
+ * <p>Other detail info: * Required permission :
+ * resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT", action=1 (CREATE) * Returns :
+ * granted entitlement
  */
 @Getter
 @Setter

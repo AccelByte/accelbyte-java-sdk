@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * SingleAdminGetChannel
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CHANNEL [READ]
+ * <p>Get official channel paginated
  */
 @Getter
 @Setter

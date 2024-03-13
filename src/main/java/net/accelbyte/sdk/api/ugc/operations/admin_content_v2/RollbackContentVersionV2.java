@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * RollbackContentVersionV2
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [UPDATE] Rollback
- * content's payload to specified version.
+ * <p>Rollback content's payload to specified version
  */
 @Getter
 @Setter

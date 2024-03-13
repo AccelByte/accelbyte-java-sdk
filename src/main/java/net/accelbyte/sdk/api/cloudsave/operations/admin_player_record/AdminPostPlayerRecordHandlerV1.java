@@ -65,9 +65,11 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>**Metadata List:** 1. set_by (default: CLIENT, type: string) Indicate which party that could
  * modify the game record. SERVER: record can be modified by server only. CLIENT: record can be
  * modified by client and server. 2. is_public (default: false, type: bool) Indicate whether the
- * player record is a public record or not.
+ * player record is a public record or not. 3. tags (default: *empty array*, type: array of string)
+ * Indicate the tagging for the game record.
  *
- * <p>**Request Body Example:** ``` { "__META": { "set_by": "SERVER", "is_public": true } ... } ```
+ * <p>**Request Body Example:** ``` { "__META": { "set_by": "SERVER", "is_public": true, "tags":
+ * ["tag1", "tag2"] } ... } ```
  */
 @Getter
 @Setter

@@ -41,11 +41,6 @@ public class PublicGetRecentPlayer implements Callable<Integer> {
   Integer limit;
 
   @Option(
-      names = {"--userId"},
-      description = "userId")
-  String userId;
-
-  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -70,7 +65,6 @@ public class PublicGetRecentPlayer implements Callable<Integer> {
           net.accelbyte.sdk.api.session.operations.recent_player.PublicGetRecentPlayer.builder()
               .namespace(namespace)
               .limit(limit)
-              .userId(userId)
               .build();
       final ModelsRecentPlayerQueryResponse response = wrapper.publicGetRecentPlayer(operation);
       final String responseString =

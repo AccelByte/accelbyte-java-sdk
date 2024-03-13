@@ -61,6 +61,8 @@ import picocli.CommandLine.Command;
       BulkGetAdminPlayerRecordByUserIdsV1.class,
       BulkGetPlayerRecordSizeHandlerV1.class,
       ListPlayerRecordHandlerV1.class,
+      AdminBulkPutPlayerRecordsByKeyHandlerV1.class,
+      AdminBulkGetPlayerRecordsByUserIDsHandlerV1.class,
       AdminListAdminUserRecordsV1.class,
       AdminBulkGetAdminPlayerRecordV1.class,
       AdminGetAdminPlayerRecordV1.class,

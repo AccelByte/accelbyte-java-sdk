@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicUpdateContentByShareCodeV2
  *
- * <p>Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [UPDATE].
+ * <p>Update content by share code
  */
 @Getter
 @Setter

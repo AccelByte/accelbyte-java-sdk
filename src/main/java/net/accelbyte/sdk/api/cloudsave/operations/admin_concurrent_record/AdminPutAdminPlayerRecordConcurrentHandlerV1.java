@@ -51,8 +51,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>The reserved word cannot be used as a field in record value, If still defining the field when
  * creating or updating the record, it will be ignored.
  *
- * <p>## Parameters Notes 1. updatedAt (required: true) Time format style: RFC3339 2. value Json
- * **Request Body Example:** ``` { "value": {}, "updatedAt": "2022-03-17T10:42:15.444Z" } ```
+ * <p>## Parameters Notes 1. updatedAt (required: true) Time format style: RFC3339 2. value Json 3.
+ * tags (default: *empty array*, type: array of string) Indicate the tagging for the admin record.
+ * **Request Body Example:** ``` { "value": {}, "updatedAt": "2022-03-17T10:42:15.444Z", "tags":
+ * ["tag1", "tag2"] } ```
  *
  * <p>## Optimistic Concurrency Control
  *

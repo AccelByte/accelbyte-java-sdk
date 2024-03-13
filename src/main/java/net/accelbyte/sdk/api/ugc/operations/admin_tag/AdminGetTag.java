@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetTag
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:UGCCONFIG [READ]
+ * <p>Get available tags paginated
  */
 @Getter
 @Setter

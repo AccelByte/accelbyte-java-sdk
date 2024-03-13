@@ -24,6 +24,11 @@
 
 | Model | Class |
 |---|---|
+| `BaseErrorResponse` | [BaseErrorResponse](../../src/main/java/net/accelbyte/sdk/api/gametelemetry/models/BaseErrorResponse.java) |
+| `GetNamespaceEventResponse` | [GetNamespaceEventResponse](../../src/main/java/net/accelbyte/sdk/api/gametelemetry/models/GetNamespaceEventResponse.java) |
 | `HTTPValidationError` | [HTTPValidationError](../../src/main/java/net/accelbyte/sdk/api/gametelemetry/models/HTTPValidationError.java) |
+| `ListBaseResponse_str_` | [ListBaseResponseStr](../../src/main/java/net/accelbyte/sdk/api/gametelemetry/models/ListBaseResponseStr.java) |
+| `PagedResponse_GetNamespaceEventResponse_` | [PagedResponseGetNamespaceEventResponse](../../src/main/java/net/accelbyte/sdk/api/gametelemetry/models/PagedResponseGetNamespaceEventResponse.java) |
+| `PlayTimeResponse` | [PlayTimeResponse](../../src/main/java/net/accelbyte/sdk/api/gametelemetry/models/PlayTimeResponse.java) |
 | `TelemetryBody` | [TelemetryBody](../../src/main/java/net/accelbyte/sdk/api/gametelemetry/models/TelemetryBody.java) |
 | `ValidationError` | [ValidationError](../../src/main/java/net/accelbyte/sdk/api/gametelemetry/models/ValidationError.java) |

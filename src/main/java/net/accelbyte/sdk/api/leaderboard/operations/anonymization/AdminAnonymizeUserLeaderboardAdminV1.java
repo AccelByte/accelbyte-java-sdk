@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminAnonymizeUserLeaderboardAdminV1
  *
  * <p>This API will delete specified user leaderboard
- *
- * <p>Required permission `ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION [DELETE]`
  */
 @Getter
 @Setter

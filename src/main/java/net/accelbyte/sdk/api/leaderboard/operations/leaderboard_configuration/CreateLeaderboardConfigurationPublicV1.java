@@ -23,8 +23,6 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Public endpoint to create a new leaderboard.
  *
- * <p>Required permission 'NAMESPACE:{namespace}:LEADERBOARD [CREATE]'
- *
  * <p>Fields :
  *
  * <p>* LeaderboardConfig code must be lowercase and maximum length is 48 characters. (required).

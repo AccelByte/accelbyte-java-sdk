@@ -54,8 +54,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>## Parameters Notes 1. set_by (default: CLIENT, type: string) Indicate which party that could
  * modify the game record. SERVER: record can be modified by server only. CLIENT: record can be
  * modified by client and server. 2. updatedAt (required: true) Time format style: RFC3339 3. value
- * Json **Request Body Example:** ``` { "set_by": "SERVER", "value": {}, "updatedAt":
- * "2022-03-17T10:42:15.444Z" } ```
+ * Json 4. tags (default: *empty array*, type: array of string) Indicate the tagging for the game
+ * record. **Request Body Example:** ``` { "set_by": "SERVER", "value": {}, "updatedAt":
+ * "2022-03-17T10:42:15.444Z", "tags": ["tag1", "tag2"] } ```
  *
  * <p>## Optimistic Concurrency Control
  *

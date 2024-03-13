@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UpdateContentShareCodeV2
  *
- * <p>Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT:SHARECODE [UPDATE].
- *
  * <p>This endpoint is used to modify the shareCode of a content. However, this operation is
  * restricted by default and requires the above permission to be granted to the User role.
  *

@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminApproveStagingContent
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:CONTENT:APPROVAL [CREATE].
+ * <p>Approved content will shown to public player. Rejected content stays in staging area and
+ * couldn't be seen by other player
  */
 @Getter
 @Setter

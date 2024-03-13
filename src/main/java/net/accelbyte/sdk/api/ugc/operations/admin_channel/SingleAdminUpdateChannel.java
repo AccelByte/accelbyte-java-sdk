@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * SingleAdminUpdateChannel
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CHANNEL [UPDATE]
+ * <p>Update official channel
  */
 @Getter
 @Setter

@@ -8,14 +8,12 @@
 
 package net.accelbyte.sdk.api.challenge.models;
 
-import java.util.*;
-
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.*;
 import lombok.*;
-
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -23,51 +21,50 @@ import net.accelbyte.sdk.core.Model;
 @Getter
 @Setter
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
-@AllArgsConstructor(onConstructor=@__(@Deprecated))     
+@AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
 public class ModelUserReward extends Model {
 
-    @JsonProperty("createdAt")
-    private String createdAt;
+  @JsonProperty("challengeCode")
+  private String challengeCode;
 
-    @JsonProperty("goalCode")
-    private String goalCode;
+  @JsonProperty("createdAt")
+  private String createdAt;
 
-    @JsonProperty("id")
-    private String id;
+  @JsonProperty("goalCode")
+  private String goalCode;
 
-    @JsonProperty("itemId")
-    private String itemId;
+  @JsonProperty("id")
+  private String id;
 
-    @JsonProperty("itemName")
-    private String itemName;
+  @JsonProperty("itemId")
+  private String itemId;
 
-    @JsonProperty("qty")
-    private Float qty;
+  @JsonProperty("itemName")
+  private String itemName;
 
-    @JsonProperty("status")
-    private String status;
+  @JsonProperty("qty")
+  private Float qty;
 
-    @JsonProperty("type")
-    private String type;
+  @JsonProperty("status")
+  private String status;
 
-    @JsonProperty("updatedAt")
-    private String updatedAt;
+  @JsonProperty("type")
+  private String type;
 
-    @JsonProperty("userId")
-    private String userId;
+  @JsonProperty("updatedAt")
+  private String updatedAt;
 
+  @JsonProperty("userId")
+  private String userId;
 
+  @JsonIgnore
+  public ModelUserReward createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-    @JsonIgnore
-    public ModelUserReward createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelUserReward> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserReward>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelUserReward> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelUserReward>>() {});
+  }
 }

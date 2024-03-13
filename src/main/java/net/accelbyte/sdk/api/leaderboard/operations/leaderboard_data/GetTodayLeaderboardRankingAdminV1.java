@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetTodayLeaderboardRankingAdminV1
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [READ]'
- *
  * <p>Get rankings in today leaderboard.
  */
 @Getter

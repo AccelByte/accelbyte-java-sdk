@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UpdateChannel
  *
- * <p>Required permission NAMESPACE:{namespace}:USER:{userId}:CHANNEL [UPDATE]
+ * <p>Update user channel
  */
 @Getter
 @Setter

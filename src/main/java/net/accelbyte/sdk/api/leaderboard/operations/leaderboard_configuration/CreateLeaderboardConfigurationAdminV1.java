@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * createLeaderboardConfigurationAdminV1
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [CREATE]'
- *
  * <p>Fields :
  *
  * <p>* LeaderboardConfig code must be lowercase and maximum length is 48 characters. (required).

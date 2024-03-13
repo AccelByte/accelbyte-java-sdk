@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.cli.api.gametelemetry.telemetry;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.gametelemetry.models.*;
@@ -58,8 +59,11 @@ public class GetNamespacesGameTelemetryV1AdminNamespacesGet implements Callable<
               net.accelbyte.sdk.api.gametelemetry.operations.telemetry
                   .GetNamespacesGameTelemetryV1AdminNamespacesGet.builder()
                   .build();
-      wrapper.getNamespacesGameTelemetryV1AdminNamespacesGet(operation);
-      log.info("Operation successful");
+      final ListBaseResponseStr response =
+          wrapper.getNamespacesGameTelemetryV1AdminNamespacesGet(operation);
+      final String responseString =
+          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
+      log.info("Operation successful\n{}", responseString);
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

@@ -22,7 +22,7 @@ public class MessageNotif {
   private String from;
   private String id;
   private String payload;
-  private Integer sentAt;
+  private String sentAt;
   private String to;
   private String topic;
 
@@ -32,7 +32,7 @@ public class MessageNotif {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public MessageNotif(
-      String from, String id, String payload, Integer sentAt, String to, String topic) {
+      String from, String id, String payload, String sentAt, String to, String topic) {
     this.from = from;
     this.id = id;
     this.payload = payload;
@@ -51,7 +51,7 @@ public class MessageNotif {
     result.from = response.get("from") != null ? response.get("from") : null;
     result.id = response.get("id") != null ? response.get("id") : null;
     result.payload = response.get("payload") != null ? response.get("payload") : null;
-    result.sentAt = response.get("sentAt") != null ? Integer.valueOf(response.get("sentAt")) : null;
+    result.sentAt = response.get("sentAt") != null ? response.get("sentAt") : null;
     result.to = response.get("to") != null ? response.get("to") : null;
     result.topic = response.get("topic") != null ? response.get("topic") : null;
     return result;

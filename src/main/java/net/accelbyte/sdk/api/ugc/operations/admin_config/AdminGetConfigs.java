@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetConfigs
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:UGCCONFIG [READ]
+ * <p>Get config paginated
  */
 @Getter
 @Setter

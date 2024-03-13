@@ -46,9 +46,29 @@ public class ListAdminsV3 implements Callable<Integer> {
   String before;
 
   @Option(
+      names = {"--endDate"},
+      description = "endDate")
+  String endDate;
+
+  @Option(
       names = {"--limit"},
       description = "limit")
   Integer limit;
+
+  @Option(
+      names = {"--query"},
+      description = "query")
+  String query;
+
+  @Option(
+      names = {"--roleId"},
+      description = "roleId")
+  String roleId;
+
+  @Option(
+      names = {"--startDate"},
+      description = "startDate")
+  String startDate;
 
   @Option(
       names = {"--logging"},
@@ -76,7 +96,11 @@ public class ListAdminsV3 implements Callable<Integer> {
               .namespace(namespace)
               .after(after)
               .before(before)
+              .endDate(endDate)
               .limit(limit)
+              .query(query)
+              .roleId(roleId)
+              .startDate(startDate)
               .build();
       final ModelGetUsersResponseWithPaginationV3 response = wrapper.listAdminsV3(operation);
       final String responseString =

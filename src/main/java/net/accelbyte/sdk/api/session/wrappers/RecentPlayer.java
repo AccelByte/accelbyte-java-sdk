@@ -22,6 +22,16 @@ public class RecentPlayer {
   }
 
   /**
+   * @see AdminGetRecentPlayer
+   */
+  public ModelsRecentPlayerQueryResponse adminGetRecentPlayer(AdminGetRecentPlayer input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicGetRecentPlayer
    */
   public ModelsRecentPlayerQueryResponse publicGetRecentPlayer(PublicGetRecentPlayer input)

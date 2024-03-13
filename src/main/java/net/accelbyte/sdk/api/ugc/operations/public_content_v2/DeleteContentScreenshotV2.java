@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteContentScreenshotV2
  *
- * <p>Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [DELETE].
+ * <p>Delete screenshot from a content
  */
 @Getter
 @Setter

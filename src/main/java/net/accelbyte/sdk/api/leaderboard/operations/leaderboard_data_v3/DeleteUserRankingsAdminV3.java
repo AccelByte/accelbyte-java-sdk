@@ -20,8 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteUserRankingsAdminV3
  *
- * <p>Delete user ranking across leaderboard Required permission:
- * ADMIN:NAMESPACE:{namespace}:LEADERBOARD:USER [DELETE]
+ * <p>Delete user ranking across leaderboard
  *
  * <p>Remove entry with provided userId from leaderboard.
  */

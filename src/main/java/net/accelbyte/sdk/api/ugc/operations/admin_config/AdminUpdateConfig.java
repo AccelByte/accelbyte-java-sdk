@@ -21,8 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateConfig
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:UGCCONFIG [UPDATE]. It will create a new
- * config if the key doesn't exist. Allowed key value: - contentReview : enabled , disabled
+ * <p>This endpoint will create a new config if the *key* doesn't exist.
+ *
+ * <p>Allowed key value: - *contentReview*: *enabled*,*disabled*
  */
 @Getter
 @Setter

@@ -54,9 +54,11 @@ import net.accelbyte.sdk.core.util.Helper;
  * modify the game record. SERVER: record can be modified by server only. CLIENT: record can be
  * modified by client and server. 2. ttl_config (default: *empty*, type: object) Indicate the TTL
  * configuration for the game record. action: - DELETE: record will be deleted after TTL is reached
+ * 3. tags (default: *empty array*, type: array of string) Indicate the tagging for the game record.
  *
  * <p>**Request Body Example:** ``` { "__META": { "set_by": "SERVER", "ttl_config": { "expires_at":
- * "2026-01-02T15:04:05Z", // should be in RFC3339 format "action": "DELETE" } } ... } ```
+ * "2026-01-02T15:04:05Z", // should be in RFC3339 format "action": "DELETE" }, "tags": ["tag1",
+ * "tag2"] } ... } ```
  */
 @Getter
 @Setter

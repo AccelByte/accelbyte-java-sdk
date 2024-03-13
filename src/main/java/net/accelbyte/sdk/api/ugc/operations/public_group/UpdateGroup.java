@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UpdateGroup
  *
- * <p>Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP [UPDATE] replace group
- * name and contents with new ones
+ * <p>Replace group name and contents with new ones
  */
 @Getter
 @Setter

@@ -50,6 +50,7 @@ import picocli.CommandLine.Command;
       QoSRegionsUpdate.class,
       InfoRegions.class,
       FleetServerInfo.class,
+      FleetServerConnectionInfo.class,
       ServerHistory.class,
       InfoSupportedInstances.class,
       AccountGet.class,

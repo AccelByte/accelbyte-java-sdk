@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UpdateContentLikeStatusV2
  *
- * <p>Requires valid user token
+ * <p>This endpoint will update like/unlike state from a content
  */
 @Getter
 @Setter

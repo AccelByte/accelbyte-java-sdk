@@ -23,6 +23,36 @@ public class UsersV4 {
   }
 
   /**
+   * @see AdminListInvitationHistoriesV4
+   */
+  public ModelListInvitationHistoriesV4Response adminListInvitationHistoriesV4(
+      AdminListInvitationHistoriesV4 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminGetNamespaceInvitationHistoryV4
+   */
+  public ModelInvitationHistoryResponse adminGetNamespaceInvitationHistoryV4(
+      AdminGetNamespaceInvitationHistoryV4 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminGetNamespaceUserInvitationHistoryV4
+   */
+  public ModelNamespaceInvitationHistoryUserV4Response adminGetNamespaceUserInvitationHistoryV4(
+      AdminGetNamespaceUserInvitationHistoryV4 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminCreateTestUsersV4
    */
   public AccountCreateTestUsersResponseV4 adminCreateTestUsersV4(AdminCreateTestUsersV4 input)

@@ -25,9 +25,6 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Other detail info:
  *
- * <p>* Required permission: resource="ADMIN:NAMESPACE:{namespace}:USER:(userId):LEADERBOARD",
- * action=4 (UPDATE)
- *
  * <p>* Returns: user ranking
  */
 @Getter

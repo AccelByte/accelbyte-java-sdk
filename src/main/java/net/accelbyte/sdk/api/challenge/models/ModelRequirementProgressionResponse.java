@@ -8,14 +8,12 @@
 
 package net.accelbyte.sdk.api.challenge.models;
 
-import java.util.*;
-
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.*;
 import lombok.*;
-
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -23,35 +21,34 @@ import net.accelbyte.sdk.core.Model;
 @Getter
 @Setter
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
-@AllArgsConstructor(onConstructor=@__(@Deprecated))     
+@AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
 public class ModelRequirementProgressionResponse extends Model {
 
-    @JsonProperty("completedAt")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private String completedAt;
+  @JsonProperty("completedAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String completedAt;
 
-    @JsonProperty("currrentValue")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private Float currrentValue;
+  @JsonProperty("currrentValue")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Float currrentValue;
 
-    @JsonProperty("id")
-    private String id;
+  @JsonProperty("id")
+  private String id;
 
-    @JsonProperty("targetValue")
-    private Float targetValue;
+  @JsonProperty("targetValue")
+  private Float targetValue;
 
+  @JsonIgnore
+  public ModelRequirementProgressionResponse createFromJson(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelRequirementProgressionResponse createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelRequirementProgressionResponse> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelRequirementProgressionResponse>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelRequirementProgressionResponse> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelRequirementProgressionResponse>>() {});
+  }
 }

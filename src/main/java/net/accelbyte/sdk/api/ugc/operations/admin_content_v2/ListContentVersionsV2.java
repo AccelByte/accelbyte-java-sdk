@@ -21,9 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * ListContentVersionsV2
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [READ] Content's
- * payload versions created when UGC is created or updated with `updateContentFile` set to true.
- * Only list up to 10 latest versions.
+ * <p>Content's payload versions created when UGC is created or updated with `updateContentFile` set
+ * to true. Only list up to 10 latest versions.
  */
 @Getter
 @Setter

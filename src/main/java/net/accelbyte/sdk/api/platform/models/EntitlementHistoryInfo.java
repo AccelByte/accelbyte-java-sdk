@@ -28,11 +28,19 @@ public class EntitlementHistoryInfo extends Model {
   @JsonProperty("action")
   private String action;
 
+  @JsonProperty("clazz")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String clazz;
+
   @JsonProperty("createdAt")
   private String createdAt;
 
   @JsonProperty("entitlementId")
   private String entitlementId;
+
+  @JsonProperty("itemId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String itemId;
 
   @JsonProperty("namespace")
   private String namespace;
@@ -47,6 +55,10 @@ public class EntitlementHistoryInfo extends Model {
   @JsonProperty("reason")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String reason;
+
+  @JsonProperty("sku")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String sku;
 
   @JsonProperty("updatedAt")
   private String updatedAt;
@@ -80,6 +92,26 @@ public class EntitlementHistoryInfo extends Model {
   @JsonIgnore
   public void setActionFromEnum(final Action action) {
     this.action = action.toString();
+  }
+
+  @JsonIgnore
+  public String getClazz() {
+    return this.clazz;
+  }
+
+  @JsonIgnore
+  public Clazz getClazzAsEnum() {
+    return Clazz.valueOf(this.clazz);
+  }
+
+  @JsonIgnore
+  public void setClazz(final String clazz) {
+    this.clazz = clazz;
+  }
+
+  @JsonIgnore
+  public void setClazzFromEnum(final Clazz clazz) {
+    this.clazz = clazz.toString();
   }
 
   @JsonIgnore
@@ -134,6 +166,27 @@ public class EntitlementHistoryInfo extends Model {
     }
   }
 
+  public enum Clazz {
+    APP("APP"),
+    CODE("CODE"),
+    ENTITLEMENT("ENTITLEMENT"),
+    LOOTBOX("LOOTBOX"),
+    MEDIA("MEDIA"),
+    OPTIONBOX("OPTIONBOX"),
+    SUBSCRIPTION("SUBSCRIPTION");
+
+    private String value;
+
+    Clazz(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public enum Origin {
     Epic("Epic"),
     GooglePlay("GooglePlay"),
@@ -161,6 +214,7 @@ public class EntitlementHistoryInfo extends Model {
 
   public static class EntitlementHistoryInfoBuilder {
     private String action;
+    private String clazz;
     private String origin;
 
     public EntitlementHistoryInfoBuilder action(final String action) {
@@ -170,6 +224,16 @@ public class EntitlementHistoryInfo extends Model {
 
     public EntitlementHistoryInfoBuilder actionFromEnum(final Action action) {
       this.action = action.toString();
+      return this;
+    }
+
+    public EntitlementHistoryInfoBuilder clazz(final String clazz) {
+      this.clazz = clazz;
+      return this;
+    }
+
+    public EntitlementHistoryInfoBuilder clazzFromEnum(final Clazz clazz) {
+      this.clazz = clazz.toString();
       return this;
     }
 

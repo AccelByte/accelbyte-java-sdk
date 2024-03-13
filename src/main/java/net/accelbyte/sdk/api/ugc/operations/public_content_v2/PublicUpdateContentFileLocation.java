@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicUpdateContentFileLocation
  *
- * <p>This endpoint should be used after calling generate upload url endpoint to commit the changes.
- * Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [UPDATE].
+ * <p>This endpoint should be used after calling generate upload url endpoint to commit the changes
  */
 @Getter
 @Setter

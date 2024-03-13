@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminCreateType
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:UGCCONFIG [CREATE] creates a new type and
- * subtype
+ * <p>Creates a new type and subtype
  */
 @Getter
 @Setter

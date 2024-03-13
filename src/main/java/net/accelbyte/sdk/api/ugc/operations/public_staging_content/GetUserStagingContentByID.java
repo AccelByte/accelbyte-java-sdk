@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetUserStagingContentByID
  *
- * <p>Required permission NAMESPACE:{namespace}:USER:{userId}:CONTENT [READ].
+ * <p>Get user staging content by ID
  */
 @Getter
 @Setter

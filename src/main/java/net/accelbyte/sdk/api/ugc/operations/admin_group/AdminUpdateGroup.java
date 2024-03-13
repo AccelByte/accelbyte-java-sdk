@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateGroup
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENTGROUP [UPDATE] replace
- * group name and contents with new ones.
+ * <p>Replace group name and contents with new ones.
  */
 @Getter
 @Setter

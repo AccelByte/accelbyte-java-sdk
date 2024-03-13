@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDeleteTag
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:UGCCONFIG [DELETE]
+ * <p>Delete existing tag
  */
 @Getter
 @Setter

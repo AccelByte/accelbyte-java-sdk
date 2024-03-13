@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetTag
  *
- * <p>Publicly accessible
+ * <p>Get available tags paginated
  */
 @Getter
 @Setter

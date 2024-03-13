@@ -1,3 +1,11 @@
+<a name="v0.59.0"></a>
+## [v0.59.0]
+### feat
+- **api:** add challenge service
+### ci
+- **:** switch to extend-builder-ci
+
+
 <a name="v0.58.0"></a>
 ## [v0.58.0]
 ### feat

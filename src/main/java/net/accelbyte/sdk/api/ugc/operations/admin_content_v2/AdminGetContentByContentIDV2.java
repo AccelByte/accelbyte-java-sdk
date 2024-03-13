@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetContentByContentIDV2
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:USER:*:CONTENT [READ].
+ * <p>Get content by content ID
  */
 @Getter
 @Setter

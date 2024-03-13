@@ -21,11 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateContentByShareCodeV2
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:USER:{userId}:CONTENT [UPDATE].
+ * <p>*shareCode* format should follows:
  *
- * <p>`shareCode` format should follows:
- *
- * <p>Max length: 7 Available characters: abcdefhkpqrstuxyz
+ * <p>"Max length: 7 "Available characters: abcdefhkpqrstuxyz
  */
 @Getter
 @Setter

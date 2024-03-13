@@ -26,6 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsCreateScreenshotRequestItem extends Model {
 
   @JsonProperty("contentType")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String contentType;
 
   @JsonProperty("description")

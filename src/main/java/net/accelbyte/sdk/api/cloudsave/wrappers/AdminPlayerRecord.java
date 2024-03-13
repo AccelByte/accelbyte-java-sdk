@@ -45,6 +45,26 @@ public class AdminPlayerRecord {
   }
 
   /**
+   * @see AdminBulkPutPlayerRecordsByKeyHandlerV1
+   */
+  public List<ModelsBulkUpdatePlayerRecordByKeyResponse> adminBulkPutPlayerRecordsByKeyHandlerV1(
+      AdminBulkPutPlayerRecordsByKeyHandlerV1 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminBulkGetPlayerRecordsByUserIDsHandlerV1
+   */
+  public ModelsBulkGetPlayerRecordResponse adminBulkGetPlayerRecordsByUserIDsHandlerV1(
+      AdminBulkGetPlayerRecordsByUserIDsHandlerV1 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminRetrievePlayerRecords
    */
   public ModelsListPlayerRecordKeysResponse adminRetrievePlayerRecords(

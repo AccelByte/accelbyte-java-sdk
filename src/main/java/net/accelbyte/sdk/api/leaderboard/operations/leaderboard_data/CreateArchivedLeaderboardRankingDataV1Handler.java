@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateArchivedLeaderboardRankingDataV1Handler
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD [CREATE]'
- *
  * <p>Archive leaderboard ranking data for specified leaderboard codes. NOTE: This will remove all
  * data of the leaderboard on every slug, remove the leaderboard code on stat mapping, and remove
  * the leaderboard on the queue reset. This will be a bulk endpoint
