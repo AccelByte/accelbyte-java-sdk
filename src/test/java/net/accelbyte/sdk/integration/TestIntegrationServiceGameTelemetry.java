@@ -11,6 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Map;
+
+import net.accelbyte.sdk.api.gametelemetry.models.PlayTimeResponse;
 import net.accelbyte.sdk.api.gametelemetry.models.TelemetryBody;
 import net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations.ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet;
 import net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations.ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost;
@@ -86,7 +88,7 @@ public class TestIntegrationServiceGameTelemetry extends TestIntegration {
 
     // CASE Get Steam play time
 
-    final Map<String, ?> getTelemetry =
+    final PlayTimeResponse getTelemetry =
         gameTelemetryWrapper.protectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet(
             ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet.builder()
                 .steamId(steamId)
@@ -95,7 +97,7 @@ public class TestIntegrationServiceGameTelemetry extends TestIntegration {
     // ESAC
 
     if (!isUserNotFound) {
-      assertEquals(playTime, getTelemetry.get("total_playtime")); // Only assert total_playtime if
+      assertEquals(playTime, getTelemetry.getTotalPlaytime()); // Only assert total_playtime if
       // user is found
     }
   }
