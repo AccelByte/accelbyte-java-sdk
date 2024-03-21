@@ -67,10 +67,7 @@ public class AccelByteSDK {
   private static final String DEFAULT_LOGIN_USER_SCOPE =
       "commerce account social publishing analytics";
   private static final String DEFAULT_CACHE_KEY = "default";
-  private static final String CLAIM_PERMISSIONS = "permissions";
   private static final String CLAIM_SUB = "sub";
-  private static final String PERMISSION_RESOURCE = "Resource";
-  private static final String PERMISSION_ACTION = "Action";
 
   private AccelByteConfig sdkConfiguration;
 
