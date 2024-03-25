@@ -34,6 +34,10 @@ public class ApiMatchPool extends Model {
   @JsonProperty("backfill_ticket_expiration_seconds")
   private Integer backfillTicketExpirationSeconds;
 
+  @JsonProperty("crossplay_disabled")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean crossplayDisabled;
+
   @JsonProperty("match_function")
   private String matchFunction;
 
@@ -42,6 +46,10 @@ public class ApiMatchPool extends Model {
 
   @JsonProperty("name")
   private String name;
+
+  @JsonProperty("platfrom_group_enabled")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean platfromGroupEnabled;
 
   @JsonProperty("rule_set")
   private String ruleSet;

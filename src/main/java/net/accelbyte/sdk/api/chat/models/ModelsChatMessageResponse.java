@@ -35,9 +35,11 @@ public class ModelsChatMessageResponse extends Model {
   private String message;
 
   @JsonProperty("readAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer readAt;
 
   @JsonProperty("receivedAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer receivedAt;
 
   @JsonProperty("topicId")

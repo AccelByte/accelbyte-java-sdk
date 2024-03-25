@@ -26,6 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsPartyMember extends Model {
 
   @JsonProperty("extra_attributes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ?> extraAttributes;
 
   @JsonProperty("user_id")

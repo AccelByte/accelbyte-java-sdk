@@ -68,6 +68,7 @@ public class AdminSearchUserV3 extends Operation {
   private String platformBy;
   private String platformId;
   private String query;
+  private String roleIds;
   private Boolean skipLoginQueue;
   private String startDate;
   private Boolean testAccount;
@@ -88,6 +89,7 @@ public class AdminSearchUserV3 extends Operation {
       String platformBy,
       String platformId,
       String query,
+      String roleIds,
       Boolean skipLoginQueue,
       String startDate,
       Boolean testAccount) {
@@ -100,6 +102,7 @@ public class AdminSearchUserV3 extends Operation {
     this.platformBy = platformBy;
     this.platformId = platformId;
     this.query = query;
+    this.roleIds = roleIds;
     this.skipLoginQueue = skipLoginQueue;
     this.startDate = startDate;
     this.testAccount = testAccount;
@@ -130,6 +133,7 @@ public class AdminSearchUserV3 extends Operation {
     queryParams.put("platformBy", this.platformBy == null ? null : Arrays.asList(this.platformBy));
     queryParams.put("platformId", this.platformId == null ? null : Arrays.asList(this.platformId));
     queryParams.put("query", this.query == null ? null : Arrays.asList(this.query));
+    queryParams.put("roleIds", this.roleIds == null ? null : Arrays.asList(this.roleIds));
     queryParams.put(
         "skipLoginQueue",
         this.skipLoginQueue == null ? null : Arrays.asList(String.valueOf(this.skipLoginQueue)));
@@ -169,6 +173,7 @@ public class AdminSearchUserV3 extends Operation {
     result.put("platformBy", "None");
     result.put("platformId", "None");
     result.put("query", "None");
+    result.put("roleIds", "None");
     result.put("skipLoginQueue", "None");
     result.put("startDate", "None");
     result.put("testAccount", "None");

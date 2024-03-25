@@ -11,7 +11,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Map;
-
 import net.accelbyte.sdk.api.gametelemetry.models.PlayTimeResponse;
 import net.accelbyte.sdk.api.gametelemetry.models.TelemetryBody;
 import net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations.ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet;

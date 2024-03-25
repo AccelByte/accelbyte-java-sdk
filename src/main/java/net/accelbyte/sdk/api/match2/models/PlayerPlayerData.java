@@ -31,6 +31,9 @@ public class PlayerPlayerData extends Model {
   @JsonProperty("PartyID")
   private String partyID;
 
+  @JsonProperty("PlatformID")
+  private String platformID;
+
   @JsonProperty("PlayerID")
   private String playerID;
 

@@ -21,6 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * SimultaneousLoginV3
  *
+ * <p># This endpoint is in ALPHA, avoid using this endpoint fow now, reach out to AB support for
+ * inquiries
+ *
  * <p>Simultaneous login flow.
  *
  * <p>The primary goals of this project are to entitle players to authenticate on a native PC
@@ -129,21 +132,6 @@ public class SimultaneousLoginV3 extends Operation {
     return new OauthmodelTokenResponseV3().createFromJson(json);
   }
 
-  public enum SimultaneousPlatform {
-    Pspc("pspc");
-
-    private String value;
-
-    SimultaneousPlatform(String value) {
-      this.value = value;
-    }
-
-    @Override
-    public String toString() {
-      return this.value;
-    }
-  }
-
   public enum NativePlatform {
     Epicgames("epicgames"),
     Steam("steam");
@@ -161,19 +149,7 @@ public class SimultaneousLoginV3 extends Operation {
   }
 
   public static class SimultaneousLoginV3Builder {
-    private String simultaneousPlatform;
     private String nativePlatform;
-
-    public SimultaneousLoginV3Builder simultaneousPlatform(final String simultaneousPlatform) {
-      this.simultaneousPlatform = simultaneousPlatform;
-      return this;
-    }
-
-    public SimultaneousLoginV3Builder simultaneousPlatformFromEnum(
-        final SimultaneousPlatform simultaneousPlatform) {
-      this.simultaneousPlatform = simultaneousPlatform.toString();
-      return this;
-    }
 
     public SimultaneousLoginV3Builder nativePlatform(final String nativePlatform) {
       this.nativePlatform = nativePlatform;

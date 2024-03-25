@@ -18,7 +18,11 @@ import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
-/** publicGetUserRewards */
+/**
+ * publicGetUserRewards
+ *
+ * <p>* Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:REWARD [READ]
+ */
 @Getter
 @Setter
 public class PublicGetUserRewards extends Operation {

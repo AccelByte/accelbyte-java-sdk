@@ -31,6 +31,11 @@ public class AdminDeleteConfigPermissionsByGroup implements Callable<Integer> {
   private static final Logger log = LogManager.getLogger(AdminDeleteConfigPermissionsByGroup.class);
 
   @Option(
+      names = {"--forceDelete"},
+      description = "forceDelete")
+  Boolean forceDelete;
+
+  @Option(
       names = {"--body"},
       description = "body")
   String body;
@@ -61,6 +66,7 @@ public class AdminDeleteConfigPermissionsByGroup implements Callable<Integer> {
           operation =
               net.accelbyte.sdk.api.iam.operations.clients_config_v3
                   .AdminDeleteConfigPermissionsByGroup.builder()
+                  .forceDelete(forceDelete)
                   .body(
                       new ObjectMapper()
                           .readValue(body, ClientmodelPermissionSetDeleteGroupRequest.class))

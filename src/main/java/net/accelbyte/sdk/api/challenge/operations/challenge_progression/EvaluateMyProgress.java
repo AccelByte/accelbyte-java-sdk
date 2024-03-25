@@ -17,7 +17,11 @@ import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
-/** EvaluateMyProgress */
+/**
+ * EvaluateMyProgress
+ *
+ * <p>* Required permission: NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [UPDATE]
+ */
 @Getter
 @Setter
 public class EvaluateMyProgress extends Operation {

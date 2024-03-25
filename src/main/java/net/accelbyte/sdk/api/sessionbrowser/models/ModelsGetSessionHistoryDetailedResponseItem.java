@@ -50,12 +50,14 @@ public class ModelsGetSessionHistoryDetailedResponseItem extends Model {
   private Boolean joinable;
 
   @JsonProperty("joining")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsSessionPlayerJoining> joining;
 
   @JsonProperty("match_id")
   private String matchId;
 
   @JsonProperty("matching_allies")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsMatchingAlly> matchingAllies;
 
   @JsonProperty("namespace")
@@ -66,6 +68,7 @@ public class ModelsGetSessionHistoryDetailedResponseItem extends Model {
   private String partyId;
 
   @JsonProperty("players")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsSessionPlayerHistory> players;
 
   @JsonProperty("region")

@@ -86,7 +86,7 @@ public class PublicGetScheduledGoals implements Callable<Integer> {
                   .offset(offset)
                   .tags(tags)
                   .build();
-      final List<ModelGoalResponse> response = wrapper.publicGetScheduledGoals(operation);
+      final ModelGetGoalsResponse response = wrapper.publicGetScheduledGoals(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

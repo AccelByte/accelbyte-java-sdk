@@ -34,6 +34,9 @@ public class ApimodelsUserResponse extends Model {
   @JsonProperty("platformUserID")
   private String platformUserID;
 
+  @JsonProperty("previousStatus")
+  private String previousStatus;
+
   @JsonProperty("status")
   private String status;
 

@@ -31,6 +31,9 @@ public class ModelsGameSession extends Model {
   @JsonProperty("GameMode")
   private String gameMode;
 
+  @JsonProperty("IsFull")
+  private Boolean isFull;
+
   @JsonProperty("JoinType")
   private String joinType;
 

@@ -26,15 +26,18 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsMatchingParty extends Model {
 
   @JsonProperty("match_attributes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private ModelsMatchAttributes matchAttributes;
 
   @JsonProperty("party_attributes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ?> partyAttributes;
 
   @JsonProperty("party_id")
   private String partyId;
 
   @JsonProperty("party_members")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsPartyMember> partyMembers;
 
   @JsonIgnore

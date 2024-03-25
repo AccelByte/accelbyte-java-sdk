@@ -32,26 +32,6 @@ public class ModelsSelectionRule extends Model {
   private Integer threshold;
 
   @JsonIgnore
-  public String getSelection() {
-    return this.selection;
-  }
-
-  @JsonIgnore
-  public Selection getSelectionAsEnum() {
-    return Selection.valueOf(this.selection);
-  }
-
-  @JsonIgnore
-  public void setSelection(final String selection) {
-    this.selection = selection;
-  }
-
-  @JsonIgnore
-  public void setSelectionFromEnum(final Selection selection) {
-    this.selection = selection.toString();
-  }
-
-  @JsonIgnore
   public ModelsSelectionRule createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
@@ -59,37 +39,5 @@ public class ModelsSelectionRule extends Model {
   @JsonIgnore
   public List<ModelsSelectionRule> createFromJsonList(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, new TypeReference<List<ModelsSelectionRule>>() {});
-  }
-
-  public enum Selection {
-    Newest("newest"),
-    Oldest("oldest"),
-    Pivot("pivot"),
-    Random("random");
-
-    private String value;
-
-    Selection(String value) {
-      this.value = value;
-    }
-
-    @Override
-    public String toString() {
-      return this.value;
-    }
-  }
-
-  public static class ModelsSelectionRuleBuilder {
-    private String selection;
-
-    public ModelsSelectionRuleBuilder selection(final String selection) {
-      this.selection = selection;
-      return this;
-    }
-
-    public ModelsSelectionRuleBuilder selectionFromEnum(final Selection selection) {
-      this.selection = selection.toString();
-      return this;
-    }
   }
 }

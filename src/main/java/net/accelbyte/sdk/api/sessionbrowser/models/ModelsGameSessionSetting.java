@@ -53,6 +53,7 @@ public class ModelsGameSessionSetting extends Model {
   private String password;
 
   @JsonProperty("settings")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ?> settings;
 
   @JsonIgnore

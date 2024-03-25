@@ -24,7 +24,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Update Insert Session Storage Leader. only Leader can update or insert user session storage
  * data Leader. can store generic json example json can store : { "leader": { "leader": 1 }, "data":
- * 123 }
+ * 123 } game Admin can update or insert session storage Session Storage feature only available for
+ * Gamesession
  */
 @Getter
 @Setter

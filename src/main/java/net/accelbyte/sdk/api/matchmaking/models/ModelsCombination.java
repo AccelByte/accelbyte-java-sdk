@@ -26,6 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsCombination extends Model {
 
   @JsonProperty("alliances")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<List<ModelsRole>> alliances;
 
   @JsonProperty("has_combination")

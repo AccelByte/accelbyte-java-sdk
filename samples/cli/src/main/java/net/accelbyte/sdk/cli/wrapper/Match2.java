@@ -9,6 +9,7 @@
 package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.match2.backfill.*;
+import net.accelbyte.sdk.cli.api.match2.config.*;
 import net.accelbyte.sdk.cli.api.match2.environment_variables.*;
 import net.accelbyte.sdk.cli.api.match2.match_functions.*;
 import net.accelbyte.sdk.cli.api.match2.match_pools.*;
@@ -23,6 +24,9 @@ import picocli.CommandLine.Command;
     subcommands = {
       GetHealthcheckInfo.class,
       GetHealthcheckInfoV1.class,
+      AdminGetAllConfigV1.class,
+      AdminGetConfigV1.class,
+      AdminPatchConfigV1.class,
       EnvironmentVariableList.class,
       CreateBackfill.class,
       GetBackfillProposal.class,

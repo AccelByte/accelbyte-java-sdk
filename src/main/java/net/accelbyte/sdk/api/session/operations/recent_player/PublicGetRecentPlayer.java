@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicGetRecentPlayer
  *
- * <p>Query recent player with given user id.
+ * <p>Query user's recent player.
  */
 @Getter
 @Setter

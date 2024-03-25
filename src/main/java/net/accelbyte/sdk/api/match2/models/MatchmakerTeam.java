@@ -26,9 +26,11 @@ import net.accelbyte.sdk.core.Model;
 public class MatchmakerTeam extends Model {
 
   @JsonProperty("Parties")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<MatchmakerParty> parties;
 
   @JsonProperty("UserIDs")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> userIDs;
 
   @JsonIgnore

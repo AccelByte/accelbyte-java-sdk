@@ -39,6 +39,7 @@ public class ModelsGetInboxMessagesResponseData extends Model {
   private String id;
 
   @JsonProperty("message")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ?> message;
 
   @JsonProperty("scope")
@@ -54,6 +55,7 @@ public class ModelsGetInboxMessagesResponseData extends Model {
   private Integer updatedAt;
 
   @JsonProperty("userIds")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> userIds;
 
   @JsonIgnore

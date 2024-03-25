@@ -32,6 +32,7 @@ public class ModelsDictionary extends Model {
   private String namespace;
 
   @JsonProperty("parentId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String parentId;
 
   @JsonProperty("word")

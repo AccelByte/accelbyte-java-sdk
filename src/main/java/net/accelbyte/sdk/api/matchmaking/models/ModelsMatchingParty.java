@@ -38,6 +38,7 @@ public class ModelsMatchingParty extends Model {
   private List<ModelsPartyMember> partyMembers;
 
   @JsonProperty("ticket_created_at")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer ticketCreatedAt;
 
   @JsonProperty("ticket_id")

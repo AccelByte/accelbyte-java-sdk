@@ -41,6 +41,9 @@ public class ApimodelsPlayerAttributesRequestBody extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> roles;
 
+  @JsonProperty("simultaneousPlatform")
+  private String simultaneousPlatform;
+
   @JsonIgnore
   public ApimodelsPlayerAttributesRequestBody createFromJson(String json)
       throws JsonProcessingException {

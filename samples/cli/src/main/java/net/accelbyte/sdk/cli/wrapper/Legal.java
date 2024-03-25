@@ -89,6 +89,7 @@ import picocli.CommandLine.Command;
       RetrieveEligibilitiesPublicIndirect.class,
       RetrieveSingleLocalizedPolicyVersion2.class,
       RetrieveSingleLocalizedPolicyVersion3.class,
+      RetrieveCountryListWithPolicies.class,
       RetrieveLatestPolicies.class,
       RetrieveLatestPoliciesPublic.class,
       RetrieveLatestPoliciesByNamespaceAndCountryPublic.class,

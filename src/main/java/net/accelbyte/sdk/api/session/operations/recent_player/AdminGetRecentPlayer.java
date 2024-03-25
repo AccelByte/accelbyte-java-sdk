@@ -22,6 +22,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminGetRecentPlayer
  *
  * <p>Query recent player with given user id.
+ *
+ * <p>If user id parameter is empty: 1. Using User Token : It will get the user id from the token 2.
+ * Using client token : it will throw an error
  */
 @Getter
 @Setter

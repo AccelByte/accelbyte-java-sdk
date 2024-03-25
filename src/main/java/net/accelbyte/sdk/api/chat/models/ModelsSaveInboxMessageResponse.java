@@ -35,6 +35,7 @@ public class ModelsSaveInboxMessageResponse extends Model {
   private String id;
 
   @JsonProperty("message")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ?> message;
 
   @JsonProperty("scope")
@@ -44,6 +45,7 @@ public class ModelsSaveInboxMessageResponse extends Model {
   private String status;
 
   @JsonProperty("userIDs")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> userIDs;
 
   @JsonIgnore

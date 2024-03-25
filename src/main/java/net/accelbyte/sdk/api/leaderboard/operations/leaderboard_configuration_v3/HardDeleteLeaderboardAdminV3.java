@@ -22,6 +22,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>[Test Facility Only]
  *
+ * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD:HARDDELETE [DELETE]'
+ *
  * <p>This endpoint will delete leaderboard configuration and its data
  *
  * <p>Note: this endpoint only works on development environment, you might want to use archive

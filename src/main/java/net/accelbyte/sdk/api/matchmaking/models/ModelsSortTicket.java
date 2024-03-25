@@ -32,46 +32,6 @@ public class ModelsSortTicket extends Model {
   private String ticketQueue;
 
   @JsonIgnore
-  public String getSearchResult() {
-    return this.searchResult;
-  }
-
-  @JsonIgnore
-  public SearchResult getSearchResultAsEnum() {
-    return SearchResult.valueOf(this.searchResult);
-  }
-
-  @JsonIgnore
-  public void setSearchResult(final String searchResult) {
-    this.searchResult = searchResult;
-  }
-
-  @JsonIgnore
-  public void setSearchResultFromEnum(final SearchResult searchResult) {
-    this.searchResult = searchResult.toString();
-  }
-
-  @JsonIgnore
-  public String getTicketQueue() {
-    return this.ticketQueue;
-  }
-
-  @JsonIgnore
-  public TicketQueue getTicketQueueAsEnum() {
-    return TicketQueue.valueOf(this.ticketQueue);
-  }
-
-  @JsonIgnore
-  public void setTicketQueue(final String ticketQueue) {
-    this.ticketQueue = ticketQueue;
-  }
-
-  @JsonIgnore
-  public void setTicketQueueFromEnum(final TicketQueue ticketQueue) {
-    this.ticketQueue = ticketQueue.toString();
-  }
-
-  @JsonIgnore
   public ModelsSortTicket createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
@@ -79,68 +39,5 @@ public class ModelsSortTicket extends Model {
   @JsonIgnore
   public List<ModelsSortTicket> createFromJsonList(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, new TypeReference<List<ModelsSortTicket>>() {});
-  }
-
-  public enum SearchResult {
-    Distance("distance"),
-    LargestPartySize("largestPartySize"),
-    None("none"),
-    OldestTicketAge("oldestTicketAge"),
-    Random("random");
-
-    private String value;
-
-    SearchResult(String value) {
-      this.value = value;
-    }
-
-    @Override
-    public String toString() {
-      return this.value;
-    }
-  }
-
-  public enum TicketQueue {
-    Distance("distance"),
-    LargestPartySize("largestPartySize"),
-    None("none"),
-    OldestTicketAge("oldestTicketAge"),
-    Random("random");
-
-    private String value;
-
-    TicketQueue(String value) {
-      this.value = value;
-    }
-
-    @Override
-    public String toString() {
-      return this.value;
-    }
-  }
-
-  public static class ModelsSortTicketBuilder {
-    private String searchResult;
-    private String ticketQueue;
-
-    public ModelsSortTicketBuilder searchResult(final String searchResult) {
-      this.searchResult = searchResult;
-      return this;
-    }
-
-    public ModelsSortTicketBuilder searchResultFromEnum(final SearchResult searchResult) {
-      this.searchResult = searchResult.toString();
-      return this;
-    }
-
-    public ModelsSortTicketBuilder ticketQueue(final String ticketQueue) {
-      this.ticketQueue = ticketQueue;
-      return this;
-    }
-
-    public ModelsSortTicketBuilder ticketQueueFromEnum(final TicketQueue ticketQueue) {
-      this.ticketQueue = ticketQueue.toString();
-      return this;
-    }
   }
 }

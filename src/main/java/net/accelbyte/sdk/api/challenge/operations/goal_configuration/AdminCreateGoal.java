@@ -23,10 +23,15 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>* Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [CREATE]
  *
- * <p>Goal describe set of requirements that need to be fulfilled by players in order to complete it
- * and describe what is the rewards given to player when they complete the goal.The requirement will
- * have target value and a operator that will evaluate that against an observable playerâs
- * attribute (e.g. statistic, entitlement). Goal belongs to a challenge.
+ * <p>Request body: * code: unique within a challenge * name: name of the goal * description: text
+ * describing the goal (optional) * schedule: a time range that indicated the availability of a goal
+ * within a timeframe. used in fixed assignment rule * requirementGroups: list of conditions that
+ * conform with the goal progressions. * rewards: list of rewards that will be claimable once a goal
+ * is complete * tag: goal's labels Goal describe set of requirements that need to be fulfilled by
+ * players in order to complete it and describe what is the rewards given to player when they
+ * complete the goal.The requirement will have target value and a operator that will evaluate that
+ * against an observable playerâs attribute (e.g. statistic, entitlement). Goal belongs to a
+ * challenge.
  */
 @Getter
 @Setter

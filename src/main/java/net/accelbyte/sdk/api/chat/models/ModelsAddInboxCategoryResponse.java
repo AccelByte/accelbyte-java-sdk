@@ -32,6 +32,7 @@ public class ModelsAddInboxCategoryResponse extends Model {
   private Integer expiresIn;
 
   @JsonProperty("hook")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private ModelsCategoryHook hook;
 
   @JsonProperty("jsonSchema")

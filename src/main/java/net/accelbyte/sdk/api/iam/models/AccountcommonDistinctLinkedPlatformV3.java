@@ -31,6 +31,9 @@ public class AccountcommonDistinctLinkedPlatformV3 extends Model {
   @JsonProperty("linkedAt")
   private String linkedAt;
 
+  @JsonProperty("platformGroup")
+  private String platformGroup;
+
   @JsonProperty("platformName")
   private String platformName;
 

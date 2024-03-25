@@ -23,10 +23,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminRandomizeChallenge
  *
- * <p>* Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [UPDATE]
- *
- * <p>This is a utility endpoint to execute randomize goals schedule on challenge that the
- * assignmentRule is RANDOMIZED.
+ * <p>* Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [UPDATE] This is a utility
+ * endpoint to execute randomize goals schedule on challenge that the assignmentRule is RANDOMIZED.
  */
 @Getter
 @Setter

@@ -829,6 +829,15 @@ public class Users {
   }
 
   /**
+   * @see AdminBulkUpdateUsersV3
+   */
+  public void adminBulkUpdateUsersV3(AdminBulkUpdateUsersV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminGetBulkUserBanV3
    */
   public ModelGetUserBanV3Response adminGetBulkUserBanV3(AdminGetBulkUserBanV3 input)
@@ -1001,6 +1010,16 @@ public class Users {
   }
 
   /**
+   * @see AdminListUserAllPlatformAccountsDistinctV3
+   */
+  public AccountcommonDistinctPlatformResponseV3 adminListUserAllPlatformAccountsDistinctV3(
+      AdminListUserAllPlatformAccountsDistinctV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminUpgradeHeadlessAccountV3
    */
   public ModelUserResponseV3 adminUpgradeHeadlessAccountV3(AdminUpgradeHeadlessAccountV3 input)
@@ -1127,6 +1146,15 @@ public class Users {
    * @see AdminPlatformUnlinkV3
    */
   public void adminPlatformUnlinkV3(AdminPlatformUnlinkV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminPlatformUnlinkAllV3
+   */
+  public void adminPlatformUnlinkAllV3(AdminPlatformUnlinkAllV3 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

@@ -38,6 +38,7 @@ public class ModelsGetSessionHistorySearchResponseItemV2 extends Model {
   private Boolean joinable;
 
   @JsonProperty("joining")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsSessionPlayerJoining> joining;
 
   @JsonProperty("match_id")
@@ -47,6 +48,7 @@ public class ModelsGetSessionHistorySearchResponseItemV2 extends Model {
   private String namespace;
 
   @JsonProperty("players")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsSessionPlayerHistory> players;
 
   @JsonProperty("removed_reason")
@@ -59,6 +61,7 @@ public class ModelsGetSessionHistorySearchResponseItemV2 extends Model {
   private String status;
 
   @JsonProperty("sub_game_mode")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> subGameMode;
 
   @JsonProperty("user_id")

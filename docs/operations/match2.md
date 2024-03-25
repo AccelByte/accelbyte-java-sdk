@@ -11,6 +11,13 @@
 | `/match2/healthz` | GET | GetHealthcheckInfoV1 | [GetHealthcheckInfoV1](../../src/main/java/net/accelbyte/sdk/api/match2/operations/operations/GetHealthcheckInfoV1.java) | [GetHealthcheckInfoV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/operations/GetHealthcheckInfoV1.java) |
 | `/match2/version` | GET | VersionCheckHandler | [VersionCheckHandler](../../src/main/java/net/accelbyte/sdk/api/match2/operations/operations/VersionCheckHandler.java) | [VersionCheckHandler](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/operations/VersionCheckHandler.java) |
 
+### Config Wrapper:  [Config](../../src/main/java/net/accelbyte/sdk/api/match2/wrappers/Config.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/match2/v1/config` | GET | AdminGetAllConfigV1 | [AdminGetAllConfigV1](../../src/main/java/net/accelbyte/sdk/api/match2/operations/config/AdminGetAllConfigV1.java) | [AdminGetAllConfigV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/config/AdminGetAllConfigV1.java) |
+| `/match2/v1/config/namespaces/{namespace}` | GET | AdminGetConfigV1 | [AdminGetConfigV1](../../src/main/java/net/accelbyte/sdk/api/match2/operations/config/AdminGetConfigV1.java) | [AdminGetConfigV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/config/AdminGetConfigV1.java) |
+| `/match2/v1/config/namespaces/{namespace}` | PATCH | AdminPatchConfigV1 | [AdminPatchConfigV1](../../src/main/java/net/accelbyte/sdk/api/match2/operations/config/AdminPatchConfigV1.java) | [AdminPatchConfigV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/config/AdminPatchConfigV1.java) |
+
 ### Environment-Variables Wrapper:  [EnvironmentVariables](../../src/main/java/net/accelbyte/sdk/api/match2/wrappers/EnvironmentVariables.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -91,7 +98,9 @@
 | `api.MatchTicketResponse` | [ApiMatchTicketResponse](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiMatchTicketResponse.java) |
 | `api.MatchTicketStatus` | [ApiMatchTicketStatus](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiMatchTicketStatus.java) |
 | `api.MatchTicketStatuses` | [ApiMatchTicketStatuses](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiMatchTicketStatuses.java) |
+| `api.NamespaceConfigList` | [ApiNamespaceConfigList](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiNamespaceConfigList.java) |
 | `api.Party` | [ApiParty](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiParty.java) |
+| `api.PatchNamespaceConfigRequest` | [ApiPatchNamespaceConfigRequest](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiPatchNamespaceConfigRequest.java) |
 | `api.PlayerData` | [ApiPlayerData](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiPlayerData.java) |
 | `api.PlayerMetricRecord` | [ApiPlayerMetricRecord](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiPlayerMetricRecord.java) |
 | `api.ProposedProposal` | [ApiProposedProposal](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiProposedProposal.java) |
@@ -101,6 +110,7 @@
 | `api.TicketMetricResultRecord` | [ApiTicketMetricResultRecord](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiTicketMetricResultRecord.java) |
 | `api.backFillRejectRequest` | [ApiBackFillRejectRequest](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiBackFillRejectRequest.java) |
 | `config.EnvironmentVariable` | [ConfigEnvironmentVariable](../../src/main/java/net/accelbyte/sdk/api/match2/models/ConfigEnvironmentVariable.java) |
+| `configmodels.NamespaceConfig` | [ConfigmodelsNamespaceConfig](../../src/main/java/net/accelbyte/sdk/api/match2/models/ConfigmodelsNamespaceConfig.java) |
 | `matchmaker.MatchTicketRecord` | [MatchmakerMatchTicketRecord](../../src/main/java/net/accelbyte/sdk/api/match2/models/MatchmakerMatchTicketRecord.java) |
 | `matchmaker.Party` | [MatchmakerParty](../../src/main/java/net/accelbyte/sdk/api/match2/models/MatchmakerParty.java) |
 | `matchmaker.ProposedProposal` | [MatchmakerProposedProposal](../../src/main/java/net/accelbyte/sdk/api/match2/models/MatchmakerProposedProposal.java) |

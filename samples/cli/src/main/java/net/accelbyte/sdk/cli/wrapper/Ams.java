@@ -13,6 +13,7 @@ import net.accelbyte.sdk.cli.api.ams.ams_info.*;
 import net.accelbyte.sdk.cli.api.ams.ams_qo_s.*;
 import net.accelbyte.sdk.cli.api.ams.artifacts.*;
 import net.accelbyte.sdk.cli.api.ams.auth.*;
+import net.accelbyte.sdk.cli.api.ams.development.*;
 import net.accelbyte.sdk.cli.api.ams.fleet_commander.*;
 import net.accelbyte.sdk.cli.api.ams.fleets.*;
 import net.accelbyte.sdk.cli.api.ams.images.*;
@@ -34,6 +35,10 @@ import picocli.CommandLine.Command;
       ArtifactUsageGet.class,
       ArtifactDelete.class,
       ArtifactGetURL.class,
+      DevelopmentServerConfigurationList.class,
+      DevelopmentServerConfigurationCreate.class,
+      DevelopmentServerConfigurationGet.class,
+      DevelopmentServerConfigurationDelete.class,
       FleetList.class,
       FleetCreate.class,
       FleetGet.class,

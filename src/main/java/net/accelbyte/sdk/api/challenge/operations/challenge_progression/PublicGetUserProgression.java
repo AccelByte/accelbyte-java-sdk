@@ -18,7 +18,11 @@ import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
-/** publicGetUserProgression */
+/**
+ * publicGetUserProgression
+ *
+ * <p>* Required permission: NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [READ]
+ */
 @Getter
 @Setter
 public class PublicGetUserProgression extends Operation {

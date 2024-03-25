@@ -29,6 +29,7 @@ public class ModelsSubGameMode extends Model {
   private ModelsAllianceRule alliance;
 
   @JsonProperty("alliance_flexing_rule")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsAllianceFlexingRule> allianceFlexingRule;
 
   @JsonProperty("name")

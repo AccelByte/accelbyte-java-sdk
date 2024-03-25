@@ -62,6 +62,7 @@ public class ModelsChannelV1 extends Model {
   private Integer regionLatencyMaxMs;
 
   @JsonProperty("ruleSet")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private ModelsRuleSetV1 ruleSet;
 
   @JsonProperty("sessionQueueTimeoutSeconds")

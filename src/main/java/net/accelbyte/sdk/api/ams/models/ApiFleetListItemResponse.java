@@ -25,6 +25,9 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApiFleetListItemResponse extends Model {
 
+  @JsonProperty("active")
+  private Boolean active;
+
   @JsonProperty("counts")
   private List<ApiFleetRegionalServerCounts> counts;
 

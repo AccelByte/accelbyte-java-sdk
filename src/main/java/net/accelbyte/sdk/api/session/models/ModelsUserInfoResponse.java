@@ -29,6 +29,10 @@ public class ModelsUserInfoResponse extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String lastPlayedTime;
 
+  @JsonProperty("matchPool")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String matchPool;
+
   @JsonProperty("namespace")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String namespace;
@@ -36,6 +40,10 @@ public class ModelsUserInfoResponse extends Model {
   @JsonProperty("platformName")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String platformName;
+
+  @JsonProperty("sessionTemplate")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String sessionTemplate;
 
   @JsonProperty("userID")
   @JsonInclude(JsonInclude.Include.NON_NULL)

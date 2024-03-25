@@ -35,6 +35,14 @@
 | `/ams/v1/admin/namespaces/{namespace}/fleets/{fleetID}/artifacts-sampling-rules` | GET | FleetArtifactSamplingRulesGet | [FleetArtifactSamplingRulesGet](../../src/main/java/net/accelbyte/sdk/api/ams/operations/artifacts/FleetArtifactSamplingRulesGet.java) | [FleetArtifactSamplingRulesGet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/artifacts/FleetArtifactSamplingRulesGet.java) |
 | `/ams/v1/admin/namespaces/{namespace}/fleets/{fleetID}/artifacts-sampling-rules` | PUT | FleetArtifactSamplingRulesSet | [FleetArtifactSamplingRulesSet](../../src/main/java/net/accelbyte/sdk/api/ams/operations/artifacts/FleetArtifactSamplingRulesSet.java) | [FleetArtifactSamplingRulesSet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/artifacts/FleetArtifactSamplingRulesSet.java) |
 
+### Development Wrapper:  [Development](../../src/main/java/net/accelbyte/sdk/api/ams/wrappers/Development.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/ams/v1/admin/namespaces/{namespace}/development/server-configurations` | GET | DevelopmentServerConfigurationList | [DevelopmentServerConfigurationList](../../src/main/java/net/accelbyte/sdk/api/ams/operations/development/DevelopmentServerConfigurationList.java) | [DevelopmentServerConfigurationList](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/development/DevelopmentServerConfigurationList.java) |
+| `/ams/v1/admin/namespaces/{namespace}/development/server-configurations` | POST | DevelopmentServerConfigurationCreate | [DevelopmentServerConfigurationCreate](../../src/main/java/net/accelbyte/sdk/api/ams/operations/development/DevelopmentServerConfigurationCreate.java) | [DevelopmentServerConfigurationCreate](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/development/DevelopmentServerConfigurationCreate.java) |
+| `/ams/v1/admin/namespaces/{namespace}/development/server-configurations/{developmentServerConfigID}` | GET | DevelopmentServerConfigurationGet | [DevelopmentServerConfigurationGet](../../src/main/java/net/accelbyte/sdk/api/ams/operations/development/DevelopmentServerConfigurationGet.java) | [DevelopmentServerConfigurationGet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/development/DevelopmentServerConfigurationGet.java) |
+| `/ams/v1/admin/namespaces/{namespace}/development/server-configurations/{developmentServerConfigID}` | DELETE | DevelopmentServerConfigurationDelete | [DevelopmentServerConfigurationDelete](../../src/main/java/net/accelbyte/sdk/api/ams/operations/development/DevelopmentServerConfigurationDelete.java) | [DevelopmentServerConfigurationDelete](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/development/DevelopmentServerConfigurationDelete.java) |
+
 ### Fleets Wrapper:  [Fleets](../../src/main/java/net/accelbyte/sdk/api/ams/wrappers/Fleets.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -106,6 +114,9 @@
 | `api.DSHistoryEvent` | [ApiDSHistoryEvent](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiDSHistoryEvent.java) |
 | `api.DSHistoryList` | [ApiDSHistoryList](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiDSHistoryList.java) |
 | `api.DSHostConfiguration` | [ApiDSHostConfiguration](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiDSHostConfiguration.java) |
+| `api.DevelopmentServerConfigurationCreateRequest` | [ApiDevelopmentServerConfigurationCreateRequest](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiDevelopmentServerConfigurationCreateRequest.java) |
+| `api.DevelopmentServerConfigurationCreateResponse` | [ApiDevelopmentServerConfigurationCreateResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiDevelopmentServerConfigurationCreateResponse.java) |
+| `api.DevelopmentServerConfigurationGetResponse` | [ApiDevelopmentServerConfigurationGetResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiDevelopmentServerConfigurationGetResponse.java) |
 | `api.FleetArtifactsSampleRules` | [ApiFleetArtifactsSampleRules](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetArtifactsSampleRules.java) |
 | `api.FleetClaimByKeysReq` | [ApiFleetClaimByKeysReq](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetClaimByKeysReq.java) |
 | `api.FleetClaimReq` | [ApiFleetClaimReq](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetClaimReq.java) |

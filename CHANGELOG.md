@@ -1,3 +1,11 @@
+<a name="v0.60.0"></a>
+## [v0.60.0]
+### test
+- **integration:** disabled by default for now
+### chore
+- **:** remove unused imports and vars
+
+
 <a name="v0.59.0"></a>
 ## [v0.59.0]
 ### feat

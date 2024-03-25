@@ -39,7 +39,7 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 ./ng ng-cp 1>&2
 
 echo "TAP version 13"
-echo "1..64"
+echo "1..65"
 
 #- 1 Login
 ./ng net.accelbyte.sdk.cli.Main loginClient \
@@ -83,7 +83,7 @@ eval_tap $? 5 'RetrieveAllLegalPolicies' test.out
 
 #- 6 CreatePolicy
 ./ng net.accelbyte.sdk.cli.Main legal createPolicy \
-    --body '{"affectedClientIds": ["diRilZ7oFgx4c8Ou", "su8XfqlqNiTvB6Sd", "mKtPDKJDXn7Z4U68"], "affectedCountries": ["AdIhUDrwoZ5MecdK", "i5r6QEa1ysLEzth6", "mXhzkzWkFeZSoEAc"], "basePolicyName": "BdW19m4eu6d5tA5j", "description": "UmiTqpyhPFdxLzFQ", "namespace": "N05MYzYiKWe5dNRl", "tags": ["vkLGMS0lyuI9a2I9", "jv7IPrDQQRgat0Se", "u6Vpbsx5w8hqUI06"], "typeId": "UpOXGSLmCVuHOPlL"}' \
+    --body '{"affectedClientIds": ["su8XfqlqNiTvB6Sd", "diRilZ7oFgx4c8Ou", "mKtPDKJDXn7Z4U68"], "affectedCountries": ["AdIhUDrwoZ5MecdK", "i5r6QEa1ysLEzth6", "mXhzkzWkFeZSoEAc"], "basePolicyName": "BdW19m4eu6d5tA5j", "description": "UmiTqpyhPFdxLzFQ", "namespace": "N05MYzYiKWe5dNRl", "tags": ["jv7IPrDQQRgat0Se", "vkLGMS0lyuI9a2I9", "u6Vpbsx5w8hqUI06"], "typeId": "UpOXGSLmCVuHOPlL"}' \
     > test.out 2>&1
 eval_tap $? 6 'CreatePolicy' test.out
 
@@ -96,7 +96,7 @@ eval_tap $? 7 'RetrieveSinglePolicy' test.out
 #- 8 PartialUpdatePolicy
 ./ng net.accelbyte.sdk.cli.Main legal partialUpdatePolicy \
     --basePolicyId 'oYupD391C2qtPYok' \
-    --body '{"affectedClientIds": ["7FXGk2s9Q0mPVo3t", "ahFjkQsfCaTmt1d6", "wu0MesTCf9x4rt69"], "affectedCountries": ["lna7qxNeIxPz6Mbw", "L6IY69z1UaLqYSYW", "ytLPziZMdjxcBZuf"], "basePolicyName": "QxGiHPllG4cYEzfT", "description": "D1ZBm3MqHcUmLZZb", "namespace": "Sqb8RwNmn9HrNQy4", "tags": ["YzUOcEdscKHPEqgA", "uZAAiE0mit9RGCCH", "8yu7Vk6Jt4Ymos9J"]}' \
+    --body '{"affectedClientIds": ["7FXGk2s9Q0mPVo3t", "wu0MesTCf9x4rt69", "ahFjkQsfCaTmt1d6"], "affectedCountries": ["lna7qxNeIxPz6Mbw", "L6IY69z1UaLqYSYW", "ytLPziZMdjxcBZuf"], "basePolicyName": "QxGiHPllG4cYEzfT", "description": "D1ZBm3MqHcUmLZZb", "namespace": "Sqb8RwNmn9HrNQy4", "tags": ["uZAAiE0mit9RGCCH", "8yu7Vk6Jt4Ymos9J", "YzUOcEdscKHPEqgA"]}' \
     > test.out 2>&1
 eval_tap $? 8 'PartialUpdatePolicy' test.out
 
@@ -181,7 +181,7 @@ eval_tap $? 19 'RetrieveAllLegalPoliciesByNamespace' test.out
 #- 20 CreatePolicy1
 ./ng net.accelbyte.sdk.cli.Main legal createPolicy1 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"affectedClientIds": ["oZk03QXcKMDYDDxH", "8l9lyNApflxqMrj3", "SZjtqXyJ58f7Gc26"], "affectedCountries": ["UZNmTBcvrbYCwZtx", "FHyPLtI8ilbyDPUI", "SaiGVkydwYWQG26y"], "basePolicyName": "j88cekdqCt81P1kt", "description": "fIovmv9gsR5cJcHm", "tags": ["9a9LJE8HoRS1X2PF", "AAMwzHPxB1UskYs4", "3SZLxoRDFuuuySj2"], "typeId": "Yw20DOqOBSC2DKHR"}' \
+    --body '{"affectedClientIds": ["SZjtqXyJ58f7Gc26", "8l9lyNApflxqMrj3", "oZk03QXcKMDYDDxH"], "affectedCountries": ["SaiGVkydwYWQG26y", "UZNmTBcvrbYCwZtx", "FHyPLtI8ilbyDPUI"], "basePolicyName": "j88cekdqCt81P1kt", "description": "fIovmv9gsR5cJcHm", "tags": ["AAMwzHPxB1UskYs4", "3SZLxoRDFuuuySj2", "9a9LJE8HoRS1X2PF"], "typeId": "Yw20DOqOBSC2DKHR"}' \
     > test.out 2>&1
 eval_tap $? 20 'CreatePolicy1' test.out
 
@@ -196,7 +196,7 @@ eval_tap $? 21 'RetrieveSinglePolicy1' test.out
 ./ng net.accelbyte.sdk.cli.Main legal partialUpdatePolicy1 \
     --basePolicyId 'CjfcnLRfxeCSz9WE' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"affectedClientIds": ["i8KlloeH0JT1ydua", "RE2w1yEkLgh3tIYt", "t2vQR3biBfsu4jms"], "affectedCountries": ["dpGT2t24aOMh5eC3", "IHeHSKLCa3xreNDU", "4SqYUTLDx9gIiDan"], "basePolicyName": "WehwH3q31A806DJg", "description": "as4b6z3LNUj7fdgL", "tags": ["80zfFyabWAgIUXiI", "A84Z8YYk6QEgJjBb", "EDoNf3n0hEoRCAcf"]}' \
+    --body '{"affectedClientIds": ["RE2w1yEkLgh3tIYt", "t2vQR3biBfsu4jms", "i8KlloeH0JT1ydua"], "affectedCountries": ["IHeHSKLCa3xreNDU", "dpGT2t24aOMh5eC3", "4SqYUTLDx9gIiDan"], "basePolicyName": "WehwH3q31A806DJg", "description": "as4b6z3LNUj7fdgL", "tags": ["80zfFyabWAgIUXiI", "EDoNf3n0hEoRCAcf", "A84Z8YYk6QEgJjBb"]}' \
     > test.out 2>&1
 eval_tap $? 22 'PartialUpdatePolicy1' test.out
 
@@ -458,16 +458,21 @@ eval_tap $? 59 'RetrieveSingleLocalizedPolicyVersion2' test.out
     > test.out 2>&1
 eval_tap $? 60 'RetrieveSingleLocalizedPolicyVersion3' test.out
 
-#- 61 RetrieveLatestPolicies
+#- 61 RetrieveCountryListWithPolicies
+./ng net.accelbyte.sdk.cli.Main legal retrieveCountryListWithPolicies \
+    > test.out 2>&1
+eval_tap $? 61 'RetrieveCountryListWithPolicies' test.out
+
+#- 62 RetrieveLatestPolicies
 ./ng net.accelbyte.sdk.cli.Main legal retrieveLatestPolicies \
     --countryCode 'f3BOdkocVTd4BxqG' \
     --defaultOnEmpty  \
     --policyType 'LEGAL_DOCUMENT_TYPE' \
     --tags '6mTJ0sQs6XNbjvqh' \
     > test.out 2>&1
-eval_tap $? 61 'RetrieveLatestPolicies' test.out
+eval_tap $? 62 'RetrieveLatestPolicies' test.out
 
-#- 62 RetrieveLatestPoliciesPublic
+#- 63 RetrieveLatestPoliciesPublic
 ./ng net.accelbyte.sdk.cli.Main legal retrieveLatestPoliciesPublic \
     --namespace "$AB_NAMESPACE" \
     --alwaysIncludeDefault  \
@@ -475,9 +480,9 @@ eval_tap $? 61 'RetrieveLatestPolicies' test.out
     --policyType 'LEGAL_DOCUMENT_TYPE' \
     --tags 'iTdSGv2LFjAKY7Cb' \
     > test.out 2>&1
-eval_tap $? 62 'RetrieveLatestPoliciesPublic' test.out
+eval_tap $? 63 'RetrieveLatestPoliciesPublic' test.out
 
-#- 63 RetrieveLatestPoliciesByNamespaceAndCountryPublic
+#- 64 RetrieveLatestPoliciesByNamespaceAndCountryPublic
 ./ng net.accelbyte.sdk.cli.Main legal retrieveLatestPoliciesByNamespaceAndCountryPublic \
     --countryCode 'gsWqFWZX7kPBom8F' \
     --namespace "$AB_NAMESPACE" \
@@ -486,12 +491,12 @@ eval_tap $? 62 'RetrieveLatestPoliciesPublic' test.out
     --policyType 'LEGAL_DOCUMENT_TYPE' \
     --tags 'GLLTG8phc3n4iLoI' \
     > test.out 2>&1
-eval_tap $? 63 'RetrieveLatestPoliciesByNamespaceAndCountryPublic' test.out
+eval_tap $? 64 'RetrieveLatestPoliciesByNamespaceAndCountryPublic' test.out
 
-#- 64 CheckReadiness
+#- 65 CheckReadiness
 ./ng net.accelbyte.sdk.cli.Main legal checkReadiness \
     > test.out 2>&1
-eval_tap $? 64 'CheckReadiness' test.out
+eval_tap $? 65 'CheckReadiness' test.out
 
 
 rm -f "tmp.dat"

@@ -35,6 +35,8 @@ public class AdminDeleteConfigPermissionsByGroup extends Operation {
   private String locationQuery = null;
 
   /** fields as input parameter */
+  private Boolean forceDelete;
+
   private ClientmodelPermissionSetDeleteGroupRequest body;
 
   /**
@@ -43,10 +45,21 @@ public class AdminDeleteConfigPermissionsByGroup extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public AdminDeleteConfigPermissionsByGroup(ClientmodelPermissionSetDeleteGroupRequest body) {
+  public AdminDeleteConfigPermissionsByGroup(
+      Boolean forceDelete, ClientmodelPermissionSetDeleteGroupRequest body) {
+    this.forceDelete = forceDelete;
     this.body = body;
 
     securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "forceDelete",
+        this.forceDelete == null ? null : Arrays.asList(String.valueOf(this.forceDelete)));
+    return queryParams;
   }
 
   @Override
@@ -65,5 +78,12 @@ public class AdminDeleteConfigPermissionsByGroup extends Operation {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("forceDelete", "None");
+    return result;
   }
 }

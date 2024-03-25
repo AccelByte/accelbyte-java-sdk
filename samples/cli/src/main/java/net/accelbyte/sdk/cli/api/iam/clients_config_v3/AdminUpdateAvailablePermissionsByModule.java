@@ -32,6 +32,11 @@ public class AdminUpdateAvailablePermissionsByModule implements Callable<Integer
       LogManager.getLogger(AdminUpdateAvailablePermissionsByModule.class);
 
   @Option(
+      names = {"--forceDelete"},
+      description = "forceDelete")
+  Boolean forceDelete;
+
+  @Option(
       names = {"--body"},
       description = "body")
   String body;
@@ -62,6 +67,7 @@ public class AdminUpdateAvailablePermissionsByModule implements Callable<Integer
           operation =
               net.accelbyte.sdk.api.iam.operations.clients_config_v3
                   .AdminUpdateAvailablePermissionsByModule.builder()
+                  .forceDelete(forceDelete)
                   .body(
                       new ObjectMapper().readValue(body, ClientmodelListUpsertModulesRequest.class))
                   .build();

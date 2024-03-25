@@ -26,10 +26,12 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsCategoryHook extends Model {
 
   @JsonProperty("driver")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String driver;
 
   @JsonProperty("params")
-  private String params;
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> params;
 
   @JsonIgnore
   public String getDriver() {

@@ -32,6 +32,7 @@ public class ModelsAdminSessionResponse extends Model {
   private String createdAt;
 
   @JsonProperty("game_session_setting")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private ModelsGameSessionSetting gameSessionSetting;
 
   @JsonProperty("game_version")
@@ -41,6 +42,7 @@ public class ModelsAdminSessionResponse extends Model {
   private Boolean joinable;
 
   @JsonProperty("match")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private ModelsMatchMaking match;
 
   @JsonProperty("namespace")

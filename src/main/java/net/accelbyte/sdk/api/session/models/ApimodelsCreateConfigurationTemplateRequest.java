@@ -41,6 +41,10 @@ public class ApimodelsCreateConfigurationTemplateRequest extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean autoJoin;
 
+  @JsonProperty("autoLeaveSession")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean autoLeaveSession;
+
   @JsonProperty("clientVersion")
   private String clientVersion;
 

@@ -29,6 +29,7 @@ public class ModelsActiveMatchmakingGameResponse extends Model {
   private ModelsPagingCursor pagination;
 
   @JsonProperty("sessions")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsGameSession> sessions;
 
   @JsonIgnore

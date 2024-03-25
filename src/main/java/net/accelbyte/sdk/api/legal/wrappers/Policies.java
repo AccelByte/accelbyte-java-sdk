@@ -50,6 +50,16 @@ public class Policies {
   }
 
   /**
+   * @see RetrieveCountryListWithPolicies
+   */
+  public List<String> retrieveCountryListWithPolicies(RetrieveCountryListWithPolicies input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see RetrieveLatestPolicies
    */
   public List<RetrievePolicyPublicResponse> retrieveLatestPolicies(RetrieveLatestPolicies input)

@@ -324,7 +324,7 @@ gameTelemetryWrapper
 ### Get Steam play time
 
 ```java
-final Map<String, ?> getTelemetry =
+final PlayTimeResponse getTelemetry =
     gameTelemetryWrapper.protectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet(
         ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet.builder()
             .steamId(steamId)

@@ -22,7 +22,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminReadSessionStorage
  *
- * <p>Read Session Storage.
+ * <p>Read Session Storage by sessionID Session Storage feature only available for Gamesession
  */
 @Getter
 @Setter

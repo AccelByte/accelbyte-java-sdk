@@ -8,7 +8,6 @@
 
 package net.accelbyte.sdk.api.challenge.wrappers;
 
-import java.util.*;
 import net.accelbyte.sdk.api.challenge.models.*;
 import net.accelbyte.sdk.api.challenge.operations.challenge_list.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
@@ -34,7 +33,7 @@ public class ChallengeList {
   /**
    * @see PublicGetScheduledGoals
    */
-  public List<ModelGoalResponse> publicGetScheduledGoals(PublicGetScheduledGoals input)
+  public ModelGetGoalsResponse publicGetScheduledGoals(PublicGetScheduledGoals input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(

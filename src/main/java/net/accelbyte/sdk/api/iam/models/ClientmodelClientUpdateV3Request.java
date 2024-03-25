@@ -84,6 +84,7 @@ public class ClientmodelClientUpdateV3Request extends Model {
   private List<String> scopes;
 
   @JsonProperty("skipLoginQueue")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean skipLoginQueue;
 
   @JsonProperty("twoFactorEnabled")

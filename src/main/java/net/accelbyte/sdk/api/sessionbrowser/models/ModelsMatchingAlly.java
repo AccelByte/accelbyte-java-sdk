@@ -26,6 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsMatchingAlly extends Model {
 
   @JsonProperty("matching_parties")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsMatchingParty> matchingParties;
 
   @JsonIgnore

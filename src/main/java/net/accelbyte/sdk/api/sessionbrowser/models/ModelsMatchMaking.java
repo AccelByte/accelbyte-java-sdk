@@ -51,6 +51,7 @@ public class ModelsMatchMaking extends Model {
   private String matchId;
 
   @JsonProperty("matching_allies")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsMatchingAlly> matchingAllies;
 
   @JsonProperty("namespace")
@@ -76,6 +77,7 @@ public class ModelsMatchMaking extends Model {
   private String status;
 
   @JsonProperty("sub_game_mode")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> subGameMode;
 
   @JsonIgnore

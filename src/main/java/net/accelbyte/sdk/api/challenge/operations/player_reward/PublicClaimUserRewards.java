@@ -20,7 +20,11 @@ import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
-/** publicClaimUserRewards */
+/**
+ * publicClaimUserRewards
+ *
+ * <p>* Required permission: NAMESPACE:{namespace}:CHALLENGE:REWARD:CLAIM [UPDATE]
+ */
 @Getter
 @Setter
 public class PublicClaimUserRewards extends Operation {

@@ -167,6 +167,15 @@ public class Clients {
   }
 
   /**
+   * @see AdminBulkUpdateClientsV3
+   */
+  public void adminBulkUpdateClientsV3(AdminBulkUpdateClientsV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminCreateClientV3
    */
   public ClientmodelClientV3Response adminCreateClientV3(AdminCreateClientV3 input)

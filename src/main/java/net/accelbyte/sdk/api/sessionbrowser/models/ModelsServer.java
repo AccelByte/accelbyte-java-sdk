@@ -29,6 +29,7 @@ public class ModelsServer extends Model {
   private String allocationId;
 
   @JsonProperty("alternate_ips")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> alternateIps;
 
   @JsonProperty("cpu_limit")
@@ -74,6 +75,7 @@ public class ModelsServer extends Model {
   private Integer port;
 
   @JsonProperty("ports")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, Integer> ports;
 
   @JsonProperty("provider")
@@ -89,6 +91,7 @@ public class ModelsServer extends Model {
   private String status;
 
   @JsonProperty("status_history")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsStatusHistory> statusHistory;
 
   @JsonIgnore

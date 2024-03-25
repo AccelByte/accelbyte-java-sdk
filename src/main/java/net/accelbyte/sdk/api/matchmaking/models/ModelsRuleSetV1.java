@@ -26,9 +26,11 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsRuleSetV1 extends Model {
 
   @JsonProperty("alliance")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private ModelsAllianceRuleV1 alliance;
 
   @JsonProperty("alliance_flexing_rule")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsAllianceFlexingRule> allianceFlexingRule;
 
   @JsonProperty("batch_size")
@@ -39,53 +41,39 @@ public class ModelsRuleSetV1 extends Model {
   private ModelsBucketMMRRule bucketMmrRule;
 
   @JsonProperty("flexingRules")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsFlexingRule> flexingRules;
 
   @JsonProperty("match_options")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private ModelsMatchOptionRule matchOptions;
 
   @JsonProperty("matchingRules")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsMatchingRule> matchingRules;
 
   @JsonProperty("sort_ticket")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private ModelsSortTicket sortTicket;
 
   @JsonProperty("sort_tickets")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsSortTicketRule> sortTickets;
 
   @JsonProperty("sub_game_modes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ModelsSubGameMode> subGameModes;
 
   @JsonProperty("ticket_flexing_selection")
   private String ticketFlexingSelection;
 
   @JsonProperty("ticket_flexing_selections")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsSelectionRule> ticketFlexingSelections;
 
   @JsonProperty("use_newest_ticket_for_flexing")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean useNewestTicketForFlexing;
-
-  @JsonIgnore
-  public String getTicketFlexingSelection() {
-    return this.ticketFlexingSelection;
-  }
-
-  @JsonIgnore
-  public TicketFlexingSelection getTicketFlexingSelectionAsEnum() {
-    return TicketFlexingSelection.valueOf(this.ticketFlexingSelection);
-  }
-
-  @JsonIgnore
-  public void setTicketFlexingSelection(final String ticketFlexingSelection) {
-    this.ticketFlexingSelection = ticketFlexingSelection;
-  }
-
-  @JsonIgnore
-  public void setTicketFlexingSelectionFromEnum(
-      final TicketFlexingSelection ticketFlexingSelection) {
-    this.ticketFlexingSelection = ticketFlexingSelection.toString();
-  }
 
   @JsonIgnore
   public ModelsRuleSetV1 createFromJson(String json) throws JsonProcessingException {
@@ -95,38 +83,5 @@ public class ModelsRuleSetV1 extends Model {
   @JsonIgnore
   public List<ModelsRuleSetV1> createFromJsonList(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, new TypeReference<List<ModelsRuleSetV1>>() {});
-  }
-
-  public enum TicketFlexingSelection {
-    Newest("newest"),
-    Oldest("oldest"),
-    Pivot("pivot"),
-    Random("random");
-
-    private String value;
-
-    TicketFlexingSelection(String value) {
-      this.value = value;
-    }
-
-    @Override
-    public String toString() {
-      return this.value;
-    }
-  }
-
-  public static class ModelsRuleSetV1Builder {
-    private String ticketFlexingSelection;
-
-    public ModelsRuleSetV1Builder ticketFlexingSelection(final String ticketFlexingSelection) {
-      this.ticketFlexingSelection = ticketFlexingSelection;
-      return this;
-    }
-
-    public ModelsRuleSetV1Builder ticketFlexingSelectionFromEnum(
-        final TicketFlexingSelection ticketFlexingSelection) {
-      this.ticketFlexingSelection = ticketFlexingSelection.toString();
-      return this;
-    }
   }
 }

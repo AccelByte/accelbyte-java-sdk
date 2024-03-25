@@ -26,12 +26,14 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsCustomGameResponse extends Model {
 
   @JsonProperty("all_players")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> allPlayers;
 
   @JsonProperty("created_at")
   private String createdAt;
 
   @JsonProperty("game_session_setting")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private ModelsGameSessionSetting gameSessionSetting;
 
   @JsonProperty("joinable")
@@ -41,9 +43,11 @@ public class ModelsCustomGameResponse extends Model {
   private String namespace;
 
   @JsonProperty("players")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> players;
 
   @JsonProperty("server")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private ModelsServer server;
 
   @JsonProperty("session_id")
@@ -53,6 +57,7 @@ public class ModelsCustomGameResponse extends Model {
   private String sessionType;
 
   @JsonProperty("spectators")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> spectators;
 
   @JsonIgnore

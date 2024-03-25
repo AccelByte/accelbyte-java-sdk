@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminDeleteUserSessionStorage
  *
- * <p>Delete Session Storage.
+ * <p>Delete Session Storage By sessionID Session Storage feature only available for Gamesession
  */
 @Getter
 @Setter
