@@ -11,15 +11,15 @@ The following operations have been updated:
 ### Matchmaking
 The following models have been removed:
 - model `net.accelbyte.sdk.api.matchmaking.models.ModelsSortTicket`
-  - enum SearchResult is removed 
-  - Method getSearchResultAsEnum and setSearchResultFromEnum are removed
-  - enum TicketQueue is removed
-  - Method getTicketQueueAsEnum and setTicketQueueFromEnum are removed
+  - enum `SearchResult` is removed 
+  - Method `getSearchResultAsEnum` and `setSearchResultFromEnum` are removed
+  - enum `TicketQueue` is removed
+  - Method `getTicketQueueAsEnum` and `setTicketQueueFromEnum` are removed
 - model `net.accelbyte.sdk.api.matchmaking.models.ModelsSortTicketRule`
-  - enum SearchResult is removed
-  - Method getSearchResultAsEnum and setSearchResultFromEnum are removed
-  - enum TicketQueue is removed
-  - Method getTicketQueueAsEnum and setTicketQueueFromEnum are removed
+  - enum `SearchResult` is removed
+  - Method `getSearchResultAsEnum` and `setSearchResultFromEnum` are removed
+  - enum `TicketQueue` is removed
+  - Method `getTicketQueueAsEnum` and `setTicketQueueFromEnum` are removed
 - model `net.accelbyte.sdk.api.matchmaking.models.ModelsUpdateRuleset`
-  - enum TicketFlexingSelection is removed
-  - Method getTicketFlexingSelectionAsEnum and setTicketFlexingSelectionFromEnum are removed
+  - enum `TicketFlexingSelection` is removed
+  - Method `getTicketFlexingSelectionAsEnum` and `setTicketFlexingSelectionFromEnum` are removed
