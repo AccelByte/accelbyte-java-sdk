@@ -48,7 +48,8 @@ import picocli.CommandLine;
       Social.class,
       Ugc.class,
       Inventory.class,
-      Challenge.class
+      Challenge.class,
+      Sessionhistory.class
     })
 public class Main implements Callable<Integer> {
 
