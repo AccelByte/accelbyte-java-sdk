@@ -25,8 +25,8 @@ test_core:
 			trap "docker stop -t 1 justice-codegen-sdk-mock-server && docker rm -f justice-codegen-sdk-httpbin" EXIT && \
 			docker run -d --name justice-codegen-sdk-httpbin -p 8070:80 kennethreitz/httpbin && \
 			(bash "$(SDK_MOCK_SERVER_PATH)/mock-server.sh" -s /data/spec &) && \
-			(for i in $$(seq 1 10); do bash -c "timeout 1 echo > /dev/tcp/127.0.0.1/8070" 2>/dev/null && exit 0 || sleep 10; done; exit 1) && \
-			(for i in $$(seq 1 10); do bash -c "timeout 1 echo > /dev/tcp/127.0.0.1/8080" 2>/dev/null && exit 0 || sleep 10; done; exit 1) && \
+			(for i in $$(seq 1 10); do docker run -t --rm --add-host=host.docker.internal:host-gateway dwdraju/alpine-curl-jq curl http://host.docker.internal:8070 >/dev/null && exit 0 || sleep 10; done; exit 1) && \
+			(for i in $$(seq 1 10); do docker run -t --rm --add-host=host.docker.internal:host-gateway dwdraju/alpine-curl-jq curl http://host.docker.internal:8080 >/dev/null && exit 0 || sleep 10; done; exit 1) && \
 			docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ --network host -e AB_HTTPBIN_URL=http://localhost:8070 -e GRADLE_USER_HOME=/data/.gradle gradle:7.5.1-jdk8 \
 					gradle --console=plain -i --no-daemon testCore
 	
@@ -43,7 +43,7 @@ test_cli:
 	sed -i "s/\r//" "$(SDK_MOCK_SERVER_PATH)/mock-server.sh" && \
 			trap "docker stop -t 1 justice-codegen-sdk-mock-server" EXIT && \
 			(bash "$(SDK_MOCK_SERVER_PATH)/mock-server.sh" -s /data/spec &) && \
-			(for i in $$(seq 1 10); do bash -c "timeout 1 echo > /dev/tcp/127.0.0.1/8080" 2>/dev/null && exit 0 || sleep 10; done; exit 1) && \
+			(for i in $$(seq 1 10); do docker run -t --rm --add-host=host.docker.internal:host-gateway dwdraju/alpine-curl-jq curl http://host.docker.internal:8080 >/dev/null && exit 0 || sleep 10; done; exit 1) && \
 			sed -i "s/\r//" samples/cli/tests/* && \
 			rm -f samples/cli/tests/*.tap && \
 			for FILE in $$(ls samples/cli/tests/*.sh); do \
