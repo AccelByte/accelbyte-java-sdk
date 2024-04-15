@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateGroupConfigurationAdminV1
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [UPDATE]'
- *
  * <p>This endpoint is used to update existing configuration. groupAdminRoleId and groupMemberRoleId
  * won't be able to be updated. User can try to change the member role permission instead for each
  * of those member role

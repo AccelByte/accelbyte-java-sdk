@@ -25,8 +25,9 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>__Supported 3rd platforms:__
  *
- * <p>* __PSN(ps4web, ps4, ps5)__ * display name * avatar * __Xbox(live, xblweb)__ * display name *
- * __Steam(steam, steamopenid)__ * display name * avatar * __EpicGames(epicgames)__ * display name
+ * <p>* __PSN(ps4web, ps4, ps5)__ * account id * display name * avatar * __Xbox(live, xblweb)__ *
+ * xuid or pxuid * display name * __Steam(steam, steamopenid)__ * steam id * display name * avatar *
+ * __EpicGames(epicgames)__ * epic account id * display name
  *
  * <p>action code : 10147
  */

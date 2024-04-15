@@ -51,4 +51,24 @@ public class AgreementWithNamespace {
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see DownloadExportedAgreementsInCSV
+   */
+  public DownloadExportedAgreementsInCSVResponse downloadExportedAgreementsInCSV(
+      DownloadExportedAgreementsInCSV input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see InitiateExportAgreementsToCSV
+   */
+  public InitiateExportAgreementsToCSVResponse initiateExportAgreementsToCSV(
+      InitiateExportAgreementsToCSV input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }

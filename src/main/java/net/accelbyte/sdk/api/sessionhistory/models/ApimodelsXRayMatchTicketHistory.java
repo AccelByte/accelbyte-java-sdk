@@ -8,14 +8,12 @@
 
 package net.accelbyte.sdk.api.sessionhistory.models;
 
-import java.util.*;
-
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.*;
 import lombok.*;
-
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -23,35 +21,34 @@ import net.accelbyte.sdk.core.Model;
 @Getter
 @Setter
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
-@AllArgsConstructor(onConstructor=@__(@Deprecated))     
+@AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
 public class ApimodelsXRayMatchTicketHistory extends Model {
 
-    @JsonProperty("action")
-    private String action;
+  @JsonProperty("action")
+  private String action;
 
-    @JsonProperty("match")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private ApimodelsEventMatchHistory match;
+  @JsonProperty("match")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ApimodelsEventMatchHistory match;
 
-    @JsonProperty("ticket")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private ModelsTicket ticket;
+  @JsonProperty("ticket")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ModelsTicket ticket;
 
-    @JsonProperty("timestamp")
-    private String timestamp;
+  @JsonProperty("timestamp")
+  private String timestamp;
 
+  @JsonIgnore
+  public ApimodelsXRayMatchTicketHistory createFromJson(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ApimodelsXRayMatchTicketHistory createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ApimodelsXRayMatchTicketHistory> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ApimodelsXRayMatchTicketHistory>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ApimodelsXRayMatchTicketHistory> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ApimodelsXRayMatchTicketHistory>>() {});
+  }
 }

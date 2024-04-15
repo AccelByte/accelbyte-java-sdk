@@ -51,6 +51,11 @@ public class ListMyBinaryRecordsV1 implements Callable<Integer> {
   String query;
 
   @Option(
+      names = {"--tags"},
+      description = "tags")
+  List<String> tags;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -80,6 +85,7 @@ public class ListMyBinaryRecordsV1 implements Callable<Integer> {
                   .limit(limit)
                   .offset(offset)
                   .query(query)
+                  .tags(tags)
                   .build();
       final ModelsListPlayerBinaryRecordsResponse response =
           wrapper.listMyBinaryRecordsV1(operation);

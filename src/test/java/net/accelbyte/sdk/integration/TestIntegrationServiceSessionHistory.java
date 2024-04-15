@@ -6,6 +6,12 @@
 
 package net.accelbyte.sdk.integration;
 
+import static java.time.temporal.ChronoUnit.DAYS;
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.time.Instant;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import net.accelbyte.sdk.api.sessionhistory.models.ApimodelsGameSessionDetailQueryResponse;
 import net.accelbyte.sdk.api.sessionhistory.models.ApimodelsMatchmakingDetailQueryResponse;
 import net.accelbyte.sdk.api.sessionhistory.models.ApimodelsXRayMatchMatchmakingQueryResponse;
@@ -15,13 +21,6 @@ import net.accelbyte.sdk.api.sessionhistory.operations.x_ray.QueryTotalMatchmaki
 import net.accelbyte.sdk.api.sessionhistory.wrappers.GameSessionDetail;
 import net.accelbyte.sdk.api.sessionhistory.wrappers.XRay;
 import org.junit.jupiter.api.*;
-
-import java.time.Instant;
-import java.time.ZoneOffset;
-import java.time.format.DateTimeFormatter;
-
-import static java.time.temporal.ChronoUnit.DAYS;
-import static org.junit.jupiter.api.Assertions.*;
 
 @Tag("test-integration")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -44,21 +43,23 @@ public class TestIntegrationServiceSessionHistory extends TestIntegration {
 
     // Format: 2024-04-05T03:42:49Z
     // https://development.accelbyte.io/sessionhistory/apidocs/#/XRay/queryTotalMatchmakingMatch
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'")
-            .withZone(ZoneOffset.UTC);
+    DateTimeFormatter formatter =
+        DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'").withZone(ZoneOffset.UTC);
 
     Instant now = Instant.now();
     final String endDate = formatter.format(now);
     final String startDate = formatter.format(now.minus(10, DAYS));
 
-    final QueryTotalMatchmakingMatch queryTotalMatchmakingMatchModel = QueryTotalMatchmakingMatch.builder()
+    final QueryTotalMatchmakingMatch queryTotalMatchmakingMatchModel =
+        QueryTotalMatchmakingMatch.builder()
             .namespace(this.namespace)
             .endDate(endDate)
             .startDate(startDate)
             .build();
 
     // Get total matchmaking match
-    ApimodelsXRayMatchMatchmakingQueryResponse response = xRayWrapper.queryTotalMatchmakingMatch(queryTotalMatchmakingMatchModel);
+    ApimodelsXRayMatchMatchmakingQueryResponse response =
+        xRayWrapper.queryTotalMatchmakingMatch(queryTotalMatchmakingMatchModel);
     assertNotNull(response);
 
     if ((response != null) && (response.getData() != null)) {
@@ -71,14 +72,12 @@ public class TestIntegrationServiceSessionHistory extends TestIntegration {
   public void GameSessionTests() throws Exception {
     final GameSessionDetail gameSessionDetailWrapper = new GameSessionDetail(sdk);
 
-    final AdminQueryGameSessionDetail adminQueryGameSessionDetail = AdminQueryGameSessionDetail.builder()
-            .namespace(this.namespace)
-            .offset(0)
-            .limit(20)
-            .build();
+    final AdminQueryGameSessionDetail adminQueryGameSessionDetail =
+        AdminQueryGameSessionDetail.builder().namespace(this.namespace).offset(0).limit(20).build();
 
     // Get all game sessions history
-    ApimodelsGameSessionDetailQueryResponse gameSessionHistoryResp = gameSessionDetailWrapper.adminQueryGameSessionDetail(adminQueryGameSessionDetail);
+    ApimodelsGameSessionDetailQueryResponse gameSessionHistoryResp =
+        gameSessionDetailWrapper.adminQueryGameSessionDetail(adminQueryGameSessionDetail);
     assertNotNull(gameSessionHistoryResp);
 
     if ((gameSessionHistoryResp != null) && (gameSessionHistoryResp.getData() != null)) {
@@ -86,13 +85,11 @@ public class TestIntegrationServiceSessionHistory extends TestIntegration {
     }
 
     // Get all matchmaking history
-    final AdminQueryMatchmakingDetail adminQueryMatchmakingDetail = AdminQueryMatchmakingDetail.builder()
-            .namespace(this.namespace)
-            .offset(0)
-            .limit(20)
-            .build();
+    final AdminQueryMatchmakingDetail adminQueryMatchmakingDetail =
+        AdminQueryMatchmakingDetail.builder().namespace(this.namespace).offset(0).limit(20).build();
 
-    ApimodelsMatchmakingDetailQueryResponse matchMakingHistoryResp = gameSessionDetailWrapper.adminQueryMatchmakingDetail(adminQueryMatchmakingDetail);
+    ApimodelsMatchmakingDetailQueryResponse matchMakingHistoryResp =
+        gameSessionDetailWrapper.adminQueryMatchmakingDetail(adminQueryMatchmakingDetail);
     assertNotNull(matchMakingHistoryResp);
 
     if ((matchMakingHistoryResp != null) && (matchMakingHistoryResp.getData() != null)) {

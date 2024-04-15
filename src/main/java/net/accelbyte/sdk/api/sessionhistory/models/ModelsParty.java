@@ -8,14 +8,12 @@
 
 package net.accelbyte.sdk.api.sessionhistory.models;
 
-import java.util.*;
-
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.*;
 import lombok.*;
-
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -23,81 +21,77 @@ import net.accelbyte.sdk.core.Model;
 @Getter
 @Setter
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
-@AllArgsConstructor(onConstructor=@__(@Deprecated))     
+@AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
 public class ModelsParty extends Model {
 
-    @JsonProperty("Attributes")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private Map<String, ?> attributes;
+  @JsonProperty("Attributes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> attributes;
 
-    @JsonProperty("Code")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private String code;
+  @JsonProperty("Code")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String code;
 
-    @JsonProperty("Configuration")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private ModelsSessionConfiguration configuration;
+  @JsonProperty("Configuration")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ModelsSessionConfiguration configuration;
 
-    @JsonProperty("ConfigurationName")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private String configurationName;
+  @JsonProperty("ConfigurationName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String configurationName;
 
-    @JsonProperty("CreatedAt")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private String createdAt;
+  @JsonProperty("CreatedAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String createdAt;
 
-    @JsonProperty("CreatedBy")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private String createdBy;
+  @JsonProperty("CreatedBy")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String createdBy;
 
-    @JsonProperty("ExpiredAt")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private String expiredAt;
+  @JsonProperty("ExpiredAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String expiredAt;
 
-    @JsonProperty("ID")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private String id;
+  @JsonProperty("ID")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String id;
 
-    @JsonProperty("IsActive")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private Boolean isActive;
+  @JsonProperty("IsActive")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean isActive;
 
-    @JsonProperty("IsFull")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private Boolean isFull;
+  @JsonProperty("IsFull")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean isFull;
 
-    @JsonProperty("LeaderID")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private String leaderID;
+  @JsonProperty("LeaderID")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String leaderID;
 
-    @JsonProperty("Members")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private List<ModelsUser> members;
+  @JsonProperty("Members")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<ModelsUser> members;
 
-    @JsonProperty("Namespace")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private String namespace;
+  @JsonProperty("Namespace")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String namespace;
 
-    @JsonProperty("UpdatedAt")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private String updatedAt;
+  @JsonProperty("UpdatedAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String updatedAt;
 
-    @JsonProperty("Version")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private Integer version;
+  @JsonProperty("Version")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer version;
 
+  @JsonIgnore
+  public ModelsParty createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsParty createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsParty> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsParty>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsParty> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsParty>>() {});
+  }
 }

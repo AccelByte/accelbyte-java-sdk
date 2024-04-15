@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteGroupConfigurationGlobalRuleAdminV1
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [UPDATE]'
- *
  * <p>This endpoint is used to delete existing global rule configuration based on the allowed
  * action. It will not give any error if the allowed action is not existed in the global rule
  *

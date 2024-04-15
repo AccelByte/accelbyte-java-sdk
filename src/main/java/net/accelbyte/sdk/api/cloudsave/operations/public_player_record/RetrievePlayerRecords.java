@@ -39,6 +39,7 @@ public class RetrievePlayerRecords extends Operation {
 
   private Integer limit;
   private Integer offset;
+  private List<String> tags;
 
   /**
    * @param namespace required
@@ -46,10 +47,11 @@ public class RetrievePlayerRecords extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public RetrievePlayerRecords(String namespace, Integer limit, Integer offset) {
+  public RetrievePlayerRecords(String namespace, Integer limit, Integer offset, List<String> tags) {
     this.namespace = namespace;
     this.limit = limit;
     this.offset = offset;
+    this.tags = tags;
 
     securities.add("Bearer");
   }
@@ -69,6 +71,7 @@ public class RetrievePlayerRecords extends Operation {
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+    queryParams.put("tags", this.tags == null ? null : this.tags);
     return queryParams;
   }
 
@@ -95,6 +98,7 @@ public class RetrievePlayerRecords extends Operation {
     Map<String, String> result = new HashMap<>();
     result.put("limit", "None");
     result.put("offset", "None");
+    result.put("tags", "csv");
     return result;
   }
 }

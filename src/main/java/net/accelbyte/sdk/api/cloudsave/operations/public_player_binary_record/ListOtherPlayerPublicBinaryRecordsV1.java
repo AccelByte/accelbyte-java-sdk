@@ -40,6 +40,7 @@ public class ListOtherPlayerPublicBinaryRecordsV1 extends Operation {
   private String userId;
   private Integer limit;
   private Integer offset;
+  private List<String> tags;
 
   /**
    * @param namespace required
@@ -49,11 +50,12 @@ public class ListOtherPlayerPublicBinaryRecordsV1 extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public ListOtherPlayerPublicBinaryRecordsV1(
-      String namespace, String userId, Integer limit, Integer offset) {
+      String namespace, String userId, Integer limit, Integer offset, List<String> tags) {
     this.namespace = namespace;
     this.userId = userId;
     this.limit = limit;
     this.offset = offset;
+    this.tags = tags;
 
     securities.add("Bearer");
   }
@@ -76,6 +78,7 @@ public class ListOtherPlayerPublicBinaryRecordsV1 extends Operation {
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+    queryParams.put("tags", this.tags == null ? null : this.tags);
     return queryParams;
   }
 
@@ -105,6 +108,7 @@ public class ListOtherPlayerPublicBinaryRecordsV1 extends Operation {
     Map<String, String> result = new HashMap<>();
     result.put("limit", "None");
     result.put("offset", "None");
+    result.put("tags", "csv");
     return result;
   }
 }

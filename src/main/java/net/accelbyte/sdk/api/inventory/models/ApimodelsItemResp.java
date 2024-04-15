@@ -40,6 +40,10 @@ public class ApimodelsItemResp extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
+  @JsonProperty("platformAvailable")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean platformAvailable;
+
   @JsonProperty("qty")
   private Integer qty;
 

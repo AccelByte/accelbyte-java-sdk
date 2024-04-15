@@ -51,6 +51,11 @@ public class AdminListAdminGameRecordV1 implements Callable<Integer> {
   String query;
 
   @Option(
+      names = {"--tags"},
+      description = "tags")
+  List<String> tags;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -79,6 +84,7 @@ public class AdminListAdminGameRecordV1 implements Callable<Integer> {
                   .limit(limit)
                   .offset(offset)
                   .query(query)
+                  .tags(tags)
                   .build();
       final ModelsListAdminGameRecordKeysResponse response =
           wrapper.adminListAdminGameRecordV1(operation);

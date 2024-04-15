@@ -28,6 +28,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * the match function when matchmaking in that pool.
  *
  * <p>To use custom rules set please set enable_custom_match_function=true. Default (false).
+ *
+ * <p>When custom enable_custom_match_function=true, the ruleset will only validate if the rule is
+ * valid json.
  */
 @Getter
 @Setter

@@ -87,4 +87,13 @@ public class AdminItems {
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see AdminSyncUserEntitlements
+   */
+  public void adminSyncUserEntitlements(AdminSyncUserEntitlements input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }

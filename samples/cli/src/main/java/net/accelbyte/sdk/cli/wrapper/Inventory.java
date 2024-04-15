@@ -9,6 +9,7 @@
 package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.inventory.admin_chaining_operations.*;
+import net.accelbyte.sdk.cli.api.inventory.admin_integration_configurations.*;
 import net.accelbyte.sdk.cli.api.inventory.admin_inventories.*;
 import net.accelbyte.sdk.cli.api.inventory.admin_inventory_configurations.*;
 import net.accelbyte.sdk.cli.api.inventory.admin_item_types.*;
@@ -26,6 +27,10 @@ import picocli.CommandLine.Command;
     mixinStandardHelpOptions = true,
     subcommands = {
       AdminCreateChainingOperations.class,
+      AdminListIntegrationConfigurations.class,
+      AdminCreateIntegrationConfiguration.class,
+      AdminUpdateIntegrationConfiguration.class,
+      AdminUpdateStatusIntegrationConfiguration.class,
       AdminListInventories.class,
       AdminCreateInventory.class,
       AdminGetInventory.class,
@@ -49,6 +54,8 @@ import picocli.CommandLine.Command;
       AdminSaveItemToInventory.class,
       AdminBulkRemoveItems.class,
       AdminSaveItem.class,
+      AdminSyncUserEntitlements.class,
+      AdminPurchasable.class,
       PublicListInventoryConfigurations.class,
       PublicListItemTypes.class,
       PublicListTags.class,

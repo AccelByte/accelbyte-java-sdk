@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateMemberRoleAdminV1
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:GROUP:ROLE [UPDATE]
- *
  * <p>This endpoint is used to update member role
  *
  * <p>Action Code: 73204

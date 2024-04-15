@@ -46,6 +46,11 @@ public class RetrievePlayerRecords implements Callable<Integer> {
   Integer offset;
 
   @Option(
+      names = {"--tags"},
+      description = "tags")
+  List<String> tags;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -73,6 +78,7 @@ public class RetrievePlayerRecords implements Callable<Integer> {
                   .namespace(namespace)
                   .limit(limit)
                   .offset(offset)
+                  .tags(tags)
                   .build();
       final ModelsListPlayerRecordKeysResponse response = wrapper.retrievePlayerRecords(operation);
       final String responseString =

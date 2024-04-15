@@ -20,8 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteGroupConfigurationV1
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [DELETE]'
- *
  * <p>This endpoint is used to delete group configuration. This Configuration is used as the main
  * rule of the service. Each namespace will have its own configuration
  *

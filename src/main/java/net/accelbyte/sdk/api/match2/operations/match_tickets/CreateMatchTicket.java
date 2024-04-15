@@ -23,15 +23,15 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Creates a new request for matchmaking.
  *
- * <p>Cross Platform: Allow player to play game with "any" registered platforms. 1. Cross Platform
+ * <p>Cross Platform: Allow player to play game with "all" registered platforms. 1. Cross Platform
  * can be enabled through session service or create match ticket. a. via ticket: specify several
  * cross_platform on create match ticket attributes. **[DEPRECATED]** client should not send from
  * attribute `cross_platform` will be populated from backend This value will override player
  * attributes in session service. e.g. cross_platform:[xbox,psn,steam] b. via session service: set
  * player/party cross_platform attributes. c. Enable match options ruleset with name cross_platform
- * and type "any". ``` { "name": "co-op", "data": { "alliance": { "min_number": 1, "max_number": 1,
+ * and type "all". ``` { "name": "co-op", "data": { "alliance": { "min_number": 1, "max_number": 1,
  * "player_min_number": 1, "player_max_number": 4 }, "match_options": { "options": [ {"name":
- * "cross_platform", "type": "any"} ] } } } ``` 2. Cross Platform can be disabled from the matchpool
+ * "cross_platform", "type": "all"} ] } } } ``` 2. Cross Platform can be disabled from the matchpool
  * configuration `crossplay_disabled=true` 3. When matchpool `crossplay_disabled=false` * request
  * attribute cross_platform is empty **[Recommended]**: * Matchmaking will consider Party leader
  * `crossplayEnabled` preference or Session attribute `crossplayEnabled` preference. * When

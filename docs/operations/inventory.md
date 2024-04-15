@@ -9,6 +9,14 @@
 |---|---|---|---|---|
 | `/inventory/v1/admin/namespaces/{namespace}/chainingOperations` | POST | AdminCreateChainingOperations | [AdminCreateChainingOperations](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/admin_chaining_operations/AdminCreateChainingOperations.java) | [AdminCreateChainingOperations](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/admin_chaining_operations/AdminCreateChainingOperations.java) |
 
+### Admin Integration Configurations Wrapper:  [AdminIntegrationConfigurations](../../src/main/java/net/accelbyte/sdk/api/inventory/wrappers/AdminIntegrationConfigurations.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/inventory/v1/admin/namespaces/{namespace}/integrationConfigurations` | GET | AdminListIntegrationConfigurations | [AdminListIntegrationConfigurations](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/admin_integration_configurations/AdminListIntegrationConfigurations.java) | [AdminListIntegrationConfigurations](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/admin_integration_configurations/AdminListIntegrationConfigurations.java) |
+| `/inventory/v1/admin/namespaces/{namespace}/integrationConfigurations` | POST | AdminCreateIntegrationConfiguration | [AdminCreateIntegrationConfiguration](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/admin_integration_configurations/AdminCreateIntegrationConfiguration.java) | [AdminCreateIntegrationConfiguration](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/admin_integration_configurations/AdminCreateIntegrationConfiguration.java) |
+| `/inventory/v1/admin/namespaces/{namespace}/integrationConfigurations/{integrationConfigurationId}` | PUT | AdminUpdateIntegrationConfiguration | [AdminUpdateIntegrationConfiguration](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/admin_integration_configurations/AdminUpdateIntegrationConfiguration.java) | [AdminUpdateIntegrationConfiguration](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/admin_integration_configurations/AdminUpdateIntegrationConfiguration.java) |
+| `/inventory/v1/admin/namespaces/{namespace}/integrationConfigurations/{integrationConfigurationId}/status` | PUT | AdminUpdateStatusIntegrationConfiguration | [AdminUpdateStatusIntegrationConfiguration](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/admin_integration_configurations/AdminUpdateStatusIntegrationConfiguration.java) | [AdminUpdateStatusIntegrationConfiguration](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/admin_integration_configurations/AdminUpdateStatusIntegrationConfiguration.java) |
+
 ### Admin Inventories Wrapper:  [AdminInventories](../../src/main/java/net/accelbyte/sdk/api/inventory/wrappers/AdminInventories.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -17,6 +25,7 @@
 | `/inventory/v1/admin/namespaces/{namespace}/inventories/{inventoryId}` | GET | AdminGetInventory | [AdminGetInventory](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/admin_inventories/AdminGetInventory.java) | [AdminGetInventory](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/admin_inventories/AdminGetInventory.java) |
 | `/inventory/v1/admin/namespaces/{namespace}/inventories/{inventoryId}` | PUT | AdminUpdateInventory | [AdminUpdateInventory](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/admin_inventories/AdminUpdateInventory.java) | [AdminUpdateInventory](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/admin_inventories/AdminUpdateInventory.java) |
 | `/inventory/v1/admin/namespaces/{namespace}/inventories/{inventoryId}` | DELETE | DeleteInventory | [DeleteInventory](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/admin_inventories/DeleteInventory.java) | [DeleteInventory](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/admin_inventories/DeleteInventory.java) |
+| `/inventory/v1/admin/namespaces/{namespace}/users/{userId}/purchaseable` | POST | AdminPurchasable | [AdminPurchasable](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/admin_inventories/AdminPurchasable.java) | [AdminPurchasable](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/admin_inventories/AdminPurchasable.java) |
 
 ### Admin Items Wrapper:  [AdminItems](../../src/main/java/net/accelbyte/sdk/api/inventory/wrappers/AdminItems.java)
 | Endpoint | Method | ID | Class | Example |
@@ -28,6 +37,7 @@
 | `/inventory/v1/admin/namespaces/{namespace}/users/{userId}/inventories/{inventoryId}/items` | POST | AdminSaveItemToInventory | [AdminSaveItemToInventory](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/admin_items/AdminSaveItemToInventory.java) | [AdminSaveItemToInventory](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/admin_items/AdminSaveItemToInventory.java) |
 | `/inventory/v1/admin/namespaces/{namespace}/users/{userId}/inventories/{inventoryId}/items` | DELETE | AdminBulkRemoveItems | [AdminBulkRemoveItems](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/admin_items/AdminBulkRemoveItems.java) | [AdminBulkRemoveItems](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/admin_items/AdminBulkRemoveItems.java) |
 | `/inventory/v1/admin/namespaces/{namespace}/users/{userId}/items` | POST | AdminSaveItem | [AdminSaveItem](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/admin_items/AdminSaveItem.java) | [AdminSaveItem](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/admin_items/AdminSaveItem.java) |
+| `/inventory/v1/admin/namespaces/{namespace}/users/{userId}/items/entitlements/sync` | PUT | AdminSyncUserEntitlements | [AdminSyncUserEntitlements](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/admin_items/AdminSyncUserEntitlements.java) | [AdminSyncUserEntitlements](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/admin_items/AdminSyncUserEntitlements.java) |
 
 ### Admin Inventory Configurations Wrapper:  [AdminInventoryConfigurations](../../src/main/java/net/accelbyte/sdk/api/inventory/wrappers/AdminInventoryConfigurations.java)
 | Endpoint | Method | ID | Class | Example |
@@ -94,6 +104,7 @@
 | `apimodels.ChainingOperationResp` | [ApimodelsChainingOperationResp](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsChainingOperationResp.java) |
 | `apimodels.ConsumeItem` | [ApimodelsConsumeItem](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsConsumeItem.java) |
 | `apimodels.ConsumeItemReq` | [ApimodelsConsumeItemReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsConsumeItemReq.java) |
+| `apimodels.CreateIntegrationConfigurationReq` | [ApimodelsCreateIntegrationConfigurationReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsCreateIntegrationConfigurationReq.java) |
 | `apimodels.CreateInventoryConfigurationReq` | [ApimodelsCreateInventoryConfigurationReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsCreateInventoryConfigurationReq.java) |
 | `apimodels.CreateInventoryReq` | [ApimodelsCreateInventoryReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsCreateInventoryReq.java) |
 | `apimodels.CreateItem` | [ApimodelsCreateItem](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsCreateItem.java) |
@@ -103,10 +114,13 @@
 | `apimodels.CreateTagResp` | [ApimodelsCreateTagResp](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsCreateTagResp.java) |
 | `apimodels.DeleteInventoryReq` | [ApimodelsDeleteInventoryReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsDeleteInventoryReq.java) |
 | `apimodels.ErrorResponse` | [ApimodelsErrorResponse](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsErrorResponse.java) |
+| `apimodels.IntegrationConfigurationResp` | [ApimodelsIntegrationConfigurationResp](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsIntegrationConfigurationResp.java) |
+| `apimodels.InventoryConfig` | [ApimodelsInventoryConfig](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsInventoryConfig.java) |
 | `apimodels.InventoryConfigurationReq` | [ApimodelsInventoryConfigurationReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsInventoryConfigurationReq.java) |
 | `apimodels.InventoryConfigurationResp` | [ApimodelsInventoryConfigurationResp](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsInventoryConfigurationResp.java) |
 | `apimodels.InventoryResp` | [ApimodelsInventoryResp](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsInventoryResp.java) |
 | `apimodels.ItemResp` | [ApimodelsItemResp](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsItemResp.java) |
+| `apimodels.ListIntegrationConfigurationsResp` | [ApimodelsListIntegrationConfigurationsResp](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsListIntegrationConfigurationsResp.java) |
 | `apimodels.ListInventoryConfigurationsResp` | [ApimodelsListInventoryConfigurationsResp](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsListInventoryConfigurationsResp.java) |
 | `apimodels.ListInventoryResp` | [ApimodelsListInventoryResp](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsListInventoryResp.java) |
 | `apimodels.ListItemResp` | [ApimodelsListItemResp](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsListItemResp.java) |
@@ -116,13 +130,17 @@
 | `apimodels.MoveItemsResp` | [ApimodelsMoveItemsResp](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsMoveItemsResp.java) |
 | `apimodels.Operation` | [ApimodelsOperation](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsOperation.java) |
 | `apimodels.Paging` | [ApimodelsPaging](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsPaging.java) |
+| `apimodels.PurchaseValidationItemReq` | [ApimodelsPurchaseValidationItemReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsPurchaseValidationItemReq.java) |
+| `apimodels.PurchaseValidationReq` | [ApimodelsPurchaseValidationReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsPurchaseValidationReq.java) |
 | `apimodels.RemoveInventoryItemReq` | [ApimodelsRemoveInventoryItemReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsRemoveInventoryItemReq.java) |
 | `apimodels.RemoveItem` | [ApimodelsRemoveItem](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsRemoveItem.java) |
 | `apimodels.SaveItemReq` | [ApimodelsSaveItemReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsSaveItemReq.java) |
 | `apimodels.SaveItemToInventoryReq` | [ApimodelsSaveItemToInventoryReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsSaveItemToInventoryReq.java) |
 | `apimodels.TradeItem` | [ApimodelsTradeItem](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsTradeItem.java) |
 | `apimodels.TradeItemResp` | [ApimodelsTradeItemResp](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsTradeItemResp.java) |
+| `apimodels.UpdateIntegrationConfigurationReq` | [ApimodelsUpdateIntegrationConfigurationReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsUpdateIntegrationConfigurationReq.java) |
 | `apimodels.UpdateInventoryReq` | [ApimodelsUpdateInventoryReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsUpdateInventoryReq.java) |
 | `apimodels.UpdateItem` | [ApimodelsUpdateItem](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsUpdateItem.java) |
 | `apimodels.UpdateItemReq` | [ApimodelsUpdateItemReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsUpdateItemReq.java) |
 | `apimodels.UpdateItemResp` | [ApimodelsUpdateItemResp](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsUpdateItemResp.java) |
+| `apimodels.UpdateStatusIntegrationConfigurationReq` | [ApimodelsUpdateStatusIntegrationConfigurationReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsUpdateStatusIntegrationConfigurationReq.java) |

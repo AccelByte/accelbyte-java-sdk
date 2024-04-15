@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * listGroupConfigurationAdminV1
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [READ]'
- *
  * <p>This endpoint is used to get existing configuration. This Configuration is used as the main
  * rule of the service. Each namespace will have its own configuration
  *

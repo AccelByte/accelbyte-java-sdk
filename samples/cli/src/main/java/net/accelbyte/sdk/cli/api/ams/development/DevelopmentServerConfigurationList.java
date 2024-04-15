@@ -36,6 +36,16 @@ public class DevelopmentServerConfigurationList implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--count"},
+      description = "count")
+  Integer count;
+
+  @Option(
+      names = {"--offset"},
+      description = "offset")
+  Integer offset;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -61,8 +71,10 @@ public class DevelopmentServerConfigurationList implements Callable<Integer> {
               net.accelbyte.sdk.api.ams.operations.development.DevelopmentServerConfigurationList
                   .builder()
                   .namespace(namespace)
+                  .count(count)
+                  .offset(offset)
                   .build();
-      final List<ApiDevelopmentServerConfigurationGetResponse> response =
+      final ApiDevelopmentServerConfigurationListResponse response =
           wrapper.developmentServerConfigurationList(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);

@@ -30,12 +30,9 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Additional Information:
  *
- * <p>* User cannot join to the group with PRIVATE type
- *
- * <p>* Joining PUBLIC group type will create join request and need approval from the privileged
- * group member to accept the request to become the member
- *
- * <p>* Joining OPEN group type will make this user become member of that group immediately
+ * <p>* User cannot join to the group with PRIVATE type * Joining PUBLIC group type will create join
+ * request and need approval from the privileged group member to accept the request to become the
+ * member * Joining OPEN group type will make this user become member of that group immediately
  *
  * <p>This endpoint will return status field to give information whether the user is JOINED or
  * REQUESTED to join to the specific group

@@ -25,8 +25,8 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApiDevelopmentServerConfigurationCreateRequest extends Model {
 
-  @JsonProperty("commandLine")
-  private String commandLine;
+  @JsonProperty("commandLineArguments")
+  private String commandLineArguments;
 
   @JsonProperty("imageId")
   private String imageId;

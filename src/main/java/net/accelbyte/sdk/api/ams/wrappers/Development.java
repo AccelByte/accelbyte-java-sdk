@@ -8,7 +8,6 @@
 
 package net.accelbyte.sdk.api.ams.wrappers;
 
-import java.util.*;
 import net.accelbyte.sdk.api.ams.models.*;
 import net.accelbyte.sdk.api.ams.operations.development.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
@@ -25,7 +24,7 @@ public class Development {
   /**
    * @see DevelopmentServerConfigurationList
    */
-  public List<ApiDevelopmentServerConfigurationGetResponse> developmentServerConfigurationList(
+  public ApiDevelopmentServerConfigurationListResponse developmentServerConfigurationList(
       DevelopmentServerConfigurationList input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(

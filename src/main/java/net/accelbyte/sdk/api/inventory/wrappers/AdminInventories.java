@@ -66,4 +66,13 @@ public class AdminInventories {
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see AdminPurchasable
+   */
+  public void adminPurchasable(AdminPurchasable input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }

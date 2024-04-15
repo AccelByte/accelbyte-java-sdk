@@ -43,6 +43,9 @@ public class ApiFleetListItemResponse extends Model {
   @JsonProperty("name")
   private String name;
 
+  @JsonProperty("onDemand")
+  private Boolean onDemand;
+
   @JsonProperty("regions")
   private List<String> regions;
 

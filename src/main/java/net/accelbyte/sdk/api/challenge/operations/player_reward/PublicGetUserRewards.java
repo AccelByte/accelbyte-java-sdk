@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicGetUserRewards
  *
- * <p>* Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:REWARD [READ]
+ * <p>* Required permission: NAMESPACE:{namespace}:CHALLENGE:REWARD [READ]
  */
 @Getter
 @Setter

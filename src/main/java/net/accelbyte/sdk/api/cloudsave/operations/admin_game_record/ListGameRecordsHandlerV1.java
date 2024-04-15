@@ -38,6 +38,7 @@ public class ListGameRecordsHandlerV1 extends Operation {
   private String namespace;
 
   private String query;
+  private List<String> tags;
   private Integer limit;
   private Integer offset;
 
@@ -49,9 +50,11 @@ public class ListGameRecordsHandlerV1 extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public ListGameRecordsHandlerV1(String namespace, String query, Integer limit, Integer offset) {
+  public ListGameRecordsHandlerV1(
+      String namespace, String query, List<String> tags, Integer limit, Integer offset) {
     this.namespace = namespace;
     this.query = query;
+    this.tags = tags;
     this.limit = limit;
     this.offset = offset;
 
@@ -71,6 +74,7 @@ public class ListGameRecordsHandlerV1 extends Operation {
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
     queryParams.put("query", this.query == null ? null : Arrays.asList(this.query));
+    queryParams.put("tags", this.tags == null ? null : this.tags);
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
@@ -105,6 +109,7 @@ public class ListGameRecordsHandlerV1 extends Operation {
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
     result.put("query", "None");
+    result.put("tags", "csv");
     result.put("limit", "None");
     result.put("offset", "None");
     return result;

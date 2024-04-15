@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicClaimUserRewards
  *
- * <p>* Required permission: NAMESPACE:{namespace}:CHALLENGE:REWARD:CLAIM [UPDATE]
+ * <p>* Required permission: NAMESPACE:{namespace}:CHALLENGE:REWARD [UPDATE]
  */
 @Getter
 @Setter

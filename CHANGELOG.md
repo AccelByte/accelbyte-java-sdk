@@ -1,3 +1,19 @@
+<a name="v0.61.0"></a>
+## [v0.61.0]
+### feat
+- **api:** add sessionhistory service
+### test
+- **:** make compatible with docker desktop
+- **integration:** reporting - use unique reason title on each test
+- **integration:** add session history
+- **integration:** session history - relax assert
+- **integration:** session history - clean unused variables
+### chore
+- **:** increase gradle xmx to 3g
+- **samples:** lambda - remove unused files
+- **:** upgrade gradle to 7.6.4
+
+
 <a name="v0.60.0"></a>
 ## [v0.60.0]
 ### test

@@ -29,6 +29,9 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Tags will be auto-created. ItemType will be auto-created.
  *
+ * <p>For Ecommerce item, this fields will be override by ecommerce configuration (slotUsed,
+ * serverCustomAttributes, customAttributes, type)
+ *
  * <p>Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [CREATE]
  */
 @Getter

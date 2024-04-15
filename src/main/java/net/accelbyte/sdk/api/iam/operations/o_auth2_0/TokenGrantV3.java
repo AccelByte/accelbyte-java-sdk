@@ -30,7 +30,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * == `client_credentials`: It generates a token by checking the client credentials provided through
  * Authorization header. 5. Grant Type ==
  * `urn:ietf:params:oauth:grant-type:extend_client_credentials`: It generates a token by checking
- * the client credentials provided through Authorization header. It only allow publisher/studio
+ * the client credentials provided through Authorization header. It only allows publisher/studio
  * namespace client. In generated token: 1. There wil be no roles, namespace_roles & permission. 2.
  * The scope will be fixed as 'extend'. 3. There will have a new field 'extend_namespace', the value
  * is from token request body.

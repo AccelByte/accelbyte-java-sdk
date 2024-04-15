@@ -41,6 +41,11 @@ public class ListGameRecordsHandlerV1 implements Callable<Integer> {
   String query;
 
   @Option(
+      names = {"--tags"},
+      description = "tags")
+  List<String> tags;
+
+  @Option(
       names = {"--limit"},
       description = "limit")
   Integer limit;
@@ -77,6 +82,7 @@ public class ListGameRecordsHandlerV1 implements Callable<Integer> {
                   .builder()
                   .namespace(namespace)
                   .query(query)
+                  .tags(tags)
                   .limit(limit)
                   .offset(offset)
                   .build();

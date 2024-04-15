@@ -34,26 +34,6 @@ public class ModelsCategoryHook extends Model {
   private Map<String, ?> params;
 
   @JsonIgnore
-  public String getDriver() {
-    return this.driver;
-  }
-
-  @JsonIgnore
-  public Driver getDriverAsEnum() {
-    return Driver.valueOf(this.driver);
-  }
-
-  @JsonIgnore
-  public void setDriver(final String driver) {
-    this.driver = driver;
-  }
-
-  @JsonIgnore
-  public void setDriverFromEnum(final Driver driver) {
-    this.driver = driver.toString();
-  }
-
-  @JsonIgnore
   public ModelsCategoryHook createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
@@ -61,34 +41,5 @@ public class ModelsCategoryHook extends Model {
   @JsonIgnore
   public List<ModelsCategoryHook> createFromJsonList(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCategoryHook>>() {});
-  }
-
-  public enum Driver {
-    KAFKA("KAFKA");
-
-    private String value;
-
-    Driver(String value) {
-      this.value = value;
-    }
-
-    @Override
-    public String toString() {
-      return this.value;
-    }
-  }
-
-  public static class ModelsCategoryHookBuilder {
-    private String driver;
-
-    public ModelsCategoryHookBuilder driver(final String driver) {
-      this.driver = driver;
-      return this;
-    }
-
-    public ModelsCategoryHookBuilder driverFromEnum(final Driver driver) {
-      this.driver = driver.toString();
-      return this;
-    }
   }
 }

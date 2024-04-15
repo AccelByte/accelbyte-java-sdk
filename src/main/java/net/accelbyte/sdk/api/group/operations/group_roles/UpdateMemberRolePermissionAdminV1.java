@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateMemberRolePermissionAdminV1
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:GROUP:ROLE [UPDATE]
- *
  * <p>This endpoint is used to update member role permission. It will replace the existing
  * permission based on the request from this endpoint
  *

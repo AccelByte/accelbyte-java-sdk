@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getGroupMembersListAdminV1
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:GROUP:MEMBER [READ]
- *
  * <p>This endpoint is used to get list of group members.
  *
  * <p>Action Code: 73410

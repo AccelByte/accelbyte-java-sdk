@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getSingleGroupAdminV1
  *
- * <p>Required Permission: "ADMIN:NAMESPACE:{namespace}:GROUP [READ]"
- *
  * <p>Get single group information. This endpoint will show the group information by the groupId
  *
  * <p>Action Code: 73306

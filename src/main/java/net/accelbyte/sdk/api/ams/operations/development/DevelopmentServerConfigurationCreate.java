@@ -21,6 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DevelopmentServerConfigurationCreate
  *
+ * <p>Configuration name can be up to 128 characters and must conform to ^[.a-zA-Z0-9_-]+$
+ *
  * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:FLEET [CREATE]
  */
 @Getter

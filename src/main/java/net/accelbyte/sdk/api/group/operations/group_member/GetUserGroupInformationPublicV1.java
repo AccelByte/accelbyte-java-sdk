@@ -30,11 +30,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Group Member Status:
  *
- * <p>* JOIN : status of user requested to join group
- *
- * <p>* INVITE: status of user invited to a group
- *
- * <p>* JOINED: status of user already joined to a group
+ * <p>* JOIN : status of user requested to join group * INVITE: status of user invited to a group *
+ * JOINED: status of user already joined to a group
  *
  * <p>Action Code: 73405
  */

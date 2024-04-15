@@ -20,8 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteGroupAdminV1
  *
- * <p>Required Permission: "ADMIN:NAMESPACE:{namespace}:GROUP:{groupId} [DELETE]"
- *
  * <p>Delete existing group. It will check whether the groupID is exist before doing the process to
  * delete the group.
  *

@@ -117,6 +117,7 @@
 | `api.DevelopmentServerConfigurationCreateRequest` | [ApiDevelopmentServerConfigurationCreateRequest](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiDevelopmentServerConfigurationCreateRequest.java) |
 | `api.DevelopmentServerConfigurationCreateResponse` | [ApiDevelopmentServerConfigurationCreateResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiDevelopmentServerConfigurationCreateResponse.java) |
 | `api.DevelopmentServerConfigurationGetResponse` | [ApiDevelopmentServerConfigurationGetResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiDevelopmentServerConfigurationGetResponse.java) |
+| `api.DevelopmentServerConfigurationListResponse` | [ApiDevelopmentServerConfigurationListResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiDevelopmentServerConfigurationListResponse.java) |
 | `api.FleetArtifactsSampleRules` | [ApiFleetArtifactsSampleRules](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetArtifactsSampleRules.java) |
 | `api.FleetClaimByKeysReq` | [ApiFleetClaimByKeysReq](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetClaimByKeysReq.java) |
 | `api.FleetClaimReq` | [ApiFleetClaimReq](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetClaimReq.java) |

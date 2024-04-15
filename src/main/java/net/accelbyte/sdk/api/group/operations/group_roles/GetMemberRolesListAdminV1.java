@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getMemberRolesListAdminV1
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:GROUP:ROLE [READ]
- *
  * <p>This endpoint is used to get list of member roles
  *
  * <p>Action Code: 73201

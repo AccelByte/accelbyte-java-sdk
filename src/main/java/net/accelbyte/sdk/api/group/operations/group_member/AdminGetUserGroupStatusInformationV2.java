@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetUserGroupStatusInformationV2
  *
- * <p>Required Permission: "ADMIN:NAMESPACE:{namespace}:GROUP:MEMBER [READ]"
- *
  * <p>This endpoint is used to get user group status information.
  */
 @Getter

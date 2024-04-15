@@ -8,14 +8,12 @@
 
 package net.accelbyte.sdk.api.sessionhistory.models;
 
-import java.util.*;
-
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.*;
 import lombok.*;
-
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -23,82 +21,81 @@ import net.accelbyte.sdk.core.Model;
 @Getter
 @Setter
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
-@AllArgsConstructor(onConstructor=@__(@Deprecated))     
+@AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
 public class ApimodelsTicketObservabilityDetail extends Model {
 
-    @JsonProperty("action")
-    private String action;
+  @JsonProperty("action")
+  private String action;
 
-    @JsonProperty("createdAt")
-    private String createdAt;
+  @JsonProperty("createdAt")
+  private String createdAt;
 
-    @JsonProperty("expiredAt")
-    private String expiredAt;
+  @JsonProperty("expiredAt")
+  private String expiredAt;
 
-    @JsonProperty("game_mode")
-    private String gameMode;
+  @JsonProperty("game_mode")
+  private String gameMode;
 
-    @JsonProperty("history")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private List<ApimodelsTicketObservabilityHistory> history;
+  @JsonProperty("history")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<ApimodelsTicketObservabilityHistory> history;
 
-    @JsonProperty("lastData")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private ModelsTicketObservability lastData;
+  @JsonProperty("lastData")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ModelsTicketObservability lastData;
 
-    @JsonProperty("matchId")
-    private String matchId;
+  @JsonProperty("matchId")
+  private String matchId;
 
-    @JsonProperty("namespace")
-    private String namespace;
+  @JsonProperty("namespace")
+  private String namespace;
 
-    @JsonProperty("party_id")
-    private String partyId;
+  @JsonProperty("party_id")
+  private String partyId;
 
-    @JsonProperty("regions")
-    private String regions;
+  @JsonProperty("regions")
+  private String regions;
 
-    @JsonProperty("remainingPlayersPerTicket")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private List<Integer> remainingPlayersPerTicket;
+  @JsonProperty("remainingPlayersPerTicket")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<Integer> remainingPlayersPerTicket;
 
-    @JsonProperty("remainingTickets")
-    private Integer remainingTickets;
+  @JsonProperty("remainingTickets")
+  private Integer remainingTickets;
 
-    @JsonProperty("requestedRegion")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private List<String> requestedRegion;
+  @JsonProperty("requestedRegion")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> requestedRegion;
 
-    @JsonProperty("ticket")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private ModelsTicket ticket;
+  @JsonProperty("ticket")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ModelsTicket ticket;
 
-    @JsonProperty("ticket_id")
-    private String ticketId;
+  @JsonProperty("ticket_id")
+  private String ticketId;
 
-    @JsonProperty("timeToMatchSec")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private Float timeToMatchSec;
+  @JsonProperty("timeToMatchSec")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Float timeToMatchSec;
 
-    @JsonProperty("updatedAt")
-    private String updatedAt;
+  @JsonProperty("updatedAt")
+  private String updatedAt;
 
-    @JsonProperty("userIDs")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private List<String> userIDs;
+  @JsonProperty("userIDs")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> userIDs;
 
+  @JsonIgnore
+  public ApimodelsTicketObservabilityDetail createFromJson(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ApimodelsTicketObservabilityDetail createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ApimodelsTicketObservabilityDetail> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ApimodelsTicketObservabilityDetail>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ApimodelsTicketObservabilityDetail> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ApimodelsTicketObservabilityDetail>>() {});
+  }
 }

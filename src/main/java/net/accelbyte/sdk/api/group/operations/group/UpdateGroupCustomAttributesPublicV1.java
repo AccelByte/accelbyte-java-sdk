@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Requires valid user authentication
  *
- * <p>Required Member Role Permission: "GROUP [UPDATE]"
+ * <p>Required Member Role Permission: "GROUP [UPDATE]
  *
  * <p>This endpoint replaces current group custom attributes entirely. This endpoint will check the
  * group ID of the user based on the access token and compare it with the group ID in path

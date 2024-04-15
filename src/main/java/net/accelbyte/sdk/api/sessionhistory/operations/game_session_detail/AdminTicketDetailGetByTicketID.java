@@ -10,90 +10,79 @@ package net.accelbyte.sdk.api.sessionhistory.operations.game_session_detail;
 
 import java.io.*;
 import java.util.*;
-
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-
 import net.accelbyte.sdk.api.sessionhistory.models.*;
-import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.HttpResponseException;
+import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
  * adminTicketDetailGetByTicketID
  *
- * Get detail matchmaking ticket history by ticket ID.
+ * <p>Get detail matchmaking ticket history by ticket ID.
  */
 @Getter
 @Setter
 public class AdminTicketDetailGetByTicketID extends Operation {
-    /**
-     * generated field's value
-     */
-    private String path = "/sessionhistory/v1/admin/namespaces/{namespace}/tickets/{ticketId}";
-    private String method = "GET";
-    private List<String> consumes = Arrays.asList("application/json");
-    private List<String> produces = Arrays.asList("application/json");
-    private String locationQuery = null;
-    /**
-     * fields as input parameter
-     */
-    private String namespace;
-    private String ticketId;
+  /** generated field's value */
+  private String path = "/sessionhistory/v1/admin/namespaces/{namespace}/tickets/{ticketId}";
 
-    /**
-    * @param namespace required
-    * @param ticketId required
-    */
-    @Builder
-    // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
-    @Deprecated
-    public AdminTicketDetailGetByTicketID(
-            String namespace,
-            String ticketId
-    )
-    {
-        this.namespace = namespace;
-        this.ticketId = ticketId;
-        
-        securities.add("Bearer");
+  private String method = "GET";
+  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> produces = Arrays.asList("application/json");
+  private String locationQuery = null;
+
+  /** fields as input parameter */
+  private String namespace;
+
+  private String ticketId;
+
+  /**
+   * @param namespace required
+   * @param ticketId required
+   */
+  @Builder
+  // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
+  @Deprecated
+  public AdminTicketDetailGetByTicketID(String namespace, String ticketId) {
+    this.namespace = namespace;
+    this.ticketId = ticketId;
+
+    securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, String> getPathParams() {
+    Map<String, String> pathParams = new HashMap<>();
+    if (this.namespace != null) {
+      pathParams.put("namespace", this.namespace);
     }
-
-    @Override
-    public Map<String, String> getPathParams(){
-        Map<String, String> pathParams = new HashMap<>();
-        if (this.namespace != null){
-            pathParams.put("namespace", this.namespace);
-        }
-        if (this.ticketId != null){
-            pathParams.put("ticketId", this.ticketId);
-        }
-        return pathParams;
+    if (this.ticketId != null) {
+      pathParams.put("ticketId", this.ticketId);
     }
+    return pathParams;
+  }
 
-
-
-
-
-    @Override
-    public boolean isValid() {
-        if(this.namespace == null) {
-            return false;
-        }
-        if(this.ticketId == null) {
-            return false;
-        }
-        return true;
+  @Override
+  public boolean isValid() {
+    if (this.namespace == null) {
+      return false;
     }
-
-    public ApimodelsTicketObservabilityDetail parseResponse(int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
-        if(code != 200){
-            final String json = Helper.convertInputStreamToString(payload);
-            throw new HttpResponseException(code, json);    
-        }
-        final String json = Helper.convertInputStreamToString(payload);
-        return new ApimodelsTicketObservabilityDetail().createFromJson(json);
+    if (this.ticketId == null) {
+      return false;
     }
+    return true;
+  }
 
+  public ApimodelsTicketObservabilityDetail parseResponse(
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
+    if (code != 200) {
+      final String json = Helper.convertInputStreamToString(payload);
+      throw new HttpResponseException(code, json);
+    }
+    final String json = Helper.convertInputStreamToString(payload);
+    return new ApimodelsTicketObservabilityDetail().createFromJson(json);
+  }
 }

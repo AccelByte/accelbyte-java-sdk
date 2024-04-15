@@ -8,14 +8,12 @@
 
 package net.accelbyte.sdk.api.sessionhistory.models;
 
-import java.util.*;
-
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.*;
 import lombok.*;
-
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -23,45 +21,41 @@ import net.accelbyte.sdk.core.Model;
 @Getter
 @Setter
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
-@AllArgsConstructor(onConstructor=@__(@Deprecated))     
+@AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
 public class ModelsBackfillTicket extends Model {
 
-    @JsonProperty("CreatedAt")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private String createdAt;
+  @JsonProperty("CreatedAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String createdAt;
 
-    @JsonProperty("MatchPool")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private String matchPool;
+  @JsonProperty("MatchPool")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String matchPool;
 
-    @JsonProperty("MatchSessionID")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private String matchSessionID;
+  @JsonProperty("MatchSessionID")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String matchSessionID;
 
-    @JsonProperty("MatchSessionVersion")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private Integer matchSessionVersion;
+  @JsonProperty("MatchSessionVersion")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer matchSessionVersion;
 
-    @JsonProperty("PartialMatch")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private ModelsMatch partialMatch;
+  @JsonProperty("PartialMatch")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ModelsMatch partialMatch;
 
-    @JsonProperty("TicketID")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private String ticketID;
+  @JsonProperty("TicketID")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String ticketID;
 
+  @JsonIgnore
+  public ModelsBackfillTicket createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ModelsBackfillTicket createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ModelsBackfillTicket> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ModelsBackfillTicket>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ModelsBackfillTicket> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsBackfillTicket>>() {});
+  }
 }

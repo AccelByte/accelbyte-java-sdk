@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getSingleMemberRoleAdminV1
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:GROUP:ROLE [READ]
- *
  * <p>This endpoint is used to get member role based on the role ID
  *
  * <p>Action Code: 73203

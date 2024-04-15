@@ -47,6 +47,8 @@ import picocli.CommandLine.Command;
       RetrieveAcceptedAgreementsForMultiUsers.class,
       RetrieveAcceptedAgreements1.class,
       RetrieveAllUsersByPolicyVersion1.class,
+      DownloadExportedAgreementsInCSV.class,
+      InitiateExportAgreementsToCSV.class,
       RetrieveAllLegalPoliciesByNamespace.class,
       CreatePolicy1.class,
       RetrieveSinglePolicy1.class,

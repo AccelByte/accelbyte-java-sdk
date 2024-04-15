@@ -21,22 +21,12 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * initiateGroupConfigurationAdminV1
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [CREATE]'
- *
  * <p>This endpoint is used to initiate configuration. This endpoint will automatically create
- * default configuration and member roles with default permission
+ * default configuration and member roles with default permission Default Permission for admin role
+ * will cover these permission: - Permission to invite user to group - Permission to accept or
+ * reject join request - Permission to kick group member
  *
- * <p>Default Permission for admin role will cover these permission:
- *
- * <p>* Permission to invite user to group
- *
- * <p>* Permission to accept or reject join request
- *
- * <p>* Permission to kick group member
- *
- * <p>Default max member value will be 50 and global rules will be empty
- *
- * <p>Action Code: 73104
+ * <p>Default max member value will be 50 and global rules will be empty Action Code: 73104
  */
 @Getter
 @Setter

@@ -80,6 +80,14 @@ public class OauthmodelTokenResponseV3 extends Model {
   @JsonProperty("scope")
   private String scope;
 
+  @JsonProperty("simultaneous_platform_id")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String simultaneousPlatformId;
+
+  @JsonProperty("simultaneous_platform_user_id")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String simultaneousPlatformUserId;
+
   @JsonProperty("token_type")
   private String tokenType;
 

@@ -46,6 +46,9 @@ public class ApiFleetGetResponse extends Model {
   @JsonProperty("name")
   private String name;
 
+  @JsonProperty("onDemand")
+  private Boolean onDemand;
+
   @JsonProperty("regions")
   private List<ApiRegionConfig> regions;
 

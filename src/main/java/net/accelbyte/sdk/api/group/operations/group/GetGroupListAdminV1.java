@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getGroupListAdminV1
  *
- * <p>Required Permission: "ADMIN:NAMESPACE:{namespace}:GROUP [READ]"
- *
  * <p>Get list of groups. This endpoint will show any types of group
  *
  * <p>Action Code: 73301

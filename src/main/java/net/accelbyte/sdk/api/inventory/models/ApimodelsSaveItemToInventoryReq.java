@@ -40,6 +40,9 @@ public class ApimodelsSaveItemToInventoryReq extends Model {
   @JsonProperty("slotUsed")
   private Integer slotUsed;
 
+  @JsonProperty("source")
+  private String source;
+
   @JsonProperty("sourceItemId")
   private String sourceItemId;
 
@@ -48,6 +51,26 @@ public class ApimodelsSaveItemToInventoryReq extends Model {
 
   @JsonProperty("type")
   private String type;
+
+  @JsonIgnore
+  public String getSource() {
+    return this.source;
+  }
+
+  @JsonIgnore
+  public Source getSourceAsEnum() {
+    return Source.valueOf(this.source);
+  }
+
+  @JsonIgnore
+  public void setSource(final String source) {
+    this.source = source;
+  }
+
+  @JsonIgnore
+  public void setSourceFromEnum(final Source source) {
+    this.source = source.toString();
+  }
 
   @JsonIgnore
   public ApimodelsSaveItemToInventoryReq createFromJson(String json)
@@ -60,5 +83,35 @@ public class ApimodelsSaveItemToInventoryReq extends Model {
       throws JsonProcessingException {
     return new ObjectMapper()
         .readValue(json, new TypeReference<List<ApimodelsSaveItemToInventoryReq>>() {});
+  }
+
+  public enum Source {
+    ECOMMERCE("ECOMMERCE"),
+    OTHER("OTHER");
+
+    private String value;
+
+    Source(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class ApimodelsSaveItemToInventoryReqBuilder {
+    private String source;
+
+    public ApimodelsSaveItemToInventoryReqBuilder source(final String source) {
+      this.source = source;
+      return this;
+    }
+
+    public ApimodelsSaveItemToInventoryReqBuilder sourceFromEnum(final Source source) {
+      this.source = source.toString();
+      return this;
+    }
   }
 }

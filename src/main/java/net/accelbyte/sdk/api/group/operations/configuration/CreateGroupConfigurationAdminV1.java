@@ -21,21 +21,17 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * createGroupConfigurationAdminV1
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [CREATE]'
- *
  * <p>This endpoint is used to create new configuration. Before creating the configuration, make
  * sure that member role for admin and group member are already created before.
  *
  * <p>For each of the global rule, it will be the rule detail that consists of these fields:
  *
- * <p>* ruleAttribute : attribute of the player that needs to be checked
- *
- * <p>* ruleCriteria : criteria of the value. The value will be in enum of EQUAL, MINIMUM, MAXIMUM
- *
- * <p>* ruleValue : value that needs to be checked
+ * <p>* **ruleAttribute**: attribute of the player that needs to be checked * **ruleCriteria**:
+ * criteria of the value. The value will be in enum of EQUAL, MINIMUM, MAXIMUM * **ruleValue**:
+ * value that needs to be checked
  *
  * <p>Allowed Action can only be filled with any available action in the Group Service. For the
- * configuration, the only value is "createGroup"
+ * configuration, the only value is **"createGroup"**
  *
  * <p>Action Code: 73103
  */

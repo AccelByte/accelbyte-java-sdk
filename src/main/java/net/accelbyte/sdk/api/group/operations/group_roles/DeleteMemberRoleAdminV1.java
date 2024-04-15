@@ -20,8 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteMemberRoleAdminV1
  *
- * <p>Required permission ADMIN:NAMESPACE:{namespace}:GROUP:ROLE [DELETE]
- *
  * <p>This endpoint is used to delete member role. Any member role can't be deleted if the specific
  * role is applied to the configuration (admin and member role)
  *

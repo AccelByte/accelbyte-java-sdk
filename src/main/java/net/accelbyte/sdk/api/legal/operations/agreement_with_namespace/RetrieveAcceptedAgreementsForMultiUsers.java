@@ -24,8 +24,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * retrieveAcceptedAgreementsForMultiUsers
  *
  * <p>This API will return all accepted Legal Agreements for each user, including agreements of game
- * users if publisher user has corresponding game accountOther detail info: * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
+ * users if publisher user has corresponding game account. Other detail info:
+ *
+ * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
  */
 @Getter
 @Setter

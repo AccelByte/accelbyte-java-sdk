@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateGroupConfigurationGlobalRuleAdminV1
  *
- * <p>Required permission 'ADMIN:NAMESPACE:{namespace}:GROUP:CONFIGURATION [UPDATE]'
- *
  * <p>This endpoint is used to update existing global rule configuration based on the allowed
  * action. It will replace the permission with the request
  *

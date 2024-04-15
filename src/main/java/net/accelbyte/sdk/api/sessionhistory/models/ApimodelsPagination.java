@@ -8,14 +8,12 @@
 
 package net.accelbyte.sdk.api.sessionhistory.models;
 
-import java.util.*;
-
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.*;
 import lombok.*;
-
 import net.accelbyte.sdk.core.Model;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -23,33 +21,29 @@ import net.accelbyte.sdk.core.Model;
 @Getter
 @Setter
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
-@AllArgsConstructor(onConstructor=@__(@Deprecated))     
+@AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
 public class ApimodelsPagination extends Model {
 
-    @JsonProperty("first")
-    private String first;
+  @JsonProperty("first")
+  private String first;
 
-    @JsonProperty("last")
-    private String last;
+  @JsonProperty("last")
+  private String last;
 
-    @JsonProperty("next")
-    private String next;
+  @JsonProperty("next")
+  private String next;
 
-    @JsonProperty("previous")
-    private String previous;
+  @JsonProperty("previous")
+  private String previous;
 
+  @JsonIgnore
+  public ApimodelsPagination createFromJson(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, this.getClass());
+  }
 
-
-    @JsonIgnore
-    public ApimodelsPagination createFromJson(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, this.getClass());
-    }
-
-    @JsonIgnore
-    public List<ApimodelsPagination> createFromJsonList(String json) throws JsonProcessingException {
-        return new ObjectMapper().readValue(json, new TypeReference<List<ApimodelsPagination>>() {});
-    }
-
-    
+  @JsonIgnore
+  public List<ApimodelsPagination> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ApimodelsPagination>>() {});
+  }
 }
