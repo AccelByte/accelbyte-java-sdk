@@ -71,15 +71,6 @@ public class TestIntegrationServiceSessionHistory extends TestIntegration {
   public void GameSessionTests() throws Exception {
     final GameSessionDetail gameSessionDetailWrapper = new GameSessionDetail(sdk);
 
-    // Format: 2024-04-05T03:42:49Z
-    // https://development.accelbyte.io/sessionhistory/apidocs/#/XRay/queryTotalMatchmakingMatch
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'")
-            .withZone(ZoneOffset.UTC);
-
-    Instant now = Instant.now();
-    final String endDate = formatter.format(now);
-    final String startDate = formatter.format(now.minus(10, DAYS));
-
     final AdminQueryGameSessionDetail adminQueryGameSessionDetail = AdminQueryGameSessionDetail.builder()
             .namespace(this.namespace)
             .offset(0)
