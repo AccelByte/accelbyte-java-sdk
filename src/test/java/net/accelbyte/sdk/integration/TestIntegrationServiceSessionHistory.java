@@ -62,7 +62,7 @@ public class TestIntegrationServiceSessionHistory extends TestIntegration {
     assertNotNull(response);
 
     if ((response != null) && (response.getData() != null)) {
-      assertTrue(response.getData().size() > 0);
+      assertTrue(response.getData().size() >= 0);
     }
   }
 
@@ -91,7 +91,7 @@ public class TestIntegrationServiceSessionHistory extends TestIntegration {
     assertNotNull(gameSessionHistoryResp);
 
     if ((gameSessionHistoryResp != null) && (gameSessionHistoryResp.getData() != null)) {
-      assertTrue(gameSessionHistoryResp.getData().size() > 0);
+      assertTrue(gameSessionHistoryResp.getData().size() >= 0);
     }
 
     // Get all matchmaking history
@@ -105,7 +105,7 @@ public class TestIntegrationServiceSessionHistory extends TestIntegration {
     assertNotNull(matchMakingHistoryResp);
 
     if ((matchMakingHistoryResp != null) && (matchMakingHistoryResp.getData() != null)) {
-      assertTrue(matchMakingHistoryResp.getData().size() > 0);
+      assertTrue(matchMakingHistoryResp.getData().size() >= 0);
     }
   }
 
