@@ -23,7 +23,115 @@ public class TestIntegrationLoginOrRefresh extends TestIntegration {
     super.setup(false);
   }
 
-  private void reflectionSetRefreshRatio(AccelByteSDK sdk, float refreshRatio) {
+  @Order(1)
+  @Test
+  public void testLoginOrRefreshUser() throws Exception {
+    final OkhttpClient httpClient = new OkhttpClient();
+    final DefaultConfigRepository configRepo = new DefaultConfigRepository();
+    final DefaultTokenRefreshRepository refreshRepo = new DefaultTokenRefreshRepository();
+    final AccelByteSDK sdk = new AccelByteSDK(httpClient, refreshRepo, configRepo);
+
+    forceSetRefreshRatioTestingOnly(sdk, 0.0005f); // ~1.8 second
+
+    final int expirationDuration = 10; // in seconds
+
+    final Date firstLoginTime = Date.from(Instant.now());
+    final boolean firstLoginOk = sdk.loginOrRefreshUser(username, password);
+
+    assertTrue(firstLoginOk);
+
+    final String firstLoginToken = sdk.getSdkConfiguration().getTokenRepository().getToken();
+    final Date firstLoginTokenExpiredTime =
+        ((TokenRefresh) sdk.getSdkConfiguration().getTokenRepository()).getTokenExpiresAt();
+
+    assertTrue(getTimeDifferenceInSeconds(firstLoginTime, firstLoginTokenExpiredTime) <= expirationDuration);
+
+    final AccessTokenPayload firstLoginTokenPayload = sdk.parseAccessToken(firstLoginToken, false);
+
+    assertNotNull(firstLoginTokenPayload);
+    assertEquals(namespace, firstLoginTokenPayload.getNamespace());
+    assertEquals(configRepo.getClientId(), firstLoginTokenPayload.getClientId());
+
+    Thread.sleep(
+        expirationDuration * 1_000); // sleep for 2 second, since expiredAt was set 1.8 second
+
+    final Date secondLoginTime = Date.from(Instant.now());
+    final boolean secondLoginOk = sdk.loginOrRefreshUser(username, password);
+
+    assertTrue(secondLoginOk);
+
+    final String secondLoginToken = sdk.getSdkConfiguration().getTokenRepository().getToken();
+    final Date secondLoginExpiredTime =
+        ((TokenRefresh) sdk.getSdkConfiguration().getTokenRepository()).getTokenExpiresAt();
+    assertTrue(getTimeDifferenceInSeconds(secondLoginTime, secondLoginExpiredTime) <= expirationDuration);
+
+    final AccessTokenPayload secondLoginTokenPayload = sdk.parseAccessToken(secondLoginToken, false);
+
+    assertNotNull(secondLoginTokenPayload);
+    assertEquals(namespace, secondLoginTokenPayload.getNamespace());
+    assertEquals(configRepo.getClientId(), secondLoginTokenPayload.getClientId());
+
+    assertNotEquals(firstLoginToken, secondLoginToken);
+    assertNotEquals(firstLoginTokenExpiredTime, secondLoginExpiredTime);
+  }
+
+  @Order(1)
+  @Test
+  public void testLoginOrRefreshClient() throws Exception {
+    final OkhttpClient httpClient = new OkhttpClient();
+    final DefaultConfigRepository configRepo = new DefaultConfigRepository();
+    final DefaultTokenRefreshRepository refreshRepo = new DefaultTokenRefreshRepository();
+    final AccelByteSDK sdk = new AccelByteSDK(httpClient, refreshRepo, configRepo);
+
+    forceSetRefreshRatioTestingOnly(sdk, 0.0005f); // ~1.8 second
+
+    final int expirationDuration = 10; // in second
+
+    final Date firstLoginTime = Date.from(Instant.now());
+    final boolean firstLoginOk = sdk.loginOrRefreshClient();
+
+    assertTrue(firstLoginOk);
+
+    final String firstLoginToken = sdk.getSdkConfiguration().getTokenRepository().getToken();
+    final Date firstLoginTokenExpiredTime =
+        ((TokenRefresh) sdk.getSdkConfiguration().getTokenRepository()).getTokenExpiresAt();
+    assertTrue(getTimeDifferenceInSeconds(firstLoginTime, firstLoginTokenExpiredTime) <= expirationDuration);
+
+    final AccessTokenPayload firstLoginTokenPayload = sdk.parseAccessToken(firstLoginToken, false);
+
+    assertNotNull(firstLoginTokenPayload);
+    assertEquals(namespace, firstLoginTokenPayload.getNamespace());
+    assertEquals(configRepo.getClientId(), firstLoginTokenPayload.getClientId());
+
+    Thread.sleep(
+        expirationDuration * 1_000); // sleep for 2 second, since expiredAt was set 1.8 second
+
+    final Date secondLoginTime = Date.from(Instant.now());
+    final boolean secondLoginOk = sdk.loginOrRefreshClient();
+
+    assertTrue(secondLoginOk);
+
+    final String secondLoginToken = sdk.getSdkConfiguration().getTokenRepository().getToken();
+    final Date secondLoginTokenExpiredTime =
+        ((TokenRefresh) sdk.getSdkConfiguration().getTokenRepository()).getTokenExpiresAt();
+    assertTrue(getTimeDifferenceInSeconds(secondLoginTime, secondLoginTokenExpiredTime) <= expirationDuration);
+
+    final AccessTokenPayload secondLoginTokenPayload = sdk.parseAccessToken(secondLoginToken, false);
+
+    assertNotNull(secondLoginTokenPayload);
+    assertEquals(namespace, secondLoginTokenPayload.getNamespace());
+    assertEquals(configRepo.getClientId(), secondLoginTokenPayload.getClientId());
+
+    assertNotEquals(firstLoginToken, secondLoginToken);
+    assertNotEquals(firstLoginTokenExpiredTime, secondLoginTokenExpiredTime);
+  }
+
+  @AfterAll
+  public void tear() throws Exception {
+    super.tear();
+  }
+
+  private void forceSetRefreshRatioTestingOnly(AccelByteSDK sdk, float refreshRatio) {
     Field fieldRefreshRation;
     try {
       fieldRefreshRation = AccelByteSDK.class.getDeclaredField("tokenRefreshRatio");
@@ -34,111 +142,8 @@ public class TestIntegrationLoginOrRefresh extends TestIntegration {
     }
   }
 
-  public static int timeDifferenceInSeconds(Date date1, Date date2) {
+  private int getTimeDifferenceInSeconds(Date date1, Date date2) {
     long differenceInMillis = Math.abs(date1.getTime() - date2.getTime());
     return (int) (differenceInMillis / 1000);
-  }
-
-  @Order(1)
-  @Test
-  public void testLoginOrRefreshUser() throws Exception {
-
-    DefaultConfigRepository configRepo = new DefaultConfigRepository();
-    DefaultTokenRefreshRepository refreshRepo = new DefaultTokenRefreshRepository();
-
-    final AccelByteSDK sdk = new AccelByteSDK(new OkhttpClient(), refreshRepo, configRepo);
-    reflectionSetRefreshRatio(sdk, 0.0005f); // ~1.8 second
-    final int expirationDuration = 2; // in second
-
-    Date startDate1 = Date.from(Instant.now());
-    boolean loggedIn = sdk.loginOrRefreshUser(username, password);
-    assertTrue(loggedIn);
-
-    final String token1 = sdk.getSdkConfiguration().getTokenRepository().getToken();
-    Date tokenExpiredAt1 =
-        ((TokenRefresh) sdk.getSdkConfiguration().getTokenRepository()).getTokenExpiresAt();
-    assertTrue(timeDifferenceInSeconds(startDate1, tokenExpiredAt1) <= expirationDuration);
-
-    final AccessTokenPayload payload1 = sdk.parseAccessToken(token1, false);
-    assertNotNull(payload1);
-
-    assertEquals(namespace, payload1.getNamespace());
-    assertEquals(configRepo.getClientId(), payload1.getClientId());
-
-    // TODO: make the scheduler 'test-able' and follow SOLID
-    Thread.sleep(
-        expirationDuration * 1_000); // sleep for 2 second, since expiredAt was set 1.8 second
-
-    Date startDate2 = Date.from(Instant.now());
-    boolean loggedIn2 = sdk.loginOrRefreshUser(username, password);
-    assertTrue(loggedIn2);
-
-    final String token2 = sdk.getSdkConfiguration().getTokenRepository().getToken();
-    Date tokenExpiredAt2 =
-        ((TokenRefresh) sdk.getSdkConfiguration().getTokenRepository()).getTokenExpiresAt();
-    assertTrue(timeDifferenceInSeconds(startDate2, tokenExpiredAt2) <= expirationDuration);
-
-    final AccessTokenPayload payload2 = sdk.parseAccessToken(token2, false);
-    assertNotNull(payload2);
-
-    assertEquals(namespace, payload2.getNamespace());
-    assertEquals(configRepo.getClientId(), payload2.getClientId());
-
-    assertNotEquals(token1, token2);
-    assertNotEquals(tokenExpiredAt1, tokenExpiredAt2);
-  }
-
-  @Order(1)
-  @Test
-  public void testLoginOrRefreshClient() throws Exception {
-
-    DefaultConfigRepository configRepo = new DefaultConfigRepository();
-    DefaultTokenRefreshRepository refreshRepo = new DefaultTokenRefreshRepository();
-
-    final AccelByteSDK sdk = new AccelByteSDK(new OkhttpClient(), refreshRepo, configRepo);
-    reflectionSetRefreshRatio(sdk, 0.0005f); // ~1.8 second
-    final int expirationDuration = 2; // in second
-
-    Date startDate1 = Date.from(Instant.now());
-    boolean loggedIn = sdk.loginOrRefreshClient();
-    assertTrue(loggedIn);
-
-    final String token1 = sdk.getSdkConfiguration().getTokenRepository().getToken();
-    Date tokenExpiredAt1 =
-        ((TokenRefresh) sdk.getSdkConfiguration().getTokenRepository()).getTokenExpiresAt();
-    assertTrue(timeDifferenceInSeconds(startDate1, tokenExpiredAt1) <= expirationDuration);
-
-    final AccessTokenPayload payload1 = sdk.parseAccessToken(token1, false);
-    assertNotNull(payload1);
-
-    assertEquals(namespace, payload1.getNamespace());
-    assertEquals(configRepo.getClientId(), payload1.getClientId());
-
-    // TODO: make the scheduler 'test-able' and follow SOLID
-    Thread.sleep(
-        expirationDuration * 1_000); // sleep for 2 second, since expiredAt was set 1.8 second
-
-    Date startDate2 = Date.from(Instant.now());
-    boolean loggedIn2 = sdk.loginOrRefreshClient();
-    assertTrue(loggedIn2);
-
-    final String token2 = sdk.getSdkConfiguration().getTokenRepository().getToken();
-    Date tokenExpiredAt2 =
-        ((TokenRefresh) sdk.getSdkConfiguration().getTokenRepository()).getTokenExpiresAt();
-    assertTrue(timeDifferenceInSeconds(startDate2, tokenExpiredAt2) <= expirationDuration);
-
-    final AccessTokenPayload payload2 = sdk.parseAccessToken(token2, false);
-    assertNotNull(payload2);
-
-    assertEquals(namespace, payload2.getNamespace());
-    assertEquals(configRepo.getClientId(), payload2.getClientId());
-
-    assertNotEquals(token1, token2);
-    assertNotEquals(tokenExpiredAt1, tokenExpiredAt2);
-  }
-
-  @AfterAll
-  public void tear() throws Exception {
-    super.tear();
   }
 }
