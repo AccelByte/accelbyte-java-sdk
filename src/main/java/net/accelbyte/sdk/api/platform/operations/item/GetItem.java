@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ) * Returns
- * : item data
+ * <p>* Returns : item data
  */
 @Getter
 @Setter

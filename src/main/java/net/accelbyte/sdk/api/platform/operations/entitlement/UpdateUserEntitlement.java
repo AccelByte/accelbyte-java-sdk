@@ -24,8 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Update user entitlement. If update CONSUMABLE entitlement useCount to 0, the status will be
  * CONSUMED. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT",
- * action=4 (UPDATE) * Returns : updated entitlement
+ * <p>* Returns : updated entitlement
  */
 @Getter
 @Setter

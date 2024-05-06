@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicGetUserPersonalDataRequests
  *
- * <p>Requires valid user access token
+ * <p>Get user's personal data requests Requires valid user access token Scope: account
  */
 @Getter
 @Setter

@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * refundOrder
  *
- * <p>Refund order by orderNo. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:ORDER", action=4 (UPDATE)
+ * <p>Refund order by orderNo.
  */
 @Getter
 @Setter

@@ -22,12 +22,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * mockFulfillIAPItem
  *
  * <p>[TEST FACILITY ONLY] Forbidden in live environment. Mock fulfill iap item without validate
- * receipt.
+ * receipt.Other detail info:
  *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=4
- * (UPDATE) * Returns :
+ * <p>* Returns :
  */
 @Getter
 @Setter

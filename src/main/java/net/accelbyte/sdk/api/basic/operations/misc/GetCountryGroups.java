@@ -26,8 +26,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>List country groups. Will return all available country groups if the query param is not
  * specified Other detail info:
  *
- * <p>* Required permission : resource = "ADMIN:NAMESPACE:{namespace}:MISC" , action=2 (READ) *
- * Action code : 11203 * Returns : list of country groups
+ * <p>* Action code : 11203 * Returns : list of country groups
  */
 @Getter
 @Setter

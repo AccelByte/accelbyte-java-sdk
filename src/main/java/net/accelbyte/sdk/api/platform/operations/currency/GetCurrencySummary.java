@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get currency summary by code. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:CURRENCY", action=2 (READ) *
- * Returns : simplified Currency
+ * <p>* Returns : simplified Currency
  */
 @Getter
 @Setter

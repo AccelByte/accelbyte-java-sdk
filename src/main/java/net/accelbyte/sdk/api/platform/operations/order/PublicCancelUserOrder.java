@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Cancel user order. Other detail info:
  *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:ORDER", action=4
- * (UPDATE) * Returns : cancelled order
+ * <p>* Returns : cancelled order
  */
 @Getter
 @Setter

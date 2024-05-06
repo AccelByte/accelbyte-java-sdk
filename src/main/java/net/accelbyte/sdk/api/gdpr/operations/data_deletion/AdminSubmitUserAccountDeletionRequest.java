@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminSubmitUserAccountDeletionRequest
  *
- * <p>Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER:{userId} [CREATE]` and scope
- * `account`
+ * <p>Submit user's account deletion requests Scope: account
  */
 @Getter
 @Setter

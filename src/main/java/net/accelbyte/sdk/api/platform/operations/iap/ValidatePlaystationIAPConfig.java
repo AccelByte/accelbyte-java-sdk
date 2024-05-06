@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * validatePlaystationIAPConfig
  *
- * <p>Validate playstation iap config. Other detail info: * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE) * Returns : Test Results
+ * <p>Validate playstation iap config. Other detail info: * Returns : Test Results
  */
 @Getter
 @Setter

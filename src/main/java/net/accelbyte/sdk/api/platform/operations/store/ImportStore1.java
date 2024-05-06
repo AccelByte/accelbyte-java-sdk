@@ -22,10 +22,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * importStore_1
  *
  * <p>This API is used to import a store.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
  */
 @Getter
 @Setter

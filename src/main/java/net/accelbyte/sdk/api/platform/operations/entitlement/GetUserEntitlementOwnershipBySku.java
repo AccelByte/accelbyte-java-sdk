@@ -22,11 +22,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * getUserEntitlementOwnershipBySku
  *
  * <p>Get user entitlement ownership by sku.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT",
- * action=2 (READ)
  */
 @Getter
 @Setter

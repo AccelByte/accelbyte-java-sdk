@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>get a wallet by currency code. Other detail info:
  *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:WALLET", action=2 (READ)
- * * Returns : wallet info
+ * <p>* Returns : wallet info
  */
 @Getter
 @Setter

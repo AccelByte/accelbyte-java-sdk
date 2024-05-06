@@ -26,8 +26,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * active/cancelled subscription, remove days will decrease current period end, and move the next
  * billing date closer. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SUBSCRIPTION",
- * action=4 (UPDATE) * Returns : updated subscription
+ * <p>* Returns : updated subscription
  */
 @Getter
 @Setter

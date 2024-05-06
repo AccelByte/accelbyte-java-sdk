@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get user dlc records. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2
- * (READ) * Returns : user dlc
+ * <p>* Returns : user dlc
  */
 @Getter
 @Setter

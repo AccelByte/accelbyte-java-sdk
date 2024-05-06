@@ -20,9 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteFulfillmentScript
  *
- * <p>[Not Supported Yet In Starter] Delete fulfillment script. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:FULFILLMENT", action=8 (DELETE)
+ * <p>[Not Supported Yet In Starter] Delete fulfillment script.
  */
 @Getter
 @Setter

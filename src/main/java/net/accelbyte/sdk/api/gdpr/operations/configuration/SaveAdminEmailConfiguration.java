@@ -20,10 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * SaveAdminEmailConfiguration
  *
- * <p>Add admin email address for receiving personal data request notification.
- *
- * <p>Required permission `ADMIN:NAMESPACE:{namespace}:EMAIL:CONFIGURATION [CREATE]` and scope
- * `account`
+ * <p>Add admin email address for receiving personal data request notification. Scope: account
  */
 @Getter
 @Setter

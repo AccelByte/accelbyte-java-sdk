@@ -24,8 +24,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Update partially private custom attributes tied to me. Other detail info:
  *
- * <p>* Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=4 (UPDATE) * Action
- * code : 11402 * Request body : allowed format: JSON object * Returns : Updated custom attributes
+ * <p>* Action code : 11402 * Request body : allowed format: JSON object * Returns : Updated custom
+ * attributes
  */
 @Getter
 @Setter

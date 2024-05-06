@@ -20,9 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * unselectRecord
  *
- * <p>Unselect a change, it will not be included when partial publish. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
+ * <p>Unselect a change, it will not be included when partial publish.
  */
 @Getter
 @Setter

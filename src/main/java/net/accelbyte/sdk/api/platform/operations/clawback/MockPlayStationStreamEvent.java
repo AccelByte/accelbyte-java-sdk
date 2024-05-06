@@ -22,10 +22,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * mockPlayStationStreamEvent
  *
  * <p>Mock Sync PlayStation Clawback event..
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource=ADMIN:NAMESPACE:{namespace}:IAP:CLAWBACK, action=1(CREATE)
  */
 @Getter
 @Setter

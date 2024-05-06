@@ -23,9 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * retrieveAgreementsPublic
  *
- * <p>Retrieve accepted Legal Agreements. Other detail info:
- *
- * <p>* Required permission : login user
+ * <p>Retrieve accepted Legal Agreements.
  */
 @Getter
 @Setter

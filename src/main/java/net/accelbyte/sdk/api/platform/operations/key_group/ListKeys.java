@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>This API is used to list keys of a key group. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:KEYGROUP", action=2 (READ) *
- * Returns : keys
+ * <p>* Returns : keys
  */
 @Getter
 @Setter

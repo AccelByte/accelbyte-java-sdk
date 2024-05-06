@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get an order. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ORDER", action=2
- * (READ) * Returns : get order
+ * <p>* Returns : get order
  */
 @Getter
 @Setter

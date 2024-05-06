@@ -34,10 +34,11 @@ public class GetNamespaceEventResponse extends Model {
   @JsonProperty("EventNamespace")
   private String eventNamespace;
 
-  @JsonProperty("EventTimeStamp")
-  private String eventTimeStamp;
+  @JsonProperty("EventTimestamp")
+  private String eventTimestamp;
 
   @JsonProperty("FlightId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String flightId;
 
   @JsonProperty("Payload")
@@ -45,9 +46,11 @@ public class GetNamespaceEventResponse extends Model {
   private Map<String, ?> payload;
 
   @JsonProperty("UserId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String userId;
 
   @JsonProperty("UserNamespace")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String userNamespace;
 
   @JsonIgnore

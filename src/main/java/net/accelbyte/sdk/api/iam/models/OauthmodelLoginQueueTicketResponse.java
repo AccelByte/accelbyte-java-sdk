@@ -31,6 +31,9 @@ public class OauthmodelLoginQueueTicketResponse extends Model {
   @JsonProperty("estimatedWaitingTimeInSeconds")
   private Integer estimatedWaitingTimeInSeconds;
 
+  @JsonProperty("playerPollingTimeInSeconds")
+  private Integer playerPollingTimeInSeconds;
+
   @JsonProperty("position")
   private Integer position;
 

@@ -22,9 +22,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * publicSplitUserEntitlement
  *
  * <p>Split a specified use count of entitlement and create a new entitlement with splitting use
- * count.Other detail info: * Required permission :
- * resource="NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT", action=4 (UPDATE) * Returns :
- * entitlement
+ * count.Other detail info: * Returns : entitlement
  */
 @Getter
 @Setter

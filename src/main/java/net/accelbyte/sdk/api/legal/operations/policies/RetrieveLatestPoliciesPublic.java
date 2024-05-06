@@ -34,7 +34,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * base policy) it'll include policy with same country code, for example: * Document 1 (default):
  * Region US (default), UA * Document 2 (default): Region US (default) * Document 3 (default):
  * Region US (default) * User: Region UA * Query: alwaysIncludeDefault: true * Response: Document 1
- * (UA), Document 2 (US), Document 3 (US) * Required permission: login user
+ * (UA), Document 2 (US), Document 3 (US)
  */
 @Getter
 @Setter

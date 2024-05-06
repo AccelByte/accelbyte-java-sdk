@@ -27,8 +27,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * studio namespace. If input namespace is studio namespace, then it will return its all game
  * namespace. Other detail info:
  *
- * <p>* Required permission : resource= "ADMIN:NAMESPACE:{namespace}:NAMESPACE" , action=2 (READ) *
- * Returns : list of child namespaces
+ * <p>* Returns : list of child namespaces
  */
 @Getter
 @Setter

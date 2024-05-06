@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>This API is used to get reward by reward Id. Other detail info:
  *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:REWARD", action=2 (READ) * Returns :
- * reward instance
+ * <p>* Returns : reward instance
  */
 @Getter
 @Setter

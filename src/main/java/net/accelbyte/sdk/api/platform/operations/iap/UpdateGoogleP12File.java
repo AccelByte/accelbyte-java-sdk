@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Upload google play p12 file. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE) *
- * Returns : updated google iap config
+ * <p>* Returns : updated google iap config
  */
 @Getter
 @Setter

@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get campaign dynamic. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ) *
- * Returns : campaign dynamic
+ * <p>* Returns : campaign dynamic
  */
 @Getter
 @Setter

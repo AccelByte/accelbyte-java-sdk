@@ -26,8 +26,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Get game namespaces. In multi tenant mode, a given super admin namespace will return all game
  * namespaces of studio namespaces Other detail info:
  *
- * <p>* Required permission : resource= "ADMIN:NAMESPACE:{namespace}:NAMESPACE" , action=2 (READ) *
- * Action code : 11308 * Returns : list of namespaces
+ * <p>* Action code : 11308 * Returns : list of namespaces
  */
 @Getter
 @Setter

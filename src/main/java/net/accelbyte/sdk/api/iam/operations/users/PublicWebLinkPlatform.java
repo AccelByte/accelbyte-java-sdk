@@ -22,7 +22,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * PublicWebLinkPlatform
  *
  * <p>This endpoint is used to generate third party login page which will redirected to establish
- * endpoint.
+ * endpoint. Supported platforms: - ps4web - xblweb - steamopenid - epicgames - facebook - twitch -
+ * google - apple - snapchat - discord - amazon - oculusweb
  */
 @Getter
 @Setter

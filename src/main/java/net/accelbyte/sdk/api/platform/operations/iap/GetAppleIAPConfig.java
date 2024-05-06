@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get apple iap config. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ) *
- * Returns : apple iap config
+ * <p>* Returns : apple iap config
  */
 @Getter
 @Setter

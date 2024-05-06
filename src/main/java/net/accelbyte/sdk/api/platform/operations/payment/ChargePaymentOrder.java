@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * payment order without payment flow for unpaid payment order, usually for test usage to simulate
  * real currency payment process. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT", action=4 (UPDATE) *
- * Returns : payment order instance
+ * <p>* Returns : payment order instance
  */
 @Getter
 @Setter

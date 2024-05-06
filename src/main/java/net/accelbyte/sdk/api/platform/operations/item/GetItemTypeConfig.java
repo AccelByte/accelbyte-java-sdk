@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:ITEM:CONFIG", action=2 (READ) * Returns : item type
- * config data
+ * <p>* Returns : item type config data
  */
 @Getter
 @Setter

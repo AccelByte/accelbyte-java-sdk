@@ -20,9 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deletePlatformDLCConfig
  *
- * <p>delete a Platform DLC config. Other detail info:
- *
- * <p>* Required permission : resource= "ADMIN:NAMESPACE:{namespace}:DLC:CONFIG" , action=8 (DELETE)
+ * <p>delete a Platform DLC config.
  */
 @Getter
 @Setter

@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * geDLCDurableRewardShortMap
  *
- * <p>Get dlc reward simple map, only return the sku of durable item reward Other detail info:
- *
- * <p>* Required permission : Authorized user
+ * <p>Get dlc reward simple map, only return the sku of durable item reward.
  */
 @Getter
 @Setter

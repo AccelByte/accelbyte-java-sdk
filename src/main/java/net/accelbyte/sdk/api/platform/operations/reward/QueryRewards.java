@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:REWARD", action=2 (READ) *
- * Returns : the list of rewards
+ * <p>* Returns : the list of rewards
  */
 @Getter
 @Setter

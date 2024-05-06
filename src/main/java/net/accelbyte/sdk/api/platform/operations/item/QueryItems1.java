@@ -26,8 +26,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>The behaviour for itemStatus query parameter: * TRUE: Show only ACTIVE items * FALSE: Show
  * only INACTIVE items * Not provided: show both ACTIVE and INACTIVE items Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ) * Returns
- * : the list of items
+ * <p>* Returns : the list of items
  */
 @Getter
 @Setter

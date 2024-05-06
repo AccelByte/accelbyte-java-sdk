@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Update a currency by currency code. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:CURRENCY", action=4 (UPDATE) *
- * Returns : updated currency
+ * <p>* Returns : updated currency
  */
 @Getter
 @Setter

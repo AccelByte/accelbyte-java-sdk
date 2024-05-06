@@ -23,9 +23,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Update user profile. Other detail info:
  *
- * <p>* Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4
- * (UPDATE) * Action code : 11402 * Language : allowed format: en, en-US * Timezone : IANA time
- * zone, e.g. Asia/Shanghai * Returns : Updated user profile
+ * <p>* Action code : 11402 * Language : allowed format: en, en-US * Timezone : IANA time zone, e.g.
+ * Asia/Shanghai * Returns : Updated user profile
  */
 @Getter
 @Setter

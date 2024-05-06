@@ -36,11 +36,19 @@ public class CodeInfo extends Model {
   @JsonProperty("batchNo")
   private Integer batchNo;
 
+  @JsonProperty("campaign")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private CampaignIfc campaign;
+
   @JsonProperty("campaignId")
   private String campaignId;
 
   @JsonProperty("createdAt")
   private String createdAt;
+
+  @JsonProperty("discountConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private DiscountConfig discountConfig;
 
   @JsonProperty("id")
   private String id;
@@ -161,6 +169,7 @@ public class CodeInfo extends Model {
   }
 
   public enum RedeemType {
+    DISCOUNT("DISCOUNT"),
     ITEM("ITEM");
 
     private String value;

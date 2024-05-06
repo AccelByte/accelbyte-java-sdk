@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * anonymizePayment
  *
  * <p>Anonymize payment. At current it will only anonymize payment order, payment order history.
- * Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION",
- * action=8 (DELETE)
  */
 @Getter
 @Setter

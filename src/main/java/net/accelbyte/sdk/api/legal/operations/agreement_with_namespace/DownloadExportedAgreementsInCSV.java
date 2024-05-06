@@ -23,10 +23,6 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>This API will check the status of export process. If the export process has been completed,
  * the response body will include the download url.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
  */
 @Getter
 @Setter
@@ -43,18 +39,18 @@ public class DownloadExportedAgreementsInCSV extends Operation {
   /** fields as input parameter */
   private String namespace;
 
-  private String policyVersionId;
+  private String exportId;
 
   /**
    * @param namespace required
-   * @param policyVersionId required
+   * @param exportId required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public DownloadExportedAgreementsInCSV(String namespace, String policyVersionId) {
+  public DownloadExportedAgreementsInCSV(String namespace, String exportId) {
     this.namespace = namespace;
-    this.policyVersionId = policyVersionId;
+    this.exportId = exportId;
 
     securities.add("Bearer");
   }
@@ -71,9 +67,7 @@ public class DownloadExportedAgreementsInCSV extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
-    queryParams.put(
-        "policyVersionId",
-        this.policyVersionId == null ? null : Arrays.asList(this.policyVersionId));
+    queryParams.put("exportId", this.exportId == null ? null : Arrays.asList(this.exportId));
     return queryParams;
   }
 
@@ -82,7 +76,7 @@ public class DownloadExportedAgreementsInCSV extends Operation {
     if (this.namespace == null) {
       return false;
     }
-    if (this.policyVersionId == null) {
+    if (this.exportId == null) {
       return false;
     }
     return true;
@@ -101,7 +95,7 @@ public class DownloadExportedAgreementsInCSV extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
-    result.put("policyVersionId", "None");
+    result.put("exportId", "None");
     return result;
   }
 }

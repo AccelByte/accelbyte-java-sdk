@@ -25,10 +25,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * public.
  *
  * <p>Warning: Please do not use this API once published to public user.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=8 (DELETE)
  */
 @Getter
 @Setter

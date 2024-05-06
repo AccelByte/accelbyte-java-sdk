@@ -116,7 +116,9 @@
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
 | `/session/v1/admin/namespaces/{namespace}/recent-player` | GET | AdminGetRecentPlayer | [AdminGetRecentPlayer](../../src/main/java/net/accelbyte/sdk/api/session/operations/recent_player/AdminGetRecentPlayer.java) | [AdminGetRecentPlayer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/recent_player/AdminGetRecentPlayer.java) |
+| `/session/v1/admin/namespaces/{namespace}/recent-team-player` | GET | AdminGetRecentTeamPlayer | [AdminGetRecentTeamPlayer](../../src/main/java/net/accelbyte/sdk/api/session/operations/recent_player/AdminGetRecentTeamPlayer.java) | [AdminGetRecentTeamPlayer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/recent_player/AdminGetRecentTeamPlayer.java) |
 | `/session/v1/public/namespaces/{namespace}/recent-player` | GET | PublicGetRecentPlayer | [PublicGetRecentPlayer](../../src/main/java/net/accelbyte/sdk/api/session/operations/recent_player/PublicGetRecentPlayer.java) | [PublicGetRecentPlayer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/recent_player/PublicGetRecentPlayer.java) |
+| `/session/v1/public/namespaces/{namespace}/recent-team-player` | GET | PublicGetRecentTeamPlayer | [PublicGetRecentTeamPlayer](../../src/main/java/net/accelbyte/sdk/api/session/operations/recent_player/PublicGetRecentTeamPlayer.java) | [PublicGetRecentTeamPlayer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/recent_player/PublicGetRecentTeamPlayer.java) |
 
 ### Session Storage Wrapper:  [SessionStorage](../../src/main/java/net/accelbyte/sdk/api/session/wrappers/SessionStorage.java)
 | Endpoint | Method | ID | Class | Example |

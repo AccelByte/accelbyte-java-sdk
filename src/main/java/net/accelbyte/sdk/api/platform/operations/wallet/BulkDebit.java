@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Debit different users' wallets. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:WALLET", action=4 (UPDATE) *
- * Returns : bulk credit result
+ * <p>* Returns : bulk credit result
  */
 @Getter
 @Setter

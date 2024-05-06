@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get epic games iap config. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ) *
- * Returns : epic games iap config
+ * <p>* Returns : epic games iap config
  */
 @Getter
 @Setter

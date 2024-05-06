@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * partialUpdatePolicy_1
  *
- * <p>Update an existing base policy. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=4 (UPDATE)
+ * <p>Update an existing base policy.
  */
 @Getter
 @Setter

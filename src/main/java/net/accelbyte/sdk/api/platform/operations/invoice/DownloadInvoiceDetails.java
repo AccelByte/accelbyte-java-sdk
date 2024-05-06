@@ -22,8 +22,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Download invoice details as a csv file. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:ORDER", action=2 (READ) *
- * Returns : invoice details csv file
+ * <p>* Returns : invoice details csv file
  */
 @Getter
 @Setter

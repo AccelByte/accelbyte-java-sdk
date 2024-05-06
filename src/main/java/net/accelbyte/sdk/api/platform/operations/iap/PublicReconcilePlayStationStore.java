@@ -23,12 +23,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicReconcilePlayStationStore
  *
- * <p>Synchronize with entitlements in PSN Store.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
- * * Returns : result of synchronization
+ * <p>Synchronize with entitlements in PSN Store.Other detail info: * Returns : result of
+ * synchronization
  */
 @Getter
 @Setter

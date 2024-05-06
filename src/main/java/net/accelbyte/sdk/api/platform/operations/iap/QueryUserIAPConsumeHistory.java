@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Query IAP consume history. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2
- * (READ) * Returns : paginated iap consume history
+ * <p>* Returns : paginated iap consume history
  */
 @Getter
 @Setter

@@ -28,6 +28,10 @@ public class OrderCreate extends Model {
   @JsonProperty("currencyCode")
   private String currencyCode;
 
+  @JsonProperty("discountCodes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> discountCodes;
+
   @JsonProperty("discountedPrice")
   private Integer discountedPrice;
 

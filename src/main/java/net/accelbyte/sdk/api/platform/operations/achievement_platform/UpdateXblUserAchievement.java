@@ -22,11 +22,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * updateXblUserAchievement
  *
  * <p>This API is used to update xbox live achievements.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource=ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT,
- * action=4 (UPDATE)
  */
 @Getter
 @Setter

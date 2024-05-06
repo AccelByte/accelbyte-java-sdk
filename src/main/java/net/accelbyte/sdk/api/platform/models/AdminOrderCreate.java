@@ -32,6 +32,10 @@ public class AdminOrderCreate extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String currencyNamespace;
 
+  @JsonProperty("discountCodes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> discountCodes;
+
   @JsonProperty("discountedPrice")
   private Integer discountedPrice;
 

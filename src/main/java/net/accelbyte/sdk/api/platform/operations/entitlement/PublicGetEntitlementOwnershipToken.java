@@ -91,10 +91,6 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>if there's no active entitlement for the specific params, the entitlements section will be
  * omitted.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:ENTITLEMENT", action=2 (READ)
  */
 @Getter
 @Setter

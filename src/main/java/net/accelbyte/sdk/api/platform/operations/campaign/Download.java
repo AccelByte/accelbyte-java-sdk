@@ -22,8 +22,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Download all or a batch of campaign's codes as a csv file. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ) *
- * Returns : codes csv file
+ * <p>* Returns : codes csv file
  */
 @Getter
 @Setter

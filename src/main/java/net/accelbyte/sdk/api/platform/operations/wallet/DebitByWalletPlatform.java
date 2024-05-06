@@ -23,9 +23,6 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Pay with user wallet by currency code and client platform. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:WALLET", action=4
- * (UPDATE)
- *
  * <p>## Restrictions for metadata
  *
  * <p>1. Cannot use "." as the key name -

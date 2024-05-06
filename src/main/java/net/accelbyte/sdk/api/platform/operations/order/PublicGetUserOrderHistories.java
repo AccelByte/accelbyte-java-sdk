@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get user order histories. Other detail info:
  *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:ORDER", action=2 (READ)
- * * Returns : get order history
+ * <p>* Returns : get order history
  */
 @Getter
 @Setter

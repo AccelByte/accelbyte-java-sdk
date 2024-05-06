@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Query key groups, if name is presented, it's fuzzy match. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:KEYGROUP", action=2 (READ) *
- * Returns : slice of key group
+ * <p>* Returns : slice of key group
  */
 @Getter
 @Setter

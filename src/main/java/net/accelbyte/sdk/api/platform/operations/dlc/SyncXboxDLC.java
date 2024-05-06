@@ -21,12 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * syncXboxDLC
  *
- * <p>Sync Xbox inventory's dlc items.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE) *
- * Returns :
+ * <p>Sync Xbox inventory's dlc items
  */
 @Getter
 @Setter

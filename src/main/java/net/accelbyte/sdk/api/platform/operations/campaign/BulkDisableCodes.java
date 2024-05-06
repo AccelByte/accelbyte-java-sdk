@@ -26,8 +26,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Bulk disable campaign codes, all matched codes will be disabled except those have already been
  * redeemed. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=4 (UPDATE) *
- * Returns : the number of code actually disabled
+ * <p>* Returns : the number of code actually disabled
  */
 @Getter
 @Setter

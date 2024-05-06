@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Enable Entitlement origin feature. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:ENTITLEMENT:CONFIG", action=4
- * (READ) * Returns : entitlement info
+ * <p>* Returns : entitlement info
  */
 @Getter
 @Setter

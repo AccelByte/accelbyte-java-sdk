@@ -20,10 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * anonymizeIntegration
  *
- * <p>Anonymize integrations. At current it will only anonymize iap histories. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION",
- * action=8 (DELETE)
+ * <p>Anonymize integrations. At current it will only anonymize iap histories.
  */
 @Getter
 @Setter

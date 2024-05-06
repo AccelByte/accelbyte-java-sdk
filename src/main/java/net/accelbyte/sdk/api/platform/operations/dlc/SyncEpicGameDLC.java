@@ -21,12 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * syncEpicGameDLC
  *
- * <p>Sync epic games dlc items.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE) *
- * Returns :
+ * <p>Sync epic games dlc items
  */
 @Getter
 @Setter

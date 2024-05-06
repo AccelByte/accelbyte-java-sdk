@@ -21,9 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicTransferUserEntitlement
  *
- * <p>Transfer a specified use count from entitlement A to B..Other detail info: * Required
- * permission : resource="NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT", action=4 (UPDATE) *
- * Returns : entitlement
+ * <p>Transfer a specified use count from entitlement A to B..Other detail info: * Returns :
+ * entitlement
  */
 @Getter
 @Setter

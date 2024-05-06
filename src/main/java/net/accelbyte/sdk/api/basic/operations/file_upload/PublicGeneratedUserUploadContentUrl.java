@@ -25,9 +25,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * storage limitation per user : maximum file count and maximum file size. The threshold of those
  * limitations is different between upload category that is used. Other detail info:
  *
- * <p>* Required permission : resource = "NAMESPACE:{namespace}:USER:{userId}:FILEUPLOAD" , action=1
- * (CREATE) * Action code : 11102 * Default maximum file count per user : 10 files * Default maximum
- * file size per user : 104857600 bytes * Returns : URL data
+ * <p>* Action code : 11102 * Default maximum file count per user : 10 files * Default maximum file
+ * size per user : 104857600 bytes * Returns : URL data
  */
 @Getter
 @Setter

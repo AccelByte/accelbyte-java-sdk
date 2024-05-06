@@ -24,8 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>[Not Supported Yet In Starter] Update xsolla UI configuration.Reference: [Xsolla
  * Document](https://developers.xsolla.com/api.html#ui-integrations). Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE) * Returns : updated
- * payment merchant config
+ * <p>* Returns : updated payment merchant config
  */
 @Getter
 @Setter

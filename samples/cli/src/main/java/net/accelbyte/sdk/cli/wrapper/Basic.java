@@ -10,11 +10,9 @@ package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.basic.anonymization.*;
 import net.accelbyte.sdk.cli.api.basic.config.*;
-import net.accelbyte.sdk.cli.api.basic.equ8_config.*;
 import net.accelbyte.sdk.cli.api.basic.file_upload.*;
 import net.accelbyte.sdk.cli.api.basic.misc.*;
 import net.accelbyte.sdk.cli.api.basic.namespace.*;
-import net.accelbyte.sdk.cli.api.basic.user_action.*;
 import net.accelbyte.sdk.cli.api.basic.user_profile.*;
 import picocli.CommandLine.Command;
 
@@ -26,22 +24,13 @@ import picocli.CommandLine.Command;
       CreateNamespace.class,
       GetNamespace.class,
       DeleteNamespace.class,
-      GetActions.class,
-      BanUsers.class,
-      GetBannedUsers.class,
-      ReportUser.class,
-      GetUserStatus.class,
-      UnBanUsers.class,
       UpdateNamespace.class,
       GetChildNamespaces.class,
       CreateConfig.class,
-      GetConfig1.class,
-      DeleteConfig1.class,
-      UpdateConfig1.class,
-      GetNamespaceContext.class,
       GetConfig.class,
       DeleteConfig.class,
       UpdateConfig.class,
+      GetNamespaceContext.class,
       GeneratedUploadUrl.class,
       GetGameNamespaces.class,
       GetCountries.class,
@@ -68,6 +57,7 @@ import picocli.CommandLine.Command;
       UpdateUserProfileStatus.class,
       PublicGetTime.class,
       PublicGetNamespaces.class,
+      GetNamespace1.class,
       PublicGeneratedUploadUrl.class,
       PublicGetCountries.class,
       PublicGetLanguages.class,
@@ -82,7 +72,6 @@ import picocli.CommandLine.Command;
       UpdateMyPrivateCustomAttributesPartially.class,
       GetMyZipCode.class,
       UpdateMyZipCode.class,
-      PublicReportUser.class,
       PublicGeneratedUserUploadContentUrl.class,
       PublicGetUserProfileInfo.class,
       PublicUpdateUserProfile.class,

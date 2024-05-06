@@ -24,8 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>[SERVICE COMMUNICATION ONLY] This API is used as a web hook for payment notification from
  * justice payment service. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SUBSCRIPTION",
- * action=4 (UPDATE) * Returns : Process result
+ * <p>* Returns : Process result
  */
 @Getter
 @Setter

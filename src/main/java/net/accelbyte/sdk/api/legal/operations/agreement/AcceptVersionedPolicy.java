@@ -20,10 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * acceptVersionedPolicy
  *
- * <p>Accepts a legal policy version. Supply with localized version policy id to accept an
- * agreement. Other detail info:
- *
- * <p>* Required permission : login user
+ * <p>Accepts a legal policy version. Supply with localized version policy id to accept an agreement
  */
 @Getter
 @Setter

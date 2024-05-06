@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * deleteSection
  *
  * <p>This API is used to delete s section.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=8 (DELETE)
  */
 @Getter
 @Setter

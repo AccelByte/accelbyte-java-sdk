@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Delete a namespace. Other detail info:
  *
- * <p>* Required permission : resource= "ADMIN:NAMESPACE:{namespace}:NAMESPACE" , action=8 (DELETE)
- * * Action code : 11307 * Returns : deleted namespace
+ * <p>* Action code : 11307 * Returns : deleted namespace
  */
 @Getter
 @Setter

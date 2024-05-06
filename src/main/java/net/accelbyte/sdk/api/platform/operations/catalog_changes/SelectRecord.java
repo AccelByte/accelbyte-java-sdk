@@ -20,9 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * selectRecord
  *
- * <p>Select a change, it will be included when partial publish. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
+ * <p>Select a change, it will be included when partial publish.
  */
 @Getter
 @Setter

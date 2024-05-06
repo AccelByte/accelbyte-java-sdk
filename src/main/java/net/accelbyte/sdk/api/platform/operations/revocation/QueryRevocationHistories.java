@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Query revocation histories in a namespace. Other detail info:
  *
- * <p>* Required permission : resource=ADMIN:NAMESPACE:{namespace}:REVOCATION, action=2 (READ) *
- * Returns : query revocation history
+ * <p>* Returns : query revocation history
  */
 @Getter
 @Setter

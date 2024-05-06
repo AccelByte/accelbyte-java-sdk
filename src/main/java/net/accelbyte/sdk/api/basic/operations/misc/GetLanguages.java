@@ -24,7 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>List languages. Other detail info:
  *
- * <p>* Required permission : login user * Action code : 11206 * Returns : language list
+ * <p>* Action code : 11206 * Returns : language list
  */
 @Getter
 @Setter

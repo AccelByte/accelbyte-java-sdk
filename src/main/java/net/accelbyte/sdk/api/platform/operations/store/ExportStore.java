@@ -23,9 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>This API is used to export a store.
  *
  * <p>This api has been deprecated, pls use /v2/admin/namespaces/{namespace}/stores/export to export
- * store. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
+ * store.
  *
  * @deprecated
  */

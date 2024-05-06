@@ -26,8 +26,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Disable an active code, the code can't be disabled if it has already been redeemed. Other
  * detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=4 (UPDATE) *
- * Returns : disabled code
+ * <p>* Returns : disabled code
  */
 @Getter
 @Setter

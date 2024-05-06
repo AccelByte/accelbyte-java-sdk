@@ -21,8 +21,12 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetUserSinglePlatformAccount
  *
- * <p>This endpoint gets user single platform account metadata. Supported platforms are same with
- * the supported login platforms.
+ * <p>This endpoint gets user single platform account metadata. Supported Platform: - Steam
+ * group(steamnetwork): - steam - steamopenid - PSN group(psn) - ps4web - ps4 - ps5 - XBOX
+ * group(xbox) - live - xblweb - Oculus group(oculusgroup) - oculus - oculusweb - epicgames -
+ * nintendo - aws cognito - facebook - google - discord - twitch - snapchat - amazon
+ *
+ * <p>Note: you can use either platform ID or platform group as platformId query parameter
  */
 @Getter
 @Setter

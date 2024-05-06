@@ -21,10 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * payWithUserWallet
  *
- * <p>Pay with user wallet by currency code and client platform. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:WALLET", action=4
- * (UPDATE)
+ * <p>Pay with user wallet by currency code and client platform.
  */
 @Getter
 @Setter

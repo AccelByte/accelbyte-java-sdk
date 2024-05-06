@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>get a wallet by wallet id. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:WALLET", action=2 (READ) *
- * Returns : wallet info
+ * <p>* Returns : wallet info
  *
  * @deprecated
  */

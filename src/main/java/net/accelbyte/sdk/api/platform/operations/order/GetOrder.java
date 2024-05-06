@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get order by orderNo. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:ORDER", action=2 (READ) *
- * Returns : order instance
+ * <p>* Returns : order instance
  */
 @Getter
 @Setter

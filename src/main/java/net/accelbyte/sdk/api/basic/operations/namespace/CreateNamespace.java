@@ -26,8 +26,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * publisher token, and it will be filled with studio namespace if the requester uses game token. An
  * oauth client will also be created and the id will be returned. Other detail info:
  *
- * <p>* Required permission : resource= "ADMIN:NAMESPACE" , action=1 (CREATE) * Action code : 11301
- * * Returns : created namespace
+ * <p>* Action code : 11301 * Returns : created namespace
  */
 @Getter
 @Setter

@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateSectionPluginConfig
  *
- * <p>Update section config. Other detail info: * Required permission :
- * resource=ADMIN:NAMESPACE:{namespace}:PLUGIN:CATALOG, action=4 (UPDATE) * Returns : updated
- * service plugin config
+ * <p>Update section config. Other detail info: * Returns : updated service plugin config
  */
 @Getter
 @Setter

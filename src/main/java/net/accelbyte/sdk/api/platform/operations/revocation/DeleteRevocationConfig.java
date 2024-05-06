@@ -20,9 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteRevocationConfig
  *
- * <p>Delete revocation config. Other detail info:
- *
- * <p>* Required permission : resource=ADMIN:NAMESPACE:{namespace}:REVOCATION, action=8 (DELETE)
+ * <p>Delete revocation config.
  */
 @Getter
 @Setter

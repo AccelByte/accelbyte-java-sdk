@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Delete user profile. Other detail info:
  *
- * <p>* Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" ,
- * action=8 (DELETE) * Action code : 11407 * Returns : Delete user profile
+ * <p>* Action code : 11407 * Returns : Delete user profile
  */
 @Getter
 @Setter

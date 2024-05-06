@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE) *
- * Returns : updated store info
+ * <p>* Returns : updated store info
  */
 @Getter
 @Setter

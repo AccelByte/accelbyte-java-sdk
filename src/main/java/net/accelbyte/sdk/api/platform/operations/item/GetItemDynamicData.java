@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get item dynamic data for published item. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=2 (READ) * Returns
- * : item dynamic data
+ * <p>* Returns : item dynamic data
  */
 @Getter
 @Setter

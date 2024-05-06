@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>[Not Supported Yet In Starter] Query payment orders. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT", action=2 (READ) *
- * Returns : query payment orders
+ * <p>* Returns : query payment orders
  */
 @Getter
 @Setter

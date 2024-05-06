@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Query wallets. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:WALLET", action=2 (READ) *
- * Returns : paginated wallets info
+ * <p>* Returns : paginated wallets info
  *
  * @deprecated
  */

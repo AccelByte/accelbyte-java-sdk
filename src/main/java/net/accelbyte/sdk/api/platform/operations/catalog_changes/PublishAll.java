@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=1 (CREATE) *
- * Returns : no content
+ * <p>* Returns : no content
  */
 @Getter
 @Setter

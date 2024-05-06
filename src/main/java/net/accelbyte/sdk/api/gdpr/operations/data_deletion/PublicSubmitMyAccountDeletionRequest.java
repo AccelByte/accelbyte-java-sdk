@@ -21,11 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicSubmitMyAccountDeletionRequest
  *
- * <p>Requires valid user access token
- *
- * <p>This is for in-game only and require a valid platformId and platform token. If a full account
- * is not logged by 3rd platform, then please use
- * /gdpr/public/namespaces/{namespace}/users/{userId}/deletions
+ * <p>Submit my account deletion requests. Requires valid user access token This is for in-game only
+ * and require a valid platformId and platform token. If a full account is not logged by 3rd
+ * platform, then please use
+ * [/gdpr/public/namespaces/{namespace}/users/{userId}/deletions](#operations-Data_Deletion-PublicSubmitUserAccountDeletionRequest)
  */
 @Getter
 @Setter

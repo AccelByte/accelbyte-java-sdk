@@ -35,8 +35,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=4 (UPDATE) *
- * Returns : the updated category data
+ * <p>* Returns : the updated category data
  */
 @Getter
 @Setter

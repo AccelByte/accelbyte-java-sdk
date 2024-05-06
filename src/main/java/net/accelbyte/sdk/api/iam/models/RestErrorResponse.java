@@ -35,6 +35,10 @@ public class RestErrorResponse extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, String> messageVariables;
 
+  @JsonProperty("requiredPermission")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private RestPermission requiredPermission;
+
   @JsonIgnore
   public RestErrorResponse createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

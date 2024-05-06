@@ -66,7 +66,7 @@ eval_tap $? 2 'AdminGetChallenges' test.out
 #- 3 AdminCreateChallenge
 ./ng net.accelbyte.sdk.cli.Main challenge adminCreateChallenge \
     --namespace "$AB_NAMESPACE" \
-    --body '{"activeGoalsPerRotation": 95, "assignmentRule": "RANDOMIZED", "code": "9nIW0Oaiw9B0D7eH", "description": "pzSn3ZPUdc0qh4n8", "endAfter": 26, "endDate": "1978-07-26T00:00:00Z", "goalsVisibility": "PERIODONLY", "name": "Z0m8SAMTwE6I56Ia", "rotation": "NONE", "startDate": "1986-08-10T00:00:00Z"}' \
+    --body '{"activeGoalsPerRotation": 95, "assignmentRule": "RANDOMIZED", "code": "9nIW0Oaiw9B0D7eH", "description": "pzSn3ZPUdc0qh4n8", "endAfter": 26, "endDate": "1978-07-26T00:00:00Z", "goalsVisibility": "PERIODONLY", "name": "Z0m8SAMTwE6I56Ia", "repeatAfter": 89, "rotation": "NONE", "startDate": "1986-08-10T00:00:00Z"}' \
     > test.out 2>&1
 eval_tap $? 3 'AdminCreateChallenge' test.out
 
@@ -81,32 +81,32 @@ eval_tap $? 4 'AdminGetChallenge' test.out
 ./ng net.accelbyte.sdk.cli.Main challenge adminUpdateChallenge \
     --challengeCode 'ngUNB1vRodwpzS6D' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"activeGoalsPerRotation": 1, "assignmentRule": "FIXED", "description": "Dpv8N7ZQVqGj6oDL", "endAfter": 19, "endDate": "1975-03-16T00:00:00Z", "goalsVisibility": "PERIODONLY", "name": "kY1aXlFcDtgOjchI", "rotation": "NONE", "startDate": "1987-12-30T00:00:00Z"}' \
+    --body '{"activeGoalsPerRotation": 1, "assignmentRule": "FIXED", "description": "Dpv8N7ZQVqGj6oDL", "endAfter": 19, "endDate": "1975-03-16T00:00:00Z", "goalsVisibility": "PERIODONLY", "name": "kY1aXlFcDtgOjchI", "repeatAfter": 42, "rotation": "DAILY", "startDate": "1980-06-11T00:00:00Z"}' \
     > test.out 2>&1
 eval_tap $? 5 'AdminUpdateChallenge' test.out
 
 #- 6 AdminDeleteChallenge
 ./ng net.accelbyte.sdk.cli.Main challenge adminDeleteChallenge \
-    --challengeCode 's1cnz1JSDgY1TXp3' \
+    --challengeCode 'cnz1JSDgY1TXp38z' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 6 'AdminDeleteChallenge' test.out
 
 #- 7 AdminGetGoals
 ./ng net.accelbyte.sdk.cli.Main challenge adminGetGoals \
-    --challengeCode '8zsCTCrbCbPOyNQk' \
+    --challengeCode 'sCTCrbCbPOyNQkT7' \
     --namespace "$AB_NAMESPACE" \
-    --limit '93' \
-    --offset '82' \
-    --sortBy 'M4OI18mAQLnzjMf8' \
+    --limit '82' \
+    --offset '80' \
+    --sortBy 'vyE3cwyALczNIicX' \
     > test.out 2>&1
 eval_tap $? 7 'AdminGetGoals' test.out
 
 #- 8 AdminCreateGoal
 ./ng net.accelbyte.sdk.cli.Main challenge adminCreateGoal \
-    --challengeCode 'GZ2WBZqxYG3aREAu' \
+    --challengeCode 'm7agSrjJW2OQNOs1' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"code": "2D6QVKNCWP75TB0i", "description": "7pKxR8dl0zRVW4EZ", "isActive": false, "name": "9m0XcgGVbMqSszE8", "requirementGroups": [{"operator": "AND", "predicates": [{"matcher": "EQUAL", "parameterName": "B6SdAdIhUDrwoZ5M", "parameterType": "ACHIEVEMENT", "targetValue": 0.27966377165528733}, {"matcher": "EQUAL", "parameterName": "pc1C8XfwHuKeb9l3", "parameterType": "STATISTIC", "targetValue": 0.9368283340713266}, {"matcher": "GREATER_THAN", "parameterName": "N9A3sNm84hddSpHt", "parameterType": "ACHIEVEMENT", "targetValue": 0.6654241963326721}]}, {"operator": "AND", "predicates": [{"matcher": "LESS_THAN_EQUAL", "parameterName": "4eu6d5tA5jUmiTqp", "parameterType": "STATISTIC", "targetValue": 0.12252909778352261}, {"matcher": "LESS_THAN", "parameterName": "PFdxLzFQN05MYzYi", "parameterType": "USERACCOUNT", "targetValue": 0.671526989177618}, {"matcher": "EQUAL", "parameterName": "ZYdFLIAjGGJddVCv", "parameterType": "STATISTIC", "targetValue": 0.0049567892477863085}]}, {"operator": "AND", "predicates": [{"matcher": "GREATER_THAN_EQUAL", "parameterName": "0SevkLGMS0lyuI9a", "parameterType": "USERACCOUNT", "targetValue": 0.18045261499548393}, {"matcher": "GREATER_THAN", "parameterName": "u6Vpbsx5w8hqUI06", "parameterType": "USERACCOUNT", "targetValue": 0.2532721485049817}, {"matcher": "LESS_THAN", "parameterName": "XGSLmCVuHOPlLlkv", "parameterType": "USERACCOUNT", "targetValue": 0.0173612533512133}]}], "rewards": [{"itemId": "ntBSxTeIv53HGCil", "itemName": "jvjKoyD6SCwGrncq", "qty": 0.1993808946407839, "type": "STATISTIC"}, {"itemId": "tjQHAf8TgoNm03VL", "itemName": "isV6zwPuo3td6TC6", "qty": 0.5617001388349081, "type": "ENTITLEMENT"}, {"itemId": "lMjGSWN2laRlxfcj", "itemName": "HfYakUCTqGkE7wcW", "qty": 0.08974343541515595, "type": "STATISTIC"}], "schedule": {"endTime": "1990-05-30T00:00:00Z", "order": 34, "startTime": "1976-05-04T00:00:00Z"}, "tags": ["SYWytLPziZMdjxcB", "ZufQxGiHPllG4cYE", "zfTD1ZBm3MqHcUmL"]}' \
+    --body '{"code": "PXhT5FvdiRilZ7oF", "description": "gx4c8OumKtPDKJDX", "isActive": false, "name": "9m0XcgGVbMqSszE8", "requirementGroups": [{"operator": "AND", "predicates": [{"matcher": "EQUAL", "parameterName": "B6SdAdIhUDrwoZ5M", "parameterType": "ACHIEVEMENT", "targetValue": 0.27966377165528733}, {"matcher": "EQUAL", "parameterName": "pc1C8XfwHuKeb9l3", "parameterType": "STATISTIC", "targetValue": 0.9368283340713266}, {"matcher": "GREATER_THAN", "parameterName": "N9A3sNm84hddSpHt", "parameterType": "ACHIEVEMENT", "targetValue": 0.6654241963326721}]}, {"operator": "AND", "predicates": [{"matcher": "LESS_THAN_EQUAL", "parameterName": "4eu6d5tA5jUmiTqp", "parameterType": "STATISTIC", "targetValue": 0.12252909778352261}, {"matcher": "LESS_THAN", "parameterName": "PFdxLzFQN05MYzYi", "parameterType": "USERACCOUNT", "targetValue": 0.671526989177618}, {"matcher": "EQUAL", "parameterName": "ZYdFLIAjGGJddVCv", "parameterType": "STATISTIC", "targetValue": 0.0049567892477863085}]}, {"operator": "AND", "predicates": [{"matcher": "GREATER_THAN_EQUAL", "parameterName": "0SevkLGMS0lyuI9a", "parameterType": "USERACCOUNT", "targetValue": 0.18045261499548393}, {"matcher": "GREATER_THAN", "parameterName": "u6Vpbsx5w8hqUI06", "parameterType": "USERACCOUNT", "targetValue": 0.2532721485049817}, {"matcher": "LESS_THAN", "parameterName": "XGSLmCVuHOPlLlkv", "parameterType": "USERACCOUNT", "targetValue": 0.0173612533512133}]}], "rewards": [{"itemId": "ntBSxTeIv53HGCil", "itemName": "jvjKoyD6SCwGrncq", "qty": 0.1993808946407839, "type": "STATISTIC"}, {"itemId": "tjQHAf8TgoNm03VL", "itemName": "isV6zwPuo3td6TC6", "qty": 0.5617001388349081, "type": "ENTITLEMENT"}, {"itemId": "lMjGSWN2laRlxfcj", "itemName": "HfYakUCTqGkE7wcW", "qty": 0.08974343541515595, "type": "STATISTIC"}], "schedule": {"endTime": "1990-05-30T00:00:00Z", "order": 34, "startTime": "1976-05-04T00:00:00Z"}, "tags": ["SYWytLPziZMdjxcB", "ZufQxGiHPllG4cYE", "zfTD1ZBm3MqHcUmL"]}' \
     > test.out 2>&1
 eval_tap $? 8 'AdminCreateGoal' test.out
 
@@ -207,15 +207,18 @@ eval_tap $? 19 'EvaluateMyProgress' test.out
     --challengeCode 'cnLRfxeCSz9WEi8K' \
     --namespace "$AB_NAMESPACE" \
     --goalCode 'lloeH0JT1yduat2v' \
+    --limit '88' \
+    --offset '100' \
+    --tags 'R3biBfsu4jmsRE2w,1yEkLgh3tIYt4SqY,UTLDx9gIiDandpGT' \
     > test.out 2>&1
 eval_tap $? 20 'PublicGetUserProgression' test.out
 
 #- 21 PublicGetUserRewards
 ./ng net.accelbyte.sdk.cli.Main challenge publicGetUserRewards \
     --namespace "$AB_NAMESPACE" \
-    --limit '88' \
-    --offset '100' \
-    --sortBy 'R3biBfsu4jmsRE2w' \
+    --limit '39' \
+    --offset '47' \
+    --sortBy '24aOMh5eC3IHeHSK' \
     --status 'UNCLAIMED' \
     > test.out 2>&1
 eval_tap $? 21 'PublicGetUserRewards' test.out
@@ -223,7 +226,7 @@ eval_tap $? 21 'PublicGetUserRewards' test.out
 #- 22 PublicClaimUserRewards
 ./ng net.accelbyte.sdk.cli.Main challenge publicClaimUserRewards \
     --namespace "$AB_NAMESPACE" \
-    --body '{"rewardIDs": ["XQAk4mqrxzTtuLl4", "XlbGL8QOxtjzm8y2", "wNhmwoYZyI4EFZKB"]}' \
+    --body '{"rewardIDs": ["rCEAE7WIsfmx40NL", "Rc6m8heKnWhzfe2N", "ubeoKFeIaFQCYoDP"]}' \
     > test.out 2>&1
 eval_tap $? 22 'PublicClaimUserRewards' test.out
 

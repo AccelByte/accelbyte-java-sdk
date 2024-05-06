@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Create a config. Other detail info:
  *
- * <p>* Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=1
- * (CREATE) * Returns : created config
+ * <p>* Returns : created config
  */
 @Getter
 @Setter

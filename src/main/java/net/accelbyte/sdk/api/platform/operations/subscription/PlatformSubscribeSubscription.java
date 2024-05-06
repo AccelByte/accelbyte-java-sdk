@@ -24,8 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Free subscribe by platform, can used by other justice service to redeem/reward the
  * subscription. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SUBSCRIPTION",
- * action=1 (CREATE) * Returns : result subscription
+ * <p>* Returns : result subscription
  */
 @Getter
 @Setter

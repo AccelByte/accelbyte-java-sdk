@@ -20,9 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteEpicGamesIAPConfig
  *
- * <p>Delete epic games iap config. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
+ * <p>Delete epic games iap config.
  */
 @Getter
 @Setter

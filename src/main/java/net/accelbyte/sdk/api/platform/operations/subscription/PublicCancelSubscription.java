@@ -26,8 +26,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * immediate true, the subscription will be terminated immediately, otherwise till the end of
  * current billing cycle. Other detail info:
  *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SUBSCRIPTION", action=4
- * (UPDATE) * Returns : cancelled subscription
+ * <p>* Returns : cancelled subscription
  */
 @Getter
 @Setter

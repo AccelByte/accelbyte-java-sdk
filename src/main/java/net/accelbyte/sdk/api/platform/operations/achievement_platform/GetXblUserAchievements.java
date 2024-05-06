@@ -22,11 +22,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * getXblUserAchievements
  *
  * <p>This API is used to get xbox live user achievements(Only for test).
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource=ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT,
- * action=2 (READ)
  */
 @Getter
 @Setter

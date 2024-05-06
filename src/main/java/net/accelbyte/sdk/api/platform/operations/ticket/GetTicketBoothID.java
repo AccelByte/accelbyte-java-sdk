@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get ticket(code/key) booth ID. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:TICKET", action=2 (READ) *
- * Returns : ticket booth id
+ * <p>* Returns : ticket booth id
  */
 @Getter
 @Setter

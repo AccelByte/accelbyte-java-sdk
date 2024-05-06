@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Query all user IAP orders. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2
- * (READ) * Returns : list of iap orders
+ * <p>* Returns : list of iap orders
  */
 @Getter
 @Setter

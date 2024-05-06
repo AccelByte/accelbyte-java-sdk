@@ -25,7 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get all namespaces. Other detail info:
  *
- * <p>* Required permission : login user * Action code : 11303 * Returns : list of namespaces
+ * <p>* Action code : 11303 * Returns : list of namespaces
  */
 @Getter
 @Setter

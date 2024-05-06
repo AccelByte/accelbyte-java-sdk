@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get user subscription. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SUBSCRIPTION",
- * action=2 (READ) * Returns : subscription
+ * <p>* Returns : subscription
  */
 @Getter
 @Setter

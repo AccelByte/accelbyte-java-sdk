@@ -47,6 +47,11 @@ public class AdminRetrieveUserThirdPartyPlatformTokenV3 implements Callable<Inte
   String userId;
 
   @Option(
+      names = {"--platformUserId"},
+      description = "platformUserId")
+  String platformUserId;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -75,6 +80,7 @@ public class AdminRetrieveUserThirdPartyPlatformTokenV3 implements Callable<Inte
                   .namespace(namespace)
                   .platformId(platformId)
                   .userId(userId)
+                  .platformUserId(platformUserId)
                   .build();
       final OauthmodelTokenThirdPartyResponse response =
           wrapper.adminRetrieveUserThirdPartyPlatformTokenV3(operation);

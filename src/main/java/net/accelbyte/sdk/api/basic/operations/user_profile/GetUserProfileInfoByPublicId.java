@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get user profile by public id. Other detail info:
  *
- * <p>* Required permission : resource= "ADMIN:NAMESPACE:{namespace}:PROFILE" , action=2 (READ) *
- * Returns : user profile info
+ * <p>* Returns : user profile info
  */
 @Getter
 @Setter

@@ -20,12 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * syncOculusDLC
  *
- * <p>Sync oculus dlc.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE) *
- * Returns :
+ * <p>Sync oculus dlc
  */
 @Getter
 @Setter

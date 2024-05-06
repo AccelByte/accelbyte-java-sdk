@@ -26,8 +26,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Other detail info:
  *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SUBSCRIPTION", action=2
- * (READ) * Returns : subscribable info
+ * <p>* Returns : subscribable info
  */
 @Getter
 @Setter

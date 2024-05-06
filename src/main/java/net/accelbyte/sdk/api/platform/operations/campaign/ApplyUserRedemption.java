@@ -24,8 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>[SERVICE COMMUNICATION ONLY] Redeem code. If the campaign which the code belongs to is
  * INACTIVE, the code couldn't be redeemed even if its status is ACTIVE. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:REDEMPTION",
- * action=1 (CREATE) * Returns : Redeem result
+ * <p>* Returns : Redeem result
  */
 @Getter
 @Setter

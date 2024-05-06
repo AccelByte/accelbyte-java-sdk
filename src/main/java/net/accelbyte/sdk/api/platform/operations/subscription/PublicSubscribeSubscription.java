@@ -27,8 +27,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * correctly subscribed. User with permission SANDBOX will create sandbox subscription that not real
  * paid. Other detail info:
  *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SUBSCRIPTION", action=1
- * (CREATE) * Optional permission(user with this permission will create sandbox subscription) :
+ * <p>* Optional permission(user with this permission will create sandbox subscription) :
  * resource="SANDBOX", action=1 (CREATE) * It will be forbidden while the user is banned:
  * ORDER_INITIATE or ORDER_AND_PAYMENT * Returns : created subscription
  */

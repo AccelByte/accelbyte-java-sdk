@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Retrieve and check fulfillment items based on the provided request. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT",
- * action=READ * Returns : list of fulfillment items
+ * <p>* Returns : list of fulfillment items
  */
 @Getter
 @Setter

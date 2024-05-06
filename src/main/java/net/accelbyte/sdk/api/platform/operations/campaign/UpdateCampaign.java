@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Update campaign. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=4 (UPDATE) *
- * Returns : updated campaign
+ * <p>* Returns : updated campaign
  */
 @Getter
 @Setter

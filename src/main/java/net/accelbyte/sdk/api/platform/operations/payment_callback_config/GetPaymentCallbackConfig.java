@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>[Not Supported Yet In Starter] Get payment callback configuration. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT:CONFIG", action=2 (READ)
- * * Returns : Payment callback config
+ * <p>* Returns : Payment callback config
  */
 @Getter
 @Setter

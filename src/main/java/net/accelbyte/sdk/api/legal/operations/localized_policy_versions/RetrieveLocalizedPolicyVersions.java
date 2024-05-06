@@ -23,9 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * retrieveLocalizedPolicyVersions
  *
- * <p>Retrieve versions of a particular country-specific policy. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+ * <p>Retrieve versions of a particular country-specific policy.
  */
 @Getter
 @Setter

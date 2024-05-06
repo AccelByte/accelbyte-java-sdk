@@ -27,8 +27,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>* publicKey * secretKey
  *
- * <p>Other detail info: * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
- * * Returns : test result
+ * <p>Other detail info: * Returns : test result
  */
 @Getter
 @Setter

@@ -22,10 +22,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * indirectBulkAcceptVersionedPolicy
  *
  * <p>Accepts many legal policy versions all at once. Supply with localized version policy id and
- * userId to accept an agreement. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:LEGAL", action=1
- * (CREATE)
+ * userId to accept an agreement.
  */
 @Getter
 @Setter

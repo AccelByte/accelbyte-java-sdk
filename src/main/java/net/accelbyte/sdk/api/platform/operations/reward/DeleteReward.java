@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:REWARD", action=8 (DELETE) *
- * Returns : the deleted reward data
+ * <p>* Returns : the deleted reward data
  */
 @Getter
 @Setter

@@ -24,10 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * retrieveSinglePolicyVersion_1
  *
  * <p>Retrieve a version of a particular country specific policy. If version is not provided, the
- * Legal Service will assume caller requesting all versions from country-specific policy. Other
- * detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+ * Legal Service will assume caller requesting all versions from country-specific policy.
  */
 @Getter
 @Setter

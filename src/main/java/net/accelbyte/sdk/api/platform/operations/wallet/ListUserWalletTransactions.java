@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>List user wallet transactions ordered by create time desc. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:WALLET", action=2
- * (READ) * Returns : wallet transaction info
+ * <p>* Returns : wallet transaction info
  *
  * @deprecated
  */

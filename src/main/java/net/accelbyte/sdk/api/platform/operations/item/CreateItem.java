@@ -245,8 +245,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=1 (CREATE) *
- * Returns : created item data
+ * <p>* Returns : created item data
  *
  * <p>## Restrictions for item extension and localization extension and inventory config custom
  * attributes

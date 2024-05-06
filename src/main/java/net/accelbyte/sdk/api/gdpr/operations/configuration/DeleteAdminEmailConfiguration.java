@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * DeleteAdminEmailConfiguration
  *
  * <p>Delete a list of admin email addresses to stop receiving personal data request notification.
- *
- * <p>Required permission `ADMIN:NAMESPACE:{namespace}:EMAIL:CONFIGURATION [DELETE]` and scope
- * `account`
+ * Scope: account
  */
 @Getter
 @Setter

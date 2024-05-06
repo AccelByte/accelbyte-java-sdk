@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Update platform entitlement config. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:ENTITLEMENT:CONFIG", action=4
- * (UPDATE) * Returns : platform entitlement config
+ * <p>* Returns : platform entitlement config
  */
 @Getter
 @Setter

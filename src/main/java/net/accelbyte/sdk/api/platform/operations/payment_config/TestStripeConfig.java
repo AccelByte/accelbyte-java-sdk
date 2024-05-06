@@ -31,8 +31,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>* publishableKey * webhookSecret
  *
- * <p>Other detail info: * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
- * * Returns : test adyen config
+ * <p>Other detail info: * Returns : test adyen config
  */
 @Getter
 @Setter

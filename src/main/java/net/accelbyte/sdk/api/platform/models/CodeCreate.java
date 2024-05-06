@@ -25,7 +25,12 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class CodeCreate extends Model {
 
+  @JsonProperty("codeValue")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String codeValue;
+
   @JsonProperty("quantity")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer quantity;
 
   @JsonIgnore

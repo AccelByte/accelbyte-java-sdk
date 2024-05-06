@@ -20,10 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminResetServicesConfiguration
  *
- * <p>[TEST FACILITY ONLY] Reset Registered Services Configuration to use the default configuration.
- *
- * <p>Required permission `ADMIN:NAMESPACE:{namespace}:GDPR:CONFIGURATION [DELETE]` and scope
- * `account`
+ * <p>**[TEST FACILITY ONLY]** Reset Registered Services Configuration to use the default
+ * configuration. Scope: account
  */
 @Getter
 @Setter

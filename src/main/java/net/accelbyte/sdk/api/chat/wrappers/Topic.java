@@ -23,6 +23,16 @@ public class Topic {
   }
 
   /**
+   * @see AdminFilterChatMessage
+   */
+  public ModelsMessageResultWithAttributes adminFilterChatMessage(AdminFilterChatMessage input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminChatHistory
    */
   public ModelsChatMessageWithPaginationResponse adminChatHistory(AdminChatHistory input)

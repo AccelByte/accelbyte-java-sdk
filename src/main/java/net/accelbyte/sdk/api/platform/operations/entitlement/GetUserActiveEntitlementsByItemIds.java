@@ -24,11 +24,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * getUserActiveEntitlementsByItemIds
  *
  * <p>Get user entitlements by itemIds.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT",
- * action=2 (READ)
  */
 @Getter
 @Setter

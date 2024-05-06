@@ -23,9 +23,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Create user profile. Other detail info:
  *
- * <p>* Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=1
- * (CREATE) * Action code : 11401 * Language : allowed format: en, en-US * Timezone : IANA time
- * zone, e.g. Asia/Shanghai * Returns : Created user profile
+ * <p>* Action code : 11401 * Language : allowed format: en, en-US * Timezone : IANA time zone, e.g.
+ * Asia/Shanghai * Returns : Created user profile
  */
 @Getter
 @Setter

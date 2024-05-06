@@ -18,34 +18,17 @@
 | `/basic/v1/admin/namespaces/{namespace}/publisher` | GET | GetNamespacePublisher | [GetNamespacePublisher](../../src/main/java/net/accelbyte/sdk/api/basic/operations/namespace/GetNamespacePublisher.java) | [GetNamespacePublisher](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/namespace/GetNamespacePublisher.java) |
 | `/basic/v1/admin/namespaces/{namespace}/status` | PATCH | ChangeNamespaceStatus | [ChangeNamespaceStatus](../../src/main/java/net/accelbyte/sdk/api/basic/operations/namespace/ChangeNamespaceStatus.java) | [ChangeNamespaceStatus](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/namespace/ChangeNamespaceStatus.java) |
 | `/basic/v1/public/namespaces` | GET | PublicGetNamespaces | [PublicGetNamespaces](../../src/main/java/net/accelbyte/sdk/api/basic/operations/namespace/PublicGetNamespaces.java) | [PublicGetNamespaces](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/namespace/PublicGetNamespaces.java) |
+| `/basic/v1/public/namespaces/{namespace}` | GET | GetNamespace1 | [GetNamespace1](../../src/main/java/net/accelbyte/sdk/api/basic/operations/namespace/GetNamespace1.java) | [GetNamespace1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/namespace/GetNamespace1.java) |
 | `/basic/v1/public/namespaces/{namespace}/publisher` | GET | PublicGetNamespacePublisher | [PublicGetNamespacePublisher](../../src/main/java/net/accelbyte/sdk/api/basic/operations/namespace/PublicGetNamespacePublisher.java) | [PublicGetNamespacePublisher](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/namespace/PublicGetNamespacePublisher.java) |
-
-### UserAction Wrapper:  [UserAction](../../src/main/java/net/accelbyte/sdk/api/basic/wrappers/UserAction.java)
-| Endpoint | Method | ID | Class | Example |
-|---|---|---|---|---|
-| `/basic/v1/admin/namespaces/{namespace}/actions` | GET | GetActions | [GetActions](../../src/main/java/net/accelbyte/sdk/api/basic/operations/user_action/GetActions.java) | [GetActions](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/user_action/GetActions.java) |
-| `/basic/v1/admin/namespaces/{namespace}/actions/ban` | POST | BanUsers | [BanUsers](../../src/main/java/net/accelbyte/sdk/api/basic/operations/user_action/BanUsers.java) | [BanUsers](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/user_action/BanUsers.java) |
-| `/basic/v1/admin/namespaces/{namespace}/actions/banned` | GET | GetBannedUsers | [GetBannedUsers](../../src/main/java/net/accelbyte/sdk/api/basic/operations/user_action/GetBannedUsers.java) | [GetBannedUsers](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/user_action/GetBannedUsers.java) |
-| `/basic/v1/admin/namespaces/{namespace}/actions/report` | POST | ReportUser | [ReportUser](../../src/main/java/net/accelbyte/sdk/api/basic/operations/user_action/ReportUser.java) | [ReportUser](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/user_action/ReportUser.java) |
-| `/basic/v1/admin/namespaces/{namespace}/actions/status` | GET | GetUserStatus | [GetUserStatus](../../src/main/java/net/accelbyte/sdk/api/basic/operations/user_action/GetUserStatus.java) | [GetUserStatus](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/user_action/GetUserStatus.java) |
-| `/basic/v1/admin/namespaces/{namespace}/actions/unban` | POST | UnBanUsers | [UnBanUsers](../../src/main/java/net/accelbyte/sdk/api/basic/operations/user_action/UnBanUsers.java) | [UnBanUsers](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/user_action/UnBanUsers.java) |
-| `/basic/v1/public/namespaces/{namespace}/users/{userId}/actions/report` | POST | PublicReportUser | [PublicReportUser](../../src/main/java/net/accelbyte/sdk/api/basic/operations/user_action/PublicReportUser.java) | [PublicReportUser](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/user_action/PublicReportUser.java) |
 
 ### Config Wrapper:  [Config](../../src/main/java/net/accelbyte/sdk/api/basic/wrappers/Config.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
 | `/basic/v1/admin/namespaces/{namespace}/configs` | POST | CreateConfig | [CreateConfig](../../src/main/java/net/accelbyte/sdk/api/basic/operations/config/CreateConfig.java) | [CreateConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/config/CreateConfig.java) |
-| `/basic/v1/admin/namespaces/{namespace}/configs/{configKey}` | GET | GetConfig1 | [GetConfig1](../../src/main/java/net/accelbyte/sdk/api/basic/operations/config/GetConfig1.java) | [GetConfig1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/config/GetConfig1.java) |
-| `/basic/v1/admin/namespaces/{namespace}/configs/{configKey}` | DELETE | DeleteConfig1 | [DeleteConfig1](../../src/main/java/net/accelbyte/sdk/api/basic/operations/config/DeleteConfig1.java) | [DeleteConfig1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/config/DeleteConfig1.java) |
-| `/basic/v1/admin/namespaces/{namespace}/configs/{configKey}` | PATCH | UpdateConfig1 | [UpdateConfig1](../../src/main/java/net/accelbyte/sdk/api/basic/operations/config/UpdateConfig1.java) | [UpdateConfig1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/config/UpdateConfig1.java) |
+| `/basic/v1/admin/namespaces/{namespace}/configs/{configKey}` | GET | GetConfig | [GetConfig](../../src/main/java/net/accelbyte/sdk/api/basic/operations/config/GetConfig.java) | [GetConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/config/GetConfig.java) |
+| `/basic/v1/admin/namespaces/{namespace}/configs/{configKey}` | DELETE | DeleteConfig | [DeleteConfig](../../src/main/java/net/accelbyte/sdk/api/basic/operations/config/DeleteConfig.java) | [DeleteConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/config/DeleteConfig.java) |
+| `/basic/v1/admin/namespaces/{namespace}/configs/{configKey}` | PATCH | UpdateConfig | [UpdateConfig](../../src/main/java/net/accelbyte/sdk/api/basic/operations/config/UpdateConfig.java) | [UpdateConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/config/UpdateConfig.java) |
 | `/basic/v1/admin/namespaces/{namespace}/publisher/configs/{configKey}` | GET | GetPublisherConfig | [GetPublisherConfig](../../src/main/java/net/accelbyte/sdk/api/basic/operations/config/GetPublisherConfig.java) | [GetPublisherConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/config/GetPublisherConfig.java) |
-
-### EQU8Config Wrapper:  [EQU8Config](../../src/main/java/net/accelbyte/sdk/api/basic/wrappers/EQU8Config.java)
-| Endpoint | Method | ID | Class | Example |
-|---|---|---|---|---|
-| `/basic/v1/admin/namespaces/{namespace}/equ8/config` | GET | GetConfig | [GetConfig](../../src/main/java/net/accelbyte/sdk/api/basic/operations/equ8_config/GetConfig.java) | [GetConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/equ8_config/GetConfig.java) |
-| `/basic/v1/admin/namespaces/{namespace}/equ8/config` | DELETE | DeleteConfig | [DeleteConfig](../../src/main/java/net/accelbyte/sdk/api/basic/operations/equ8_config/DeleteConfig.java) | [DeleteConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/equ8_config/DeleteConfig.java) |
-| `/basic/v1/admin/namespaces/{namespace}/equ8/config` | PATCH | UpdateConfig | [UpdateConfig](../../src/main/java/net/accelbyte/sdk/api/basic/operations/equ8_config/UpdateConfig.java) | [UpdateConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/basic/equ8_config/UpdateConfig.java) |
 
 ### FileUpload Wrapper:  [FileUpload](../../src/main/java/net/accelbyte/sdk/api/basic/wrappers/FileUpload.java)
 | Endpoint | Method | ID | Class | Example |
@@ -112,11 +95,6 @@
 
 | Model | Class |
 |---|---|
-| `A DTO for unban user API call.` | [ADTOForUnbanUserAPICall](../../src/main/java/net/accelbyte/sdk/api/basic/models/ADTOForUnbanUserAPICall.java) |
-| `A DTO for update equ8 config API call.` | [ADTOForUpdateEqu8ConfigAPICall](../../src/main/java/net/accelbyte/sdk/api/basic/models/ADTOForUpdateEqu8ConfigAPICall.java) |
-| `A DTO object for equ8 user ban status` | [ADTOObjectForEqu8UserBanStatus](../../src/main/java/net/accelbyte/sdk/api/basic/models/ADTOObjectForEqu8UserBanStatus.java) |
-| `A DTO object for equ8 user status` | [ADTOObjectForEqu8UserStatus](../../src/main/java/net/accelbyte/sdk/api/basic/models/ADTOObjectForEqu8UserStatus.java) |
-| `Action` | [Action](../../src/main/java/net/accelbyte/sdk/api/basic/models/Action.java) |
 | `AddCountryGroupRequest` | [AddCountryGroupRequest](../../src/main/java/net/accelbyte/sdk/api/basic/models/AddCountryGroupRequest.java) |
 | `AddCountryGroupResponse` | [AddCountryGroupResponse](../../src/main/java/net/accelbyte/sdk/api/basic/models/AddCountryGroupResponse.java) |
 | `ConfigCreate` | [ConfigCreate](../../src/main/java/net/accelbyte/sdk/api/basic/models/ConfigCreate.java) |
@@ -124,7 +102,6 @@
 | `ConfigUpdate` | [ConfigUpdate](../../src/main/java/net/accelbyte/sdk/api/basic/models/ConfigUpdate.java) |
 | `CountryGroupObject` | [CountryGroupObject](../../src/main/java/net/accelbyte/sdk/api/basic/models/CountryGroupObject.java) |
 | `CountryObject` | [CountryObject](../../src/main/java/net/accelbyte/sdk/api/basic/models/CountryObject.java) |
-| `Equ8Config` | [Equ8Config](../../src/main/java/net/accelbyte/sdk/api/basic/models/Equ8Config.java) |
 | `ErrorEntity` | [ErrorEntity](../../src/main/java/net/accelbyte/sdk/api/basic/models/ErrorEntity.java) |
 | `FieldValidationError` | [FieldValidationError](../../src/main/java/net/accelbyte/sdk/api/basic/models/FieldValidationError.java) |
 | `FileUploadUrlInfo` | [FileUploadUrlInfo](../../src/main/java/net/accelbyte/sdk/api/basic/models/FileUploadUrlInfo.java) |
@@ -132,12 +109,13 @@
 | `NamespaceCreate` | [NamespaceCreate](../../src/main/java/net/accelbyte/sdk/api/basic/models/NamespaceCreate.java) |
 | `NamespaceInfo` | [NamespaceInfo](../../src/main/java/net/accelbyte/sdk/api/basic/models/NamespaceInfo.java) |
 | `NamespacePublisherInfo` | [NamespacePublisherInfo](../../src/main/java/net/accelbyte/sdk/api/basic/models/NamespacePublisherInfo.java) |
+| `NamespaceSimpleInfo` | [NamespaceSimpleInfo](../../src/main/java/net/accelbyte/sdk/api/basic/models/NamespaceSimpleInfo.java) |
 | `NamespaceStatusUpdate` | [NamespaceStatusUpdate](../../src/main/java/net/accelbyte/sdk/api/basic/models/NamespaceStatusUpdate.java) |
 | `NamespaceUpdate` | [NamespaceUpdate](../../src/main/java/net/accelbyte/sdk/api/basic/models/NamespaceUpdate.java) |
+| `Permission` | [Permission](../../src/main/java/net/accelbyte/sdk/api/basic/models/Permission.java) |
 | `RetrieveCountryGroupResponse` | [RetrieveCountryGroupResponse](../../src/main/java/net/accelbyte/sdk/api/basic/models/RetrieveCountryGroupResponse.java) |
 | `RetrieveTimeResponse` | [RetrieveTimeResponse](../../src/main/java/net/accelbyte/sdk/api/basic/models/RetrieveTimeResponse.java) |
 | `UpdateCountryGroupRequest` | [UpdateCountryGroupRequest](../../src/main/java/net/accelbyte/sdk/api/basic/models/UpdateCountryGroupRequest.java) |
-| `UserBanRequest` | [UserBanRequest](../../src/main/java/net/accelbyte/sdk/api/basic/models/UserBanRequest.java) |
 | `UserProfileAdmin` | [UserProfileAdmin](../../src/main/java/net/accelbyte/sdk/api/basic/models/UserProfileAdmin.java) |
 | `UserProfileBulkRequest` | [UserProfileBulkRequest](../../src/main/java/net/accelbyte/sdk/api/basic/models/UserProfileBulkRequest.java) |
 | `UserProfileCreate` | [UserProfileCreate](../../src/main/java/net/accelbyte/sdk/api/basic/models/UserProfileCreate.java) |
@@ -147,7 +125,6 @@
 | `UserProfilePublicInfo` | [UserProfilePublicInfo](../../src/main/java/net/accelbyte/sdk/api/basic/models/UserProfilePublicInfo.java) |
 | `UserProfileStatusUpdate` | [UserProfileStatusUpdate](../../src/main/java/net/accelbyte/sdk/api/basic/models/UserProfileStatusUpdate.java) |
 | `UserProfileUpdate` | [UserProfileUpdate](../../src/main/java/net/accelbyte/sdk/api/basic/models/UserProfileUpdate.java) |
-| `UserReportRequest` | [UserReportRequest](../../src/main/java/net/accelbyte/sdk/api/basic/models/UserReportRequest.java) |
 | `UserZipCode` | [UserZipCode](../../src/main/java/net/accelbyte/sdk/api/basic/models/UserZipCode.java) |
 | `UserZipCodeUpdate` | [UserZipCodeUpdate](../../src/main/java/net/accelbyte/sdk/api/basic/models/UserZipCodeUpdate.java) |
 | `ValidationErrorEntity` | [ValidationErrorEntity](../../src/main/java/net/accelbyte/sdk/api/basic/models/ValidationErrorEntity.java) |

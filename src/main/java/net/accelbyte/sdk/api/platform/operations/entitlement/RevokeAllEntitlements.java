@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Revoke all entitlements of a user (This API is for testing purpose only) Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT",
- * action=4 (UPDATE) * Returns : revoked entitlements count
+ * <p>* Returns : revoked entitlements count
  */
 @Getter
 @Setter

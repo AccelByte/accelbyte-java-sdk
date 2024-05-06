@@ -1,3 +1,12 @@
+<a name="v0.62.0"></a>
+## [v0.62.0]
+### ci
+- **:** do not use jenkins master
+### test
+- **match2:** update ruleset data
+- **integration:** make login or refresh token more reliable
+
+
 <a name="v0.61.0"></a>
 ## [v0.61.0]
 ### feat

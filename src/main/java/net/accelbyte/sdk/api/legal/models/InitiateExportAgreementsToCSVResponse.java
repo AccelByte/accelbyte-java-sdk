@@ -25,6 +25,9 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class InitiateExportAgreementsToCSVResponse extends Model {
 
+  @JsonProperty("exportId")
+  private String exportId;
+
   @JsonProperty("processing")
   private Boolean processing;
 

@@ -24,8 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Credit a user wallet by currency code and balance origin, if wallet not exists, it will create
  * a new wallet. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:WALLET", action=4
- * (UPDATE)
+ * <p>(UPDATE)
  */
 @Getter
 @Setter

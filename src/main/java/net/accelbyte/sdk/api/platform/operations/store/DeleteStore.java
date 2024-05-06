@@ -24,8 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>This API is used to delete a store. Only non published store can be deleted. Other detail
  * info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=8 (DELETE) *
- * Returns : store
+ * <p>* Returns : store
  */
 @Getter
 @Setter

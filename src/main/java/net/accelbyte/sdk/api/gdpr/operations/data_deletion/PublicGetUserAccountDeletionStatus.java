@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicGetUserAccountDeletionStatus
  *
- * <p>Requires valid user access token
+ * <p>Retrieve specific user's account deletion status Requires valid user access token Scope:
+ * account
  */
 @Getter
 @Setter

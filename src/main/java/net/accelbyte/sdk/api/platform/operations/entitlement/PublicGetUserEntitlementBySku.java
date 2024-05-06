@@ -23,11 +23,6 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get user entitlement by sku.
  *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT", action=2
- * (READ)
- *
  * @deprecated
  */
 @Deprecated

@@ -24,8 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get user custom attributes. Other detail info:
  *
- * <p>* Required permission : resource= "ADMIN:NAMESPACE:{namespace}:USER:{userId}:PROFILE" ,
- * action=2 (READ) * Returns : custom attributes * Action code : 11403
+ * <p>* Returns : custom attributes * Action code : 11403
  */
 @Getter
 @Setter

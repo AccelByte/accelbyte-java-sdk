@@ -22,11 +22,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * getUserAppEntitlementOwnershipByAppId
  *
  * <p>Get user app entitlement ownership by appId.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT",
- * action=2 (READ)
  */
 @Getter
 @Setter

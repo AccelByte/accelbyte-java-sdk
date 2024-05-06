@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get twitch iap config. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ) *
- * Returns : twitch iap config
+ * <p>* Returns : twitch iap config
  */
 @Getter
 @Setter

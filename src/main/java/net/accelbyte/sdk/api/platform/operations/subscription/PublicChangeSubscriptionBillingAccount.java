@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * actual change will happen at the 0 payment notification successfully handled. Only ACTIVE USER
  * subscription with real currency billing account can be changed. Other detail info:
  *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:SUBSCRIPTION", action=4
- * (UPDATE) * Returns : updated subscription
+ * <p>* Returns : updated subscription
  */
 @Getter
 @Setter

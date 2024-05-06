@@ -24,8 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Checks if specified use count of user entitlement can be revoked without actually revoking it.
  * Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT",
- * action=1 (READ) * Returns : true if revokable, false otherwise
+ * <p>* Returns : true if revokable, false otherwise
  */
 @Getter
 @Setter

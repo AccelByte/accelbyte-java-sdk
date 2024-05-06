@@ -36,9 +36,9 @@ public class DownloadExportedAgreementsInCSV implements Callable<Integer> {
   String namespace;
 
   @Option(
-      names = {"--policyVersionId"},
-      description = "policyVersionId")
-  String policyVersionId;
+      names = {"--exportId"},
+      description = "exportId")
+  String exportId;
 
   @Option(
       names = {"--logging"},
@@ -67,7 +67,7 @@ public class DownloadExportedAgreementsInCSV implements Callable<Integer> {
               net.accelbyte.sdk.api.legal.operations.agreement_with_namespace
                   .DownloadExportedAgreementsInCSV.builder()
                   .namespace(namespace)
-                  .policyVersionId(policyVersionId)
+                  .exportId(exportId)
                   .build();
       final DownloadExportedAgreementsInCSVResponse response =
           wrapper.downloadExportedAgreementsInCSV(operation);

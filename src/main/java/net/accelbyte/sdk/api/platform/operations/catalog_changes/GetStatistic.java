@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ) *
- * Returns : catalog changes statistics changes
+ * <p>* Returns : catalog changes statistics changes
  */
 @Getter
 @Setter

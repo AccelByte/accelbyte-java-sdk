@@ -36,8 +36,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>1. namespace and region match 2. namespace matches and region is * 3. region matches and
  * namespace is * 4. namespace and region are *
  *
- * <p>Other detail info: * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
- * * Returns : payment provider config
+ * <p>Other detail info: * Returns : payment provider config
  */
 @Getter
 @Setter

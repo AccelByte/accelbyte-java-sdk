@@ -9,6 +9,7 @@
 package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.lobby.admin.*;
+import net.accelbyte.sdk.cli.api.lobby.blocks.*;
 import net.accelbyte.sdk.cli.api.lobby.config.*;
 import net.accelbyte.sdk.cli.api.lobby.friends.*;
 import net.accelbyte.sdk.cli.api.lobby.lobby_operations.*;
@@ -39,6 +40,7 @@ import picocli.CommandLine.Command;
       AddFriendsWithoutConfirmation.class,
       BulkDeleteFriends.class,
       SyncNativeFriends.class,
+      SyncNativeBlockedUser.class,
       AdminGetAllConfigV1.class,
       AdminGetConfigV1.class,
       AdminUpdateConfigV1.class,
@@ -110,6 +112,7 @@ import picocli.CommandLine.Command;
       PublicUnblockPlayerV1.class,
       UsersPresenceHandlerV1.class,
       FreeFormNotification.class,
+      GetMyNotifications.class,
       NotificationWithTemplate.class,
       GetGameTemplate.class,
       CreateTemplate.class,

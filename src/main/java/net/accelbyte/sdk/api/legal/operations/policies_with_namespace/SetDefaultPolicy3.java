@@ -20,9 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * setDefaultPolicy_3
  *
- * <p>Update a policy to be the default. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=4 (UPDATE)
+ * <p>Update a policy to be the default.
  */
 @Getter
 @Setter

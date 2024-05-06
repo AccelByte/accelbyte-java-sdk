@@ -30,6 +30,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * ?request_id={authorization_request_id} - **Authorize failure**: redirects to the given redirect
  * uri with the following information: ?error={error_code}&error;_description={error description}
  *
+ * <p>For Public Client case, it's mandatory to fill **code_challenge** to avoid authorization code
+ * interception attack. Please refer to the RFC for more information about Proof Key for Code
+ * Exchange(PKCE): https://datatracker.ietf.org/doc/html/rfc7636
+ *
  * <p>Following are the error code based on the specification: - invalid_request: The request is
  * missing a required parameter, includes an invalid parameter value, includes a parameter more than
  * once, or is otherwise malformed. - server_error: The authorization server encountered an

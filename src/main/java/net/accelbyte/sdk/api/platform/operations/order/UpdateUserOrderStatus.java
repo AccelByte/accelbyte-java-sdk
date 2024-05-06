@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Update order status. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ORDER", action=4
- * (UPDATE) * Returns : updated order
+ * <p>* Returns : updated order
  */
 @Getter
 @Setter

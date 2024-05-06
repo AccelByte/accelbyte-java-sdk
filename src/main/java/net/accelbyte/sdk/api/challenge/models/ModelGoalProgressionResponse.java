@@ -28,6 +28,9 @@ public class ModelGoalProgressionResponse extends Model {
   @JsonProperty("challengeCode")
   private String challengeCode;
 
+  @JsonProperty("goal")
+  private ModelGoalMeta goal;
+
   @JsonProperty("goalCode")
   private String goalCode;
 
@@ -75,6 +78,7 @@ public class ModelGoalProgressionResponse extends Model {
   public enum Status {
     ACTIVE("ACTIVE"),
     COMPLETED("COMPLETED"),
+    NOTSTARTED("NOT_STARTED"),
     RETIRED("RETIRED");
 
     private String value;

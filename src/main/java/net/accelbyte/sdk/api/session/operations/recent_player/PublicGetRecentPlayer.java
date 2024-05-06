@@ -22,6 +22,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * publicGetRecentPlayer
  *
  * <p>Query user's recent player.
+ *
+ * <p>Please ensure environment variable "RECENT_PLAYER_ENABLED" is set to "TRUE" to use this
+ * feature.
  */
 @Getter
 @Setter

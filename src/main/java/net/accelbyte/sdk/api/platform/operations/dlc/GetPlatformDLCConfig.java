@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getPlatformDLCConfig
  *
- * <p>Get Platform DLC config. Other detail info:
- *
- * <p>* Required permission : resource= "ADMIN:NAMESPACE:{namespace}:DLC:CONFIG" , action=2 (READ)
+ * <p>Get Platform DLC config.
  */
 @Getter
 @Setter

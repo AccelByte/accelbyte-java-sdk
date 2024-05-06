@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Upload xbl business partner cert file. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE) *
- * Returns : updated xbl iap config
+ * <p>* Returns : updated xbl iap config
  */
 @Getter
 @Setter

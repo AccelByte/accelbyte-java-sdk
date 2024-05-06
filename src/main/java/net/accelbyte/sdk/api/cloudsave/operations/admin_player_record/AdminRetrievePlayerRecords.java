@@ -40,6 +40,7 @@ public class AdminRetrievePlayerRecords extends Operation {
   private String userId;
   private Integer limit;
   private Integer offset;
+  private String query;
   private List<String> tags;
 
   /**
@@ -50,11 +51,17 @@ public class AdminRetrievePlayerRecords extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public AdminRetrievePlayerRecords(
-      String namespace, String userId, Integer limit, Integer offset, List<String> tags) {
+      String namespace,
+      String userId,
+      Integer limit,
+      Integer offset,
+      String query,
+      List<String> tags) {
     this.namespace = namespace;
     this.userId = userId;
     this.limit = limit;
     this.offset = offset;
+    this.query = query;
     this.tags = tags;
 
     securities.add("Bearer");
@@ -78,6 +85,7 @@ public class AdminRetrievePlayerRecords extends Operation {
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+    queryParams.put("query", this.query == null ? null : Arrays.asList(this.query));
     queryParams.put("tags", this.tags == null ? null : this.tags);
     return queryParams;
   }
@@ -108,6 +116,7 @@ public class AdminRetrievePlayerRecords extends Operation {
     Map<String, String> result = new HashMap<>();
     result.put("limit", "None");
     result.put("offset", "None");
+    result.put("query", "None");
     result.put("tags", "csv");
     return result;
   }

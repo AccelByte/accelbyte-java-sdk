@@ -20,9 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * selectAllRecordsByCriteria
  *
- * <p>Select all changes by criteria Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
+ * <p>Select all changes by criteria
  */
 @Getter
 @Setter

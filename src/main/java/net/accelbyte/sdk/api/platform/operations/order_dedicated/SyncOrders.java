@@ -25,7 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * it as query param in the next call to fetch the next batch, a batch has 1000 elements or less.
  * Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:ORDER", action=2 (READ) * Returns : sync orders
+ * <p>* Returns : sync orders
  */
 @Getter
 @Setter

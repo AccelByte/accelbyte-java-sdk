@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Create campaign. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=1 (CREATE) *
- * Returns : created campaign
+ * <p>* Returns : created campaign
  */
 @Getter
 @Setter

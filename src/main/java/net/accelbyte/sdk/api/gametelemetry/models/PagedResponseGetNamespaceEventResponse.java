@@ -29,7 +29,7 @@ public class PagedResponseGetNamespaceEventResponse extends Model {
   private List<GetNamespaceEventResponse> data;
 
   @JsonProperty("paging")
-  private Integer paging;
+  private Paging paging;
 
   @JsonIgnore
   public PagedResponseGetNamespaceEventResponse createFromJson(String json)

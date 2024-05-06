@@ -24,9 +24,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Update partially custom attributes tied to user id. Other detail info:
  *
- * <p>* Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4
- * (UPDATE) * Action code : 11402 * Request body : allowed format: JSON object * Returns : Updated
- * custom attributes
+ * <p>* Action code : 11402 * Request body : allowed format: JSON object * Returns : Updated custom
+ * attributes
  */
 @Getter
 @Setter

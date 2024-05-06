@@ -22,10 +22,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * publicExistsAnyMyActiveEntitlement
  *
  * <p>Exists any my active entitlement of specified itemIds, skus and appIds
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:ENTITLEMENT", action=2 (READ)
  */
 @Getter
 @Setter

@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get platform wallet config list. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:WALLET:CONFIG", action=2 (READ)
- * * Returns : wallet info
+ * <p>* Returns : wallet info
  */
 @Getter
 @Setter

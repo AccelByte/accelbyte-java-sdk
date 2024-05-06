@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>[SERVICE COMMUNICATION ONLY] increase ticket(code/key) sale. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:TICKET", action=4 (UPDATE) *
- * Returns : Ticket sale increment result
+ * <p>* Returns : Ticket sale increment result
  */
 @Getter
 @Setter

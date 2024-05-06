@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Redeem campaign code. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT",
- * action=1 (CREATED) * Returns : fulfillment result
+ * <p>* Returns : fulfillment result
  */
 @Getter
 @Setter

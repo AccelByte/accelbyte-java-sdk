@@ -21,12 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * syncSteamDLC
  *
- * <p>Sync steam dlc.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE) *
- * Returns :
+ * <p>Sync steam dlc
  */
 @Getter
 @Setter

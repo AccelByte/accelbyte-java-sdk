@@ -35,9 +35,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>* APP * INGAMEITEM * CODE * SUBSCRIPTION * MEDIA * OPTIONBOX * LOOTBOX
  *
- * <p>Other detail info: * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT", action=1 (CREATE) * Returns :
- * granted entitlement
+ * <p>Other detail info: * Returns : granted entitlement
  */
 @Getter
 @Setter

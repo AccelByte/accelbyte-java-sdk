@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Revoke specified count of user entitlement. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT",
- * action=4 (UPDATE) * Returns : The revoked entitlement
+ * <p>* Returns : The revoked entitlement
  */
 @Getter
 @Setter

@@ -158,6 +158,7 @@
 | `LocalizedPolicyVersionObject` | [LocalizedPolicyVersionObject](../../src/main/java/net/accelbyte/sdk/api/legal/models/LocalizedPolicyVersionObject.java) |
 | `PagedRetrieveUserAcceptedAgreementResponse` | [PagedRetrieveUserAcceptedAgreementResponse](../../src/main/java/net/accelbyte/sdk/api/legal/models/PagedRetrieveUserAcceptedAgreementResponse.java) |
 | `Paging` | [Paging](../../src/main/java/net/accelbyte/sdk/api/legal/models/Paging.java) |
+| `Permission` | [Permission](../../src/main/java/net/accelbyte/sdk/api/legal/models/Permission.java) |
 | `PolicyObject` | [PolicyObject](../../src/main/java/net/accelbyte/sdk/api/legal/models/PolicyObject.java) |
 | `PolicyVersionObject` | [PolicyVersionObject](../../src/main/java/net/accelbyte/sdk/api/legal/models/PolicyVersionObject.java) |
 | `PolicyVersionWithLocalizedVersionObject` | [PolicyVersionWithLocalizedVersionObject](../../src/main/java/net/accelbyte/sdk/api/legal/models/PolicyVersionWithLocalizedVersionObject.java) |

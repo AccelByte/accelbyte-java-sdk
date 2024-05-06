@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Generate an upload URL. It's valid for 10 minutes. Other detail info:
  *
- * <p>* Required permission : resource = "ADMIN:NAMESPACE:{namespace}:FILEUPLOAD" , action=1
- * (CREATE) * Action code : 11101 * Returns : URL data
+ * <p>* Action code : 11101 * Returns : URL data
  */
 @Getter
 @Setter

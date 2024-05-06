@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Checks if the user has enough balance based on the provided criteria. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:WALLET", action=2
- * (READ) * Returns : boolean value indicating if the user has enough balance
+ * <p>* Returns : boolean value indicating if the user has enough balance
  */
 @Getter
 @Setter

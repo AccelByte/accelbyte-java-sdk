@@ -20,10 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * anonymizeCampaign
  *
- * <p>Anonymize campaign. At current it will only anonymize redeem history. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION",
- * action=8 (DELETE)
+ * <p>Anonymize campaign. At current it will only anonymize redeem history.
  */
 @Getter
 @Setter

@@ -20,10 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteServicePluginConfig
  *
- * <p>Delete service plugin config. Other detail info:
- *
- * <p>* Required permission : resource=ADMIN:NAMESPACE:{namespace}:CONFIG:SERVICEPLUGIN, action=8
- * (DELETE)
+ * <p>Delete service plugin config
  *
  * @deprecated
  */

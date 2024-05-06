@@ -21,12 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicSyncPsnDlcInventoryWithMultipleServiceLabels
  *
- * <p>Synchronize with dlc entitlements in PSN Store with multiple service labels.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:DLC, action=4 (UPDATE) *
- * Returns : result of synchronization
+ * <p>Synchronize with dlc entitlements in PSN Store with multiple service labels.Other detail info:
+ * * Returns : result of synchronization
  */
 @Getter
 @Setter

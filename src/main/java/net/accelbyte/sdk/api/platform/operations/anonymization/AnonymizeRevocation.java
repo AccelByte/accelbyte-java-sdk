@@ -20,10 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * anonymizeRevocation
  *
- * <p>Anonymize revocation. At current it will only anonymize revocation history. Other detail info:
- *
- * <p>* Required permission : resource=ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION,
- * action=8 (DELETE)
+ * <p>Anonymize revocation. At current it will only anonymize revocation history.
  */
 @Getter
 @Setter

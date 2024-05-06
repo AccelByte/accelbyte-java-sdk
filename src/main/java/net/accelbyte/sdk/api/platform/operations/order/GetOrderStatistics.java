@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get Order Statistics. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:ORDER", action=2 (READ) *
- * Returns : order statistics
+ * <p>* Returns : order statistics
  */
 @Getter
 @Setter

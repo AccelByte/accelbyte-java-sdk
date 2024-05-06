@@ -44,9 +44,9 @@ public class ApiMatchPoolConfig extends Model {
   @JsonProperty("match_function_override")
   private ApiMatchFunctionOverride matchFunctionOverride;
 
-  @JsonProperty("platfrom_group_enabled")
+  @JsonProperty("platform_group_enabled")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Boolean platfromGroupEnabled;
+  private Boolean platformGroupEnabled;
 
   @JsonProperty("rule_set")
   private String ruleSet;

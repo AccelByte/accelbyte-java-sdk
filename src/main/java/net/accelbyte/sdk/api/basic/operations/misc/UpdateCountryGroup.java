@@ -26,8 +26,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * array. - To update countries only, do not include countryGroupName key or just specify it with
  * blank value. Other detail info:
  *
- * <p>* Required permission : resource = "ADMIN:NAMESPACE:{namespace}:MISC" , action=4 (UPDATE) *
- * Action code : 11202 * Returns : updated country group
+ * <p>* Action code : 11202 * Returns : updated country group
  */
 @Getter
 @Setter

@@ -31,27 +31,27 @@ public class Config {
   }
 
   /**
-   * @see GetConfig1
+   * @see GetConfig
    */
-  public ConfigInfo getConfig1(GetConfig1 input) throws Exception {
+  public ConfigInfo getConfig(GetConfig input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
-   * @see DeleteConfig1
+   * @see DeleteConfig
    */
-  public void deleteConfig1(DeleteConfig1 input) throws Exception {
+  public void deleteConfig(DeleteConfig input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
-   * @see UpdateConfig1
+   * @see UpdateConfig
    */
-  public ConfigInfo updateConfig1(UpdateConfig1 input) throws Exception {
+  public ConfigInfo updateConfig(UpdateConfig input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

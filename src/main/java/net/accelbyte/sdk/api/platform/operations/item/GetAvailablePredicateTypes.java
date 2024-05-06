@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get available predicate types. Other detail info:
  *
- * <p>* Required permission : resource=ADMIN:NAMESPACE:{namespace}:ITEM, action=2 (READ) * Returns :
- * available predicate types
+ * <p>* Returns : available predicate types
  */
 @Getter
 @Setter

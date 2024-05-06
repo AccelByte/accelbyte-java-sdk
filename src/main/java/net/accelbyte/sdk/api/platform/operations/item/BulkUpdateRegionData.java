@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * bulkUpdateRegionData
  *
- * <p>This API is used to update region data of items in bulk Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
+ * <p>This API is used to update region data of items in bulk
  */
 @Getter
 @Setter

@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>[Not Supported Yet In Starter] This API is used to create an item type config.
  *
- * <p>* Required permission : resource="ADMIN:ITEM:CONFIG", action=1 (CREATE) * Returns : item type
- * config data
+ * <p>* Returns : item type config data
  */
 @Getter
 @Setter

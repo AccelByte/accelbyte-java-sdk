@@ -27,8 +27,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=2 (READ) *
- * Returns : list of categories' paths
+ * <p>* Returns : list of categories' paths
  */
 @Getter
 @Setter

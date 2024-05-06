@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Update platform wallet config. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:WALLET:CONFIG", action=4
- * (UPDATE) * Returns : platform wallet config
+ * <p>* Returns : platform wallet config
  */
 @Getter
 @Setter

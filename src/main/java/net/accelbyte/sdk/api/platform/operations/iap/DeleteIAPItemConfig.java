@@ -20,9 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteIAPItemConfig
  *
- * <p>delete a iap item config. Other detail info:
- *
- * <p>* Required permission : resource= "ADMIN:NAMESPACE:{namespace}:IAP:CONFIG" , action=8 (DELETE)
+ * <p>delete a iap item config.
  */
 @Getter
 @Setter

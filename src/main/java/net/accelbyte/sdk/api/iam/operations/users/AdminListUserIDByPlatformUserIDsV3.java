@@ -25,8 +25,12 @@ import net.accelbyte.sdk.core.util.Helper;
  * given namespace This endpoint return list of user ID by given platform ID and list of platform
  * user ID
  *
- * <p>**nintendo platform user ID**: NSA ID need to be appended with Environment ID using colon as
- * separator. e.g kmzwa8awaa:dd1
+ * <p>Supported platform: - steam - steamopenid - ps4web - ps4 - ps5 - live - xblweb - oculus -
+ * oculusweb - facebook - google - twitch - discord - android - ios - apple - device - justice -
+ * epicgames - nintendo - awscognito - netflix - snapchat - oidc platform id
+ *
+ * <p>Note: **nintendo platform user ID**: NSA ID need to be appended with Environment ID using
+ * colon as separator. e.g kmzwa8awaa:dd1
  */
 @Getter
 @Setter

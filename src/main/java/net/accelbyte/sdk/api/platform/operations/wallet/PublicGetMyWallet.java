@@ -23,9 +23,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>get my wallet by currency code and namespace. Other detail info:
  *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:WALLET", action=2 (READ) * Returns :
- * wallet info * Path's namespace : * can be filled with publisher namespace in order to get
- * publisher user wallet * can be filled with game namespace in order to get game user wallet
+ * <p>* Returns : wallet info * Path's namespace : * can be filled with publisher namespace in order
+ * to get publisher user wallet * can be filled with game namespace in order to get game user wallet
  */
 @Getter
 @Setter

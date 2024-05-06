@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Query IAP orders. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:IAP", action=2
- * (READ) * Returns : paginated iap orders
+ * <p>* Returns : paginated iap orders
  */
 @Getter
 @Setter

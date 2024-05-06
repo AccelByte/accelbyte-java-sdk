@@ -29,6 +29,7 @@
 | `HTTPValidationError` | [HTTPValidationError](../../src/main/java/net/accelbyte/sdk/api/gametelemetry/models/HTTPValidationError.java) |
 | `ListBaseResponse_str_` | [ListBaseResponseStr](../../src/main/java/net/accelbyte/sdk/api/gametelemetry/models/ListBaseResponseStr.java) |
 | `PagedResponse_GetNamespaceEventResponse_` | [PagedResponseGetNamespaceEventResponse](../../src/main/java/net/accelbyte/sdk/api/gametelemetry/models/PagedResponseGetNamespaceEventResponse.java) |
+| `Paging` | [Paging](../../src/main/java/net/accelbyte/sdk/api/gametelemetry/models/Paging.java) |
 | `PlayTimeResponse` | [PlayTimeResponse](../../src/main/java/net/accelbyte/sdk/api/gametelemetry/models/PlayTimeResponse.java) |
 | `TelemetryBody` | [TelemetryBody](../../src/main/java/net/accelbyte/sdk/api/gametelemetry/models/TelemetryBody.java) |
 | `ValidationError` | [ValidationError](../../src/main/java/net/accelbyte/sdk/api/gametelemetry/models/ValidationError.java) |

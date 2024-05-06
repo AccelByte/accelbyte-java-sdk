@@ -26,8 +26,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:REWARD", action=8 (DELETE) *
- * Returns : 204 No Content
+ * <p>* Returns : 204 No Content
  */
 @Getter
 @Setter

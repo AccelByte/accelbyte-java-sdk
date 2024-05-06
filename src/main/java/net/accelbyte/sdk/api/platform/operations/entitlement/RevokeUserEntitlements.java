@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Revoke user's entitlements by ids. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT",
- * action=4 (UPDATE) * Returns : revoke entitlements count
+ * <p>* Returns : revoke entitlements count
  */
 @Getter
 @Setter

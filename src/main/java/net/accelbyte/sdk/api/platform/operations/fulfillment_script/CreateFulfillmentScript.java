@@ -23,8 +23,6 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>[Not Supported Yet In Starter] Create fulfillment script. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:FULFILLMENT", action=1 (CREATE)
- *
  * <p>Fulfillment scripts are used for adding custom fulfillment logic based on ITEM_TYPE :
  * [MEDIA,INGAMEITEM] for now, and the custom scripts only cover grantDays. Example for grantDays:
  * `order && ((order.currency && order.currency.currencyCode) == 'LP' || order.isFree) ? 30 : -1`

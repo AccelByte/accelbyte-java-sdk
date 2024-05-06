@@ -20,9 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * setDefaultPolicy
  *
- * <p>Update a localized version policy to be the default. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
+ * <p>Update a localized version policy to be the default.
  */
 @Getter
 @Setter

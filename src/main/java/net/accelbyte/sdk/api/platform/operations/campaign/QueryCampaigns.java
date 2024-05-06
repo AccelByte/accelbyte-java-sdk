@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Query campaigns, if name is presented, it's fuzzy match. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ)
- * (READ) * Returns : slice of campaigns
+ * <p>* Returns : slice of campaigns
  */
 @Getter
 @Setter

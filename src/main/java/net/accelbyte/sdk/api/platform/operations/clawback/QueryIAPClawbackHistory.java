@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Query clawback history. Other detail info:
  *
- * <p>* Required permission : resource=ADMIN:NAMESPACE:{namespace}:IAP:CLAWBACK, action=2 (READ) *
- * Returns : paginated clawback history
+ * <p>* Returns : paginated clawback history
  */
 @Getter
 @Setter

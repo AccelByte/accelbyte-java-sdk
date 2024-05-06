@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Delete a currency by currency code. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:CURRENCY", action=8 (DELETE) *
- * Returns :
+ * <p>* Returns :
  */
 @Getter
 @Setter

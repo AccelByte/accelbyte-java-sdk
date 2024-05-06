@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=2 (READ) *
- * Returns : category data
+ * <p>* Returns : category data
  */
 @Getter
 @Setter

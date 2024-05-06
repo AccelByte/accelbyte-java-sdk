@@ -33,8 +33,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * |SUBSCRIPTION) and value is product tax code:
  * https://developers.taxjar.com/api/reference/?ruby#get-list-tax-categories
  *
- * <p>Other detail info: * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
- * * Returns : payment global tax config
+ * <p>Other detail info: * Returns : payment global tax config
  */
 @Getter
 @Setter

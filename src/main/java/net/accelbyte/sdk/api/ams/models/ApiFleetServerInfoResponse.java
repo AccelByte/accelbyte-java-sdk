@@ -55,6 +55,9 @@ public class ApiFleetServerInfoResponse extends Model {
   @JsonProperty("region")
   private String region;
 
+  @JsonProperty("serverConfiguration")
+  private String serverConfiguration;
+
   @JsonProperty("serverId")
   private String serverId;
 

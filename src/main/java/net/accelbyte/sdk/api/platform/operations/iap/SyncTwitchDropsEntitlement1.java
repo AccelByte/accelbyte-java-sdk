@@ -21,12 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * syncTwitchDropsEntitlement_1
  *
- * <p>Sync twitch drops entitlements.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
- * * Returns :
+ * <p>Sync twitch drops entitlements.Other detail info: * Returns :
  */
 @Getter
 @Setter

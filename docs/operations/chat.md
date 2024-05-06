@@ -7,6 +7,7 @@
 ### topic Wrapper:  [Topic](../../src/main/java/net/accelbyte/sdk/api/chat/wrappers/Topic.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
+| `/chat/admin/namespaces/{namespace}/chat/filter` | POST | AdminFilterChatMessage | [AdminFilterChatMessage](../../src/main/java/net/accelbyte/sdk/api/chat/operations/topic/AdminFilterChatMessage.java) | [AdminFilterChatMessage](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/chat/topic/AdminFilterChatMessage.java) |
 | `/chat/admin/namespaces/{namespace}/chats` | GET | AdminChatHistory | [AdminChatHistory](../../src/main/java/net/accelbyte/sdk/api/chat/operations/topic/AdminChatHistory.java) | [AdminChatHistory](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/chat/topic/AdminChatHistory.java) |
 | `/chat/admin/namespaces/{namespace}/namespace-topic` | POST | AdminCreateNamespaceTopic | [AdminCreateNamespaceTopic](../../src/main/java/net/accelbyte/sdk/api/chat/operations/topic/AdminCreateNamespaceTopic.java) | [AdminCreateNamespaceTopic](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/chat/topic/AdminCreateNamespaceTopic.java) |
 | `/chat/admin/namespaces/{namespace}/topic` | GET | AdminTopicList | [AdminTopicList](../../src/main/java/net/accelbyte/sdk/api/chat/operations/topic/AdminTopicList.java) | [AdminTopicList](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/chat/topic/AdminTopicList.java) |
@@ -45,6 +46,7 @@
 | `/chat/v1/admin/config/namespaces/{namespace}` | PUT | AdminUpdateConfigV1 | [AdminUpdateConfigV1](../../src/main/java/net/accelbyte/sdk/api/chat/operations/config/AdminUpdateConfigV1.java) | [AdminUpdateConfigV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/chat/config/AdminUpdateConfigV1.java) |
 | `/chat/v1/admin/config/namespaces/{namespace}/export` | GET | ExportConfig | [ExportConfig](../../src/main/java/net/accelbyte/sdk/api/chat/operations/config/ExportConfig.java) | [ExportConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/chat/config/ExportConfig.java) |
 | `/chat/v1/admin/config/namespaces/{namespace}/import` | POST | ImportConfig | [ImportConfig](../../src/main/java/net/accelbyte/sdk/api/chat/operations/config/ImportConfig.java) | [ImportConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/chat/config/ImportConfig.java) |
+| `/chat/v1/public/config/namespaces/{namespace}` | GET | PublicGetConfigV1 | [PublicGetConfigV1](../../src/main/java/net/accelbyte/sdk/api/chat/operations/config/PublicGetConfigV1.java) | [PublicGetConfigV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/chat/config/PublicGetConfigV1.java) |
 
 ### inbox Wrapper:  [Inbox](../../src/main/java/net/accelbyte/sdk/api/chat/wrappers/Inbox.java)
 | Endpoint | Method | ID | Class | Example |
@@ -141,10 +143,13 @@
 | `models.GetInboxUsersResponse` | [ModelsGetInboxUsersResponse](../../src/main/java/net/accelbyte/sdk/api/chat/models/ModelsGetInboxUsersResponse.java) |
 | `models.ImportConfigResponse` | [ModelsImportConfigResponse](../../src/main/java/net/accelbyte/sdk/api/chat/models/ModelsImportConfigResponse.java) |
 | `models.JSONSchemaType` | [ModelsJSONSchemaType](../../src/main/java/net/accelbyte/sdk/api/chat/models/ModelsJSONSchemaType.java) |
+| `models.MessageRequest` | [ModelsMessageRequest](../../src/main/java/net/accelbyte/sdk/api/chat/models/ModelsMessageRequest.java) |
+| `models.MessageResultWithAttributes` | [ModelsMessageResultWithAttributes](../../src/main/java/net/accelbyte/sdk/api/chat/models/ModelsMessageResultWithAttributes.java) |
 | `models.MessageStats` | [ModelsMessageStats](../../src/main/java/net/accelbyte/sdk/api/chat/models/ModelsMessageStats.java) |
 | `models.Pagination` | [ModelsPagination](../../src/main/java/net/accelbyte/sdk/api/chat/models/ModelsPagination.java) |
 | `models.PublicBanTopicMembersRequest` | [ModelsPublicBanTopicMembersRequest](../../src/main/java/net/accelbyte/sdk/api/chat/models/ModelsPublicBanTopicMembersRequest.java) |
 | `models.PublicBanTopicMembersResponse` | [ModelsPublicBanTopicMembersResponse](../../src/main/java/net/accelbyte/sdk/api/chat/models/ModelsPublicBanTopicMembersResponse.java) |
+| `models.PublicConfigResponse` | [ModelsPublicConfigResponse](../../src/main/java/net/accelbyte/sdk/api/chat/models/ModelsPublicConfigResponse.java) |
 | `models.PublicUnbanTopicMembersRequest` | [ModelsPublicUnbanTopicMembersRequest](../../src/main/java/net/accelbyte/sdk/api/chat/models/ModelsPublicUnbanTopicMembersRequest.java) |
 | `models.PublicUnbanTopicMembersResponse` | [ModelsPublicUnbanTopicMembersResponse](../../src/main/java/net/accelbyte/sdk/api/chat/models/ModelsPublicUnbanTopicMembersResponse.java) |
 | `models.SaveInboxMessageRequest` | [ModelsSaveInboxMessageRequest](../../src/main/java/net/accelbyte/sdk/api/chat/models/ModelsSaveInboxMessageRequest.java) |

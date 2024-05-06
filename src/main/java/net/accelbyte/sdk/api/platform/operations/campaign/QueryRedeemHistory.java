@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Query redeem history. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ) *
- * Returns : slice of redeem history
+ * <p>* Returns : slice of redeem history
  */
 @Getter
 @Setter

@@ -24,7 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>List time zones. Other detail info:
  *
- * <p>* Required permission : login user * Action code : 11205 * Returns : time zones
+ * <p>* Action code : 11205 * Returns : time zones
  */
 @Getter
 @Setter

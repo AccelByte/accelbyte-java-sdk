@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>[Not Supported Yet In Starter] Get payment order charge status. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT", action=2 (READ) *
- * Returns : payment order charge status
+ * <p>* Returns : payment order charge status
  */
 @Getter
 @Setter

@@ -21,12 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicFulfillAppleIAPItem
  *
- * <p>Verify apple iap receipt and fulfill item.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
- * * Returns :
+ * <p>Verify apple iap receipt and fulfill item.Other detail info: * Returns :
  */
 @Getter
 @Setter

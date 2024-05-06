@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * anonymizeEntitlement
  *
  * <p>Anonymize entitlement. At current it will only anonymize entitlement, entitlement history.
- * Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION",
- * action=8 (DELETE)
  */
 @Getter
 @Setter

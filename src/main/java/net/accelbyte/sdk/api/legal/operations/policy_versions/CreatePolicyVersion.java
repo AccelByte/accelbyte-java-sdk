@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * createPolicyVersion
  *
- * <p>Create a version of a particular country-specific policy. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=1 (CREATE)
+ * <p>Create a version of a particular country-specific policy.
  */
 @Getter
 @Setter

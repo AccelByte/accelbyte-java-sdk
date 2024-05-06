@@ -20,9 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteLootBoxPluginConfig
  *
- * <p>Delete service plugin config. Other detail info:
- *
- * <p>* Required permission : resource=ADMIN:NAMESPACE:{namespace}:PLUGIN:CATALOG, action=8 (DELETE)
+ * <p>Delete service plugin config.
  */
 @Getter
 @Setter

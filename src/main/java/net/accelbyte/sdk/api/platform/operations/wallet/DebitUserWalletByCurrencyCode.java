@@ -21,10 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * debitUserWalletByCurrencyCode
  *
- * <p>Debit a user wallet by currency code, default is debit system wallet. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:WALLET", action=4
- * (UPDATE)
+ * <p>Debit a user wallet by currency code, default is debit system wallet.
  */
 @Getter
 @Setter

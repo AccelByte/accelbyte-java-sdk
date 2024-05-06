@@ -27,10 +27,9 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Other detail info:
  *
- * <p>* Required permission : resource=NAMESPACE:{namespace}:USER:{userId}:STORE, action=2 (READ) *
- * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view
- * draft store views) * Optional permission : resource="SANDBOX", action=1(CREATE) (user with this
- * permission can view draft store views) * Returns : all views
+ * <p>* Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can
+ * view draft store views) * Optional permission : resource="SANDBOX", action=1(CREATE) (user with
+ * this permission can view draft store views) * Returns : all views
  */
 @Getter
 @Setter

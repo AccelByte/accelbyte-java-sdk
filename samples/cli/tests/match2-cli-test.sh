@@ -172,7 +172,7 @@ eval_tap $? 18 'MatchPoolList' test.out
 #- 19 CreateMatchPool
 ./ng net.accelbyte.sdk.cli.Main match2 createMatchPool \
     --namespace "$AB_NAMESPACE" \
-    --body '{"auto_accept_backfill_proposal": false, "backfill_proposal_expiration_seconds": 42, "backfill_ticket_expiration_seconds": 29, "crossplay_disabled": true, "match_function": "3td6TC6I3lMjGSWN", "match_function_override": {"backfill_matches": "2laRlxfcjHfYakUC", "enrichment": ["TqGkE7wcWfDslpJS", "qGAXQ0yYoNRKd3IL", "5TAQ6iiPlSC2uE4o"], "make_matches": "5Vwdo3fePqIJA8IH", "stat_codes": ["trkmu0hpDDWVAla2", "l5BYNtIuS5S5XUdj", "soqwGyzzWi9gwQYv"], "validation": ["7t1o7TTr1DmrhZv1", "5T7quIOvBMcaYmvC", "kGZ5dAgqxpBFmaLo"]}, "name": "xozr6wfNPX2bOItR", "platfrom_group_enabled": true, "rule_set": "u0M3VHh2EI8JlDbP", "session_template": "WbQ6Q9lNmqRBaAkL", "ticket_expiration_seconds": 28}' \
+    --body '{"auto_accept_backfill_proposal": false, "backfill_proposal_expiration_seconds": 42, "backfill_ticket_expiration_seconds": 29, "crossplay_disabled": true, "match_function": "3td6TC6I3lMjGSWN", "match_function_override": {"backfill_matches": "2laRlxfcjHfYakUC", "enrichment": ["TqGkE7wcWfDslpJS", "qGAXQ0yYoNRKd3IL", "5TAQ6iiPlSC2uE4o"], "make_matches": "5Vwdo3fePqIJA8IH", "stat_codes": ["trkmu0hpDDWVAla2", "l5BYNtIuS5S5XUdj", "soqwGyzzWi9gwQYv"], "validation": ["7t1o7TTr1DmrhZv1", "5T7quIOvBMcaYmvC", "kGZ5dAgqxpBFmaLo"]}, "name": "xozr6wfNPX2bOItR", "platform_group_enabled": true, "rule_set": "u0M3VHh2EI8JlDbP", "session_template": "WbQ6Q9lNmqRBaAkL", "ticket_expiration_seconds": 28}' \
     > test.out 2>&1
 eval_tap $? 19 'CreateMatchPool' test.out
 
@@ -187,7 +187,7 @@ eval_tap $? 20 'MatchPoolDetails' test.out
 ./ng net.accelbyte.sdk.cli.Main match2 updateMatchPool \
     --namespace "$AB_NAMESPACE" \
     --pool 'jChB3V0v52Dlym6p' \
-    --body '{"auto_accept_backfill_proposal": true, "backfill_proposal_expiration_seconds": 86, "backfill_ticket_expiration_seconds": 81, "crossplay_disabled": true, "match_function": "3xoJ8aeCnaLpUKp4", "match_function_override": {"backfill_matches": "4YUDjasWIPUvmEej", "enrichment": ["tGeoyIPa8ZRrvjj7", "il35MXbN9oCMNqq9", "8SjTvhZNkSQ70D0H"], "make_matches": "6BXksUC9b6i5lZC9", "stat_codes": ["xv32e8c5csSovoqs", "ZNBdte9NDUPVJf6c", "2Z0QZxfgPubTDIHr"], "validation": ["vqAThuwjRHpKKTlm", "Vr9XuoJbRFQSKVPH", "bn4Xxtu7LQRENjEE"]}, "platfrom_group_enabled": true, "rule_set": "6YE3p4lSck0ZHn5G", "session_template": "I39YBHqaTHeKtW18", "ticket_expiration_seconds": 18}' \
+    --body '{"auto_accept_backfill_proposal": true, "backfill_proposal_expiration_seconds": 86, "backfill_ticket_expiration_seconds": 81, "crossplay_disabled": true, "match_function": "3xoJ8aeCnaLpUKp4", "match_function_override": {"backfill_matches": "4YUDjasWIPUvmEej", "enrichment": ["tGeoyIPa8ZRrvjj7", "il35MXbN9oCMNqq9", "8SjTvhZNkSQ70D0H"], "make_matches": "6BXksUC9b6i5lZC9", "stat_codes": ["xv32e8c5csSovoqs", "ZNBdte9NDUPVJf6c", "2Z0QZxfgPubTDIHr"], "validation": ["vqAThuwjRHpKKTlm", "Vr9XuoJbRFQSKVPH", "bn4Xxtu7LQRENjEE"]}, "platform_group_enabled": true, "rule_set": "6YE3p4lSck0ZHn5G", "session_template": "I39YBHqaTHeKtW18", "ticket_expiration_seconds": 18}' \
     > test.out 2>&1
 eval_tap $? 21 'UpdateMatchPool' test.out
 

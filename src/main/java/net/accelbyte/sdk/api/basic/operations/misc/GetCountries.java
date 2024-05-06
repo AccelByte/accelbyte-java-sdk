@@ -25,7 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>List countries. Other detail info:
  *
- * <p>* Required permission : login user * Action code : 11204 * Returns : country code list
+ * <p>* Action code : 11204 * Returns : country code list
  *
  * @deprecated
  */

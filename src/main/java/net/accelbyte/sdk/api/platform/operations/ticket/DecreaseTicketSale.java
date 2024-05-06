@@ -22,9 +22,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * decreaseTicketSale
  *
  * <p>[SERVICE COMMUNICATION ONLY] Decrease ticket(code/key) sale if requested orderNo is already
- * increased. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:TICKET", action=4 (UPDATE)
+ * increased.
  */
 @Getter
 @Setter

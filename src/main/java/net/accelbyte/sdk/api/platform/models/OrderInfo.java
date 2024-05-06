@@ -51,6 +51,13 @@ public class OrderInfo extends Model {
   @JsonProperty("currency")
   private CurrencySummary currency;
 
+  @JsonProperty("deduction")
+  private Integer deduction;
+
+  @JsonProperty("deductionDetails")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<DeductionDetail> deductionDetails;
+
   @JsonProperty("discountedPrice")
   private Integer discountedPrice;
 

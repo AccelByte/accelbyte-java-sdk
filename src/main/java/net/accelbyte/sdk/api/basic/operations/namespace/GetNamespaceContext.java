@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get context of namespace. Other detail info:
  *
- * <p>* Required permission : resource= "ADMIN:NAMESPACE:{namespace}:NAMESPACE" , action=2 (READ) *
- * Returns : context of namespace
+ * <p>* Returns : context of namespace
  */
 @Getter
 @Setter

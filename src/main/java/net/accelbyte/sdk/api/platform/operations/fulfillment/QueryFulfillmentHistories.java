@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Query fulfillment histories in a namespace. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:FULFILLMENT", action=2 (READ) *
- * Returns : query fulfillment history
+ * <p>* Returns : query fulfillment history
  */
 @Getter
 @Setter

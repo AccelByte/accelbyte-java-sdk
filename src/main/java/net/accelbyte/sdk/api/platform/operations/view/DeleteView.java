@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * deleteView
  *
  * <p>This API is used to delete a view.It will also delete all the related sections
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=8 (DELETE)
  */
 @Getter
 @Setter

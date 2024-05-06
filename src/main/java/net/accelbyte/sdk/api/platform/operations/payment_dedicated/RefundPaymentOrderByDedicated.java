@@ -120,8 +120,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>#### Other detail info:
  *
- * <p>* Token type : client token * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:PAYMENT", action=4 (UPDATE) * cross namespace allowed
+ * <p>* Token type : client token * cross namespace allowed
  */
 @Getter
 @Setter

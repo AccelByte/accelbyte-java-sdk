@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>This API is used to update a reward. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:REWARD", action=4 (UPDATE) *
- * Returns : reward instance * Acceptable values for rewardItem's identityType are : ITEM_ID or
+ * <p>* Returns : reward instance * Acceptable values for rewardItem's identityType are : ITEM_ID or
  * ITEM_SKU
  */
 @Getter

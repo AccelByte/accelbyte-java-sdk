@@ -123,6 +123,15 @@ public class Namespace {
   }
 
   /**
+   * @see GetNamespace1
+   */
+  public NamespaceSimpleInfo getNamespace1(GetNamespace1 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicGetNamespacePublisher
    */
   public NamespacePublisherInfo publicGetNamespacePublisher(PublicGetNamespacePublisher input)

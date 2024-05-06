@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicCancelMyAccountDeletionRequest
  *
- * <p>Requires valid user access token
+ * <p>Cancel my account deletion request Requires valid user access token
  */
 @Getter
 @Setter

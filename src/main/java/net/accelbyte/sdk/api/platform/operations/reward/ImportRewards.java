@@ -22,10 +22,6 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Import reward configurations for a given namespace from file. At current, only JSON file is
  * supported.
- *
- * <p>Other detail info:
- *
- * <p>* *Required permission*: resource="ADMIN:NAMESPACE:{namespace}:REWARD", action=1 (CREATE)
  */
 @Getter
 @Setter

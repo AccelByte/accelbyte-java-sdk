@@ -115,7 +115,9 @@ public class Order {
 
   /**
    * @see GetUserOrderGrant
+   * @deprecated
    */
+  @Deprecated
   public OrderGrantInfo getUserOrderGrant(GetUserOrderGrant input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -164,6 +166,16 @@ public class Order {
    * @see PublicCreateUserOrder
    */
   public OrderInfo publicCreateUserOrder(PublicCreateUserOrder input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicPreviewOrderPrice
+   */
+  public OrderDiscountPreviewResponse publicPreviewOrderPrice(PublicPreviewOrderPrice input)
+      throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

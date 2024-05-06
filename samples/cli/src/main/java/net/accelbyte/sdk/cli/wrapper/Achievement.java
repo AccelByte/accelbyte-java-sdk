@@ -11,6 +11,7 @@ package net.accelbyte.sdk.cli.wrapper;
 import net.accelbyte.sdk.cli.api.achievement.achievements.*;
 import net.accelbyte.sdk.cli.api.achievement.anonymization.*;
 import net.accelbyte.sdk.cli.api.achievement.global_achievements.*;
+import net.accelbyte.sdk.cli.api.achievement.platform_achievement.*;
 import net.accelbyte.sdk.cli.api.achievement.tags.*;
 import net.accelbyte.sdk.cli.api.achievement.user_achievements.*;
 import picocli.CommandLine.Command;
@@ -30,6 +31,7 @@ import picocli.CommandLine.Command;
       AdminListGlobalAchievements.class,
       AdminListGlobalAchievementContributors.class,
       ResetGlobalAchievement.class,
+      BulkCreatePSNEvent.class,
       AdminListTags.class,
       AdminListUserAchievements.class,
       AdminResetAchievement.class,

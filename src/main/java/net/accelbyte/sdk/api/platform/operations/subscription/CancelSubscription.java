@@ -27,8 +27,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * current billing cycle. Set force true, will ignore the error if subscription is during recurring
  * charging. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SUBSCRIPTION",
- * action=4 (UPDATE) * Returns : cancelled subscription
+ * <p>* Returns : cancelled subscription
  */
 @Getter
 @Setter

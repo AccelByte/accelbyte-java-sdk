@@ -20,9 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * selectAllRecords
  *
- * <p>Select all changes. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
+ * <p>Select all changes.
  */
 @Getter
 @Setter

@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updatePolicyVersion
  *
- * <p>Update a particular policy version. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
+ * <p>Update a particular policy version.
  */
 @Getter
 @Setter

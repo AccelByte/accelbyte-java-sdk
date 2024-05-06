@@ -21,12 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * syncSteamInventory
  *
- * <p>Sync steam inventory's items.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
- * * Returns :
+ * <p>Sync steam inventory's items.Other detail info: * Returns :
  */
 @Getter
 @Setter

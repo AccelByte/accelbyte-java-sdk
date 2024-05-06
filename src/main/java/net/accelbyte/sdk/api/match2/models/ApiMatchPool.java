@@ -47,9 +47,9 @@ public class ApiMatchPool extends Model {
   @JsonProperty("name")
   private String name;
 
-  @JsonProperty("platfrom_group_enabled")
+  @JsonProperty("platform_group_enabled")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Boolean platfromGroupEnabled;
+  private Boolean platformGroupEnabled;
 
   @JsonProperty("rule_set")
   private String ruleSet;

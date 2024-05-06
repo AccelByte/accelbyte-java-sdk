@@ -21,10 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetServicesConfiguration
  *
- * <p>Get Registered Services Configuration.
- *
- * <p>Required permission `ADMIN:NAMESPACE:{namespace}:GDPR:CONFIGURATION [READ]` and scope
- * `account`
+ * <p>Get Registered Services Configuration. Scope: account
  */
 @Getter
 @Setter

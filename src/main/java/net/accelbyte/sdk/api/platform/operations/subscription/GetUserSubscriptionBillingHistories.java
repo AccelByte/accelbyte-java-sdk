@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get user subscription billing histories. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SUBSCRIPTION",
- * action=2 (READ) * Returns : paginated subscription billing history
+ * <p>* Returns : paginated subscription billing history
  */
 @Getter
 @Setter

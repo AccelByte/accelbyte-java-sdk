@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updatePlatformDLCConfig
  *
- * <p>Update Platform DLC config. Other detail info: * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:DLC:CONFIG", action=4 (UPDATE) * Returns : updated Platform
- * DLC config
+ * <p>Update Platform DLC config. Other detail info: * Returns : updated Platform DLC config
  *
  * <p>## Restrictions for platform dlc map
  *

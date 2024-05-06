@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * entitlement can't consume. Like revoke, it will lose the entitlement ownership, except disabled
  * entitlement can enable. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT",
- * action=4 (UPDATE) * Returns : disable entitlement
+ * <p>* Returns : disable entitlement
  */
 @Getter
 @Setter

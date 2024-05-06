@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getLootBoxGrpcInfo
  *
- * <p>Get lootbox plugin gRPC info. Other detail info:
- *
- * <p>* Required permission : resource= ADMIN:NAMESPACE:{namespace}:PLUGIN:CATALOG , action=2 (READ)
+ * <p>Get lootbox plugin gRPC info.
  */
 @Getter
 @Setter

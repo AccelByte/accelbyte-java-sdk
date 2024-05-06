@@ -27,17 +27,18 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>## Searching by 3rd party platform
  *
- * <p>**Note: searching by 3rd party platform display name will use exact query.**
+ * <p>**Note: searching by 3rd party platform display name will use exact query, not fuzzy query.**
  *
  * <p>Step when searching by 3rd party platform display name: 1. set __by__ to
- * __thirdPartyPlatform__ 2. set __platformId__ to the supported platform id 3. set __platformBy__
+ * __thirdPartyPlatform__ 2. set __platformId__ to the _supported platform id_ 3. set __platformBy__
  * to __platformDisplayName__
  *
- * <p>### Supported platform id:
+ * <p>### Supported platform id: * Steam group(steamnetwork) * steam * steamopenid * PSN group(psn)
+ * * ps4web * ps4 * ps5 * XBOX group(xbox) * live * xblweb * Oculus group(oculusgroup) * oculus *
+ * oculusweb * facebook * google * twitch * discord * android * ios * apple * device * epicgames *
+ * nintendo * awscognito * netflix * snapchat * _oidc platform id_
  *
- * <p>* steam * steamopenid * facebook * google * oculus * oculusweb * twitch * discord * android *
- * ios * apple * device * epicgames * ps4 * ps5 * ps4web * nintendo * awscognito * live * xblweb *
- * netflix * snapchat * oidc platform id
+ * <p>Note: you can use either platform ID or platform group as __platformId__ query parameter.
  */
 @Getter
 @Setter

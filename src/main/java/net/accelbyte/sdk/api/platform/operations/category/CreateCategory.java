@@ -35,8 +35,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=1 (CREATE) *
- * Returns : created category data
+ * <p>* Returns : created category data
  */
 @Getter
 @Setter

@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateOculusIAPConfig
  *
- * <p>Update oculus iap config. Other detail info: * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE) * Returns : updated steam
- * iap config
+ * <p>Update oculus iap config. Other detail info: * Returns : updated steam iap config
  */
 @Getter
 @Setter

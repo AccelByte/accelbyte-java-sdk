@@ -24,8 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Redeem campaign code, this api have rate limit, default: only allow request once per user in 2
  * seconds Other detail info:
  *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:FULFILLMENT", action=1
- * (CREATED) * Returns : fulfillment result
+ * <p>* Returns : fulfillment result
  */
 @Getter
 @Setter

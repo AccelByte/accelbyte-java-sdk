@@ -22,10 +22,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * queryImportHistory
  *
  * <p>This API is used to query import store history
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
  */
 @Getter
 @Setter

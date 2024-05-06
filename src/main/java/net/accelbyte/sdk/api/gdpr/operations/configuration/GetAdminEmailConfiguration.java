@@ -22,10 +22,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetAdminEmailConfiguration
  *
- * <p>Get list of admin email address configuration.
- *
- * <p>Required permission `ADMIN:NAMESPACE:{namespace}:EMAIL:CONFIGURATION [READ]` and scope
- * `account`
+ * <p>Get list of admin email address configuration. Scope: account
  */
 @Getter
 @Setter

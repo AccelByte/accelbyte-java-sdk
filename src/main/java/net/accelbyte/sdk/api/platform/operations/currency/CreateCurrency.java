@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Create a currency. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:CURRENCY", action=1 (CREATE) *
- * Returns : created currency
+ * <p>* Returns : created currency
  */
 @Getter
 @Setter

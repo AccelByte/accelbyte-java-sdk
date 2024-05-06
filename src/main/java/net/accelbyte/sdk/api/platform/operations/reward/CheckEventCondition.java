@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>[TEST FACILITY ONLY] Forbidden in live environment. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:REWARD", action=2 (READ) *
- * Returns : match result
+ * <p>* Returns : match result
  */
 @Getter
 @Setter

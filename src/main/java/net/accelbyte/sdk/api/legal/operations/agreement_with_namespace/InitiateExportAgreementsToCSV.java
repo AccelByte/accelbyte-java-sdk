@@ -27,10 +27,6 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>This Initiate API is not allow multiple export worker running for the same namespace, it will
  * return 409 http error if so.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
  */
 @Getter
 @Setter
@@ -47,18 +43,24 @@ public class InitiateExportAgreementsToCSV extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private String end;
   private String policyVersionId;
+  private String start;
 
   /**
    * @param namespace required
    * @param policyVersionId required
+   * @param start required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public InitiateExportAgreementsToCSV(String namespace, String policyVersionId) {
+  public InitiateExportAgreementsToCSV(
+      String namespace, String end, String policyVersionId, String start) {
     this.namespace = namespace;
+    this.end = end;
     this.policyVersionId = policyVersionId;
+    this.start = start;
 
     securities.add("Bearer");
   }
@@ -75,9 +77,11 @@ public class InitiateExportAgreementsToCSV extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("end", this.end == null ? null : Arrays.asList(this.end));
     queryParams.put(
         "policyVersionId",
         this.policyVersionId == null ? null : Arrays.asList(this.policyVersionId));
+    queryParams.put("start", this.start == null ? null : Arrays.asList(this.start));
     return queryParams;
   }
 
@@ -87,6 +91,9 @@ public class InitiateExportAgreementsToCSV extends Operation {
       return false;
     }
     if (this.policyVersionId == null) {
+      return false;
+    }
+    if (this.start == null) {
       return false;
     }
     return true;
@@ -105,7 +112,9 @@ public class InitiateExportAgreementsToCSV extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("end", "None");
     result.put("policyVersionId", "None");
+    result.put("start", "None");
     return result;
   }
 }

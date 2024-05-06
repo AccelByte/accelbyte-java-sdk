@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get namespace info related publisher namespace. Other detail info:
  *
- * <p>* Required permission : resource= "ADMIN:NAMESPACE:{namespace}:NAMESPACE" , action=2 (READ) *
- * Action code : 11305 * Returns : Namespace info related publisher namespace
+ * <p>* Action code : 11305 * Returns : Namespace info related publisher namespace
  */
 @Getter
 @Setter

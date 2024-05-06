@@ -24,8 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Get a publisher config. It will return a publisher namespace config of the given namespace and
  * key. Other detail info:
  *
- * <p>* Required permission : resource= "ADMIN:NAMESPACE:{namespace}:BASIC:CONFIG" , action=2 (READ)
- * * Returns : config
+ * <p>* Returns : config
  */
 @Getter
 @Setter

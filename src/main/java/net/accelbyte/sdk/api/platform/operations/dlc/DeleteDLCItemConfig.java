@@ -20,9 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteDLCItemConfig
  *
- * <p>delete a DLC item config. Other detail info:
- *
- * <p>* Required permission : resource= "ADMIN:NAMESPACE:{namespace}:DLC:CONFIG" , action=8 (DELETE)
+ * <p>delete a DLC item config.
  */
 @Getter
 @Setter

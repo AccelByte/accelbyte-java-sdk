@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>List user currency transactions ordered by create time desc. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:WALLET", action=2
- * (READ) * Returns : currency transaction info
+ * <p>* Returns : currency transaction info
  */
 @Getter
 @Setter

@@ -43,6 +43,9 @@ public class ModelPublicThirdPartyPlatformInfo extends Model {
   @JsonProperty("PlatformName")
   private String platformName;
 
+  @JsonProperty("TokenAuthenticationType")
+  private String tokenAuthenticationType;
+
   @JsonIgnore
   public ModelPublicThirdPartyPlatformInfo createFromJson(String json)
       throws JsonProcessingException {

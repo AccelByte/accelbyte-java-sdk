@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>List currencies of a namespace. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:CURRENCY", action=2 (READ) *
- * Returns : Currency List
+ * <p>* Returns : Currency List
  */
 @Getter
 @Setter

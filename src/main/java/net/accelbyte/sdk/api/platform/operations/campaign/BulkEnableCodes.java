@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Bulk enable campaign codes. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=4 (UPDATE) *
- * Returns : the number of code actually enabled
+ * <p>* Returns : the number of code actually enabled
  */
 @Getter
 @Setter

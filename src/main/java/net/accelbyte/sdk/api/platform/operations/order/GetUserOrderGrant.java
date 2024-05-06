@@ -23,9 +23,11 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get user order grant that fulfilled by this order. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ORDER", action=2
- * (READ) * Returns : get order grant
+ * <p>* Returns : get order grant
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetUserOrderGrant extends Operation {

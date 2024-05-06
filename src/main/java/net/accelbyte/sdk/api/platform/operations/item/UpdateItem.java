@@ -248,8 +248,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE) *
- * Returns : updated item data
+ * <p>* Returns : updated item data
  *
  * <p>## Restrictions for item extension and localization extension
  *

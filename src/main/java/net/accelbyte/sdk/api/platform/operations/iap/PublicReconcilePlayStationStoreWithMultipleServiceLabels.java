@@ -23,12 +23,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicReconcilePlayStationStoreWithMultipleServiceLabels
  *
- * <p>Synchronize with entitlements in PSN Store with multiple service labels.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
- * * Returns : result of synchronization
+ * <p>Synchronize with entitlements in PSN Store with multiple service labels.Other detail info: *
+ * Returns : result of synchronization
  */
 @Getter
 @Setter

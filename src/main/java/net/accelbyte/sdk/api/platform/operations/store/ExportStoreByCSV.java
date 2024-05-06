@@ -22,10 +22,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * exportStoreByCSV
  *
  * <p>This API is used to export a store to CSV format
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
  */
 @Getter
 @Setter

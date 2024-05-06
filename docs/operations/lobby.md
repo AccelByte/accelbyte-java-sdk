@@ -27,6 +27,11 @@
 | `/lobby/v1/admin/friend/namespaces/{namespace}/users/{userId}/of-friends` | GET | AdminListFriendsOfFriends | [AdminListFriendsOfFriends](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/friends/AdminListFriendsOfFriends.java) | [AdminListFriendsOfFriends](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/friends/AdminListFriendsOfFriends.java) |
 | `/lobby/v1/admin/friend/namespaces/{namespace}/users/{userId}/outgoing` | GET | GetOutgoingFriendRequests | [GetOutgoingFriendRequests](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/friends/GetOutgoingFriendRequests.java) | [GetOutgoingFriendRequests](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/friends/GetOutgoingFriendRequests.java) |
 
+### blocks Wrapper:  [Blocks](../../src/main/java/net/accelbyte/sdk/api/lobby/wrappers/Blocks.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/lobby/sync/namespaces/{namespace}/me/block` | PATCH | SyncNativeBlockedUser | [SyncNativeBlockedUser](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/blocks/SyncNativeBlockedUser.java) | [SyncNativeBlockedUser](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/blocks/SyncNativeBlockedUser.java) |
+
 ### config Wrapper:  [Config](../../src/main/java/net/accelbyte/sdk/api/lobby/wrappers/Config.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -76,6 +81,7 @@
 | `/lobby/v1/admin/notification/namespaces/{namespace}/topics/{topicName}` | DELETE | DeleteNotificationTopicV1Admin | [DeleteNotificationTopicV1Admin](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/notification/DeleteNotificationTopicV1Admin.java) | [DeleteNotificationTopicV1Admin](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/notification/DeleteNotificationTopicV1Admin.java) |
 | `/lobby/v1/admin/notification/namespaces/{namespace}/users/{userId}/freeform/notify` | POST | SendSpecificUserFreeformNotificationV1Admin | [SendSpecificUserFreeformNotificationV1Admin](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/notification/SendSpecificUserFreeformNotificationV1Admin.java) | [SendSpecificUserFreeformNotificationV1Admin](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/notification/SendSpecificUserFreeformNotificationV1Admin.java) |
 | `/lobby/v1/admin/notification/namespaces/{namespace}/users/{userId}/templates/notify` | POST | SendSpecificUserTemplatedNotificationV1Admin | [SendSpecificUserTemplatedNotificationV1Admin](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/notification/SendSpecificUserTemplatedNotificationV1Admin.java) | [SendSpecificUserTemplatedNotificationV1Admin](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/notification/SendSpecificUserTemplatedNotificationV1Admin.java) |
+| `/notification/namespaces/{namespace}/me` | GET | GetMyNotifications | [GetMyNotifications](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/notification/GetMyNotifications.java) | [GetMyNotifications](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/notification/GetMyNotifications.java) |
 | `/notification/namespaces/{namespace}/topics` | GET | GetTopicByNamespace | [GetTopicByNamespace](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/notification/GetTopicByNamespace.java) | [GetTopicByNamespace](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/notification/GetTopicByNamespace.java) |
 | `/notification/namespaces/{namespace}/topics` | POST | CreateTopic | [CreateTopic](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/notification/CreateTopic.java) | [CreateTopic](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/notification/CreateTopic.java) |
 | `/notification/namespaces/{namespace}/topics/{topic}` | GET | GetTopicByTopicName | [GetTopicByTopicName](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/notification/GetTopicByTopicName.java) | [GetTopicByTopicName](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/notification/GetTopicByTopicName.java) |
@@ -181,6 +187,9 @@
 | `model.Localization` | [ModelLocalization](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelLocalization.java) |
 | `model.NativeFriendRequest` | [ModelNativeFriendRequest](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelNativeFriendRequest.java) |
 | `model.NativeFriendSyncResponse` | [ModelNativeFriendSyncResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelNativeFriendSyncResponse.java) |
+| `model.NativeUserBlockRequest` | [ModelNativeUserBlockRequest](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelNativeUserBlockRequest.java) |
+| `model.NativeUserBlockResponse` | [ModelNativeUserBlockResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelNativeUserBlockResponse.java) |
+| `model.NotificationResponse` | [ModelNotificationResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelNotificationResponse.java) |
 | `model.NotificationTemplateResponse` | [ModelNotificationTemplateResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelNotificationTemplateResponse.java) |
 | `model.NotificationTopicResponse` | [ModelNotificationTopicResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelNotificationTopicResponse.java) |
 | `model.NotificationTopicResponseV1` | [ModelNotificationTopicResponseV1](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelNotificationTopicResponseV1.java) |

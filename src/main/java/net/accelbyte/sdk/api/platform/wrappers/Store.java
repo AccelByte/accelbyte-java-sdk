@@ -24,6 +24,24 @@ public class Store {
   }
 
   /**
+   * @see GetCatalogConfig
+   */
+  public CatalogConfigInfo getCatalogConfig(GetCatalogConfig input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see UpdateCatalogConfig
+   */
+  public CatalogConfigInfo updateCatalogConfig(UpdateCatalogConfig input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see ListStores
    */
   public List<StoreInfo> listStores(ListStores input) throws Exception {

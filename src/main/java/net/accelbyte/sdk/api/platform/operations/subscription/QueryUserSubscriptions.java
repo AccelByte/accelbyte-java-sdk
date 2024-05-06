@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Query user subscriptions. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SUBSCRIPTION",
- * action=2 (READ) * Returns : paginated subscription
+ * <p>* Returns : paginated subscription
  */
 @Getter
 @Setter

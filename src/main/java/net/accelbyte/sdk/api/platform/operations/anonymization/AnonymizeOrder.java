@@ -20,10 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * anonymizeOrder
  *
- * <p>Anonymize order. At current it will only anonymize order, order history. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION",
- * action=8 (DELETE)
+ * <p>Anonymize order. At current it will only anonymize order, order history.
  */
 @Getter
 @Setter

@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get user profile. Other detail info:
  *
- * <p>* Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=2
- * (READ) * Action code : 11403 * Returns : user profile
+ * <p>* Action code : 11403 * Returns : user profile
  */
 @Getter
 @Setter

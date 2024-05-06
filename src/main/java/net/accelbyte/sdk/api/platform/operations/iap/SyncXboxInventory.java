@@ -23,12 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * syncXboxInventory
  *
- * <p>Sync Xbox inventory's items.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
- * * Returns :
+ * <p>Sync Xbox inventory's items.Other detail info: * Returns :
  */
 @Getter
 @Setter

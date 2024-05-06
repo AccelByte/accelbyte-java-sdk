@@ -22,8 +22,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Download user order receipt by orderNo. Other detail info:
  *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:ORDER", action=2 (READ)
- * * Returns : order receipt pdf
+ * <p>* Returns : order receipt pdf
  */
 @Getter
 @Setter

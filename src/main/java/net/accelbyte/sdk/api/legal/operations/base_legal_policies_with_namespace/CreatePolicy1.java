@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * createPolicy_1
  *
- * <p>Create a legal policy. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=1 (CREATE)
+ * <p>Create a legal policy.
  */
 @Getter
 @Setter

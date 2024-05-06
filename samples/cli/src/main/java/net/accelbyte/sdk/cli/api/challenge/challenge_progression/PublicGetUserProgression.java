@@ -46,6 +46,21 @@ public class PublicGetUserProgression implements Callable<Integer> {
   String goalCode;
 
   @Option(
+      names = {"--limit"},
+      description = "limit")
+  Integer limit;
+
+  @Option(
+      names = {"--offset"},
+      description = "offset")
+  Integer offset;
+
+  @Option(
+      names = {"--tags"},
+      description = "tags")
+  List<String> tags;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -74,6 +89,9 @@ public class PublicGetUserProgression implements Callable<Integer> {
                   .challengeCode(challengeCode)
                   .namespace(namespace)
                   .goalCode(goalCode)
+                  .limit(limit)
+                  .offset(offset)
+                  .tags(tags)
                   .build();
       final ModelUserProgressionResponse response = wrapper.publicGetUserProgression(operation);
       final String responseString =

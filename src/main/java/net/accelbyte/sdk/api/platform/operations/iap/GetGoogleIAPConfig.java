@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get google iap config. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ) *
- * Returns : google iap config
+ * <p>* Returns : google iap config
  */
 @Getter
 @Setter

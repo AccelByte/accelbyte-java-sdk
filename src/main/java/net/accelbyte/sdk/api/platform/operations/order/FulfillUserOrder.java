@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Fulfill an order if the order is charged but fulfill failed. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ORDER", action=4
- * (UPDATE) * Returns : fulfilled order
+ * <p>* Returns : fulfilled order
  */
 @Getter
 @Setter

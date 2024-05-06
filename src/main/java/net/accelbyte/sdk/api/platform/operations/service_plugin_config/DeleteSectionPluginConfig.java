@@ -20,9 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteSectionPluginConfig
  *
- * <p>Delete section plugin config. Other detail info:
- *
- * <p>* Required permission : resource=ADMIN:NAMESPACE:{namespace}:PLUGIN:CATALOG, action=8 (DELETE)
+ * <p>Delete section plugin config.
  */
 @Getter
 @Setter

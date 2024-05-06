@@ -53,6 +53,10 @@ public class ModelCreateChallengeRequest extends Model {
   @JsonProperty("name")
   private String name;
 
+  @JsonProperty("repeatAfter")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer repeatAfter;
+
   @JsonProperty("rotation")
   private String rotation;
 

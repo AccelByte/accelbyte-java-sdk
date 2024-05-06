@@ -35,6 +35,10 @@ public class CampaignInfo extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String description;
 
+  @JsonProperty("discountConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private DiscountConfig discountConfig;
+
   @JsonProperty("id")
   private String id;
 
@@ -155,6 +159,7 @@ public class CampaignInfo extends Model {
   }
 
   public enum RedeemType {
+    DISCOUNT("DISCOUNT"),
     ITEM("ITEM");
 
     private String value;

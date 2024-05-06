@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get entitlement config info. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:ENTITLEMENT:CONFIG", action=2
- * (READ) * Returns : entitlement info
+ * <p>* Returns : entitlement info
  */
 @Getter
 @Setter

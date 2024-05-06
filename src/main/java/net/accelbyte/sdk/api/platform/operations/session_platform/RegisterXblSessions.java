@@ -24,11 +24,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * registerXblSessions
  *
  * <p>This API is used to register/update a session on xbox.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource=ADMIN:NAMESPACE:{namespace}:USER:{userId}:INTEGRATION,
- * action=4 (UPDATE)
  */
 @Getter
 @Setter

@@ -20,6 +20,7 @@ import picocli.CommandLine.Command;
     name = "chat",
     mixinStandardHelpOptions = true,
     subcommands = {
+      AdminFilterChatMessage.class,
       AdminChatHistory.class,
       AdminCreateNamespaceTopic.class,
       AdminTopicList.class,
@@ -78,6 +79,7 @@ import picocli.CommandLine.Command;
       AdminProfanityUpdate.class,
       AdminProfanityDelete.class,
       PublicGetMessages.class,
+      PublicGetConfigV1.class,
       PublicGetChatSnapshot.class,
     })
 public class Chat implements Runnable {

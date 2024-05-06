@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicRequestDataRetrieval
  *
- * <p>Requires valid user access token
+ * <p>Submit personal data retrieval request. Scope: account
  */
 @Getter
 @Setter

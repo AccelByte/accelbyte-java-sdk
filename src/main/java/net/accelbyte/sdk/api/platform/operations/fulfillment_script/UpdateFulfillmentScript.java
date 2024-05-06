@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateFulfillmentScript
  *
- * <p>[Not Supported Yet In Starter] Update fulfillment script. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:FULFILLMENT", action=4 (UPDATE)
+ * <p>[Not Supported Yet In Starter] Update fulfillment script.
  */
 @Getter
 @Setter

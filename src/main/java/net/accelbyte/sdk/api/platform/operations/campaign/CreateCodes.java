@@ -24,8 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>This API is used to create campaign codes, it will increase the batch No. based on last
  * creation. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=1 (CREATE) *
- * Returns : number of codes created
+ * <p>* Returns : number of codes created
  */
 @Getter
 @Setter

@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get a namespace. In multi tenant mode, parentNamespace will be returned. Other detail info:
  *
- * <p>* Required permission : resource= "ADMIN:NAMESPACE:{namespace}:NAMESPACE" , action=2 (READ) *
- * Action code : 11304 * Returns : namespace
+ * <p>* Action code : 11304 * Returns : namespace
  */
 @Getter
 @Setter

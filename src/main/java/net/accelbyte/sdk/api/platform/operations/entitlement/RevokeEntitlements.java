@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Revoke entitlements, skipped revocation will be treated as fail. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:ENTITLEMENT", action=4 (UPDATE)
- * * Returns : bulk revoke entitlements result
+ * <p>* Returns : bulk revoke entitlements result
  */
 @Getter
 @Setter

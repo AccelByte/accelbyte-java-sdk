@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * [WxPay Document](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_1). Other detail
  * info:
  *
- * <p>* Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ) * Returns : test
- * WxPay config
+ * <p>* Returns : test WxPay config
  */
 @Getter
 @Setter

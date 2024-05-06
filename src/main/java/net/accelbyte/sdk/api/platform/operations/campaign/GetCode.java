@@ -24,8 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Get campaign code, it will check code whether available to redeem if redeemable true. Other
  * detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ)
- * (READ) * Returns : code info
+ * <p>* Returns : code info
  */
 @Getter
 @Setter

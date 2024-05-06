@@ -20,9 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UpdateAdminEmailConfiguration
  *
- * <p>Update admin email address for receiving personal data request notification.
- *
- * <p>Required permission `ADMIN:NAMESPACE:{namespace}:EMAIL:CONFIGURATION [UPDATE]`
+ * <p>Update admin email address for receiving personal data request notification. Scope: account
  */
 @Getter
 @Setter

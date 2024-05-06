@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateIAPItemConfig
  *
- * <p>Update iap item config. Other detail info: * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE) * Returns : updated iap item
- * config
+ * <p>Update iap item config. Other detail info: * Returns : updated iap item config
  */
 @Getter
 @Setter

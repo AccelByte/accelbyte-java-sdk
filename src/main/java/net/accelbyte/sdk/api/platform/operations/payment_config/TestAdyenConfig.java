@@ -32,8 +32,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>* notificationHmacKey * notificationUsername * notificationPassword * liveEndpointUrlPrefix *
  * allowedPaymentMethods * blockedPaymentMethods * settings
  *
- * <p>Other detail info: * Required permission : resource="ADMIN:PAYMENT:CONFIG", action=4 (UPDATE)
- * * Returns : test adyen config
+ * <p>Other detail info: * Returns : test adyen config
  */
 @Getter
 @Setter

@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Change a namespace status. Other detail info:
  *
- * <p>* Required permission : resource= "ADMIN:NAMESPACE:{namespace}:NAMESPACE" , action=4 (UPDATE)
- * * Action code : 11306 * Returns : updated namespace
+ * <p>* Action code : 11306 * Returns : updated namespace
  */
 @Getter
 @Setter

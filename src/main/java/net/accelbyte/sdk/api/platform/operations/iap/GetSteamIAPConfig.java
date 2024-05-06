@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get steam iap config. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=2 (READ) *
- * Returns : steam iap config
+ * <p>* Returns : steam iap config
  */
 @Getter
 @Setter

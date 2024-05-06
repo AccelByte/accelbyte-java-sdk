@@ -33,12 +33,14 @@ import net.accelbyte.sdk.core.util.Helper;
  * (optional) * startDate: timestamp of when the challenge is started * endDate: timestamp of when
  * the challenge is ended (optional) * endAfter: describe number of period challenge will be retired
  * after (optional) To configure challenge that never end, leave the endDate and endAfter field
- * null/empty. * rotation: describe how long goals in a challenge will be available for players to
- * progress before rotated with another goals. (DAILY|WEEKLY|MONTHLY|NONE) * activeGoalsPerRotation:
- * number of goals per rotation (currently only applicable for RANDOMIZE assignment) *
- * assignmentRule: describe how the goals will be assigned and scheduled to users.
- * (FIXED|RANDOMIZED|UNSCHEDULED) * goalsVisibility: describe whether users can see all goals under
- * challenge, or only active goal in one rotation period only. (SHOWALL|PERIODONLY)
+ * null/empty. * repeatAfter: describe number of period challenge's goals will be repeated after.
+ * Leave it empty if you don't want to repeat the challenge. * rotation: describe how long goals in
+ * a challenge will be available for players to progress before rotated with another goals.
+ * (DAILY|WEEKLY|MONTHLY|NONE) * activeGoalsPerRotation: number of goals per rotation (currently
+ * only applicable for RANDOMIZE assignment) * assignmentRule: describe how the goals will be
+ * assigned and scheduled to users. (FIXED|RANDOMIZED|UNSCHEDULED) * goalsVisibility: describe
+ * whether users can see all goals under challenge, or only active goal in one rotation period only.
+ * (SHOWALL|PERIODONLY)
  */
 @Getter
 @Setter

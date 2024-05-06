@@ -27,8 +27,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Other detail info:
  *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT", action=2
- * (READ) * Returns : entitlement list
+ * <p>* Returns : entitlement list
  */
 @Getter
 @Setter

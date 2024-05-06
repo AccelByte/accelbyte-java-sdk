@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateRevocationPluginConfig
  *
- * <p>Update revocation plugin config. Other detail info: * Required permission :
- * resource=ADMIN:NAMESPACE:{namespace}:PLUGIN:REVOCATION, action=4 (UPDATE) * Returns : updated
- * service plugin config
+ * <p>Update revocation plugin config. Other detail info: * Returns : updated service plugin config
  */
 @Getter
 @Setter

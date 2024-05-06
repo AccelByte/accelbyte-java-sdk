@@ -23,9 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * retrieveAllLegalPoliciesByNamespace
  *
- * <p>Retrieve all base policies in the namespace. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=2 (READ)
+ * <p>Retrieve all base policies in the namespace.
  */
 @Getter
 @Setter

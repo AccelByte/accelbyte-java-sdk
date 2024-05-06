@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * deleteCountryGroup
  *
  * <p>Delete a country groups by its country group code. This endpoint usually used for testing
- * purpose to cleanup test data. Other detail info:
- *
- * <p>* Required permission : resource = "ADMIN:NAMESPACE:{namespace}:MISC" , action=8 (DELETE)
+ * purpose to cleanup test data.
  */
 @Getter
 @Setter

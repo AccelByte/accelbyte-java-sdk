@@ -20,11 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * anonymizeFulfillment
  *
- * <p>Anonymize fulfillment. At current it will only anonymize fulfillment history. Other detail
- * info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION",
- * action=8 (DELETE)
+ * <p>Anonymize fulfillment. At current it will only anonymize fulfillment history.
  */
 @Getter
 @Setter

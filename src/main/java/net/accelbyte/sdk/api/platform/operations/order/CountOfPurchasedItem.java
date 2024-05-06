@@ -24,8 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>This API is used to get the count of purchased item which is the order target. Other detail
  * info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ORDER", action=2
- * (READ) * Returns : Item purchased count
+ * <p>* Returns : Item purchased count
  */
 @Getter
 @Setter

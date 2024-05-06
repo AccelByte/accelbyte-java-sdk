@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getIAPItemConfig
  *
- * <p>Get iap item config. Other detail info:
- *
- * <p>* Required permission : resource= "ADMIN:NAMESPACE:{namespace}:IAP:CONFIG" , action=2 (READ)
+ * <p>Get iap item config.
  */
 @Getter
 @Setter

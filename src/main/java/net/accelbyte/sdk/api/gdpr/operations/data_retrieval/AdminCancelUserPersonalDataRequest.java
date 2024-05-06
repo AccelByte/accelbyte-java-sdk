@@ -20,8 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminCancelUserPersonalDataRequest
  *
- * <p>Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER:{userId} [DELETE]` and scope
- * `account`
+ * <p>Cancel user's personal data requests Scope: account
  */
 @Getter
 @Setter

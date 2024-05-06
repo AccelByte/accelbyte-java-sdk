@@ -21,10 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * checkWallet
  *
  * <p>[SERVICE COMMUNICATION ONLY] Check wallet by balance origin and currency code whether it's
- * inactive. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:WALLET", action=2
- * (READ)
+ * inactive.
  *
  * @deprecated
  */

@@ -69,6 +69,10 @@ public class ModelsConfigResponse extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer generalRateLimitDuration;
 
+  @JsonProperty("maxChatMessageLength")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer maxChatMessageLength;
+
   @JsonProperty("shardCapacityLimit")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer shardCapacityLimit;

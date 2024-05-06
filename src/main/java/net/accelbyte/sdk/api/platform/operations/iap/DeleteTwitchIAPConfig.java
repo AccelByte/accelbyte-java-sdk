@@ -20,9 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteTwitchIAPConfig
  *
- * <p>Delete twitch iap config. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
+ * <p>Delete twitch iap config.
  */
 @Getter
 @Setter

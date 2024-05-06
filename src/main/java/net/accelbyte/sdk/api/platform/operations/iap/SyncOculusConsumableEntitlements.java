@@ -23,12 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * syncOculusConsumableEntitlements
  *
- * <p>Sync Oculus entitlements.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:IAP", action=4 (UPDATE)
- * * Returns :
+ * <p>Sync Oculus entitlements.Other detail info: * Returns :
  */
 @Getter
 @Setter

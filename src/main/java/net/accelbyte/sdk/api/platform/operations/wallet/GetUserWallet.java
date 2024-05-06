@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>get a user wallet. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:WALLET", action=2
- * (READ) * Returns : wallet info
+ * <p>* Returns : wallet info
  *
  * @deprecated
  */

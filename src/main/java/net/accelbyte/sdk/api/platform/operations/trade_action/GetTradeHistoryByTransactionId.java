@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Other detail info:
  *
- * <p>* Required permission : resource=ADMIN:NAMESPACE:{namespace}:TRADE, action=2 (REDA) * Returns
- * : trade history based on transaction ID
+ * <p>* Returns : trade history based on transaction ID
  */
 @Getter
 @Setter

@@ -22,10 +22,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * returnItem
  *
  * <p>[SERVICE COMMUNICATION ONLY] This api is used for returning a published item while the item is
- * maxCount limited, it will increase the sale available count if orderNo already acquired. Other
- * detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE)
+ * maxCount limited, it will increase the sale available count if orderNo already acquired.
  */
 @Getter
 @Setter

@@ -20,9 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publishPolicyVersion
  *
- * <p>Manually publish a version of a particular country-specific policy. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=4 (UPDATE)
+ * <p>Manually publish a version of a particular country-specific policy.
  */
 @Getter
 @Setter

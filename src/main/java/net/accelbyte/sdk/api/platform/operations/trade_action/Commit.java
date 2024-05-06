@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Other detail info:
  *
- * <p>* Required permission : resource=ADMIN:NAMESPACE:{namespace}:TRADE, action=1 (CREATE) *
- * Returns : chain action history * FULFILL_ITEM operation supported item type :
+ * <p>* Returns : chain action history * FULFILL_ITEM operation supported item type :
  * INGAMEITEM,LOOTBOX,OPTIONBOX
  *
  * <p>## Restrictions for metadata

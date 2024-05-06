@@ -29,6 +29,7 @@ public class ModelUpdateGoalRequest extends Model {
   private String description;
 
   @JsonProperty("isActive")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean isActive;
 
   @JsonProperty("name")

@@ -20,9 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteAppleIAPConfig
  *
- * <p>Delete apple iap config. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=8 (DELETE)
+ * <p>Delete apple iap config.
  */
 @Getter
 @Setter

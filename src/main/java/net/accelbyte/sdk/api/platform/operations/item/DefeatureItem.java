@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Remove a feature from an item. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE) *
- * Returns : updated item
+ * <p>* Returns : updated item
  */
 @Getter
 @Setter

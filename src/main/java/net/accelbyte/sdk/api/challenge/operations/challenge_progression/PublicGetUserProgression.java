@@ -40,6 +40,9 @@ public class PublicGetUserProgression extends Operation {
 
   private String namespace;
   private String goalCode;
+  private Integer limit;
+  private Integer offset;
+  private List<String> tags;
 
   /**
    * @param challengeCode required
@@ -48,10 +51,19 @@ public class PublicGetUserProgression extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public PublicGetUserProgression(String challengeCode, String namespace, String goalCode) {
+  public PublicGetUserProgression(
+      String challengeCode,
+      String namespace,
+      String goalCode,
+      Integer limit,
+      Integer offset,
+      List<String> tags) {
     this.challengeCode = challengeCode;
     this.namespace = namespace;
     this.goalCode = goalCode;
+    this.limit = limit;
+    this.offset = offset;
+    this.tags = tags;
 
     securities.add("Bearer");
   }
@@ -72,6 +84,10 @@ public class PublicGetUserProgression extends Operation {
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
     queryParams.put("goalCode", this.goalCode == null ? null : Arrays.asList(this.goalCode));
+    queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
+    queryParams.put(
+        "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+    queryParams.put("tags", this.tags == null ? null : this.tags);
     return queryParams;
   }
 
@@ -100,6 +116,9 @@ public class PublicGetUserProgression extends Operation {
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
     result.put("goalCode", "None");
+    result.put("limit", "None");
+    result.put("offset", "None");
+    result.put("tags", "csv");
     return result;
   }
 }

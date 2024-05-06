@@ -21,10 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminRequestDataRetrieval
  *
- * <p>Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER:{userId} [CREATE]` and scope
- * `account`
- *
- * <p>If admin request data for themselves, password is need to be set
+ * <p>Submit user personal data retrieval request If admin request data for themselves, password is
+ * need to be set Scope: account
  */
 @Getter
 @Setter

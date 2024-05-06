@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * PublicWebLinkPlatformEstablish
  *
  * <p>This endpoint is used by third party to redirect the code for the purpose of linking the
- * account third party to IAM account.
+ * account third party to IAM account. Supported platforms: - ps4web - xblweb - steamopenid -
+ * epicgames - facebook - twitch - google - apple - snapchat - discord - amazon - oculusweb
  */
 @Getter
 @Setter

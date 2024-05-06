@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE) *
- * Returns : updated view data
+ * <p>* Returns : updated view data
  *
  * <p>## Restrictions for localization extension
  *

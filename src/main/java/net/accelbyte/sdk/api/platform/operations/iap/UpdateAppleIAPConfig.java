@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateAppleIAPConfig
  *
- * <p>Update apple iap config. Other detail info: * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:IAP:CONFIG", action=4 (UPDATE) * Returns : updated apple
- * iap config
+ * <p>Update apple iap config. Other detail info: * Returns : updated apple iap config
  */
 @Getter
 @Setter

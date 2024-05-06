@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Update my zip code. Other detail info:
  *
- * <p>* Required permission : resource= "NAMESPACE:{namespace}:PROFILE" , action=4 (UPDATE) * Action
- * code : 11408 * Returns : user zip code
+ * <p>* Action code : 11408 * Returns : user zip code
  */
 @Getter
 @Setter

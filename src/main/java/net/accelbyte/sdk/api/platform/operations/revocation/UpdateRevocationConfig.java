@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Update revocation configuration. Other detail info:
  *
- * <p>* Required permission : resource=ADMIN:NAMESPACE:{namespace}:REVOCATION, action=4 (UPDATE) *
- * Returns : Revocation config
+ * <p>* Returns : Revocation config
  */
 @Getter
 @Setter

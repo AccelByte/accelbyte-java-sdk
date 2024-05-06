@@ -20,9 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * invalidateUserInfoCache
  *
- * <p>Invalidate user info cache in agreement service. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=8 (DELETE)
+ * <p>Invalidate user info cache in agreement service.
  *
  * @deprecated
  */

@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Update user profile status. Other detail info:
  *
- * <p>* Required permission : resource= "NAMESPACE:{namespace}:USER:{userId}:PROFILE" , action=4
- * (UPDATE) * Action code : 11406 * Returns : user profile
+ * <p>* Action code : 11406 * Returns : user profile
  */
 @Getter
 @Setter

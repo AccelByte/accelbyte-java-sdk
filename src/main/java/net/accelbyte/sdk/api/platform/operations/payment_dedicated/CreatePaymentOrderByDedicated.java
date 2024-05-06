@@ -130,11 +130,10 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>#### Other detail info:
  *
- * <p>* Token type : client token * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:PAYMENT", action=1 (CREATE) * Optional permission(user with
- * this permission will create sandbox order) : resource="SANDBOX", action=1 (CREATE) * It will be
- * forbidden while the target user is banned: PAYMENT_INITIATE or ORDER_AND_PAYMENT * cross
- * namespace allowed * Returns : created payment order info
+ * <p>* Token type : client token * Optional permission(user with this permission will create
+ * sandbox order) : resource="SANDBOX", action=1 (CREATE) * It will be forbidden while the target
+ * user is banned: PAYMENT_INITIATE or ORDER_AND_PAYMENT * cross namespace allowed * Returns :
+ * created payment order info
  */
 @Getter
 @Setter

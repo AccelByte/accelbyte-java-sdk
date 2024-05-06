@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Query campaign codes. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:CAMPAIGN", action=2 (READ)
- * (READ) * Returns : list of codes
+ * <p>* Returns : list of codes
  */
 @Getter
 @Setter

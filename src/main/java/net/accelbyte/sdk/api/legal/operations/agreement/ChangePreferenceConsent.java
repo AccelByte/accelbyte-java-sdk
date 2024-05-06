@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * changePreferenceConsent
  *
- * <p>This API will Update Preference Consent. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=4 (UPDATE)
+ * <p>This API will Update Preference Consent
  */
 @Getter
 @Setter

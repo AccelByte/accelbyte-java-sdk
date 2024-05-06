@@ -29,12 +29,20 @@ public class ModelRequirementProgressionResponse extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String completedAt;
 
-  @JsonProperty("currrentValue")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Float currrentValue;
+  @JsonProperty("currentValue")
+  private Float currentValue;
 
   @JsonProperty("id")
   private String id;
+
+  @JsonProperty("matcher")
+  private String matcher;
+
+  @JsonProperty("parameterName")
+  private String parameterName;
+
+  @JsonProperty("parameterType")
+  private String parameterType;
 
   @JsonProperty("targetValue")
   private Float targetValue;

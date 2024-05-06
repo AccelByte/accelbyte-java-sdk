@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get user currency wallet summary. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:WALLET", action=2
- * (READ) * Returns : currency wallet summary
+ * <p>(READ) * Returns : currency wallet summary
  */
 @Getter
 @Setter

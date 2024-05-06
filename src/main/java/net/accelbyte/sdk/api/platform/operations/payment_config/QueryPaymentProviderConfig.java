@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>[Not Supported Yet In Starter] Query payment provider config. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ) * Returns : payment
- * provider config list
+ * <p>* Returns : payment provider config list
  */
 @Getter
 @Setter

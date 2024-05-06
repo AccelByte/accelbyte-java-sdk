@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * payment notification on sandbox payment order, usually for test usage to simulate real currency
  * payment notification. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT", action=4 (UPDATE) *
- * Returns : notification process result
+ * <p>* Returns : notification process result
  */
 @Getter
 @Setter

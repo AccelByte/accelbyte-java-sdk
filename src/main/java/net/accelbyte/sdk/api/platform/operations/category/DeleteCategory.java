@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:CATEGORY", action=8 (DELETE) *
- * Returns : the deleted category data
+ * <p>* Returns : the deleted category data
  */
 @Getter
 @Setter

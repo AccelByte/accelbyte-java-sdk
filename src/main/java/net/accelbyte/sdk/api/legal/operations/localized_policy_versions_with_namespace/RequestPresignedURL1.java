@@ -22,9 +22,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * requestPresignedURL_1
  *
  * <p>Request presigned URL for upload attachment for a particular localized version of base policy.
- * Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:LEGAL", action=1 (CREATE)
  */
 @Getter
 @Setter

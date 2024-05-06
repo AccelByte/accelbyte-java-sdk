@@ -21,10 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateServicesConfiguration
  *
- * <p>Update Registered Services Configuration.
- *
- * <p>Required permission `ADMIN:NAMESPACE:{namespace}:GDPR:CONFIGURATION [UPDATE]` and scope
- * `account`
+ * <p>Update Registered Services Configuration. Scope: account
  */
 @Getter
 @Setter

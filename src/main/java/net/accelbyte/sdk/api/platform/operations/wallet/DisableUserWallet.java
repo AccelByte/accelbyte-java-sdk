@@ -20,10 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * disableUserWallet
  *
- * <p>disable a user wallet. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:WALLET", action=4
- * (UPDATE)
+ * <p>disable a user wallet.
  *
  * @deprecated
  */

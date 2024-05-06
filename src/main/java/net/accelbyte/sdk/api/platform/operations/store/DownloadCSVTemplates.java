@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * downloadCSVTemplates
  *
  * <p>This API is used to download store csv templates for store importing by CSV feature
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=2 (READ)
  */
 @Getter
 @Setter

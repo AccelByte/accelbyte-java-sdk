@@ -59,8 +59,9 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>## Account Group Several platforms are grouped under account groups. The accounts on these
  * platforms have the same platform user id. Login using one of these platform will returns the same
- * IAM user. Following is the current registered account grouping: - (psn) ps4web - (psn) ps4 -
- * (psn) ps5
+ * IAM user. Following is the current registered account grouping: - Steam group(steamnetwork): -
+ * steam - steamopenid - PSN group(psn) - ps4web - ps4 - ps5 - XBOX group(xbox) - live - xblweb -
+ * Oculus group(oculusgroup) - oculus - oculusweb
  *
  * <p>## Access Token Content Following is the access tokenâs content: - **namespace**. It is the
  * namespace the token was generated from. - **display_name**. The display name of the sub. It is

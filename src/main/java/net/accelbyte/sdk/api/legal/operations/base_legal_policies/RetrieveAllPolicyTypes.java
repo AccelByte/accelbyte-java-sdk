@@ -23,9 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * retrieveAllPolicyTypes
  *
- * <p>Retrieve all supported policy types. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+ * <p>Retrieve all supported policy types.
  */
 @Getter
 @Setter

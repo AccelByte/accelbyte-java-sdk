@@ -24,9 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>force: the default value should be: false. When the value is: * false: only the items in the
  * draft store that have never been published yet can be removed. * true: the item in the draft
- * store(even been published before) can be removed. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=8 (DELETE)
+ * store(even been published before) can be removed.
  */
 @Getter
 @Setter

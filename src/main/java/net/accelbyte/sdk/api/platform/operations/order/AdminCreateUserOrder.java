@@ -25,9 +25,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * permission SANDBOX will create sandbox order that not real paid for xsolla/alipay and not
  * validate price for wxpay. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ORDER", action=1
- * (CREATE) * It will be forbidden while the user is banned: ORDER_INITIATE or ORDER_AND_PAYMENT *
- * sandbox default value is false * platform default value is Other * Returns : created order
+ * <p>* It will be forbidden while the user is banned: ORDER_INITIATE or ORDER_AND_PAYMENT * sandbox
+ * default value is false * platform default value is Other * Returns : created order
  *
  * <p>## Restrictions for ext field
  *

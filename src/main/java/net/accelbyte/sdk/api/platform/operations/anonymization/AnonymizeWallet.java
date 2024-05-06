@@ -20,11 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * anonymizeWallet
  *
- * <p>Anonymize wallet. At current it will only anonymize wallet, wallet transaction. Other detail
- * info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION",
- * action=8 (DELETE)
+ * <p>Anonymize wallet. At current it will only anonymize wallet, wallet transaction.
  */
 @Getter
 @Setter

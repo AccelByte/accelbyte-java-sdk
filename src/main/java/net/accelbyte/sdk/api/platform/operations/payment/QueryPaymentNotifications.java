@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>[Not Supported Yet In Starter] Query payment notifications. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:PAYMENT:NOTIFICATION", action=2
- * (READ) * Returns : Payment notifications
+ * <p>* Returns : Payment notifications
  */
 @Getter
 @Setter

@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * changePreferenceConsent_1
  *
- * <p>Change marketing preference consent. Other detail info:
- *
- * <p>* Required permission : login user
+ * <p>Change marketing preference consent.
  */
 @Getter
 @Setter

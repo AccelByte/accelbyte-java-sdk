@@ -20,11 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteUserSubscription
  *
- * <p>[TEST FACILITY ONLY] Forbidden in live environment. Delete user subscription. Other detail
- * info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SUBSCRIPTION",
- * action=8 (DELETE)
+ * <p>[TEST FACILITY ONLY] Forbidden in live environment. Delete user subscription.
  */
 @Getter
 @Setter

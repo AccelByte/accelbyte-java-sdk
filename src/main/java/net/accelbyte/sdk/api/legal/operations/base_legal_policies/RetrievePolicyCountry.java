@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * retrievePolicyCountry
  *
- * <p>Retrieve a Base Legal Policy based on a Particular Country. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+ * <p>Retrieve a Base Legal Policy based on a Particular Country.
  */
 @Getter
 @Setter

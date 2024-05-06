@@ -85,6 +85,10 @@ public class ModelsConfig extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean enableClanChat;
 
+  @JsonProperty("maxChatMessageLength")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer maxChatMessageLength;
+
   @JsonProperty("useDefaultDictionary")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean useDefaultDictionary;

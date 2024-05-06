@@ -25,6 +25,9 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>If user id parameter is empty: 1. Using User Token : It will get the user id from the token 2.
  * Using client token : it will throw an error
+ *
+ * <p>Please ensure environment variable "RECENT_PLAYER_ENABLED" is set to "TRUE" to use this
+ * feature.
  */
 @Getter
 @Setter

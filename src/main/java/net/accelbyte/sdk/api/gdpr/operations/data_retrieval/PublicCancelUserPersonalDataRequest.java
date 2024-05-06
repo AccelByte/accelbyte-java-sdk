@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicCancelUserPersonalDataRequest
  *
- * <p>Requires valid user access token
+ * <p>Cancel user's personal data requests Requires valid user access token Scope: account
  */
 @Getter
 @Setter

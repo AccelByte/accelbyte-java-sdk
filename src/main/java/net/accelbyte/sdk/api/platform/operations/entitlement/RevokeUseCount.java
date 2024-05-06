@@ -24,8 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Revoke specified use count of user entitlement. please use /{entitlementId}/revoke/byUseCount
  * endpoint instead of this endpoint Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT",
- * action=4 (UPDATE) * Returns : revoke entitlement
+ * <p>* Returns : revoke entitlement
  *
  * @deprecated
  */

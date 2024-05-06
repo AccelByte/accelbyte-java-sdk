@@ -24,8 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Consume user entitlement. If the entitlement useCount is 0, the status will be CONSUMED.
  * Client should pass item id in options if entitlement clazz is OPTIONBOX Other detail info:
  *
- * <p>* Required permission : resource="NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT", action=4
- * (UPDATE) * Returns : consumed entitlement
+ * <p>* Returns : consumed entitlement
  */
 @Getter
 @Setter

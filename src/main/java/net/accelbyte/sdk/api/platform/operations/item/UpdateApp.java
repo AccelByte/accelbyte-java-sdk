@@ -111,8 +111,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE) *
- * Returns : updated app data
+ * <p>* Returns : updated app data
  */
 @Getter
 @Setter

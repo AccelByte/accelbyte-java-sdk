@@ -22,9 +22,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * publicSellUserEntitlement
  *
  * <p>Sell user entitlement. If the entitlement is consumable, useCount is 0, the status will be
- * CONSUMED. If the entitlement is durable, the status will be SOLD. Other detail info: * Required
- * permission : resource="NAMESPACE:{namespace}:USER:{userId}:ENTITLEMENT", action=4 (UPDATE) *
- * Returns : entitlement
+ * CONSUMED. If the entitlement is durable, the status will be SOLD. Other detail info: * Returns :
+ * entitlement
  */
 @Getter
 @Setter

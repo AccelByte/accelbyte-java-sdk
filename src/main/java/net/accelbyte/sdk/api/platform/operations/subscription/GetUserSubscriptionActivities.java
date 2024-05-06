@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get user subscription activity. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SUBSCRIPTION",
- * action=2 (READ) * Returns : paginated subscription activity
+ * <p>* Returns : paginated subscription activity
  */
 @Getter
 @Setter

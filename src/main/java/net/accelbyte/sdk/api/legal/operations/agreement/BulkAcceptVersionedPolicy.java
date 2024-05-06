@@ -22,9 +22,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * bulkAcceptVersionedPolicy
  *
  * <p>Accepts many legal policy versions all at once. Supply with localized version policy id to
- * accept an agreement. Other detail info:
- *
- * <p>* Required permission : login user
+ * accept an agreement.
  */
 @Getter
 @Setter

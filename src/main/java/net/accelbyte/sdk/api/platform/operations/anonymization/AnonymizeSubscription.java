@@ -21,10 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * anonymizeSubscription
  *
  * <p>Anonymize subscription. At current it will anonymize subscription, billing history and
- * subscription activity. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION",
- * action=8 (DELETE)
+ * subscription activity.
  */
 @Getter
 @Setter

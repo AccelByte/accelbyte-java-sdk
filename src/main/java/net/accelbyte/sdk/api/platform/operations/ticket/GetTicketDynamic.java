@@ -24,8 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>[SERVICE COMMUNICATION ONLY] Get ticket(code/key) dynamic based on booth name. Other detail
  * info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:TICKET", action=2 (READ) *
- * Returns : ticket dynamic
+ * <p>* Returns : ticket dynamic
  */
 @Getter
 @Setter

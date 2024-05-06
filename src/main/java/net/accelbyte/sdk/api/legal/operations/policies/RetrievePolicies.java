@@ -23,9 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * retrievePolicies
  *
- * <p>Retrieve all active policies based on a country. Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:*:LEGAL", action=2 (READ)
+ * <p>Retrieve all active policies based on a country.
  */
 @Getter
 @Setter

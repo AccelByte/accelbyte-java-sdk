@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Query user orders. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:ORDER", action=2
- * (READ) * Returns : get order
+ * <p>* Returns : get order
  */
 @Getter
 @Setter
@@ -41,6 +40,7 @@ public class QueryUserOrders extends Operation {
   private String namespace;
 
   private String userId;
+  private Boolean discounted;
   private String itemId;
   private Integer limit;
   private Integer offset;
@@ -56,12 +56,14 @@ public class QueryUserOrders extends Operation {
   public QueryUserOrders(
       String namespace,
       String userId,
+      Boolean discounted,
       String itemId,
       Integer limit,
       Integer offset,
       String status) {
     this.namespace = namespace;
     this.userId = userId;
+    this.discounted = discounted;
     this.itemId = itemId;
     this.limit = limit;
     this.offset = offset;
@@ -85,6 +87,9 @@ public class QueryUserOrders extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "discounted",
+        this.discounted == null ? null : Arrays.asList(String.valueOf(this.discounted)));
     queryParams.put("itemId", this.itemId == null ? null : Arrays.asList(this.itemId));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
@@ -117,6 +122,7 @@ public class QueryUserOrders extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("discounted", "None");
     result.put("itemId", "None");
     result.put("limit", "None");
     result.put("offset", "None");

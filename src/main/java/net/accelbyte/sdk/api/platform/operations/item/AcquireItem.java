@@ -24,8 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>[SERVICE COMMUNICATION ONLY] This api is used for acquiring a published item while the item is
  * maxCount limited, it will decrease the sale available count. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:ITEM", action=4 (UPDATE) *
- * Returns : acquire result
+ * <p>* Returns : acquire result
  */
 @Getter
 @Setter

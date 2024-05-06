@@ -30,6 +30,11 @@
 | `/achievement/v1/public/namespaces/{namespace}/users/{userId}/global/achievements` | GET | ListUserContributions | [ListUserContributions](../../src/main/java/net/accelbyte/sdk/api/achievement/operations/global_achievements/ListUserContributions.java) | [ListUserContributions](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/achievement/global_achievements/ListUserContributions.java) |
 | `/achievement/v1/public/namespaces/{namespace}/users/{userId}/global/achievements/{achievementCode}/claim` | POST | ClaimGlobalAchievementReward | [ClaimGlobalAchievementReward](../../src/main/java/net/accelbyte/sdk/api/achievement/operations/global_achievements/ClaimGlobalAchievementReward.java) | [ClaimGlobalAchievementReward](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/achievement/global_achievements/ClaimGlobalAchievementReward.java) |
 
+### Platform Achievement Wrapper:  [PlatformAchievement](../../src/main/java/net/accelbyte/sdk/api/achievement/wrappers/PlatformAchievement.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/achievement/v1/admin/namespaces/{namespace}/platforms/psn/bulk` | POST | BulkCreatePSNEvent | [BulkCreatePSNEvent](../../src/main/java/net/accelbyte/sdk/api/achievement/operations/platform_achievement/BulkCreatePSNEvent.java) | [BulkCreatePSNEvent](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/achievement/platform_achievement/BulkCreatePSNEvent.java) |
+
 ### Tags Wrapper:  [Tags](../../src/main/java/net/accelbyte/sdk/api/achievement/wrappers/Tags.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -62,9 +67,16 @@
 | `models.AchievementResponse` | [ModelsAchievementResponse](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsAchievementResponse.java) |
 | `models.AchievementUpdateRequest` | [ModelsAchievementUpdateRequest](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsAchievementUpdateRequest.java) |
 | `models.AdditionalInfo` | [ModelsAdditionalInfo](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsAdditionalInfo.java) |
+| `models.BulkCreatePSNEventResponse` | [ModelsBulkCreatePSNEventResponse](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsBulkCreatePSNEventResponse.java) |
+| `models.BulkCreatePSNEvents` | [ModelsBulkCreatePSNEvents](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsBulkCreatePSNEvents.java) |
 | `models.ContributorResponse` | [ModelsContributorResponse](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsContributorResponse.java) |
+| `models.CreatePSNEvent` | [ModelsCreatePSNEvent](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsCreatePSNEvent.java) |
+| `models.ErrorDetails` | [ModelsErrorDetails](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsErrorDetails.java) |
 | `models.GlobalAchievementResponse` | [ModelsGlobalAchievementResponse](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsGlobalAchievementResponse.java) |
 | `models.Icon` | [ModelsIcon](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsIcon.java) |
+| `models.PSNEvent` | [ModelsPSNEvent](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsPSNEvent.java) |
+| `models.PSNEventData` | [ModelsPSNEventData](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsPSNEventData.java) |
+| `models.PSNEventResult` | [ModelsPSNEventResult](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsPSNEventResult.java) |
 | `models.PaginatedAchievementResponse` | [ModelsPaginatedAchievementResponse](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsPaginatedAchievementResponse.java) |
 | `models.PaginatedContributorResponse` | [ModelsPaginatedContributorResponse](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsPaginatedContributorResponse.java) |
 | `models.PaginatedGlobalAchievementResponse` | [ModelsPaginatedGlobalAchievementResponse](../../src/main/java/net/accelbyte/sdk/api/achievement/models/ModelsPaginatedGlobalAchievementResponse.java) |

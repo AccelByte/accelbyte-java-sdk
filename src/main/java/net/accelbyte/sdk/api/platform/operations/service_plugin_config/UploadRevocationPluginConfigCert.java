@@ -21,9 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * uploadRevocationPluginConfigCert
  *
- * <p>Upload revocation plugin custom config tls cert.Other detail info: * Required permission :
- * resource=ADMIN:NAMESPACE:{namespace}:PLUGIN:REVOCATION, action=4 (UPDATE) * Returns : updated
- * service plugin config
+ * <p>Upload revocation plugin custom config tls cert.Other detail info: * Returns : updated service
+ * plugin config
  */
 @Getter
 @Setter

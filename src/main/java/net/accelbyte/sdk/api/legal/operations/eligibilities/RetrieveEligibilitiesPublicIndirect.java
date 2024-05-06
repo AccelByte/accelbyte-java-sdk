@@ -25,10 +25,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * cross-namespace checking between game namespace and publisher namespace , that means if the
  * active policy already accepted by the same user in publisher namespace, then it will also be
  * considered as eligible in non-publisher namespace.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : login user
  */
 @Getter
 @Setter

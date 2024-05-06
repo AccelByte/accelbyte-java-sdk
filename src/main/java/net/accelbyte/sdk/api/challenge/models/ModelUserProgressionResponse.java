@@ -31,6 +31,9 @@ public class ModelUserProgressionResponse extends Model {
   @JsonProperty("meta")
   private ModelUserProgressionResponseMeta meta;
 
+  @JsonProperty("paging")
+  private ModelPagination paging;
+
   @JsonIgnore
   public ModelUserProgressionResponse createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

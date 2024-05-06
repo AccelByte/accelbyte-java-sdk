@@ -41,6 +41,11 @@ public class QueryUserOrders implements Callable<Integer> {
   String userId;
 
   @Option(
+      names = {"--discounted"},
+      description = "discounted")
+  Boolean discounted;
+
+  @Option(
       names = {"--itemId"},
       description = "itemId")
   String itemId;
@@ -85,6 +90,7 @@ public class QueryUserOrders implements Callable<Integer> {
           net.accelbyte.sdk.api.platform.operations.order.QueryUserOrders.builder()
               .namespace(namespace)
               .userId(userId)
+              .discounted(discounted)
               .itemId(itemId)
               .limit(limit)
               .offset(offset)

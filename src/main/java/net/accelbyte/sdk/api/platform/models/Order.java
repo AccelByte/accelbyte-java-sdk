@@ -69,6 +69,14 @@ public class Order extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private CurrencySummary currency;
 
+  @JsonProperty("deduction")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer deduction;
+
+  @JsonProperty("deductionDetails")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<DeductionDetail> deductionDetails;
+
   @JsonProperty("discountedPrice")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer discountedPrice;
@@ -80,6 +88,10 @@ public class Order extends Model {
   @JsonProperty("ext")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ?> ext;
+
+  @JsonProperty("finalPrice")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer finalPrice;
 
   @JsonProperty("free")
   @JsonInclude(JsonInclude.Include.NON_NULL)

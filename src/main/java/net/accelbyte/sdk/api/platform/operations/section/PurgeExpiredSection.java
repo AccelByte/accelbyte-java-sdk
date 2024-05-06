@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * purgeExpiredSection
  *
  * <p>This API is used to purge expired section.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=8 (DELETE)
  */
 @Getter
 @Setter

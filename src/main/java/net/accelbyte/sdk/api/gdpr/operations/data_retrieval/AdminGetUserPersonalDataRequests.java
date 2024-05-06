@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetUserPersonalDataRequests
  *
- * <p>Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER:{userId} [READ]` and scope
- * `account`
+ * <p>Get user's personal data requests Scope: account
  */
 @Getter
 @Setter

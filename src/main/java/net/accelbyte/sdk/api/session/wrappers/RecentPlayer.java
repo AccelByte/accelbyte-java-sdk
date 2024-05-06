@@ -32,9 +32,29 @@ public class RecentPlayer {
   }
 
   /**
+   * @see AdminGetRecentTeamPlayer
+   */
+  public ModelsRecentPlayerQueryResponse adminGetRecentTeamPlayer(AdminGetRecentTeamPlayer input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicGetRecentPlayer
    */
   public ModelsRecentPlayerQueryResponse publicGetRecentPlayer(PublicGetRecentPlayer input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicGetRecentTeamPlayer
+   */
+  public ModelsRecentPlayerQueryResponse publicGetRecentTeamPlayer(PublicGetRecentTeamPlayer input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(

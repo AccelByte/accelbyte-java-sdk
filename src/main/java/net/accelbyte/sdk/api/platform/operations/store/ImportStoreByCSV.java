@@ -22,10 +22,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * importStoreByCSV
  *
  * <p>This API is used to import a store by CSV format.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:STORE", action=4 (UPDATE)
  */
 @Getter
 @Setter

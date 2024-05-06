@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicGetMyAccountDeletionStatus
  *
- * <p>Requires valid user access token
+ * <p>Retrieve my account deletion status Requires valid user access token
  */
 @Getter
 @Setter

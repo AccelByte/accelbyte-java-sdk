@@ -59,6 +59,7 @@
 | `model.CreateGoalRequest` | [ModelCreateGoalRequest](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelCreateGoalRequest.java) |
 | `model.EvaluatePlayerProgressionRequest` | [ModelEvaluatePlayerProgressionRequest](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelEvaluatePlayerProgressionRequest.java) |
 | `model.GetGoalsResponse` | [ModelGetGoalsResponse](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelGetGoalsResponse.java) |
+| `model.GoalMeta` | [ModelGoalMeta](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelGoalMeta.java) |
 | `model.GoalOrder` | [ModelGoalOrder](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelGoalOrder.java) |
 | `model.GoalProgressionResponse` | [ModelGoalProgressionResponse](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelGoalProgressionResponse.java) |
 | `model.GoalResponse` | [ModelGoalResponse](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelGoalResponse.java) |

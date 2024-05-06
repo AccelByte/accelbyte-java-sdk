@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getIAPItemMapping
  *
- * <p>Get iap item mapping. Other detail info:
+ * <p>Get iap item mapping.
  */
 @Getter
 @Setter

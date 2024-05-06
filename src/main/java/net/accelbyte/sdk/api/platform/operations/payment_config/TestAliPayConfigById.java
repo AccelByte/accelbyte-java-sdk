@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * Reference: [Alipay Document](https://docs.open.alipay.com/270/alipay.trade.page.pay). Other
  * detail info:
  *
- * <p>* Required permission : resource="ADMIN:PAYMENT:CONFIG", action=2 (READ) * Returns : test
- * alipay config
+ * <p>* Returns : test alipay config
  */
 @Getter
 @Setter

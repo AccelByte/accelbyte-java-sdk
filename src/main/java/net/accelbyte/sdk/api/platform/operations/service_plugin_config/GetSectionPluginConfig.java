@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getSectionPluginConfig
  *
- * <p>Get section plugin config. Other detail info:
- *
- * <p>* Required permission : resource= ADMIN:NAMESPACE:{namespace}:PLUGIN:CATALOG , action=2 (READ)
+ * <p>Get section plugin config.
  */
 @Getter
 @Setter
