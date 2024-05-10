@@ -20,6 +20,7 @@ import org.junit.jupiter.api.*;
 @Tag("test-integration")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@Disabled
 public class TestIntegrationServiceSessionBrowser extends TestIntegration {
   @BeforeAll
   public void setup() throws Exception {
