@@ -92,6 +92,23 @@ achievementsWrapper.adminDeleteAchievement(
         .achievementCode(achievementCode)
         .build());
 ```
+## AMS
+
+Source: [TestIntegrationServiceAms.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceAms.java)
+
+### Get AMS info for info region operation
+
+```java
+final ApiAMSRegionsResponse infoRegions =
+    amsInfoWrapper.infoRegions(InfoRegions.builder().namespace(this.namespace).build());
+```
+
+### Get AMS info for info region operation
+
+```java
+final ApiAMSRegionsResponse infoRegions =
+    amsInfoWrapper.infoRegions(InfoRegions.builder().namespace(this.namespace).build());
+```
 ## Basic
 
 Source: [TestIntegrationServiceBasic.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceBasic.java)
