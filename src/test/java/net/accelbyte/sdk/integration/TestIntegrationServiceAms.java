@@ -27,7 +27,7 @@ public class TestIntegrationServiceAms extends TestIntegration {
     // CASE Get AMS info for info region operation
 
     final ApiAMSRegionsResponse infoRegions =
-        amsInfoWrapper.infoRegions(InfoRegions.builder().build());
+        amsInfoWrapper.infoRegions(InfoRegions.builder().namespace(this.namespace).build());
 
     // ESAC
 
@@ -37,7 +37,7 @@ public class TestIntegrationServiceAms extends TestIntegration {
     // CASE Get AMS info for info region operation
 
     final ApiAvailableInstanceTypesResponse infoInstances =
-        amsInfoWrapper.infoSupportedInstances(InfoSupportedInstances.builder().build());
+        amsInfoWrapper.infoSupportedInstances(InfoSupportedInstances.builder().namespace(this.namespace).build());
 
     // ESAC
 
