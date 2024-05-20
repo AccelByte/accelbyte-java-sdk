@@ -88,4 +88,35 @@ public class Configuration {
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see AdminGetPlatformAccountClosureServicesConfiguration
+   */
+  public DtoServicesConfigurationResponse adminGetPlatformAccountClosureServicesConfiguration(
+      AdminGetPlatformAccountClosureServicesConfiguration input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminUpdatePlatformAccountClosureServicesConfiguration
+   */
+  public DtoServiceConfigurationUpdateRequest
+      adminUpdatePlatformAccountClosureServicesConfiguration(
+          AdminUpdatePlatformAccountClosureServicesConfiguration input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminResetPlatformAccountClosureServicesConfiguration
+   */
+  public void adminResetPlatformAccountClosureServicesConfiguration(
+      AdminResetPlatformAccountClosureServicesConfiguration input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }

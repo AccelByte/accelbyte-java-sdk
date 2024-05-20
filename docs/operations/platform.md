@@ -509,6 +509,11 @@
 | `/platform/admin/namespaces/{namespace}/users/{userId}/anonymization/subscriptions` | DELETE | AnonymizeSubscription | [AnonymizeSubscription](../../src/main/java/net/accelbyte/sdk/api/platform/operations/anonymization/AnonymizeSubscription.java) | [AnonymizeSubscription](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/anonymization/AnonymizeSubscription.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/anonymization/wallets` | DELETE | AnonymizeWallet | [AnonymizeWallet](../../src/main/java/net/accelbyte/sdk/api/platform/operations/anonymization/AnonymizeWallet.java) | [AnonymizeWallet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/anonymization/AnonymizeWallet.java) |
 
+### Platform Account Closure Wrapper:  [PlatformAccountClosure](../../src/main/java/net/accelbyte/sdk/api/platform/wrappers/PlatformAccountClosure.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/platform/admin/namespaces/{namespace}/users/{userId}/platform/closure/history` | GET | GetUserPlatformAccountClosureHistories | [GetUserPlatformAccountClosureHistories](../../src/main/java/net/accelbyte/sdk/api/platform/operations/platform_account_closure/GetUserPlatformAccountClosureHistories.java) | [GetUserPlatformAccountClosureHistories](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/platform_account_closure/GetUserPlatformAccountClosureHistories.java) |
+
 ### Session(Platform) Wrapper:  [SessionPlatform](../../src/main/java/net/accelbyte/sdk/api/platform/wrappers/SessionPlatform.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -875,6 +880,7 @@
 | `PaymentUrl` | [PaymentUrl](../../src/main/java/net/accelbyte/sdk/api/platform/models/PaymentUrl.java) |
 | `PaymentUrlCreate` | [PaymentUrlCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/PaymentUrlCreate.java) |
 | `Permission` | [Permission](../../src/main/java/net/accelbyte/sdk/api/platform/models/Permission.java) |
+| `PlatformAccountClosureHistoryInfo` | [PlatformAccountClosureHistoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/PlatformAccountClosureHistoryInfo.java) |
 | `PlatformDLCConfigInfo` | [PlatformDLCConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/PlatformDLCConfigInfo.java) |
 | `PlatformDLCConfigUpdate` | [PlatformDLCConfigUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/PlatformDLCConfigUpdate.java) |
 | `PlatformDlcEntry` | [PlatformDlcEntry](../../src/main/java/net/accelbyte/sdk/api/platform/models/PlatformDlcEntry.java) |
@@ -948,6 +954,9 @@
 | `SectionUpdate` | [SectionUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/SectionUpdate.java) |
 | `ServicePluginConfigInfo` | [ServicePluginConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/ServicePluginConfigInfo.java) |
 | `ServicePluginConfigUpdate` | [ServicePluginConfigUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/ServicePluginConfigUpdate.java) |
+| `SimpleEntitlement` | [SimpleEntitlement](../../src/main/java/net/accelbyte/sdk/api/platform/models/SimpleEntitlement.java) |
+| `SimpleUserDLC` | [SimpleUserDLC](../../src/main/java/net/accelbyte/sdk/api/platform/models/SimpleUserDLC.java) |
+| `SimpleWallet` | [SimpleWallet](../../src/main/java/net/accelbyte/sdk/api/platform/models/SimpleWallet.java) |
 | `Slide` | [Slide](../../src/main/java/net/accelbyte/sdk/api/platform/models/Slide.java) |
 | `StackableEntitlementInfo` | [StackableEntitlementInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/StackableEntitlementInfo.java) |
 | `SteamAchievement` | [SteamAchievement](../../src/main/java/net/accelbyte/sdk/api/platform/models/SteamAchievement.java) |

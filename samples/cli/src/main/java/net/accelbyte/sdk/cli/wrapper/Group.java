@@ -13,21 +13,12 @@ import net.accelbyte.sdk.cli.api.group.group.*;
 import net.accelbyte.sdk.cli.api.group.group_member.*;
 import net.accelbyte.sdk.cli.api.group.group_roles.*;
 import net.accelbyte.sdk.cli.api.group.member_request.*;
-import net.accelbyte.sdk.cli.api.group.operations.*;
 import picocli.CommandLine.Command;
 
 @Command(
     name = "group",
     mixinStandardHelpOptions = true,
     subcommands = {
-      IndexHandler.class,
-      BlockHandler.class,
-      CmdlineHandler.class,
-      GoroutineHandler.class,
-      HeapHandler.class,
-      Profile.class,
-      SymbolHandler.class,
-      ThreadcreateHandler.class,
       ListGroupConfigurationAdminV1.class,
       CreateGroupConfigurationAdminV1.class,
       InitiateGroupConfigurationAdminV1.class,

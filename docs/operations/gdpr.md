@@ -28,6 +28,16 @@
 | `/gdpr/admin/namespaces/{namespace}/services/configurations` | GET | AdminGetServicesConfiguration | [AdminGetServicesConfiguration](../../src/main/java/net/accelbyte/sdk/api/gdpr/operations/configuration/AdminGetServicesConfiguration.java) | [AdminGetServicesConfiguration](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/gdpr/configuration/AdminGetServicesConfiguration.java) |
 | `/gdpr/admin/namespaces/{namespace}/services/configurations` | PUT | AdminUpdateServicesConfiguration | [AdminUpdateServicesConfiguration](../../src/main/java/net/accelbyte/sdk/api/gdpr/operations/configuration/AdminUpdateServicesConfiguration.java) | [AdminUpdateServicesConfiguration](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/gdpr/configuration/AdminUpdateServicesConfiguration.java) |
 | `/gdpr/admin/namespaces/{namespace}/services/configurations/reset` | DELETE | AdminResetServicesConfiguration | [AdminResetServicesConfiguration](../../src/main/java/net/accelbyte/sdk/api/gdpr/operations/configuration/AdminResetServicesConfiguration.java) | [AdminResetServicesConfiguration](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/gdpr/configuration/AdminResetServicesConfiguration.java) |
+| `/gdpr/admin/namespaces/{namespace}/services/platforms/closure/config` | GET | AdminGetPlatformAccountClosureServicesConfiguration | [AdminGetPlatformAccountClosureServicesConfiguration](../../src/main/java/net/accelbyte/sdk/api/gdpr/operations/configuration/AdminGetPlatformAccountClosureServicesConfiguration.java) | [AdminGetPlatformAccountClosureServicesConfiguration](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/gdpr/configuration/AdminGetPlatformAccountClosureServicesConfiguration.java) |
+| `/gdpr/admin/namespaces/{namespace}/services/platforms/closure/config` | PUT | AdminUpdatePlatformAccountClosureServicesConfiguration | [AdminUpdatePlatformAccountClosureServicesConfiguration](../../src/main/java/net/accelbyte/sdk/api/gdpr/operations/configuration/AdminUpdatePlatformAccountClosureServicesConfiguration.java) | [AdminUpdatePlatformAccountClosureServicesConfiguration](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/gdpr/configuration/AdminUpdatePlatformAccountClosureServicesConfiguration.java) |
+| `/gdpr/admin/namespaces/{namespace}/services/platforms/closure/config` | DELETE | AdminResetPlatformAccountClosureServicesConfiguration | [AdminResetPlatformAccountClosureServicesConfiguration](../../src/main/java/net/accelbyte/sdk/api/gdpr/operations/configuration/AdminResetPlatformAccountClosureServicesConfiguration.java) | [AdminResetPlatformAccountClosureServicesConfiguration](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/gdpr/configuration/AdminResetPlatformAccountClosureServicesConfiguration.java) |
+
+### Platform Account Closure Client Wrapper:  [PlatformAccountClosureClient](../../src/main/java/net/accelbyte/sdk/api/gdpr/wrappers/PlatformAccountClosureClient.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/gdpr/admin/namespaces/{namespace}/platforms/{platform}/closure/client` | GET | AdminGetPlatformAccountClosureClient | [AdminGetPlatformAccountClosureClient](../../src/main/java/net/accelbyte/sdk/api/gdpr/operations/platform_account_closure_client/AdminGetPlatformAccountClosureClient.java) | [AdminGetPlatformAccountClosureClient](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/gdpr/platform_account_closure_client/AdminGetPlatformAccountClosureClient.java) |
+| `/gdpr/admin/namespaces/{namespace}/platforms/{platform}/closure/client` | POST | AdminUpdatePlatformAccountClosureClient | [AdminUpdatePlatformAccountClosureClient](../../src/main/java/net/accelbyte/sdk/api/gdpr/operations/platform_account_closure_client/AdminUpdatePlatformAccountClosureClient.java) | [AdminUpdatePlatformAccountClosureClient](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/gdpr/platform_account_closure_client/AdminUpdatePlatformAccountClosureClient.java) |
+| `/gdpr/admin/namespaces/{namespace}/platforms/{platform}/closure/client` | DELETE | AdminDeletePlatformAccountClosureClient | [AdminDeletePlatformAccountClosureClient](../../src/main/java/net/accelbyte/sdk/api/gdpr/operations/platform_account_closure_client/AdminDeletePlatformAccountClosureClient.java) | [AdminDeletePlatformAccountClosureClient](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/gdpr/platform_account_closure_client/AdminDeletePlatformAccountClosureClient.java) |
 
 ### Data Retrieval Wrapper:  [DataRetrieval](../../src/main/java/net/accelbyte/sdk/api/gdpr/wrappers/DataRetrieval.java)
 | Endpoint | Method | ID | Class | Example |
@@ -42,6 +52,11 @@
 | `/gdpr/public/namespaces/{namespace}/users/{userId}/requests/{requestDate}` | DELETE | PublicCancelUserPersonalDataRequest | [PublicCancelUserPersonalDataRequest](../../src/main/java/net/accelbyte/sdk/api/gdpr/operations/data_retrieval/PublicCancelUserPersonalDataRequest.java) | [PublicCancelUserPersonalDataRequest](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/gdpr/data_retrieval/PublicCancelUserPersonalDataRequest.java) |
 | `/gdpr/public/namespaces/{namespace}/users/{userId}/requests/{requestDate}/generate` | POST | PublicGeneratePersonalDataURL | [PublicGeneratePersonalDataURL](../../src/main/java/net/accelbyte/sdk/api/gdpr/operations/data_retrieval/PublicGeneratePersonalDataURL.java) | [PublicGeneratePersonalDataURL](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/gdpr/data_retrieval/PublicGeneratePersonalDataURL.java) |
 
+### Platform Account Closure History Wrapper:  [PlatformAccountClosureHistory](../../src/main/java/net/accelbyte/sdk/api/gdpr/wrappers/PlatformAccountClosureHistory.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/gdpr/admin/namespaces/{namespace}/users/platforms/closure/histories` | GET | AdminGetUserPlatformAccountClosureHistories | [AdminGetUserPlatformAccountClosureHistories](../../src/main/java/net/accelbyte/sdk/api/gdpr/operations/platform_account_closure_history/AdminGetUserPlatformAccountClosureHistories.java) | [AdminGetUserPlatformAccountClosureHistories](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/gdpr/platform_account_closure_history/AdminGetUserPlatformAccountClosureHistories.java) |
+
 
 &nbsp;  
 
@@ -50,10 +65,14 @@
 | Model | Class |
 |---|---|
 | `dto.ExtendConfigDTO` | [DtoExtendConfigDTO](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/DtoExtendConfigDTO.java) |
+| `dto.PlatformAccountClosureClientRequest` | [DtoPlatformAccountClosureClientRequest](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/DtoPlatformAccountClosureClientRequest.java) |
+| `dto.PlatformAccountClosureClientResponse` | [DtoPlatformAccountClosureClientResponse](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/DtoPlatformAccountClosureClientResponse.java) |
 | `dto.ServiceConfigDTO` | [DtoServiceConfigDTO](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/DtoServiceConfigDTO.java) |
 | `dto.ServiceConfigurationDTO` | [DtoServiceConfigurationDTO](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/DtoServiceConfigurationDTO.java) |
 | `dto.ServiceConfigurationUpdateRequest` | [DtoServiceConfigurationUpdateRequest](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/DtoServiceConfigurationUpdateRequest.java) |
 | `dto.ServicesConfigurationResponse` | [DtoServicesConfigurationResponse](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/DtoServicesConfigurationResponse.java) |
+| `dto.UserPlatformAccountClosureHistoriesResponse` | [DtoUserPlatformAccountClosureHistoriesResponse](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/DtoUserPlatformAccountClosureHistoriesResponse.java) |
+| `dto.UserPlatformAccountClosureHistory` | [DtoUserPlatformAccountClosureHistory](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/DtoUserPlatformAccountClosureHistory.java) |
 | `models.DataRetrievalResponse` | [ModelsDataRetrievalResponse](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/ModelsDataRetrievalResponse.java) |
 | `models.DeletionData` | [ModelsDeletionData](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/ModelsDeletionData.java) |
 | `models.DeletionStatus` | [ModelsDeletionStatus](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/ModelsDeletionStatus.java) |

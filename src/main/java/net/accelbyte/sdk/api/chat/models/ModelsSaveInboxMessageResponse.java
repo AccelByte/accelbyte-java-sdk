@@ -26,6 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsSaveInboxMessageResponse extends Model {
 
   @JsonProperty("category")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String category;
 
   @JsonProperty("expiredAt")

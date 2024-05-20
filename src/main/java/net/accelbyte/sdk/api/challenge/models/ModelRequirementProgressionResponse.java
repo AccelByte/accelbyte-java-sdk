@@ -44,6 +44,10 @@ public class ModelRequirementProgressionResponse extends Model {
   @JsonProperty("parameterType")
   private String parameterType;
 
+  @JsonProperty("statCycleId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String statCycleId;
+
   @JsonProperty("targetValue")
   private Float targetValue;
 

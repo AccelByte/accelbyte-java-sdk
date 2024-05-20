@@ -9,6 +9,7 @@
 package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.session.certificate.*;
+import net.accelbyte.sdk.cli.api.session.config.*;
 import net.accelbyte.sdk.cli.api.session.configuration_template.*;
 import net.accelbyte.sdk.cli.api.session.dsmc_default_configuration.*;
 import net.accelbyte.sdk.cli.api.session.environment_variable.*;
@@ -30,6 +31,8 @@ import picocli.CommandLine.Command;
     subcommands = {
       GetHealthcheckInfo.class,
       GetHealthcheckInfoV1.class,
+      AdminGetLogConfig.class,
+      AdminPatchUpdateLogConfig.class,
       AdminGetDSMCConfigurationDefault.class,
       AdminListEnvironmentVariables.class,
       AdminListGlobalConfiguration.class,

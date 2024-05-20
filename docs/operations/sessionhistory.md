@@ -10,6 +10,12 @@
 | `/healthz` | GET | GetHealthcheckInfo | [GetHealthcheckInfo](../../src/main/java/net/accelbyte/sdk/api/sessionhistory/operations/operations/GetHealthcheckInfo.java) | [GetHealthcheckInfo](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/sessionhistory/operations/GetHealthcheckInfo.java) |
 | `/sessionhistory/healthz` | GET | GetHealthcheckInfoV1 | [GetHealthcheckInfoV1](../../src/main/java/net/accelbyte/sdk/api/sessionhistory/operations/operations/GetHealthcheckInfoV1.java) | [GetHealthcheckInfoV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/sessionhistory/operations/GetHealthcheckInfoV1.java) |
 
+### Config Wrapper:  [Config](../../src/main/java/net/accelbyte/sdk/api/sessionhistory/wrappers/Config.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/sessionhistory/v1/admin/config/log` | GET | AdminGetLogConfig | [AdminGetLogConfig](../../src/main/java/net/accelbyte/sdk/api/sessionhistory/operations/config/AdminGetLogConfig.java) | [AdminGetLogConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/sessionhistory/config/AdminGetLogConfig.java) |
+| `/sessionhistory/v1/admin/config/log` | PATCH | AdminPatchUpdateLogConfig | [AdminPatchUpdateLogConfig](../../src/main/java/net/accelbyte/sdk/api/sessionhistory/operations/config/AdminPatchUpdateLogConfig.java) | [AdminPatchUpdateLogConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/sessionhistory/config/AdminPatchUpdateLogConfig.java) |
+
 ### Game Session Detail Wrapper:  [GameSessionDetail](../../src/main/java/net/accelbyte/sdk/api/sessionhistory/wrappers/GameSessionDetail.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -101,6 +107,7 @@
 | `apimodels.XRayTicketResult` | [ApimodelsXRayTicketResult](../../src/main/java/net/accelbyte/sdk/api/sessionhistory/models/ApimodelsXRayTicketResult.java) |
 | `apimodels.XRayTotalActiveSessionQueryResponse` | [ApimodelsXRayTotalActiveSessionQueryResponse](../../src/main/java/net/accelbyte/sdk/api/sessionhistory/models/ApimodelsXRayTotalActiveSessionQueryResponse.java) |
 | `apimodels.XRayTotalPlayerPersessionAVGQueryResponse` | [ApimodelsXRayTotalPlayerPersessionAVGQueryResponse](../../src/main/java/net/accelbyte/sdk/api/sessionhistory/models/ApimodelsXRayTotalPlayerPersessionAVGQueryResponse.java) |
+| `logconfig.Configuration` | [LogconfigConfiguration](../../src/main/java/net/accelbyte/sdk/api/sessionhistory/models/LogconfigConfiguration.java) |
 | `models.AllianceRule` | [ModelsAllianceRule](../../src/main/java/net/accelbyte/sdk/api/sessionhistory/models/ModelsAllianceRule.java) |
 | `models.BackfillProposal` | [ModelsBackfillProposal](../../src/main/java/net/accelbyte/sdk/api/sessionhistory/models/ModelsBackfillProposal.java) |
 | `models.BackfillTicket` | [ModelsBackfillTicket](../../src/main/java/net/accelbyte/sdk/api/sessionhistory/models/ModelsBackfillTicket.java) |

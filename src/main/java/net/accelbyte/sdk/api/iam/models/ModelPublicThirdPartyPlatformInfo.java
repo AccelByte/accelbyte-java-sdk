@@ -37,6 +37,10 @@ public class ModelPublicThirdPartyPlatformInfo extends Model {
   @JsonProperty("IsActive")
   private Boolean isActive;
 
+  @JsonProperty("LogoURL")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String logoURL;
+
   @JsonProperty("PlatformId")
   private String platformId;
 

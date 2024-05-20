@@ -22,7 +22,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * retrieveCountryListWithPolicies
  *
- * <p>Retrieve List of Countries that have Active Legal Policies.
+ * <p>Retrieve List of Countries that have Active and Visible Legal Policies.
  */
 @Getter
 @Setter

@@ -10,6 +10,12 @@
 | `/healthz` | GET | GetHealthcheckInfo | [GetHealthcheckInfo](../../src/main/java/net/accelbyte/sdk/api/session/operations/operations/GetHealthcheckInfo.java) | [GetHealthcheckInfo](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/operations/GetHealthcheckInfo.java) |
 | `/session/healthz` | GET | GetHealthcheckInfoV1 | [GetHealthcheckInfoV1](../../src/main/java/net/accelbyte/sdk/api/session/operations/operations/GetHealthcheckInfoV1.java) | [GetHealthcheckInfoV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/operations/GetHealthcheckInfoV1.java) |
 
+### Config Wrapper:  [Config](../../src/main/java/net/accelbyte/sdk/api/session/wrappers/Config.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/session/v1/admin/config/log` | GET | AdminGetLogConfig | [AdminGetLogConfig](../../src/main/java/net/accelbyte/sdk/api/session/operations/config/AdminGetLogConfig.java) | [AdminGetLogConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/config/AdminGetLogConfig.java) |
+| `/session/v1/admin/config/log` | PATCH | AdminPatchUpdateLogConfig | [AdminPatchUpdateLogConfig](../../src/main/java/net/accelbyte/sdk/api/session/operations/config/AdminPatchUpdateLogConfig.java) | [AdminPatchUpdateLogConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/config/AdminPatchUpdateLogConfig.java) |
+
 ### DSMC Default Configuration Wrapper:  [DSMCDefaultConfiguration](../../src/main/java/net/accelbyte/sdk/api/session/wrappers/DSMCDefaultConfiguration.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -189,6 +195,7 @@
 | `apimodels.UpdateGameSessionRequest` | [ApimodelsUpdateGameSessionRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsUpdateGameSessionRequest.java) |
 | `apimodels.UpdatePartyRequest` | [ApimodelsUpdatePartyRequest](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsUpdatePartyRequest.java) |
 | `apimodels.UserResponse` | [ApimodelsUserResponse](../../src/main/java/net/accelbyte/sdk/api/session/models/ApimodelsUserResponse.java) |
+| `logconfig.Configuration` | [LogconfigConfiguration](../../src/main/java/net/accelbyte/sdk/api/session/models/LogconfigConfiguration.java) |
 | `model.NativeSession` | [ModelNativeSession](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelNativeSession.java) |
 | `model.NativeSessionMember` | [ModelNativeSessionMember](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelNativeSessionMember.java) |
 | `models.DSMConfigRecord` | [ModelsDSMConfigRecord](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsDSMConfigRecord.java) |

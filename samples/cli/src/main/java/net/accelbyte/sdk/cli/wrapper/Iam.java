@@ -197,6 +197,7 @@ import picocli.CommandLine.Command;
       AdminUpdateUserV3.class,
       AdminGetUserBanV3.class,
       AdminBanUserV3.class,
+      AdminGetUserBanSummaryV3.class,
       AdminUpdateUserBanV3.class,
       AdminSendVerificationCodeV3.class,
       AdminVerifyAccountV3.class,

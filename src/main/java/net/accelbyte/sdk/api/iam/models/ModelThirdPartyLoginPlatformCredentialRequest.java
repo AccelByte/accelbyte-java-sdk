@@ -68,6 +68,10 @@ public class ModelThirdPartyLoginPlatformCredentialRequest extends Model {
   @JsonProperty("KeyID")
   private String keyID;
 
+  @JsonProperty("LogoURL")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String logoURL;
+
   @JsonProperty("NetflixCertificates")
   private AccountcommonNetflixCertificates netflixCertificates;
 

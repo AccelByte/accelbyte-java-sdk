@@ -31,6 +31,11 @@ public class RetrieveAllLegalPolicies implements Callable<Integer> {
   private static final Logger log = LogManager.getLogger(RetrieveAllLegalPolicies.class);
 
   @Option(
+      names = {"--visibleOnly"},
+      description = "visibleOnly")
+  Boolean visibleOnly;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -55,6 +60,7 @@ public class RetrieveAllLegalPolicies implements Callable<Integer> {
           operation =
               net.accelbyte.sdk.api.legal.operations.base_legal_policies.RetrieveAllLegalPolicies
                   .builder()
+                  .visibleOnly(visibleOnly)
                   .build();
       final List<RetrieveBasePolicyResponse> response = wrapper.retrieveAllLegalPolicies(operation);
       final String responseString =

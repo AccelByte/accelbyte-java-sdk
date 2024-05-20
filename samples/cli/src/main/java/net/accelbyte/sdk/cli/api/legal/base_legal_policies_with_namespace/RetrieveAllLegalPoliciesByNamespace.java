@@ -36,6 +36,11 @@ public class RetrieveAllLegalPoliciesByNamespace implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--visibleOnly"},
+      description = "visibleOnly")
+  Boolean visibleOnly;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -62,6 +67,7 @@ public class RetrieveAllLegalPoliciesByNamespace implements Callable<Integer> {
               net.accelbyte.sdk.api.legal.operations.base_legal_policies_with_namespace
                   .RetrieveAllLegalPoliciesByNamespace.builder()
                   .namespace(namespace)
+                  .visibleOnly(visibleOnly)
                   .build();
       final List<RetrieveBasePolicyResponse> response =
           wrapper.retrieveAllLegalPoliciesByNamespace(operation);

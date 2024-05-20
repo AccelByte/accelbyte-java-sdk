@@ -29,7 +29,7 @@ public class V2GetPublicLeaderboardRankingResponse extends Model {
   private List<V2Entry> data;
 
   @JsonProperty("paging")
-  private V2Pagination paging;
+  private V2PaginationV2 paging;
 
   @JsonIgnore
   public V2GetPublicLeaderboardRankingResponse createFromJson(String json)

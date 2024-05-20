@@ -37,14 +37,25 @@ public class RetrieveAllLegalPolicies extends Operation {
   private String locationQuery = null;
 
   /** fields as input parameter */
+  private Boolean visibleOnly;
 
   /** */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public RetrieveAllLegalPolicies() {
+  public RetrieveAllLegalPolicies(Boolean visibleOnly) {
+    this.visibleOnly = visibleOnly;
 
     securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "visibleOnly",
+        this.visibleOnly == null ? null : Arrays.asList(String.valueOf(this.visibleOnly)));
+    return queryParams;
   }
 
   @Override
@@ -61,5 +72,12 @@ public class RetrieveAllLegalPolicies extends Operation {
     final String json = Helper.convertInputStreamToString(payload);
     return new ObjectMapper()
         .readValue(json, new TypeReference<List<RetrieveBasePolicyResponse>>() {});
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("visibleOnly", "None");
+    return result;
   }
 }

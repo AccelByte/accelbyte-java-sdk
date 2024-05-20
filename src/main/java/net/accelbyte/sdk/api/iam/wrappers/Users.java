@@ -953,6 +953,16 @@ public class Users {
   }
 
   /**
+   * @see AdminGetUserBanSummaryV3
+   */
+  public ModelGetUserBanSummaryV3 adminGetUserBanSummaryV3(AdminGetUserBanSummaryV3 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminUpdateUserBanV3
    */
   public ModelUserBanResponseV3 adminUpdateUserBanV3(AdminUpdateUserBanV3 input) throws Exception {

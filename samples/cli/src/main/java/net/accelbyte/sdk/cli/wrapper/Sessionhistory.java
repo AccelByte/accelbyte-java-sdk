@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.cli.wrapper;
 
+import net.accelbyte.sdk.cli.api.sessionhistory.config.*;
 import net.accelbyte.sdk.cli.api.sessionhistory.game_session_detail.*;
 import net.accelbyte.sdk.cli.api.sessionhistory.operations.*;
 import net.accelbyte.sdk.cli.api.sessionhistory.x_ray.*;
@@ -19,6 +20,8 @@ import picocli.CommandLine.Command;
     subcommands = {
       GetHealthcheckInfo.class,
       GetHealthcheckInfoV1.class,
+      AdminGetLogConfig.class,
+      AdminPatchUpdateLogConfig.class,
       AdminQueryGameSessionDetail.class,
       GetGameSessionDetail.class,
       AdminQueryMatchmakingDetail.class,

@@ -296,99 +296,99 @@ eval_tap $? 30 'AdminSyncUserEntitlements' test.out
 ./ng net.accelbyte.sdk.cli.Main inventory adminPurchasable \
     --namespace "$AB_NAMESPACE" \
     --userId 'iAVQXXOmqFHLbyXm' \
-    --body '{"entitlementType": "gCNiXH8uenbC5Cph", "inventoryConfig": {"slotUsed": 14}, "itemId": "HjCH5olYLETRpABA", "itemType": "mO2EGvJ4UMS93yOx", "items": [{"bundledQty": 81, "entitlementType": "PwbwcvQU5kG8bXGF", "inventoryConfig": {"slotUsed": 25}, "itemId": "P2ssiJ66OzOj84O6", "itemType": "tgohjtC7bzjPpucd", "sku": "dXJ5zifF8y959anr", "useCount": 82}, {"bundledQty": 52, "entitlementType": "SleywHbHig6IKWVZ", "inventoryConfig": {"slotUsed": 48}, "itemId": "7KeRWdECaFGzfZ2h", "itemType": "xcJ2Fnemn7M23SzU", "sku": "o4hNBDh9ZFP1OW0n", "useCount": 73}, {"bundledQty": 84, "entitlementType": "gF88ySNq4Mj7mulP", "inventoryConfig": {"slotUsed": 14}, "itemId": "tQ6R1OqKVOTniBgL", "itemType": "sNhdgQ0JWZjNRSzO", "sku": "TqcVNX3ahvxw9gww", "useCount": 15}], "quantity": 38, "sku": "TnjN6wKZGW4y3f0R", "useCount": 38}' \
+    --body '{"entitlementType": "gCNiXH8uenbC5Cph", "inventoryConfig": {"slotUsed": 14}, "itemId": "HjCH5olYLETRpABA", "itemType": "mO2EGvJ4UMS93yOx", "items": [{"bundledQty": 81, "entitlementType": "PwbwcvQU5kG8bXGF", "inventoryConfig": {"slotUsed": 25}, "itemId": "P2ssiJ66OzOj84O6", "itemType": "tgohjtC7bzjPpucd", "sku": "dXJ5zifF8y959anr", "stackable": true, "useCount": 92}, {"bundledQty": 56, "entitlementType": "leywHbHig6IKWVZ7", "inventoryConfig": {"slotUsed": 93}, "itemId": "KeRWdECaFGzfZ2hx", "itemType": "cJ2Fnemn7M23SzUo", "sku": "4hNBDh9ZFP1OW0nX", "stackable": false, "useCount": 63}, {"bundledQty": 65, "entitlementType": "rQPS4VsRoYIK69yg", "inventoryConfig": {"slotUsed": 86}, "itemId": "ADCGiXaLs2xjHkin", "itemType": "OD975nARHCmhNHSX", "sku": "uqIHsxvaUoXDmwWs", "stackable": true, "useCount": 28}], "quantity": 21, "sku": "jN6wKZGW4y3f0R9s", "stackable": false, "useCount": 57}' \
     > test.out 2>&1
 eval_tap $? 31 'AdminPurchasable' test.out
 
 #- 32 PublicListInventoryConfigurations
 ./ng net.accelbyte.sdk.cli.Main inventory publicListInventoryConfigurations \
     --namespace "$AB_NAMESPACE" \
-    --code 'BWCaVVmM45mfIZsW' \
-    --limit '15' \
-    --offset '32' \
-    --sortBy 'code:desc' \
+    --code 'ndhhZhwAiLsZs4pm' \
+    --limit '77' \
+    --offset '60' \
+    --sortBy 'updatedAt:desc' \
     > test.out 2>&1
 eval_tap $? 32 'PublicListInventoryConfigurations' test.out
 
 #- 33 PublicListItemTypes
 ./ng net.accelbyte.sdk.cli.Main inventory publicListItemTypes \
     --namespace "$AB_NAMESPACE" \
-    --limit '25' \
-    --offset '91' \
-    --sortBy 'name:asc' \
+    --limit '88' \
+    --offset '7' \
+    --sortBy 'createdAt' \
     > test.out 2>&1
 eval_tap $? 33 'PublicListItemTypes' test.out
 
 #- 34 PublicListTags
 ./ng net.accelbyte.sdk.cli.Main inventory publicListTags \
     --namespace "$AB_NAMESPACE" \
-    --limit '60' \
-    --offset '70' \
-    --sortBy 'name:desc' \
+    --limit '67' \
+    --offset '15' \
+    --sortBy 'name:asc' \
     > test.out 2>&1
 eval_tap $? 34 'PublicListTags' test.out
 
 #- 35 PublicListInventories
 ./ng net.accelbyte.sdk.cli.Main inventory publicListInventories \
     --namespace "$AB_NAMESPACE" \
-    --inventoryConfigurationCode 'dGGJwJ00UH197MJ6' \
-    --limit '53' \
-    --offset '35' \
-    --sortBy 'updatedAt:desc' \
+    --inventoryConfigurationCode '4IjDq9aT3qZyI0rY' \
+    --limit '37' \
+    --offset '72' \
+    --sortBy 'updatedAt:asc' \
     > test.out 2>&1
 eval_tap $? 35 'PublicListInventories' test.out
 
 #- 36 PublicConsumeMyItem
 ./ng net.accelbyte.sdk.cli.Main inventory publicConsumeMyItem \
-    --inventoryId 'YsWucAkXsVJbXi7e' \
+    --inventoryId 'ucAkXsVJbXi7eRZa' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"qty": 88, "slotId": "goxGJoJaSzUtY4ZD", "sourceItemId": "0Xtb0U4pH16NUsVY"}' \
+    --body '{"qty": 66, "slotId": "WwIc895ImqK6tVsa", "sourceItemId": "Uq3stUh5J5Z9GiBi"}' \
     > test.out 2>&1
 eval_tap $? 36 'PublicConsumeMyItem' test.out
 
 #- 37 PublicListItems
 ./ng net.accelbyte.sdk.cli.Main inventory publicListItems \
-    --inventoryId '21NVIs7NRen2Y3Ns' \
+    --inventoryId 'SAylX5cS0IeHpWCu' \
     --namespace "$AB_NAMESPACE" \
-    --limit '88' \
-    --offset '59' \
-    --qtyGte '74' \
-    --sortBy 'qty:desc' \
-    --sourceItemId 'QeaWytPfds1BYx0E' \
-    --tags 'aURydf8ZyyZeHAWG' \
+    --limit '12' \
+    --offset '9' \
+    --qtyGte '25' \
+    --sortBy 'createdAt' \
+    --sourceItemId 'fOL0QQpxsuD8PGqk' \
+    --tags 'u59eFJrOXyDYz9vM' \
     > test.out 2>&1
 eval_tap $? 37 'PublicListItems' test.out
 
 #- 38 PublicBulkUpdateMyItems
 ./ng net.accelbyte.sdk.cli.Main inventory publicBulkUpdateMyItems \
-    --inventoryId 'gJUbUJRMbkcTglbU' \
+    --inventoryId 'UOPG0iHDT8QbF7gH' \
     --namespace "$AB_NAMESPACE" \
-    --body '[{"customAttributes": {"86FyOjApNHBVfNOU": {}, "RcjY3YYT9oTynmfI": {}, "uBWgJTNFfM8M0IW4": {}}, "slotId": "oe8KDgy0xZfAcNg1", "sourceItemId": "4Ws8TIP1LKiFQoLD", "tags": ["vumfqrgSfnx2h61X", "9dN1MGRXBJ6mVV7J", "S9qjNLwvI8JdiY3R"]}, {"customAttributes": {"RiLilmOGF6dLLIeI": {}, "VIjMcdlbdRXTGIrd": {}, "NL5gJPqTAjgqaTHf": {}}, "slotId": "1ANTJ9Yk997XkGOd", "sourceItemId": "C6ItxDT8p4n4XCFk", "tags": ["D1AJLCwszbZxuHSg", "DOK8bjoF7bL2635K", "btZTGJpqgl2IzNXG"]}, {"customAttributes": {"TuQPIDpor7t1aJLN": {}, "Nz6QIVC9Mfuc8VOs": {}, "nmnlVljdWYmELe74": {}}, "slotId": "p38vumnxAnYBTxaT", "sourceItemId": "Iz0jcgDI8Pkz96vd", "tags": ["80msqIm5bufnBqrp", "LeqhwVhjnnjKMEmt", "biWsAQHbMrKYi0Zx"]}]' \
+    --body '[{"customAttributes": {"PTPQbvLt2NRqJGIK": {}, "zLyH1y72L13Ornyx": {}, "34luLdvtsTKXMjiw": {}}, "slotId": "6gYPvfn2Qt9iyq3N", "sourceItemId": "yk8ncu2Z3eDHH9Wa", "tags": ["VO4iKhDcJ7TCcNIs", "Q3PuppUxDSK8aOTG", "MudcxlCV4cNbJGQ5"]}, {"customAttributes": {"7lPdinpjS2DRfGt9": {}, "GlyZVQ4X67tPZSTp": {}, "Pq3xjrElvvDgw0ag": {}}, "slotId": "7kSWE0Hiqm5IuLry", "sourceItemId": "iEXqvUWDjU1G0EVj", "tags": ["VZw1ToLuPakQN1Mp", "Os1RVFrcg2CXxepx", "78fvsyhE2BKtyTDS"]}, {"customAttributes": {"IM7mkmvZ7Cmsh4US": {}, "8o4jfMANPpmZDdMi": {}, "CxmuCCVuFjS1GC1d": {}}, "slotId": "2b92B4vEgj3HOmhc", "sourceItemId": "Wm428XejRF94NIY9", "tags": ["nMrBZo0lNUBDShHD", "32vvL28FPwTiXfLc", "xDC9Ynd02mECIQhf"]}]' \
     > test.out 2>&1
 eval_tap $? 38 'PublicBulkUpdateMyItems' test.out
 
 #- 39 PublicBulkRemoveMyItems
 ./ng net.accelbyte.sdk.cli.Main inventory publicBulkRemoveMyItems \
-    --inventoryId 's5SWCqZXHLLa31oQ' \
+    --inventoryId 'IhHtADUQ9zimQTQT' \
     --namespace "$AB_NAMESPACE" \
-    --body '[{"slotId": "f7BULnZDhutDM6Bq", "sourceItemId": "guqD5xxGxBWtnTKU"}, {"slotId": "e2znsqPzPkwCBo2S", "sourceItemId": "wCUsTag4MLAo3m61"}, {"slotId": "P2xaNfmn8Onb1a9g", "sourceItemId": "Mz0F2UBRmMhAbUWm"}]' \
+    --body '[{"slotId": "95pFJUAJsyAfeKOu", "sourceItemId": "fV4f15NohXu6opxQ"}, {"slotId": "GRt6PqlkL0diRhLC", "sourceItemId": "10ih2EQfY3XCv4hd"}, {"slotId": "Oa6FdZhNMd1onFjG", "sourceItemId": "RbxtABPXDmgNEJBh"}]' \
     > test.out 2>&1
 eval_tap $? 39 'PublicBulkRemoveMyItems' test.out
 
 #- 40 PublicMoveMyItems
 ./ng net.accelbyte.sdk.cli.Main inventory publicMoveMyItems \
-    --inventoryId 'FhdYLWzMuv3zkUY0' \
+    --inventoryId 'gGq5GIDhNC66szbC' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"items": [{"qty": 28, "slotId": "bCCf73IFbRkPSSIT", "sourceItemId": "z4TjCrJHXGXku2YV"}, {"qty": 41, "slotId": "cCcJfIfXshuLUk5W", "sourceItemId": "dpxjZx5noXPhPUTK"}, {"qty": 3, "slotId": "kylbynkgT9vayLLi", "sourceItemId": "izac7Ge6zKJdlt7r"}], "srcInventoryId": "jF5RaJwvkWVco2LT"}' \
+    --body '{"items": [{"qty": 57, "slotId": "AZkwbYkBLyO6A0Fq", "sourceItemId": "fhnaB3YxKNdOTacC"}, {"qty": 6, "slotId": "hxHmnrrV9ZGWrZ05", "sourceItemId": "sxe6A6RpmKDebNky"}, {"qty": 23, "slotId": "oucNmzwOZOK56sDk", "sourceItemId": "ci5rZ8iMlOuksQJC"}], "srcInventoryId": "iRFiZWwJ7NrTb1XT"}' \
     > test.out 2>&1
 eval_tap $? 40 'PublicMoveMyItems' test.out
 
 #- 41 PublicGetItem
 ./ng net.accelbyte.sdk.cli.Main inventory publicGetItem \
-    --inventoryId 'o5ijlvDF8qBWCQ9d' \
+    --inventoryId 'B9YQzUJ9XlYJ8BzP' \
     --namespace "$AB_NAMESPACE" \
-    --slotId 'LWYyS8zdhMeBXH8x' \
-    --sourceItemId '6HdVfZVDAiU6iJOF' \
+    --slotId '6EUmUXGM5anIloyj' \
+    --sourceItemId '9lhbvuQdW2jwKUck' \
     > test.out 2>&1
 eval_tap $? 41 'PublicGetItem' test.out
 

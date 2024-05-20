@@ -28,6 +28,9 @@ public class ModelGetGoalsResponse extends Model {
   @JsonProperty("data")
   private List<ModelGoalResponse> data;
 
+  @JsonProperty("meta")
+  private ModelChallengeResponse meta;
+
   @JsonProperty("paging")
   private ModelPagination paging;
 

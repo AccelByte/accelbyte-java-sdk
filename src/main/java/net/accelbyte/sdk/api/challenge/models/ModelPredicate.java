@@ -34,6 +34,10 @@ public class ModelPredicate extends Model {
   @JsonProperty("parameterType")
   private String parameterType;
 
+  @JsonProperty("statCycleId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String statCycleId;
+
   @JsonProperty("targetValue")
   private Float targetValue;
 
@@ -109,6 +113,7 @@ public class ModelPredicate extends Model {
   public enum ParameterType {
     ACHIEVEMENT("ACHIEVEMENT"),
     STATISTIC("STATISTIC"),
+    STATISTICCYCLE("STATISTIC_CYCLE"),
     USERACCOUNT("USERACCOUNT");
 
     private String value;

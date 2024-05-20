@@ -4,18 +4,6 @@
 
 ## Operations
 
-### Operations Wrapper:  [Operations](../../src/main/java/net/accelbyte/sdk/api/group/wrappers/Operations.java)
-| Endpoint | Method | ID | Class | Example |
-|---|---|---|---|---|
-| `/group/debug/pprof` | GET | IndexHandler | [IndexHandler](../../src/main/java/net/accelbyte/sdk/api/group/operations/operations/IndexHandler.java) | [IndexHandler](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/group/operations/IndexHandler.java) |
-| `/group/debug/pprof/block` | GET | BlockHandler | [BlockHandler](../../src/main/java/net/accelbyte/sdk/api/group/operations/operations/BlockHandler.java) | [BlockHandler](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/group/operations/BlockHandler.java) |
-| `/group/debug/pprof/cmdline` | GET | CmdlineHandler | [CmdlineHandler](../../src/main/java/net/accelbyte/sdk/api/group/operations/operations/CmdlineHandler.java) | [CmdlineHandler](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/group/operations/CmdlineHandler.java) |
-| `/group/debug/pprof/goroutine` | GET | GoroutineHandler | [GoroutineHandler](../../src/main/java/net/accelbyte/sdk/api/group/operations/operations/GoroutineHandler.java) | [GoroutineHandler](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/group/operations/GoroutineHandler.java) |
-| `/group/debug/pprof/heap` | GET | HeapHandler | [HeapHandler](../../src/main/java/net/accelbyte/sdk/api/group/operations/operations/HeapHandler.java) | [HeapHandler](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/group/operations/HeapHandler.java) |
-| `/group/debug/pprof/profile` | GET | Profile | [Profile](../../src/main/java/net/accelbyte/sdk/api/group/operations/operations/Profile.java) | [Profile](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/group/operations/Profile.java) |
-| `/group/debug/pprof/symbol` | GET | SymbolHandler | [SymbolHandler](../../src/main/java/net/accelbyte/sdk/api/group/operations/operations/SymbolHandler.java) | [SymbolHandler](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/group/operations/SymbolHandler.java) |
-| `/group/debug/pprof/threadcreate` | GET | ThreadcreateHandler | [ThreadcreateHandler](../../src/main/java/net/accelbyte/sdk/api/group/operations/operations/ThreadcreateHandler.java) | [ThreadcreateHandler](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/group/operations/ThreadcreateHandler.java) |
-
 ### Configuration Wrapper:  [Configuration](../../src/main/java/net/accelbyte/sdk/api/group/wrappers/Configuration.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|

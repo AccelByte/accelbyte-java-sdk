@@ -64,6 +64,11 @@ public class RetrieveLatestPoliciesByNamespaceAndCountryPublic implements Callab
   String tags;
 
   @Option(
+      names = {"--visibleOnly"},
+      description = "visibleOnly")
+  Boolean visibleOnly;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -96,6 +101,7 @@ public class RetrieveLatestPoliciesByNamespaceAndCountryPublic implements Callab
                   .defaultOnEmpty(defaultOnEmpty)
                   .policyType(policyType)
                   .tags(tags)
+                  .visibleOnly(visibleOnly)
                   .build();
       final List<RetrievePolicyPublicResponse> response =
           wrapper.retrieveLatestPoliciesByNamespaceAndCountryPublic(operation);

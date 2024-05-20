@@ -51,6 +51,11 @@ public class RetrieveLatestPolicies implements Callable<Integer> {
   String tags;
 
   @Option(
+      names = {"--visibleOnly"},
+      description = "visibleOnly")
+  Boolean visibleOnly;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -77,6 +82,7 @@ public class RetrieveLatestPolicies implements Callable<Integer> {
               .defaultOnEmpty(defaultOnEmpty)
               .policyType(policyType)
               .tags(tags)
+              .visibleOnly(visibleOnly)
               .build();
       final List<RetrievePolicyPublicResponse> response = wrapper.retrieveLatestPolicies(operation);
       final String responseString =

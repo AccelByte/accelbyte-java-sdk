@@ -43,6 +43,10 @@ public class RetrieveBasePolicyResponse extends Model {
   @JsonProperty("id")
   private String id;
 
+  @JsonProperty("isHidden")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean isHidden;
+
   @JsonProperty("namespace")
   private String namespace;
 

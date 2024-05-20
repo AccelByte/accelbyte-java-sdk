@@ -131,6 +131,7 @@
 | `/iam/v3/admin/namespaces/{namespace}/users/{userId}` | PATCH | AdminUpdateUserV3 | [AdminUpdateUserV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/AdminUpdateUserV3.java) | [AdminUpdateUserV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/AdminUpdateUserV3.java) |
 | `/iam/v3/admin/namespaces/{namespace}/users/{userId}/bans` | GET | AdminGetUserBanV3 | [AdminGetUserBanV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/AdminGetUserBanV3.java) | [AdminGetUserBanV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/AdminGetUserBanV3.java) |
 | `/iam/v3/admin/namespaces/{namespace}/users/{userId}/bans` | POST | AdminBanUserV3 | [AdminBanUserV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/AdminBanUserV3.java) | [AdminBanUserV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/AdminBanUserV3.java) |
+| `/iam/v3/admin/namespaces/{namespace}/users/{userId}/bans/summary` | GET | AdminGetUserBanSummaryV3 | [AdminGetUserBanSummaryV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/AdminGetUserBanSummaryV3.java) | [AdminGetUserBanSummaryV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/AdminGetUserBanSummaryV3.java) |
 | `/iam/v3/admin/namespaces/{namespace}/users/{userId}/bans/{banId}` | PATCH | AdminUpdateUserBanV3 | [AdminUpdateUserBanV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/AdminUpdateUserBanV3.java) | [AdminUpdateUserBanV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/AdminUpdateUserBanV3.java) |
 | `/iam/v3/admin/namespaces/{namespace}/users/{userId}/code/request` | POST | AdminSendVerificationCodeV3 | [AdminSendVerificationCodeV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/AdminSendVerificationCodeV3.java) | [AdminSendVerificationCodeV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/AdminSendVerificationCodeV3.java) |
 | `/iam/v3/admin/namespaces/{namespace}/users/{userId}/code/verify` | POST | AdminVerifyAccountV3 | [AdminVerifyAccountV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/AdminVerifyAccountV3.java) | [AdminVerifyAccountV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/AdminVerifyAccountV3.java) |
@@ -615,6 +616,7 @@
 | `model.GetBulkUserBansRequest` | [ModelGetBulkUserBansRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelGetBulkUserBansRequest.java) |
 | `model.GetLinkHeadlessAccountConflictResponse` | [ModelGetLinkHeadlessAccountConflictResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelGetLinkHeadlessAccountConflictResponse.java) |
 | `model.GetPublisherUserResponse` | [ModelGetPublisherUserResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelGetPublisherUserResponse.java) |
+| `model.GetUserBanSummaryV3` | [ModelGetUserBanSummaryV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelGetUserBanSummaryV3.java) |
 | `model.GetUserBanV3Response` | [ModelGetUserBanV3Response](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelGetUserBanV3Response.java) |
 | `model.GetUserJusticePlatformAccountResponse` | [ModelGetUserJusticePlatformAccountResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelGetUserJusticePlatformAccountResponse.java) |
 | `model.GetUserMapping` | [ModelGetUserMapping](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelGetUserMapping.java) |
@@ -713,6 +715,7 @@
 | `model.UserActiveBanResponseV3` | [ModelUserActiveBanResponseV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserActiveBanResponseV3.java) |
 | `model.UserBanResponse` | [ModelUserBanResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserBanResponse.java) |
 | `model.UserBanResponseV3` | [ModelUserBanResponseV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserBanResponseV3.java) |
+| `model.UserBanWithStatus` | [ModelUserBanWithStatus](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserBanWithStatus.java) |
 | `model.UserBaseInfo` | [ModelUserBaseInfo](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserBaseInfo.java) |
 | `model.UserBulkUpdateRequestV3` | [ModelUserBulkUpdateRequestV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserBulkUpdateRequestV3.java) |
 | `model.UserCreateRequest` | [ModelUserCreateRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserCreateRequest.java) |

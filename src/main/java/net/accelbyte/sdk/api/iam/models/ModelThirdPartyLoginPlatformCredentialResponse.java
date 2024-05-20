@@ -69,6 +69,10 @@ public class ModelThirdPartyLoginPlatformCredentialResponse extends Model {
   @JsonProperty("KeyID")
   private String keyID;
 
+  @JsonProperty("LogoURL")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String logoURL;
+
   @JsonProperty("Namespace")
   private String namespace;
 

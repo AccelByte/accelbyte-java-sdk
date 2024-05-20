@@ -46,6 +46,7 @@ public class RetrieveLatestPolicies extends Operation {
   private Boolean defaultOnEmpty;
   private String policyType;
   private String tags;
+  private Boolean visibleOnly;
 
   /**
    * @param countryCode required
@@ -54,11 +55,16 @@ public class RetrieveLatestPolicies extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public RetrieveLatestPolicies(
-      String countryCode, Boolean defaultOnEmpty, String policyType, String tags) {
+      String countryCode,
+      Boolean defaultOnEmpty,
+      String policyType,
+      String tags,
+      Boolean visibleOnly) {
     this.countryCode = countryCode;
     this.defaultOnEmpty = defaultOnEmpty;
     this.policyType = policyType;
     this.tags = tags;
+    this.visibleOnly = visibleOnly;
   }
 
   @Override
@@ -78,6 +84,9 @@ public class RetrieveLatestPolicies extends Operation {
         this.defaultOnEmpty == null ? null : Arrays.asList(String.valueOf(this.defaultOnEmpty)));
     queryParams.put("policyType", this.policyType == null ? null : Arrays.asList(this.policyType));
     queryParams.put("tags", this.tags == null ? null : Arrays.asList(this.tags));
+    queryParams.put(
+        "visibleOnly",
+        this.visibleOnly == null ? null : Arrays.asList(String.valueOf(this.visibleOnly)));
     return queryParams;
   }
 
@@ -106,6 +115,7 @@ public class RetrieveLatestPolicies extends Operation {
     result.put("defaultOnEmpty", "None");
     result.put("policyType", "None");
     result.put("tags", "None");
+    result.put("visibleOnly", "None");
     return result;
   }
 

@@ -1,3 +1,13 @@
+<a name="v0.63.0"></a>
+## [v0.63.0]
+### fix
+- **:** temporarily disable session browser test
+### test
+- **integration:** ams - add missing namespace param
+### docs
+- **common-use-case:** update
+
+
 <a name="v0.62.0"></a>
 ## [v0.62.0]
 ### ci

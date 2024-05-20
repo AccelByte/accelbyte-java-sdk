@@ -11,6 +11,8 @@ package net.accelbyte.sdk.cli.wrapper;
 import net.accelbyte.sdk.cli.api.gdpr.configuration.*;
 import net.accelbyte.sdk.cli.api.gdpr.data_deletion.*;
 import net.accelbyte.sdk.cli.api.gdpr.data_retrieval.*;
+import net.accelbyte.sdk.cli.api.gdpr.platform_account_closure_client.*;
+import net.accelbyte.sdk.cli.api.gdpr.platform_account_closure_history.*;
 import picocli.CommandLine.Command;
 
 @Command(
@@ -22,10 +24,17 @@ import picocli.CommandLine.Command;
       UpdateAdminEmailConfiguration.class,
       SaveAdminEmailConfiguration.class,
       DeleteAdminEmailConfiguration.class,
+      AdminGetPlatformAccountClosureClient.class,
+      AdminUpdatePlatformAccountClosureClient.class,
+      AdminDeletePlatformAccountClosureClient.class,
       AdminGetListPersonalDataRequest.class,
       AdminGetServicesConfiguration.class,
       AdminUpdateServicesConfiguration.class,
       AdminResetServicesConfiguration.class,
+      AdminGetPlatformAccountClosureServicesConfiguration.class,
+      AdminUpdatePlatformAccountClosureServicesConfiguration.class,
+      AdminResetPlatformAccountClosureServicesConfiguration.class,
+      AdminGetUserPlatformAccountClosureHistories.class,
       AdminGetUserAccountDeletionRequest.class,
       AdminSubmitUserAccountDeletionRequest.class,
       AdminCancelUserAccountDeletionRequest.class,

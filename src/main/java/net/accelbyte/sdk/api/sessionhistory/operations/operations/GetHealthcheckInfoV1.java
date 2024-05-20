@@ -26,7 +26,7 @@ public class GetHealthcheckInfoV1 extends Operation {
 
   private String method = "GET";
   private List<String> consumes = Arrays.asList();
-  private List<String> produces = Arrays.asList();
+  private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
 
   /** fields as input parameter */

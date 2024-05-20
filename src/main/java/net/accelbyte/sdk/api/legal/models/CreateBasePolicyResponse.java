@@ -48,6 +48,10 @@ public class CreateBasePolicyResponse extends Model {
   @JsonProperty("id")
   private String id;
 
+  @JsonProperty("isHidden")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean isHidden;
+
   @JsonProperty("namespace")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String namespace;

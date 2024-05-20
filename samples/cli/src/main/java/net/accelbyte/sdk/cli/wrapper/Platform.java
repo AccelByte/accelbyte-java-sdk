@@ -31,6 +31,7 @@ import net.accelbyte.sdk.cli.api.platform.payment_callback_config.*;
 import net.accelbyte.sdk.cli.api.platform.payment_config.*;
 import net.accelbyte.sdk.cli.api.platform.payment_dedicated.*;
 import net.accelbyte.sdk.cli.api.platform.payment_station.*;
+import net.accelbyte.sdk.cli.api.platform.platform_account_closure.*;
 import net.accelbyte.sdk.cli.api.platform.revocation.*;
 import net.accelbyte.sdk.cli.api.platform.reward.*;
 import net.accelbyte.sdk.cli.api.platform.section.*;
@@ -327,6 +328,7 @@ import picocli.CommandLine.Command;
       DownloadUserOrderReceipt.class,
       CreateUserPaymentOrder.class,
       RefundUserPaymentOrder.class,
+      GetUserPlatformAccountClosureHistories.class,
       ApplyUserRedemption.class,
       DoRevocation.class,
       RegisterXblSessions.class,

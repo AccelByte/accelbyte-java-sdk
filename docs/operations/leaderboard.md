@@ -153,4 +153,4 @@
 | `v2.GetAllLeaderboardConfigsPublicResp` | [V2GetAllLeaderboardConfigsPublicResp](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/V2GetAllLeaderboardConfigsPublicResp.java) |
 | `v2.GetLeaderboardConfigPublicResp` | [V2GetLeaderboardConfigPublicResp](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/V2GetLeaderboardConfigPublicResp.java) |
 | `v2.GetPublicLeaderboardRankingResponse` | [V2GetPublicLeaderboardRankingResponse](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/V2GetPublicLeaderboardRankingResponse.java) |
-| `v2.Pagination` | [V2Pagination](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/V2Pagination.java) |
+| `v2.PaginationV2` | [V2PaginationV2](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/V2PaginationV2.java) |

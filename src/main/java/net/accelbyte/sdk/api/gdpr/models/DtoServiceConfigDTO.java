@@ -28,6 +28,10 @@ public class DtoServiceConfigDTO extends Model {
   @JsonProperty("protocol")
   private String protocol;
 
+  @JsonProperty("skipAck")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean skipAck;
+
   @JsonProperty("url")
   private String url;
 

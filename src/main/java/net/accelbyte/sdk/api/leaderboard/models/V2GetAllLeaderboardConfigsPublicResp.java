@@ -29,7 +29,7 @@ public class V2GetAllLeaderboardConfigsPublicResp extends Model {
   private List<V2GetLeaderboardConfigPublicResp> data;
 
   @JsonProperty("paging")
-  private V2Pagination paging;
+  private V2PaginationV2 paging;
 
   @JsonIgnore
   public V2GetAllLeaderboardConfigsPublicResp createFromJson(String json)
