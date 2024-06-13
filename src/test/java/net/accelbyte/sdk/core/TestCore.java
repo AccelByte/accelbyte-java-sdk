@@ -1,11 +1,12 @@
 /*
- * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * Copyright (c) 2024 AccelByte Inc. All Rights Reserved
  * This is licensed software from AccelByte Inc, for limitations
  * and restrictions contact your company contract manager.
  */
 
 package net.accelbyte.sdk.core;
 
+import static java.lang.Thread.sleep;
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,20 +17,26 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.util.*;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.GetCountryLocationV3;
 import net.accelbyte.sdk.api.iam.wrappers.OAuth20Extension;
+import net.accelbyte.sdk.api.lobby.ws_models.PartyCreateRequest;
 import net.accelbyte.sdk.core.client.DefaultHttpRetryPolicy;
 import net.accelbyte.sdk.core.client.DefaultHttpRetryPolicy.RetryIntervalType;
 import net.accelbyte.sdk.core.client.OkhttpClient;
+import net.accelbyte.sdk.core.client.OkhttpWebSocketClient;
 import net.accelbyte.sdk.core.client.ReliableHttpClient;
-import net.accelbyte.sdk.core.repository.ConfigRepository;
-import net.accelbyte.sdk.core.repository.DefaultTokenRefreshRepository;
-import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
-import net.accelbyte.sdk.core.repository.TokenRepository;
+import net.accelbyte.sdk.core.repository.*;
 import net.accelbyte.sdk.core.util.Helper;
+import net.accelbyte.sdk.integration.TestHelper;
+import okhttp3.WebSocket;
+import okhttp3.WebSocketListener;
+import org.jetbrains.annotations.NotNull;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -763,4 +770,51 @@ class TestCore {
     assertTrue(
         tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
   }
+
+    @Test
+    public void testLobbyWebsocket() throws Exception {
+        final int RECONNECT_DELAY_MS = 1500;
+        final String request_id = TestHelper.generateRandomId(64);
+        final CountDownLatch response = new CountDownLatch(100);
+        final StringBuilder responseMessage = new StringBuilder();
+
+        final WebSocketListener listener =
+                new WebSocketListener() {
+                    @Override
+                    public void onMessage(@NotNull WebSocket webSocket, @NotNull String text) {
+                        super.onMessage(webSocket, text);
+                        if (response.getCount() > 0) {
+                            System.out.println("client's onMessage: \n" + text);
+                            responseMessage.append(text);
+                            response.countDown();
+                        }
+                    }
+                };
+
+        final OkhttpWebSocketClient ws =
+                OkhttpWebSocketClient.create(
+                        new MockServerConfigRepository(), DefaultTokenRepository.getInstance(), listener, RECONNECT_DELAY_MS, true);
+
+        final String requestMessage = PartyCreateRequest.builder().id(request_id).build().toWSM();
+
+        System.out.println(requestMessage + "\n");
+
+        ws.sendMessage(requestMessage);
+
+        for (int i=1; i<10; i++) {
+            sleep(500);
+            ws.sendMessage(requestMessage);
+        }
+
+        // TODO: programmatically call GET force-close here then upon reconnect successful,
+        //  verify lobby session id if it's the same as before
+
+        for (int i=1; i<10; i++) {
+            sleep(500);
+            ws.sendMessage(requestMessage);
+        }
+
+        System.out.println(responseMessage + "\n");
+        ws.close(1000, "normal close");
+    }
 }
