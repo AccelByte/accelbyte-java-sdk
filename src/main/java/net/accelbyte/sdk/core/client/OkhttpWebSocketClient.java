@@ -30,7 +30,7 @@ public class OkhttpWebSocketClient extends TokenRepositoryCallback {
     return create(configRepository,
             tokenRepository,
             listener,
-    -1, false);
+    -1);
   }
 
   // OkhttpWebSocketClient, with websocket reconnect
@@ -39,8 +39,7 @@ public class OkhttpWebSocketClient extends TokenRepositoryCallback {
       ConfigRepository configRepository,
       TokenRepository tokenRepository,
       WebSocketListener listener,
-      long reconnectDelayMs,
-      boolean isReconnectOnClosing)
+      long reconnectDelayMs)
       throws Exception {
     final OkHttpClient client = new OkHttpClient.Builder().readTimeout(0, TimeUnit.SECONDS).build();
     String baseURL = configRepository.getBaseURL();
@@ -57,7 +56,7 @@ public class OkhttpWebSocketClient extends TokenRepositoryCallback {
             .build();
 
     OkhttpWebSocketClient webSocketClient = new OkhttpWebSocketClient(configRepository, tokenRepository);
-    WebSocketListenerWrapper webSocketListenerWrapper = new WebSocketListenerWrapper(listener, webSocketClient, reconnectDelayMs, isReconnectOnClosing);
+    ReliableWebSocketListener webSocketListenerWrapper = new ReliableWebSocketListener(listener, webSocketClient, reconnectDelayMs);
     webSocketClient.setWebSocketListenerWrapper(webSocketListenerWrapper);
 
     WebSocket websocket = client.newWebSocket(request, webSocketListenerWrapper);
@@ -73,7 +72,7 @@ public class OkhttpWebSocketClient extends TokenRepositoryCallback {
   private final TokenRepository tokenRepository;
 
   private String lobbySessionId = null;
-  private WebSocketListenerWrapper webSocketListenerWrapper;
+  private ReliableWebSocketListener webSocketListenerWrapper;
   private OkhttpWebSocketClient(ConfigRepository configRepository,
                                 TokenRepository tokenRepository) {
     this.configRepository = configRepository;
@@ -88,7 +87,7 @@ public class OkhttpWebSocketClient extends TokenRepositoryCallback {
     this.lobbySessionId = lobbySessionId;
   }
 
-  public void setWebSocketListenerWrapper(WebSocketListenerWrapper webSocketListenerWrapper) {
+  public void setWebSocketListenerWrapper(ReliableWebSocketListener webSocketListenerWrapper) {
     this.webSocketListenerWrapper = webSocketListenerWrapper;
   }
 

@@ -15,20 +15,18 @@ import java.util.Map;
 
 import static net.accelbyte.sdk.core.util.Helper.parseWSM;
 @Log
-public class WebSocketListenerWrapper extends WebSocketListener {
+public class ReliableWebSocketListener extends WebSocketListener {
     private final WebSocketListener wrappedListener;
     private final OkhttpWebSocketClient okhttpWebSocketClient;
     private final long reconnectDelayMs;
-    private boolean isReconnectOnClosing;
     // reconnectDelayMs > 0 to turn on websocket reconnect
-    public WebSocketListenerWrapper(WebSocketListener wrappedListener, OkhttpWebSocketClient okhttpWebSocketClient, long reconnectDelayMs, boolean isReconnectOnClosing) {
+    public ReliableWebSocketListener(WebSocketListener wrappedListener, OkhttpWebSocketClient okhttpWebSocketClient, long reconnectDelayMs) {
         if (wrappedListener == null) throw new IllegalArgumentException("wrappedListener can't be null");
         if (okhttpWebSocketClient == null) throw new IllegalArgumentException("okhttpWebSocketClient can't be null");
 
         this.wrappedListener = wrappedListener;
         this.okhttpWebSocketClient = okhttpWebSocketClient;
         this.reconnectDelayMs = reconnectDelayMs;
-        this.isReconnectOnClosing = isReconnectOnClosing;
     }
 
     @Override
@@ -82,7 +80,7 @@ public class WebSocketListenerWrapper extends WebSocketListener {
 
         okhttpWebSocketClient.close(code, null);
 
-        if (isReconnectOnClosing) {
+        if (shouldReconnectOnClosing(code)) {
             reconnect();
         }
 
@@ -94,6 +92,10 @@ public class WebSocketListenerWrapper extends WebSocketListener {
         log.info("WebSocketListenerWrapper onFailure: " + t.getMessage());
         reconnect();
         wrappedListener.onFailure(webSocket, t, response);
+    }
+
+    private boolean shouldReconnectOnClosing(int code) {
+        return (code < 4000 && code != 1000);
     }
 
     private void reconnect() {

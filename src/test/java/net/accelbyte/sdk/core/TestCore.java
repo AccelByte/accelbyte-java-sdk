@@ -793,7 +793,7 @@ class TestCore {
 
         final OkhttpWebSocketClient ws =
                 OkhttpWebSocketClient.create(
-                        new MockServerConfigRepository(), DefaultTokenRepository.getInstance(), listener, RECONNECT_DELAY_MS, true);
+                        new MockServerConfigRepository(), DefaultTokenRepository.getInstance(), listener, RECONNECT_DELAY_MS);
 
         final String requestMessage = PartyCreateRequest.builder().id(request_id).build().toWSM();
 
