@@ -56,10 +56,10 @@ public class OkhttpWebSocketClient extends TokenRepositoryCallback {
             .build();
 
     OkhttpWebSocketClient webSocketClient = new OkhttpWebSocketClient(configRepository, tokenRepository);
-    ReliableWebSocketListener webSocketListenerWrapper = new ReliableWebSocketListener(listener, webSocketClient, reconnectDelayMs);
-    webSocketClient.setWebSocketListenerWrapper(webSocketListenerWrapper);
+    ReliableWebSocketListener reliableWebSocketListener = new ReliableWebSocketListener(listener, webSocketClient, reconnectDelayMs);
+    webSocketClient.setReliableWebSocketListener(reliableWebSocketListener);
 
-    WebSocket websocket = client.newWebSocket(request, webSocketListenerWrapper);
+    WebSocket websocket = client.newWebSocket(request, reliableWebSocketListener);
     webSocketClient.setWebsocket(websocket);
 
     tokenRepository.registerTokenRepositoryCallback(webSocketClient);
@@ -72,7 +72,7 @@ public class OkhttpWebSocketClient extends TokenRepositoryCallback {
   private final TokenRepository tokenRepository;
 
   private String lobbySessionId = null;
-  private ReliableWebSocketListener webSocketListenerWrapper;
+  private ReliableWebSocketListener reliableWebSocketListener;
   private OkhttpWebSocketClient(ConfigRepository configRepository,
                                 TokenRepository tokenRepository) {
     this.configRepository = configRepository;
@@ -87,8 +87,8 @@ public class OkhttpWebSocketClient extends TokenRepositoryCallback {
     this.lobbySessionId = lobbySessionId;
   }
 
-  public void setWebSocketListenerWrapper(ReliableWebSocketListener webSocketListenerWrapper) {
-    this.webSocketListenerWrapper = webSocketListenerWrapper;
+  public void setReliableWebSocketListener(ReliableWebSocketListener reliableWebSocketListener) {
+    this.reliableWebSocketListener = reliableWebSocketListener;
   }
 
   public void reconnect(long reconnectDelayMs) throws Exception {
@@ -116,7 +116,7 @@ public class OkhttpWebSocketClient extends TokenRepositoryCallback {
     Request request = builder.build();
 
     final OkHttpClient client = new OkHttpClient.Builder().readTimeout(0, TimeUnit.SECONDS).build();
-    this.websocket = client.newWebSocket(request, webSocketListenerWrapper);
+    this.websocket = client.newWebSocket(request, reliableWebSocketListener);
   }
 
   public void sendMessage(String message) {
