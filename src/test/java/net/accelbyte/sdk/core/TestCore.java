@@ -22,6 +22,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
+
+import lombok.extern.java.Log;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.GetCountryLocationV3;
 import net.accelbyte.sdk.api.iam.wrappers.OAuth20Extension;
 import net.accelbyte.sdk.api.lobby.ws_models.PartyCreateRequest;
@@ -43,6 +45,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+@Log
 @Tag("test-core")
 class TestCore {
   private final OkhttpClient httpClient = new OkhttpClient();
@@ -784,8 +787,8 @@ class TestCore {
                     public void onMessage(@NotNull WebSocket webSocket, @NotNull String text) {
                         super.onMessage(webSocket, text);
                         if (response.getCount() > 0) {
-                            System.out.println("client's onMessage: \n" + text);
-                            responseMessage.append(text);
+                            log.info("Received onMessage: \n" + text);
+                            responseMessage.append(text + "\n");
                             response.countDown();
                         }
                     }
@@ -797,7 +800,7 @@ class TestCore {
 
         final String requestMessage = PartyCreateRequest.builder().id(request_id).build().toWSM();
 
-        System.out.println(requestMessage + "\n");
+        log.info(requestMessage);
 
         ws.sendMessage(requestMessage);
 
@@ -814,7 +817,7 @@ class TestCore {
             ws.sendMessage(requestMessage);
         }
 
-        System.out.println(responseMessage + "\n");
-        ws.close(1000, "normal close");
+        log.info("Response message: \n" + responseMessage );
+        ws.close(1000, "Normal close");
     }
 }

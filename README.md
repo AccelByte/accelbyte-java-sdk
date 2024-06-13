@@ -272,6 +272,34 @@ if (!logout) {
 }
 ```
 
+### Websocket Reconnect
+Websocket reconnection is an "experimental" feature currently to help support auto-reconnection on disconnects having RFC 6455 status code < 4000 and not 1000 (normal closure) status code.
+To enable auto-reconnect, in the OkhttpWebSocketClient.create() call simply pass in for the argument "reconnectDelayMs" > 0 to control the delay between each reconnect attempt.
+
+```java
+final WebSocketListener listener =
+    new WebSocketListener() {
+        @Override
+        public void onMessage(@NotNull WebSocket webSocket, @NotNull String text){
+            super.onMessage(webSocket,text);
+            if(response.getCount() > 0) {
+                log.info("Received onMessage: "+text);
+                responseMessage.append(text);
+                response.countDown();
+            }
+        }
+    };
+
+final int RECONNECT_DELAY_MS = 1500;
+final OkhttpWebSocketClient ws =
+        OkhttpWebSocketClient.create(
+            new DefaultConfigRepository(), DefaultTokenRepository.getInstance(), listener, RECONNECT_DELAY_MS);
+
+final String requestMessage = PartyCreateRequest.builder().id(request_id).build().toWSM();
+ws.sendMessage(requestMessage);
+...
+```
+
 ## Samples
 
 Sample apps are available in the [samples](samples) directory.
