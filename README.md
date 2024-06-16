@@ -272,34 +272,35 @@ if (!logout) {
 }
 ```
 
-### Websocket Reconnect
-Websocket reconnection is an "experimental" feature currently to help support auto-reconnection on disconnects having RFC 6455 status code < 4000 and not 1000 (normal closure) status code.
-To enable auto-reconnect, in the OkhttpWebSocketClient.create() call simply pass in for the argument "reconnectDelayMs" > 0 to control the delay between each reconnect attempt.
+### Websocket
+**Ping Interval:** by default, automatic ping frames are not sent.  To control the ping interval, simply pass in for the OkhttpWebSocketClient.create() call for the argument "pingIntervalMs" > 0 to set the number of seconds between each automatic ping (until the connection is closed).  "pingIntervalMs" = 0 means disabled.
+
+**Websocket Reconnection:**  Websocket Reconnection an "experimental" feature currently to help support auto-reconnection on disconnects having RFC 6455 status code < 4000 and not 1000 (normal closure) status code.
+By default auto-reconnect is off.  To enable it, in the OkhttpWebSocketClient.create() call simply pass in for the argument "reconnectDelayMs" > 0 to control the delay between each reconnect attempt.    "reconnectDelayMs" = 0 means disabled.
 
 ```java
 final WebSocketListener listener =
     new WebSocketListener() {
         @Override
-        public void onMessage(@NotNull WebSocket webSocket, @NotNull String text){
-            super.onMessage(webSocket,text);
-            if(response.getCount() > 0) {
-                log.info("Received onMessage: "+text);
-                responseMessage.append(text);
-                response.countDown();
-            }
+        public void onMessage(@NotNull WebSocket webSocket, @NotNull String text) {
+            log.info("Received onMessage: " + text);
+            ...
         }
     };
 
-final int RECONNECT_DELAY_MS = 1500;
+final int RECONNECT_DELAY_MS = 60000;  // 1m (0 to disable)
+final int PING_INTERVAL_MS = 30000;  // 30s (0 to disable)
+
 final OkhttpWebSocketClient ws =
         OkhttpWebSocketClient.create(
-            new DefaultConfigRepository(), DefaultTokenRepository.getInstance(), listener, RECONNECT_DELAY_MS);
+            new DefaultConfigRepository(), DefaultTokenRepository.getInstance(), listener, RECONNECT_DELAY_MS, PING_INTERVAL_MS);
 
 final String requestMessage = PartyCreateRequest.builder().id(request_id).build().toWSM();
 ws.sendMessage(requestMessage);
 ...
 ```
-
+**Lobby session preservation logic upon reconnect:**
+In the event of a disconnection and a reconnection, the previous lobby session id will be requested for reuse via the "X-Ab-LobbySessionID" header with the cached value from the previous lobby session.
 ## Samples
 
 Sample apps are available in the [samples](samples) directory.

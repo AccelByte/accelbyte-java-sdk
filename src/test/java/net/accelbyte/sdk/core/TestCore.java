@@ -18,7 +18,6 @@ import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.util.*;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
@@ -38,7 +37,6 @@ import net.accelbyte.sdk.integration.TestHelper;
 import okhttp3.WebSocket;
 import okhttp3.WebSocketListener;
 import org.jetbrains.annotations.NotNull;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -776,7 +774,10 @@ class TestCore {
 
     @Test
     public void testLobbyWebsocket() throws Exception {
-        final int RECONNECT_DELAY_MS = 1500;
+        final int RECONNECT_DELAY_MS = 3000;
+        final int PING_INTERVAL_MS = 1500;
+        final int MESSAGE_INTERVAL_MS = 2000;
+
         final String request_id = TestHelper.generateRandomId(64);
         final CountDownLatch response = new CountDownLatch(100);
         final StringBuilder responseMessage = new StringBuilder();
@@ -785,18 +786,38 @@ class TestCore {
                 new WebSocketListener() {
                     @Override
                     public void onMessage(@NotNull WebSocket webSocket, @NotNull String text) {
-                        super.onMessage(webSocket, text);
+                        log.info("Client onMessage");
                         if (response.getCount() > 0) {
                             log.info("Received onMessage: \n" + text);
                             responseMessage.append(text + "\n");
                             response.countDown();
                         }
                     }
+
+                    @Override
+                    public void onOpen(WebSocket webSocket, okhttp3.Response response) {
+                        log.info("Client onOpen");
+                    }
+
+                    @Override
+                    public void onClosing(WebSocket webSocket, int code, String reason) {
+                        log.info("Client onClosing");
+                    }
+
+                    @Override
+                    public void onClosed(WebSocket webSocket, int code, String reason) {
+                        log.info("Client onClosed");
+                    }
+
+                    @Override
+                    public void onFailure(WebSocket webSocket, Throwable t, okhttp3.Response response) {
+                        log.info("Client onFailure");
+                    }
                 };
 
         final OkhttpWebSocketClient ws =
                 OkhttpWebSocketClient.create(
-                        new MockServerConfigRepository(), DefaultTokenRepository.getInstance(), listener, RECONNECT_DELAY_MS);
+                        new MockServerConfigRepository(), DefaultTokenRepository.getInstance(), listener, RECONNECT_DELAY_MS, PING_INTERVAL_MS);
 
         final String requestMessage = PartyCreateRequest.builder().id(request_id).build().toWSM();
 
@@ -804,20 +825,24 @@ class TestCore {
 
         ws.sendMessage(requestMessage);
 
-        for (int i=1; i<10; i++) {
-            sleep(500);
+        for (int i = 1; i < 3; i++) {
+            DefaultTokenRepository.getInstance().storeToken("token1");
+
+            sleep(MESSAGE_INTERVAL_MS);
+
+            DefaultTokenRepository.getInstance().storeToken("token2");
             ws.sendMessage(requestMessage);
         }
 
         // TODO: programmatically call GET force-close here then upon reconnect successful,
         //  verify lobby session id if it's the same as before
 
-        for (int i=1; i<10; i++) {
-            sleep(500);
+        for (int i = 1; i < 3; i++) {
+            sleep(MESSAGE_INTERVAL_MS);
             ws.sendMessage(requestMessage);
         }
 
-        log.info("Response message: \n" + responseMessage );
+        log.info("Response message: \n" + responseMessage);
         ws.close(1000, "Normal close");
     }
 }
