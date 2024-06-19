@@ -6,11 +6,9 @@
 
 package net.accelbyte.sdk.core.client;
 
-import static net.accelbyte.sdk.core.util.Helper.parseWSM;
-
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import lombok.extern.java.Log;
+import net.accelbyte.sdk.api.lobby.ws_models.ConnectNotif;
 import net.accelbyte.sdk.core.repository.ConfigRepository;
 import net.accelbyte.sdk.core.repository.TokenRepository;
 import okhttp3.OkHttpClient;
@@ -173,31 +171,14 @@ public class OkhttpWebSocketClient extends WebSocketListener {
     webSocketListener.onOpen(webSocket, response);
   }
 
-  /* Temp workaround until OpenAPI is fixed for the casing of lobby session id from "lobbySessionId" to "lobbySessionID"
-  https://bitbucket.org/accelbyte/justice-codegen-sdk-spec/src/master/spec/stage_main/lobby.schema.yaml
-      connectNotif:
-      properties:
-        lobbySessionId:    << should be lobbySessionID
-          type: string
-   */
-  public static String createFromWSMWorkaround(String message) {
-    final String LOBBY_SESSION_ID_KEY = "lobbySessionID";
-    Map<String, String> response = parseWSM(message);
-    String lobbySessionId =
-        response.get(LOBBY_SESSION_ID_KEY) != null ? response.get(LOBBY_SESSION_ID_KEY) : null;
-    return lobbySessionId;
-  }
-
   @Override
   public void onMessage(WebSocket webSocket, String text) {
     super.onMessage(webSocket, text);
 
     if (text.contains("connectNotif")) {
-      // Uncommented when OpenAPI spec indicated above is fixed:
-      //            ConnectNotif notif = ConnectNotif.createFromWSM(text);
-      //            final String lobbySessionId = notif.getLobbySessionId();
-      final String lobbySessionId = createFromWSMWorkaround(text);
-      log.info("lobbySessionId: " + lobbySessionId);
+      final ConnectNotif notif = ConnectNotif.createFromWSM(text);
+      final String lobbySessionId = notif.getLobbySessionID();
+      log.info("lobbySessionID: " + lobbySessionId);
       this.lobbySessionId = lobbySessionId;
     }
 
