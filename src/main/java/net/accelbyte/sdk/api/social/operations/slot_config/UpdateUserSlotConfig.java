@@ -23,9 +23,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>## The endpoint is going to be deprecated
  *
- * <p>Update a user slot configuration in given namespace. Other detail info: * Required permission
- * : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTCONFIG", action=4 (UPDATE) * Returns :
- * updated slot config
+ * <p>Update a user slot configuration in given namespace. Other detail info: * Returns : updated
+ * slot config
  *
  * @deprecated
  */

@@ -24,7 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Returns images which exist (uploaded, uploading, or building) in the linked account. This
  * route fails if no account is linked
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [READ]
+ * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:AMS:IMAGE [READ]
  */
 @Getter
 @Setter

@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getStat
  *
- * <p>Get stat by statCode. Other detail info: * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:STAT", action=2 (READ) * Returns : stat info
+ * <p>Get stat by statCode. Other detail info: * Returns : stat info
  */
 @Getter
 @Setter

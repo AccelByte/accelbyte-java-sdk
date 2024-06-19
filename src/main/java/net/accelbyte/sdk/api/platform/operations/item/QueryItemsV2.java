@@ -19,7 +19,7 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * queryItems_1
+ * queryItemsV2
  *
  * <p>This API is used to query items by criteria within a store.
  *
@@ -30,7 +30,7 @@ import net.accelbyte.sdk.core.util.Helper;
  */
 @Getter
 @Setter
-public class QueryItems1 extends Operation {
+public class QueryItemsV2 extends Operation {
   /** generated field's value */
   private String path = "/platform/v2/admin/namespaces/{namespace}/items/byCriteria";
 
@@ -50,7 +50,7 @@ public class QueryItems1 extends Operation {
   private Boolean includeSubCategoryItem;
   private String itemName;
   private String itemStatus;
-  private String itemType;
+  private List<String> itemType;
   private Integer limit;
   private Integer offset;
   private String region;
@@ -67,7 +67,7 @@ public class QueryItems1 extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public QueryItems1(
+  public QueryItemsV2(
       String namespace,
       String appType,
       String availableDate,
@@ -77,7 +77,7 @@ public class QueryItems1 extends Operation {
       Boolean includeSubCategoryItem,
       String itemName,
       String itemStatus,
-      String itemType,
+      List<String> itemType,
       Integer limit,
       Integer offset,
       String region,
@@ -136,7 +136,7 @@ public class QueryItems1 extends Operation {
             : Arrays.asList(String.valueOf(this.includeSubCategoryItem)));
     queryParams.put("itemName", this.itemName == null ? null : Arrays.asList(this.itemName));
     queryParams.put("itemStatus", this.itemStatus == null ? null : Arrays.asList(this.itemStatus));
-    queryParams.put("itemType", this.itemType == null ? null : Arrays.asList(this.itemType));
+    queryParams.put("itemType", this.itemType == null ? null : this.itemType);
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
@@ -186,7 +186,7 @@ public class QueryItems1 extends Operation {
     result.put("includeSubCategoryItem", "None");
     result.put("itemName", "None");
     result.put("itemStatus", "None");
-    result.put("itemType", "None");
+    result.put("itemType", "multi");
     result.put("limit", "None");
     result.put("offset", "None");
     result.put("region", "None");
@@ -284,48 +284,50 @@ public class QueryItems1 extends Operation {
     }
   }
 
-  public static class QueryItems1Builder {
+  public static class QueryItemsV2Builder {
     private String appType;
     private String itemStatus;
-    private String itemType;
+    private List<String> itemType;
     private List<String> sortBy;
 
-    public QueryItems1Builder appType(final String appType) {
+    public QueryItemsV2Builder appType(final String appType) {
       this.appType = appType;
       return this;
     }
 
-    public QueryItems1Builder appTypeFromEnum(final AppType appType) {
+    public QueryItemsV2Builder appTypeFromEnum(final AppType appType) {
       this.appType = appType.toString();
       return this;
     }
 
-    public QueryItems1Builder itemStatus(final String itemStatus) {
+    public QueryItemsV2Builder itemStatus(final String itemStatus) {
       this.itemStatus = itemStatus;
       return this;
     }
 
-    public QueryItems1Builder itemStatusFromEnum(final ItemStatus itemStatus) {
+    public QueryItemsV2Builder itemStatusFromEnum(final ItemStatus itemStatus) {
       this.itemStatus = itemStatus.toString();
       return this;
     }
 
-    public QueryItems1Builder itemType(final String itemType) {
+    public QueryItemsV2Builder itemType(final List<String> itemType) {
       this.itemType = itemType;
       return this;
     }
 
-    public QueryItems1Builder itemTypeFromEnum(final ItemType itemType) {
-      this.itemType = itemType.toString();
+    public QueryItemsV2Builder itemTypeFromEnum(final List<ItemType> itemType) {
+      ArrayList<String> en = new ArrayList<String>();
+      for (ItemType e : itemType) en.add(e.toString());
+      this.itemType = en;
       return this;
     }
 
-    public QueryItems1Builder sortBy(final List<String> sortBy) {
+    public QueryItemsV2Builder sortBy(final List<String> sortBy) {
       this.sortBy = sortBy;
       return this;
     }
 
-    public QueryItems1Builder sortByFromEnum(final List<SortBy> sortBy) {
+    public QueryItemsV2Builder sortByFromEnum(final List<SortBy> sortBy) {
       ArrayList<String> en = new ArrayList<String>();
       for (SortBy e : sortBy) en.add(e.toString());
       this.sortBy = en;

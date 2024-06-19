@@ -26,8 +26,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Get slot configuration for a given namespace. In case slot configuration is not set, the
  * default will be returned. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:SLOTCONFIG", action=2 (READ) *
- * Returns : namespace slot config info
+ * <p>* Returns : namespace slot config info
  *
  * @deprecated
  */

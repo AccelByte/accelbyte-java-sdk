@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.cli.api.iam.users_v4;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.iam.models.*;
@@ -28,6 +29,11 @@ import picocli.CommandLine.Option;
 public class AdminDisableMyBackupCodesV4 implements Callable<Integer> {
 
   private static final Logger log = LogManager.getLogger(AdminDisableMyBackupCodesV4.class);
+
+  @Option(
+      names = {"--body"},
+      description = "body")
+  String body;
 
   @Option(
       names = {"--logging"},
@@ -52,6 +58,7 @@ public class AdminDisableMyBackupCodesV4 implements Callable<Integer> {
       final UsersV4 wrapper = new UsersV4(sdk);
       final net.accelbyte.sdk.api.iam.operations.users_v4.AdminDisableMyBackupCodesV4 operation =
           net.accelbyte.sdk.api.iam.operations.users_v4.AdminDisableMyBackupCodesV4.builder()
+              .body(new ObjectMapper().readValue(body, ModelDisableMFARequest.class))
               .build();
       wrapper.adminDisableMyBackupCodesV4(operation);
       log.info("Operation successful");

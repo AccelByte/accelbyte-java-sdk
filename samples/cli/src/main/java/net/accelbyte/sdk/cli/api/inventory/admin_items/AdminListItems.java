@@ -51,11 +51,6 @@ public class AdminListItems implements Callable<Integer> {
   Integer offset;
 
   @Option(
-      names = {"--qtyGte"},
-      description = "qtyGte")
-  Integer qtyGte;
-
-  @Option(
       names = {"--sortBy"},
       description = "sortBy")
   String sortBy;
@@ -97,7 +92,6 @@ public class AdminListItems implements Callable<Integer> {
               .namespace(namespace)
               .limit(limit)
               .offset(offset)
-              .qtyGte(qtyGte)
               .sortBy(sortBy)
               .sourceItemId(sourceItemId)
               .tags(tags)

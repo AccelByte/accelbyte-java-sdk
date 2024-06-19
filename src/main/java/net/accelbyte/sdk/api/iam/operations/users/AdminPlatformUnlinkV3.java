@@ -21,9 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminPlatformUnlinkV3
  *
- * <p>## Supported platforms: - **steam** - **steamopenid** - **facebook** - **google** - **oculus**
- * - **twitch** - **android** - **ios** - **apple** - **device** - **discord** - **awscognito** -
- * **epicgames** - **nintendo** - **snapchat**
+ * <p>## Supported platforms: - **steam** - **steamopenid** - **facebook** - **google** -
+ * **googleplaygames** - **oculus** - **twitch** - **android** - **ios** - **apple** - **device** -
+ * **discord** - **awscognito** - **epicgames** - **nintendo** - **snapchat**
  *
  * <p>Unlink user's account from a specific platform. 'justice' platform might have multiple
  * accounts from different namespaces linked. _platformNamespace_ need to be specified when the

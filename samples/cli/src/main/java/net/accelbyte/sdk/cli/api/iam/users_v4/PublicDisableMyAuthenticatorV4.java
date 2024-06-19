@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.cli.api.iam.users_v4;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.iam.models.*;
@@ -35,6 +36,11 @@ public class PublicDisableMyAuthenticatorV4 implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--body"},
+      description = "body")
+  String body;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -58,6 +64,7 @@ public class PublicDisableMyAuthenticatorV4 implements Callable<Integer> {
       final net.accelbyte.sdk.api.iam.operations.users_v4.PublicDisableMyAuthenticatorV4 operation =
           net.accelbyte.sdk.api.iam.operations.users_v4.PublicDisableMyAuthenticatorV4.builder()
               .namespace(namespace)
+              .body(new ObjectMapper().readValue(body, ModelDisableMFARequest.class))
               .build();
       wrapper.publicDisableMyAuthenticatorV4(operation);
       log.info("Operation successful");

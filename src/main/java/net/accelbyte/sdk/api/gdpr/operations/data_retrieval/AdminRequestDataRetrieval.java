@@ -21,8 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminRequestDataRetrieval
  *
- * <p>Submit user personal data retrieval request If admin request data for themselves, password is
- * need to be set Scope: account
+ * <p>Submit user personal data retrieval request. Scope: account
+ *
+ * <p>### Request Header: - **Content-Type: application/x-www-form-urlencoded**
  */
 @Getter
 @Setter

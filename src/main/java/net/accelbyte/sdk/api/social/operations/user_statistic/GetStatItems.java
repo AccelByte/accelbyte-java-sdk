@@ -21,9 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getStatItems
  *
- * <p>Get users' stat item values for a given namespace and statCode. Other info: + *Required
- * permission*: resource=ADMIN:NAMESPACE:{namespace}:STATITEM, action=2 (READ) + *Returns*: list of
- * users' stat item values
+ * <p>Get users' stat item values for a given namespace and statCode. Other info: + *Returns*: list
+ * of users' stat item values
  */
 @Getter
 @Setter

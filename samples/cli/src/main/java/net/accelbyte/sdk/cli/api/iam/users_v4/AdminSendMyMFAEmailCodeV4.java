@@ -30,6 +30,11 @@ public class AdminSendMyMFAEmailCodeV4 implements Callable<Integer> {
   private static final Logger log = LogManager.getLogger(AdminSendMyMFAEmailCodeV4.class);
 
   @Option(
+      names = {"--action"},
+      description = "action")
+  String action;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -51,7 +56,9 @@ public class AdminSendMyMFAEmailCodeV4 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UsersV4 wrapper = new UsersV4(sdk);
       final net.accelbyte.sdk.api.iam.operations.users_v4.AdminSendMyMFAEmailCodeV4 operation =
-          net.accelbyte.sdk.api.iam.operations.users_v4.AdminSendMyMFAEmailCodeV4.builder().build();
+          net.accelbyte.sdk.api.iam.operations.users_v4.AdminSendMyMFAEmailCodeV4.builder()
+              .action(action != null ? action : null)
+              .build();
       wrapper.adminSendMyMFAEmailCodeV4(operation);
       log.info("Operation successful");
       return 0;

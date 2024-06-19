@@ -25,9 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Other detail info:
  *
- * <p>* default will query from current active season * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS", action=2 (READ) * Returns : exp
- * grant history tags list
+ * <p>* default will query from current active season * Returns : exp grant history tags list
  */
 @Getter
 @Setter

@@ -41,6 +41,10 @@ public class ApimodelsCreateGameSessionRequest extends Model {
   @JsonProperty("configurationName")
   private String configurationName;
 
+  @JsonProperty("customURLGRPC")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String customURLGRPC;
+
   @JsonProperty("deployment")
   private String deployment;
 

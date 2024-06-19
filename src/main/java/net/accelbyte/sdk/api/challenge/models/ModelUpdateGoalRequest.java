@@ -26,6 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelUpdateGoalRequest extends Model {
 
   @JsonProperty("description")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String description;
 
   @JsonProperty("isActive")
@@ -36,9 +37,11 @@ public class ModelUpdateGoalRequest extends Model {
   private String name;
 
   @JsonProperty("requirementGroups")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelRequirement> requirementGroups;
 
   @JsonProperty("rewards")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelReward> rewards;
 
   @JsonProperty("schedule")
@@ -46,6 +49,7 @@ public class ModelUpdateGoalRequest extends Model {
   private ModelGoalSchedule schedule;
 
   @JsonProperty("tags")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> tags;
 
   @JsonIgnore

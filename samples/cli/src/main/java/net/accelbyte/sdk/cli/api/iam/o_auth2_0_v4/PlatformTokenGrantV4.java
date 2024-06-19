@@ -76,6 +76,11 @@ public class PlatformTokenGrantV4 implements Callable<Integer> {
   String platformToken;
 
   @Option(
+      names = {"--serviceLabel"},
+      description = "serviceLabel")
+  Float serviceLabel;
+
+  @Option(
       names = {"--skipSetCookie"},
       description = "skipSetCookie")
   Boolean skipSetCookie;
@@ -112,6 +117,7 @@ public class PlatformTokenGrantV4 implements Callable<Integer> {
               .deviceId(deviceId != null ? deviceId : null)
               .macAddress(macAddress != null ? macAddress : null)
               .platformToken(platformToken != null ? platformToken : null)
+              .serviceLabel(serviceLabel != null ? serviceLabel : null)
               .skipSetCookie(skipSetCookie != null ? skipSetCookie : null)
               .build();
       final OauthmodelTokenResponseV3 response = wrapper.platformTokenGrantV4(operation);

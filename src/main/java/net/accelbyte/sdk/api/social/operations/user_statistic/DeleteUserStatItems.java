@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * deleteUserStatItems
  *
  * <p>This endpoint is for testing purpose. Use this endpoint for cleaning up after testing. Delete
- * user's statItems given stat code. Other detail info: * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=8 (DELETE) * Returns : no
- * content
+ * user's statItems given stat code. Other detail info: * Returns : no content
  */
 @Getter
 @Setter

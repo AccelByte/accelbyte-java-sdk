@@ -33,9 +33,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * user's statitems, such as character's statitems. If provided, user's statitems will be saved with
  * key: *userId_additionalKey*
  *
- * <p>Other detail info: + *Required permission*:
- * resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE) + *Returns*: bulk
- * updated result
+ * <p>Other detail info: + *Returns*: bulk updated result
  */
 @Getter
 @Setter

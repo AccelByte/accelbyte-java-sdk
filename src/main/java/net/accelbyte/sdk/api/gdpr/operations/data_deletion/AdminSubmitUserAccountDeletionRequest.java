@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminSubmitUserAccountDeletionRequest
  *
- * <p>Submit user's account deletion requests Scope: account
+ * <p>Submit user's account deletion request. Scope: account
  */
 @Getter
 @Setter

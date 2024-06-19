@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * stopStatCycle
  *
- * <p>Stop stat cycle. Other detail info: * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:STAT", action=4 (UPDATE) * Returns : updated stat cycle
+ * <p>Stop stat cycle. Other detail info: * Returns : updated stat cycle
  */
 @Getter
 @Setter

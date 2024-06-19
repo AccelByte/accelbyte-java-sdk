@@ -14,26 +14,30 @@ import net.accelbyte.sdk.core.util.Helper;
 
 @Log
 public class TokenRepositoryCallbackListener extends TokenRepositoryCallback {
-    private final TokenRepository tokenRepository;
-    private final OkhttpWebSocketClient okhttpWebSocketClient;
-    public TokenRepositoryCallbackListener(TokenRepository tokenRepository, OkhttpWebSocketClient okhttpWebSocketClient) {
-        this.tokenRepository = tokenRepository;
-        this.okhttpWebSocketClient = okhttpWebSocketClient;
-    }
+  private final TokenRepository tokenRepository;
+  private final OkhttpWebSocketClient okhttpWebSocketClient;
 
-    @Override
-    public void onAccessTokenRefreshed(String newToken) {
-        log.info("send websocket refresh token request because token refreshed");
-        RefreshTokenRequest request =
-                RefreshTokenRequest.builder().id(Helper.generateUUID()).token(newToken).build();
-        okhttpWebSocketClient.sendMessage(request.toWSM());
-    }
-    public void registerCallback() {
-        log.info("registerTokenRepositoryCallback");
-        tokenRepository.registerTokenRepositoryCallback(this);
-    }
-    public void unregisterCallback() {
-        log.info("unregisterTokenRepositoryCallback");
-        tokenRepository.unregisterTokenRepositoryCallback(this);
-    }
+  public TokenRepositoryCallbackListener(
+      TokenRepository tokenRepository, OkhttpWebSocketClient okhttpWebSocketClient) {
+    this.tokenRepository = tokenRepository;
+    this.okhttpWebSocketClient = okhttpWebSocketClient;
+  }
+
+  @Override
+  public void onAccessTokenRefreshed(String newToken) {
+    log.info("send websocket refresh token request because token refreshed");
+    RefreshTokenRequest request =
+        RefreshTokenRequest.builder().id(Helper.generateUUID()).token(newToken).build();
+    okhttpWebSocketClient.sendMessage(request.toWSM());
+  }
+
+  public void registerCallback() {
+    log.info("registerTokenRepositoryCallback");
+    tokenRepository.registerTokenRepositoryCallback(this);
+  }
+
+  public void unregisterCallback() {
+    log.info("unregisterTokenRepositoryCallback");
+    tokenRepository.unregisterTokenRepositoryCallback(this);
+  }
 }

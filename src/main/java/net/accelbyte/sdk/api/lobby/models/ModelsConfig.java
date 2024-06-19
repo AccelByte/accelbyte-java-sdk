@@ -61,6 +61,10 @@ public class ModelsConfig extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean disableInvitationOnJoinParty;
 
+  @JsonProperty("disableRemoveSocketOldConnection")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean disableRemoveSocketOldConnection;
+
   @JsonProperty("enableChat")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean enableChat;

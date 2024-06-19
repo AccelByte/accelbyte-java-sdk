@@ -84,7 +84,7 @@ eval_tap $? 5 'RetrieveAllLegalPolicies' test.out
 
 #- 6 CreatePolicy
 ./ng net.accelbyte.sdk.cli.Main legal createPolicy \
-    --body '{"affectedClientIds": ["mKtPDKJDXn7Z4U68", "diRilZ7oFgx4c8Ou", "su8XfqlqNiTvB6Sd"], "affectedCountries": ["AdIhUDrwoZ5MecdK", "i5r6QEa1ysLEzth6", "mXhzkzWkFeZSoEAc"], "basePolicyName": "BdW19m4eu6d5tA5j", "description": "UmiTqpyhPFdxLzFQ", "isHidden": false, "namespace": "5MYzYiKWe5dNRljv", "tags": ["Vpbsx5w8hqUI06Up", "7IPrDQQRgat0Sevk", "LGMS0lyuI9a2I9u6"], "typeId": "OXGSLmCVuHOPlLlk"}' \
+    --body '{"affectedClientIds": ["su8XfqlqNiTvB6Sd", "mKtPDKJDXn7Z4U68", "diRilZ7oFgx4c8Ou"], "affectedCountries": ["AdIhUDrwoZ5MecdK", "i5r6QEa1ysLEzth6", "mXhzkzWkFeZSoEAc"], "basePolicyName": "BdW19m4eu6d5tA5j", "description": "UmiTqpyhPFdxLzFQ", "isHidden": false, "namespace": "5MYzYiKWe5dNRljv", "tags": ["LGMS0lyuI9a2I9u6", "Vpbsx5w8hqUI06Up", "7IPrDQQRgat0Sevk"], "typeId": "OXGSLmCVuHOPlLlk"}' \
     > test.out 2>&1
 eval_tap $? 6 'CreatePolicy' test.out
 
@@ -97,7 +97,7 @@ eval_tap $? 7 'RetrieveSinglePolicy' test.out
 #- 8 PartialUpdatePolicy
 ./ng net.accelbyte.sdk.cli.Main legal partialUpdatePolicy \
     --basePolicyId 'upD391C2qtPYokah' \
-    --body '{"affectedClientIds": ["0MesTCf9x4rt69ln", "FjkQsfCaTmt1d67F", "XGk2s9Q0mPVo3twu"], "affectedCountries": ["a7qxNeIxPz6MbwL6", "IY69z1UaLqYSYWyt", "LPziZMdjxcBZufQx"], "basePolicyName": "GiHPllG4cYEzfTD1", "description": "ZBm3MqHcUmLZZbSq", "isHidden": false, "namespace": "mu0hpDDWVAla2l5B", "tags": ["wGyzzWi9gwQYv7t1", "YNtIuS5S5XUdjsoq", "o7TTr1DmrhZv15T7"]}' \
+    --body '{"affectedClientIds": ["FjkQsfCaTmt1d67F", "0MesTCf9x4rt69ln", "XGk2s9Q0mPVo3twu"], "affectedCountries": ["a7qxNeIxPz6MbwL6", "IY69z1UaLqYSYWyt", "LPziZMdjxcBZufQx"], "basePolicyName": "GiHPllG4cYEzfTD1", "description": "ZBm3MqHcUmLZZbSq", "isHidden": false, "namespace": "mu0hpDDWVAla2l5B", "tags": ["o7TTr1DmrhZv15T7", "wGyzzWi9gwQYv7t1", "YNtIuS5S5XUdjsoq"]}' \
     > test.out 2>&1
 eval_tap $? 8 'PartialUpdatePolicy' test.out
 
@@ -199,7 +199,7 @@ eval_tap $? 21 'RetrieveAllLegalPoliciesByNamespace' test.out
 #- 22 CreatePolicy1
 ./ng net.accelbyte.sdk.cli.Main legal createPolicy1 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"affectedClientIds": ["UL4pp2ncYAHdNzDm", "hsfpFDcSDG8aMVGL", "iBNrDjqoxcwgGLXp"], "affectedCountries": ["FM3FIoVk8T3GpAnk", "2k6YmJFfRByjlBiu", "eIP6rOvDz9KOsb39"], "basePolicyName": "CmBUqg2SCnqntX9y", "description": "1aZSWMiVi10sG6vx", "isHidden": false, "tags": ["nLRfxeCSz9WEi8Kl", "loeH0JT1yduat2vQ", "WH8Yb33T5UBJCjfc"], "typeId": "R3biBfsu4jmsRE2w"}' \
+    --body '{"affectedClientIds": ["hsfpFDcSDG8aMVGL", "UL4pp2ncYAHdNzDm", "iBNrDjqoxcwgGLXp"], "affectedCountries": ["2k6YmJFfRByjlBiu", "FM3FIoVk8T3GpAnk", "eIP6rOvDz9KOsb39"], "basePolicyName": "CmBUqg2SCnqntX9y", "description": "1aZSWMiVi10sG6vx", "isHidden": false, "tags": ["WH8Yb33T5UBJCjfc", "nLRfxeCSz9WEi8Kl", "loeH0JT1yduat2vQ"], "typeId": "R3biBfsu4jmsRE2w"}' \
     > test.out 2>&1
 eval_tap $? 22 'CreatePolicy1' test.out
 
@@ -214,7 +214,7 @@ eval_tap $? 23 'RetrieveSinglePolicy1' test.out
 ./ng net.accelbyte.sdk.cli.Main legal partialUpdatePolicy1 \
     --basePolicyId 'UTLDx9gIiDandpGT' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"affectedClientIds": ["H3q31A806DJgas4b", "SKLCa3xreNDUWehw", "2t24aOMh5eC3IHeH"], "affectedCountries": ["6z3LNUj7fdgLA84Z", "8YYk6QEgJjBbEDoN", "f3n0hEoRCAcf80zf"], "basePolicyName": "FyabWAgIUXiI07A6", "description": "8eaqC2J9jyEW6GLb", "isHidden": false, "tags": ["YbsKoADkzJEN2VHz", "XDNxtXgeO3FgkXhj", "ih3bit0VWn3CO39P"]}' \
+    --body '{"affectedClientIds": ["H3q31A806DJgas4b", "SKLCa3xreNDUWehw", "2t24aOMh5eC3IHeH"], "affectedCountries": ["8YYk6QEgJjBbEDoN", "f3n0hEoRCAcf80zf", "6z3LNUj7fdgLA84Z"], "basePolicyName": "FyabWAgIUXiI07A6", "description": "8eaqC2J9jyEW6GLb", "isHidden": false, "tags": ["ih3bit0VWn3CO39P", "XDNxtXgeO3FgkXhj", "YbsKoADkzJEN2VHz"]}' \
     > test.out 2>&1
 eval_tap $? 24 'PartialUpdatePolicy1' test.out
 

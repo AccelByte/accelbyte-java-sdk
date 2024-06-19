@@ -22,10 +22,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * reorderTier
  *
  * <p>This API is used to reorder a tier. Only draft season pass can be updated.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=4 (UPDATE)
  */
 @Getter
 @Setter

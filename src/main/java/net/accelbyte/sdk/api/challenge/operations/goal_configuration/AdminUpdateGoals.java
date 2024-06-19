@@ -32,7 +32,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * players in order to complete it and describe what is the rewards given to player when they
  * complete the goal.The requirement will have target value and a operator that will evaluate that
  * against an observable playerâs attribute (e.g. statistic, entitlement). Goal belongs to a
- * challenge.
+ * challenge.Supported item type for ENTITLEMENT reward type: APP, BUNDLE, CODE, COINS, EXTENSION,
+ * INGAMEITEM, LOOTBOX, MEDIA, OPTIONBOX
  */
 @Getter
 @Setter

@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * ImageGet
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [READ]
+ * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:AMS:IMAGE [READ]
  */
 @Getter
 @Setter

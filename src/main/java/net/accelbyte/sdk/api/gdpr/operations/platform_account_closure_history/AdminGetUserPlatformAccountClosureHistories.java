@@ -21,9 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetUserPlatformAccountClosureHistories
  *
- * <p>Get user's platform account closure histories. ------ Supported platforms: * psn
+ * <p>Get user's platform account closure histories. Scope: account
  *
- * <p>Scope: account
+ * <p>------ Supported platforms: * psn
  */
 @Getter
 @Setter

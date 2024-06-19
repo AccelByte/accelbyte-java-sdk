@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * deleteSeason
  *
  * <p>This API is used to delete a season permanently, only draft season can be deleted.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=8 (DELETE)
  */
 @Getter
 @Setter

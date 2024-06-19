@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=2 (READ) *
- * Returns : reward data
+ * <p>* Returns : reward data
  */
 @Getter
 @Setter

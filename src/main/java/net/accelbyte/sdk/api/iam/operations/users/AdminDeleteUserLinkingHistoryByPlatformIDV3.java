@@ -23,8 +23,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>This API is for admin to delete user's linking history with target platform id. Supported
  * platform: - Steam group(steamnetwork) - steam - steamopenid - PSN group(psn) - ps4web - ps4 - ps5
  * - XBOX group(xbox) - live - xblweb - Oculus group(oculusgroup) - oculus - oculusweb - facebook -
- * google - twitch - discord - apple - epicgames - nintendo - awscognito - netflix - snapchat - oidc
- * platform id
+ * google group - google - googleplaygames - twitch - discord - apple - epicgames - nintendo -
+ * awscognito - netflix - snapchat - oidc platform id
  *
  * <p>Note: you can use either platform ID or platform group as platformId query parameter
  */

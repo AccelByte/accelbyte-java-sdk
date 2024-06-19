@@ -31,9 +31,9 @@ public class GetPaymentMerchantConfig implements Callable<Integer> {
   private static final Logger log = LogManager.getLogger(GetPaymentMerchantConfig.class);
 
   @Option(
-      names = {"--id"},
-      description = "id")
-  String id;
+      names = {"--namespace"},
+      description = "namespace")
+  String namespace;
 
   @Option(
       names = {"--logging"},
@@ -60,9 +60,9 @@ public class GetPaymentMerchantConfig implements Callable<Integer> {
           operation =
               net.accelbyte.sdk.api.platform.operations.payment_config.GetPaymentMerchantConfig
                   .builder()
-                  .id(id)
+                  .namespace(namespace)
                   .build();
-      final PaymentMerchantConfigInfo response = wrapper.getPaymentMerchantConfig(operation);
+      final PaymentDomainWhitelistConfigInfo response = wrapper.getPaymentMerchantConfig(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

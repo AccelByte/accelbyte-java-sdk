@@ -1295,7 +1295,9 @@ public class Users {
 
   /**
    * @see PublicListUserIDByPlatformUserIDsV3
+   * @deprecated
    */
+  @Deprecated
   public AccountcommonUserPlatforms publicListUserIDByPlatformUserIDsV3(
       PublicListUserIDByPlatformUserIDsV3 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -1383,6 +1385,16 @@ public class Users {
   public void publicForgotPasswordV3(PublicForgotPasswordV3 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicValidateUserInput
+   */
+  public ModelUserInputValidationResponse publicValidateUserInput(PublicValidateUserInput input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 

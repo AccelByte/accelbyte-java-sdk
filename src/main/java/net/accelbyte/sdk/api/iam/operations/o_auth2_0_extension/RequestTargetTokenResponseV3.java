@@ -51,7 +51,7 @@ public class RequestTargetTokenResponseV3 extends Operation {
     this.additionalData = additionalData;
     this.code = code;
 
-    securities.add("Bearer");
+    securities.add("Basic");
   }
 
   @Override

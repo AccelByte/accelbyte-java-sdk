@@ -50,6 +50,7 @@ public class ApimodelsPurchaseValidationReq extends Model {
   private String sku;
 
   @JsonProperty("stackable")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean stackable;
 
   @JsonProperty("useCount")

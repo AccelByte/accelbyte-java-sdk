@@ -51,6 +51,11 @@ public class TokenGrantV4 implements Callable<Integer> {
   String clientId;
 
   @Option(
+      names = {"--clientSecret"},
+      description = "clientSecret")
+  String clientSecret;
+
+  @Option(
       names = {"--code"},
       description = "code")
   String code;
@@ -127,6 +132,7 @@ public class TokenGrantV4 implements Callable<Integer> {
               .codeChallengeMethod(codeChallengeMethod)
               .additionalData(additionalData != null ? additionalData : null)
               .clientId(clientId != null ? clientId : null)
+              .clientSecret(clientSecret != null ? clientSecret : null)
               .code(code != null ? code : null)
               .codeVerifier(codeVerifier != null ? codeVerifier : null)
               .extendNamespace(extendNamespace != null ? extendNamespace : null)

@@ -27,8 +27,9 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Supported platform: - Steam group(steamnetwork) - steam - steamopenid - PSN group(psn) -
  * ps4web - ps4 - ps5 - XBOX group(xbox) - live - xblweb - Oculus group(oculusgroup) - oculus -
- * oculusweb - facebook - google - twitch - discord - android - ios - apple - device - justice -
- * epicgames - nintendo - awscognito - netflix - snapchat - oidc platform id
+ * oculusweb - facebook - google group - google - googleplaygames - twitch - discord - android - ios
+ * - apple - device - justice - epicgames - nintendo - awscognito - netflix - snapchat - oidc
+ * platform id
  *
  * <p>Note: if user unlink platform account that have group, the API logic will unlink all of
  * platform account under that group as well. example: if user unlink from ps4, the API logic will

@@ -31,6 +31,10 @@ public class IamErrorResponse extends Model {
   @JsonProperty("errorMessage")
   private String errorMessage;
 
+  @JsonProperty("requiredPermission")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private IamPermission requiredPermission;
+
   @JsonIgnore
   public IamErrorResponse createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

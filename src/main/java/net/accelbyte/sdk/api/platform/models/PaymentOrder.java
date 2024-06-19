@@ -49,6 +49,18 @@ public class PaymentOrder extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean charging;
 
+  @JsonProperty("checkoutUrl")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String checkoutUrl;
+
+  @JsonProperty("checkoutUrlExpiredAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String checkoutUrlExpiredAt;
+
+  @JsonProperty("checkoutUrlValid")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean checkoutUrlValid;
+
   @JsonProperty("createdAt")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String createdAt;
@@ -93,6 +105,10 @@ public class PaymentOrder extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String namespace;
 
+  @JsonProperty("neonPayConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private PaymentOrderNeonPayConfig neonPayConfig;
+
   @JsonProperty("notifyUrl")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String notifyUrl;
@@ -100,6 +116,10 @@ public class PaymentOrder extends Model {
   @JsonProperty("omitNotification")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean omitNotification;
+
+  @JsonProperty("paymentData")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private PaymentData paymentData;
 
   @JsonProperty("paymentMethod")
   @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -364,6 +384,7 @@ public class PaymentOrder extends Model {
     ADYEN("ADYEN"),
     ALIPAY("ALIPAY"),
     CHECKOUT("CHECKOUT"),
+    NEONPAY("NEONPAY"),
     PAYPAL("PAYPAL"),
     STRIPE("STRIPE"),
     WALLET("WALLET"),

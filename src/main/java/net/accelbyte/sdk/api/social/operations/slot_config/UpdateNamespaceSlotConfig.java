@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Update a slot namespace configuration. Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:SLOTCONFIG", action=4 (UPDATE) *
- * Returns : updated namespace slot config
+ * <p>* Returns : updated namespace slot config
  *
  * @deprecated
  */

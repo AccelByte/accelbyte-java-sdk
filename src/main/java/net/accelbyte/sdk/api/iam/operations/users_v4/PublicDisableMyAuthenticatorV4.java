@@ -13,6 +13,7 @@ import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import net.accelbyte.sdk.api.iam.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
@@ -20,7 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicDisableMyAuthenticatorV4
  *
- * <p>This endpoint is used to disable 2FA authenticator.
+ * <p>This endpoint is used to disable 2FA authenticator. ------ **Note**: **mfaToken** is required
+ * when all the following are enabled: - The environment variable **SENSITIVE_MFA_AUTH_ENABLED** is
+ * true - The **Two-Factor Authentication** is enabled in the IAM client where user logs in - Users
+ * already enabled the MFA
  */
 @Getter
 @Setter
@@ -29,21 +33,25 @@ public class PublicDisableMyAuthenticatorV4 extends Operation {
   private String path = "/iam/v4/public/namespaces/{namespace}/users/me/mfa/authenticator/disable";
 
   private String method = "DELETE";
-  private List<String> consumes = Arrays.asList();
+  private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
 
   /** fields as input parameter */
   private String namespace;
 
+  private ModelDisableMFARequest body;
+
   /**
    * @param namespace required
+   * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public PublicDisableMyAuthenticatorV4(String namespace) {
+  public PublicDisableMyAuthenticatorV4(String namespace, ModelDisableMFARequest body) {
     this.namespace = namespace;
+    this.body = body;
 
     securities.add("Bearer");
   }
@@ -55,6 +63,11 @@ public class PublicDisableMyAuthenticatorV4 extends Operation {
       pathParams.put("namespace", this.namespace);
     }
     return pathParams;
+  }
+
+  @Override
+  public ModelDisableMFARequest getBodyParams() {
+    return this.body;
   }
 
   @Override

@@ -23,7 +23,9 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>[Not Supported Yet In Starter] Get payment url. Other detail info:
  *
- * <p>* Returns : Get payment link
+ * <p>* For Neon Pay payment provider, the 'neonPayConfig' field can be used to provide success and
+ * cancel URL. If 'neonPayConfig' field is not present, the 'returnUrl' will be used for both
+ * success and cancel URL. * Returns : Get payment link
  */
 @Getter
 @Setter

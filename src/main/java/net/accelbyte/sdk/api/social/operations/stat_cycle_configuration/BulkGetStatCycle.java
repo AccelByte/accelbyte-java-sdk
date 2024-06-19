@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * bulkGetStatCycle
  *
- * <p>Bulk get stat cycle. Other detail info: * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:STAT", action=2 (READ) * Returns : list of stat cycles
+ * <p>Bulk get stat cycle. Other detail info: * Returns : list of stat cycles
  */
 @Getter
 @Setter

@@ -24,10 +24,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * createTier
  *
  * <p>This API is used to create tier for a draft season, can create multiple tiers at same time.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=1 (CREATE)
  */
 @Getter
 @Setter

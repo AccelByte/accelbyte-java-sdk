@@ -22,6 +22,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * PublicRequestDataRetrieval
  *
  * <p>Submit personal data retrieval request. Scope: account
+ *
+ * <p>### Request Header: - **Content-Type: application/x-www-form-urlencoded**
  */
 @Getter
 @Setter

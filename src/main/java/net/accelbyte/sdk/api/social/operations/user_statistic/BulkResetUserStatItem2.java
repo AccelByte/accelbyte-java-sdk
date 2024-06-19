@@ -26,8 +26,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Bulk reset multiple user's statitems value. User's statitem value will be reset to the default
  * value defined in the statistic configuration.
  *
- * <p>Other detail info: + *Required permission*: resource="NAMESPACE:{namespace}:STATITEM",
- * action=4 (UPDATE) + *Returns*: bulk updated result
+ * <p>Other detail info: + *Returns*: bulk updated result
  */
 @Getter
 @Setter

@@ -24,6 +24,8 @@ import picocli.CommandLine.Command;
     subcommands = {
       GetHealthcheckInfo.class,
       GetHealthcheckInfoV1.class,
+      AdminGetLogConfig.class,
+      AdminPatchUpdateLogConfig.class,
       AdminGetAllConfigV1.class,
       AdminGetConfigV1.class,
       AdminPatchConfigV1.class,

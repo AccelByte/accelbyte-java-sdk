@@ -20,9 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicCreateUserStatItem
  *
- * <p>Create user's statItem. Other detail info: * Required permission :
- * resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=1 (CREATE) * Returns : created
- * user's statItem
+ * <p>Create user's statItem. Other detail info: * Returns : created user's statItem
  */
 @Getter
 @Setter

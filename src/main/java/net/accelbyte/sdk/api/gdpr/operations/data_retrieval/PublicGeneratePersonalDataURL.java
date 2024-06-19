@@ -22,6 +22,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * PublicGeneratePersonalDataURL
  *
  * <p>Generate personal data download url Requires valid user access token Scope: account
+ *
+ * <p>### Request Header: - **Content-Type: application/x-www-form-urlencoded**
  */
 @Getter
 @Setter

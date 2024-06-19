@@ -125,6 +125,10 @@ public class Order extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String orderNo;
 
+  @JsonProperty("paymentData")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private PaymentData paymentData;
+
   @JsonProperty("paymentMethod")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String paymentMethod;
@@ -275,6 +279,7 @@ public class Order extends Model {
     ADYEN("ADYEN"),
     ALIPAY("ALIPAY"),
     CHECKOUT("CHECKOUT"),
+    NEONPAY("NEONPAY"),
     PAYPAL("PAYPAL"),
     STRIPE("STRIPE"),
     WALLET("WALLET"),

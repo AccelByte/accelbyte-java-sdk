@@ -23,11 +23,6 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>This API is used to check pass or tier purchasable, season only located in non-publisher
  * namespace.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS",
- * action=2 (READ)
  */
 @Getter
 @Setter

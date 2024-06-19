@@ -36,6 +36,8 @@
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
 | `/lobby/v1/admin/config` | GET | AdminGetAllConfigV1 | [AdminGetAllConfigV1](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/config/AdminGetAllConfigV1.java) | [AdminGetAllConfigV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/config/AdminGetAllConfigV1.java) |
+| `/lobby/v1/admin/config/log` | GET | AdminGetLogConfig | [AdminGetLogConfig](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/config/AdminGetLogConfig.java) | [AdminGetLogConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/config/AdminGetLogConfig.java) |
+| `/lobby/v1/admin/config/log` | PATCH | AdminPatchUpdateLogConfig | [AdminPatchUpdateLogConfig](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/config/AdminPatchUpdateLogConfig.java) | [AdminPatchUpdateLogConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/config/AdminPatchUpdateLogConfig.java) |
 | `/lobby/v1/admin/config/namespaces/{namespace}` | GET | AdminGetConfigV1 | [AdminGetConfigV1](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/config/AdminGetConfigV1.java) | [AdminGetConfigV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/config/AdminGetConfigV1.java) |
 | `/lobby/v1/admin/config/namespaces/{namespace}` | PUT | AdminUpdateConfigV1 | [AdminUpdateConfigV1](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/config/AdminUpdateConfigV1.java) | [AdminUpdateConfigV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/config/AdminUpdateConfigV1.java) |
 | `/lobby/v1/admin/config/namespaces/{namespace}/export` | GET | AdminExportConfigV1 | [AdminExportConfigV1](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/config/AdminExportConfigV1.java) | [AdminExportConfigV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/config/AdminExportConfigV1.java) |
@@ -162,6 +164,7 @@
 | `handlers.GetUsersPresenceResponse` | [HandlersGetUsersPresenceResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/HandlersGetUsersPresenceResponse.java) |
 | `handlers.UserPresence` | [HandlersUserPresence](../../src/main/java/net/accelbyte/sdk/api/lobby/models/HandlersUserPresence.java) |
 | `log.AppMessageDeclaration` | [LogAppMessageDeclaration](../../src/main/java/net/accelbyte/sdk/api/lobby/models/LogAppMessageDeclaration.java) |
+| `logconfig.Configuration` | [LogconfigConfiguration](../../src/main/java/net/accelbyte/sdk/api/lobby/models/LogconfigConfiguration.java) |
 | `model.BulkFriendsRequest` | [ModelBulkFriendsRequest](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelBulkFriendsRequest.java) |
 | `model.BulkFriendsResponse` | [ModelBulkFriendsResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelBulkFriendsResponse.java) |
 | `model.BulkUsersFreeFormNotificationRequestV1` | [ModelBulkUsersFreeFormNotificationRequestV1](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelBulkUsersFreeFormNotificationRequestV1.java) |

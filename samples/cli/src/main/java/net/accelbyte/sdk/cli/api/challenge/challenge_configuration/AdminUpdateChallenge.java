@@ -72,7 +72,7 @@ public class AdminUpdateChallenge implements Callable<Integer> {
                   .AdminUpdateChallenge.builder()
                   .challengeCode(challengeCode)
                   .namespace(namespace)
-                  .body(new ObjectMapper().readValue(body, ModelsUpdateChallengeRequest.class))
+                  .body(new ObjectMapper().readValue(body, ModelUpdateChallengeRequest.class))
                   .build();
       final ModelChallengeResponse response = wrapper.adminUpdateChallenge(operation);
       final String responseString =

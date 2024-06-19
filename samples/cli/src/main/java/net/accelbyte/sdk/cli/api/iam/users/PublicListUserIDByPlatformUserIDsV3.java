@@ -46,6 +46,11 @@ public class PublicListUserIDByPlatformUserIDsV3 implements Callable<Integer> {
   Boolean rawPID;
 
   @Option(
+      names = {"--rawPUID"},
+      description = "rawPUID")
+  Boolean rawPUID;
+
+  @Option(
       names = {"--body"},
       description = "body")
   String body;
@@ -78,6 +83,7 @@ public class PublicListUserIDByPlatformUserIDsV3 implements Callable<Integer> {
                   .namespace(namespace)
                   .platformId(platformId)
                   .rawPID(rawPID)
+                  .rawPUID(rawPUID)
                   .body(new ObjectMapper().readValue(body, ModelPlatformUserIDRequest.class))
                   .build();
       final AccountcommonUserPlatforms response =

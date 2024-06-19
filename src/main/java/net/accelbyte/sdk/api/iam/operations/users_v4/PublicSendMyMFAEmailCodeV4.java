@@ -20,7 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicSendMyMFAEmailCodeV4
  *
- * <p>This endpoint is used to send email code.
+ * <p>This endpoint is used to send email code. ---------------- Supported values of action: *
+ * ChangePassword * DisableMFAEmail
  */
 @Getter
 @Setter
@@ -29,12 +30,14 @@ public class PublicSendMyMFAEmailCodeV4 extends Operation {
   private String path = "/iam/v4/public/namespaces/{namespace}/users/me/mfa/email/code";
 
   private String method = "POST";
-  private List<String> consumes = Arrays.asList();
+  private List<String> consumes = Arrays.asList("application/x-www-form-urlencoded");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
 
   /** fields as input parameter */
   private String namespace;
+
+  private String action;
 
   /**
    * @param namespace required
@@ -42,8 +45,9 @@ public class PublicSendMyMFAEmailCodeV4 extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public PublicSendMyMFAEmailCodeV4(String namespace) {
+  public PublicSendMyMFAEmailCodeV4(String namespace, String action) {
     this.namespace = namespace;
+    this.action = action;
 
     securities.add("Bearer");
   }
@@ -55,6 +59,15 @@ public class PublicSendMyMFAEmailCodeV4 extends Operation {
       pathParams.put("namespace", this.namespace);
     }
     return pathParams;
+  }
+
+  @Override
+  public Map<String, Object> getFormParams() {
+    Map<String, Object> formDataParams = new HashMap<>();
+    if (this.action != null) {
+      formDataParams.put("action", this.action);
+    }
+    return formDataParams;
   }
 
   @Override

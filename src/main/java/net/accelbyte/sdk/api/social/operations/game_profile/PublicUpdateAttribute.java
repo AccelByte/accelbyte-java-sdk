@@ -21,9 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicUpdateAttribute
  *
- * <p>Updates game profile attribute, returns updated profile. Other detail info: * Required
- * permission : resource="NAMESPACE:{namespace}:USER:{userId}:GAMEPROFILE", action=4 (UPDATE) *
- * Returns : updated attribute
+ * <p>Updates game profile attribute, returns updated profile. Other detail info: * Returns :
+ * updated attribute
  */
 @Getter
 @Setter

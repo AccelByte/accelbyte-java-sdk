@@ -24,10 +24,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * AdminListUsersStatItems
  *
  * <p>Admin list all statItems of user NOTE: * If stat code does not exist, will ignore this stat
- * code. * If stat item does not exist, will return default value Other detail info:+ *Required
- * permission*: resource=ADMIN:NAMESPACE:{namespace}:STATITEM, action=2 (READ)
- *
- * <p>* Returns : stat items
+ * code. * If stat item does not exist, will return default value Other detail info: * Returns :
+ * stat items
  */
 @Getter
 @Setter

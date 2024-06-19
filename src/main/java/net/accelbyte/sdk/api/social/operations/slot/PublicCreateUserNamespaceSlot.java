@@ -22,9 +22,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>## The endpoint is going to be deprecated
  *
- * <p>Creates a slot. Other detail info: * Required permission :
- * resource="NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=1 (CREATE) * Returns : created
- * slot info
+ * <p>Creates a slot. Other detail info: * Returns : created slot info
  *
  * @deprecated
  */

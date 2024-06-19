@@ -25,10 +25,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "queryItems1", mixinStandardHelpOptions = true)
-public class QueryItems1 implements Callable<Integer> {
+@Command(name = "queryItemsV2", mixinStandardHelpOptions = true)
+public class QueryItemsV2 implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(QueryItems1.class);
+  private static final Logger log = LogManager.getLogger(QueryItemsV2.class);
 
   @Option(
       names = {"--namespace"},
@@ -78,7 +78,7 @@ public class QueryItems1 implements Callable<Integer> {
   @Option(
       names = {"--itemType"},
       description = "itemType")
-  String itemType;
+  List<String> itemType;
 
   @Option(
       names = {"--limit"},
@@ -131,7 +131,7 @@ public class QueryItems1 implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new QueryItems1()).execute(args);
+    int exitCode = new CommandLine(new QueryItemsV2()).execute(args);
     System.exit(exitCode);
   }
 
@@ -146,8 +146,8 @@ public class QueryItems1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Item wrapper = new Item(sdk);
-      final net.accelbyte.sdk.api.platform.operations.item.QueryItems1 operation =
-          net.accelbyte.sdk.api.platform.operations.item.QueryItems1.builder()
+      final net.accelbyte.sdk.api.platform.operations.item.QueryItemsV2 operation =
+          net.accelbyte.sdk.api.platform.operations.item.QueryItemsV2.builder()
               .namespace(namespace)
               .appType(appType)
               .availableDate(availableDate)
@@ -168,7 +168,7 @@ public class QueryItems1 implements Callable<Integer> {
               .targetNamespace(targetNamespace)
               .withTotal(withTotal)
               .build();
-      final FullItemPagingResult response = wrapper.queryItems1(operation);
+      final FullItemPagingResult response = wrapper.queryItemsV2(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

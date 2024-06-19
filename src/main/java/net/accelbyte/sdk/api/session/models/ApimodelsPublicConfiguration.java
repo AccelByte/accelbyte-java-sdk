@@ -39,6 +39,10 @@ public class ApimodelsPublicConfiguration extends Model {
   @JsonProperty("clientVersion")
   private String clientVersion;
 
+  @JsonProperty("customURLGRPC")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String customURLGRPC;
+
   @JsonProperty("deployment")
   private String deployment;
 

@@ -20,7 +20,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminSyncUserEntitlements
  *
- * <p>Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [UPDATE]
+ * <p>Sync user's entitlement from e-commerce service to inventory for non exist item at user
+ * inventory. will skip the item if already exist at user inventory. Permission:
+ * ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [UPDATE]
  */
 @Getter
 @Setter
@@ -30,7 +32,7 @@ public class AdminSyncUserEntitlements extends Operation {
       "/inventory/v1/admin/namespaces/{namespace}/users/{userId}/items/entitlements/sync";
 
   private String method = "PUT";
-  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
 

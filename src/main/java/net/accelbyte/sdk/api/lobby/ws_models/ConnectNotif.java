@@ -18,15 +18,15 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ConnectNotif {
-  private String lobbySessionId;
+  private String lobbySessionID;
 
   private ConnectNotif() {}
 
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public ConnectNotif(String lobbySessionId) {
-    this.lobbySessionId = lobbySessionId;
+  public ConnectNotif(String lobbySessionID) {
+    this.lobbySessionID = lobbySessionID;
   }
 
   public static String getType() {
@@ -36,23 +36,23 @@ public class ConnectNotif {
   public static ConnectNotif createFromWSM(String message) {
     ConnectNotif result = new ConnectNotif();
     Map<String, String> response = parseWSM(message);
-    result.lobbySessionId =
-        response.get("lobbySessionId") != null ? response.get("lobbySessionId") : null;
+    result.lobbySessionID =
+        response.get("lobbySessionID") != null ? response.get("lobbySessionID") : null;
     return result;
   }
 
   public String toWSM() {
     StringBuilder stringBuilder = new StringBuilder();
     stringBuilder.append("type: ").append(ConnectNotif.getType());
-    if (lobbySessionId != null) {
-      stringBuilder.append("\n").append("lobbySessionId: ").append(lobbySessionId);
+    if (lobbySessionID != null) {
+      stringBuilder.append("\n").append("lobbySessionID: ").append(lobbySessionID);
     }
     return stringBuilder.toString();
   }
 
   public static Map<String, String> getFieldInfo() {
     Map<String, String> result = new HashMap<>();
-    result.put("lobbySessionId", "lobbySessionId");
+    result.put("lobbySessionID", "lobbySessionID");
     return result;
   }
 }

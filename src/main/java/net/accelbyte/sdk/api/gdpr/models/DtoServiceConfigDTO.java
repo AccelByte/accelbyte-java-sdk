@@ -33,6 +33,7 @@ public class DtoServiceConfigDTO extends Model {
   private Boolean skipAck;
 
   @JsonProperty("url")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String url;
 
   @JsonIgnore
@@ -66,6 +67,7 @@ public class DtoServiceConfigDTO extends Model {
   }
 
   public enum Protocol {
+    EVENT("EVENT"),
     GRPC("GRPC");
 
     private String value;

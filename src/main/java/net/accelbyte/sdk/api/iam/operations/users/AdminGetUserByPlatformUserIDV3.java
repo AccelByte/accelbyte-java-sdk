@@ -28,8 +28,9 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Supported platform: - Steam group(steamnetwork) - steam - steamopenid - PSN group(psn) -
  * ps4web - ps4 - ps5 - XBOX group(xbox) - live - xblweb - Oculus group(oculusgroup) - oculus -
- * oculusweb - facebook - google - twitch - discord - android - ios - apple - device - justice -
- * epicgames - nintendo - awscognito - netflix - snapchat - oidc platform id
+ * oculusweb - facebook - google group - google - googleplaygames - twitch - discord - android - ios
+ * - apple - device - justice - epicgames - nintendo - awscognito - netflix - snapchat - oidc
+ * platform id
  *
  * <p>Note: **nintendo platform user ID**: NSA ID need to be appended with Environment ID using
  * colon as separator. e.g kmzwa8awaa:dd1

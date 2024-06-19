@@ -37,6 +37,9 @@ public class ApimodelsItemResp extends Model {
   @JsonProperty("inventoryId")
   private String inventoryId;
 
+  @JsonProperty("itemInfo")
+  private Map<String, ?> itemInfo;
+
   @JsonProperty("namespace")
   private String namespace;
 

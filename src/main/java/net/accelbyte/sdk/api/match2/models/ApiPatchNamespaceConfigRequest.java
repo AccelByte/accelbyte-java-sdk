@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApiPatchNamespaceConfigRequest extends Model {
 
+  @JsonProperty("extraPlatforms")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> extraPlatforms;
+
   @JsonProperty("platformGroup")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, List<String>> platformGroup;

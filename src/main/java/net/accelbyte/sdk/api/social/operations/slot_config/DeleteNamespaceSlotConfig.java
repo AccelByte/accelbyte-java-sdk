@@ -25,8 +25,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Deletes a namespace slot configuration, the configuration will be default after delete. Other
  * detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:SLOTCONFIG", action=8 (DELETE)
- *
  * @deprecated
  */
 @Deprecated

@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicListMyStatCycleItems
  *
- * <p>List user's statCycleItems by statCycle. Other detail info: * Required permission :
- * resource="NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=2 (READ) * Returns : stat cycle
- * items
+ * <p>List user's statCycleItems by statCycle. Other detail info: * Returns : stat cycle items
  */
 @Getter
 @Setter

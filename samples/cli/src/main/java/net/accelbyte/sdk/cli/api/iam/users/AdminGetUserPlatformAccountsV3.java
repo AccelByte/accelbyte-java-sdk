@@ -61,6 +61,11 @@ public class AdminGetUserPlatformAccountsV3 implements Callable<Integer> {
   String platformId;
 
   @Option(
+      names = {"--targetNamespace"},
+      description = "targetNamespace")
+  String targetNamespace;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -89,6 +94,7 @@ public class AdminGetUserPlatformAccountsV3 implements Callable<Integer> {
               .before(before)
               .limit(limit)
               .platformId(platformId)
+              .targetNamespace(targetNamespace)
               .build();
       final AccountcommonUserLinkedPlatformsResponseV3 response =
           wrapper.adminGetUserPlatformAccountsV3(operation);

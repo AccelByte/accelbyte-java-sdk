@@ -42,6 +42,8 @@ import picocli.CommandLine.Command;
       SyncNativeFriends.class,
       SyncNativeBlockedUser.class,
       AdminGetAllConfigV1.class,
+      AdminGetLogConfig.class,
+      AdminPatchUpdateLogConfig.class,
       AdminGetConfigV1.class,
       AdminUpdateConfigV1.class,
       AdminExportConfigV1.class,

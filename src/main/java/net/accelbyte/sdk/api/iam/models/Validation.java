@@ -71,6 +71,9 @@ public class Validation extends Model {
   @JsonProperty("minLength")
   private Integer minLength;
 
+  @JsonProperty("profanityFilter")
+  private String profanityFilter;
+
   @JsonProperty("regex")
   private String regex;
 

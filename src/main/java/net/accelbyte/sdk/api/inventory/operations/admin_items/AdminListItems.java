@@ -34,7 +34,7 @@ public class AdminListItems extends Operation {
       "/inventory/v1/admin/namespaces/{namespace}/inventories/{inventoryId}/items";
 
   private String method = "GET";
-  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
 
@@ -44,7 +44,6 @@ public class AdminListItems extends Operation {
   private String namespace;
   private Integer limit;
   private Integer offset;
-  private Integer qtyGte;
   private String sortBy;
   private String sourceItemId;
   private String tags;
@@ -61,7 +60,6 @@ public class AdminListItems extends Operation {
       String namespace,
       Integer limit,
       Integer offset,
-      Integer qtyGte,
       String sortBy,
       String sourceItemId,
       String tags) {
@@ -69,7 +67,6 @@ public class AdminListItems extends Operation {
     this.namespace = namespace;
     this.limit = limit;
     this.offset = offset;
-    this.qtyGte = qtyGte;
     this.sortBy = sortBy;
     this.sourceItemId = sourceItemId;
     this.tags = tags;
@@ -95,8 +92,6 @@ public class AdminListItems extends Operation {
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
-    queryParams.put(
-        "qtyGte", this.qtyGte == null ? null : Arrays.asList(String.valueOf(this.qtyGte)));
     queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
     queryParams.put(
         "sourceItemId", this.sourceItemId == null ? null : Arrays.asList(this.sourceItemId));
@@ -130,7 +125,6 @@ public class AdminListItems extends Operation {
     Map<String, String> result = new HashMap<>();
     result.put("limit", "None");
     result.put("offset", "None");
-    result.put("qtyGte", "None");
     result.put("sortBy", "None");
     result.put("sourceItemId", "None");
     result.put("tags", "None");
@@ -141,9 +135,6 @@ public class AdminListItems extends Operation {
     CreatedAt("createdAt"),
     CreatedAtasc("createdAt:asc"),
     CreatedAtdesc("createdAt:desc"),
-    Qty("qty"),
-    Qtyasc("qty:asc"),
-    Qtydesc("qty:desc"),
     UpdatedAt("updatedAt"),
     UpdatedAtasc("updatedAt:asc"),
     UpdatedAtdesc("updatedAt:desc");

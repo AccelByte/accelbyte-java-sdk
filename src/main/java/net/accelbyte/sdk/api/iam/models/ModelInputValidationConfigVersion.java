@@ -68,6 +68,10 @@ public class ModelInputValidationConfigVersion extends Model {
   @JsonProperty("minLength")
   private Integer minLength;
 
+  @JsonProperty("profanityFilter")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String profanityFilter;
+
   @JsonProperty("regex")
   private String regex;
 

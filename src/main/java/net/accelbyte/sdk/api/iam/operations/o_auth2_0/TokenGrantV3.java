@@ -80,6 +80,7 @@ public class TokenGrantV3 extends Operation {
   private String additionalData;
 
   private String clientId;
+  private String clientSecret;
   private String code;
   private String codeVerifier;
   private String extendNamespace;
@@ -99,6 +100,7 @@ public class TokenGrantV3 extends Operation {
   public TokenGrantV3(
       String additionalData,
       String clientId,
+      String clientSecret,
       String code,
       String codeVerifier,
       String extendNamespace,
@@ -110,6 +112,7 @@ public class TokenGrantV3 extends Operation {
       String grantType) {
     this.additionalData = additionalData;
     this.clientId = clientId;
+    this.clientSecret = clientSecret;
     this.code = code;
     this.codeVerifier = codeVerifier;
     this.extendNamespace = extendNamespace;
@@ -131,6 +134,9 @@ public class TokenGrantV3 extends Operation {
     }
     if (this.clientId != null) {
       formDataParams.put("client_id", this.clientId);
+    }
+    if (this.clientSecret != null) {
+      formDataParams.put("client_secret", this.clientSecret);
     }
     if (this.code != null) {
       formDataParams.put("code", this.code);

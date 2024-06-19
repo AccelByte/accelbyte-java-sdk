@@ -52,6 +52,9 @@ public class ApiFleetGetResponse extends Model {
   @JsonProperty("regions")
   private List<ApiRegionConfig> regions;
 
+  @JsonProperty("samplingRules")
+  private ApiFleetArtifactsSampleRules samplingRules;
+
   @JsonIgnore
   public ApiFleetGetResponse createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

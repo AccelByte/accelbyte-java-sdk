@@ -35,14 +35,24 @@ public class AdminGetBackupCodesV4 extends Operation {
   private String locationQuery = null;
 
   /** fields as input parameter */
+  private String languageTag;
 
   /** */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public AdminGetBackupCodesV4() {
+  public AdminGetBackupCodesV4(String languageTag) {
+    this.languageTag = languageTag;
 
     securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "languageTag", this.languageTag == null ? null : Arrays.asList(this.languageTag));
+    return queryParams;
   }
 
   @Override
@@ -56,5 +66,12 @@ public class AdminGetBackupCodesV4 extends Operation {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("languageTag", "None");
+    return result;
   }
 }

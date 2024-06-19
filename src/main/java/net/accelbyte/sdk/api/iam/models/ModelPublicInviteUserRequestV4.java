@@ -32,6 +32,10 @@ public class ModelPublicInviteUserRequestV4 extends Model {
   @JsonProperty("emailAddress")
   private String emailAddress;
 
+  @JsonProperty("languageTag")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String languageTag;
+
   @JsonProperty("namespace")
   private String namespace;
 

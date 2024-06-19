@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class PaymentUrlCreate extends Model {
 
+  @JsonProperty("neonPayConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private PaymentOrderNeonPayConfig neonPayConfig;
+
   @JsonProperty("paymentOrderNo")
   private String paymentOrderNo;
 
@@ -77,6 +81,7 @@ public class PaymentUrlCreate extends Model {
     ADYEN("ADYEN"),
     ALIPAY("ALIPAY"),
     CHECKOUT("CHECKOUT"),
+    NEONPAY("NEONPAY"),
     PAYPAL("PAYPAL"),
     STRIPE("STRIPE"),
     WALLET("WALLET"),

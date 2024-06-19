@@ -6,6 +6,8 @@
 
 package net.accelbyte.sdk.core.client;
 
+import static net.accelbyte.sdk.core.util.Helper.parseWSM;
+
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import lombok.extern.java.Log;
@@ -17,21 +19,16 @@ import okhttp3.WebSocket;
 import okhttp3.WebSocketListener;
 import okio.ByteString;
 
-import static net.accelbyte.sdk.core.util.Helper.parseWSM;
-
 @Log
-public class OkhttpWebSocketClient extends WebSocketListener  {
+public class OkhttpWebSocketClient extends WebSocketListener {
 
   // OkhttpWebSocketClient, with websocket reconnect disabled
   public static OkhttpWebSocketClient create(
-          ConfigRepository configRepository,
-          TokenRepository tokenRepository,
-          WebSocketListener listener)
-          throws Exception {
-    return create(configRepository,
-            tokenRepository,
-            listener,
-    0, 0);
+      ConfigRepository configRepository,
+      TokenRepository tokenRepository,
+      WebSocketListener listener)
+      throws Exception {
+    return create(configRepository, tokenRepository, listener, 0, 0);
   }
 
   // OkhttpWebSocketClient, with websocket reconnect
@@ -44,14 +41,19 @@ public class OkhttpWebSocketClient extends WebSocketListener  {
       int reconnectDelayMs,
       int pingIntervalMs)
       throws Exception {
-    if (configRepository == null) throw new IllegalArgumentException("configRepository can't be null");
-    if (tokenRepository == null) throw new IllegalArgumentException("tokenRepository can't be null");
+    if (configRepository == null)
+      throw new IllegalArgumentException("configRepository can't be null");
+    if (tokenRepository == null)
+      throw new IllegalArgumentException("tokenRepository can't be null");
     if (listener == null) throw new IllegalArgumentException("listener can't be null");
 
-    if (reconnectDelayMs < 0) throw new IllegalArgumentException("reconnectDelayMs can't be negative");
+    if (reconnectDelayMs < 0)
+      throw new IllegalArgumentException("reconnectDelayMs can't be negative");
     if (pingIntervalMs < 0) throw new IllegalArgumentException("pingIntervalMs can't be negative");
 
-    OkhttpWebSocketClient webSocketClient = new OkhttpWebSocketClient(configRepository, tokenRepository, listener, reconnectDelayMs, pingIntervalMs);
+    OkhttpWebSocketClient webSocketClient =
+        new OkhttpWebSocketClient(
+            configRepository, tokenRepository, listener, reconnectDelayMs, pingIntervalMs);
     return webSocketClient;
   }
 
@@ -70,11 +72,13 @@ public class OkhttpWebSocketClient extends WebSocketListener  {
   private int pingIntervalMs;
   private int reconnectDelayMs;
 
-  private OkhttpWebSocketClient(ConfigRepository configRepository,
-                                TokenRepository tokenRepository,
-                                WebSocketListener webSocketListener,
-                                int reconnectDelayMs,
-                                int pingIntervalMs) throws Exception {
+  private OkhttpWebSocketClient(
+      ConfigRepository configRepository,
+      TokenRepository tokenRepository,
+      WebSocketListener webSocketListener,
+      int reconnectDelayMs,
+      int pingIntervalMs)
+      throws Exception {
     this.configRepository = configRepository;
     this.tokenRepository = tokenRepository;
     this.webSocketListener = webSocketListener;
@@ -90,7 +94,8 @@ public class OkhttpWebSocketClient extends WebSocketListener  {
 
     createNewWebSocket();
 
-    this.tokenRepositoryCallbackListener = new TokenRepositoryCallbackListener(tokenRepository, this);
+    this.tokenRepositoryCallbackListener =
+        new TokenRepositoryCallbackListener(tokenRepository, this);
     registerCallbacks();
   }
 
@@ -119,9 +124,9 @@ public class OkhttpWebSocketClient extends WebSocketListener  {
     String accessToken = tokenRepository.getToken();
 
     Request.Builder builder =
-            new Request.Builder()
-                    .url(url)
-                    .addHeader("Authorization", String.format("Bearer %s", accessToken));
+        new Request.Builder()
+            .url(url)
+            .addHeader("Authorization", String.format("Bearer %s", accessToken));
 
     // inject lobby session id if not empty
     if (isXHeaderLobbySessionIdEnabled && lobbySessionId != null && !lobbySessionId.isEmpty()) {
@@ -133,8 +138,8 @@ public class OkhttpWebSocketClient extends WebSocketListener  {
   }
 
   private OkHttpClient constructOkHttpClient() {
-    final OkHttpClient.Builder builder = new OkHttpClient.Builder()
-            .readTimeout(0, TimeUnit.MILLISECONDS);
+    final OkHttpClient.Builder builder =
+        new OkHttpClient.Builder().readTimeout(0, TimeUnit.MILLISECONDS);
 
     if (isAutomaticPingEnabled()) {
       log.info("Websocket Ping Interval: " + this.pingIntervalMs + "ms");
@@ -179,7 +184,7 @@ public class OkhttpWebSocketClient extends WebSocketListener  {
     final String LOBBY_SESSION_ID_KEY = "lobbySessionID";
     Map<String, String> response = parseWSM(message);
     String lobbySessionId =
-            response.get(LOBBY_SESSION_ID_KEY) != null ? response.get(LOBBY_SESSION_ID_KEY) : null;
+        response.get(LOBBY_SESSION_ID_KEY) != null ? response.get(LOBBY_SESSION_ID_KEY) : null;
     return lobbySessionId;
   }
 
@@ -188,9 +193,9 @@ public class OkhttpWebSocketClient extends WebSocketListener  {
     super.onMessage(webSocket, text);
 
     if (text.contains("connectNotif")) {
-// Uncommented when OpenAPI spec indicated above is fixed:
-//            ConnectNotif notif = ConnectNotif.createFromWSM(text);
-//            final String lobbySessionId = notif.getLobbySessionId();
+      // Uncommented when OpenAPI spec indicated above is fixed:
+      //            ConnectNotif notif = ConnectNotif.createFromWSM(text);
+      //            final String lobbySessionId = notif.getLobbySessionId();
       final String lobbySessionId = createFromWSMWorkaround(text);
       log.info("lobbySessionId: " + lobbySessionId);
       this.lobbySessionId = lobbySessionId;
@@ -257,16 +262,14 @@ public class OkhttpWebSocketClient extends WebSocketListener  {
   }
 
   private boolean shouldReconnectOnClosed(int code) {
-    return (isReconnectEnabled() &&
-            !isSocketConnected &&
-            code < WS_CODE_DISCONNECT_WITHOUT_RECONNECT && code != WS_CODE_NORMAL_CLOSURE
-    );
+    return (isReconnectEnabled()
+        && !isSocketConnected
+        && code < WS_CODE_DISCONNECT_WITHOUT_RECONNECT
+        && code != WS_CODE_NORMAL_CLOSURE);
   }
 
   private boolean shouldReconnectOnFailure() {
-    return (isReconnectEnabled() &&
-            !isSocketConnected
-    );
+    return (isReconnectEnabled() && !isSocketConnected);
   }
 
   private boolean isReconnectEnabled() {

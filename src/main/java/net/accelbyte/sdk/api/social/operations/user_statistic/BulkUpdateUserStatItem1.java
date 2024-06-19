@@ -29,8 +29,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * the specified value if it's larger than the existing value + *MIN*: update user statitem with the
  * specified value if it's lower than the existing value
  *
- * <p>Other detail info: + *Required permission*: resource="NAMESPACE:{namespace}:STATITEM",
- * action=4 (UPDATE) + *Returns*: bulk updated result
+ * <p>Other detail info: + *Returns*: bulk updated result
  */
 @Getter
 @Setter

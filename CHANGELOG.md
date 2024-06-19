@@ -1,3 +1,13 @@
+<a name="v0.64.0"></a>
+## [v0.64.0]
+### feat
+- **:** add ws reconnect logic
+- **:** rename class + for onClosing() only reconnect when code is < 4000 and != 1000
+- **:** ws add reconnect logic - README
+- **:** ws add reconnect logic - rename vars
+- **:** ws reconnect logic - added lobby sessionId preservation during reconnect + refactoring
+
+
 <a name="v0.63.0"></a>
 ## [v0.63.0]
 ### fix

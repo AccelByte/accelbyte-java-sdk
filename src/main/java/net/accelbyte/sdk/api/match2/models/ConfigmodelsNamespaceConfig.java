@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ConfigmodelsNamespaceConfig extends Model {
 
+  @JsonProperty("extraPlatforms")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> extraPlatforms;
+
   @JsonProperty("namespace")
   private String namespace;
 

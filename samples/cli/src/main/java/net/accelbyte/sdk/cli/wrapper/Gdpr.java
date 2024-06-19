@@ -10,7 +10,9 @@ package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.gdpr.configuration.*;
 import net.accelbyte.sdk.cli.api.gdpr.data_deletion.*;
+import net.accelbyte.sdk.cli.api.gdpr.data_deletion_s2s.*;
 import net.accelbyte.sdk.cli.api.gdpr.data_retrieval.*;
+import net.accelbyte.sdk.cli.api.gdpr.data_retrieval_s2s.*;
 import net.accelbyte.sdk.cli.api.gdpr.platform_account_closure_client.*;
 import net.accelbyte.sdk.cli.api.gdpr.platform_account_closure_history.*;
 import picocli.CommandLine.Command;
@@ -52,6 +54,11 @@ import picocli.CommandLine.Command;
       PublicSubmitMyAccountDeletionRequest.class,
       PublicCancelMyAccountDeletionRequest.class,
       PublicGetMyAccountDeletionStatus.class,
+      S2SGetListFinishedAccountDeletionRequest.class,
+      S2SGetListFinishedPersonalDataRequest.class,
+      S2SSubmitUserAccountDeletionRequest.class,
+      S2SRequestDataRetrieval.class,
+      S2SGeneratePersonalDataURL.class,
     })
 public class Gdpr implements Runnable {
 

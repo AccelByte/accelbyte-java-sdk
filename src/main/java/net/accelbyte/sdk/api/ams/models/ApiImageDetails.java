@@ -28,6 +28,9 @@ public class ApiImageDetails extends Model {
   @JsonProperty("createdAt")
   private String createdAt;
 
+  @JsonProperty("deleteAt")
+  private ApiTime deleteAt;
+
   @JsonProperty("executable")
   private String executable;
 

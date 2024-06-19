@@ -31,6 +31,7 @@ import net.accelbyte.sdk.cli.api.platform.payment_callback_config.*;
 import net.accelbyte.sdk.cli.api.platform.payment_config.*;
 import net.accelbyte.sdk.cli.api.platform.payment_dedicated.*;
 import net.accelbyte.sdk.cli.api.platform.payment_station.*;
+import net.accelbyte.sdk.cli.api.platform.platform.*;
 import net.accelbyte.sdk.cli.api.platform.platform_account_closure.*;
 import net.accelbyte.sdk.cli.api.platform.revocation.*;
 import net.accelbyte.sdk.cli.api.platform.reward.*;
@@ -196,6 +197,8 @@ import picocli.CommandLine.Command;
       RefundOrder.class,
       GetPaymentCallbackConfig.class,
       UpdatePaymentCallbackConfig.class,
+      GetPaymentMerchantConfig.class,
+      UpdatePaymentDomainWhitelistConfig.class,
       QueryPaymentNotifications.class,
       QueryPaymentOrders.class,
       CreatePaymentOrderByDedicated.class,
@@ -205,6 +208,8 @@ import picocli.CommandLine.Command;
       RefundPaymentOrderByDedicated.class,
       SimulatePaymentOrderNotification.class,
       GetPaymentOrderChargeStatus.class,
+      GetPsnEntitlementOwnership.class,
+      GetXboxEntitlementOwnership.class,
       GetPlatformEntitlementConfig.class,
       UpdatePlatformEntitlementConfig.class,
       GetPlatformWalletConfig.class,
@@ -370,17 +375,20 @@ import picocli.CommandLine.Command;
       TestAliPayConfig.class,
       TestCheckoutConfig.class,
       DebugMatchedPaymentMerchantConfig.class,
+      TestNeonPayConfig.class,
       TestPayPalConfig.class,
       TestStripeConfig.class,
       TestWxPayConfig.class,
       TestXsollaConfig.class,
-      GetPaymentMerchantConfig.class,
+      GetPaymentMerchantConfig1.class,
       UpdateAdyenConfig.class,
       TestAdyenConfigById.class,
       UpdateAliPayConfig.class,
       TestAliPayConfigById.class,
       UpdateCheckoutConfig.class,
       TestCheckoutConfigById.class,
+      UpdateNeonPayConfig.class,
+      TestNeonPayConfigById.class,
       UpdatePayPalConfig.class,
       TestPayPalConfigById.class,
       UpdateStripeConfig.class,
@@ -493,7 +501,7 @@ import picocli.CommandLine.Command;
       PublicListViews.class,
       PublicGetWallet.class,
       PublicListUserWalletTransactions.class,
-      QueryItems1.class,
+      QueryItemsV2.class,
       ImportStore1.class,
       ExportStore1.class,
       FulfillRewardsV2.class,

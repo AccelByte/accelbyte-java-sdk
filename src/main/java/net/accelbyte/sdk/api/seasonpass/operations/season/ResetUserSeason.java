@@ -22,11 +22,6 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>[TEST FACILITY ONLY] Forbidden in live environment. This API is used to reset user data in
  * current season, it will not revoke the rewarded entitlements.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SEASONPASS",
- * action=8 (DELETE)
  */
 @Getter
 @Setter

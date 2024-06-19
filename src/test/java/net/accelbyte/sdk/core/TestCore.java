@@ -21,7 +21,6 @@ import java.util.concurrent.CountDownLatch;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
-
 import lombok.extern.java.Log;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.GetCountryLocationV3;
 import net.accelbyte.sdk.api.iam.wrappers.OAuth20Extension;
@@ -772,77 +771,81 @@ class TestCore {
         tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
   }
 
-    @Test
-    public void testLobbyWebsocket() throws Exception {
-        final int RECONNECT_DELAY_MS = 3000;
-        final int PING_INTERVAL_MS = 1500;
-        final int MESSAGE_INTERVAL_MS = 2000;
+  @Test
+  public void testLobbyWebsocket() throws Exception {
+    final int RECONNECT_DELAY_MS = 3000;
+    final int PING_INTERVAL_MS = 1500;
+    final int MESSAGE_INTERVAL_MS = 2000;
 
-        final String request_id = TestHelper.generateRandomId(64);
-        final CountDownLatch response = new CountDownLatch(100);
-        final StringBuilder responseMessage = new StringBuilder();
+    final String request_id = TestHelper.generateRandomId(64);
+    final CountDownLatch response = new CountDownLatch(100);
+    final StringBuilder responseMessage = new StringBuilder();
 
-        final WebSocketListener listener =
-                new WebSocketListener() {
-                    @Override
-                    public void onMessage(@NotNull WebSocket webSocket, @NotNull String text) {
-                        log.info("Client onMessage");
-                        if (response.getCount() > 0) {
-                            log.info("Received onMessage: \n" + text);
-                            responseMessage.append(text + "\n");
-                            response.countDown();
-                        }
-                    }
+    final WebSocketListener listener =
+        new WebSocketListener() {
+          @Override
+          public void onMessage(@NotNull WebSocket webSocket, @NotNull String text) {
+            log.info("Client onMessage");
+            if (response.getCount() > 0) {
+              log.info("Received onMessage: \n" + text);
+              responseMessage.append(text + "\n");
+              response.countDown();
+            }
+          }
 
-                    @Override
-                    public void onOpen(WebSocket webSocket, okhttp3.Response response) {
-                        log.info("Client onOpen");
-                    }
+          @Override
+          public void onOpen(WebSocket webSocket, okhttp3.Response response) {
+            log.info("Client onOpen");
+          }
 
-                    @Override
-                    public void onClosing(WebSocket webSocket, int code, String reason) {
-                        log.info("Client onClosing");
-                    }
+          @Override
+          public void onClosing(WebSocket webSocket, int code, String reason) {
+            log.info("Client onClosing");
+          }
 
-                    @Override
-                    public void onClosed(WebSocket webSocket, int code, String reason) {
-                        log.info("Client onClosed");
-                    }
+          @Override
+          public void onClosed(WebSocket webSocket, int code, String reason) {
+            log.info("Client onClosed");
+          }
 
-                    @Override
-                    public void onFailure(WebSocket webSocket, Throwable t, okhttp3.Response response) {
-                        log.info("Client onFailure");
-                    }
-                };
+          @Override
+          public void onFailure(WebSocket webSocket, Throwable t, okhttp3.Response response) {
+            log.info("Client onFailure");
+          }
+        };
 
-        final OkhttpWebSocketClient ws =
-                OkhttpWebSocketClient.create(
-                        new MockServerConfigRepository(), DefaultTokenRepository.getInstance(), listener, RECONNECT_DELAY_MS, PING_INTERVAL_MS);
+    final OkhttpWebSocketClient ws =
+        OkhttpWebSocketClient.create(
+            new MockServerConfigRepository(),
+            DefaultTokenRepository.getInstance(),
+            listener,
+            RECONNECT_DELAY_MS,
+            PING_INTERVAL_MS);
 
-        final String requestMessage = PartyCreateRequest.builder().id(request_id).build().toWSM();
+    final String requestMessage = PartyCreateRequest.builder().id(request_id).build().toWSM();
 
-        log.info(requestMessage);
+    log.info(requestMessage);
 
-        ws.sendMessage(requestMessage);
+    ws.sendMessage(requestMessage);
 
-        for (int i = 1; i < 3; i++) {
-            DefaultTokenRepository.getInstance().storeToken("token1");
+    for (int i = 1; i < 3; i++) {
+      DefaultTokenRepository.getInstance().storeToken("token1");
 
-            sleep(MESSAGE_INTERVAL_MS);
+      sleep(MESSAGE_INTERVAL_MS);
 
-            DefaultTokenRepository.getInstance().storeToken("token2");
-            ws.sendMessage(requestMessage);
-        }
-
-        // TODO: programmatically call GET force-close here then upon reconnect successful,
-        //  verify lobby session id if it's the same as before
-
-        for (int i = 1; i < 3; i++) {
-            sleep(MESSAGE_INTERVAL_MS);
-            ws.sendMessage(requestMessage);
-        }
-
-        log.info("Response message: \n" + responseMessage);
-        ws.close(1000, "Normal close");
+      DefaultTokenRepository.getInstance().storeToken("token2");
+      ws.sendMessage(requestMessage);
     }
+
+    // TODO: programmatically call GET force-close here then upon reconnect successful,
+    //  verify lobby session id if it's the same as before
+
+    for (int i = 1; i < 3; i++) {
+      sleep(MESSAGE_INTERVAL_MS);
+      ws.sendMessage(requestMessage);
+    }
+
+    log.info("Response message: \n" + responseMessage);
+    ws.close(1000, "Normal close");
+  }
 }

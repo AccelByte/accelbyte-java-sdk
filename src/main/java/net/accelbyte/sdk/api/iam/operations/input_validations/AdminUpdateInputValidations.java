@@ -29,7 +29,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * input validation will be generated based on the combination of the other parameters. If
  * `allowUnicode` is set to true, unicode regex pattern will be use as the input validation and the
  * other parameters will be ignored. Supported `letterCase`: - lowercase - uppercase - mixed:
- * uppercase and lowercase - mixed: uppercase and/or lowercase
+ * uppercase and lowercase - any: uppercase and/or lowercase
  *
  * <p>flexible special character non words with `allowAllSpecialCharacters` if
  * `allowAllSpecialCharacters` is set to true `specialCharacters` will forced to empty. Supported

@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getStatCycles
  *
- * <p>List stat cycles by pagination. Other detail info: * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:STAT", action=2 (READ) * Returns : stat cycles
+ * <p>List stat cycles by pagination. Other detail info: * Returns : stat cycles
  */
 @Getter
 @Setter

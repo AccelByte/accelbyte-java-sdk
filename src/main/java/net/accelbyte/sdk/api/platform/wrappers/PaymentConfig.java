@@ -23,6 +23,26 @@ public class PaymentConfig {
   }
 
   /**
+   * @see GetPaymentMerchantConfig
+   */
+  public PaymentDomainWhitelistConfigInfo getPaymentMerchantConfig(GetPaymentMerchantConfig input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see UpdatePaymentDomainWhitelistConfig
+   */
+  public PaymentDomainWhitelistConfigInfo updatePaymentDomainWhitelistConfig(
+      UpdatePaymentDomainWhitelistConfig input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see TestAdyenConfig
    */
   public TestResult testAdyenConfig(TestAdyenConfig input) throws Exception {
@@ -54,6 +74,15 @@ public class PaymentConfig {
    */
   public PaymentMerchantConfigInfo debugMatchedPaymentMerchantConfig(
       DebugMatchedPaymentMerchantConfig input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see TestNeonPayConfig
+   */
+  public TestResult testNeonPayConfig(TestNeonPayConfig input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
@@ -96,9 +125,9 @@ public class PaymentConfig {
   }
 
   /**
-   * @see GetPaymentMerchantConfig
+   * @see GetPaymentMerchantConfig1
    */
-  public PaymentMerchantConfigInfo getPaymentMerchantConfig(GetPaymentMerchantConfig input)
+  public PaymentMerchantConfigInfo getPaymentMerchantConfig1(GetPaymentMerchantConfig1 input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -155,6 +184,24 @@ public class PaymentConfig {
    * @see TestCheckoutConfigById
    */
   public TestResult testCheckoutConfigById(TestCheckoutConfigById input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see UpdateNeonPayConfig
+   */
+  public PaymentMerchantConfigInfo updateNeonPayConfig(UpdateNeonPayConfig input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see TestNeonPayConfigById
+   */
+  public TestResult testNeonPayConfigById(TestNeonPayConfigById input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

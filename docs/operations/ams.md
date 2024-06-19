@@ -29,6 +29,7 @@
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
 | `/ams/v1/admin/namespaces/{namespace}/artifacts` | GET | ArtifactGet | [ArtifactGet](../../src/main/java/net/accelbyte/sdk/api/ams/operations/artifacts/ArtifactGet.java) | [ArtifactGet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/artifacts/ArtifactGet.java) |
+| `/ams/v1/admin/namespaces/{namespace}/artifacts` | DELETE | ArtifactBulkDelete | [ArtifactBulkDelete](../../src/main/java/net/accelbyte/sdk/api/ams/operations/artifacts/ArtifactBulkDelete.java) | [ArtifactBulkDelete](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/artifacts/ArtifactBulkDelete.java) |
 | `/ams/v1/admin/namespaces/{namespace}/artifacts/usage` | GET | ArtifactUsageGet | [ArtifactUsageGet](../../src/main/java/net/accelbyte/sdk/api/ams/operations/artifacts/ArtifactUsageGet.java) | [ArtifactUsageGet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/artifacts/ArtifactUsageGet.java) |
 | `/ams/v1/admin/namespaces/{namespace}/artifacts/{artifactID}` | DELETE | ArtifactDelete | [ArtifactDelete](../../src/main/java/net/accelbyte/sdk/api/ams/operations/artifacts/ArtifactDelete.java) | [ArtifactDelete](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/artifacts/ArtifactDelete.java) |
 | `/ams/v1/admin/namespaces/{namespace}/artifacts/{artifactID}/url` | GET | ArtifactGetURL | [ArtifactGetURL](../../src/main/java/net/accelbyte/sdk/api/ams/operations/artifacts/ArtifactGetURL.java) | [ArtifactGetURL](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/artifacts/ArtifactGetURL.java) |
@@ -68,7 +69,9 @@
 |---|---|---|---|---|
 | `/ams/v1/admin/namespaces/{namespace}/images` | GET | ImageList | [ImageList](../../src/main/java/net/accelbyte/sdk/api/ams/operations/images/ImageList.java) | [ImageList](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/images/ImageList.java) |
 | `/ams/v1/admin/namespaces/{namespace}/images/{imageID}` | GET | ImageGet | [ImageGet](../../src/main/java/net/accelbyte/sdk/api/ams/operations/images/ImageGet.java) | [ImageGet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/images/ImageGet.java) |
+| `/ams/v1/admin/namespaces/{namespace}/images/{imageID}` | DELETE | ImageMarkForDeletion | [ImageMarkForDeletion](../../src/main/java/net/accelbyte/sdk/api/ams/operations/images/ImageMarkForDeletion.java) | [ImageMarkForDeletion](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/images/ImageMarkForDeletion.java) |
 | `/ams/v1/admin/namespaces/{namespace}/images/{imageID}` | PATCH | ImagePatch | [ImagePatch](../../src/main/java/net/accelbyte/sdk/api/ams/operations/images/ImagePatch.java) | [ImagePatch](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/images/ImagePatch.java) |
+| `/ams/v1/admin/namespaces/{namespace}/images/{imageID}/restore` | POST | ImageUnmarkForDeletion | [ImageUnmarkForDeletion](../../src/main/java/net/accelbyte/sdk/api/ams/operations/images/ImageUnmarkForDeletion.java) | [ImageUnmarkForDeletion](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/images/ImageUnmarkForDeletion.java) |
 
 ### AMS QoS Wrapper:  [AMSQoS](../../src/main/java/net/accelbyte/sdk/api/ams/wrappers/AMSQoS.java)
 | Endpoint | Method | ID | Class | Example |

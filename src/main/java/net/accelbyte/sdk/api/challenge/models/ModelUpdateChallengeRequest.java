@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ModelsUpdateChallengeRequest extends Model {
+public class ModelUpdateChallengeRequest extends Model {
 
   @JsonProperty("activeGoalsPerRotation")
   @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -56,6 +56,10 @@ public class ModelsUpdateChallengeRequest extends Model {
   @JsonProperty("repeatAfter")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer repeatAfter;
+
+  @JsonProperty("resetConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ModelResetConfig resetConfig;
 
   @JsonProperty("rotation")
   @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -126,15 +130,15 @@ public class ModelsUpdateChallengeRequest extends Model {
   }
 
   @JsonIgnore
-  public ModelsUpdateChallengeRequest createFromJson(String json) throws JsonProcessingException {
+  public ModelUpdateChallengeRequest createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ModelsUpdateChallengeRequest> createFromJsonList(String json)
+  public List<ModelUpdateChallengeRequest> createFromJsonList(String json)
       throws JsonProcessingException {
     return new ObjectMapper()
-        .readValue(json, new TypeReference<List<ModelsUpdateChallengeRequest>>() {});
+        .readValue(json, new TypeReference<List<ModelUpdateChallengeRequest>>() {});
   }
 
   public enum AssignmentRule {
@@ -188,39 +192,39 @@ public class ModelsUpdateChallengeRequest extends Model {
     }
   }
 
-  public static class ModelsUpdateChallengeRequestBuilder {
+  public static class ModelUpdateChallengeRequestBuilder {
     private String assignmentRule;
     private String goalsVisibility;
     private String rotation;
 
-    public ModelsUpdateChallengeRequestBuilder assignmentRule(final String assignmentRule) {
+    public ModelUpdateChallengeRequestBuilder assignmentRule(final String assignmentRule) {
       this.assignmentRule = assignmentRule;
       return this;
     }
 
-    public ModelsUpdateChallengeRequestBuilder assignmentRuleFromEnum(
+    public ModelUpdateChallengeRequestBuilder assignmentRuleFromEnum(
         final AssignmentRule assignmentRule) {
       this.assignmentRule = assignmentRule.toString();
       return this;
     }
 
-    public ModelsUpdateChallengeRequestBuilder goalsVisibility(final String goalsVisibility) {
+    public ModelUpdateChallengeRequestBuilder goalsVisibility(final String goalsVisibility) {
       this.goalsVisibility = goalsVisibility;
       return this;
     }
 
-    public ModelsUpdateChallengeRequestBuilder goalsVisibilityFromEnum(
+    public ModelUpdateChallengeRequestBuilder goalsVisibilityFromEnum(
         final GoalsVisibility goalsVisibility) {
       this.goalsVisibility = goalsVisibility.toString();
       return this;
     }
 
-    public ModelsUpdateChallengeRequestBuilder rotation(final String rotation) {
+    public ModelUpdateChallengeRequestBuilder rotation(final String rotation) {
       this.rotation = rotation;
       return this;
     }
 
-    public ModelsUpdateChallengeRequestBuilder rotationFromEnum(final Rotation rotation) {
+    public ModelUpdateChallengeRequestBuilder rotationFromEnum(final Rotation rotation) {
       this.rotation = rotation.toString();
       return this;
     }

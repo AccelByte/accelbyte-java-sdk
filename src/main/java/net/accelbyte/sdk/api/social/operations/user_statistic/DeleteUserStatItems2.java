@@ -24,9 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * *additionalKey* is provided, it will delete user stat items of specific key (i.e. characterName).
  * Otherwise, it will delete all stat items related to the user Id.
  *
- * <p>Delete user's statItems given stat code. Other detail info: * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=8 (DELETE) * Returns : no
- * content
+ * <p>Delete user's statItems given stat code. Other detail info: * Returns : no content
  */
 @Getter
 @Setter

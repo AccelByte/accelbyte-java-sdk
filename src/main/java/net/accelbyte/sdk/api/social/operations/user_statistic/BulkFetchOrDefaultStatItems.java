@@ -24,9 +24,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * bulkFetchOrDefaultStatItems
  *
  * <p>Bulk fetch multiple user's stat item values for a given namespace and statCode. NOTE: If stat
- * item does not exist, will return default value. Other detail info: + *Required permission*:
- * resource=ADMIN:NAMESPACE:{namespace}:STATITEM, action=2 (READ) + *Returns*: list of user's stat
- * item values
+ * item does not exist, will return default value. Other detail info: + *Returns*: list of user's
+ * stat item values
  */
 @Getter
 @Setter

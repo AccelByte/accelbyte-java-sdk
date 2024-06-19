@@ -57,6 +57,10 @@ public class Transaction extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean notified;
 
+  @JsonProperty("paymentData")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private PaymentData paymentData;
+
   @JsonProperty("paymentMethod")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String paymentMethod;
@@ -175,6 +179,7 @@ public class Transaction extends Model {
     ADYEN("ADYEN"),
     ALIPAY("ALIPAY"),
     CHECKOUT("CHECKOUT"),
+    NEONPAY("NEONPAY"),
     PAYPAL("PAYPAL"),
     STRIPE("STRIPE"),
     WALLET("WALLET"),

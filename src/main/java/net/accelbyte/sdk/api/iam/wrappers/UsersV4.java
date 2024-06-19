@@ -289,6 +289,16 @@ public class UsersV4 {
   }
 
   /**
+   * @see AdminChallengeMyMFAV4
+   */
+  public ModelUserMFATokenResponseV4 adminChallengeMyMFAV4(AdminChallengeMyMFAV4 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminSendMyMFAEmailCodeV4
    */
   public void adminSendMyMFAEmailCodeV4(AdminSendMyMFAEmailCodeV4 input) throws Exception {
@@ -335,11 +345,31 @@ public class UsersV4 {
   }
 
   /**
+   * @see AdminGetMyMFAStatusV4
+   */
+  public ModelUserMFAStatusResponseV4 adminGetMyMFAStatusV4(AdminGetMyMFAStatusV4 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminInviteUserV4
    * @deprecated
    */
   @Deprecated
   public ModelInviteUserResponseV3 adminInviteUserV4(AdminInviteUserV4 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicListUserIDByPlatformUserIDsV4
+   */
+  public AccountcommonUserPlatforms publicListUserIDByPlatformUserIDsV4(
+      PublicListUserIDByPlatformUserIDsV4 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
@@ -527,6 +557,16 @@ public class UsersV4 {
   }
 
   /**
+   * @see PublicChallengeMyMFAV4
+   */
+  public ModelUserMFATokenResponseV4 publicChallengeMyMFAV4(PublicChallengeMyMFAV4 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicRemoveTrustedDeviceV4
    */
   public void publicRemoveTrustedDeviceV4(PublicRemoveTrustedDeviceV4 input) throws Exception {
@@ -578,6 +618,16 @@ public class UsersV4 {
   public void publicMakeFactorMyDefaultV4(PublicMakeFactorMyDefaultV4 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicGetMyMFAStatusV4
+   */
+  public ModelUserMFAStatusResponseV4 publicGetMyMFAStatusV4(PublicGetMyMFAStatusV4 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 

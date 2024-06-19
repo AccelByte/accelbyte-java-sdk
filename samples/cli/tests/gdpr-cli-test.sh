@@ -39,7 +39,7 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 ./ng ng-cp 1>&2
 
 echo "TAP version 13"
-echo "1..34"
+echo "1..39"
 
 #- 1 Login
 ./ng net.accelbyte.sdk.cli.Main loginClient \
@@ -131,7 +131,7 @@ eval_tap $? 11 'AdminGetServicesConfiguration' test.out
 #- 12 AdminUpdateServicesConfiguration
 ./ng net.accelbyte.sdk.cli.Main gdpr adminUpdateServicesConfiguration \
     --namespace "$AB_NAMESPACE" \
-    --body '{"services": [{"extendConfig": {"appName": "9l3rGN9A3sNm84hd", "namespace": "dSpHt0P7MIIR7Cky"}, "id": "F6C7duuyZ0GhDogq", "serviceConfig": {"protocol": "GRPC", "skipAck": false, "url": "zFQN05MYzYiKWe5d"}, "type": "EXTEND"}, {"extendConfig": {"appName": "IAjGGJddVCvu9vx5", "namespace": "KQ7KYnIuMBvaO35l"}, "id": "lzQRaT5kPxUfofvn", "serviceConfig": {"protocol": "GRPC", "skipAck": true, "url": "uB0y5WUlrMdI4sNv"}, "type": "EXTEND"}, {"extendConfig": {"appName": "vR8sKgnuRkgghGoY", "namespace": "upD391C2qtPYokah"}, "id": "FjkQsfCaTmt1d67F", "serviceConfig": {"protocol": "GRPC", "skipAck": true, "url": "isV6zwPuo3td6TC6"}, "type": "SERVICE"}]}' \
+    --body '{"services": [{"extendConfig": {"appName": "9l3rGN9A3sNm84hd", "namespace": "dSpHt0P7MIIR7Cky"}, "id": "F6C7duuyZ0GhDogq", "serviceConfig": {"protocol": "GRPC", "skipAck": false, "url": "zFQN05MYzYiKWe5d"}, "type": "EXTEND"}, {"extendConfig": {"appName": "IAjGGJddVCvu9vx5", "namespace": "KQ7KYnIuMBvaO35l"}, "id": "lzQRaT5kPxUfofvn", "serviceConfig": {"protocol": "EVENT", "skipAck": true, "url": "uB0y5WUlrMdI4sNv"}, "type": "EXTEND"}, {"extendConfig": {"appName": "vR8sKgnuRkgghGoY", "namespace": "upD391C2qtPYokah"}, "id": "FjkQsfCaTmt1d67F", "serviceConfig": {"protocol": "EVENT", "skipAck": true, "url": "isV6zwPuo3td6TC6"}, "type": "SERVICE"}]}' \
     > test.out 2>&1
 eval_tap $? 12 'AdminUpdateServicesConfiguration' test.out
 
@@ -150,7 +150,7 @@ eval_tap $? 14 'AdminGetPlatformAccountClosureServicesConfiguration' test.out
 #- 15 AdminUpdatePlatformAccountClosureServicesConfiguration
 ./ng net.accelbyte.sdk.cli.Main gdpr adminUpdatePlatformAccountClosureServicesConfiguration \
     --namespace "$AB_NAMESPACE" \
-    --body '{"services": [{"extendConfig": {"appName": "3lMjGSWN2laRlxfc", "namespace": "jHfYakUCTqGkE7wc"}, "id": "WfDslpJSqGAXQ0yY", "serviceConfig": {"protocol": "GRPC", "skipAck": false, "url": "NRKd3IL5TAQ6iiPl"}, "type": "SERVICE"}, {"extendConfig": {"appName": "cYEzfTD1ZBm3MqHc", "namespace": "UmLZZbSqb8RwNmn9"}, "id": "HrNQy4uZAAiE0mit", "serviceConfig": {"protocol": "GRPC", "skipAck": false, "url": "CHYzUOcEdscKHPEq"}, "type": "EXTEND"}, {"extendConfig": {"appName": "v7t1o7TTr1DmrhZv", "namespace": "15T7quIOvBMcaYmv"}, "id": "CkGZ5dAgqxpBFmaL", "serviceConfig": {"protocol": "GRPC", "skipAck": true, "url": "MdalwSyliWMNW5Ny"}, "type": "SERVICE"}]}' \
+    --body '{"services": [{"extendConfig": {"appName": "3lMjGSWN2laRlxfc", "namespace": "jHfYakUCTqGkE7wc"}, "id": "WfDslpJSqGAXQ0yY", "serviceConfig": {"protocol": "EVENT", "skipAck": false, "url": "NRKd3IL5TAQ6iiPl"}, "type": "SERVICE"}, {"extendConfig": {"appName": "cYEzfTD1ZBm3MqHc", "namespace": "UmLZZbSqb8RwNmn9"}, "id": "HrNQy4uZAAiE0mit", "serviceConfig": {"protocol": "GRPC", "skipAck": false, "url": "CHYzUOcEdscKHPEq"}, "type": "EXTEND"}, {"extendConfig": {"appName": "v7t1o7TTr1DmrhZv", "namespace": "15T7quIOvBMcaYmv"}, "id": "CkGZ5dAgqxpBFmaL", "serviceConfig": {"protocol": "EVENT", "skipAck": true, "url": "MdalwSyliWMNW5Ny"}, "type": "SERVICE"}]}' \
     > test.out 2>&1
 eval_tap $? 15 'AdminUpdatePlatformAccountClosureServicesConfiguration' test.out
 
@@ -297,6 +297,44 @@ eval_tap $? 33 'PublicCancelMyAccountDeletionRequest' test.out
 ./ng net.accelbyte.sdk.cli.Main gdpr publicGetMyAccountDeletionStatus \
     > test.out 2>&1
 eval_tap $? 34 'PublicGetMyAccountDeletionStatus' test.out
+
+#- 35 S2SGetListFinishedAccountDeletionRequest
+./ng net.accelbyte.sdk.cli.Main gdpr s2sGetListFinishedAccountDeletionRequest \
+    --namespace "$AB_NAMESPACE" \
+    --end 'pUL4pp2ncYAHdNzD' \
+    --start 'meIP6rOvDz9KOsb3' \
+    > test.out 2>&1
+eval_tap $? 35 'S2SGetListFinishedAccountDeletionRequest' test.out
+
+#- 36 S2SGetListFinishedPersonalDataRequest
+./ng net.accelbyte.sdk.cli.Main gdpr s2sGetListFinishedPersonalDataRequest \
+    --namespace "$AB_NAMESPACE" \
+    --end '92k6YmJFfRByjlBi' \
+    --start 'uFM3FIoVk8T3GpAn' \
+    > test.out 2>&1
+eval_tap $? 36 'S2SGetListFinishedPersonalDataRequest' test.out
+
+#- 37 S2SSubmitUserAccountDeletionRequest
+./ng net.accelbyte.sdk.cli.Main gdpr s2sSubmitUserAccountDeletionRequest \
+    --namespace "$AB_NAMESPACE" \
+    --userId 'kCmBUqg2SCnqntX9' \
+    > test.out 2>&1
+eval_tap $? 37 'S2SSubmitUserAccountDeletionRequest' test.out
+
+#- 38 S2SRequestDataRetrieval
+./ng net.accelbyte.sdk.cli.Main gdpr s2sRequestDataRetrieval \
+    --namespace "$AB_NAMESPACE" \
+    --userId 'y1aZSWMiVi10sG6v' \
+    > test.out 2>&1
+eval_tap $? 38 'S2SRequestDataRetrieval' test.out
+
+#- 39 S2SGeneratePersonalDataURL
+./ng net.accelbyte.sdk.cli.Main gdpr s2sGeneratePersonalDataURL \
+    --namespace "$AB_NAMESPACE" \
+    --requestDate 'xkfUcmqRRbceJ5i0' \
+    --userId 'EeDxOgBnhhqElIaD' \
+    > test.out 2>&1
+eval_tap $? 39 'S2SGeneratePersonalDataURL' test.out
 
 
 rm -f "tmp.dat"

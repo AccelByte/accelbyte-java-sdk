@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>This allows editing of the image name, toggling `IsProtected`, or adding & removal of tags
  *
- * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:ACCOUNT [UPDATE]
+ * <p>Required Permission: ADMIN:NAMESPACE:{namespace}:AMS:IMAGE [UPDATE]
  */
 @Getter
 @Setter

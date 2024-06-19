@@ -41,6 +41,11 @@ public class TokenGrantV3 implements Callable<Integer> {
   String clientId;
 
   @Option(
+      names = {"--clientSecret"},
+      description = "clientSecret")
+  String clientSecret;
+
+  @Option(
       names = {"--code"},
       description = "code")
   String code;
@@ -110,6 +115,7 @@ public class TokenGrantV3 implements Callable<Integer> {
           net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenGrantV3.builder()
               .additionalData(additionalData != null ? additionalData : null)
               .clientId(clientId != null ? clientId : null)
+              .clientSecret(clientSecret != null ? clientSecret : null)
               .code(code != null ? code : null)
               .codeVerifier(codeVerifier != null ? codeVerifier : null)
               .extendNamespace(extendNamespace != null ? extendNamespace : null)

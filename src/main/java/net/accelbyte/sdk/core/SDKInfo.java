@@ -14,7 +14,7 @@ public class SDKInfo {
   private static final SDKInfo instance = new SDKInfo();
 
   private String sdkName = "AccelByteJavaSDK";
-  private String sdkVersion = "0.63.0";
+  private String sdkVersion = "0.64.0";
 
   private SDKInfo() {}
 

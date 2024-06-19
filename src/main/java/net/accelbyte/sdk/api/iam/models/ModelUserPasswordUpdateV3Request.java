@@ -28,6 +28,10 @@ public class ModelUserPasswordUpdateV3Request extends Model {
   @JsonProperty("languageTag")
   private String languageTag;
 
+  @JsonProperty("mfaToken")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String mfaToken;
+
   @JsonProperty("newPassword")
   private String newPassword;
 

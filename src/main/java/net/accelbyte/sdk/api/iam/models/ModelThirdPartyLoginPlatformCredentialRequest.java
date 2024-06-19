@@ -47,6 +47,10 @@ public class ModelThirdPartyLoginPlatformCredentialRequest extends Model {
   @JsonProperty("ClientId")
   private String clientId;
 
+  @JsonProperty("EmptyStrFieldList")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> emptyStrFieldList;
+
   @JsonProperty("Environment")
   private String environment;
 

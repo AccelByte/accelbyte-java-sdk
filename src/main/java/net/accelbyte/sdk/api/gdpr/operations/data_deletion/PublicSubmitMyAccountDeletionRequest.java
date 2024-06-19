@@ -25,6 +25,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * and require a valid platformId and platform token. If a full account is not logged by 3rd
  * platform, then please use
  * [/gdpr/public/namespaces/{namespace}/users/{userId}/deletions](#operations-Data_Deletion-PublicSubmitUserAccountDeletionRequest)
+ *
+ * <p>### Request Header: - **Content-Type: application/x-www-form-urlencoded**
  */
 @Getter
 @Setter

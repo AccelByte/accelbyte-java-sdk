@@ -40,6 +40,10 @@ public class ModelsGameServer extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String deployment;
 
+  @JsonProperty("extend_region")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String extendRegion;
+
   @JsonProperty("game_version")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String gameVersion;

@@ -80,6 +80,10 @@ public class TradeNotification extends Model {
   @JsonProperty("nonceStr")
   private String nonceStr;
 
+  @JsonProperty("paymentData")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private PaymentData paymentData;
+
   @JsonProperty("paymentMethod")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String paymentMethod;
@@ -224,6 +228,7 @@ public class TradeNotification extends Model {
     ADYEN("ADYEN"),
     ALIPAY("ALIPAY"),
     CHECKOUT("CHECKOUT"),
+    NEONPAY("NEONPAY"),
     PAYPAL("PAYPAL"),
     STRIPE("STRIPE"),
     WALLET("WALLET"),

@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * bulkResetUserStatItemValues
  *
- * <p>Bulk reset user's statitem values for given namespace and user. Other detail info: + *Required
- * permission*: resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:STATITEM", action=4 (UPDATE) +
+ * <p>Bulk reset user's statitem values for given namespace and user. Other detail info: +
  * *Returns*: bulk updated result
  */
 @Getter

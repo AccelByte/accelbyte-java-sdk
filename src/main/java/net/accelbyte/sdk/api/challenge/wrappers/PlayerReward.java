@@ -23,10 +23,29 @@ public class PlayerReward {
   }
 
   /**
+   * @see AdminClaimUsersRewards
+   */
+  public List<ModelClaimUsersRewardsResponse> adminClaimUsersRewards(AdminClaimUsersRewards input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminGetUserRewards
    */
   public ModelListUserRewardsResponse adminGetUserRewards(AdminGetUserRewards input)
       throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminClaimUserRewards
+   */
+  public List<ModelUserReward> adminClaimUserRewards(AdminClaimUserRewards input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

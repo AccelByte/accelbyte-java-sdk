@@ -21,8 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicSubmitUserAccountDeletionRequest
  *
- * <p>Submit user's account deletion requests Requires valid user access token and password Scope:
+ * <p>Submit user's account deletion request. Requires valid user access token and password Scope:
  * account
+ *
+ * <p>### Request Header: - **Content-Type: application/x-www-form-urlencoded**
  */
 @Getter
 @Setter

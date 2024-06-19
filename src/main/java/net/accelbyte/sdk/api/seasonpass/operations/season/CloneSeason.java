@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Other detail info:
  *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=1 (CREATE) *
- * Returns : cloned season info
+ * <p>* Returns : cloned season info
  */
 @Getter
 @Setter

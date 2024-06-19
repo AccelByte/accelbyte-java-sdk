@@ -21,15 +21,16 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getPaymentMerchantConfig
  *
- * <p>[Not Supported Yet In Starter] Get payment merchant config by id. Other detail info:
+ * <p>[Not Supported Yet In Starter] Get payment domain whitelist config by namespace. Other detail
+ * info:
  *
- * <p>* Returns : payment merchant config info
+ * <p>* Returns : payment domain whitelist config info
  */
 @Getter
 @Setter
 public class GetPaymentMerchantConfig extends Operation {
   /** generated field's value */
-  private String path = "/platform/admin/payment/config/merchant/{id}";
+  private String path = "/platform/admin/namespaces/{namespace}/payment/config/domains";
 
   private String method = "GET";
   private List<String> consumes = Arrays.asList();
@@ -37,16 +38,16 @@ public class GetPaymentMerchantConfig extends Operation {
   private String locationQuery = null;
 
   /** fields as input parameter */
-  private String id;
+  private String namespace;
 
   /**
-   * @param id required
+   * @param namespace required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public GetPaymentMerchantConfig(String id) {
-    this.id = id;
+  public GetPaymentMerchantConfig(String namespace) {
+    this.namespace = namespace;
 
     securities.add("Bearer");
   }
@@ -54,27 +55,27 @@ public class GetPaymentMerchantConfig extends Operation {
   @Override
   public Map<String, String> getPathParams() {
     Map<String, String> pathParams = new HashMap<>();
-    if (this.id != null) {
-      pathParams.put("id", this.id);
+    if (this.namespace != null) {
+      pathParams.put("namespace", this.namespace);
     }
     return pathParams;
   }
 
   @Override
   public boolean isValid() {
-    if (this.id == null) {
+    if (this.namespace == null) {
       return false;
     }
     return true;
   }
 
-  public PaymentMerchantConfigInfo parseResponse(int code, String contentType, InputStream payload)
-      throws HttpResponseException, IOException {
+  public PaymentDomainWhitelistConfigInfo parseResponse(
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new PaymentMerchantConfigInfo().createFromJson(json);
+    return new PaymentDomainWhitelistConfigInfo().createFromJson(json);
   }
 }

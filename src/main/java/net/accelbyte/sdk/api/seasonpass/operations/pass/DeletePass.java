@@ -21,10 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * deletePass
  *
  * <p>This API is used to delete a pass permanently, only draft season pass can be deleted.
- *
- * <p>Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=8 (DELETE)
  */
 @Getter
 @Setter

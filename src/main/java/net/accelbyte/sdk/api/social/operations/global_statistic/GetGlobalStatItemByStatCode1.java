@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getGlobalStatItemByStatCode_1
  *
- * <p>Get global statItem by stat code. Other detail info: * Required permission :
- * resource="NAMESPACE:{namespace}:STATITEM", action=2 (READ) * Returns : global stat item
+ * <p>Get global statItem by stat code. Other detail info: * Returns : global stat item
  */
 @Getter
 @Setter

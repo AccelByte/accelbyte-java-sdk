@@ -112,6 +112,7 @@ public class ModelPredicate extends Model {
 
   public enum ParameterType {
     ACHIEVEMENT("ACHIEVEMENT"),
+    ENTITLEMENT("ENTITLEMENT"),
     STATISTIC("STATISTIC"),
     STATISTICCYCLE("STATISTIC_CYCLE"),
     USERACCOUNT("USERACCOUNT");

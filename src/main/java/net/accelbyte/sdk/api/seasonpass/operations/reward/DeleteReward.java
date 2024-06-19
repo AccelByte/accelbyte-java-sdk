@@ -23,8 +23,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>This API is used to delete a reward permanently, only draft season reward can be deleted.
  *
  * <p>Other detail info:
- *
- * <p>* Required permission : resource="ADMIN:NAMESPACE:{namespace}:SEASONPASS", action=8 (DELETE)
  */
 @Getter
 @Setter

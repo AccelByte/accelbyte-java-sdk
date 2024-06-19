@@ -117,7 +117,7 @@ eval_tap $? 13 'ChannelChatNotif' test.out
 eval_tap $? 14 'ClientResetRequest' test.out
 
 #- 15 ConnectNotif
-./ng net.accelbyte.sdk.cli.Main lobbyWebsocket -m $'type: connectNotif\nlobbySessionId: 5llzQRaT5kPxUfof' -u \
+./ng net.accelbyte.sdk.cli.Main lobbyWebsocket -m $'type: connectNotif\nlobbySessionID: 5llzQRaT5kPxUfof' -u \
     > test.out 2>&1
 eval_tap $? 15 'ConnectNotif' test.out
 

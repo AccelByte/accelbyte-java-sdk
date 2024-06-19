@@ -29,8 +29,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * is ANNUALLY. * seasonPeriod: Season period must be a number greater than or equal to 1 (days).
  * Required when cycleType is SEASONAL. * start: Start time must follow RFC3339 standard. e.g.
  * 2023-02-24T05:10:24.865Z. (required) * end: End time must follow RFC3339 standard. e.g.
- * 2023-02-24T05:10:24.865Z. Other detail info: * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:STAT", action=1 (CREATE) * Returns : created stat cycle
+ * 2023-02-24T05:10:24.865Z. Other detail info: * Returns : created stat cycle
  */
 @Getter
 @Setter

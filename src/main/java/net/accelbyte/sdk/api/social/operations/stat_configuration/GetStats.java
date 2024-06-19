@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getStats
  *
- * <p>List stats by pagination. Other detail info: * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:STAT", action=2 (READ) * Returns : stats
+ * <p>List stats by pagination. Other detail info: * Returns : stats
  */
 @Getter
 @Setter

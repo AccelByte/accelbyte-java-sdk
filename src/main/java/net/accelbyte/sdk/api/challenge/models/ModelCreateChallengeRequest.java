@@ -57,6 +57,10 @@ public class ModelCreateChallengeRequest extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer repeatAfter;
 
+  @JsonProperty("resetConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ModelResetConfig resetConfig;
+
   @JsonProperty("rotation")
   private String rotation;
 

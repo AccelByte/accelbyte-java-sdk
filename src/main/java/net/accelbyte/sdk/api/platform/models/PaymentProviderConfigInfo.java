@@ -121,6 +121,7 @@ public class PaymentProviderConfigInfo extends Model {
   public enum Aggregate {
     ADYEN("ADYEN"),
     CHECKOUT("CHECKOUT"),
+    NEONPAY("NEONPAY"),
     STRIPE("STRIPE"),
     XSOLLA("XSOLLA");
 
@@ -140,6 +141,7 @@ public class PaymentProviderConfigInfo extends Model {
     ADYEN("ADYEN"),
     ALIPAY("ALIPAY"),
     CHECKOUT("CHECKOUT"),
+    NEONPAY("NEONPAY"),
     PAYPAL("PAYPAL"),
     STRIPE("STRIPE"),
     WALLET("WALLET"),

@@ -24,8 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * bulkFetchStatItems
  *
  * <p>Bulk fetch multiple user's statitem value for a given namespace and statCode. Other detail
- * info: + *Required permission*: resource="ADMIN:NAMESPACE:{namespace}:STATITEM", action=2 (READ) +
- * *Returns*: list of user's statItem
+ * info: + *Returns*: list of user's statItem
  */
 @Getter
 @Setter

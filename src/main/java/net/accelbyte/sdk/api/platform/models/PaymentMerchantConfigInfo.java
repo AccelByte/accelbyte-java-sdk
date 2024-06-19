@@ -55,6 +55,14 @@ public class PaymentMerchantConfigInfo extends Model {
   @JsonProperty("id")
   private String id;
 
+  @JsonProperty("neonPayConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private NeonPayConfig neonPayConfig;
+
+  @JsonProperty("neonPaySandboxConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private NeonPayConfig neonPaySandboxConfig;
+
   @JsonProperty("payPalConfig")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private PayPalConfig payPalConfig;

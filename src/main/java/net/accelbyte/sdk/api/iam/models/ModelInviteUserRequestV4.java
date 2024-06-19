@@ -38,6 +38,10 @@ public class ModelInviteUserRequestV4 extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean isNewStudio;
 
+  @JsonProperty("languageTag")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String languageTag;
+
   @JsonProperty("namespace")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String namespace;

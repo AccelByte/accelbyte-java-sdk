@@ -21,7 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGeneratePersonalDataURL
  *
- * <p>Generate personal data download url Scope: account
+ * <p>Generate personal data download url. Scope: account
+ *
+ * <p>### Request Header: - **Content-Type: application/x-www-form-urlencoded**
  */
 @Getter
 @Setter

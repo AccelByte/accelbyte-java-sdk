@@ -35,8 +35,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>### Supported platform id: * Steam group(steamnetwork) * steam * steamopenid * PSN group(psn)
  * * ps4web * ps4 * ps5 * XBOX group(xbox) * live * xblweb * Oculus group(oculusgroup) * oculus *
- * oculusweb * facebook * google * twitch * discord * android * ios * apple * device * epicgames *
- * nintendo * awscognito * netflix * snapchat * _oidc platform id_
+ * oculusweb * facebook * google group * google * googleplaygames * twitch * discord * android * ios
+ * * apple * device * epicgames * nintendo * awscognito * netflix * snapchat * _oidc platform id_
  *
  * <p>Note: you can use either platform ID or platform group as __platformId__ query parameter.
  */

@@ -24,10 +24,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>This endpoint is being used to request the one time code [8 length] for headless account to
  * link or upgrade to a full account. Should specify the target platform id and current user should
  * already linked to this platform. Current user should be a headless account. ## Supported
- * platforms: - **steam** - **steamopenid** - **facebook** - **google** - **oculus** - **twitch** -
- * **discord** - **android** - **ios** - **apple** - **device** - **justice** - **epicgames** -
- * **ps4** - **ps5** - **nintendo** - **awscognito** - **live** - **xblweb** - **netflix** -
- * **snapchat**
+ * platforms: - **steam** - **steamopenid** - **facebook** - **google** - **googleplaygames** -
+ * **oculus** - **twitch** - **discord** - **android** - **ios** - **apple** - **device** -
+ * **justice** - **epicgames** - **ps4** - **ps5** - **nintendo** - **awscognito** - **live** -
+ * **xblweb** - **netflix** - **snapchat**
  */
 @Getter
 @Setter

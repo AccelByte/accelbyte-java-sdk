@@ -20,7 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminSendMyMFAEmailCodeV4
  *
- * <p>This endpoint is used to send email code.
+ * <p>This endpoint is used to send email code. -------------- Supported actions: * ChangePassword *
+ * DisableMFAEmail
  */
 @Getter
 @Setter
@@ -29,19 +30,30 @@ public class AdminSendMyMFAEmailCodeV4 extends Operation {
   private String path = "/iam/v4/admin/users/me/mfa/email/code";
 
   private String method = "POST";
-  private List<String> consumes = Arrays.asList();
+  private List<String> consumes = Arrays.asList("application/x-www-form-urlencoded");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
 
   /** fields as input parameter */
+  private String action;
 
   /** */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public AdminSendMyMFAEmailCodeV4() {
+  public AdminSendMyMFAEmailCodeV4(String action) {
+    this.action = action;
 
     securities.add("Bearer");
+  }
+
+  @Override
+  public Map<String, Object> getFormParams() {
+    Map<String, Object> formDataParams = new HashMap<>();
+    if (this.action != null) {
+      formDataParams.put("action", this.action);
+    }
+    return formDataParams;
   }
 
   @Override

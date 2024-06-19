@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicCreateProfile
  *
- * <p>Create new profile for user. Other detail info: * Required permission :
- * resource="NAMESPACE:{namespace}:USER:{userId}:GAMEPROFILE", action=1 (CREATE) * Returns : created
- * game profile
+ * <p>Create new profile for user. Other detail info: * Returns : created game profile
  */
 @Getter
 @Setter

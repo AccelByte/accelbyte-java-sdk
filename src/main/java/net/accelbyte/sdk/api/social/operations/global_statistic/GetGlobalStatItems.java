@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getGlobalStatItems
  *
- * <p>List global statItems by pagination. Other detail info: * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:STATITEM", action=2 (READ) * Returns : stat items
+ * <p>List global statItems by pagination.
  */
 @Getter
 @Setter

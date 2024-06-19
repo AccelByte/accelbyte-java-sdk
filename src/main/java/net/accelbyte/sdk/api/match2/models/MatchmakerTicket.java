@@ -28,6 +28,9 @@ public class MatchmakerTicket extends Model {
   @JsonProperty("CreatedAt")
   private String createdAt;
 
+  @JsonProperty("IsActive")
+  private Boolean isActive;
+
   @JsonProperty("Latencies")
   private Map<String, Integer> latencies;
 
@@ -51,6 +54,9 @@ public class MatchmakerTicket extends Model {
 
   @JsonProperty("TicketID")
   private String ticketID;
+
+  @JsonProperty("TicketInformation")
+  private Map<String, ?> ticketInformation;
 
   @JsonIgnore
   public MatchmakerTicket createFromJson(String json) throws JsonProcessingException {

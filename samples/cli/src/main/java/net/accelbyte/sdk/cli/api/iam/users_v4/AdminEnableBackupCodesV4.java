@@ -30,6 +30,11 @@ public class AdminEnableBackupCodesV4 implements Callable<Integer> {
   private static final Logger log = LogManager.getLogger(AdminEnableBackupCodesV4.class);
 
   @Option(
+      names = {"--languageTag"},
+      description = "languageTag")
+  String languageTag;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -51,7 +56,9 @@ public class AdminEnableBackupCodesV4 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UsersV4 wrapper = new UsersV4(sdk);
       final net.accelbyte.sdk.api.iam.operations.users_v4.AdminEnableBackupCodesV4 operation =
-          net.accelbyte.sdk.api.iam.operations.users_v4.AdminEnableBackupCodesV4.builder().build();
+          net.accelbyte.sdk.api.iam.operations.users_v4.AdminEnableBackupCodesV4.builder()
+              .languageTag(languageTag)
+              .build();
       wrapper.adminEnableBackupCodesV4(operation);
       log.info("Operation successful");
       return 0;

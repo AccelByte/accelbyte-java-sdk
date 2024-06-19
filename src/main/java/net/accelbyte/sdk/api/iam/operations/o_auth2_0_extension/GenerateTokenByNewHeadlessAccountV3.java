@@ -54,7 +54,7 @@ public class GenerateTokenByNewHeadlessAccountV3 extends Operation {
     this.extendExp = extendExp;
     this.linkingToken = linkingToken;
 
-    securities.add("Bearer");
+    securities.add("Basic");
   }
 
   @Override

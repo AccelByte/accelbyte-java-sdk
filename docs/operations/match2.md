@@ -14,6 +14,8 @@
 ### Config Wrapper:  [Config](../../src/main/java/net/accelbyte/sdk/api/match2/wrappers/Config.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
+| `/match2/v1/admin/config/log` | GET | AdminGetLogConfig | [AdminGetLogConfig](../../src/main/java/net/accelbyte/sdk/api/match2/operations/config/AdminGetLogConfig.java) | [AdminGetLogConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/config/AdminGetLogConfig.java) |
+| `/match2/v1/admin/config/log` | PATCH | AdminPatchUpdateLogConfig | [AdminPatchUpdateLogConfig](../../src/main/java/net/accelbyte/sdk/api/match2/operations/config/AdminPatchUpdateLogConfig.java) | [AdminPatchUpdateLogConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/config/AdminPatchUpdateLogConfig.java) |
 | `/match2/v1/config` | GET | AdminGetAllConfigV1 | [AdminGetAllConfigV1](../../src/main/java/net/accelbyte/sdk/api/match2/operations/config/AdminGetAllConfigV1.java) | [AdminGetAllConfigV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/config/AdminGetAllConfigV1.java) |
 | `/match2/v1/config/namespaces/{namespace}` | GET | AdminGetConfigV1 | [AdminGetConfigV1](../../src/main/java/net/accelbyte/sdk/api/match2/operations/config/AdminGetConfigV1.java) | [AdminGetConfigV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/config/AdminGetConfigV1.java) |
 | `/match2/v1/config/namespaces/{namespace}` | PATCH | AdminPatchConfigV1 | [AdminPatchConfigV1](../../src/main/java/net/accelbyte/sdk/api/match2/operations/config/AdminPatchConfigV1.java) | [AdminPatchConfigV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/config/AdminPatchConfigV1.java) |
@@ -111,6 +113,7 @@
 | `api.backFillRejectRequest` | [ApiBackFillRejectRequest](../../src/main/java/net/accelbyte/sdk/api/match2/models/ApiBackFillRejectRequest.java) |
 | `config.EnvironmentVariable` | [ConfigEnvironmentVariable](../../src/main/java/net/accelbyte/sdk/api/match2/models/ConfigEnvironmentVariable.java) |
 | `configmodels.NamespaceConfig` | [ConfigmodelsNamespaceConfig](../../src/main/java/net/accelbyte/sdk/api/match2/models/ConfigmodelsNamespaceConfig.java) |
+| `logconfig.Configuration` | [LogconfigConfiguration](../../src/main/java/net/accelbyte/sdk/api/match2/models/LogconfigConfiguration.java) |
 | `matchmaker.MatchTicketRecord` | [MatchmakerMatchTicketRecord](../../src/main/java/net/accelbyte/sdk/api/match2/models/MatchmakerMatchTicketRecord.java) |
 | `matchmaker.Party` | [MatchmakerParty](../../src/main/java/net/accelbyte/sdk/api/match2/models/MatchmakerParty.java) |
 | `matchmaker.ProposedProposal` | [MatchmakerProposedProposal](../../src/main/java/net/accelbyte/sdk/api/match2/models/MatchmakerProposedProposal.java) |

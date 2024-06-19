@@ -38,6 +38,10 @@ public class ApiMatchTicketRequest extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String sessionID;
 
+  @JsonProperty("storage")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> storage;
+
   @JsonIgnore
   public ApiMatchTicketRequest createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

@@ -47,6 +47,10 @@ public class ApimodelsConfigurationTemplateResponse extends Model {
   @JsonProperty("createdAt")
   private String createdAt;
 
+  @JsonProperty("customURLGRPC")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String customURLGRPC;
+
   @JsonProperty("deployment")
   private String deployment;
 

@@ -25,9 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>## The endpoint is going to be deprecated
  *
- * <p>Get slots for a given user. Other detail info: * Required permission :
- * resource="ADMIN:NAMESPACE:{namespace}:USER:{userId}:SLOTDATA", action=2 (READ) * Returns : list
- * of slots
+ * <p>Get slots for a given user. Other detail info: * Returns : list of slots
  *
  * @deprecated
  */

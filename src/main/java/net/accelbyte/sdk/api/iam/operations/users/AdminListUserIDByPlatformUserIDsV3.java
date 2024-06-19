@@ -26,8 +26,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * user ID
  *
  * <p>Supported platform: - steam - steamopenid - ps4web - ps4 - ps5 - live - xblweb - oculus -
- * oculusweb - facebook - google - twitch - discord - android - ios - apple - device - justice -
- * epicgames - nintendo - awscognito - netflix - snapchat - oidc platform id
+ * oculusweb - facebook - google - googleplaygames - twitch - discord - android - ios - apple -
+ * device - justice - epicgames - nintendo - awscognito - netflix - snapchat - oidc platform id
  *
  * <p>Note: **nintendo platform user ID**: NSA ID need to be appended with Environment ID using
  * colon as separator. e.g kmzwa8awaa:dd1
@@ -48,6 +48,7 @@ public class AdminListUserIDByPlatformUserIDsV3 extends Operation {
 
   private String platformId;
   private Boolean rawPID;
+  private Boolean rawPUID;
   private ModelPlatformUserIDRequest body;
 
   /**
@@ -59,10 +60,15 @@ public class AdminListUserIDByPlatformUserIDsV3 extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public AdminListUserIDByPlatformUserIDsV3(
-      String namespace, String platformId, Boolean rawPID, ModelPlatformUserIDRequest body) {
+      String namespace,
+      String platformId,
+      Boolean rawPID,
+      Boolean rawPUID,
+      ModelPlatformUserIDRequest body) {
     this.namespace = namespace;
     this.platformId = platformId;
     this.rawPID = rawPID;
+    this.rawPUID = rawPUID;
     this.body = body;
 
     securities.add("Bearer");
@@ -85,6 +91,8 @@ public class AdminListUserIDByPlatformUserIDsV3 extends Operation {
     Map<String, List<String>> queryParams = new HashMap<>();
     queryParams.put(
         "rawPID", this.rawPID == null ? null : Arrays.asList(String.valueOf(this.rawPID)));
+    queryParams.put(
+        "rawPUID", this.rawPUID == null ? null : Arrays.asList(String.valueOf(this.rawPUID)));
     return queryParams;
   }
 
@@ -118,6 +126,7 @@ public class AdminListUserIDByPlatformUserIDsV3 extends Operation {
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
     result.put("rawPID", "None");
+    result.put("rawPUID", "None");
     return result;
   }
 }

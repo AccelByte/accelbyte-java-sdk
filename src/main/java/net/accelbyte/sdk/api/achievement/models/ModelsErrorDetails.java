@@ -31,6 +31,10 @@ public class ModelsErrorDetails extends Model {
   @JsonProperty("errorMessage")
   private String errorMessage;
 
+  @JsonProperty("thirdPartyReferenceId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String thirdPartyReferenceId;
+
   @JsonIgnore
   public ModelsErrorDetails createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

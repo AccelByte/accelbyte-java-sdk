@@ -37,14 +37,17 @@ public class PublicGetBackupCodesV4 extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private String languageTag;
+
   /**
    * @param namespace required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public PublicGetBackupCodesV4(String namespace) {
+  public PublicGetBackupCodesV4(String namespace, String languageTag) {
     this.namespace = namespace;
+    this.languageTag = languageTag;
 
     securities.add("Bearer");
   }
@@ -56,6 +59,14 @@ public class PublicGetBackupCodesV4 extends Operation {
       pathParams.put("namespace", this.namespace);
     }
     return pathParams;
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "languageTag", this.languageTag == null ? null : Arrays.asList(this.languageTag));
+    return queryParams;
   }
 
   @Override
@@ -72,5 +83,12 @@ public class PublicGetBackupCodesV4 extends Operation {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("languageTag", "None");
+    return result;
   }
 }

@@ -69,6 +69,7 @@ import picocli.CommandLine.Command;
       AdminReadUserSessionStorage.class,
       AdminQueryPlayerAttributes.class,
       AdminGetPlayerAttributes.class,
+      AdminSyncNativeSession.class,
       CreateGameSession.class,
       PublicQueryGameSessionsByAttributes.class,
       PublicSessionJoinCode.class,

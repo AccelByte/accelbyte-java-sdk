@@ -453,9 +453,9 @@ public class Item {
   }
 
   /**
-   * @see QueryItems1
+   * @see QueryItemsV2
    */
-  public FullItemPagingResult queryItems1(QueryItems1 input) throws Exception {
+  public FullItemPagingResult queryItemsV2(QueryItemsV2 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
