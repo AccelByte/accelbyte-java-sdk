@@ -15,7 +15,6 @@ The following operations have been updated:
 
 ### Challenge
 The following models have been updated:
-- Model `net.accelbyte.sdk.api.challenge.models.ModelCreateChallengeRequest` has a new required field `resetConfig`
 - Model `net.accelbyte.sdk.api.challenge.models.ModelsUpdateChallengeRequest` is now renamed into `ModelUpdateChallengeRequest`
 - Model `net.accelbyte.sdk.api.challenge.models.ModelUpdateGoalRequest` have existing fields now marked as `NON_NULL`:
   - `description`
