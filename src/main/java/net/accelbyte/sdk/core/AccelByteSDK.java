@@ -127,7 +127,7 @@ public class AccelByteSDK {
 
         final BloomFilterJSON revokedTokens = revocationList.getRevokedTokens();
         final long[] bits =
-            revokedTokens.getBits().stream().mapToLong(BigInteger::longValue).toArray();
+            revokedTokens.getBits().stream().mapToLong(Long::longValue).toArray();
         final int k = revokedTokens.getK();
         final int m = revokedTokens.getM();
 
