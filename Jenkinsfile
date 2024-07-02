@@ -15,12 +15,11 @@ bitbucketPayload = null
 bitbucketCommitHref = null
 
 pipeline {
-  agent none
+  agent {
+    label "extend-builder-ci"
+  }
   stages {
     stage('Prepare') {
-      agent {
-        label "extend-builder-ci"
-      }
       steps {
         script {
           if (env.BITBUCKET_PAYLOAD) {
@@ -36,9 +35,6 @@ pipeline {
       }
     }
     stage('Lint') {
-      agent {
-        label "extend-builder-ci"
-      }
       stages {
         stage('Lint Commits') {
           when {
@@ -72,18 +68,12 @@ pipeline {
       }
     }
     stage('Build') {
-      agent {
-        label "extend-builder-ci"
-      }
       steps {
         sh "make build"
         sh "make samples"
       }
     }
     stage('Test') {
-      agent {
-        label "extend-builder-ci"
-      }
       stages {
         stage('Core Tests') {
           steps {
