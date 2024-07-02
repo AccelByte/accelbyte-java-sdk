@@ -48,7 +48,7 @@ test_cli:
 			rm -f samples/cli/tests/*.tap && \
 			for FILE in $$(ls samples/cli/tests/*.sh); do \
 					echo "# $$(basename "$$FILE")"; \
-					(set -o pipefail; docker run --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data -w /data/samples/cli  --network host -e GRADLE_USER_HOME=/data/.gradle gradle:7.6.4-jdk8 \
+					(set -o pipefail; docker run --rm -u $$(id -u):$$(id -g) --platform linux/amd64 -v $$(pwd):/data -w /data/samples/cli  --network host -e GRADLE_USER_HOME=/data/.gradle gradle:7.6.4-jdk8 \
 							bash "/data/$${FILE}" | tee "$${FILE}.tap") || touch test.err; \
 			done
 	[ ! -f test.err ]
