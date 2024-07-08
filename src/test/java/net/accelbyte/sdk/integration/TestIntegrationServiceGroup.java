@@ -13,6 +13,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import net.accelbyte.sdk.api.group.models.ModelsCreateGroupConfigurationRequestV1;
 import net.accelbyte.sdk.api.group.models.ModelsCreateGroupConfigurationResponseV1;
 import net.accelbyte.sdk.api.group.models.ModelsGetGroupConfigurationResponseV1;
+import net.accelbyte.sdk.api.group.models.ModelsGetGroupMemberListResponseV1;
+import net.accelbyte.sdk.api.group.models.ModelsGetUserGroupInformationResponseV1;
 import net.accelbyte.sdk.api.group.models.ModelsGroupResponseV1;
 import net.accelbyte.sdk.api.group.models.ModelsPublicCreateNewGroupRequestV1;
 import net.accelbyte.sdk.api.group.models.ModelsUpdateGroupRequestV1;
@@ -24,9 +26,13 @@ import net.accelbyte.sdk.api.group.operations.group.CreateNewGroupPublicV1;
 import net.accelbyte.sdk.api.group.operations.group.DeleteGroupPublicV1;
 import net.accelbyte.sdk.api.group.operations.group.GetSingleGroupPublicV1;
 import net.accelbyte.sdk.api.group.operations.group.UpdateSingleGroupV1;
+import net.accelbyte.sdk.api.group.operations.group_member.GetUserGroupInformationPublicV2;
+import net.accelbyte.sdk.api.group.operations.group_member.LeaveGroupPublicV2;
 import net.accelbyte.sdk.api.group.wrappers.Configuration;
 import net.accelbyte.sdk.api.group.wrappers.Group;
+import net.accelbyte.sdk.api.group.wrappers.GroupMember;
 import net.accelbyte.sdk.core.HttpResponseException;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer;
@@ -62,6 +68,7 @@ public class TestIntegrationServiceGroup extends TestIntegration {
 
     final Configuration configurationWrapper = new Configuration(sdk);
     final Group groupWrapper = new Group(sdk);
+    final GroupMember groupMemberWrapper = new GroupMember(sdk);
 
     String defaultAdminRoleId = "";
     String defaultMemberRoleId = "";
@@ -79,10 +86,11 @@ public class TestIntegrationServiceGroup extends TestIntegration {
       defaultAdminRoleId = getGroupConfigResult.getGroupAdminRoleId();
       defaultMemberRoleId = getGroupConfigResult.getGroupMemberRoleId();
     } catch (HttpResponseException rex) {
-      final boolean isNotAvailable = rex.getErrorMessage().contains("73131"); // No inital
-      // configuration yet
+      // No inital configuration yet
+      final boolean isNotAvailable = rex.getErrorMessage().contains("73131"); 
+
       if (isNotAvailable) {
-        ModelsCreateGroupConfigurationResponseV1 initiateGroupConfigResult =
+        final ModelsCreateGroupConfigurationResponseV1 initiateGroupConfigResult =
             configurationWrapper.initiateGroupConfigurationAdminV1(
                 InitiateGroupConfigurationAdminV1.builder().namespace(this.namespace).build());
 
@@ -118,10 +126,38 @@ public class TestIntegrationServiceGroup extends TestIntegration {
       assertNotNull(createGroupConfigResult);
     } catch (HttpResponseException rex) {
       // Unable to create global configuration: global configuration already exist
-
       boolean isAlreadyExist = rex.getErrorMessage().contains("73130");
 
       if (!isAlreadyExist) {
+        throw rex;
+      }
+    }
+
+    try {
+      final GetUserGroupInformationPublicV2 getUserGroupInfoBody = 
+          GetUserGroupInformationPublicV2.builder()
+              .namespace(this.namespace)
+              .offset(0)
+              .limit(10)
+              .build();
+
+      final ModelsGetGroupMemberListResponseV1 getUserGroupInfoResult = 
+          groupMemberWrapper.getUserGroupInformationPublicV2(getUserGroupInfoBody);
+
+      for (ModelsGetUserGroupInformationResponseV1 data : getUserGroupInfoResult.getData())
+      {
+        final LeaveGroupPublicV2 leaveGroupBody = LeaveGroupPublicV2.builder()
+            .namespace(this.namespace)
+            .groupId(data.getGroupId())
+            .build();
+
+        groupMemberWrapper.leaveGroupPublicV2(leaveGroupBody);
+      }
+    } catch (HttpResponseException rex) {
+      // User does not belong to any group
+      final boolean doesNotBelongToAnyGroup = rex.getErrorMessage().contains("73034");
+
+      if (!doesNotBelongToAnyGroup) {
         throw rex;
       }
     }
