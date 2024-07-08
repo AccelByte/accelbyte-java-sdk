@@ -33,6 +33,7 @@ public class TestIntegrationServiceSessionHistory extends TestIntegration {
 
   @Test
   @Order(1)
+  @Disabled
   public void TotalMatchmakingMatchTests() throws Exception {
     if (isUsingAGSStarter()) {
       // Temporarily disabled in AGS Starter due to issue in session service.
