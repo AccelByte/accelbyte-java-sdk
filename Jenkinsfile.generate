@@ -152,8 +152,12 @@ pipeline {
       options {
         lock("justice-demo-serversdktest")
       }
+      environment {
+        DEFAULT_IFACE = sh(script: 'ip route get 1.1.1.1 | awk \'NR==2 {print $1}\' RS=dev', returnStdout: true)
+      }
       steps {
         dir(sdkRepoName) {
+          sh 'sudo tc qdisc add dev $DEFAULT_IFACE root netem delay 100ms'    // Delay sending packets due to database eventual consistency
           withCredentials([file(credentialsId: 'justice-codegen-sdk-integration-test-env', variable: 'ENV_FILE_PATH')]) {
             sh 'make test_integration ENV_FILE_PATH=$ENV_FILE_PATH'
           }
@@ -161,6 +165,7 @@ pipeline {
       }
       post {
         always {
+          sh 'sudo tc qdisc del dev $DEFAULT_IFACE root netem delay 100ms'
           dir(sdkRepoName) {
             junit 'build/test-results/testIntegration/*.xml'
           }
