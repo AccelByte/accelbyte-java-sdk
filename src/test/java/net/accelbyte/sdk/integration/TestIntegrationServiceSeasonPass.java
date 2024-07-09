@@ -110,7 +110,7 @@ class TestIntegrationServiceSeasonPass extends TestIntegration {
     final RegionDataItemDTO regionDataItem =
         RegionDataItemDTO.builder()
             .currencyCode("USD")
-            .currencyNamespace("accelbyte")
+            .currencyNamespace(this.namespace)
             .currencyTypeFromEnum(RegionDataItemDTO.CurrencyType.REAL)
             .price(10)
             .build();
