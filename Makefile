@@ -4,7 +4,7 @@
 
 SHELL := /bin/bash
 
-GRADLE_IMAGE := gradle:7.6.4-jdk8
+GRADLE_IMAGE := gradle:8.5-jdk8
 
 .PHONY: build samples
 
