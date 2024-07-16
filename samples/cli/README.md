@@ -22,7 +22,7 @@ bash gradlew installDist
 The following environment variables are required by this CLI sample app.
 
 ```
-export AB_BASE_URL='https://demo.accelbyte.io'    # Required
+export AB_BASE_URL='https://test.accelbyte.io'    # Required
 export AB_CLIENT_ID='xxxxxxxxxx'                  # Required
 export AB_CLIENT_SECRET='xxxxxxxxxx'              # Required for confidential OAuth client only
 ```

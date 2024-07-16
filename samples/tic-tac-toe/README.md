@@ -14,7 +14,7 @@ A sample app to showcase a simple tic tac toe game using AB Gaming Services, Jav
 
     * `Base URL` 
       
-        https://demo.accelbyte.io
+      For example https://test.accelbyte.io
 
     * [Create a Game Namespace](https://docs.accelbyte.io/gaming-services/getting-started/how-to/create-a-game-namespace/) if you don't have one yet. Keep the `Namespace ID`
         
@@ -35,7 +35,7 @@ Globals:
     Timeout: 60   # Give enough time to complete API calls
     Environment:
         Variables:
-          AB_BASE_URL: https://demo.accelbyte.io    # Base URL
+          AB_BASE_URL: https://test.accelbyte.io    # Base URL
           AB_CLIENT_ID: 'xxxxxxxxxx'                # Cliend ID
           AB_CLIENT_SECRET: 'xxxxxxxxxx'            # Client Secret
           AB_NAMESPACE: 'xxxxxxxxxx'                # Namespace
@@ -47,7 +47,7 @@ Globals:
 Set the environment variables required by the client app before using it.
 
 ```bash
-$ export AB_BASE_URL='https://demo.accelbyte.io'    # Base URL
+$ export AB_BASE_URL='https://test.accelbyte.io'    # Base URL
 $ export AB_CLIENT_ID='xxxxxxxxxx'                  # Cliend ID
 $ export AB_CLIENT_SECRET='xxxxxxxxxx'              # Client Secret
 $ export LAMBDA_URL='xxxxxxxxxx'                    # Lambda URL e.g. http://127.0.0.1:3000/tictactoe if running locally

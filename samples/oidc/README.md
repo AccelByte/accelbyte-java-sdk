@@ -12,7 +12,7 @@ A sample app to showcase OIDC login using AccelByte Java Extend SDK and PhantAut
 
     * `Base URL` 
       
-        https://demo.accelbyte.io
+        For example https://test.accelbyte.io
 
     * [Create an OAuth Client](https://docs.accelbyte.io/gaming-services/services/access/authorization/manage-access-control-for-applications/#create-an-iam-client) with confidential client type 
 
@@ -27,7 +27,7 @@ A sample app to showcase OIDC login using AccelByte Java Extend SDK and PhantAut
 These environment variables are required by this sample app.
 
 ```bash
-$ export AB_BASE_URL='https://demo.accelbyte.io'    # Base URL
+$ export AB_BASE_URL='https://test.accelbyte.io'    # Base URL
 $ export AB_CLIENT_ID='xxxxxxxxxx'                  # Cliend ID
 $ export AB_CLIENT_SECRET='xxxxxxxxxx'              # Client Secret
 ```

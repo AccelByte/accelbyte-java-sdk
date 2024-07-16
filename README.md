@@ -55,7 +55,7 @@ The following environment variables need to be set when using `DefaultConfigRepo
 
 | Name               | Required                                              | Example                          |
 |--------------------|-------------------------------------------------------|----------------------------------|
-| `AB_BASE_URL`      | Yes                                                   | https://demo.accelbyte.io        |
+| `AB_BASE_URL`      | Yes                                                   | https://test.accelbyte.io        |
 | `AB_CLIENT_ID`     | Yes                                                   | abcdef0123456789abcdef0123456789 |
 | `AB_CLIENT_SECRET` | Yes, but only if you use a confidential `AB_CLIENT_ID`| ab#c,d)ef(ab#c,d)ef(ab#c,d)ef(ab |
 
@@ -214,7 +214,7 @@ The `payload` will be null if the parse failed or when validation is required, a
 
 ### Interacting with a Service Endpoint
 
-As an example, we will get current user profile info using [getMyProfileInfo](https://demo.accelbyte.io/basic/apidocs/#/UserProfile/getMyProfileInfo) endpoint available in [basic](https://demo.accelbyte.io/basic/apidocs) service.
+As an example, we will get current user profile info using [getMyProfileInfo](https://docs.accelbyte.io/api-explorer/#Basic/getMyProfileInfo) endpoint available in [basic](hhttps://docs.accelbyte.io/api-explorer/#Basic) service.
 
 ```java
 // Login using username and password
