@@ -214,7 +214,7 @@ The `payload` will be null if the parse failed or when validation is required, a
 
 ### Interacting with a Service Endpoint
 
-As an example, we will get current user profile info using [getMyProfileInfo](https://docs.accelbyte.io/api-explorer/#Basic/getMyProfileInfo) endpoint available in [basic](hhttps://docs.accelbyte.io/api-explorer/#Basic) service.
+As an example, we will get current user profile info using [getMyProfileInfo](https://docs.accelbyte.io/api-explorer/#Basic/getMyProfileInfo) endpoint available in [basic](https://docs.accelbyte.io/api-explorer/#Basic) service.
 
 ```java
 // Login using username and password
