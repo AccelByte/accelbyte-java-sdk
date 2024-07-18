@@ -159,7 +159,7 @@ pipeline {
       }
       steps {
         dir(sdkRepoName) {
-          sh 'sudo tc qdisc add dev $DEFAULT_IFACE root netem delay 200ms'    // Delay sending packets due to database eventual consistency
+          sh 'sudo tc qdisc add dev $DEFAULT_IFACE root netem delay 100ms'    // Delay sending packets due to database eventual consistency
           withCredentials([file(credentialsId: 'justice-codegen-sdk-integration-test-env', variable: 'ENV_FILE_PATH')]) {
             sh 'make test_integration ENV_FILE_PATH=$ENV_FILE_PATH'
           }
@@ -167,7 +167,7 @@ pipeline {
       }
       post {
         always {
-          sh 'sudo tc qdisc del dev $DEFAULT_IFACE root netem delay 200ms'
+          sh 'sudo tc qdisc del dev $DEFAULT_IFACE root netem delay 100ms'
           dir(sdkRepoName) {
             junit 'build/test-results/testIntegration/*.xml'
           }
