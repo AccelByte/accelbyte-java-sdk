@@ -29,7 +29,7 @@ public class RestapiReportingLimit extends Model {
   private List<RestapiCategoryLimit> categoryLimits;
 
   @JsonProperty("timeInterval")
-  private Integer timeInterval;
+  private Long timeInterval;
 
   @JsonProperty("userMaxReportPerTimeInterval")
   private Integer userMaxReportPerTimeInterval;

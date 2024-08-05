@@ -24,7 +24,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * PublicListJusticePlatformAccountsV3
  *
  * <p>This endpoint gets list justice platform account by providing publisher namespace and
- * publisher userID
+ * publisher userID.
+ *
+ * <p>**Authentication:** The _**userId**_ parameter should match the one in the access token.
  */
 @Getter
 @Setter

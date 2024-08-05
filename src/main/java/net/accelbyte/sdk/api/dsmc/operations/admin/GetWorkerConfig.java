@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.dsmc.operations.image_config;
+package net.accelbyte.sdk.api.dsmc.operations.admin;
 
 import java.io.*;
 import java.util.*;
@@ -19,71 +19,64 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * ImportImages
+ * getWorkerConfig
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [CREATE]
+ * <p>Required permission: ADMIN:NAMESPACE:{namespace}:WORKER:CONFIG [READ]
  *
  * <p>Required scope: social
  *
- * <p>This endpoint import a dedicated servers images in a namespace.
- *
- * <p>The image will be upsert. Existing version will be replaced with imported image, will create
- * new one if not found.
- *
- * <p>Example data inside imported file [ { "namespace": "dewa", "image":
- * "123456789.dkr.ecr.us-west-2.amazonaws.com/ds-dewa:0.0.1-alpha", "version": "0.0.1",
- * "persistent": true } ]
+ * <p>This endpoint retrieves a worker configuration to control the worker in the DSMC.
  */
 @Getter
 @Setter
-public class ImportImages extends Operation {
+public class GetWorkerConfig extends Operation {
   /** generated field's value */
-  private String path = "/dsmcontroller/admin/images/import";
+  private String path = "/dsmcontroller/admin/namespace/{namespace}/workers";
 
-  private String method = "POST";
-  private List<String> consumes = Arrays.asList("multipart/form-data");
+  private String method = "GET";
+  private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
 
   /** fields as input parameter */
-  private File file;
+  private String namespace;
 
   /**
-   * @param file required
+   * @param namespace required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public ImportImages(File file) {
-    this.file = file;
+  public GetWorkerConfig(String namespace) {
+    this.namespace = namespace;
 
     securities.add("Bearer");
   }
 
   @Override
-  public Map<String, Object> getFormParams() {
-    Map<String, Object> formDataParams = new HashMap<>();
-    if (this.file != null) {
-      formDataParams.put("file", this.file);
+  public Map<String, String> getPathParams() {
+    Map<String, String> pathParams = new HashMap<>();
+    if (this.namespace != null) {
+      pathParams.put("namespace", this.namespace);
     }
-    return formDataParams;
+    return pathParams;
   }
 
   @Override
   public boolean isValid() {
-    if (this.file == null) {
+    if (this.namespace == null) {
       return false;
     }
     return true;
   }
 
-  public ModelsImportResponse parseResponse(int code, String contentType, InputStream payload)
+  public ModelsWorkerConfig parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ModelsImportResponse().createFromJson(json);
+    return new ModelsWorkerConfig().createFromJson(json);
   }
 }

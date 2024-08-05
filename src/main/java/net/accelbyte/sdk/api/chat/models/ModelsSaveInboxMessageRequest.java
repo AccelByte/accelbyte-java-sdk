@@ -30,7 +30,7 @@ public class ModelsSaveInboxMessageRequest extends Model {
   private String category;
 
   @JsonProperty("expiredAt")
-  private Integer expiredAt;
+  private Long expiredAt;
 
   @JsonProperty("message")
   private Map<String, ?> message;

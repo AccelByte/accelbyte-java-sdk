@@ -38,7 +38,7 @@ public class OauthmodelLoginQueueTicketResponse extends Model {
   private Integer position;
 
   @JsonProperty("reconnectExpiredAt")
-  private Integer reconnectExpiredAt;
+  private Long reconnectExpiredAt;
 
   @JsonProperty("refresh")
   private OauthmodelTicketEndpointAction refresh;

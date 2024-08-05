@@ -70,15 +70,15 @@ public class ClaimableUserSeasonInfo extends Model {
 
   @JsonProperty("totalExp")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer totalExp;
+  private Long totalExp;
 
   @JsonProperty("totalPaidForExp")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer totalPaidForExp;
+  private Long totalPaidForExp;
 
   @JsonProperty("totalSweatExp")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer totalSweatExp;
+  private Long totalSweatExp;
 
   @JsonProperty("updatedAt")
   private String updatedAt;

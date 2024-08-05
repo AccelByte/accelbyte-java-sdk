@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class OauthmodelOneTimeLinkingCodeResponse extends Model {
 
   @JsonProperty("exp")
-  private Integer exp;
+  private Long exp;
 
   @JsonProperty("oneTimeLinkCode")
   private String oneTimeLinkCode;

@@ -47,7 +47,7 @@ public class ApiImageDetails extends Model {
   private List<ApiReferencingFleet> referencingFleets;
 
   @JsonProperty("sizeInByte")
-  private Integer sizeInByte;
+  private Long sizeInByte;
 
   @JsonProperty("status")
   private String status;

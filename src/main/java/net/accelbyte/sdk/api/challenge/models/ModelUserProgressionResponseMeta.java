@@ -38,6 +38,9 @@ public class ModelUserProgressionResponseMeta extends Model {
   @JsonProperty("name")
   private String name;
 
+  @JsonProperty("period")
+  private ModelUserProgressionPeriodResponseMeta period;
+
   @JsonProperty("startDate")
   private String startDate;
 

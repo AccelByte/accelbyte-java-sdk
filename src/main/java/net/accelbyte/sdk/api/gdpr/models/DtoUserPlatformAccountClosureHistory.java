@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class DtoUserPlatformAccountClosureHistory extends Model {
 
   @JsonProperty("closedDate")
-  private Integer closedDate;
+  private Long closedDate;
 
   @JsonProperty("environment")
   private String environment;

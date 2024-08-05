@@ -32,7 +32,7 @@ public class AccountcommonListUsersWithPlatformAccountsResponse extends Model {
   private AccountcommonPaginationV3 paging;
 
   @JsonProperty("totalData")
-  private Integer totalData;
+  private Long totalData;
 
   @JsonIgnore
   public AccountcommonListUsersWithPlatformAccountsResponse createFromJson(String json)

@@ -48,4 +48,14 @@ public class ChallengeProgression {
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see PublicGetPastUserProgression
+   */
+  public ModelUserProgressionResponse publicGetPastUserProgression(
+      PublicGetPastUserProgression input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }

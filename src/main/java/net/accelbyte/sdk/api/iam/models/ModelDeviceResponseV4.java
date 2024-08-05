@@ -43,7 +43,7 @@ public class ModelDeviceResponseV4 extends Model {
   private String ip;
 
   @JsonProperty("lastLoginTime")
-  private Integer lastLoginTime;
+  private Long lastLoginTime;
 
   @JsonIgnore
   public ModelDeviceResponseV4 createFromJson(String json) throws JsonProcessingException {

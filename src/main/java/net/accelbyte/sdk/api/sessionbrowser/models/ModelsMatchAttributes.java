@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsMatchAttributes extends Model {
 
   @JsonProperty("first_ticket_created_at")
-  private Integer firstTicketCreatedAt;
+  private Long firstTicketCreatedAt;
 
   @JsonIgnore
   public ModelsMatchAttributes createFromJson(String json) throws JsonProcessingException {

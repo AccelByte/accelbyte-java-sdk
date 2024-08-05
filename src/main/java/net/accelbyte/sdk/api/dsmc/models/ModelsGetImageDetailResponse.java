@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsGetImageDetailResponse extends Model {
 
   @JsonProperty("data")
-  private ModelsImageRecord data;
+  private ModelsImageRecordResponse data;
 
   @JsonIgnore
   public ModelsGetImageDetailResponse createFromJson(String json) throws JsonProcessingException {

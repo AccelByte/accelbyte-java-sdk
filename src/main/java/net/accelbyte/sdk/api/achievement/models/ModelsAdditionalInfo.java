@@ -26,13 +26,13 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsAdditionalInfo extends Model {
 
   @JsonProperty("numberOfAchievements")
-  private Integer numberOfAchievements;
+  private Long numberOfAchievements;
 
   @JsonProperty("numberOfHiddenAchievements")
-  private Integer numberOfHiddenAchievements;
+  private Long numberOfHiddenAchievements;
 
   @JsonProperty("numberOfVisibleAchievements")
-  private Integer numberOfVisibleAchievements;
+  private Long numberOfVisibleAchievements;
 
   @JsonIgnore
   public ModelsAdditionalInfo createFromJson(String json) throws JsonProcessingException {

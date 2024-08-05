@@ -31,6 +31,15 @@ public class Images {
   }
 
   /**
+   * @see ImagesStorage
+   */
+  public ApiImageStorage imagesStorage(ImagesStorage input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see ImageGet
    */
   public ApiImageDetails imageGet(ImageGet input) throws Exception {

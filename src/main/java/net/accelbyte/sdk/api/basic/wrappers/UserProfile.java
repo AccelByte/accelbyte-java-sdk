@@ -129,6 +129,16 @@ public class UserProfile {
   }
 
   /**
+   * @see PublicBulkGetUserProfilePublicInfo
+   */
+  public List<UserProfilePublicInfo> publicBulkGetUserProfilePublicInfo(
+      PublicBulkGetUserProfilePublicInfo input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicGetUserProfileInfoByPublicId
    */
   public UserProfilePublicInfo publicGetUserProfileInfoByPublicId(

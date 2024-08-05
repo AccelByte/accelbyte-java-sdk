@@ -30,7 +30,7 @@ public class DebitByCurrencyCodeRequest extends Model {
   private Boolean allowOverdraft;
 
   @JsonProperty("amount")
-  private Integer amount;
+  private Long amount;
 
   @JsonProperty("balanceOrigin")
   @JsonInclude(JsonInclude.Include.NON_NULL)

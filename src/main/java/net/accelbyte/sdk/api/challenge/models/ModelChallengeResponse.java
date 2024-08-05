@@ -54,6 +54,9 @@ public class ModelChallengeResponse extends Model {
   @JsonProperty("name")
   private String name;
 
+  @JsonProperty("randomizedPerRotation")
+  private Boolean randomizedPerRotation;
+
   @JsonProperty("repeatAfter")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer repeatAfter;

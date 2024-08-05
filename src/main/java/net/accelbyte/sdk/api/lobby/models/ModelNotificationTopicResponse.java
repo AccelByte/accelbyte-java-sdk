@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelNotificationTopicResponse extends Model {
 
   @JsonProperty("createdAt")
-  private Integer createdAt;
+  private Long createdAt;
 
   @JsonProperty("description")
   private String description;

@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ModelsImageRecord extends Model {
+public class ModelsPatchImageRecordResponse extends Model {
 
   @JsonProperty("artifactPath")
   @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -51,13 +51,16 @@ public class ModelsImageRecord extends Model {
   private Map<String, ModelsImageReplication> imageReplicationsMap;
 
   @JsonProperty("imageSize")
-  private Integer imageSize;
+  private Long imageSize;
 
   @JsonProperty("modifiedBy")
   private String modifiedBy;
 
   @JsonProperty("namespace")
   private String namespace;
+
+  @JsonProperty("patchVersion")
+  private String patchVersion;
 
   @JsonProperty("persistent")
   private Boolean persistent;
@@ -69,16 +72,21 @@ public class ModelsImageRecord extends Model {
   @JsonProperty("updatedAt")
   private String updatedAt;
 
+  @JsonProperty("uploaderFlag")
+  private String uploaderFlag;
+
   @JsonProperty("version")
   private String version;
 
   @JsonIgnore
-  public ModelsImageRecord createFromJson(String json) throws JsonProcessingException {
+  public ModelsPatchImageRecordResponse createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ModelsImageRecord> createFromJsonList(String json) throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsImageRecord>>() {});
+  public List<ModelsPatchImageRecordResponse> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelsPatchImageRecordResponse>>() {});
   }
 }

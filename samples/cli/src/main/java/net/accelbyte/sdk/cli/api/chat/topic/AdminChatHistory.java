@@ -86,6 +86,11 @@ public class AdminChatHistory implements Callable<Integer> {
   List<String> topic;
 
   @Option(
+      names = {"--unfiltered"},
+      description = "unfiltered")
+  Boolean unfiltered;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -119,6 +124,7 @@ public class AdminChatHistory implements Callable<Integer> {
               .shardId(shardId)
               .startCreatedAt(startCreatedAt)
               .topic(topic)
+              .unfiltered(unfiltered)
               .build();
       final ModelsChatMessageWithPaginationResponse response = wrapper.adminChatHistory(operation);
       final String responseString =

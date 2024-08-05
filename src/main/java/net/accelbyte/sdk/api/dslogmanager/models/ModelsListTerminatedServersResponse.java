@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsListTerminatedServersResponse extends Model {
 
   @JsonProperty("data")
-  private List<ModelsNotifPayloadServerStatusChange> data;
+  private List<ModelsNotifPayloadServerStatusChangeResponse> data;
 
   @JsonProperty("paging")
   private ModelsPagingCursor paging;

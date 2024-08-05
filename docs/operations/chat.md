@@ -42,6 +42,8 @@
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
 | `/chat/v1/admin/config` | GET | AdminGetAllConfigV1 | [AdminGetAllConfigV1](../../src/main/java/net/accelbyte/sdk/api/chat/operations/config/AdminGetAllConfigV1.java) | [AdminGetAllConfigV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/chat/config/AdminGetAllConfigV1.java) |
+| `/chat/v1/admin/config/log` | GET | AdminGetLogConfig | [AdminGetLogConfig](../../src/main/java/net/accelbyte/sdk/api/chat/operations/config/AdminGetLogConfig.java) | [AdminGetLogConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/chat/config/AdminGetLogConfig.java) |
+| `/chat/v1/admin/config/log` | PATCH | AdminPatchUpdateLogConfig | [AdminPatchUpdateLogConfig](../../src/main/java/net/accelbyte/sdk/api/chat/operations/config/AdminPatchUpdateLogConfig.java) | [AdminPatchUpdateLogConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/chat/config/AdminPatchUpdateLogConfig.java) |
 | `/chat/v1/admin/config/namespaces/{namespace}` | GET | AdminGetConfigV1 | [AdminGetConfigV1](../../src/main/java/net/accelbyte/sdk/api/chat/operations/config/AdminGetConfigV1.java) | [AdminGetConfigV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/chat/config/AdminGetConfigV1.java) |
 | `/chat/v1/admin/config/namespaces/{namespace}` | PUT | AdminUpdateConfigV1 | [AdminUpdateConfigV1](../../src/main/java/net/accelbyte/sdk/api/chat/operations/config/AdminUpdateConfigV1.java) | [AdminUpdateConfigV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/chat/config/AdminUpdateConfigV1.java) |
 | `/chat/v1/admin/config/namespaces/{namespace}/export` | GET | ExportConfig | [ExportConfig](../../src/main/java/net/accelbyte/sdk/api/chat/operations/config/ExportConfig.java) | [ExportConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/chat/config/ExportConfig.java) |
@@ -106,6 +108,7 @@
 | `api.UnmuteUserRequest` | [ApiUnmuteUserRequest](../../src/main/java/net/accelbyte/sdk/api/chat/models/ApiUnmuteUserRequest.java) |
 | `api.UpdateTopicParams` | [ApiUpdateTopicParams](../../src/main/java/net/accelbyte/sdk/api/chat/models/ApiUpdateTopicParams.java) |
 | `log.AppMessageDeclaration` | [LogAppMessageDeclaration](../../src/main/java/net/accelbyte/sdk/api/chat/models/LogAppMessageDeclaration.java) |
+| `logconfig.Configuration` | [LogconfigConfiguration](../../src/main/java/net/accelbyte/sdk/api/chat/models/LogconfigConfiguration.java) |
 | `message.ActionAddUserToTopicResult` | [MessageActionAddUserToTopicResult](../../src/main/java/net/accelbyte/sdk/api/chat/models/MessageActionAddUserToTopicResult.java) |
 | `message.ActionDeleteTopicResult` | [MessageActionDeleteTopicResult](../../src/main/java/net/accelbyte/sdk/api/chat/models/MessageActionDeleteTopicResult.java) |
 | `models.AddInboxCategoryRequest` | [ModelsAddInboxCategoryRequest](../../src/main/java/net/accelbyte/sdk/api/chat/models/ModelsAddInboxCategoryRequest.java) |

@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsMatchingParty extends Model {
 
   @JsonProperty("first_ticket_created_at")
-  private Integer firstTicketCreatedAt;
+  private Long firstTicketCreatedAt;
 
   @JsonProperty("party_attributes")
   @JsonInclude(JsonInclude.Include.NON_NULL)

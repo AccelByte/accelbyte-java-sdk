@@ -35,10 +35,10 @@ public class ItemDynamicDataInfo extends Model {
   private String namespace;
 
   @JsonProperty("userAvailableCount")
-  private Integer userAvailableCount;
+  private Long userAvailableCount;
 
   @JsonProperty("userPurchaseLimit")
-  private Integer userPurchaseLimit;
+  private Long userPurchaseLimit;
 
   @JsonIgnore
   public ItemDynamicDataInfo createFromJson(String json) throws JsonProcessingException {

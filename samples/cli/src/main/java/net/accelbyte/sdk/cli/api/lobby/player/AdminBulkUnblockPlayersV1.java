@@ -6,13 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.dsmc.image_config;
+package net.accelbyte.sdk.cli.api.lobby.player;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
-import net.accelbyte.sdk.api.dsmc.models.*;
-import net.accelbyte.sdk.api.dsmc.wrappers.ImageConfig;
+import net.accelbyte.sdk.api.lobby.models.*;
+import net.accelbyte.sdk.api.lobby.wrappers.Player;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,10 +25,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "exportImages", mixinStandardHelpOptions = true)
-public class ExportImages implements Callable<Integer> {
+@Command(name = "adminBulkUnblockPlayersV1", mixinStandardHelpOptions = true)
+public class AdminBulkUnblockPlayersV1 implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(ExportImages.class);
+  private static final Logger log = LogManager.getLogger(AdminBulkUnblockPlayersV1.class);
 
   @Option(
       names = {"--namespace"},
@@ -36,12 +36,22 @@ public class ExportImages implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--userId"},
+      description = "userId")
+  String userId;
+
+  @Option(
+      names = {"--body"},
+      description = "body")
+  String body;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new ExportImages()).execute(args);
+    int exitCode = new CommandLine(new AdminBulkUnblockPlayersV1()).execute(args);
     System.exit(exitCode);
   }
 
@@ -55,15 +65,15 @@ public class ExportImages implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final ImageConfig wrapper = new ImageConfig(sdk);
-      final net.accelbyte.sdk.api.dsmc.operations.image_config.ExportImages operation =
-          net.accelbyte.sdk.api.dsmc.operations.image_config.ExportImages.builder()
+      final Player wrapper = new Player(sdk);
+      final net.accelbyte.sdk.api.lobby.operations.player.AdminBulkUnblockPlayersV1 operation =
+          net.accelbyte.sdk.api.lobby.operations.player.AdminBulkUnblockPlayersV1.builder()
               .namespace(namespace)
+              .userId(userId)
+              .body(new ObjectMapper().readValue(body, ModelsListUnblockPlayerRequest.class))
               .build();
-      final List<ModelsImageRecord> response = wrapper.exportImages(operation);
-      final String responseString =
-          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-      log.info("Operation successful\n{}", responseString);
+      wrapper.adminBulkUnblockPlayersV1(operation);
+      log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

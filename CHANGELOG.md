@@ -1,3 +1,37 @@
+<a name="v0.65.0"></a>
+## [v0.65.0]
+### docs
+- **migration-guide:** correction migration guide for v0.64.0
+- **:** update links
+- **readme:** fix url typo
+### test
+- **integration:** due to the service deprecated
+- **cli:** use platform linux/amd64
+- **integration:** matchmaking - disable  total matchmaking test
+- **integration:** group - clear user group member first
+- **nightly:** integration - delay sending packets due to db eventual consistency
+- **integration:** seasonpass - fix currency code namespace
+- **integration:** session history - remove xray
+- **integration:** seasonpass - fix currency code namespace
+- **generate:** integration - delay sending packets due to db eventual consistency
+### fix
+- **core:** update due to bigint removal
+### ci
+- **generate:** use stage_extend-sdk
+- **:** use extend-builder-batch
+- **:** update commitlint
+- **coverity:** use no watch fs
+- **:** use extend-builder-ci for all stages
+- **:** use slack channel env var
+- **:** set tc delay for integration test 200 ms
+- **:** set tc delay for integration test back to 100 ms
+### chore
+- **gradle:** optimize jvmargs
+- **makefile:** consolidate gradle image
+- **gradle:** increase xmx to 3 gb
+- **:** upgrade gradle to 8.5
+
+
 <a name="v0.64.0"></a>
 ## [v0.64.0]
 ### feat

@@ -176,6 +176,7 @@
 | `/platform/public/namespaces/{namespace}/users/{userId}/dlc/psn/sync/multiServiceLabels` | PUT | PublicSyncPsnDlcInventoryWithMultipleServiceLabels | [PublicSyncPsnDlcInventoryWithMultipleServiceLabels](../../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/PublicSyncPsnDlcInventoryWithMultipleServiceLabels.java) | [PublicSyncPsnDlcInventoryWithMultipleServiceLabels](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/PublicSyncPsnDlcInventoryWithMultipleServiceLabels.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/dlc/steam/sync` | PUT | SyncSteamDLC | [SyncSteamDLC](../../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/SyncSteamDLC.java) | [SyncSteamDLC](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/SyncSteamDLC.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/dlc/xbl/sync` | PUT | SyncXboxDLC | [SyncXboxDLC](../../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/SyncXboxDLC.java) | [SyncXboxDLC](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/SyncXboxDLC.java) |
+| `/platform/public/users/me/dlc/content` | GET | PublicGetMyDLCContent | [PublicGetMyDLCContent](../../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/PublicGetMyDLCContent.java) | [PublicGetMyDLCContent](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/PublicGetMyDLCContent.java) |
 
 ### Entitlement Wrapper:  [Entitlement](../../src/main/java/net/accelbyte/sdk/api/platform/wrappers/Entitlement.java)
 | Endpoint | Method | ID | Class | Example |
@@ -247,7 +248,10 @@
 | `/platform/admin/namespaces/{namespace}/users/{userId}/fulfillment/preCheck` | POST | PreCheckFulfillItem | [PreCheckFulfillItem](../../src/main/java/net/accelbyte/sdk/api/platform/operations/fulfillment/PreCheckFulfillItem.java) | [PreCheckFulfillItem](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/fulfillment/PreCheckFulfillItem.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/fulfillment/rewards` | POST | FulfillRewards | [FulfillRewards](../../src/main/java/net/accelbyte/sdk/api/platform/operations/fulfillment/FulfillRewards.java) | [FulfillRewards](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/fulfillment/FulfillRewards.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/fulfillment/code` | POST | PublicRedeemCode | [PublicRedeemCode](../../src/main/java/net/accelbyte/sdk/api/platform/operations/fulfillment/PublicRedeemCode.java) | [PublicRedeemCode](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/fulfillment/PublicRedeemCode.java) |
+| `/platform/v2/admin/namespaces/{namespace}/fulfillments` | GET | QueryFulfillments | [QueryFulfillments](../../src/main/java/net/accelbyte/sdk/api/platform/operations/fulfillment/QueryFulfillments.java) | [QueryFulfillments](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/fulfillment/QueryFulfillments.java) |
 | `/platform/v2/admin/namespaces/{namespace}/users/{userId}/fulfillment/rewards` | POST | FulfillRewardsV2 | [FulfillRewardsV2](../../src/main/java/net/accelbyte/sdk/api/platform/operations/fulfillment/FulfillRewardsV2.java) | [FulfillRewardsV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/fulfillment/FulfillRewardsV2.java) |
+| `/platform/v2/admin/namespaces/{namespace}/users/{userId}/fulfillments/{transactionId}` | PUT | FulfillItems | [FulfillItems](../../src/main/java/net/accelbyte/sdk/api/platform/operations/fulfillment/FulfillItems.java) | [FulfillItems](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/fulfillment/FulfillItems.java) |
+| `/platform/v2/admin/namespaces/{namespace}/users/{userId}/fulfillments/{transactionId}/revoke` | PUT | RevokeItems | [RevokeItems](../../src/main/java/net/accelbyte/sdk/api/platform/operations/fulfillment/RevokeItems.java) | [RevokeItems](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/fulfillment/RevokeItems.java) |
 
 ### Clawback Wrapper:  [Clawback](../../src/main/java/net/accelbyte/sdk/api/platform/wrappers/Clawback.java)
 | Endpoint | Method | ID | Class | Example |
@@ -753,7 +757,9 @@
 | `FieldValidationError` | [FieldValidationError](../../src/main/java/net/accelbyte/sdk/api/platform/models/FieldValidationError.java) |
 | `FixedPeriodRotationConfig` | [FixedPeriodRotationConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/FixedPeriodRotationConfig.java) |
 | `FulFillItemPayload` | [FulFillItemPayload](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulFillItemPayload.java) |
+| `FulfillBundledItemResult` | [FulfillBundledItemResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillBundledItemResult.java) |
 | `FulfillCodeRequest` | [FulfillCodeRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillCodeRequest.java) |
+| `FulfillItemResult` | [FulfillItemResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillItemResult.java) |
 | `FulfillmentError` | [FulfillmentError](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillmentError.java) |
 | `FulfillmentHistoryInfo` | [FulfillmentHistoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillmentHistoryInfo.java) |
 | `FulfillmentHistoryPagingSlicedResult` | [FulfillmentHistoryPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillmentHistoryPagingSlicedResult.java) |
@@ -763,6 +769,10 @@
 | `FulfillmentScriptCreate` | [FulfillmentScriptCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillmentScriptCreate.java) |
 | `FulfillmentScriptInfo` | [FulfillmentScriptInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillmentScriptInfo.java) |
 | `FulfillmentScriptUpdate` | [FulfillmentScriptUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillmentScriptUpdate.java) |
+| `FulfillmentStateInfo` | [FulfillmentStateInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillmentStateInfo.java) |
+| `FulfillmentV2Request` | [FulfillmentV2Request](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillmentV2Request.java) |
+| `FulfillmentV2RequestItem` | [FulfillmentV2RequestItem](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillmentV2RequestItem.java) |
+| `FulfillmentV2Result` | [FulfillmentV2Result](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulfillmentV2Result.java) |
 | `FullAppInfo` | [FullAppInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/FullAppInfo.java) |
 | `FullCategoryInfo` | [FullCategoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/FullCategoryInfo.java) |
 | `FullItemInfo` | [FullItemInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/FullItemInfo.java) |
@@ -950,6 +960,7 @@
 | `RevokeEntitlement` | [RevokeEntitlement](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevokeEntitlement.java) |
 | `RevokeEntitlementPayload` | [RevokeEntitlementPayload](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevokeEntitlementPayload.java) |
 | `RevokeEntry` | [RevokeEntry](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevokeEntry.java) |
+| `RevokeFulfillmentV2Result` | [RevokeFulfillmentV2Result](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevokeFulfillmentV2Result.java) |
 | `RevokeItem` | [RevokeItem](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevokeItem.java) |
 | `RevokeItemSummary` | [RevokeItemSummary](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevokeItemSummary.java) |
 | `RevokeResult` | [RevokeResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevokeResult.java) |
@@ -972,8 +983,11 @@
 | `SectionUpdate` | [SectionUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/SectionUpdate.java) |
 | `ServicePluginConfigInfo` | [ServicePluginConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/ServicePluginConfigInfo.java) |
 | `ServicePluginConfigUpdate` | [ServicePluginConfigUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/ServicePluginConfigUpdate.java) |
+| `SimpleDLCRewardItem` | [SimpleDLCRewardItem](../../src/main/java/net/accelbyte/sdk/api/platform/models/SimpleDLCRewardItem.java) |
 | `SimpleEntitlement` | [SimpleEntitlement](../../src/main/java/net/accelbyte/sdk/api/platform/models/SimpleEntitlement.java) |
 | `SimpleUserDLC` | [SimpleUserDLC](../../src/main/java/net/accelbyte/sdk/api/platform/models/SimpleUserDLC.java) |
+| `SimpleUserDLCRewardContent` | [SimpleUserDLCRewardContent](../../src/main/java/net/accelbyte/sdk/api/platform/models/SimpleUserDLCRewardContent.java) |
+| `SimpleUserDLCRewardContentsResponse` | [SimpleUserDLCRewardContentsResponse](../../src/main/java/net/accelbyte/sdk/api/platform/models/SimpleUserDLCRewardContentsResponse.java) |
 | `SimpleWallet` | [SimpleWallet](../../src/main/java/net/accelbyte/sdk/api/platform/models/SimpleWallet.java) |
 | `Slide` | [Slide](../../src/main/java/net/accelbyte/sdk/api/platform/models/Slide.java) |
 | `StackableEntitlementInfo` | [StackableEntitlementInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/StackableEntitlementInfo.java) |

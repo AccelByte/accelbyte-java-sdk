@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApiMatchTicketStatus extends Model {
 
+  @JsonProperty("isActive")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean isActive;
+
   @JsonProperty("matchFound")
   private Boolean matchFound;
 

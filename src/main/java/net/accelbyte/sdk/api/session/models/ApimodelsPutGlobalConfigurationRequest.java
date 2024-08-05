@@ -25,6 +25,9 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApimodelsPutGlobalConfigurationRequest extends Model {
 
+  @JsonProperty("metricExcludedNamespaces")
+  private List<String> metricExcludedNamespaces;
+
   @JsonProperty("regionRetryMapping")
   private Map<String, List<String>> regionRetryMapping;
 

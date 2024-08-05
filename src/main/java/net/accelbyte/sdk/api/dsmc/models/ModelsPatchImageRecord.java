@@ -51,7 +51,7 @@ public class ModelsPatchImageRecord extends Model {
   private Map<String, ModelsImageReplication> imageReplicationsMap;
 
   @JsonProperty("imageSize")
-  private Integer imageSize;
+  private Long imageSize;
 
   @JsonProperty("modifiedBy")
   private String modifiedBy;

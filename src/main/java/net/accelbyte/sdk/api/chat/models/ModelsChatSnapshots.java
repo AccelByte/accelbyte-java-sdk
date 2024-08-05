@@ -29,7 +29,7 @@ public class ModelsChatSnapshots extends Model {
   private String chatId;
 
   @JsonProperty("createdAt")
-  private Integer createdAt;
+  private Long createdAt;
 
   @JsonProperty("joinedTopics")
   private List<String> joinedTopics;

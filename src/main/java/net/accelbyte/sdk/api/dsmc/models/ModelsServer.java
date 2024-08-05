@@ -37,7 +37,6 @@ public class ModelsServer extends Model {
   private List<String> alternateIps;
 
   @JsonProperty("artifact_path")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String artifactPath;
 
   @JsonProperty("cpu_limit")
@@ -72,6 +71,9 @@ public class ModelsServer extends Model {
 
   @JsonProperty("is_override_game_version")
   private Boolean isOverrideGameVersion;
+
+  @JsonProperty("is_override_region")
+  private Boolean isOverrideRegion;
 
   @JsonProperty("job_id")
   private String jobId;
@@ -119,6 +121,9 @@ public class ModelsServer extends Model {
 
   @JsonProperty("termination_reason")
   private String terminationReason;
+
+  @JsonProperty("ulimit_file_size")
+  private Integer ulimitFileSize;
 
   @JsonIgnore
   public ModelsServer createFromJson(String json) throws JsonProcessingException {

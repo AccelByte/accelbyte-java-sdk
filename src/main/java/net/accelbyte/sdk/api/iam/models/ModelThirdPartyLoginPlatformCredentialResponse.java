@@ -48,6 +48,9 @@ public class ModelThirdPartyLoginPlatformCredentialResponse extends Model {
   @JsonProperty("ClientId")
   private String clientId;
 
+  @JsonProperty("EnableServerLicenseValidation")
+  private Boolean enableServerLicenseValidation;
+
   @JsonProperty("Environment")
   private String environment;
 
@@ -56,6 +59,10 @@ public class ModelThirdPartyLoginPlatformCredentialResponse extends Model {
 
   @JsonProperty("GenericOauthFlow")
   private Boolean genericOauthFlow;
+
+  @JsonProperty("IncludePUID")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean includePUID;
 
   @JsonProperty("IsActive")
   private Boolean isActive;

@@ -23,6 +23,7 @@ import picocli.CommandLine.Command;
       DownloadServerLogs.class,
       CheckServerLogs.class,
       BatchDownloadServerLogs.class,
+      ListMetadataServers.class,
       ListAllTerminatedServers.class,
       PublicGetMessages.class,
     })

@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class DebitRequest extends Model {
 
   @JsonProperty("amount")
-  private Integer amount;
+  private Long amount;
 
   @JsonProperty("balanceSource")
   @JsonInclude(JsonInclude.Include.NON_NULL)

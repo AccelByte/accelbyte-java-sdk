@@ -501,10 +501,14 @@ import picocli.CommandLine.Command;
       PublicListViews.class,
       PublicGetWallet.class,
       PublicListUserWalletTransactions.class,
+      PublicGetMyDLCContent.class,
+      QueryFulfillments.class,
       QueryItemsV2.class,
       ImportStore1.class,
       ExportStore1.class,
       FulfillRewardsV2.class,
+      FulfillItems.class,
+      RevokeItems.class,
     })
 public class Platform implements Runnable {
 

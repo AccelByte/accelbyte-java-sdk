@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ModelsServer extends Model {
+public class ModelsServerResponse extends Model {
 
   @JsonProperty("allocation_events")
   @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -35,6 +35,10 @@ public class ModelsServer extends Model {
   @JsonProperty("alternate_ips")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> alternateIps;
+
+  @JsonProperty("artifact_path")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String artifactPath;
 
   @JsonProperty("cpu_limit")
   private Integer cpuLimit;
@@ -53,6 +57,10 @@ public class ModelsServer extends Model {
 
   @JsonProperty("ip")
   private String ip;
+
+  @JsonProperty("is_core_dump_enabled")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean isCoreDumpEnabled;
 
   @JsonProperty("is_override_game_version")
   private Boolean isOverrideGameVersion;
@@ -107,13 +115,17 @@ public class ModelsServer extends Model {
   @JsonProperty("termination_reason")
   private String terminationReason;
 
+  @JsonProperty("ulimit_file_size")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer ulimitFileSize;
+
   @JsonIgnore
-  public ModelsServer createFromJson(String json) throws JsonProcessingException {
+  public ModelsServerResponse createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ModelsServer> createFromJsonList(String json) throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsServer>>() {});
+  public List<ModelsServerResponse> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsServerResponse>>() {});
   }
 }

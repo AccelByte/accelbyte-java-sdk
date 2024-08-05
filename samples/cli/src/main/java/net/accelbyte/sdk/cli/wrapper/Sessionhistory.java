@@ -31,6 +31,7 @@ import picocli.CommandLine.Command;
       GetPartyDetail.class,
       AdminQueryTicketDetail.class,
       AdminTicketDetailGetByTicketID.class,
+      PublicQueryGameSessionMe.class,
       QueryXrayMatchPool.class,
       QueryDetailTickMatchPool.class,
       QueryDetailTickMatchPoolMatches.class,
@@ -49,6 +50,7 @@ import picocli.CommandLine.Command;
       QueryTotalMatchmakingCreated.class,
       QueryTotalMatchmakingExpired.class,
       QueryTotalMatchmakingMatchTicket.class,
+      CreateXrayTicketObservability.class,
       QueryXrayTimelineByTicketID.class,
       QueryXrayTimelineByUserID.class,
     })

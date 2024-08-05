@@ -31,6 +31,7 @@
 | `/challenge/v1/admin/namespaces/{namespace}/progress/evaluate` | POST | AdminEvaluateProgress | [AdminEvaluateProgress](../../src/main/java/net/accelbyte/sdk/api/challenge/operations/challenge_progression/AdminEvaluateProgress.java) | [AdminEvaluateProgress](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/challenge/challenge_progression/AdminEvaluateProgress.java) |
 | `/challenge/v1/public/namespaces/{namespace}/users/me/progress/evaluate` | POST | EvaluateMyProgress | [EvaluateMyProgress](../../src/main/java/net/accelbyte/sdk/api/challenge/operations/challenge_progression/EvaluateMyProgress.java) | [EvaluateMyProgress](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/challenge/challenge_progression/EvaluateMyProgress.java) |
 | `/challenge/v1/public/namespaces/{namespace}/users/me/progress/{challengeCode}` | GET | PublicGetUserProgression | [PublicGetUserProgression](../../src/main/java/net/accelbyte/sdk/api/challenge/operations/challenge_progression/PublicGetUserProgression.java) | [PublicGetUserProgression](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/challenge/challenge_progression/PublicGetUserProgression.java) |
+| `/challenge/v1/public/namespaces/{namespace}/users/me/progress/{challengeCode}/index/{index}` | GET | PublicGetPastUserProgression | [PublicGetPastUserProgression](../../src/main/java/net/accelbyte/sdk/api/challenge/operations/challenge_progression/PublicGetPastUserProgression.java) | [PublicGetPastUserProgression](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/challenge/challenge_progression/PublicGetPastUserProgression.java) |
 
 ### Player Reward Wrapper:  [PlayerReward](../../src/main/java/net/accelbyte/sdk/api/challenge/wrappers/PlayerReward.java)
 | Endpoint | Method | ID | Class | Example |
@@ -81,6 +82,7 @@
 | `model.Schedule` | [ModelSchedule](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelSchedule.java) |
 | `model.UpdateChallengeRequest` | [ModelUpdateChallengeRequest](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelUpdateChallengeRequest.java) |
 | `model.UpdateGoalRequest` | [ModelUpdateGoalRequest](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelUpdateGoalRequest.java) |
+| `model.UserProgressionPeriodResponseMeta` | [ModelUserProgressionPeriodResponseMeta](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelUserProgressionPeriodResponseMeta.java) |
 | `model.UserProgressionResponse` | [ModelUserProgressionResponse](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelUserProgressionResponse.java) |
 | `model.UserProgressionResponseMeta` | [ModelUserProgressionResponseMeta](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelUserProgressionResponseMeta.java) |
 | `model.UserReward` | [ModelUserReward](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelUserReward.java) |

@@ -39,7 +39,7 @@ public class OauthmodelPlatformTokenRefreshResponseV3 extends Model {
 
   @JsonProperty("platformTokenExpiresAt")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer platformTokenExpiresAt;
+  private Long platformTokenExpiresAt;
 
   @JsonProperty("platformUserId")
   @JsonInclude(JsonInclude.Include.NON_NULL)

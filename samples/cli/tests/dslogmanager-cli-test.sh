@@ -39,7 +39,7 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 ./ng ng-cp 1>&2
 
 echo "TAP version 13"
-echo "1..8"
+echo "1..9"
 
 #- 1 Login
 ./ng net.accelbyte.sdk.cli.Main loginClient \
@@ -104,30 +104,36 @@ eval_tap $? 5 'CheckServerLogs' test.out
     > test.out 2>&1
 eval_tap $? 6 'BatchDownloadServerLogs' test.out
 
-#- 7 ListAllTerminatedServers
-./ng net.accelbyte.sdk.cli.Main dslogmanager listAllTerminatedServers \
-    --deployment 'yD6SCwGrncqmLtjQ' \
-    --endDate 'HAf8TgoNm03VLisV' \
-    --gameMode '6zwPuo3td6TC6I3l' \
-    --limit '79' \
-    --namespace "$AB_NAMESPACE" \
-    --next 'x4rt69lna7qxNeIx' \
-    --partyId 'Pz6MbwL6IY69z1Ua' \
-    --podName 'LqYSYWytLPziZMdj' \
-    --previous 'xcBZufQxGiHPllG4' \
-    --provider 'cYEzfTD1ZBm3MqHc' \
-    --region 'UmLZZbSqb8RwNmn9' \
-    --sessionId 'HrNQy4uZAAiE0mit' \
-    --startDate '9RGCCHYzUOcEdscK' \
-    --status 'HPEqgA8yu7Vk6Jt4' \
-    --userId 'Ymos9Jcdos4fYcTV' \
+#- 7 ListMetadataServers
+./ng net.accelbyte.sdk.cli.Main dslogmanager listMetadataServers \
+    --body '{"pod_names": ["yD6SCwGrncqmLtjQ", "HAf8TgoNm03VLisV", "6zwPuo3td6TC6I3l"]}' \
     > test.out 2>&1
-eval_tap $? 7 'ListAllTerminatedServers' test.out
+eval_tap $? 7 'ListMetadataServers' test.out
 
-#- 8 PublicGetMessages
+#- 8 ListAllTerminatedServers
+./ng net.accelbyte.sdk.cli.Main dslogmanager listAllTerminatedServers \
+    --deployment 'MjGSWN2laRlxfcjH' \
+    --endDate 'fYakUCTqGkE7wcWf' \
+    --gameMode 'DslpJSqGAXQ0yYoN' \
+    --limit '89' \
+    --namespace "$AB_NAMESPACE" \
+    --next 'xcBZufQxGiHPllG4' \
+    --partyId 'cYEzfTD1ZBm3MqHc' \
+    --podName 'UmLZZbSqb8RwNmn9' \
+    --previous 'HrNQy4uZAAiE0mit' \
+    --provider '9RGCCHYzUOcEdscK' \
+    --region 'HPEqgA8yu7Vk6Jt4' \
+    --sessionId 'Ymos9Jcdos4fYcTV' \
+    --startDate 'U6RBt0zYoMcHyCUE' \
+    --status 'XlAvxJMdalwSyliW' \
+    --userId 'MNW5NyLu0M3VHh2E' \
+    > test.out 2>&1
+eval_tap $? 8 'ListAllTerminatedServers' test.out
+
+#- 9 PublicGetMessages
 ./ng net.accelbyte.sdk.cli.Main dslogmanager publicGetMessages \
     > test.out 2>&1
-eval_tap $? 8 'PublicGetMessages' test.out
+eval_tap $? 9 'PublicGetMessages' test.out
 
 
 rm -f "tmp.dat"

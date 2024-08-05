@@ -51,7 +51,7 @@ public class ModelsMessageResultWithAttributes extends Model {
   private String referenceId;
 
   @JsonProperty("timestamp")
-  private Integer timestamp;
+  private Long timestamp;
 
   @JsonIgnore
   public ModelsMessageResultWithAttributes createFromJson(String json)

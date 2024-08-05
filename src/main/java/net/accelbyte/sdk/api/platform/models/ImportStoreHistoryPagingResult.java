@@ -34,7 +34,7 @@ public class ImportStoreHistoryPagingResult extends Model {
 
   @JsonProperty("total")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer total;
+  private Long total;
 
   @JsonIgnore
   public ImportStoreHistoryPagingResult createFromJson(String json) throws JsonProcessingException {

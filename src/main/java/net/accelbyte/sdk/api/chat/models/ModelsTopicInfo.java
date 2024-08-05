@@ -26,11 +26,11 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsTopicInfo extends Model {
 
   @JsonProperty("createdAt")
-  private Integer createdAt;
+  private Long createdAt;
 
   @JsonProperty("deletedAt")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer deletedAt;
+  private Long deletedAt;
 
   @JsonProperty("id")
   private String id;

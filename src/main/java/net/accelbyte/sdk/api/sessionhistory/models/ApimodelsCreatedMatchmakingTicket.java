@@ -39,7 +39,7 @@ public class ApimodelsCreatedMatchmakingTicket extends Model {
 
   @JsonProperty("value")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer value;
+  private Long value;
 
   @JsonIgnore
   public ApimodelsCreatedMatchmakingTicket createFromJson(String json)

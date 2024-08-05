@@ -6,14 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.dsmc.image_config;
+package net.accelbyte.sdk.cli.api.dsmc.server;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.File;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.dsmc.models.*;
-import net.accelbyte.sdk.api.dsmc.wrappers.ImageConfig;
+import net.accelbyte.sdk.api.dsmc.wrappers.Server;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -26,15 +25,20 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "importImages", mixinStandardHelpOptions = true)
-public class ImportImages implements Callable<Integer> {
+@Command(name = "countServerDetailedClient", mixinStandardHelpOptions = true)
+public class CountServerDetailedClient implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(ImportImages.class);
+  private static final Logger log = LogManager.getLogger(CountServerDetailedClient.class);
 
   @Option(
-      names = {"--file"},
-      description = "file")
-  File file;
+      names = {"--namespace"},
+      description = "namespace")
+  String namespace;
+
+  @Option(
+      names = {"--region"},
+      description = "region")
+  String region;
 
   @Option(
       names = {"--logging"},
@@ -42,7 +46,7 @@ public class ImportImages implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new ImportImages()).execute(args);
+    int exitCode = new CommandLine(new CountServerDetailedClient()).execute(args);
     System.exit(exitCode);
   }
 
@@ -56,12 +60,14 @@ public class ImportImages implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final ImageConfig wrapper = new ImageConfig(sdk);
-      final net.accelbyte.sdk.api.dsmc.operations.image_config.ImportImages operation =
-          net.accelbyte.sdk.api.dsmc.operations.image_config.ImportImages.builder()
-              .file(file != null ? file : null)
+      final Server wrapper = new Server(sdk);
+      final net.accelbyte.sdk.api.dsmc.operations.server.CountServerDetailedClient operation =
+          net.accelbyte.sdk.api.dsmc.operations.server.CountServerDetailedClient.builder()
+              .namespace(namespace)
+              .region(region)
               .build();
-      final ModelsImportResponse response = wrapper.importImages(operation);
+      final ModelsDetailedCountServerResponse response =
+          wrapper.countServerDetailedClient(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

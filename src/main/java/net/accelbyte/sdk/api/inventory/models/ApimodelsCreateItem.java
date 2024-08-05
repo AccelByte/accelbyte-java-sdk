@@ -48,6 +48,10 @@ public class ApimodelsCreateItem extends Model {
   @JsonProperty("slotUsed")
   private Integer slotUsed;
 
+  @JsonProperty("source")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String source;
+
   @JsonProperty("sourceItemId")
   private String sourceItemId;
 

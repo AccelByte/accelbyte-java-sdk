@@ -31,7 +31,7 @@ public class XboxAchievement extends Model {
 
   @JsonProperty("percentComplete")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer percentComplete;
+  private Long percentComplete;
 
   @JsonIgnore
   public XboxAchievement createFromJson(String json) throws JsonProcessingException {

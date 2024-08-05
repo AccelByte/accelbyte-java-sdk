@@ -22,17 +22,25 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminCreateConfigurationTemplateV1
  *
  * <p>Create template configuration to be applied across party and session. Session configuration
- * mandatory : - name - joinability (example value : OPEN, CLOSED, INVITE_ONLY) - autoJoin: when
- * enabled, players will automatically join the initial game session creation. Game session will not
- * send any invite and players dont need to act upon it. default: false (disabled) - Type (example
- * value : P2P, DS, NONE) if type empty, type will be assign to NONE - MinPlayers (must greater or
- * equal 0) - MaxPlayers (must greater than 0) - InviteTimeout (must greater or equal 0) if
- * InviteTimeout equal 0 will be use default DefaultTimeoutSecond (60s) - InactiveTimeout (must
- * greater or equal 0) if InactiveTimeout equal 0 will be use default DefaultTimeoutSecond (60s) -
- * Persistent will only applies to session with type DS (example value true or false, default:
- * false) - If Persistent True the session always active even DS removing or terminate and Session
- * will be request DS again until DS Ready or Busy. - To Stop Session Not request again to DS or
- * want Delete Session can Delete Session using endpoint DELETE
+ * mandatory : - name - joinability. supported values: - OPEN: user can join or rejoin the session
+ * without an invite - CLOSED: once a CLOSED session is created or a session joinability is updated
+ * to CLOSED, any change to session members is not allowed and remaining invites will all be
+ * canceled. - INVITE_ONLY: to join the session, user whether needs to be invited, or have the code
+ * (for join by code). when a user is KICKED/LEFT/REJECTED from this session, they will need to be
+ * re-invited to join. - FRIENDS_OF_MEMBERS: only if a user is friend with at least one of the
+ * session members, they can join via code. - FRIENDS_OF_LEADER: only if a user is friend with the
+ * session leader, they can join via code. - FRIENDS_OF_FRIENDS: only friends of the leader OR
+ * friends of friends of the leader can join via code. - autoJoin: when enabled, players will
+ * automatically join the initial game session creation. Game session will not send any invite and
+ * players dont need to act upon it. default: false (disabled) - Type (example value : P2P, DS,
+ * NONE) if type empty, type will be assign to NONE - MinPlayers (must greater or equal 0) -
+ * MaxPlayers (must greater than 0) - InviteTimeout (must greater or equal 0) if InviteTimeout equal
+ * 0 will be use default DefaultTimeoutSecond (60s) - InactiveTimeout (must greater or equal 0) if
+ * InactiveTimeout equal 0 will be use default DefaultTimeoutSecond (60s) - Persistent will only
+ * applies to session with type DS (example value true or false, default: false) - If Persistent
+ * True the session always active even DS removing or terminate and Session will be request DS again
+ * until DS Ready or Busy. - To Stop Session Not request again to DS or want Delete Session can
+ * Delete Session using endpoint DELETE
  * /session/v1/public/namespaces/{namespace}/gamesessions/{sessionId} - If Persistent False the
  * session will be inactive if all member left and DS terminate or removing - nativeSessionSetting:
  * - XboxSessionTemplateName: the XBox session template name that correspondent to the AB session
@@ -62,7 +70,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * be created - LeaderElectionGracePeriod this is on second (optional, default:0) this is only use
  * for party session, if value > 0 if leader disconnect will be wait until value reach and leader
  * will be change after reach - ManualRejoin (optional, default: false): indicates if game client
- * will handle manual rejoin upon websocket reconnection when enabled.
+ * will handle manual rejoin upon websocket reconnection when enabled. - DisableResendInvite
+ * (optional, default: false): by default, the service will be sending invites until the user reacts
+ * to it. enabling this flag will prohibit the service to send reminder invites'
  */
 @Getter
 @Setter

@@ -26,10 +26,10 @@ import net.accelbyte.sdk.core.Model;
 public class TimeLocation extends Model {
 
   @JsonProperty("cacheEnd")
-  private Integer cacheEnd;
+  private Long cacheEnd;
 
   @JsonProperty("cacheStart")
-  private Integer cacheStart;
+  private Long cacheStart;
 
   @JsonProperty("cacheZone")
   private TimeZone cacheZone;

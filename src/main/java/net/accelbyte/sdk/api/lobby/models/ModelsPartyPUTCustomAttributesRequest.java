@@ -29,7 +29,7 @@ public class ModelsPartyPUTCustomAttributesRequest extends Model {
   private Map<String, ?> customAttribute;
 
   @JsonProperty("updatedAt")
-  private Integer updatedAt;
+  private Long updatedAt;
 
   @JsonIgnore
   public ModelsPartyPUTCustomAttributesRequest createFromJson(String json)

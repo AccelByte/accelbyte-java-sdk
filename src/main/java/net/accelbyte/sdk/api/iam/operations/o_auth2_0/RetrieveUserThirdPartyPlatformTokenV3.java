@@ -29,6 +29,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>The third party platform and platform group covered for this is: - (psn) ps4web - (psn) ps4 -
  * (psn) ps5 - epicgames - twitch - awscognito - - eaorigin - snapchat - twitch - live
+ *
+ * <p>**Authentication:** The _**userId**_ parameter should match the one in the access token.
  */
 @Getter
 @Setter

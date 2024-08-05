@@ -40,7 +40,7 @@ public class ModelsCreateImagePatchRequest extends Model {
   private String image;
 
   @JsonProperty("imageSize")
-  private Integer imageSize;
+  private Long imageSize;
 
   @JsonProperty("namespace")
   private String namespace;

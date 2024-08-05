@@ -78,9 +78,37 @@ public class Fulfillment {
   }
 
   /**
+   * @see QueryFulfillments
+   */
+  public FulfillmentHistoryPagingSlicedResult queryFulfillments(QueryFulfillments input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see FulfillRewardsV2
    */
   public FulfillmentResult fulfillRewardsV2(FulfillRewardsV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see FulfillItems
+   */
+  public FulfillmentV2Result fulfillItems(FulfillItems input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see RevokeItems
+   */
+  public RevokeFulfillmentV2Result revokeItems(RevokeItems input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

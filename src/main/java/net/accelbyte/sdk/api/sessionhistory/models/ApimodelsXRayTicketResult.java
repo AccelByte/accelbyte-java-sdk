@@ -25,14 +25,35 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApimodelsXRayTicketResult extends Model {
 
+  @JsonProperty("elapsedTime")
+  private Float elapsedTime;
+
   @JsonProperty("id")
   private String id;
+
+  @JsonProperty("isBackfill")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean isBackfill;
+
+  @JsonProperty("isPivot")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean isPivot;
 
   @JsonProperty("matchpool")
   private String matchpool;
 
+  @JsonProperty("memberAttributes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> memberAttributes;
+
   @JsonProperty("podName")
   private String podName;
+
+  @JsonProperty("reason")
+  private String reason;
+
+  @JsonProperty("region")
+  private String region;
 
   @JsonProperty("tickId")
   private String tickId;
@@ -45,6 +66,10 @@ public class ApimodelsXRayTicketResult extends Model {
 
   @JsonProperty("timestamp")
   private String timestamp;
+
+  @JsonProperty("totalPlayers")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer totalPlayers;
 
   @JsonIgnore
   public ApimodelsXRayTicketResult createFromJson(String json) throws JsonProcessingException {

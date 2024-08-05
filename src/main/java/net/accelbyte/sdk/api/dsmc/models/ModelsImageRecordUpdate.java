@@ -49,6 +49,9 @@ public class ModelsImageRecordUpdate extends Model {
   @JsonProperty("persistent")
   private Boolean persistent;
 
+  @JsonProperty("ulimitFileSize")
+  private Integer ulimitFileSize;
+
   @JsonProperty("version")
   private String version;
 

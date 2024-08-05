@@ -66,7 +66,7 @@ public class GetServer implements Callable<Integer> {
               .namespace(namespace)
               .podName(podName)
               .build();
-      final ModelsServer response = wrapper.getServer(operation);
+      final ModelsServerDetailsResponse response = wrapper.getServer(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

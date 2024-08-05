@@ -21,13 +21,17 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetUserSinglePlatformAccount
  *
- * <p>This endpoint gets user single platform account metadata. Supported Platform: - Steam
- * group(steamnetwork): - steam - steamopenid - PSN group(psn) - ps4web - ps4 - ps5 - XBOX
- * group(xbox) - live - xblweb - Oculus group(oculusgroup) - oculus - oculusweb - epicgames -
- * nintendo - aws cognito - facebook - google group - google - googleplaygames - discord - twitch -
- * snapchat - amazon
+ * <p>This endpoint gets user single platform account metadata.
  *
- * <p>Note: you can use either platform ID or platform group as platformId query parameter
+ * <p>**Supported Platforms:** - Steam group (steamnetwork): - steam - steamopenid - PSN group
+ * (psn): - ps4web - ps4 - ps5 - XBOX group(xbox): - live - xblweb - Oculus group (oculusgroup): -
+ * oculus - oculusweb - Google group (google): - google - googleplaygames: - epicgames - facebook -
+ * twitch - discord - android - ios - apple - device - nintendo - awscognito - amazon - netflix -
+ * snapchat - _oidc platform id_
+ *
+ * <p>Note: - You can use either platform id or platform group as **platformId** parameter. -
+ * **Nintendo platform user id**: NSA ID need to be appended with Environment ID using colon as
+ * separator. e.g kmzwa8awaa:dd1
  */
 @Getter
 @Setter

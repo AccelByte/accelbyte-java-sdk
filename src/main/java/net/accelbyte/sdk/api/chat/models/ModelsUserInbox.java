@@ -29,7 +29,7 @@ public class ModelsUserInbox extends Model {
   private Boolean keep;
 
   @JsonProperty("readAt")
-  private Integer readAt;
+  private Long readAt;
 
   @JsonProperty("userId")
   private String userId;

@@ -27,7 +27,7 @@ public class ModelUpdateUserDeletionStatusRequest extends Model {
 
   @JsonProperty("deletionDate")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer deletionDate;
+  private Long deletionDate;
 
   @JsonProperty("enabled")
   private Boolean enabled;

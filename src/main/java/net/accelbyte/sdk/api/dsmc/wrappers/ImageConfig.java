@@ -8,7 +8,6 @@
 
 package net.accelbyte.sdk.api.dsmc.wrappers;
 
-import java.util.*;
 import net.accelbyte.sdk.api.dsmc.models.*;
 import net.accelbyte.sdk.api.dsmc.operations.image_config.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
@@ -41,15 +40,6 @@ public class ImageConfig {
   }
 
   /**
-   * @see ImportImages
-   */
-  public ModelsImportResponse importImages(ImportImages input) throws Exception {
-    final HttpResponse httpResponse = sdk.runRequest(input);
-    return input.parseResponse(
-        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-  }
-
-  /**
    * @see CreateImagePatch
    */
   public void createImagePatch(CreateImagePatch input) throws Exception {
@@ -73,15 +63,6 @@ public class ImageConfig {
   public void deleteImage(DeleteImage input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
-        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-  }
-
-  /**
-   * @see ExportImages
-   */
-  public List<ModelsImageRecord> exportImages(ExportImages input) throws Exception {
-    final HttpResponse httpResponse = sdk.runRequest(input);
-    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 

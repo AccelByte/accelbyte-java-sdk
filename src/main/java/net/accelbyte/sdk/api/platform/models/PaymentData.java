@@ -25,6 +25,14 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class PaymentData extends Model {
 
+  @JsonProperty("discountAmount")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer discountAmount;
+
+  @JsonProperty("discountCode")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String discountCode;
+
   @JsonProperty("subtotalPrice")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer subtotalPrice;

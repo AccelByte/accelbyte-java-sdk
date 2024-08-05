@@ -25,11 +25,9 @@
 |---|---|---|---|---|
 | `/dsmcontroller/admin/images` | PUT | UpdateImage | [UpdateImage](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/image_config/UpdateImage.java) | [UpdateImage](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/image_config/UpdateImage.java) |
 | `/dsmcontroller/admin/images` | POST | CreateImage | [CreateImage](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/image_config/CreateImage.java) | [CreateImage](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/image_config/CreateImage.java) |
-| `/dsmcontroller/admin/images/import` | POST | ImportImages | [ImportImages](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/image_config/ImportImages.java) | [ImportImages](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/image_config/ImportImages.java) |
 | `/dsmcontroller/admin/images/patches` | POST | CreateImagePatch | [CreateImagePatch](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/image_config/CreateImagePatch.java) | [CreateImagePatch](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/image_config/CreateImagePatch.java) |
 | `/dsmcontroller/admin/namespaces/{namespace}/images` | GET | ListImages | [ListImages](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/image_config/ListImages.java) | [ListImages](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/image_config/ListImages.java) |
 | `/dsmcontroller/admin/namespaces/{namespace}/images` | DELETE | DeleteImage | [DeleteImage](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/image_config/DeleteImage.java) | [DeleteImage](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/image_config/DeleteImage.java) |
-| `/dsmcontroller/admin/namespaces/{namespace}/images/export` | GET | ExportImages | [ExportImages](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/image_config/ExportImages.java) | [ExportImages](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/image_config/ExportImages.java) |
 | `/dsmcontroller/admin/namespaces/{namespace}/images/limit` | GET | GetImageLimit | [GetImageLimit](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/image_config/GetImageLimit.java) | [GetImageLimit](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/image_config/GetImageLimit.java) |
 | `/dsmcontroller/admin/namespaces/{namespace}/images/patches` | DELETE | DeleteImagePatch | [DeleteImagePatch](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/image_config/DeleteImagePatch.java) | [DeleteImagePatch](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/image_config/DeleteImagePatch.java) |
 | `/dsmcontroller/admin/namespaces/{namespace}/images/versions/{version}` | GET | GetImageDetail | [GetImageDetail](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/image_config/GetImageDetail.java) | [GetImageDetail](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/image_config/GetImageDetail.java) |
@@ -54,6 +52,26 @@
 | `/dsmcontroller/namespaces/{namespace}/configs/pods/{name}` | POST | CreatePodConfigClient | [CreatePodConfigClient](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/pod_config/CreatePodConfigClient.java) | [CreatePodConfigClient](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/pod_config/CreatePodConfigClient.java) |
 | `/dsmcontroller/namespaces/{namespace}/configs/pods/{name}` | DELETE | DeletePodConfigClient | [DeletePodConfigClient](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/pod_config/DeletePodConfigClient.java) | [DeletePodConfigClient](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/pod_config/DeletePodConfigClient.java) |
 
+### Admin Wrapper:  [Admin](../../src/main/java/net/accelbyte/sdk/api/dsmc/wrappers/Admin.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/dsmcontroller/admin/namespace/{namespace}/workers` | GET | GetWorkerConfig | [GetWorkerConfig](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/GetWorkerConfig.java) | [GetWorkerConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/GetWorkerConfig.java) |
+| `/dsmcontroller/admin/namespace/{namespace}/workers` | PUT | UpdateWorkerConfig | [UpdateWorkerConfig](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/UpdateWorkerConfig.java) | [UpdateWorkerConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/UpdateWorkerConfig.java) |
+| `/dsmcontroller/admin/namespace/{namespace}/workers` | POST | CreateWorkerConfig | [CreateWorkerConfig](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/CreateWorkerConfig.java) | [CreateWorkerConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/CreateWorkerConfig.java) |
+| `/dsmcontroller/admin/namespaces/{namespace}/manual/buffer/add` | POST | AddBuffer | [AddBuffer](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/AddBuffer.java) | [AddBuffer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/AddBuffer.java) |
+| `/dsmcontroller/admin/namespaces/{namespace}/servers` | GET | ListServer | [ListServer](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/ListServer.java) | [ListServer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/ListServer.java) |
+| `/dsmcontroller/admin/namespaces/{namespace}/servers/count` | GET | CountServer | [CountServer](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/CountServer.java) | [CountServer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/CountServer.java) |
+| `/dsmcontroller/admin/namespaces/{namespace}/servers/count/detailed` | GET | CountServerDetailed | [CountServerDetailed](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/CountServerDetailed.java) | [CountServerDetailed](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/CountServerDetailed.java) |
+| `/dsmcontroller/admin/namespaces/{namespace}/servers/local` | GET | ListLocalServer | [ListLocalServer](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/ListLocalServer.java) | [ListLocalServer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/ListLocalServer.java) |
+| `/dsmcontroller/admin/namespaces/{namespace}/servers/local/{name}` | DELETE | DeleteLocalServer | [DeleteLocalServer](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/DeleteLocalServer.java) | [DeleteLocalServer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/DeleteLocalServer.java) |
+| `/dsmcontroller/admin/namespaces/{namespace}/servers/{podName}` | GET | GetServer | [GetServer](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/GetServer.java) | [GetServer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/GetServer.java) |
+| `/dsmcontroller/admin/namespaces/{namespace}/servers/{podName}` | DELETE | DeleteServer | [DeleteServer](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/DeleteServer.java) | [DeleteServer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/DeleteServer.java) |
+| `/dsmcontroller/admin/namespaces/{namespace}/sessions` | GET | ListSession | [ListSession](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/ListSession.java) | [ListSession](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/ListSession.java) |
+| `/dsmcontroller/admin/namespaces/{namespace}/sessions/count` | GET | CountSession | [CountSession](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/CountSession.java) | [CountSession](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/CountSession.java) |
+| `/dsmcontroller/admin/namespaces/{namespace}/sessions/{sessionID}` | DELETE | DeleteSession | [DeleteSession](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/DeleteSession.java) | [DeleteSession](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/DeleteSession.java) |
+| `/dsmcontroller/admin/namespaces/{namespace}/workers/ghost` | GET | RunGhostCleanerRequestHandler | [RunGhostCleanerRequestHandler](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/RunGhostCleanerRequestHandler.java) | [RunGhostCleanerRequestHandler](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/RunGhostCleanerRequestHandler.java) |
+| `/dsmcontroller/admin/namespaces/{namespace}/workers/zombie` | POST | RunZombieCleanerRequestHandler | [RunZombieCleanerRequestHandler](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/RunZombieCleanerRequestHandler.java) | [RunZombieCleanerRequestHandler](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/RunZombieCleanerRequestHandler.java) |
+
 ### Deployment Config Wrapper:  [DeploymentConfig](../../src/main/java/net/accelbyte/sdk/api/dsmc/wrappers/DeploymentConfig.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -71,28 +89,17 @@
 | `/dsmcontroller/admin/namespaces/{namespace}/configs/deployments/{deployment}/overrides/versions/{version}/regions/{region}` | POST | CreateOverrideRegionOverride | [CreateOverrideRegionOverride](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/deployment_config/CreateOverrideRegionOverride.java) | [CreateOverrideRegionOverride](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/deployment_config/CreateOverrideRegionOverride.java) |
 | `/dsmcontroller/admin/namespaces/{namespace}/configs/deployments/{deployment}/overrides/versions/{version}/regions/{region}` | DELETE | DeleteOverrideRegionOverride | [DeleteOverrideRegionOverride](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/deployment_config/DeleteOverrideRegionOverride.java) | [DeleteOverrideRegionOverride](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/deployment_config/DeleteOverrideRegionOverride.java) |
 | `/dsmcontroller/admin/namespaces/{namespace}/configs/deployments/{deployment}/overrides/versions/{version}/regions/{region}` | PATCH | UpdateOverrideRegionOverride | [UpdateOverrideRegionOverride](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/deployment_config/UpdateOverrideRegionOverride.java) | [UpdateOverrideRegionOverride](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/deployment_config/UpdateOverrideRegionOverride.java) |
+| `/dsmcontroller/admin/namespaces/{namespace}/configs/deployments/{deployment}/versions/{version}/queues` | DELETE | DeleteCreatingServerCountQueue | [DeleteCreatingServerCountQueue](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/deployment_config/DeleteCreatingServerCountQueue.java) | [DeleteCreatingServerCountQueue](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/deployment_config/DeleteCreatingServerCountQueue.java) |
 | `/dsmcontroller/namespaces/{namespace}/configs/deployments` | GET | GetAllDeploymentClient | [GetAllDeploymentClient](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/deployment_config/GetAllDeploymentClient.java) | [GetAllDeploymentClient](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/deployment_config/GetAllDeploymentClient.java) |
+| `/dsmcontroller/namespaces/{namespace}/configs/deployments/{deployment}` | GET | GetDeploymentClient | [GetDeploymentClient](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/deployment_config/GetDeploymentClient.java) | [GetDeploymentClient](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/deployment_config/GetDeploymentClient.java) |
 | `/dsmcontroller/namespaces/{namespace}/configs/deployments/{deployment}` | POST | CreateDeploymentClient | [CreateDeploymentClient](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/deployment_config/CreateDeploymentClient.java) | [CreateDeploymentClient](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/deployment_config/CreateDeploymentClient.java) |
 | `/dsmcontroller/namespaces/{namespace}/configs/deployments/{deployment}` | DELETE | DeleteDeploymentClient | [DeleteDeploymentClient](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/deployment_config/DeleteDeploymentClient.java) | [DeleteDeploymentClient](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/deployment_config/DeleteDeploymentClient.java) |
-
-### Admin Wrapper:  [Admin](../../src/main/java/net/accelbyte/sdk/api/dsmc/wrappers/Admin.java)
-| Endpoint | Method | ID | Class | Example |
-|---|---|---|---|---|
-| `/dsmcontroller/admin/namespaces/{namespace}/servers` | GET | ListServer | [ListServer](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/ListServer.java) | [ListServer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/ListServer.java) |
-| `/dsmcontroller/admin/namespaces/{namespace}/servers/count` | GET | CountServer | [CountServer](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/CountServer.java) | [CountServer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/CountServer.java) |
-| `/dsmcontroller/admin/namespaces/{namespace}/servers/count/detailed` | GET | CountServerDetailed | [CountServerDetailed](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/CountServerDetailed.java) | [CountServerDetailed](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/CountServerDetailed.java) |
-| `/dsmcontroller/admin/namespaces/{namespace}/servers/local` | GET | ListLocalServer | [ListLocalServer](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/ListLocalServer.java) | [ListLocalServer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/ListLocalServer.java) |
-| `/dsmcontroller/admin/namespaces/{namespace}/servers/local/{name}` | DELETE | DeleteLocalServer | [DeleteLocalServer](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/DeleteLocalServer.java) | [DeleteLocalServer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/DeleteLocalServer.java) |
-| `/dsmcontroller/admin/namespaces/{namespace}/servers/{podName}` | GET | GetServer | [GetServer](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/GetServer.java) | [GetServer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/GetServer.java) |
-| `/dsmcontroller/admin/namespaces/{namespace}/servers/{podName}` | DELETE | DeleteServer | [DeleteServer](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/DeleteServer.java) | [DeleteServer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/DeleteServer.java) |
-| `/dsmcontroller/admin/namespaces/{namespace}/sessions` | GET | ListSession | [ListSession](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/ListSession.java) | [ListSession](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/ListSession.java) |
-| `/dsmcontroller/admin/namespaces/{namespace}/sessions/count` | GET | CountSession | [CountSession](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/CountSession.java) | [CountSession](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/CountSession.java) |
-| `/dsmcontroller/admin/namespaces/{namespace}/sessions/{sessionID}` | DELETE | DeleteSession | [DeleteSession](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/admin/DeleteSession.java) | [DeleteSession](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/admin/DeleteSession.java) |
 
 ### Server Wrapper:  [Server](../../src/main/java/net/accelbyte/sdk/api/dsmc/wrappers/Server.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
 | `/dsmcontroller/namespaces/{namespace}/servers` | GET | ListServerClient | [ListServerClient](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/server/ListServerClient.java) | [ListServerClient](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/server/ListServerClient.java) |
+| `/dsmcontroller/namespaces/{namespace}/servers/count/detailed` | GET | CountServerDetailedClient | [CountServerDetailedClient](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/server/CountServerDetailedClient.java) | [CountServerDetailedClient](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/server/CountServerDetailedClient.java) |
 | `/dsmcontroller/namespaces/{namespace}/servers/heartbeat` | PUT | ServerHeartbeat | [ServerHeartbeat](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/server/ServerHeartbeat.java) | [ServerHeartbeat](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/server/ServerHeartbeat.java) |
 | `/dsmcontroller/namespaces/{namespace}/servers/local/deregister` | POST | DeregisterLocalServer | [DeregisterLocalServer](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/server/DeregisterLocalServer.java) | [DeregisterLocalServer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/server/DeregisterLocalServer.java) |
 | `/dsmcontroller/namespaces/{namespace}/servers/local/register` | POST | RegisterLocalServer | [RegisterLocalServer](../../src/main/java/net/accelbyte/sdk/api/dsmc/operations/server/RegisterLocalServer.java) | [RegisterLocalServer](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dsmc/server/RegisterLocalServer.java) |
@@ -129,6 +136,8 @@
 | Model | Class |
 |---|---|
 | `log.AppMessageDeclaration` | [LogAppMessageDeclaration](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/LogAppMessageDeclaration.java) |
+| `models.AddBufferRequest` | [ModelsAddBufferRequest](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsAddBufferRequest.java) |
+| `models.AddBufferResponse` | [ModelsAddBufferResponse](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsAddBufferResponse.java) |
 | `models.AllocationEvent` | [ModelsAllocationEvent](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsAllocationEvent.java) |
 | `models.ClaimSessionRequest` | [ModelsClaimSessionRequest](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsClaimSessionRequest.java) |
 | `models.CountServerResponse` | [ModelsCountServerResponse](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsCountServerResponse.java) |
@@ -146,6 +155,7 @@
 | `models.DSHeartbeatRequest` | [ModelsDSHeartbeatRequest](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsDSHeartbeatRequest.java) |
 | `models.DSMConfigRecord` | [ModelsDSMConfigRecord](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsDSMConfigRecord.java) |
 | `models.DefaultProvider` | [ModelsDefaultProvider](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsDefaultProvider.java) |
+| `models.DeleteZombieRequest` | [ModelsDeleteZombieRequest](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsDeleteZombieRequest.java) |
 | `models.DeploymentConfigOverride` | [ModelsDeploymentConfigOverride](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsDeploymentConfigOverride.java) |
 | `models.DeploymentWithOverride` | [ModelsDeploymentWithOverride](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsDeploymentWithOverride.java) |
 | `models.DeregisterLocalServerRequest` | [ModelsDeregisterLocalServerRequest](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsDeregisterLocalServerRequest.java) |
@@ -154,7 +164,7 @@
 | `models.GetImageLimitResponse` | [ModelsGetImageLimitResponse](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsGetImageLimitResponse.java) |
 | `models.GetImageLimitResponseData` | [ModelsGetImageLimitResponseData](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsGetImageLimitResponseData.java) |
 | `models.GetImagePatchDetailResponse` | [ModelsGetImagePatchDetailResponse](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsGetImagePatchDetailResponse.java) |
-| `models.ImageRecord` | [ModelsImageRecord](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsImageRecord.java) |
+| `models.ImageRecordResponse` | [ModelsImageRecordResponse](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsImageRecordResponse.java) |
 | `models.ImageRecordUpdate` | [ModelsImageRecordUpdate](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsImageRecordUpdate.java) |
 | `models.ImageReplication` | [ModelsImageReplication](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsImageReplication.java) |
 | `models.ImportResponse` | [ModelsImportResponse](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsImportResponse.java) |
@@ -169,6 +179,7 @@
 | `models.MatchResult.notification_payload` | [ModelsMatchResultNotificationPayload](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsMatchResultNotificationPayload.java) |
 | `models.PagingCursor` | [ModelsPagingCursor](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsPagingCursor.java) |
 | `models.PatchImageRecord` | [ModelsPatchImageRecord](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsPatchImageRecord.java) |
+| `models.PatchImageRecordResponse` | [ModelsPatchImageRecordResponse](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsPatchImageRecordResponse.java) |
 | `models.PodConfigRecord` | [ModelsPodConfigRecord](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsPodConfigRecord.java) |
 | `models.PodCountConfigOverride` | [ModelsPodCountConfigOverride](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsPodCountConfigOverride.java) |
 | `models.RegisterLocalServerRequest` | [ModelsRegisterLocalServerRequest](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsRegisterLocalServerRequest.java) |
@@ -179,6 +190,7 @@
 | `models.RequestMatchingAlly` | [ModelsRequestMatchingAlly](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsRequestMatchingAlly.java) |
 | `models.Server` | [ModelsServer](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsServer.java) |
 | `models.ServerDeploymentConfigSessionTimeoutResponse` | [ModelsServerDeploymentConfigSessionTimeoutResponse](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsServerDeploymentConfigSessionTimeoutResponse.java) |
+| `models.ServerDetailsResponse` | [ModelsServerDetailsResponse](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsServerDetailsResponse.java) |
 | `models.ServerSessionResponse` | [ModelsServerSessionResponse](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsServerSessionResponse.java) |
 | `models.Session` | [ModelsSession](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsSession.java) |
 | `models.SessionResponse` | [ModelsSessionResponse](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsSessionResponse.java) |
@@ -190,4 +202,6 @@
 | `models.UpdatePodConfigRequest` | [ModelsUpdatePodConfigRequest](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsUpdatePodConfigRequest.java) |
 | `models.UpdatePortRequest` | [ModelsUpdatePortRequest](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsUpdatePortRequest.java) |
 | `models.UpdateRegionOverrideRequest` | [ModelsUpdateRegionOverrideRequest](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsUpdateRegionOverrideRequest.java) |
+| `models.WorkerConfig` | [ModelsWorkerConfig](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsWorkerConfig.java) |
+| `models.WorkerConfigRequest` | [ModelsWorkerConfigRequest](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ModelsWorkerConfigRequest.java) |
 | `response.Error` | [ResponseError](../../src/main/java/net/accelbyte/sdk/api/dsmc/models/ResponseError.java) |

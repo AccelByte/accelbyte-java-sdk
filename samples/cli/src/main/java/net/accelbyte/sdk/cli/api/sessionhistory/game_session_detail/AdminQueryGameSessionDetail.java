@@ -36,6 +36,11 @@ public class AdminQueryGameSessionDetail implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--endDate"},
+      description = "endDate")
+  String endDate;
+
+  @Option(
       names = {"--gameSessionID"},
       description = "gameSessionID")
   String gameSessionID;
@@ -59,6 +64,11 @@ public class AdminQueryGameSessionDetail implements Callable<Integer> {
       names = {"--orderBy"},
       description = "orderBy")
   String orderBy;
+
+  @Option(
+      names = {"--startDate"},
+      description = "startDate")
+  String startDate;
 
   @Option(
       names = {"--userID"},
@@ -92,11 +102,13 @@ public class AdminQueryGameSessionDetail implements Callable<Integer> {
               net.accelbyte.sdk.api.sessionhistory.operations.game_session_detail
                   .AdminQueryGameSessionDetail.builder()
                   .namespace(namespace)
+                  .endDate(endDate)
                   .gameSessionID(gameSessionID)
                   .limit(limit)
                   .offset(offset)
                   .order(order)
                   .orderBy(orderBy)
+                  .startDate(startDate)
                   .userID(userID)
                   .build();
       final ApimodelsGameSessionDetailQueryResponse response =

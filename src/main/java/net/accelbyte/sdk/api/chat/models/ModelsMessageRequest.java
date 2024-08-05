@@ -30,7 +30,7 @@ public class ModelsMessageRequest extends Model {
 
   @JsonProperty("timestamp")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer timestamp;
+  private Long timestamp;
 
   @JsonProperty("topicId")
   @JsonInclude(JsonInclude.Include.NON_NULL)

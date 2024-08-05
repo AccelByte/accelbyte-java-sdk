@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class MessageActionAddUserToTopicResult extends Model {
 
   @JsonProperty("processed")
-  private Integer processed;
+  private Long processed;
 
   @JsonProperty("topicId")
   private String topicId;

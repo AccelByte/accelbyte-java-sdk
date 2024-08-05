@@ -32,10 +32,10 @@ public class ModelsMockTicket extends Model {
   private String channel;
 
   @JsonProperty("created_at")
-  private Integer createdAt;
+  private Long createdAt;
 
   @JsonProperty("first_ticket_created_at")
-  private Integer firstTicketCreatedAt;
+  private Long firstTicketCreatedAt;
 
   @JsonProperty("is_mock")
   private String isMock;

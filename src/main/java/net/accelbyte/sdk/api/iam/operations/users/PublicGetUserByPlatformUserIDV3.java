@@ -26,14 +26,15 @@ import net.accelbyte.sdk.core.util.Helper;
  * ID or platform group as platformId path parameter. example: for steam network platform, you can
  * use steamnetwork / steam / steamopenid as platformId path parameter.
  *
- * <p>Supported platform: - Steam group(steamnetwork) - steam - steamopenid - PSN group(psn) -
- * ps4web - ps4 - ps5 - XBOX group(xbox) - live - xblweb - Oculus group(oculusgroup) - oculus -
- * oculusweb - facebook - google group - google - googleplaygames - twitch - discord - android - ios
- * - apple - device - justice - epicgames - nintendo - awscognito - netflix - snapchat - oidc
- * platform id
+ * <p>**Supported Platforms:** - Steam group (steamnetwork): - steam - steamopenid - PSN group
+ * (psn): - ps4web - ps4 - ps5 - XBOX group(xbox): - live - xblweb - Oculus group (oculusgroup): -
+ * oculus - oculusweb - Google group (google): - google - googleplaygames: - epicgames - facebook -
+ * twitch - discord - android - ios - apple - device - nintendo - awscognito - amazon - netflix -
+ * snapchat - _oidc platform id_
  *
- * <p>Note: **nintendo platform user ID**: NSA ID need to be appended with Environment ID using
- * colon as separator. e.g kmzwa8awaa:dd1
+ * <p>Note: - You can use either platform id or platform group as **platformId** parameter. -
+ * **Nintendo platform user id**: NSA ID need to be appended with Environment ID using colon as
+ * separator. e.g kmzwa8awaa:dd1
  */
 @Getter
 @Setter

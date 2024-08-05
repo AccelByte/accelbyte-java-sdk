@@ -29,16 +29,16 @@ public class InvoiceCurrencySummary extends Model {
   private CurrencySummary currency;
 
   @JsonProperty("salesVolume")
-  private Integer salesVolume;
+  private Long salesVolume;
 
   @JsonProperty("subtotalPrice")
-  private Integer subtotalPrice;
+  private Long subtotalPrice;
 
   @JsonProperty("totalPrice")
-  private Integer totalPrice;
+  private Long totalPrice;
 
   @JsonProperty("totalTax")
-  private Integer totalTax;
+  private Long totalTax;
 
   @JsonIgnore
   public InvoiceCurrencySummary createFromJson(String json) throws JsonProcessingException {

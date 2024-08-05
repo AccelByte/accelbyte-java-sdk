@@ -35,7 +35,7 @@ public class TimeZoneTrans extends Model {
   private Boolean isutc;
 
   @JsonProperty("when")
-  private Integer when;
+  private Long when;
 
   @JsonIgnore
   public TimeZoneTrans createFromJson(String json) throws JsonProcessingException {

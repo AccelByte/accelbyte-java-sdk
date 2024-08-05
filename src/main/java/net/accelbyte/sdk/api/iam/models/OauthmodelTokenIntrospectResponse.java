@@ -38,11 +38,11 @@ public class OauthmodelTokenIntrospectResponse extends Model {
 
   @JsonProperty("exp")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer exp;
+  private Long exp;
 
   @JsonProperty("iat")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer iat;
+  private Long iat;
 
   @JsonProperty("scope")
   @JsonInclude(JsonInclude.Include.NON_NULL)

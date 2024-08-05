@@ -21,7 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicGetUserInformationV3
  *
- * <p>This endpoint retrieves user info and linked platform accounts
+ * <p>This endpoint retrieves user info and linked platform accounts.
+ *
+ * <p>**Authentication:** The _**userId**_ parameter should match the one in the access token.
  */
 @Getter
 @Setter

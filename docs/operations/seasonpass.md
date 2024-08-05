@@ -97,6 +97,7 @@
 | `PassCreate` | [PassCreate](../../src/main/java/net/accelbyte/sdk/api/seasonpass/models/PassCreate.java) |
 | `PassInfo` | [PassInfo](../../src/main/java/net/accelbyte/sdk/api/seasonpass/models/PassInfo.java) |
 | `PassUpdate` | [PassUpdate](../../src/main/java/net/accelbyte/sdk/api/seasonpass/models/PassUpdate.java) |
+| `Permission` | [Permission](../../src/main/java/net/accelbyte/sdk/api/seasonpass/models/Permission.java) |
 | `ReasonTagsResult` | [ReasonTagsResult](../../src/main/java/net/accelbyte/sdk/api/seasonpass/models/ReasonTagsResult.java) |
 | `RewardCreate` | [RewardCreate](../../src/main/java/net/accelbyte/sdk/api/seasonpass/models/RewardCreate.java) |
 | `RewardCurrency` | [RewardCurrency](../../src/main/java/net/accelbyte/sdk/api/seasonpass/models/RewardCurrency.java) |

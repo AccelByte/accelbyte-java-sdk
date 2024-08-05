@@ -40,7 +40,7 @@ public class ModelsUserCycleRankingResponseDetail extends Model {
   private Float point;
 
   @JsonProperty("rank")
-  private Integer rank;
+  private Long rank;
 
   @JsonIgnore
   public ModelsUserCycleRankingResponseDetail createFromJson(String json)

@@ -41,6 +41,16 @@ public class GetUserDLC implements Callable<Integer> {
   String userId;
 
   @Option(
+      names = {"--includeAllNamespaces"},
+      description = "includeAllNamespaces")
+  Boolean includeAllNamespaces;
+
+  @Option(
+      names = {"--status"},
+      description = "status")
+  String status;
+
+  @Option(
       names = {"--type"},
       description = "type")
   String type;
@@ -70,6 +80,8 @@ public class GetUserDLC implements Callable<Integer> {
           net.accelbyte.sdk.api.platform.operations.dlc.GetUserDLC.builder()
               .namespace(namespace)
               .userId(userId)
+              .includeAllNamespaces(includeAllNamespaces)
+              .status(status)
               .type(type)
               .build();
       final List<UserDLCRecord> response = wrapper.getUserDLC(operation);

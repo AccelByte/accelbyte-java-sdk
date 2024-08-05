@@ -1115,6 +1115,16 @@ public class Users {
   }
 
   /**
+   * @see AdminListAllDistinctPlatformAccountsV3
+   */
+  public AccountcommonDistinctPlatformResponseV3 adminListAllDistinctPlatformAccountsV3(
+      AdminListAllDistinctPlatformAccountsV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminGetListJusticePlatformAccounts
    */
   public List<ModelGetUserMapping> adminGetListJusticePlatformAccounts(
@@ -1153,8 +1163,20 @@ public class Users {
   }
 
   /**
-   * @see AdminPlatformUnlinkV3
+   * @see AdminGetUserLinkHistoriesV3
    */
+  public ModelUserPlatformLinkHistories adminGetUserLinkHistoriesV3(
+      AdminGetUserLinkHistoriesV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminPlatformUnlinkV3
+   * @deprecated
+   */
+  @Deprecated
   public void adminPlatformUnlinkV3(AdminPlatformUnlinkV3 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
@@ -1181,9 +1203,21 @@ public class Users {
 
   /**
    * @see AdminDeleteUserLinkingHistoryByPlatformIDV3
+   * @deprecated
    */
+  @Deprecated
   public void adminDeleteUserLinkingHistoryByPlatformIDV3(
       AdminDeleteUserLinkingHistoryByPlatformIDV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminDeleteUserLinkingRestrictionByPlatformIDV3
+   */
+  public void adminDeleteUserLinkingRestrictionByPlatformIDV3(
+      AdminDeleteUserLinkingRestrictionByPlatformIDV3 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
@@ -1504,7 +1538,9 @@ public class Users {
 
   /**
    * @see PublicPlatformUnlinkV3
+   * @deprecated
    */
+  @Deprecated
   public void publicPlatformUnlinkV3(PublicPlatformUnlinkV3 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(

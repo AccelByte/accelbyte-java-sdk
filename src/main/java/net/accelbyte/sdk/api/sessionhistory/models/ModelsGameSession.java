@@ -87,7 +87,7 @@ public class ModelsGameSession extends Model {
 
   @JsonProperty("ProcessingTime")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer processingTime;
+  private Long processingTime;
 
   @JsonProperty("Teams")
   @JsonInclude(JsonInclude.Include.NON_NULL)

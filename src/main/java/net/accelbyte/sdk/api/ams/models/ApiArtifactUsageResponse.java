@@ -26,13 +26,13 @@ import net.accelbyte.sdk.core.Model;
 public class ApiArtifactUsageResponse extends Model {
 
   @JsonProperty("quotaBytes")
-  private Integer quotaBytes;
+  private Long quotaBytes;
 
   @JsonProperty("remainingBytes")
-  private Integer remainingBytes;
+  private Long remainingBytes;
 
   @JsonProperty("usedBytes")
-  private Integer usedBytes;
+  private Long usedBytes;
 
   @JsonIgnore
   public ApiArtifactUsageResponse createFromJson(String json) throws JsonProcessingException {

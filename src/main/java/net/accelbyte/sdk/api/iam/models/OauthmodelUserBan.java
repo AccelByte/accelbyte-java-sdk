@@ -29,7 +29,7 @@ public class OauthmodelUserBan extends Model {
   private String comment;
 
   @JsonProperty("endDate")
-  private Integer endDate;
+  private Long endDate;
 
   @JsonProperty("reason")
   private String reason;

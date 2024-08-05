@@ -63,6 +63,7 @@ import picocli.CommandLine.Command;
       PublicGetLanguages.class,
       PublicGetTimeZones.class,
       PublicGetUserProfilePublicInfoByIds.class,
+      PublicBulkGetUserProfilePublicInfo.class,
       PublicGetUserProfileInfoByPublicId.class,
       PublicGetNamespacePublisher.class,
       GetMyProfileInfo.class,

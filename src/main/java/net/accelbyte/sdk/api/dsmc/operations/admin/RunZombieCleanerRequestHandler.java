@@ -6,10 +6,8 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.dsmc.operations.image_config;
+package net.accelbyte.sdk.api.dsmc.operations.admin;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
@@ -21,21 +19,22 @@ import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * ExportImages
+ * RunZombieCleanerRequestHandler
  *
- * <p>Required permission: ADMIN:NAMESPACE:{namespace}:DSM:CONFIG [READ]
+ * <p>``` Required permission: ADMIN:NAMESPACE:{namespace}:DSM:SERVER [DELETE] Required scope:
+ * social
  *
- * <p>Required scope: social
+ * <p>This endpoint run zombie cleaner once
  *
- * <p>This endpoint export a dedicated servers images in a namespace.
+ * <p>use * as region name to target all regions ```
  */
 @Getter
 @Setter
-public class ExportImages extends Operation {
+public class RunZombieCleanerRequestHandler extends Operation {
   /** generated field's value */
-  private String path = "/dsmcontroller/admin/namespaces/{namespace}/images/export";
+  private String path = "/dsmcontroller/admin/namespaces/{namespace}/workers/zombie";
 
-  private String method = "GET";
+  private String method = "POST";
   private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
@@ -43,14 +42,18 @@ public class ExportImages extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private ModelsDeleteZombieRequest body;
+
   /**
    * @param namespace required
+   * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public ExportImages(String namespace) {
+  public RunZombieCleanerRequestHandler(String namespace, ModelsDeleteZombieRequest body) {
     this.namespace = namespace;
+    this.body = body;
 
     securities.add("Bearer");
   }
@@ -65,6 +68,11 @@ public class ExportImages extends Operation {
   }
 
   @Override
+  public ModelsDeleteZombieRequest getBodyParams() {
+    return this.body;
+  }
+
+  @Override
   public boolean isValid() {
     if (this.namespace == null) {
       return false;
@@ -72,13 +80,11 @@ public class ExportImages extends Operation {
     return true;
   }
 
-  public List<ModelsImageRecord> parseResponse(int code, String contentType, InputStream payload)
+  public void handleEmptyResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
-    if (code != 200) {
+    if (code != 204) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
-    final String json = Helper.convertInputStreamToString(payload);
-    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsImageRecord>>() {});
   }
 }

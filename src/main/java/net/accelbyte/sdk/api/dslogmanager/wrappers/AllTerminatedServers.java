@@ -32,6 +32,16 @@ public class AllTerminatedServers {
   }
 
   /**
+   * @see ListMetadataServers
+   */
+  public ModelsListTerminatedServersResponse listMetadataServers(ListMetadataServers input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see ListAllTerminatedServers
    */
   public ModelsListTerminatedServersResponse listAllTerminatedServers(

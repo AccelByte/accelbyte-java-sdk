@@ -33,7 +33,7 @@ public class ModelDeviceUserResponseV4 extends Model {
   private String ip;
 
   @JsonProperty("lastLoginTime")
-  private Integer lastLoginTime;
+  private Long lastLoginTime;
 
   @JsonProperty("namespace")
   private String namespace;

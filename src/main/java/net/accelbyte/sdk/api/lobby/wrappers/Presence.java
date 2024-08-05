@@ -30,4 +30,14 @@ public class Presence {
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see UsersPresenceHandlerV2
+   */
+  public HandlersGetUsersPresenceResponse usersPresenceHandlerV2(UsersPresenceHandlerV2 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }

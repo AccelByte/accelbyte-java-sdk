@@ -25,6 +25,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * can transfer progression from 3rd platform binding account's to current account. This endpoint
  * need the same requestID which also used in [Get link
  * status](#operations-Users-PublicGetAsyncStatus).
+ *
+ * <p>**Authentication:** The _**userId**_ parameter should match the one in the access token.
  */
 @Getter
 @Setter

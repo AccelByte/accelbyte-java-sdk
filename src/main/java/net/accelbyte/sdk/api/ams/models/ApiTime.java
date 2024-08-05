@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ApiTime extends Model {
 
   @JsonProperty("ext")
-  private Integer ext;
+  private Long ext;
 
   @JsonProperty("loc")
   private TimeLocation loc;

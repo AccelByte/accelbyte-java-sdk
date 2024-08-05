@@ -38,7 +38,7 @@ public class DtoPlatformAccountClosureClientResponse extends Model {
   private String secret;
 
   @JsonProperty("updatedAt")
-  private Integer updatedAt;
+  private Long updatedAt;
 
   @JsonIgnore
   public DtoPlatformAccountClosureClientResponse createFromJson(String json)

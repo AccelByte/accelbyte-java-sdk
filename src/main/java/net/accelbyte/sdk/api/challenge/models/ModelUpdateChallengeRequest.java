@@ -53,6 +53,10 @@ public class ModelUpdateChallengeRequest extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String name;
 
+  @JsonProperty("randomizedPerRotation")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean randomizedPerRotation;
+
   @JsonProperty("repeatAfter")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer repeatAfter;

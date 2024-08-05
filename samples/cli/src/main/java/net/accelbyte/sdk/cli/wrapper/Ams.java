@@ -50,6 +50,7 @@ import picocli.CommandLine.Command;
       FleetServers.class,
       FleetServerHistory.class,
       ImageList.class,
+      ImagesStorage.class,
       ImageGet.class,
       ImageMarkForDeletion.class,
       ImagePatch.class,

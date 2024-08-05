@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsUpdateInboxMessageRequest extends Model {
 
   @JsonProperty("expiredAt")
-  private Integer expiredAt;
+  private Long expiredAt;
 
   @JsonProperty("message")
   private Map<String, ?> message;

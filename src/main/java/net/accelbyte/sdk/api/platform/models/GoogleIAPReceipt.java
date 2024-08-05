@@ -43,7 +43,7 @@ public class GoogleIAPReceipt extends Model {
   private String productId;
 
   @JsonProperty("purchaseTime")
-  private Integer purchaseTime;
+  private Long purchaseTime;
 
   @JsonProperty("purchaseToken")
   private String purchaseToken;
