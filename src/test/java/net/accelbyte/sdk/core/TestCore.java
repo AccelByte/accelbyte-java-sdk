@@ -25,11 +25,8 @@ import lombok.extern.java.Log;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.GetCountryLocationV3;
 import net.accelbyte.sdk.api.iam.wrappers.OAuth20Extension;
 import net.accelbyte.sdk.api.lobby.ws_models.PartyCreateRequest;
-import net.accelbyte.sdk.core.client.DefaultHttpRetryPolicy;
+import net.accelbyte.sdk.core.client.*;
 import net.accelbyte.sdk.core.client.DefaultHttpRetryPolicy.RetryIntervalType;
-import net.accelbyte.sdk.core.client.OkhttpClient;
-import net.accelbyte.sdk.core.client.OkhttpWebSocketClient;
-import net.accelbyte.sdk.core.client.ReliableHttpClient;
 import net.accelbyte.sdk.core.repository.*;
 import net.accelbyte.sdk.core.util.Helper;
 import net.accelbyte.sdk.integration.TestHelper;
@@ -814,13 +811,15 @@ class TestCore {
           }
         };
 
-    final OkhttpWebSocketClient ws =
-        OkhttpWebSocketClient.create(
+    final LobbyWebSocketClient ws =
+            LobbyWebSocketClient.create(
             new MockServerConfigRepository(),
             DefaultTokenRepository.getInstance(),
             listener,
             RECONNECT_DELAY_MS,
             PING_INTERVAL_MS);
+
+    ws.connect(false);
 
     final String requestMessage = PartyCreateRequest.builder().id(request_id).build().toWSM();
 
@@ -828,7 +827,7 @@ class TestCore {
 
     ws.sendMessage(requestMessage);
 
-    for (int i = 1; i < 3; i++) {
+    for (int i = 1; i < 30; i++) {
       DefaultTokenRepository.getInstance().storeToken("token1");
 
       sleep(MESSAGE_INTERVAL_MS);
@@ -840,7 +839,7 @@ class TestCore {
     // TODO: programmatically call GET force-close here then upon reconnect successful,
     //  verify lobby session id if it's the same as before
 
-    for (int i = 1; i < 3; i++) {
+    for (int i = 1; i < 30; i++) {
       sleep(MESSAGE_INTERVAL_MS);
       ws.sendMessage(requestMessage);
     }

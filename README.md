@@ -291,9 +291,11 @@ final WebSocketListener listener =
 final int RECONNECT_DELAY_MS = 60000;  // 1m (0 to disable)
 final int PING_INTERVAL_MS = 30000;  // 30s (0 to disable)
 
-final OkhttpWebSocketClient ws =
-        OkhttpWebSocketClient.create(
+final LobbyWebSocketClient ws =
+        LobbyWebSocketClient.create(
             new DefaultConfigRepository(), DefaultTokenRepository.getInstance(), listener, RECONNECT_DELAY_MS, PING_INTERVAL_MS);
+
+ws.connect(false);
 
 final String requestMessage = PartyCreateRequest.builder().id(request_id).build().toWSM();
 ws.sendMessage(requestMessage);

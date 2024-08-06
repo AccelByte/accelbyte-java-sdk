@@ -15,10 +15,10 @@ import net.accelbyte.sdk.core.util.Helper;
 @Log
 public class TokenRepositoryCallbackListener extends TokenRepositoryCallback {
   private final TokenRepository tokenRepository;
-  private final OkhttpWebSocketClient okhttpWebSocketClient;
+  private final BaseWebSocketClient okhttpWebSocketClient;
 
   public TokenRepositoryCallbackListener(
-      TokenRepository tokenRepository, OkhttpWebSocketClient okhttpWebSocketClient) {
+      TokenRepository tokenRepository, BaseWebSocketClient okhttpWebSocketClient) {
     this.tokenRepository = tokenRepository;
     this.okhttpWebSocketClient = okhttpWebSocketClient;
   }

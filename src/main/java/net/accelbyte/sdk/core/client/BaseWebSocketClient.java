@@ -6,9 +6,9 @@
 
 package net.accelbyte.sdk.core.client;
 
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 import lombok.extern.java.Log;
-import net.accelbyte.sdk.api.lobby.ws_models.ConnectNotif;
 import net.accelbyte.sdk.core.repository.ConfigRepository;
 import net.accelbyte.sdk.core.repository.TokenRepository;
 import okhttp3.OkHttpClient;
@@ -18,96 +18,106 @@ import okhttp3.WebSocketListener;
 import okio.ByteString;
 
 @Log
-public class OkhttpWebSocketClient extends WebSocketListener {
-
-  // OkhttpWebSocketClient, with websocket reconnect disabled
-  public static OkhttpWebSocketClient create(
-      ConfigRepository configRepository,
-      TokenRepository tokenRepository,
-      WebSocketListener listener)
-      throws Exception {
-    return create(configRepository, tokenRepository, listener, 0, 0);
-  }
-
-  // OkhttpWebSocketClient, with websocket reconnect
+public class BaseWebSocketClient extends WebSocketListener {
   // reconnectDelayMs = 0 to turn off websocket reconnect
   // pingIntervalMs = 0 to turn off websocket ping frames
-  public static OkhttpWebSocketClient create(
+  public static BaseWebSocketClient create(
       ConfigRepository configRepository,
       TokenRepository tokenRepository,
       WebSocketListener listener,
       int reconnectDelayMs,
-      int pingIntervalMs)
+      int pingIntervalMs,
+      String wsServicePathName)
       throws Exception {
-    if (configRepository == null)
-      throw new IllegalArgumentException("configRepository can't be null");
-    if (tokenRepository == null)
-      throw new IllegalArgumentException("tokenRepository can't be null");
-    if (listener == null) throw new IllegalArgumentException("listener can't be null");
-
-    if (reconnectDelayMs < 0)
-      throw new IllegalArgumentException("reconnectDelayMs can't be negative");
-    if (pingIntervalMs < 0) throw new IllegalArgumentException("pingIntervalMs can't be negative");
-
-    OkhttpWebSocketClient webSocketClient =
-        new OkhttpWebSocketClient(
-            configRepository, tokenRepository, listener, reconnectDelayMs, pingIntervalMs);
+    BaseWebSocketClient webSocketClient =
+        new BaseWebSocketClient(
+            configRepository, tokenRepository, listener, reconnectDelayMs, pingIntervalMs, wsServicePathName);
     return webSocketClient;
   }
 
-  private static final int WS_CODE_NORMAL_CLOSURE = 1000;
-  private static final int WS_CODE_DISCONNECT_WITHOUT_RECONNECT = 4000;
-  private static final boolean isXHeaderLobbySessionIdEnabled = false;
+  protected OkHttpClient client;
+  protected WebSocket websocket = null;
+  protected final ConfigRepository configRepository;
+  protected final TokenRepository tokenRepository;
+  protected final WebSocketListener webSocketListener;
+  protected boolean isSocketConnected = false;
+  protected int pingIntervalMs;
+  protected int reconnectDelayMs;
+  protected int numReconnectAttempts;
+  protected String wsUrl;
+  protected HashMap<String, Object> dataMap = new HashMap<>();
 
-  private OkHttpClient client;
-  private WebSocket websocket = null;
-  private final ConfigRepository configRepository;
-  private final TokenRepository tokenRepository;
-  private final WebSocketListener webSocketListener;
-  private String lobbySessionId = null;
-  private TokenRepositoryCallbackListener tokenRepositoryCallbackListener;
-  private boolean isSocketConnected = false;
-  private int pingIntervalMs;
-  private int reconnectDelayMs;
+  protected Object getData(String key) {
+    return dataMap.get(key);
+  }
 
-  private OkhttpWebSocketClient(
+  protected boolean hasData(String key) {
+    return null != dataMap.get(key);
+  }
+
+  protected void setData(String key, Object value) {
+    dataMap.put(key, value);
+  }
+
+  protected void clearData(String key) {
+    dataMap.remove(key);
+  }
+
+  protected HashMap<String, String> headers = new HashMap<>();
+
+  public BaseWebSocketClient(
       ConfigRepository configRepository,
       TokenRepository tokenRepository,
       WebSocketListener webSocketListener,
       int reconnectDelayMs,
-      int pingIntervalMs)
-      throws Exception {
+      int pingIntervalMs,
+      String wsServicePathName) {
+
+    if (configRepository == null)
+      throw new IllegalArgumentException("configRepository can't be null");
+    if (tokenRepository == null)
+      throw new IllegalArgumentException("tokenRepository can't be null");
+    if (webSocketListener == null) throw new IllegalArgumentException("listener can't be null");
+    if (reconnectDelayMs < 0)
+      throw new IllegalArgumentException("reconnectDelayMs can't be negative");
+    if (pingIntervalMs < 0) throw new IllegalArgumentException("pingIntervalMs can't be negative");
+
+    if (wsServicePathName == null) throw new IllegalArgumentException("Websocket service path name can't be null");
+    if (wsServicePathName.isEmpty()) throw new IllegalArgumentException("Websocket service path name can't be an empty string");
+
     this.configRepository = configRepository;
     this.tokenRepository = tokenRepository;
     this.webSocketListener = webSocketListener;
     this.pingIntervalMs = pingIntervalMs;
     this.reconnectDelayMs = reconnectDelayMs;
+    this.wsUrl = configRepository.getBaseURL() + "/" + wsServicePathName + "/";
+
     if (isReconnectEnabled()) {
-      log.info("Websocket Reconnect Interval: " + reconnectDelayMs + "ms");
+      log.info("Websocket Reconnect Interval (initial w/ exp backoff): " + reconnectDelayMs + "ms");
     } else {
       log.info("Websocket Reconnect is disabled");
     }
 
     this.client = constructOkHttpClient();
-
-    createNewWebSocket();
-
-    this.tokenRepositoryCallbackListener =
-        new TokenRepositoryCallbackListener(tokenRepository, this);
-    registerCallbacks();
   }
 
-  private void createNewWebSocket() throws Exception {
-    final Request request = constructOkHttpRequest();
-    this.websocket = client.newWebSocket(request, this);
+  // get sleep time in ms
+  private long reconnectDelay(int numberOfAttempts) {
+    final double BACKOFF_RATE = 2.0;
+    return (reconnectDelayMs * (long) Math.pow(BACKOFF_RATE, numberOfAttempts - 1));
   }
 
-  private void reconnect() throws Exception {
+  public void connect(boolean isReconnecting) throws Exception {
     try {
-      log.info("Attempting to reconnect in " + reconnectDelayMs + "ms");
-      Thread.sleep(reconnectDelayMs);
+      if (isReconnecting) {
+        numReconnectAttempts++;
+        long currentReconnectDelayMs = reconnectDelay(numReconnectAttempts);
+        log.info("# reconnect attempts: " + numReconnectAttempts + ", attempting to reconnect in " + currentReconnectDelayMs + "ms");
+        Thread.sleep(currentReconnectDelayMs);
+      }
 
-      createNewWebSocket();
+      final Request request = constructOkHttpRequest();
+      this.websocket = client.newWebSocket(request, this);
     } catch (Exception e) {
       throw new RuntimeException(e);
     }
@@ -118,18 +128,15 @@ public class OkhttpWebSocketClient extends WebSocketListener {
     if (baseURL == null || baseURL.isEmpty()) {
       throw new IllegalArgumentException("Base URL cannot be null or empty");
     }
-    String url = configRepository.getBaseURL() + "/lobby/";
     String accessToken = tokenRepository.getToken();
 
     Request.Builder builder =
         new Request.Builder()
-            .url(url)
+            .url(wsUrl)
             .addHeader("Authorization", String.format("Bearer %s", accessToken));
 
-    // inject lobby session id if not empty
-    if (isXHeaderLobbySessionIdEnabled && lobbySessionId != null && !lobbySessionId.isEmpty()) {
-      log.info("Adding header X-Ab-LobbySessionID: " + lobbySessionId);
-      builder = builder.addHeader("X-Ab-LobbySessionID", lobbySessionId);
+    if (!headers.isEmpty()) {
+      headers.forEach((k, v) -> builder.addHeader(k, v));
     }
 
     return builder.build();
@@ -163,6 +170,8 @@ public class OkhttpWebSocketClient extends WebSocketListener {
 
   @Override
   public void onOpen(WebSocket webSocket, okhttp3.Response response) {
+    numReconnectAttempts = 0;
+
     super.onOpen(webSocket, response);
 
     isSocketConnected = true;
@@ -174,13 +183,6 @@ public class OkhttpWebSocketClient extends WebSocketListener {
   @Override
   public void onMessage(WebSocket webSocket, String text) {
     super.onMessage(webSocket, text);
-
-    if (text.contains("connectNotif")) {
-      final ConnectNotif notif = ConnectNotif.createFromWSM(text);
-      final String lobbySessionId = notif.getLobbySessionID();
-      log.info("lobbySessionID: " + lobbySessionId);
-      this.lobbySessionId = lobbySessionId;
-    }
 
     webSocketListener.onMessage(webSocket, text);
   }
@@ -211,14 +213,12 @@ public class OkhttpWebSocketClient extends WebSocketListener {
 
     webSocketListener.onClosed(webSocket, code, reason);
 
-    if (shouldReconnectOnClosed(code)) {
+    if (shouldReconnect(code, reason)) {
       try {
-        reconnect();
+        connect(true);
       } catch (Exception e) {
         throw new RuntimeException(e);
       }
-    } else {
-      unregisterCallbacks();
     }
   }
 
@@ -233,39 +233,31 @@ public class OkhttpWebSocketClient extends WebSocketListener {
 
     if (shouldReconnectOnFailure()) {
       try {
-        reconnect();
+        connect(true);
       } catch (Exception e) {
         throw new RuntimeException(e);
       }
-    } else {
-      unregisterCallbacks();
     }
   }
 
-  private boolean shouldReconnectOnClosed(int code) {
+  protected boolean shouldReconnect(int code, String reason) {
+    // https://accelbyte.atlassian.net/wiki/spaces/CG/pages/3355803729/Lobby+WebSocket+Reconnect+Logic
     return (isReconnectEnabled()
         && !isSocketConnected
-        && code < WS_CODE_DISCONNECT_WITHOUT_RECONNECT
-        && code != WS_CODE_NORMAL_CLOSURE);
+        && code >= 1001
+        && code <= 2999
+    );
   }
 
-  private boolean shouldReconnectOnFailure() {
+  protected boolean shouldReconnectOnFailure() {
     return (isReconnectEnabled() && !isSocketConnected);
   }
 
-  private boolean isReconnectEnabled() {
+  protected boolean isReconnectEnabled() {
     return this.reconnectDelayMs > 0;
   }
 
   private boolean isAutomaticPingEnabled() {
     return this.pingIntervalMs > 0;
-  }
-
-  private void registerCallbacks() {
-    tokenRepositoryCallbackListener.registerCallback();
-  }
-
-  private void unregisterCallbacks() {
-    tokenRepositoryCallbackListener.unregisterCallback();
   }
 }
