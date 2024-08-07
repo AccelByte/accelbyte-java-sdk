@@ -29,7 +29,7 @@ public class ExpGrantHistoryInfo extends Model {
   private String createdAt;
 
   @JsonProperty("grantExp")
-  private Integer grantExp;
+  private Long grantExp;
 
   @JsonProperty("id")
   private String id;

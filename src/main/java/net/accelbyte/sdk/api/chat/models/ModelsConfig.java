@@ -29,7 +29,7 @@ public class ModelsConfig extends Model {
   private Integer chatRateLimitBurst;
 
   @JsonProperty("ChatRateLimitDuration")
-  private Integer chatRateLimitDuration;
+  private Long chatRateLimitDuration;
 
   @JsonProperty("ConcurrentUsersLimit")
   private Integer concurrentUsersLimit;
@@ -54,7 +54,7 @@ public class ModelsConfig extends Model {
   private Integer generalRateLimitBurst;
 
   @JsonProperty("GeneralRateLimitDuration")
-  private Integer generalRateLimitDuration;
+  private Long generalRateLimitDuration;
 
   @JsonProperty("Namespace")
   private String namespace;
@@ -72,10 +72,10 @@ public class ModelsConfig extends Model {
   private Integer spamChatBurst;
 
   @JsonProperty("SpamChatDuration")
-  private Integer spamChatDuration;
+  private Long spamChatDuration;
 
   @JsonProperty("SpamMuteDuration")
-  private Integer spamMuteDuration;
+  private Long spamMuteDuration;
 
   @JsonProperty("defaultDictionaryLoaded")
   @JsonInclude(JsonInclude.Include.NON_NULL)

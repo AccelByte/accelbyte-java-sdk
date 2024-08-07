@@ -39,7 +39,7 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 ./ng ng-cp 1>&2
 
 echo "TAP version 13"
-echo "1..62"
+echo "1..64"
 
 #- 1 Login
 ./ng net.accelbyte.sdk.cli.Main loginClient \
@@ -74,6 +74,7 @@ eval_tap $? 2 'AdminFilterChatMessage' test.out
     --shardId 'JSDgY1TXp38zsCTC' \
     --startCreatedAt '36' \
     --topic 'cPiSuL0Sly6XM4OI,18mAQLnzjMf8GZ2W,BZqxYG3aREAu2D6Q' \
+    --unfiltered  \
     > test.out 2>&1
 eval_tap $? 3 'AdminChatHistory' test.out
 
@@ -319,237 +320,248 @@ eval_tap $? 31 'PublicUnmuteUser' test.out
     > test.out 2>&1
 eval_tap $? 32 'AdminGetAllConfigV1' test.out
 
-#- 33 AdminGetConfigV1
+#- 33 AdminGetLogConfig
+./ng net.accelbyte.sdk.cli.Main chat adminGetLogConfig \
+    > test.out 2>&1
+eval_tap $? 33 'AdminGetLogConfig' test.out
+
+#- 34 AdminPatchUpdateLogConfig
+./ng net.accelbyte.sdk.cli.Main chat adminPatchUpdateLogConfig \
+    --body '{"logLevel": "fatal", "socketLogEnabled": false}' \
+    > test.out 2>&1
+eval_tap $? 34 'AdminPatchUpdateLogConfig' test.out
+
+#- 35 AdminGetConfigV1
 ./ng net.accelbyte.sdk.cli.Main chat adminGetConfigV1 \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 33 'AdminGetConfigV1' test.out
+eval_tap $? 35 'AdminGetConfigV1' test.out
 
-#- 34 AdminUpdateConfigV1
+#- 36 AdminUpdateConfigV1
 ./ng net.accelbyte.sdk.cli.Main chat adminUpdateConfigV1 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"chatRateLimitBurst": 41, "chatRateLimitDuration": 94, "concurrentUsersLimit": 0, "enableClanChat": true, "enableManualTopicCreation": true, "enableProfanityFilter": true, "filterAppName": "9WT0GfH2rtOa4EXs", "filterParam": "XzOXQAk4mqrxzTtu", "filterType": "Ll4XlbGL8QOxtjzm", "generalRateLimitBurst": 93, "generalRateLimitDuration": 51, "maxChatMessageLength": 39, "shardCapacityLimit": 47, "shardDefaultLimit": 80, "shardHardLimit": 15, "spamChatBurst": 1, "spamChatDuration": 25, "spamMuteDuration": 83}' \
+    --body '{"chatRateLimitBurst": 39, "chatRateLimitDuration": 48, "concurrentUsersLimit": 43, "enableClanChat": false, "enableManualTopicCreation": false, "enableProfanityFilter": false, "filterAppName": "Bfsu4jmsRE2w1yEk", "filterParam": "Lgh3tIYt4SqYUTLD", "filterType": "x9gIiDandpGT2t24", "generalRateLimitBurst": 1, "generalRateLimitDuration": 25, "maxChatMessageLength": 83, "shardCapacityLimit": 45, "shardDefaultLimit": 78, "shardHardLimit": 29, "spamChatBurst": 16, "spamChatDuration": 8, "spamMuteDuration": 50}' \
     > test.out 2>&1
-eval_tap $? 34 'AdminUpdateConfigV1' test.out
+eval_tap $? 36 'AdminUpdateConfigV1' test.out
 
-#- 35 ExportConfig
+#- 37 ExportConfig
 ./ng net.accelbyte.sdk.cli.Main chat exportConfig \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 35 'ExportConfig' test.out
+eval_tap $? 37 'ExportConfig' test.out
 
-#- 36 ImportConfig
+#- 38 ImportConfig
 ./ng net.accelbyte.sdk.cli.Main chat importConfig \
     --namespace "$AB_NAMESPACE" \
     --file 'tmp.dat' \
     > test.out 2>&1
-eval_tap $? 36 'ImportConfig' test.out
+eval_tap $? 38 'ImportConfig' test.out
 
-#- 37 AdminGetInboxCategories
+#- 39 AdminGetInboxCategories
 ./ng net.accelbyte.sdk.cli.Main chat adminGetInboxCategories \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 37 'AdminGetInboxCategories' test.out
+eval_tap $? 39 'AdminGetInboxCategories' test.out
 
-#- 38 AdminAddInboxCategory
+#- 40 AdminAddInboxCategory
 ./ng net.accelbyte.sdk.cli.Main chat adminAddInboxCategory \
     --namespace "$AB_NAMESPACE" \
-    --body '{"enabled": true, "expiresIn": 78, "hook": {"driver": "oYZyI4EFZKBcYrCE", "params": {"AE7WIsfmx40NLRc6": {}, "m8heKnWhzfe2Nube": {}, "oKFeIaFQCYoDPICp": {}}}, "jsonSchema": {"nduEEQlULdJz4mnR": {}, "BkMNxvvKgAT8mJrY": {}, "q6hRkloqxM3gpwxc": {}}, "name": "fMy9XzjjI5YbsKoA", "saveInbox": true, "sendNotification": false}' \
+    --body '{"enabled": true, "expiresIn": 72, "hook": {"driver": "3IHeHSKLCa3xreND", "params": {"UWehwH3q31A806DJ": {}, "gas4b6z3LNUj7fdg": {}, "LA84Z8YYk6QEgJjB": {}}}, "jsonSchema": {"bEDoNf3n0hEoRCAc": {}, "f80zfFyabWAgIUXi": {}, "I07A68eaqC2J9jyE": {}}, "name": "W6GLbc0NaKDUL3sa", "saveInbox": false, "sendNotification": false}' \
     > test.out 2>&1
-eval_tap $? 38 'AdminAddInboxCategory' test.out
+eval_tap $? 40 'AdminAddInboxCategory' test.out
 
-#- 39 AdminDeleteInboxCategory
+#- 41 AdminDeleteInboxCategory
 ./ng net.accelbyte.sdk.cli.Main chat adminDeleteInboxCategory \
-    --category '3sa13lk1dQBHO86I' \
+    --category 'Hzih3bit0VWn3CO3' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 39 'AdminDeleteInboxCategory' test.out
+eval_tap $? 41 'AdminDeleteInboxCategory' test.out
 
-#- 40 AdminUpdateInboxCategory
+#- 42 AdminUpdateInboxCategory
 ./ng net.accelbyte.sdk.cli.Main chat adminUpdateInboxCategory \
-    --category 'lBhnetU4RwTqUXlT' \
+    --category '9PXDNxtXgeO3FgkX' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"enabled": true, "expiresIn": 83, "hook": {"driver": "BzOuYsaZA2yyd4mb", "params": {"qoOfADMMAXFaY9eK": {}, "a699bRVhyaKwwrAP": {}, "2aMlu7WtjCtoYetO": {}}}, "jsonSchema": {"O847g8OudOfjnCuH": {}, "Z3c46IjGa23YvYmm": {}, "Dg7VYPXIuvUYTZBR": {}}, "saveInbox": true, "sendNotification": false}' \
+    --body '{"enabled": false, "expiresIn": 1, "hook": {"driver": "jDzaQY3snn2ZkP7c", "params": {"FdP43e5dC9XIBudf": {}, "ZgrbHDIDm4hMzF4T": {}, "xodenSrUTvfqU0bf": {}}}, "jsonSchema": {"oMm5cTtFWbotQyXJ": {}, "RcQWsmqPNs92epxk": {}, "0i8VxsZNereSvf96": {}}, "saveInbox": true, "sendNotification": false}' \
     > test.out 2>&1
-eval_tap $? 40 'AdminUpdateInboxCategory' test.out
+eval_tap $? 42 'AdminUpdateInboxCategory' test.out
 
-#- 41 AdminGetCategorySchema
+#- 43 AdminGetCategorySchema
 ./ng net.accelbyte.sdk.cli.Main chat adminGetCategorySchema \
-    --category 'jIUE1Tq5jyAZvkRC' \
+    --category 'jyAZvkRCMNFIurjh' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 41 'AdminGetCategorySchema' test.out
+eval_tap $? 43 'AdminGetCategorySchema' test.out
 
-#- 42 AdminDeleteInboxMessage
+#- 44 AdminDeleteInboxMessage
 ./ng net.accelbyte.sdk.cli.Main chat adminDeleteInboxMessage \
-    --messageId 'MNFIurjh2imdb4rb' \
+    --messageId '2imdb4rbkXj0ZwsV' \
     --namespace "$AB_NAMESPACE" \
     --force  \
     > test.out 2>&1
-eval_tap $? 42 'AdminDeleteInboxMessage' test.out
+eval_tap $? 44 'AdminDeleteInboxMessage' test.out
 
-#- 43 AdminGetInboxMessages
+#- 45 AdminGetInboxMessages
 ./ng net.accelbyte.sdk.cli.Main chat adminGetInboxMessages \
     --namespace "$AB_NAMESPACE" \
     --activeOnly  \
-    --endCreatedAt '21' \
-    --limit '21' \
-    --messageId 'Xj0ZwsVC0gL97ZVJ,SPqJiwv1qlYB1RSK,s6gQxC3Gb7S0o4zG' \
-    --offset '81' \
-    --order 'Y7KQI1AeFgPqaOkv' \
-    --scope 'NAMESPACE' \
-    --startCreatedAt '100' \
-    --status 'SENT' \
+    --endCreatedAt '58' \
+    --limit '93' \
+    --messageId '0gL97ZVJSPqJiwv1,qlYB1RSKs6gQxC3G,b7S0o4zGYY7KQI1A' \
+    --offset '9' \
+    --order '1MbqqZtfNWql4nmw' \
+    --scope 'USER' \
+    --startCreatedAt '21' \
+    --status 'DRAFT' \
     --transient_  \
     > test.out 2>&1
-eval_tap $? 43 'AdminGetInboxMessages' test.out
+eval_tap $? 45 'AdminGetInboxMessages' test.out
 
-#- 44 AdminSaveInboxMessage
+#- 46 AdminSaveInboxMessage
 ./ng net.accelbyte.sdk.cli.Main chat adminSaveInboxMessage \
     --namespace "$AB_NAMESPACE" \
-    --body '{"category": "aolB4lkKB4EYOkQ1", "expiredAt": 18, "message": {"kD9eOziYRFOn0jJL": {}, "HC9LxhvNXTwGBCto": {}, "hLtl9Zuhytm5UDrT": {}}, "scope": "USER", "status": "SENT", "userIds": ["XCs5SPBbRPZTF6oQ", "AXVG7tnsZg5QgXjv", "yGJPN4eXbJE5Vs2G"]}' \
+    --body '{"category": "KB4EYOkQ1jMD3cym", "expiredAt": 49, "message": {"RFOn0jJLHC9LxhvN": {}, "XTwGBCtohLtl9Zuh": {}, "ytm5UDrT6QXCs5SP": {}}, "scope": "USER", "status": "DRAFT", "userIds": ["bRPZTF6oQAXVG7tn", "sZg5QgXjvyGJPN4e", "XbJE5Vs2GcyomQoI"]}' \
     > test.out 2>&1
-eval_tap $? 44 'AdminSaveInboxMessage' test.out
+eval_tap $? 46 'AdminSaveInboxMessage' test.out
 
-#- 45 AdminUnsendInboxMessage
+#- 47 AdminUnsendInboxMessage
 ./ng net.accelbyte.sdk.cli.Main chat adminUnsendInboxMessage \
-    --inbox 'cyomQoIXimBJehyx' \
+    --inbox 'XimBJehyxlNsjUgx' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"userIds": ["lNsjUgxBkF6wFPoJ", "eQediogEhhM2rIiz", "GdKvOPdq5xrgxSmy"]}' \
+    --body '{"userIds": ["BkF6wFPoJeQediog", "EhhM2rIizGdKvOPd", "q5xrgxSmy1DN9LFk"]}' \
     > test.out 2>&1
-eval_tap $? 45 'AdminUnsendInboxMessage' test.out
+eval_tap $? 47 'AdminUnsendInboxMessage' test.out
 
-#- 46 AdminGetInboxUsers
+#- 48 AdminGetInboxUsers
 ./ng net.accelbyte.sdk.cli.Main chat adminGetInboxUsers \
-    --inbox '1DN9LFkYW5DQyj4b' \
+    --inbox 'YW5DQyj4bj5Ro2og' \
     --namespace "$AB_NAMESPACE" \
-    --limit '19' \
-    --offset '64' \
+    --limit '0' \
+    --offset '86' \
     --status 'UNREAD' \
-    --userId 'Ro2ogaKt2ujQSa3Z' \
+    --userId 't2ujQSa3Zdb65UXm' \
     > test.out 2>&1
-eval_tap $? 46 'AdminGetInboxUsers' test.out
+eval_tap $? 48 'AdminGetInboxUsers' test.out
 
-#- 47 AdminUpdateInboxMessage
+#- 49 AdminUpdateInboxMessage
 ./ng net.accelbyte.sdk.cli.Main chat adminUpdateInboxMessage \
-    --messageId 'db65UXmy0Zp6iIaT' \
+    --messageId 'y0Zp6iIaTIKUkmkk' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"expiredAt": 71, "message": {"vXYck0upMzUYnb76": {}, "tFkEORV3bu1bNCtX": {}, "7W40V6Do5sYadCCF": {}}, "scope": "USER", "userIds": ["ft2ulIJzPyrVEiOG", "4UcqsuGKHhMRWLVd", "3DlhLuIpomM8sm1M"]}' \
+    --body '{"expiredAt": 32, "message": {"QM0NBMA9ORxpzwLR": {}, "2AK6eXUGPJsw1fiP": {}, "80G9Pclxcft2ulIJ": {}}, "scope": "USER", "userIds": ["xkrQDXuNFviMarv8", "mnfHK8CCmE2lPnsb", "D3SGEdlwuUccE536"]}' \
     > test.out 2>&1
-eval_tap $? 47 'AdminUpdateInboxMessage' test.out
+eval_tap $? 49 'AdminUpdateInboxMessage' test.out
 
-#- 48 AdminSendInboxMessage
+#- 50 AdminSendInboxMessage
 ./ng net.accelbyte.sdk.cli.Main chat adminSendInboxMessage \
-    --messageId 'iaI1mX2tJoARtdbB' \
+    --messageId 'ugBp3HBvepnDCjgy' \
     --namespace "$AB_NAMESPACE" \
     --body '{}' \
     > test.out 2>&1
-eval_tap $? 48 'AdminSendInboxMessage' test.out
+eval_tap $? 50 'AdminSendInboxMessage' test.out
 
-#- 49 AdminGetInboxStats
+#- 51 AdminGetInboxStats
 ./ng net.accelbyte.sdk.cli.Main chat adminGetInboxStats \
     --namespace "$AB_NAMESPACE" \
-    --messageId 'e7udsMrok0WvGYYn,x4V709xbnGezKsDw,G2omOR2nvYI9TVqJ' \
+    --messageId 'JlXe36mgWjLfFmte,ue9nzJ6fH24T805t,Vg8JqU0jZpjvsugA' \
     > test.out 2>&1
-eval_tap $? 49 'AdminGetInboxStats' test.out
+eval_tap $? 51 'AdminGetInboxStats' test.out
 
-#- 50 AdminGetChatSnapshot
+#- 52 AdminGetChatSnapshot
 ./ng net.accelbyte.sdk.cli.Main chat adminGetChatSnapshot \
-    --chatId 'dvzcWbfUpaXp5JMl' \
+    --chatId 'OS7u8RiWyerCSa8S' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 50 'AdminGetChatSnapshot' test.out
+eval_tap $? 52 'AdminGetChatSnapshot' test.out
 
-#- 51 AdminDeleteChatSnapshot
+#- 53 AdminDeleteChatSnapshot
 ./ng net.accelbyte.sdk.cli.Main chat adminDeleteChatSnapshot \
-    --chatId '5LL4bTxBmZjdrrIx' \
+    --chatId 'RgwsAj1ik1jglaDX' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 51 'AdminDeleteChatSnapshot' test.out
+eval_tap $? 53 'AdminDeleteChatSnapshot' test.out
 
-#- 52 AdminProfanityQuery
+#- 54 AdminProfanityQuery
 ./ng net.accelbyte.sdk.cli.Main chat adminProfanityQuery \
     --namespace "$AB_NAMESPACE" \
-    --filterMask 'sB0NRsB1fPqqRRul' \
+    --filterMask 'TvKCWwNTAhd2wrS0' \
     --includeChildren  \
-    --limit '32' \
-    --offset '16' \
-    --parentId 'qpymDkQhtrHWwRVn' \
-    --startWith 'wVBOqOHi8pWGd1ju' \
-    --wordType 'YhiqjRJOqB5F93zF' \
+    --limit '42' \
+    --offset '14' \
+    --parentId 'Pdjhdinpng5BLy8w' \
+    --startWith 'bhMssAHjapIkY9Rf' \
+    --wordType '4wP57dBZNR88YbCt' \
     > test.out 2>&1
-eval_tap $? 52 'AdminProfanityQuery' test.out
+eval_tap $? 54 'AdminProfanityQuery' test.out
 
-#- 53 AdminProfanityCreate
+#- 55 AdminProfanityCreate
 ./ng net.accelbyte.sdk.cli.Main chat adminProfanityCreate \
     --namespace "$AB_NAMESPACE" \
-    --body '{"falseNegative": ["QbJndUDpdONneAcz", "bBdHb2slt71B1SmZ", "p2JZp50CnPb71ORY"], "falsePositive": ["cmQbTU5JX8ccLjMX", "JRk0eaKQDOJvrTef", "glSs6g4iY9u02aCN"], "word": "YIWekp18lOC3mNqF", "wordType": "7Bl0LcghVHfPEspx"}' \
+    --body '{"falseNegative": ["mKy8M9zVrjfGXZnq", "AQUoY1GjlIIk0iKo", "TTS1j02o7JjTXAQN"], "falsePositive": ["0qdskdQV0TqI8EFn", "mDbxIxi4YKlONk2Q", "5Y4JvaizwiilatuU"], "word": "jjt9lIMGql5ElEa9", "wordType": "EIIlGcHB3CfR3ncD"}' \
     > test.out 2>&1
-eval_tap $? 53 'AdminProfanityCreate' test.out
+eval_tap $? 55 'AdminProfanityCreate' test.out
 
-#- 54 AdminProfanityCreateBulk
+#- 56 AdminProfanityCreateBulk
 ./ng net.accelbyte.sdk.cli.Main chat adminProfanityCreateBulk \
     --namespace "$AB_NAMESPACE" \
-    --body '{"dictionaries": [{"falseNegative": ["whRON0bc1eMbEIjo", "wLqc3ecjXJbZDKKo", "xLE1Y3Dymtj3giPg"], "falsePositive": ["4x4yiPX6ues1Hhhk", "g1yLVbLFzHEP8cM4", "NTwr0KHaAsmTej52"], "word": "WKi6tArAURt9plCS", "wordType": "Vq8PdH6hJPUAc0RV"}, {"falseNegative": ["wXgAgntLMCuaXBWQ", "i6BqPg4xr0lCancU", "ZGCHsZYoLfR1KtOv"], "falsePositive": ["7Zy0b65uvuKNuy0y", "tZQ7M6Nzy1adnSKO", "LFKx1dX4LuWJu3pD"], "word": "MUAeeZ97SBROPYuG", "wordType": "6XqP6oo7G73zdxTg"}, {"falseNegative": ["OfnwIdlNa29fDLh7", "41IslKHzGlLKWUtD", "Qs61OQAoxyyQpRWC"], "falsePositive": ["iiPDGQhNPEwiJCf2", "XJVrlzqQls1ozhLV", "A3kE8jKvgatOEBM7"], "word": "0TdlNBJYOmpu1VCa", "wordType": "rzBsV6xnZ5Jrzzjr"}]}' \
+    --body '{"dictionaries": [{"falseNegative": ["lwi3v3MFFJ1KesKo", "ELCpobBEG8X645xp", "dXpai0rYaT5hOPja"], "falsePositive": ["f3H0tYighU0VUfcY", "HJbBfAKSiPW3VgsZ", "XiR1DJ7HVWqMkNSa"], "word": "wQUWDFJvJBWic7Uk", "wordType": "BeIXuqDuAXI66bQ7"}, {"falseNegative": ["1w0deoV9Lx5RDA1l", "2XcrciYNEzvSZIPk", "hSgORcz5S5BvmgBL"], "falsePositive": ["xh4ijFnE3Tam69qS", "Z7PC6f6QkmZXElW9", "YfRSse6AAz3S4czz"], "word": "0QKFlAVmVLu4AOec", "wordType": "0z8eBeeoip68J1ns"}, {"falseNegative": ["v4W2OJhtafxMSJlH", "eb34sZKHcl5LLLOe", "xL4fZvWtND2tcBFp"], "falsePositive": ["X8lNtFEJ7tnkY6Mc", "a5afj12K2IzrBvvW", "m4udE0OXudXgNne8"], "word": "kJATwlc6esUp6Sw1", "wordType": "I98jeZQ7hfxnhLd3"}]}' \
     > test.out 2>&1
-eval_tap $? 54 'AdminProfanityCreateBulk' test.out
+eval_tap $? 56 'AdminProfanityCreateBulk' test.out
 
-#- 55 AdminProfanityExport
+#- 57 AdminProfanityExport
 ./ng net.accelbyte.sdk.cli.Main chat adminProfanityExport \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 55 'AdminProfanityExport' test.out
+eval_tap $? 57 'AdminProfanityExport' test.out
 
-#- 56 AdminProfanityGroup
+#- 58 AdminProfanityGroup
 ./ng net.accelbyte.sdk.cli.Main chat adminProfanityGroup \
     --namespace "$AB_NAMESPACE" \
-    --limit '5' \
-    --offset '11' \
+    --limit '75' \
+    --offset '67' \
     > test.out 2>&1
-eval_tap $? 56 'AdminProfanityGroup' test.out
+eval_tap $? 58 'AdminProfanityGroup' test.out
 
-#- 57 AdminProfanityImport
+#- 59 AdminProfanityImport
 ./ng net.accelbyte.sdk.cli.Main chat adminProfanityImport \
     --namespace "$AB_NAMESPACE" \
     --action 'FULLREPLACE' \
     --showResult  \
     --file 'tmp.dat' \
     > test.out 2>&1
-eval_tap $? 57 'AdminProfanityImport' test.out
+eval_tap $? 59 'AdminProfanityImport' test.out
 
-#- 58 AdminProfanityUpdate
+#- 60 AdminProfanityUpdate
 ./ng net.accelbyte.sdk.cli.Main chat adminProfanityUpdate \
-    --id 'xnhLd3Knaknoed9D' \
+    --id '8SWP3glU6muswVJn' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"falseNegative": ["HhLOqQGhCUr6iTrj", "yEgarAdNJOIG36I6", "tRbRcrEveMdAdiPK"], "falsePositive": ["DUVSC00PYeDcaggi", "nxnFIna3yddcbsPh", "eTH26IUJNvYuGRUv"], "word": "pZaHCuESOiIZsMfB", "wordType": "4ZH3mtgWgU4pCAKx"}' \
+    --body '{"falseNegative": ["NnN7kAa7j0riFc5H", "THQIoVsGo7dwV9DB", "qFKHQkETJyTlUrwD"], "falsePositive": ["TnoujQD4IEiH9Z5q", "Xn3aoRtlqOECohVi", "HA5CzgFSy8X1A3Pr"], "word": "Ifapq5AAeMe4L3mD", "wordType": "WORBVXTIIJM9XsYI"}' \
     > test.out 2>&1
-eval_tap $? 58 'AdminProfanityUpdate' test.out
+eval_tap $? 60 'AdminProfanityUpdate' test.out
 
-#- 59 AdminProfanityDelete
+#- 61 AdminProfanityDelete
 ./ng net.accelbyte.sdk.cli.Main chat adminProfanityDelete \
-    --id 'eE70CaunQNxot371' \
+    --id 'IZxiXNMR9BgaWcFX' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 59 'AdminProfanityDelete' test.out
+eval_tap $? 61 'AdminProfanityDelete' test.out
 
-#- 60 PublicGetMessages
+#- 62 PublicGetMessages
 ./ng net.accelbyte.sdk.cli.Main chat publicGetMessages \
     > test.out 2>&1
-eval_tap $? 60 'PublicGetMessages' test.out
+eval_tap $? 62 'PublicGetMessages' test.out
 
-#- 61 PublicGetConfigV1
+#- 63 PublicGetConfigV1
 ./ng net.accelbyte.sdk.cli.Main chat publicGetConfigV1 \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 61 'PublicGetConfigV1' test.out
+eval_tap $? 63 'PublicGetConfigV1' test.out
 
-#- 62 PublicGetChatSnapshot
+#- 64 PublicGetChatSnapshot
 ./ng net.accelbyte.sdk.cli.Main chat publicGetChatSnapshot \
-    --chatId 'W9G4AvQkqsGnmyo5' \
+    --chatId '3SUBhyoTsMWPAxUM' \
     --namespace "$AB_NAMESPACE" \
-    --topic 'JJTUVmb8GEXFTlEM' \
+    --topic 'kawaGpAyrIwMif3B' \
     > test.out 2>&1
-eval_tap $? 62 'PublicGetChatSnapshot' test.out
+eval_tap $? 64 'PublicGetChatSnapshot' test.out
 
 
 rm -f "tmp.dat"

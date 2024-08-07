@@ -25,6 +25,19 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ModelsClaimSessionRequest extends Model {
 
+  @JsonProperty("game_mode")
+  private String gameMode;
+
+  @JsonProperty("matching_allies")
+  private List<ModelsRequestMatchingAlly> matchingAllies;
+
+  @JsonProperty("namespace")
+  private String namespace;
+
+  @JsonProperty("notification_payload")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ModelsMatchResultNotificationPayload notificationPayload;
+
   @JsonProperty("session_id")
   private String sessionId;
 

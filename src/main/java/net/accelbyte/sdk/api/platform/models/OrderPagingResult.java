@@ -34,7 +34,7 @@ public class OrderPagingResult extends Model {
 
   @JsonProperty("total")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer total;
+  private Long total;
 
   @JsonIgnore
   public OrderPagingResult createFromJson(String json) throws JsonProcessingException {

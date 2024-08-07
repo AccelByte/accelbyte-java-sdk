@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class CurrencyWallet extends Model {
 
   @JsonProperty("balance")
-  private Integer balance;
+  private Long balance;
 
   @JsonProperty("currencyCode")
   private String currencyCode;
@@ -39,11 +39,11 @@ public class CurrencyWallet extends Model {
 
   @JsonProperty("totalPermanentBalance")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer totalPermanentBalance;
+  private Long totalPermanentBalance;
 
   @JsonProperty("totalTimeLimitedBalance")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer totalTimeLimitedBalance;
+  private Long totalTimeLimitedBalance;
 
   @JsonProperty("userId")
   private String userId;

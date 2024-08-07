@@ -37,6 +37,10 @@ public class ModelsMatch extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ?> matchAttributes;
 
+  @JsonProperty("PivotID")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String pivotID;
+
   @JsonProperty("RegionPreference")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> regionPreference;
@@ -51,7 +55,11 @@ public class ModelsMatch extends Model {
 
   @JsonProperty("Tickets")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private List<ModelsTicket> tickets;
+  private List<ModelsMatchTicket> tickets;
+
+  @JsonProperty("Timestamp")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String timestamp;
 
   @JsonIgnore
   public ModelsMatch createFromJson(String json) throws JsonProcessingException {

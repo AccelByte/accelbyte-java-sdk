@@ -26,10 +26,10 @@ import net.accelbyte.sdk.core.Model;
 public class ApiMutedTopicResponse extends Model {
 
   @JsonProperty("expirationTime")
-  private Integer expirationTime;
+  private Long expirationTime;
 
   @JsonProperty("remainingTime")
-  private Integer remainingTime;
+  private Long remainingTime;
 
   @JsonProperty("topicId")
   private String topicId;

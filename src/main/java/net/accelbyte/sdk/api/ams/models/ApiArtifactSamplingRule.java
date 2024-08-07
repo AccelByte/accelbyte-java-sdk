@@ -29,7 +29,7 @@ public class ApiArtifactSamplingRule extends Model {
   private Boolean collect;
 
   @JsonProperty("percentage")
-  private Integer percentage;
+  private Long percentage;
 
   @JsonIgnore
   public ApiArtifactSamplingRule createFromJson(String json) throws JsonProcessingException {

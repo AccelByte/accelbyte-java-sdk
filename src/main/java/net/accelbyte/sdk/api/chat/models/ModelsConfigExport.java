@@ -29,7 +29,7 @@ public class ModelsConfigExport extends Model {
   private Integer chatRateLimitBurst;
 
   @JsonProperty("chatRateLimitDuration")
-  private Integer chatRateLimitDuration;
+  private Long chatRateLimitDuration;
 
   @JsonProperty("concurrentUsersLimit")
   private Integer concurrentUsersLimit;
@@ -62,7 +62,7 @@ public class ModelsConfigExport extends Model {
   private Integer generalRateLimitBurst;
 
   @JsonProperty("generalRateLimitDuration")
-  private Integer generalRateLimitDuration;
+  private Long generalRateLimitDuration;
 
   @JsonProperty("namespace")
   private String namespace;
@@ -85,11 +85,11 @@ public class ModelsConfigExport extends Model {
 
   @JsonProperty("spamChatDuration")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer spamChatDuration;
+  private Long spamChatDuration;
 
   @JsonProperty("spamMuteDuration")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer spamMuteDuration;
+  private Long spamMuteDuration;
 
   @JsonIgnore
   public ModelsConfigExport createFromJson(String json) throws JsonProcessingException {

@@ -31,6 +31,9 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Note: **nintendo platform user ID**: NSA ID need to be appended with Environment ID using
  * colon as separator. e.g kmzwa8awaa:dd1
+ *
+ * <p>If the request body exceed the max limitation, the max count will be in response body's
+ * messageVariables: "messageVariables": {"maxCount": "100"}
  */
 @Getter
 @Setter

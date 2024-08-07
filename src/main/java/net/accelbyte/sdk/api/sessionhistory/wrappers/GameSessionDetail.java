@@ -109,4 +109,14 @@ public class GameSessionDetail {
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see PublicQueryGameSessionMe
+   */
+  public ApimodelsGameSessionDetailQueryResponse publicQueryGameSessionMe(
+      PublicQueryGameSessionMe input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }

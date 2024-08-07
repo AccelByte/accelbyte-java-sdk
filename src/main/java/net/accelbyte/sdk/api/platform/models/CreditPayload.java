@@ -30,7 +30,7 @@ public class CreditPayload extends Model {
   private String balanceOrigin;
 
   @JsonProperty("count")
-  private Integer count;
+  private Long count;
 
   @JsonProperty("currencyCode")
   private String currencyCode;

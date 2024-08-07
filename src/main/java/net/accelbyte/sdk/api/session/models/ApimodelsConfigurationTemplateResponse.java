@@ -29,6 +29,10 @@ public class ApimodelsConfigurationTemplateResponse extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String psnBaseUrl;
 
+  @JsonProperty("appName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String appName;
+
   @JsonProperty("attributes")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ?> attributes;
@@ -57,6 +61,10 @@ public class ApimodelsConfigurationTemplateResponse extends Model {
   @JsonProperty("disableCodeGeneration")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean disableCodeGeneration;
+
+  @JsonProperty("disableResendInvite")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean disableResendInvite;
 
   @JsonProperty("dsManualSetReady")
   @JsonInclude(JsonInclude.Include.NON_NULL)

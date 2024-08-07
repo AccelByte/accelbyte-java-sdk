@@ -26,6 +26,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Note: Game progression data (statistics, reward, etc) associated with previous User Account
  * will not be transferred. If the data is tight to game user ID, the user will have the game
  * progression data.
+ *
+ * <p>**Authentication:** The _**userId**_ parameter should match the one in the access token.
  */
 @Getter
 @Setter

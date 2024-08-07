@@ -39,7 +39,7 @@ public class ApimodelsTotalActiveSession extends Model {
 
   @JsonProperty("value")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer value;
+  private Long value;
 
   @JsonIgnore
   public ApimodelsTotalActiveSession createFromJson(String json) throws JsonProcessingException {

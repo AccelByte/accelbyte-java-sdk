@@ -26,10 +26,10 @@ import net.accelbyte.sdk.core.Model;
 public class CatalogChangeStatistics extends Model {
 
   @JsonProperty("count")
-  private Integer count;
+  private Long count;
 
   @JsonProperty("selectedCount")
-  private Integer selectedCount;
+  private Long selectedCount;
 
   @JsonIgnore
   public CatalogChangeStatistics createFromJson(String json) throws JsonProcessingException {

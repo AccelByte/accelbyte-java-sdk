@@ -39,7 +39,7 @@ public class ModelsConfig extends Model {
 
   @JsonProperty("autoKickOnDisconnectDelay")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer autoKickOnDisconnectDelay;
+  private Long autoKickOnDisconnectDelay;
 
   @JsonProperty("cancelTicketOnDisconnect")
   @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -51,7 +51,7 @@ public class ModelsConfig extends Model {
 
   @JsonProperty("chatRateLimitDuration")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer chatRateLimitDuration;
+  private Long chatRateLimitDuration;
 
   @JsonProperty("concurrentUsersLimit")
   @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -83,14 +83,14 @@ public class ModelsConfig extends Model {
 
   @JsonProperty("generalRateLimitDuration")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer generalRateLimitDuration;
+  private Long generalRateLimitDuration;
 
   @JsonProperty("keepPresenceActivityOnDisconnect")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean keepPresenceActivityOnDisconnect;
 
   @JsonProperty("maxDSWaitTime")
-  private Integer maxDSWaitTime;
+  private Long maxDSWaitTime;
 
   @JsonProperty("maxFriendsLimit")
   @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -110,10 +110,10 @@ public class ModelsConfig extends Model {
 
   @JsonProperty("readyConsentTimeout")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer readyConsentTimeout;
+  private Long readyConsentTimeout;
 
   @JsonProperty("unregisterDelay")
-  private Integer unregisterDelay;
+  private Long unregisterDelay;
 
   @JsonIgnore
   public ModelsConfig createFromJson(String json) throws JsonProcessingException {

@@ -59,7 +59,7 @@ public class ItemRevocation extends Model {
 
   @JsonProperty("quantity")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer quantity;
+  private Long quantity;
 
   @JsonProperty("reason")
   @JsonInclude(JsonInclude.Include.NON_NULL)

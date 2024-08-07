@@ -20,14 +20,24 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDeleteUserLinkingHistoryByPlatformIDV3
  *
- * <p>This API is for admin to delete user's linking history with target platform id. Supported
- * platform: - Steam group(steamnetwork) - steam - steamopenid - PSN group(psn) - ps4web - ps4 - ps5
- * - XBOX group(xbox) - live - xblweb - Oculus group(oculusgroup) - oculus - oculusweb - facebook -
- * google group - google - googleplaygames - twitch - discord - apple - epicgames - nintendo -
- * awscognito - netflix - snapchat - oidc platform id
+ * <p>This API is for admin to delete user's linking history with target platform id.
  *
- * <p>Note: you can use either platform ID or platform group as platformId query parameter
+ * <p>**Supported Platforms:** - Steam group (steamnetwork): - steam - steamopenid - PSN group
+ * (psn): - ps4web - ps4 - ps5 - XBOX group(xbox): - live - xblweb - Oculus group (oculusgroup): -
+ * oculus - oculusweb - Google group (google): - google - googleplaygames: - epicgames - facebook -
+ * twitch - discord - android - ios - apple - device - nintendo - awscognito - amazon - netflix -
+ * snapchat - _oidc platform id_
+ *
+ * <p>Note: - You can use either platform id or platform group as **platformId** parameter. -
+ * **Nintendo platform user id**: NSA ID need to be appended with Environment ID using colon as
+ * separator. e.g kmzwa8awaa:dd1
+ *
+ * <p>---- **Substitute endpoint**:
+ * /v3/admin/namespaces/{namespace}/users/{userId}/platforms/{platformId}/link/restrictions
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminDeleteUserLinkingHistoryByPlatformIDV3 extends Operation {

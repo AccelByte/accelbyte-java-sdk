@@ -35,6 +35,11 @@ public class PublicEnableBackupCodesV4 implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--languageTag"},
+      description = "languageTag")
+  String languageTag;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -58,6 +63,7 @@ public class PublicEnableBackupCodesV4 implements Callable<Integer> {
       final net.accelbyte.sdk.api.iam.operations.users_v4.PublicEnableBackupCodesV4 operation =
           net.accelbyte.sdk.api.iam.operations.users_v4.PublicEnableBackupCodesV4.builder()
               .namespace(namespace)
+              .languageTag(languageTag)
               .build();
       wrapper.publicEnableBackupCodesV4(operation);
       log.info("Operation successful");

@@ -159,4 +159,14 @@ public class DLC {
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see PublicGetMyDLCContent
+   */
+  public SimpleUserDLCRewardContentsResponse publicGetMyDLCContent(PublicGetMyDLCContent input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }

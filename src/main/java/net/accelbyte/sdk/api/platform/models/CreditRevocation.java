@@ -27,7 +27,7 @@ public class CreditRevocation extends Model {
 
   @JsonProperty("amount")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer amount;
+  private Long amount;
 
   @JsonProperty("balanceOrigin")
   @JsonInclude(JsonInclude.Include.NON_NULL)

@@ -26,10 +26,10 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsInstanceSpec extends Model {
 
   @JsonProperty("cpu")
-  private Integer cpu;
+  private Long cpu;
 
   @JsonProperty("mem")
-  private Integer mem;
+  private Long mem;
 
   @JsonIgnore
   public ModelsInstanceSpec createFromJson(String json) throws JsonProcessingException {

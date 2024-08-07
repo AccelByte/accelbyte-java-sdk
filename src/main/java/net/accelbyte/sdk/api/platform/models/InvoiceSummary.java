@@ -29,7 +29,7 @@ public class InvoiceSummary extends Model {
   private List<InvoiceCurrencySummary> invoiceCurrencySummary;
 
   @JsonProperty("totalSalesVolume")
-  private Integer totalSalesVolume;
+  private Long totalSalesVolume;
 
   @JsonIgnore
   public InvoiceSummary createFromJson(String json) throws JsonProcessingException {

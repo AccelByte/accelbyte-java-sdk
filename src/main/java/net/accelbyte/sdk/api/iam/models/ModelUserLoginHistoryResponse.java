@@ -41,7 +41,7 @@ public class ModelUserLoginHistoryResponse extends Model {
   private String state;
 
   @JsonProperty("Timestamp")
-  private Integer timestamp;
+  private Long timestamp;
 
   @JsonProperty("deviceName")
   private String deviceName;

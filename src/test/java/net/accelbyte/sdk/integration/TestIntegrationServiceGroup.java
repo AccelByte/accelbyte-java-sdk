@@ -32,7 +32,6 @@ import net.accelbyte.sdk.api.group.wrappers.Configuration;
 import net.accelbyte.sdk.api.group.wrappers.Group;
 import net.accelbyte.sdk.api.group.wrappers.GroupMember;
 import net.accelbyte.sdk.core.HttpResponseException;
-
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer;
@@ -87,7 +86,7 @@ public class TestIntegrationServiceGroup extends TestIntegration {
       defaultMemberRoleId = getGroupConfigResult.getGroupMemberRoleId();
     } catch (HttpResponseException rex) {
       // No inital configuration yet
-      final boolean isNotAvailable = rex.getErrorMessage().contains("73131"); 
+      final boolean isNotAvailable = rex.getErrorMessage().contains("73131");
 
       if (isNotAvailable) {
         final ModelsCreateGroupConfigurationResponseV1 initiateGroupConfigResult =
@@ -134,22 +133,22 @@ public class TestIntegrationServiceGroup extends TestIntegration {
     }
 
     try {
-      final GetUserGroupInformationPublicV2 getUserGroupInfoBody = 
+      final GetUserGroupInformationPublicV2 getUserGroupInfoBody =
           GetUserGroupInformationPublicV2.builder()
               .namespace(this.namespace)
               .offset(0)
               .limit(10)
               .build();
 
-      final ModelsGetGroupMemberListResponseV1 getUserGroupInfoResult = 
+      final ModelsGetGroupMemberListResponseV1 getUserGroupInfoResult =
           groupMemberWrapper.getUserGroupInformationPublicV2(getUserGroupInfoBody);
 
-      for (ModelsGetUserGroupInformationResponseV1 data : getUserGroupInfoResult.getData())
-      {
-        final LeaveGroupPublicV2 leaveGroupBody = LeaveGroupPublicV2.builder()
-            .namespace(this.namespace)
-            .groupId(data.getGroupId())
-            .build();
+      for (ModelsGetUserGroupInformationResponseV1 data : getUserGroupInfoResult.getData()) {
+        final LeaveGroupPublicV2 leaveGroupBody =
+            LeaveGroupPublicV2.builder()
+                .namespace(this.namespace)
+                .groupId(data.getGroupId())
+                .build();
 
         groupMemberWrapper.leaveGroupPublicV2(leaveGroupBody);
       }

@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class DebitPayload extends Model {
 
   @JsonProperty("count")
-  private Integer count;
+  private Long count;
 
   @JsonProperty("currencyCode")
   private String currencyCode;

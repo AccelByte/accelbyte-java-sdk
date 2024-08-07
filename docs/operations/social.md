@@ -104,6 +104,7 @@
 | `/social/v2/admin/namespaces/{namespace}/statitems/value/bulk/getOrDefault` | GET | BulkFetchOrDefaultStatItems1 | [BulkFetchOrDefaultStatItems1](../../src/main/java/net/accelbyte/sdk/api/social/operations/user_statistic/BulkFetchOrDefaultStatItems1.java) | [BulkFetchOrDefaultStatItems1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/user_statistic/BulkFetchOrDefaultStatItems1.java) |
 | `/social/v2/admin/namespaces/{namespace}/users/{userId}/statitems/value/bulk` | GET | AdminListUsersStatItems | [AdminListUsersStatItems](../../src/main/java/net/accelbyte/sdk/api/social/operations/user_statistic/AdminListUsersStatItems.java) | [AdminListUsersStatItems](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/user_statistic/AdminListUsersStatItems.java) |
 | `/social/v2/admin/namespaces/{namespace}/users/{userId}/statitems/value/bulk` | PUT | BulkUpdateUserStatItem | [BulkUpdateUserStatItem](../../src/main/java/net/accelbyte/sdk/api/social/operations/user_statistic/BulkUpdateUserStatItem.java) | [BulkUpdateUserStatItem](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/user_statistic/BulkUpdateUserStatItem.java) |
+| `/social/v2/admin/namespaces/{namespace}/users/{userId}/statitems/value/bulk/getOrDefault` | POST | BulkGetOrDefaultByUserId | [BulkGetOrDefaultByUserId](../../src/main/java/net/accelbyte/sdk/api/social/operations/user_statistic/BulkGetOrDefaultByUserId.java) | [BulkGetOrDefaultByUserId](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/user_statistic/BulkGetOrDefaultByUserId.java) |
 | `/social/v2/admin/namespaces/{namespace}/users/{userId}/statitems/value/reset/bulk` | PUT | BulkResetUserStatItemValues | [BulkResetUserStatItemValues](../../src/main/java/net/accelbyte/sdk/api/social/operations/user_statistic/BulkResetUserStatItemValues.java) | [BulkResetUserStatItemValues](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/user_statistic/BulkResetUserStatItemValues.java) |
 | `/social/v2/admin/namespaces/{namespace}/users/{userId}/stats/{statCode}/statitems` | DELETE | DeleteUserStatItems2 | [DeleteUserStatItems2](../../src/main/java/net/accelbyte/sdk/api/social/operations/user_statistic/DeleteUserStatItems2.java) | [DeleteUserStatItems2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/user_statistic/DeleteUserStatItems2.java) |
 | `/social/v2/admin/namespaces/{namespace}/users/{userId}/stats/{statCode}/statitems/value` | PUT | UpdateUserStatItemValue | [UpdateUserStatItemValue](../../src/main/java/net/accelbyte/sdk/api/social/operations/user_statistic/UpdateUserStatItemValue.java) | [UpdateUserStatItemValue](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/social/user_statistic/UpdateUserStatItemValue.java) |
@@ -152,6 +153,7 @@
 | `BulkStatItemReset` | [BulkStatItemReset](../../src/main/java/net/accelbyte/sdk/api/social/models/BulkStatItemReset.java) |
 | `BulkStatItemUpdate` | [BulkStatItemUpdate](../../src/main/java/net/accelbyte/sdk/api/social/models/BulkStatItemUpdate.java) |
 | `BulkStatOperationResult` | [BulkStatOperationResult](../../src/main/java/net/accelbyte/sdk/api/social/models/BulkStatOperationResult.java) |
+| `BulkUserStatItemByStatCodes` | [BulkUserStatItemByStatCodes](../../src/main/java/net/accelbyte/sdk/api/social/models/BulkUserStatItemByStatCodes.java) |
 | `BulkUserStatItemInc` | [BulkUserStatItemInc](../../src/main/java/net/accelbyte/sdk/api/social/models/BulkUserStatItemInc.java) |
 | `BulkUserStatItemReset` | [BulkUserStatItemReset](../../src/main/java/net/accelbyte/sdk/api/social/models/BulkUserStatItemReset.java) |
 | `BulkUserStatItemUpdate` | [BulkUserStatItemUpdate](../../src/main/java/net/accelbyte/sdk/api/social/models/BulkUserStatItemUpdate.java) |
@@ -165,6 +167,7 @@
 | `GlobalStatItemPagingSlicedResult` | [GlobalStatItemPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/social/models/GlobalStatItemPagingSlicedResult.java) |
 | `NamespaceSlotConfigInfo` | [NamespaceSlotConfigInfo](../../src/main/java/net/accelbyte/sdk/api/social/models/NamespaceSlotConfigInfo.java) |
 | `Paging` | [Paging](../../src/main/java/net/accelbyte/sdk/api/social/models/Paging.java) |
+| `Permission` | [Permission](../../src/main/java/net/accelbyte/sdk/api/social/models/Permission.java) |
 | `SlotConfigUpdate` | [SlotConfigUpdate](../../src/main/java/net/accelbyte/sdk/api/social/models/SlotConfigUpdate.java) |
 | `SlotInfo` | [SlotInfo](../../src/main/java/net/accelbyte/sdk/api/social/models/SlotInfo.java) |
 | `SlotMetadataUpdate` | [SlotMetadataUpdate](../../src/main/java/net/accelbyte/sdk/api/social/models/SlotMetadataUpdate.java) |

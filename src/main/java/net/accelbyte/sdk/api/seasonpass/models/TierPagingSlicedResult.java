@@ -34,7 +34,7 @@ public class TierPagingSlicedResult extends Model {
 
   @JsonProperty("total")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer total;
+  private Long total;
 
   @JsonIgnore
   public TierPagingSlicedResult createFromJson(String json) throws JsonProcessingException {

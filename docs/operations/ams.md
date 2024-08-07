@@ -68,6 +68,7 @@
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
 | `/ams/v1/admin/namespaces/{namespace}/images` | GET | ImageList | [ImageList](../../src/main/java/net/accelbyte/sdk/api/ams/operations/images/ImageList.java) | [ImageList](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/images/ImageList.java) |
+| `/ams/v1/admin/namespaces/{namespace}/images-storage` | GET | ImagesStorage | [ImagesStorage](../../src/main/java/net/accelbyte/sdk/api/ams/operations/images/ImagesStorage.java) | [ImagesStorage](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/images/ImagesStorage.java) |
 | `/ams/v1/admin/namespaces/{namespace}/images/{imageID}` | GET | ImageGet | [ImageGet](../../src/main/java/net/accelbyte/sdk/api/ams/operations/images/ImageGet.java) | [ImageGet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/images/ImageGet.java) |
 | `/ams/v1/admin/namespaces/{namespace}/images/{imageID}` | DELETE | ImageMarkForDeletion | [ImageMarkForDeletion](../../src/main/java/net/accelbyte/sdk/api/ams/operations/images/ImageMarkForDeletion.java) | [ImageMarkForDeletion](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/images/ImageMarkForDeletion.java) |
 | `/ams/v1/admin/namespaces/{namespace}/images/{imageID}` | PATCH | ImagePatch | [ImagePatch](../../src/main/java/net/accelbyte/sdk/api/ams/operations/images/ImagePatch.java) | [ImagePatch](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/images/ImagePatch.java) |
@@ -140,6 +141,7 @@
 | `api.ImageDetails` | [ApiImageDetails](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiImageDetails.java) |
 | `api.ImageList` | [ApiImageList](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiImageList.java) |
 | `api.ImageListItem` | [ApiImageListItem](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiImageListItem.java) |
+| `api.ImageStorage` | [ApiImageStorage](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiImageStorage.java) |
 | `api.ImageUpdate` | [ApiImageUpdate](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiImageUpdate.java) |
 | `api.InstanceTypeDescriptionResponse` | [ApiInstanceTypeDescriptionResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiInstanceTypeDescriptionResponse.java) |
 | `api.PagingInfo` | [ApiPagingInfo](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiPagingInfo.java) |

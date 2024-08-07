@@ -26,16 +26,16 @@ import net.accelbyte.sdk.core.Model;
 public class ApiTimeout extends Model {
 
   @JsonProperty("creation")
-  private Integer creation;
+  private Long creation;
 
   @JsonProperty("drain")
-  private Integer drain;
+  private Long drain;
 
   @JsonProperty("session")
-  private Integer session;
+  private Long session;
 
   @JsonProperty("unresponsive")
-  private Integer unresponsive;
+  private Long unresponsive;
 
   @JsonIgnore
   public ApiTimeout createFromJson(String json) throws JsonProcessingException {

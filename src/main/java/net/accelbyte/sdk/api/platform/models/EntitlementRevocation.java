@@ -43,7 +43,7 @@ public class EntitlementRevocation extends Model {
 
   @JsonProperty("quantity")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer quantity;
+  private Long quantity;
 
   @JsonProperty("reason")
   @JsonInclude(JsonInclude.Include.NON_NULL)

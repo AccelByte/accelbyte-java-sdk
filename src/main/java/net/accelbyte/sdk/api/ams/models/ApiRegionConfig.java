@@ -28,6 +28,9 @@ public class ApiRegionConfig extends Model {
   @JsonProperty("bufferSize")
   private Integer bufferSize;
 
+  @JsonProperty("dynamicBuffer")
+  private Boolean dynamicBuffer;
+
   @JsonProperty("maxServerCount")
   private Integer maxServerCount;
 

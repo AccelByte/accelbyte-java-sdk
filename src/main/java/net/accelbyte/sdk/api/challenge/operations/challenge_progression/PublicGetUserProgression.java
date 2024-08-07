@@ -39,6 +39,7 @@ public class PublicGetUserProgression extends Operation {
   private String challengeCode;
 
   private String namespace;
+  private String dateTime;
   private String goalCode;
   private Integer limit;
   private Integer offset;
@@ -54,12 +55,14 @@ public class PublicGetUserProgression extends Operation {
   public PublicGetUserProgression(
       String challengeCode,
       String namespace,
+      String dateTime,
       String goalCode,
       Integer limit,
       Integer offset,
       List<String> tags) {
     this.challengeCode = challengeCode;
     this.namespace = namespace;
+    this.dateTime = dateTime;
     this.goalCode = goalCode;
     this.limit = limit;
     this.offset = offset;
@@ -83,6 +86,7 @@ public class PublicGetUserProgression extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("dateTime", this.dateTime == null ? null : Arrays.asList(this.dateTime));
     queryParams.put("goalCode", this.goalCode == null ? null : Arrays.asList(this.goalCode));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
@@ -115,6 +119,7 @@ public class PublicGetUserProgression extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("dateTime", "None");
     result.put("goalCode", "None");
     result.put("limit", "None");
     result.put("offset", "None");

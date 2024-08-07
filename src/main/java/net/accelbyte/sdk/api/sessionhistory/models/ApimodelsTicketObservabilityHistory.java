@@ -41,7 +41,7 @@ public class ApimodelsTicketObservabilityHistory extends Model {
   private String podName;
 
   @JsonProperty("TickID")
-  private Integer tickID;
+  private Long tickID;
 
   @JsonProperty("Timestamp")
   private String timestamp;

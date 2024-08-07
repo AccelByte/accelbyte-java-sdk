@@ -47,7 +47,7 @@ public class ApimodelsAcquiringDS extends Model {
 
   @JsonProperty("value")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer value;
+  private Long value;
 
   @JsonIgnore
   public ApimodelsAcquiringDS createFromJson(String json) throws JsonProcessingException {

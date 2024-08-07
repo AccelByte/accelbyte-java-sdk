@@ -94,7 +94,8 @@ public class AvailablePredicate extends Model {
   public enum PredicateType {
     EntitlementPredicate("EntitlementPredicate"),
     SeasonPassPredicate("SeasonPassPredicate"),
-    SeasonTierPredicate("SeasonTierPredicate");
+    SeasonTierPredicate("SeasonTierPredicate"),
+    StatisticCodePredicate("StatisticCodePredicate");
 
     private String value;
 

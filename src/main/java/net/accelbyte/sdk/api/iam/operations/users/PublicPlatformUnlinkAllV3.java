@@ -25,15 +25,19 @@ import net.accelbyte.sdk.core.util.Helper;
  * parameter. example: to unlink steam third party account, you can use steamnetwork / steam /
  * steamopenid as platformId path parameter.
  *
- * <p>Supported platform: - Steam group(steamnetwork) - steam - steamopenid - PSN group(psn) -
- * ps4web - ps4 - ps5 - XBOX group(xbox) - live - xblweb - Oculus group(oculusgroup) - oculus -
- * oculusweb - facebook - google group - google - googleplaygames - twitch - discord - android - ios
- * - apple - device - justice - epicgames - nintendo - awscognito - netflix - snapchat - oidc
- * platform id
+ * <p>**Supported Platforms:** - Steam group (steamnetwork): - steam - steamopenid - PSN group
+ * (psn): - ps4web - ps4 - ps5 - XBOX group(xbox): - live - xblweb - Oculus group (oculusgroup): -
+ * oculus - oculusweb - Google group (google): - google - googleplaygames: - epicgames - facebook -
+ * twitch - discord - android - ios - apple - device - nintendo - awscognito - amazon - netflix -
+ * snapchat - _oidc platform id_
  *
- * <p>Note: if user unlink platform account that have group, the API logic will unlink all of
- * platform account under that group as well. example: if user unlink from ps4, the API logic will
- * unlink ps5 and ps4web as well
+ * <p>Note: - You can use either platform id or platform group as **platformId** parameter. -
+ * **Nintendo platform user id**: NSA ID need to be appended with Environment ID using colon as
+ * separator. e.g kmzwa8awaa:dd1
+ *
+ * <p>Unlink platform account associated with a group: If user unlink platform account associated
+ * with a group, the API logic will unlink all of platform account under that group as well.
+ * example: if user unlink from ps4, the API logic will unlink ps5 and ps4web as well
  */
 @Getter
 @Setter

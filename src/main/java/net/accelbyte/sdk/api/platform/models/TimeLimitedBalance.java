@@ -27,7 +27,7 @@ public class TimeLimitedBalance extends Model {
 
   @JsonProperty("balance")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer balance;
+  private Long balance;
 
   @JsonProperty("balanceSource")
   @JsonInclude(JsonInclude.Include.NON_NULL)

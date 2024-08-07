@@ -119,6 +119,7 @@
 | `/lobby/v1/admin/player/namespaces/{namespace}/users/{userId}/blocked` | GET | AdminGetPlayerBlockedPlayersV1 | [AdminGetPlayerBlockedPlayersV1](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/player/AdminGetPlayerBlockedPlayersV1.java) | [AdminGetPlayerBlockedPlayersV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/player/AdminGetPlayerBlockedPlayersV1.java) |
 | `/lobby/v1/admin/player/namespaces/{namespace}/users/{userId}/blocked-by` | GET | AdminGetPlayerBlockedByPlayersV1 | [AdminGetPlayerBlockedByPlayersV1](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/player/AdminGetPlayerBlockedByPlayersV1.java) | [AdminGetPlayerBlockedByPlayersV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/player/AdminGetPlayerBlockedByPlayersV1.java) |
 | `/lobby/v1/admin/player/namespaces/{namespace}/users/{userId}/bulk/block` | POST | AdminBulkBlockPlayersV1 | [AdminBulkBlockPlayersV1](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/player/AdminBulkBlockPlayersV1.java) | [AdminBulkBlockPlayersV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/player/AdminBulkBlockPlayersV1.java) |
+| `/lobby/v1/admin/player/namespaces/{namespace}/users/{userId}/bulk/unblock` | DELETE | AdminBulkUnblockPlayersV1 | [AdminBulkUnblockPlayersV1](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/player/AdminBulkUnblockPlayersV1.java) | [AdminBulkUnblockPlayersV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/player/AdminBulkUnblockPlayersV1.java) |
 | `/lobby/v1/public/player/namespaces/{namespace}/users/me/block` | POST | PublicPlayerBlockPlayersV1 | [PublicPlayerBlockPlayersV1](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/player/PublicPlayerBlockPlayersV1.java) | [PublicPlayerBlockPlayersV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/player/PublicPlayerBlockPlayersV1.java) |
 | `/lobby/v1/public/player/namespaces/{namespace}/users/me/blocked` | GET | PublicGetPlayerBlockedPlayersV1 | [PublicGetPlayerBlockedPlayersV1](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/player/PublicGetPlayerBlockedPlayersV1.java) | [PublicGetPlayerBlockedPlayersV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/player/PublicGetPlayerBlockedPlayersV1.java) |
 | `/lobby/v1/public/player/namespaces/{namespace}/users/me/blocked-by` | GET | PublicGetPlayerBlockedByPlayersV1 | [PublicGetPlayerBlockedByPlayersV1](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/player/PublicGetPlayerBlockedByPlayersV1.java) | [PublicGetPlayerBlockedByPlayersV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/player/PublicGetPlayerBlockedByPlayersV1.java) |
@@ -153,6 +154,7 @@
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
 | `/lobby/v1/public/presence/namespaces/{namespace}/users/presence` | GET | UsersPresenceHandlerV1 | [UsersPresenceHandlerV1](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/presence/UsersPresenceHandlerV1.java) | [UsersPresenceHandlerV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/presence/UsersPresenceHandlerV1.java) |
+| `/lobby/v1/public/presence/namespaces/{namespace}/users/presence` | POST | UsersPresenceHandlerV2 | [UsersPresenceHandlerV2](../../src/main/java/net/accelbyte/sdk/api/lobby/operations/presence/UsersPresenceHandlerV2.java) | [UsersPresenceHandlerV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/lobby/presence/UsersPresenceHandlerV2.java) |
 
 
 &nbsp;  
@@ -201,6 +203,7 @@
 | `model.OutgoingFriendsWithTimeData` | [ModelOutgoingFriendsWithTimeData](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelOutgoingFriendsWithTimeData.java) |
 | `model.Pagination` | [ModelPagination](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelPagination.java) |
 | `model.PutGlobalConfigurationRequest` | [ModelPutGlobalConfigurationRequest](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelPutGlobalConfigurationRequest.java) |
+| `model.RequestUserPresence` | [ModelRequestUserPresence](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelRequestUserPresence.java) |
 | `model.TemplateContent` | [ModelTemplateContent](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelTemplateContent.java) |
 | `model.TemplateLocalization` | [ModelTemplateLocalization](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelTemplateLocalization.java) |
 | `model.TemplateLocalizationResponse` | [ModelTemplateLocalizationResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelTemplateLocalizationResponse.java) |
@@ -246,6 +249,7 @@
 | `models.GetPlayerSessionAttributeResponse` | [ModelsGetPlayerSessionAttributeResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsGetPlayerSessionAttributeResponse.java) |
 | `models.ImportConfigResponse` | [ModelsImportConfigResponse](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsImportConfigResponse.java) |
 | `models.ListBlockedPlayerRequest` | [ModelsListBlockedPlayerRequest](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsListBlockedPlayerRequest.java) |
+| `models.ListUnblockPlayerRequest` | [ModelsListUnblockPlayerRequest](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsListUnblockPlayerRequest.java) |
 | `models.PartyData` | [ModelsPartyData](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsPartyData.java) |
 | `models.PartyPUTCustomAttributesRequest` | [ModelsPartyPUTCustomAttributesRequest](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsPartyPUTCustomAttributesRequest.java) |
 | `models.PartyPUTLimitSizeRequest` | [ModelsPartyPUTLimitSizeRequest](../../src/main/java/net/accelbyte/sdk/api/lobby/models/ModelsPartyPUTLimitSizeRequest.java) |

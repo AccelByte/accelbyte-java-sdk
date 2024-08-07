@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelDeviceBanResponseV4 extends Model {
 
   @JsonProperty("bannedAt")
-  private Integer bannedAt;
+  private Long bannedAt;
 
   @JsonProperty("bannedBy")
   private String bannedBy;
@@ -41,13 +41,13 @@ public class ModelDeviceBanResponseV4 extends Model {
   private String deviceType;
 
   @JsonProperty("disabledAt")
-  private Integer disabledAt;
+  private Long disabledAt;
 
   @JsonProperty("enabled")
   private Boolean enabled;
 
   @JsonProperty("endDate")
-  private Integer endDate;
+  private Long endDate;
 
   @JsonProperty("id")
   private String id;

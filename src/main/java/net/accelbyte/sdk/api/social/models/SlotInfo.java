@@ -63,7 +63,7 @@ public class SlotInfo extends Model {
 
   @JsonProperty("size")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer size;
+  private Long size;
 
   @JsonProperty("slotId")
   @JsonInclude(JsonInclude.Include.NON_NULL)

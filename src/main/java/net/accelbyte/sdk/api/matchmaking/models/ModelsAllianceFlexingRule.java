@@ -29,7 +29,7 @@ public class ModelsAllianceFlexingRule extends Model {
   private ModelsCombination combination;
 
   @JsonProperty("duration")
-  private Integer duration;
+  private Long duration;
 
   @JsonProperty("max_number")
   private Integer maxNumber;

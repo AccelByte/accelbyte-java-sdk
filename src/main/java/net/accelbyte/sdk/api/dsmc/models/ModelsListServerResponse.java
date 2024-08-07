@@ -30,7 +30,7 @@ public class ModelsListServerResponse extends Model {
 
   @JsonProperty("servers")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private List<ModelsServer> servers;
+  private List<ModelsServerDetailsResponse> servers;
 
   @JsonIgnore
   public ModelsListServerResponse createFromJson(String json) throws JsonProcessingException {

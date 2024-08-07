@@ -26,10 +26,10 @@ import net.accelbyte.sdk.core.Model;
 public class OrderStatistics extends Model {
 
   @JsonProperty("statusCount")
-  private Map<String, Integer> statusCount;
+  private Map<String, Long> statusCount;
 
   @JsonProperty("total")
-  private Integer total;
+  private Long total;
 
   @JsonIgnore
   public OrderStatistics createFromJson(String json) throws JsonProcessingException {

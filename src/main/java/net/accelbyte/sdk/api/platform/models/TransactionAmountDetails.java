@@ -27,7 +27,7 @@ public class TransactionAmountDetails extends Model {
 
   @JsonProperty("amount")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer amount;
+  private Long amount;
 
   @JsonProperty("expireAt")
   @JsonInclude(JsonInclude.Include.NON_NULL)

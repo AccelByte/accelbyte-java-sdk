@@ -26,13 +26,13 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsTopicResponse extends Model {
 
   @JsonProperty("createdAt")
-  private Integer createdAt;
+  private Long createdAt;
 
   @JsonProperty("createdBy")
   private String createdBy;
 
   @JsonProperty("lastMessageAt")
-  private Integer lastMessageAt;
+  private Long lastMessageAt;
 
   @JsonProperty("name")
   private String name;

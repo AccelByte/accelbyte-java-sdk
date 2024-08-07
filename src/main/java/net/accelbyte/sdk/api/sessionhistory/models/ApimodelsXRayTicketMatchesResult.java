@@ -29,6 +29,10 @@ public class ApimodelsXRayTicketMatchesResult extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String createdAt;
 
+  @JsonProperty("IsPivot")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean isPivot;
+
   @JsonProperty("Latencies")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, Integer> latencies;
@@ -53,6 +57,10 @@ public class ApimodelsXRayTicketMatchesResult extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private ModelsProposedProposal proposedProposal;
 
+  @JsonProperty("RegionPreference")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> regionPreference;
+
   @JsonProperty("TicketAttributes")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ?> ticketAttributes;
@@ -60,6 +68,10 @@ public class ApimodelsXRayTicketMatchesResult extends Model {
   @JsonProperty("TicketID")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String ticketID;
+
+  @JsonProperty("TimeToMatch")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Float timeToMatch;
 
   @JsonIgnore
   public ApimodelsXRayTicketMatchesResult createFromJson(String json)

@@ -30,10 +30,10 @@ public class ModelsGetInboxMessagesResponseData extends Model {
   private String category;
 
   @JsonProperty("createdAt")
-  private Integer createdAt;
+  private Long createdAt;
 
   @JsonProperty("expiredAt")
-  private Integer expiredAt;
+  private Long expiredAt;
 
   @JsonProperty("id")
   private String id;
@@ -52,7 +52,7 @@ public class ModelsGetInboxMessagesResponseData extends Model {
   private String status;
 
   @JsonProperty("updatedAt")
-  private Integer updatedAt;
+  private Long updatedAt;
 
   @JsonProperty("userIds")
   @JsonInclude(JsonInclude.Include.NON_NULL)

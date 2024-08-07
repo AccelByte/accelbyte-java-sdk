@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ApiCreateTopicResponse extends Model {
 
   @JsonProperty("createdAt")
-  private Integer createdAt;
+  private Long createdAt;
 
   @JsonProperty("createdBy")
   private String createdBy;

@@ -33,6 +33,10 @@ public class DeductionDetail extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private DiscountCodeDeductionDetail discountCodeDeductionDetail;
 
+  @JsonProperty("discountProviderName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String discountProviderName;
+
   @JsonIgnore
   public String getDeductionType() {
     return this.deductionType;
@@ -64,7 +68,8 @@ public class DeductionDetail extends Model {
   }
 
   public enum DeductionType {
-    DISCOUNTCODE("DISCOUNT_CODE");
+    DISCOUNTCODE("DISCOUNT_CODE"),
+    PAYMENTDISCOUNTCODE("PAYMENT_DISCOUNT_CODE");
 
     private String value;
 

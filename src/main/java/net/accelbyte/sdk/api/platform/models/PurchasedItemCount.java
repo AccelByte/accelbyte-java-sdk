@@ -27,7 +27,7 @@ public class PurchasedItemCount extends Model {
 
   @JsonProperty("count")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer count;
+  private Long count;
 
   @JsonIgnore
   public PurchasedItemCount createFromJson(String json) throws JsonProcessingException {

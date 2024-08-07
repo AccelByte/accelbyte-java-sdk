@@ -29,6 +29,10 @@ public class Predicate extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer anyOf;
 
+  @JsonProperty("code")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String code;
+
   @JsonProperty("comparison")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String comparison;
@@ -124,7 +128,8 @@ public class Predicate extends Model {
   public enum PredicateType {
     EntitlementPredicate("EntitlementPredicate"),
     SeasonPassPredicate("SeasonPassPredicate"),
-    SeasonTierPredicate("SeasonTierPredicate");
+    SeasonTierPredicate("SeasonTierPredicate"),
+    StatisticCodePredicate("StatisticCodePredicate");
 
     private String value;
 

@@ -31,7 +31,7 @@ public class SteamAchievement extends Model {
 
   @JsonProperty("value")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer value;
+  private Long value;
 
   @JsonIgnore
   public SteamAchievement createFromJson(String json) throws JsonProcessingException {

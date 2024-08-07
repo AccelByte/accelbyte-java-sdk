@@ -41,6 +41,11 @@ public class PublicGetUserProgression implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--dateTime"},
+      description = "dateTime")
+  String dateTime;
+
+  @Option(
       names = {"--goalCode"},
       description = "goalCode")
   String goalCode;
@@ -88,6 +93,7 @@ public class PublicGetUserProgression implements Callable<Integer> {
                   .PublicGetUserProgression.builder()
                   .challengeCode(challengeCode)
                   .namespace(namespace)
+                  .dateTime(dateTime)
                   .goalCode(goalCode)
                   .limit(limit)
                   .offset(offset)

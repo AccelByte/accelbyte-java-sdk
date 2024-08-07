@@ -23,7 +23,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getUserDLC
  *
- * <p>Get user dlc records. Other detail info:
+ * <p>Get user dlc records. Note: includeAllNamespaces means this endpoint will return user dlcs
+ * from all namespace, example scenario isadmin may need to check the user dlcs before unlink a 3rd
+ * party account, so the user dlcs should be from all namespaces because unlinking is a platform
+ * level action Other detail info:
  *
  * <p>* Returns : user dlc
  */
@@ -42,6 +45,8 @@ public class GetUserDLC extends Operation {
   private String namespace;
 
   private String userId;
+  private Boolean includeAllNamespaces;
+  private String status;
   private String type;
 
   /**
@@ -51,9 +56,12 @@ public class GetUserDLC extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public GetUserDLC(String namespace, String userId, String type) {
+  public GetUserDLC(
+      String namespace, String userId, Boolean includeAllNamespaces, String status, String type) {
     this.namespace = namespace;
     this.userId = userId;
+    this.includeAllNamespaces = includeAllNamespaces;
+    this.status = status;
     this.type = type;
 
     securities.add("Bearer");
@@ -74,6 +82,12 @@ public class GetUserDLC extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "includeAllNamespaces",
+        this.includeAllNamespaces == null
+            ? null
+            : Arrays.asList(String.valueOf(this.includeAllNamespaces)));
+    queryParams.put("status", this.status == null ? null : Arrays.asList(this.status));
     queryParams.put("type", this.type == null ? null : Arrays.asList(this.type));
     return queryParams;
   }
@@ -102,8 +116,27 @@ public class GetUserDLC extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("includeAllNamespaces", "None");
+    result.put("status", "None");
     result.put("type", "None");
     return result;
+  }
+
+  public enum Status {
+    FULFILLED("FULFILLED"),
+    REVOKED("REVOKED"),
+    REVOKEFAILED("REVOKE_FAILED");
+
+    private String value;
+
+    Status(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
   }
 
   public enum Type {
@@ -126,7 +159,18 @@ public class GetUserDLC extends Operation {
   }
 
   public static class GetUserDLCBuilder {
+    private String status;
     private String type;
+
+    public GetUserDLCBuilder status(final String status) {
+      this.status = status;
+      return this;
+    }
+
+    public GetUserDLCBuilder statusFromEnum(final Status status) {
+      this.status = status.toString();
+      return this;
+    }
 
     public GetUserDLCBuilder type(final String type) {
       this.type = type;

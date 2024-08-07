@@ -36,6 +36,10 @@ public class ModelsTicketData extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsMatchingRule> activeMatchingRule;
 
+  @JsonProperty("elapsedTime")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Float elapsedTime;
+
   @JsonProperty("function")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String function;
@@ -45,6 +49,9 @@ public class ModelsTicketData extends Model {
 
   @JsonProperty("isBackfillMatch")
   private Boolean isBackfillMatch;
+
+  @JsonProperty("isPivot")
+  private Boolean isPivot;
 
   @JsonProperty("isRuleSetFlexed")
   private Boolean isRuleSetFlexed;
@@ -56,6 +63,12 @@ public class ModelsTicketData extends Model {
   @JsonProperty("matchID")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String matchID;
+
+  @JsonProperty("matchedRegion")
+  private String matchedRegion;
+
+  @JsonProperty("memberAttributes")
+  private Map<String, ?> memberAttributes;
 
   @JsonProperty("namespace")
   private String namespace;
@@ -82,7 +95,7 @@ public class ModelsTicketData extends Model {
   private String sessionTickID;
 
   @JsonProperty("tickID")
-  private Integer tickID;
+  private Long tickID;
 
   @JsonProperty("timeToMatchSec")
   @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -90,6 +103,9 @@ public class ModelsTicketData extends Model {
 
   @JsonProperty("timestamp")
   private String timestamp;
+
+  @JsonProperty("totalPlayers")
+  private Integer totalPlayers;
 
   @JsonProperty("unbackfillReason")
   @JsonInclude(JsonInclude.Include.NON_NULL)

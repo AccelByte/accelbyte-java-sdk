@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsPlayerRecordSizeResponse extends Model {
 
   @JsonProperty("current_size")
-  private Integer currentSize;
+  private Long currentSize;
 
   @JsonProperty("key")
   private String key;
@@ -35,7 +35,7 @@ public class ModelsPlayerRecordSizeResponse extends Model {
   private String namespace;
 
   @JsonProperty("remaining_size")
-  private Integer remainingSize;
+  private Long remainingSize;
 
   @JsonProperty("user_id")
   private String userId;

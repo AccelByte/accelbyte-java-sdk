@@ -27,7 +27,7 @@ public class TopicInfoMember extends Model {
 
   @JsonProperty("leftAt")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer leftAt;
+  private Long leftAt;
 
   @JsonProperty("userId")
   private String userId;

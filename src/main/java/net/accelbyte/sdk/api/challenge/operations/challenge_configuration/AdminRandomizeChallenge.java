@@ -24,7 +24,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminRandomizeChallenge
  *
  * <p>* Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [UPDATE] This is a utility
- * endpoint to execute randomize goals schedule on challenge that the assignmentRule is RANDOMIZED.
+ * endpoint to execute randomize goals schedule on challenge that the assignmentRule is RANDOMIZED
+ * and RandomizePerRotation assigned with true.
  */
 @Getter
 @Setter

@@ -39,7 +39,7 @@ public class ApimodelsMatchMatchmaking extends Model {
 
   @JsonProperty("value")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer value;
+  private Long value;
 
   @JsonIgnore
   public ApimodelsMatchMatchmaking createFromJson(String json) throws JsonProcessingException {

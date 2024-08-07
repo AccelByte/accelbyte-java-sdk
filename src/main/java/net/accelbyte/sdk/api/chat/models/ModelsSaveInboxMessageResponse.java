@@ -30,7 +30,7 @@ public class ModelsSaveInboxMessageResponse extends Model {
   private String category;
 
   @JsonProperty("expiredAt")
-  private Integer expiredAt;
+  private Long expiredAt;
 
   @JsonProperty("id")
   private String id;

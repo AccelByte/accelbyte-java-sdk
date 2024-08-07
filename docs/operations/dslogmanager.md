@@ -20,6 +20,7 @@
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
 | `/dslogmanager/servers/logs/download` | POST | BatchDownloadServerLogs | [BatchDownloadServerLogs](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/operations/all_terminated_servers/BatchDownloadServerLogs.java) | [BatchDownloadServerLogs](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dslogmanager/all_terminated_servers/BatchDownloadServerLogs.java) |
+| `/dslogmanager/servers/metadata` | POST | ListMetadataServers | [ListMetadataServers](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/operations/all_terminated_servers/ListMetadataServers.java) | [ListMetadataServers](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dslogmanager/all_terminated_servers/ListMetadataServers.java) |
 | `/dslogmanager/servers/search` | GET | ListAllTerminatedServers | [ListAllTerminatedServers](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/operations/all_terminated_servers/ListAllTerminatedServers.java) | [ListAllTerminatedServers](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/dslogmanager/all_terminated_servers/ListAllTerminatedServers.java) |
 
 ### Dslogmanager Operations Wrapper:  [DslogmanagerOperations](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/wrappers/DslogmanagerOperations.java)
@@ -41,12 +42,13 @@
 | `models.ListTerminatedServersResponse` | [ModelsListTerminatedServersResponse](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/models/ModelsListTerminatedServersResponse.java) |
 | `models.LogFileStatus` | [ModelsLogFileStatus](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/models/ModelsLogFileStatus.java) |
 | `models.MatchResult` | [ModelsMatchResult](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/models/ModelsMatchResult.java) |
-| `models.NotifPayloadServerStatusChange` | [ModelsNotifPayloadServerStatusChange](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/models/ModelsNotifPayloadServerStatusChange.java) |
+| `models.MetadataServersRequest` | [ModelsMetadataServersRequest](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/models/ModelsMetadataServersRequest.java) |
+| `models.NotifPayloadServerStatusChangeResponse` | [ModelsNotifPayloadServerStatusChangeResponse](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/models/ModelsNotifPayloadServerStatusChangeResponse.java) |
 | `models.PagingCursor` | [ModelsPagingCursor](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/models/ModelsPagingCursor.java) |
 | `models.RequestMatchMember` | [ModelsRequestMatchMember](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/models/ModelsRequestMatchMember.java) |
 | `models.RequestMatchParty` | [ModelsRequestMatchParty](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/models/ModelsRequestMatchParty.java) |
 | `models.RequestMatchingAlly` | [ModelsRequestMatchingAlly](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/models/ModelsRequestMatchingAlly.java) |
-| `models.Server` | [ModelsServer](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/models/ModelsServer.java) |
 | `models.ServerLogs` | [ModelsServerLogs](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/models/ModelsServerLogs.java) |
+| `models.ServerResponse` | [ModelsServerResponse](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/models/ModelsServerResponse.java) |
 | `models.StatusHistory` | [ModelsStatusHistory](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/models/ModelsStatusHistory.java) |
 | `response.Error` | [ResponseError](../../src/main/java/net/accelbyte/sdk/api/dslogmanager/models/ResponseError.java) |

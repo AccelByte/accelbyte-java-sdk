@@ -32,7 +32,7 @@ public class ModelsFlexingRule extends Model {
   private String criteria;
 
   @JsonProperty("duration")
-  private Integer duration;
+  private Long duration;
 
   @JsonProperty("reference")
   private Float reference;

@@ -41,7 +41,7 @@ public class ModelsBucketMMRRule extends Model {
   private Integer flexRangeMax;
 
   @JsonProperty("flex_rate_ms")
-  private Integer flexRateMs;
+  private Long flexRateMs;
 
   @JsonProperty("flex_step_max")
   private Integer flexStepMax;

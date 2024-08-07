@@ -26,13 +26,13 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsCountActiveSessionResponse extends Model {
 
   @JsonProperty("custom_game")
-  private Integer customGame;
+  private Long customGame;
 
   @JsonProperty("matchmaking_game")
-  private Integer matchmakingGame;
+  private Long matchmakingGame;
 
   @JsonProperty("total")
-  private Integer total;
+  private Long total;
 
   @JsonIgnore
   public ModelsCountActiveSessionResponse createFromJson(String json)

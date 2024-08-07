@@ -56,7 +56,7 @@ public class ApiArtifactResponse extends Model {
   private String region;
 
   @JsonProperty("sizeBytes")
-  private Integer sizeBytes;
+  private Long sizeBytes;
 
   @JsonProperty("status")
   private String status;

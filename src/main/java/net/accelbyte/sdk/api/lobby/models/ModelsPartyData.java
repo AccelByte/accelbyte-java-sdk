@@ -44,7 +44,7 @@ public class ModelsPartyData extends Model {
   private String partyId;
 
   @JsonProperty("updatedAt")
-  private Integer updatedAt;
+  private Long updatedAt;
 
   @JsonIgnore
   public ModelsPartyData createFromJson(String json) throws JsonProcessingException {

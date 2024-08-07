@@ -70,7 +70,7 @@ public class ModelsMockMatch extends Model {
   private String partyId;
 
   @JsonProperty("queued_at")
-  private Integer queuedAt;
+  private Long queuedAt;
 
   @JsonProperty("region")
   private String region;
@@ -89,7 +89,7 @@ public class ModelsMockMatch extends Model {
   private List<String> ticketIds;
 
   @JsonProperty("time_to_match_seconds")
-  private Integer timeToMatchSeconds;
+  private Long timeToMatchSeconds;
 
   @JsonProperty("updated_at")
   private String updatedAt;

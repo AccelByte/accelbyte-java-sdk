@@ -31,6 +31,10 @@ public class ModelResetPasswordRequestV3 extends Model {
   @JsonProperty("emailAddress")
   private String emailAddress;
 
+  @JsonProperty("languageTag")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String languageTag;
+
   @JsonProperty("newPassword")
   private String newPassword;
 

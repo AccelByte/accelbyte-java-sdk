@@ -43,7 +43,7 @@ public class ApiAccountLimits extends Model {
 
   @JsonProperty("imageStorageQuotaBytes")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer imageStorageQuotaBytes;
+  private Long imageStorageQuotaBytes;
 
   @JsonIgnore
   public ApiAccountLimits createFromJson(String json) throws JsonProcessingException {

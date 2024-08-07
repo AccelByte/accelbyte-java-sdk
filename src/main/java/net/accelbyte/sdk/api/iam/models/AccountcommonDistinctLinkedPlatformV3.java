@@ -26,6 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class AccountcommonDistinctLinkedPlatformV3 extends Model {
 
   @JsonProperty("details")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<AccountcommonSimpleUserPlatformInfoV3> details;
 
   @JsonProperty("linkedAt")
@@ -34,6 +35,10 @@ public class AccountcommonDistinctLinkedPlatformV3 extends Model {
   @JsonProperty("logoURL")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String logoURL;
+
+  @JsonProperty("platformDisplayName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String platformDisplayName;
 
   @JsonProperty("platformGroup")
   private String platformGroup;
@@ -44,6 +49,9 @@ public class AccountcommonDistinctLinkedPlatformV3 extends Model {
   @JsonProperty("platformUserId")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String platformUserId;
+
+  @JsonProperty("status")
+  private String status;
 
   @JsonIgnore
   public AccountcommonDistinctLinkedPlatformV3 createFromJson(String json)

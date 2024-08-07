@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class PaymentRequest extends Model {
 
   @JsonProperty("amount")
-  private Integer amount;
+  private Long amount;
 
   @JsonProperty("metadata")
   @JsonInclude(JsonInclude.Include.NON_NULL)

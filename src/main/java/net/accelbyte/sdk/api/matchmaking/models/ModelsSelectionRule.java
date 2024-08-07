@@ -29,7 +29,7 @@ public class ModelsSelectionRule extends Model {
   private String selection;
 
   @JsonProperty("threshold")
-  private Integer threshold;
+  private Long threshold;
 
   @JsonIgnore
   public ModelsSelectionRule createFromJson(String json) throws JsonProcessingException {

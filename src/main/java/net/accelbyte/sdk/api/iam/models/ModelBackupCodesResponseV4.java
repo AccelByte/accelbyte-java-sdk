@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelBackupCodesResponseV4 extends Model {
 
   @JsonProperty("generatedAt")
-  private Integer generatedAt;
+  private Long generatedAt;
 
   @JsonProperty("invalidCodes")
   @JsonInclude(JsonInclude.Include.NON_NULL)

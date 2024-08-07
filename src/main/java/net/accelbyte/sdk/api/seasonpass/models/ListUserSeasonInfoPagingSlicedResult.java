@@ -34,7 +34,7 @@ public class ListUserSeasonInfoPagingSlicedResult extends Model {
 
   @JsonProperty("total")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer total;
+  private Long total;
 
   @JsonIgnore
   public ListUserSeasonInfoPagingSlicedResult createFromJson(String json)

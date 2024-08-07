@@ -51,6 +51,8 @@ import picocli.CommandLine.Command;
       PublicUnbanTopicMembers.class,
       PublicUnmuteUser.class,
       AdminGetAllConfigV1.class,
+      AdminGetLogConfig.class,
+      AdminPatchUpdateLogConfig.class,
       AdminGetConfigV1.class,
       AdminUpdateConfigV1.class,
       ExportConfig.class,

@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class CreditRequest extends Model {
 
   @JsonProperty("amount")
-  private Integer amount;
+  private Long amount;
 
   @JsonProperty("expireAt")
   @JsonInclude(JsonInclude.Include.NON_NULL)

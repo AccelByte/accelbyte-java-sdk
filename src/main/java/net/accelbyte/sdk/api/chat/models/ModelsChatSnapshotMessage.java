@@ -29,7 +29,7 @@ public class ModelsChatSnapshotMessage extends Model {
   private String chatId;
 
   @JsonProperty("createdAt")
-  private Integer createdAt;
+  private Long createdAt;
 
   @JsonProperty("message")
   private String message;

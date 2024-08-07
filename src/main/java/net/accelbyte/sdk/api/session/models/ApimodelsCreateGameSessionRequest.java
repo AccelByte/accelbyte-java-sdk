@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApimodelsCreateGameSessionRequest extends Model {
 
+  @JsonProperty("appName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String appName;
+
   @JsonProperty("attributes")
   private Map<String, ?> attributes;
 
@@ -83,6 +87,10 @@ public class ApimodelsCreateGameSessionRequest extends Model {
 
   @JsonProperty("serverName")
   private String serverName;
+
+  @JsonProperty("storage")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ApimodelsSessionStorageRequest storage;
 
   @JsonProperty("teams")
   private List<ModelsTeam> teams;

@@ -29,7 +29,7 @@ public class ModelsSortTicketRule extends Model {
   private String searchResult;
 
   @JsonProperty("threshold")
-  private Integer threshold;
+  private Long threshold;
 
   @JsonProperty("ticket_queue")
   private String ticketQueue;

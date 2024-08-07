@@ -242,6 +242,15 @@ public class GameSession {
   }
 
   /**
+   * @see PublicGameSessionCancel
+   */
+  public void publicGameSessionCancel(PublicGameSessionCancel input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicQueryMyGameSessions
    */
   public ApimodelsGameSessionQueryResponse publicQueryMyGameSessions(

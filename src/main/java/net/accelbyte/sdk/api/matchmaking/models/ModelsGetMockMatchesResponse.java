@@ -32,7 +32,7 @@ public class ModelsGetMockMatchesResponse extends Model {
   private Integer largestMmrDistance;
 
   @JsonProperty("longest_time_to_match_seconds")
-  private Integer longestTimeToMatchSeconds;
+  private Long longestTimeToMatchSeconds;
 
   @JsonProperty("matches")
   private List<ModelsMockMatch> matches;

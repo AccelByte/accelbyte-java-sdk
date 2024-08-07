@@ -27,7 +27,7 @@ public class SimpleWallet extends Model {
 
   @JsonProperty("balance")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer balance;
+  private Long balance;
 
   @JsonProperty("balanceOrigin")
   @JsonInclude(JsonInclude.Include.NON_NULL)

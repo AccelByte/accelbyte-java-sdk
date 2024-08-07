@@ -31,7 +31,7 @@ public class ModelsConfigResponse extends Model {
 
   @JsonProperty("chatRateLimitDuration")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer chatRateLimitDuration;
+  private Long chatRateLimitDuration;
 
   @JsonProperty("concurrentUsersLimit")
   @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -67,7 +67,7 @@ public class ModelsConfigResponse extends Model {
 
   @JsonProperty("generalRateLimitDuration")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer generalRateLimitDuration;
+  private Long generalRateLimitDuration;
 
   @JsonProperty("maxChatMessageLength")
   @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -91,11 +91,11 @@ public class ModelsConfigResponse extends Model {
 
   @JsonProperty("spamChatDuration")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer spamChatDuration;
+  private Long spamChatDuration;
 
   @JsonProperty("spamMuteDuration")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer spamMuteDuration;
+  private Long spamMuteDuration;
 
   @JsonIgnore
   public ModelsConfigResponse createFromJson(String json) throws JsonProcessingException {

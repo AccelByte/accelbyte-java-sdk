@@ -67,7 +67,7 @@ public class ModelsMatchmakingResult extends Model {
   private String partyId;
 
   @JsonProperty("queued_at")
-  private Integer queuedAt;
+  private Long queuedAt;
 
   @JsonProperty("region")
   private String region;

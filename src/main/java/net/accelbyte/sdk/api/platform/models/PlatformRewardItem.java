@@ -29,6 +29,10 @@ public class PlatformRewardItem extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String itemId;
 
+  @JsonProperty("itemName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String itemName;
+
   @JsonProperty("itemSku")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String itemSku;

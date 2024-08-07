@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsListImagePatchesResponse extends Model {
 
   @JsonProperty("images")
-  private List<ModelsPatchImageRecord> images;
+  private List<ModelsPatchImageRecordResponse> images;
 
   @JsonIgnore
   public ModelsListImagePatchesResponse createFromJson(String json) throws JsonProcessingException {

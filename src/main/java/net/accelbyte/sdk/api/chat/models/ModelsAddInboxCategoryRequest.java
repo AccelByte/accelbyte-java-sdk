@@ -29,7 +29,7 @@ public class ModelsAddInboxCategoryRequest extends Model {
   private Boolean enabled;
 
   @JsonProperty("expiresIn")
-  private Integer expiresIn;
+  private Long expiresIn;
 
   @JsonProperty("hook")
   @JsonInclude(JsonInclude.Include.NON_NULL)

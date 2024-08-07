@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsQueryMockBy extends Model {
 
   @JsonProperty("timestamp_after")
-  private Integer timestampAfter;
+  private Long timestampAfter;
 
   @JsonIgnore
   public ModelsQueryMockBy createFromJson(String json) throws JsonProcessingException {

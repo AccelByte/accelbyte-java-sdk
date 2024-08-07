@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsListImageResponse extends Model {
 
   @JsonProperty("images")
-  private List<ModelsImageRecord> images;
+  private List<ModelsImageRecordResponse> images;
 
   @JsonProperty("paging")
   private ModelsPagingCursor paging;

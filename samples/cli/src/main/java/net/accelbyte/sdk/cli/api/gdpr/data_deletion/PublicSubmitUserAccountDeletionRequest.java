@@ -42,6 +42,11 @@ public class PublicSubmitUserAccountDeletionRequest implements Callable<Integer>
   String userId;
 
   @Option(
+      names = {"--languageTag"},
+      description = "languageTag")
+  String languageTag;
+
+  @Option(
       names = {"--password"},
       description = "password")
   String password;
@@ -74,6 +79,7 @@ public class PublicSubmitUserAccountDeletionRequest implements Callable<Integer>
                   .PublicSubmitUserAccountDeletionRequest.builder()
                   .namespace(namespace)
                   .userId(userId)
+                  .languageTag(languageTag != null ? languageTag : null)
                   .password(password != null ? password : null)
                   .build();
       final ModelsRequestDeleteResponse response =

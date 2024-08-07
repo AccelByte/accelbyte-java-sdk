@@ -26,13 +26,13 @@ import net.accelbyte.sdk.core.Model;
 public class RestapiTicketStatisticResponse extends Model {
 
   @JsonProperty("moderatedCount")
-  private Integer moderatedCount;
+  private Long moderatedCount;
 
   @JsonProperty("openCount")
-  private Integer openCount;
+  private Long openCount;
 
   @JsonProperty("totalCount")
-  private Integer totalCount;
+  private Long totalCount;
 
   @JsonIgnore
   public RestapiTicketStatisticResponse createFromJson(String json) throws JsonProcessingException {

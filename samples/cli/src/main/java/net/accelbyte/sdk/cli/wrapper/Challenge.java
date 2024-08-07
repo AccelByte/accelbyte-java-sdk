@@ -40,6 +40,7 @@ import picocli.CommandLine.Command;
       PublicGetScheduledGoals.class,
       EvaluateMyProgress.class,
       PublicGetUserProgression.class,
+      PublicGetPastUserProgression.class,
       PublicGetUserRewards.class,
       PublicClaimUserRewards.class,
     })

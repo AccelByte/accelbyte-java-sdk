@@ -29,7 +29,7 @@ public class ModelsArchiveLeaderboardReq extends Model {
   private List<String> leaderboardCodes;
 
   @JsonProperty("limit")
-  private Integer limit;
+  private Long limit;
 
   @JsonProperty("slug")
   private String slug;

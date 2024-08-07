@@ -371,6 +371,16 @@ public class UserStatistic {
   }
 
   /**
+   * @see BulkGetOrDefaultByUserId
+   */
+  public List<ADTOObjectForUserStatItemValue> bulkGetOrDefaultByUserId(
+      BulkGetOrDefaultByUserId input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see BulkResetUserStatItemValues
    */
   public List<BulkStatOperationResult> bulkResetUserStatItemValues(

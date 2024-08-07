@@ -29,13 +29,13 @@ public class ModelsPublicConfigResponse extends Model {
   private Integer chatRateLimitBurst;
 
   @JsonProperty("chatRateLimitDuration")
-  private Integer chatRateLimitDuration;
+  private Long chatRateLimitDuration;
 
   @JsonProperty("generalRateLimitBurst")
   private Integer generalRateLimitBurst;
 
   @JsonProperty("generalRateLimitDuration")
-  private Integer generalRateLimitDuration;
+  private Long generalRateLimitDuration;
 
   @JsonProperty("maxChatMessageLength")
   private Integer maxChatMessageLength;
@@ -44,10 +44,10 @@ public class ModelsPublicConfigResponse extends Model {
   private Integer spamChatBurst;
 
   @JsonProperty("spamChatDuration")
-  private Integer spamChatDuration;
+  private Long spamChatDuration;
 
   @JsonProperty("spamMuteDuration")
-  private Integer spamMuteDuration;
+  private Long spamMuteDuration;
 
   @JsonIgnore
   public ModelsPublicConfigResponse createFromJson(String json) throws JsonProcessingException {
