@@ -18,20 +18,25 @@ import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.util.*;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
+
+import lombok.Getter;
 import lombok.extern.java.Log;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.GetCountryLocationV3;
 import net.accelbyte.sdk.api.iam.wrappers.OAuth20Extension;
+import net.accelbyte.sdk.api.lobby.ws_models.ConnectNotif;
 import net.accelbyte.sdk.api.lobby.ws_models.PartyCreateRequest;
+import net.accelbyte.sdk.api.lobby.ws_models.RefreshTokenRequest;
 import net.accelbyte.sdk.core.client.*;
 import net.accelbyte.sdk.core.client.DefaultHttpRetryPolicy.RetryIntervalType;
 import net.accelbyte.sdk.core.repository.*;
 import net.accelbyte.sdk.core.util.Helper;
 import net.accelbyte.sdk.integration.TestHelper;
-import okhttp3.WebSocket;
-import okhttp3.WebSocketListener;
+import okhttp3.*;
+import org.checkerframework.checker.units.qual.C;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -47,6 +52,7 @@ class TestCore {
   private final TokenRepository tokenRepository = DefaultTokenRepository.getInstance();
   private final ConfigRepository httpbinConfigRepository = new HttpbinConfigRepository();
   private final ConfigRepository mockServerConfigRepository = new MockServerConfigRepository();
+  private final OkHttpClient client = new OkHttpClient();
 
   @ParameterizedTest
   @ValueSource(strings = {"GET", "POST", "PUT", "PATCH", "DELETE"})
@@ -768,83 +774,309 @@ class TestCore {
         tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
   }
 
-  @Test
-  public void testLobbyWebsocket() throws Exception {
-    final int RECONNECT_DELAY_MS = 3000;
-    final int PING_INTERVAL_MS = 1500;
-    final int MESSAGE_INTERVAL_MS = 2000;
+    public static class TestLobbyListener extends WebSocketListener {
 
-    final String request_id = TestHelper.generateRandomId(64);
-    final CountDownLatch response = new CountDownLatch(100);
-    final StringBuilder responseMessage = new StringBuilder();
+        @Getter
+        private String lobbySessionId;
 
-    final WebSocketListener listener =
-        new WebSocketListener() {
-          @Override
-          public void onMessage(@NotNull WebSocket webSocket, @NotNull String text) {
-            log.info("Client onMessage");
-            if (response.getCount() > 0) {
-              log.info("Received onMessage: \n" + text);
-              responseMessage.append(text + "\n");
-              response.countDown();
+        @Getter
+        private String token;
+
+        @Getter
+        private int numPartyCreateRequestsReceived;
+
+        @Getter
+        private CountDownLatch lobbySesionIdLatch = new CountDownLatch(1);
+
+        @Getter
+        private CountDownLatch tokenLatch = new CountDownLatch(1);
+
+        @Getter
+        private CountDownLatch partyRequestLatch = new CountDownLatch(1);
+
+        @Getter
+        private CountDownLatch onOpenedLatch = new CountDownLatch(1);
+
+        public void resetLobbySessionIdLatch() {
+            lobbySesionIdLatch = new CountDownLatch(1);
+        }
+
+        public void resetTokenLatch() {
+            tokenLatch = new CountDownLatch(1);
+        }
+
+        public void resetOnOpenedLatch() {
+            onOpenedLatch = new CountDownLatch(1);
+        }
+
+        public void resetPartyRequestLatch() {
+            partyRequestLatch = new CountDownLatch(1);
+        }
+
+        public void resetNumPartyCreateRequestsReceived() {
+            numPartyCreateRequestsReceived = 0;
+        }
+        @Override
+        public void onMessage(@NotNull WebSocket webSocket, @NotNull String text) {
+            log.info("Client onMessage: --> " + text);
+            if (text.contains(ConnectNotif.getType())) {
+                final ConnectNotif notif = ConnectNotif.createFromWSM(text);
+                lobbySessionId = notif.getLobbySessionID();
+                log.info("lobbySessionID: " + lobbySessionId);
+                lobbySesionIdLatch.countDown();
+            } else if (text.contains(RefreshTokenRequest.getType())) {
+                final RefreshTokenRequest notif = RefreshTokenRequest.createFromWSM(text);
+                token = notif.getToken();
+                log.info("Refreshed token: " + token);
+                tokenLatch.countDown();
+            } else if (text.contains(PartyCreateRequest.getType())) {
+                final PartyCreateRequest notif = PartyCreateRequest.createFromWSM(text);
+                log.info("Party create request id: " + notif.getId());
+                numPartyCreateRequestsReceived++;
+                partyRequestLatch.countDown();
             }
-          }
+        }
 
-          @Override
-          public void onOpen(WebSocket webSocket, okhttp3.Response response) {
+        @Override
+        public void onOpen(WebSocket webSocket, okhttp3.Response response) {
             log.info("Client onOpen");
-          }
+        }
 
-          @Override
-          public void onClosing(WebSocket webSocket, int code, String reason) {
+        @Override
+        public void onClosing(WebSocket webSocket, int code, String reason) {
             log.info("Client onClosing");
-          }
+        }
 
-          @Override
-          public void onClosed(WebSocket webSocket, int code, String reason) {
+        @Override
+        public void onClosed(WebSocket webSocket, int code, String reason) {
             log.info("Client onClosed");
-          }
+        }
 
-          @Override
-          public void onFailure(WebSocket webSocket, Throwable t, okhttp3.Response response) {
+        @Override
+        public void onFailure(WebSocket webSocket, Throwable t, okhttp3.Response response) {
             log.info("Client onFailure");
-          }
-        };
+        }
+    }
 
-    final LobbyWebSocketClient ws =
+    public void forceCloseMockServer(String baseUrl, int statusCode) throws Exception {
+        // Build the POST request without a body
+        Request request = new Request.Builder()
+                .url(baseUrl + "/ws/lobby/force-close?errorCode=" + statusCode)
+                .post(RequestBody.create(null, new byte[0])) // Use an empty body
+                .build();
+
+        // Execute the request and get the response
+        try (Response response = client.newCall(request).execute()) {
+            // Assert the status code of the response
+            assertEquals(204, response.code());     // 204 No Content
+        }
+    }
+
+    // Verifies a ws closure of 2000 status code will yield auto-reconnect, and the previous lobby session id will be reused
+    // In conjunction validates the lobby token refresh for the ws event still works after reconnect
+    @Test
+    public void testLobbyReconnectWithTokenRefresh() throws Exception {
+        final int FORCE_WS_CLOSE_STATUS_CODE = 2000;
+        final int RECONNECT_DELAY_MS = 2000;
+        final int PING_INTERVAL_MS = 1000;
+        final int MAX_NUM_RECONNECT_ATTEMPTS = 10;
+
+        final MockServerConfigRepository configRepo = new MockServerConfigRepository();
+
+        final TestLobbyListener lobbyListener = new TestLobbyListener();
+
+        final LobbyWebSocketClient ws =
             LobbyWebSocketClient.create(
-            new MockServerConfigRepository(),
-            DefaultTokenRepository.getInstance(),
-            listener,
-            RECONNECT_DELAY_MS,
-            PING_INTERVAL_MS);
+                configRepo,
+                DefaultTokenRepository.getInstance(),
+                lobbyListener,
+                RECONNECT_DELAY_MS,
+                MAX_NUM_RECONNECT_ATTEMPTS,
+                PING_INTERVAL_MS);
 
-    ws.connect(false);
+        // Connect to the Mock Server’s Lobby Service.
+        ws.connect();
 
-    final String requestMessage = PartyCreateRequest.builder().id(request_id).build().toWSM();
+        // Assert we're connected
+        lobbyListener.getOnOpenedLatch().await(5, TimeUnit.SECONDS);
+        assertTrue(ws.isConnected());
+        lobbyListener.resetOnOpenedLatch();
 
-    log.info(requestMessage);
+        // Await for the connectNotif message, or timeout
+        lobbyListener.getLobbySesionIdLatch().await(5, TimeUnit.SECONDS);
 
-    ws.sendMessage(requestMessage);
+        // Assert that the value from the WebSocket Client using GetData("LobbySessionId") is equal to originalLobbySessionId.
+        String originalLobbySessionId = (String) ws.getData(LobbyWebSocketClient.LOBBY_SESSION_ID_DATAMAP_KEY);
+        assertEquals(lobbyListener.getLobbySessionId(), originalLobbySessionId);
 
-    for (int i = 1; i < 30; i++) {
-      DefaultTokenRepository.getInstance().storeToken("token1");
+        // Force close the Mock Server WS connection
+        log.info("force closing mock server - status " + FORCE_WS_CLOSE_STATUS_CODE);
+        forceCloseMockServer(configRepo.getBaseURL(), FORCE_WS_CLOSE_STATUS_CODE);
 
-      sleep(MESSAGE_INTERVAL_MS);
+        // Assert that the websocket connection has disconnected.
+        assertFalse(ws.isConnected());
 
-      DefaultTokenRepository.getInstance().storeToken("token2");
-      ws.sendMessage(requestMessage);
+        // Assert that the websocket connection has reconnected.
+        lobbyListener.getOnOpenedLatch().await(RECONNECT_DELAY_MS + 5000, TimeUnit.MILLISECONDS);
+        assertTrue(ws.isConnected());
+        lobbyListener.resetOnOpenedLatch();
+
+        String newLobbySessionId = (String) ws.getData(LobbyWebSocketClient.LOBBY_SESSION_ID_DATAMAP_KEY);
+        assertEquals(lobbyListener.getLobbySessionId(), newLobbySessionId);
+
+        // Assert that the originalLobbySessionId is equal to newLobbySessionId
+        assertEquals(originalLobbySessionId, newLobbySessionId);
+
+        // Manually trigger a token refresh to test the token callback still works to trigger a ws message -> echo back
+        DefaultTokenRepository.getInstance().storeToken("mockToken1");
+        // only the 2nd token will trigger a token refresh (by design)
+        DefaultTokenRepository.getInstance().storeToken("mockToken2");
+        lobbyListener.getTokenLatch().await(6, TimeUnit.SECONDS);
+        assertEquals("mockToken2", lobbyListener.getToken());
+
+        ws.close(1000, "Normal close");
     }
 
-    // TODO: programmatically call GET force-close here then upon reconnect successful,
-    //  verify lobby session id if it's the same as before
+    @Test
+    public void testLobbyReconnectWithMultipleMessages() throws Exception {
+        final int FORCE_WS_CLOSE_STATUS_CODE = 2000;
+        final int RECONNECT_DELAY_MS = 2000;
+        final int PING_INTERVAL_MS = 1000;
+        final int MAX_NUM_RECONNECT_ATTEMPTS = 10;
 
-    for (int i = 1; i < 30; i++) {
-      sleep(MESSAGE_INTERVAL_MS);
-      ws.sendMessage(requestMessage);
+        final MockServerConfigRepository configRepo = new MockServerConfigRepository();
+
+        final TestLobbyListener lobbyListener = new TestLobbyListener();
+
+        final LobbyWebSocketClient ws =
+                LobbyWebSocketClient.create(
+                        configRepo,
+                        DefaultTokenRepository.getInstance(),
+                        lobbyListener,
+                        RECONNECT_DELAY_MS,
+                        MAX_NUM_RECONNECT_ATTEMPTS,
+                        PING_INTERVAL_MS);
+
+        // Connect to the Mock Server’s Lobby Service.
+        ws.connect();
+
+        // Assert we're connected
+        lobbyListener.getOnOpenedLatch().await(5, TimeUnit.SECONDS);
+        assertTrue(ws.isConnected());
+        lobbyListener.resetOnOpenedLatch();
+
+        // sends a party request message (partyCreateRequestId_1)
+        ws.sendMessage(PartyCreateRequest.builder().id("partyCreateRequestId_1").build().toWSM());
+
+        // awaits for the party request message to be echo-ed back
+        lobbyListener.getPartyRequestLatch().await(3, TimeUnit.SECONDS);
+        lobbyListener.resetPartyRequestLatch();
+
+        // Force close the Mock Server WS connection
+        log.info("force closing mock server - status " + FORCE_WS_CLOSE_STATUS_CODE);
+        forceCloseMockServer(configRepo.getBaseURL(), FORCE_WS_CLOSE_STATUS_CODE);
+
+        // Assert that the websocket connection has disconnected.
+        assertFalse(ws.isConnected());
+
+        // Assert that the websocket connection has reconnected.
+        lobbyListener.getOnOpenedLatch().await(RECONNECT_DELAY_MS + 5000, TimeUnit.MILLISECONDS);
+        assertTrue(ws.isConnected());
+        lobbyListener.resetOnOpenedLatch();
+
+        // Multiple ws events check (1 before reconnect, 2 after reconnect)
+        // Sends a party request message (partyCreateRequestId_2 & partyCreateRequestId_3)
+        int NUM_MSG_TO_SEND = 3;
+        for (int i=2; i <= NUM_MSG_TO_SEND; i++) {
+            ws.sendMessage(PartyCreateRequest.builder().id("partyCreateRequestId_" + i).build().toWSM());
+            // awaits for the party request message to be echo-ed back
+            lobbyListener.getPartyRequestLatch().await(3, TimeUnit.SECONDS);
+            lobbyListener.resetPartyRequestLatch();
+        }
+
+        // Lastly, check if have gotten NUM_MSG_TO_SEND party create requests (1 before disconnect + NUM_MSG_TO_SEND-1 after reconnection)
+        assertEquals(NUM_MSG_TO_SEND, lobbyListener.getNumPartyCreateRequestsReceived());
+
+        ws.close(1000, "Normal close");
     }
 
-    log.info("Response message: \n" + responseMessage);
-    ws.close(1000, "Normal close");
-  }
+    // Verifies that a closure code of 4000 (DisconnectServerShutdown) code will not reconnect
+    // For a subsequent new websocket the lobby session id will use a different one
+    @Test
+    public void testLobbyDisconnectServerShutdown() throws Exception {
+        final int FORCE_WS_CLOSE_STATUS_CODE = 4000;
+        final int RECONNECT_DELAY_MS = 2000;
+        final int PING_INTERVAL_MS = 1000;
+        final int MAX_NUM_RECONNECT_ATTEMPTS = 10;
+
+        final MockServerConfigRepository configRepo = new MockServerConfigRepository();
+
+        final TestLobbyListener lobbyListener = new TestLobbyListener();
+
+        LobbyWebSocketClient ws =
+                LobbyWebSocketClient.create(
+                        configRepo,
+                        DefaultTokenRepository.getInstance(),
+                        lobbyListener,
+                        RECONNECT_DELAY_MS,
+                        MAX_NUM_RECONNECT_ATTEMPTS,
+                        PING_INTERVAL_MS);
+
+        // Connect to the Mock Server’s Lobby Service.
+        ws.connect();
+
+        // Await for the connectNotif message, or timeout
+        lobbyListener.getLobbySesionIdLatch().await(10, TimeUnit.SECONDS);
+
+        // Assert we're connected
+        lobbyListener.getOnOpenedLatch().await(5, TimeUnit.SECONDS);
+        assertTrue(ws.isConnected());
+        lobbyListener.resetOnOpenedLatch();
+
+        // Assert that the value from the WebSocket Client using GetData("LobbySessionId") is equal to originalLobbySessionId.
+        final String originalLobbySessionId = (String) ws.getData(LobbyWebSocketClient.LOBBY_SESSION_ID_DATAMAP_KEY);
+        assertEquals(lobbyListener.getLobbySessionId(), originalLobbySessionId);
+
+        // Force close the Mock Server WS connection
+        log.info("force closing mock server - status " + FORCE_WS_CLOSE_STATUS_CODE);
+        forceCloseMockServer(configRepo.getBaseURL(), FORCE_WS_CLOSE_STATUS_CODE);
+
+        // Assert that the websocket connection has disconnected.
+        assertFalse(ws.isConnected());
+
+        // Wait for X second for Reconnect to happen.
+        Thread.sleep(RECONNECT_DELAY_MS + 1000);
+
+        // Assert that the websocket connection isn't reconnected (ie. still disconnected.
+        assertTrue(!ws.isConnected());
+
+        // Assert that the value from the WebSocket Client using GetData("LobbySessionId") is null or empty.
+        String newLobbySessionId = (String) ws.getData(LobbyWebSocketClient.LOBBY_SESSION_ID_DATAMAP_KEY);
+        assertEquals(null, newLobbySessionId);
+
+        // Start a new connection to the Mock Server’s Lobby Service.
+        ws = LobbyWebSocketClient.create(
+                configRepo,
+                DefaultTokenRepository.getInstance(),
+                lobbyListener,
+                MAX_NUM_RECONNECT_ATTEMPTS,
+                RECONNECT_DELAY_MS,
+                PING_INTERVAL_MS);
+
+        ws.connect();
+
+        lobbyListener.getLobbySesionIdLatch().await(10, TimeUnit.SECONDS);
+
+        lobbyListener.getOnOpenedLatch().await(5, TimeUnit.SECONDS);
+        assertTrue(ws.isConnected());
+        lobbyListener.resetOnOpenedLatch();
+
+        // Wait for the connectNotif message, store lobbySessionId from the connectNotif message into the temporary variable: newLobbySessionId.
+        String newLobbysessionId = lobbyListener.getLobbySessionId();
+
+        // Assert that the originalLobbySessionId is not equal to newLobbySessionId.
+        assertNotEquals(newLobbysessionId, originalLobbySessionId);
+
+        ws.close(1000, "Normal close");
+    }
 }

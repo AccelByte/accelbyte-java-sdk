@@ -8,24 +8,24 @@ import okhttp3.*;
 
 @Log
 public class LobbyWebSocketClient extends BaseWebSocketClient {
-    private static String LOBBY_SESSION_ID_DATAMAP_KEY = "lobbySessionId";
+    public static String LOBBY_SESSION_ID_DATAMAP_KEY = "lobbySessionId";
     private static String WS_SERVICE_PATH_NAME = "lobby";
-    private static final boolean isXHeaderLobbySessionIdEnabled = false;
-
     private TokenRepositoryCallbackListener tokenRepositoryCallbackListener;
 
     // reconnectDelayMs = 0 to turn off websocket reconnect
+    // maxNumReconnectAttempts = -1 for unlimited reconnect attempts, given reconnectDelayMs > 0
     // pingIntervalMs = 0 to turn off websocket ping frames
     public static LobbyWebSocketClient create(
             ConfigRepository configRepository,
             TokenRepository tokenRepository,
             WebSocketListener listener,
             int reconnectDelayMs,
+            int maxNumReconnectAttempts,
             int pingIntervalMs)
             throws Exception {
         LobbyWebSocketClient webSocketClient =
                 new LobbyWebSocketClient(
-                        configRepository, tokenRepository, listener, reconnectDelayMs, pingIntervalMs);
+                        configRepository, tokenRepository, listener, reconnectDelayMs, maxNumReconnectAttempts, pingIntervalMs);
         return webSocketClient;
     }
 
@@ -36,18 +36,18 @@ public class LobbyWebSocketClient extends BaseWebSocketClient {
             TokenRepository tokenRepository,
             WebSocketListener webSocketListener,
             int reconnectDelayMs,
+            int maxNumReconnectAttempts,
             int pingIntervalMs)
             throws Exception {
-        super(configRepository, tokenRepository, webSocketListener, reconnectDelayMs, pingIntervalMs, WS_SERVICE_PATH_NAME);
+        super(configRepository, tokenRepository, webSocketListener, reconnectDelayMs, maxNumReconnectAttempts, pingIntervalMs, WS_SERVICE_PATH_NAME);
 
         this.tokenRepositoryCallbackListener =
                 new TokenRepositoryCallbackListener(tokenRepository, this);
-        registerCallbacks();
     }
 
     @Override
     public void onMessage(WebSocket webSocket, String text) {
-        if (text.contains("connectNotif")) {
+        if (text.contains(ConnectNotif.getType())) {
             final ConnectNotif notif = ConnectNotif.createFromWSM(text);
             final String lobbySessionId = notif.getLobbySessionID();
             log.info("lobbySessionID: " + lobbySessionId);
@@ -59,24 +59,6 @@ public class LobbyWebSocketClient extends BaseWebSocketClient {
     }
 
     @Override
-    public void onClosed(WebSocket webSocket, int code, String reason) {
-        super.onClosed(webSocket, code, reason);
-
-        if (!shouldReconnect(code, reason)) {
-            unregisterCallbacks();
-        }
-    }
-
-    @Override
-    public void onFailure(WebSocket webSocket, Throwable t, Response response) {
-        super.onFailure(webSocket, t, response);
-
-        if (shouldReconnectOnFailure()) {
-            unregisterCallbacks();
-        }
-    }
-
-    @Override
     public void connect(boolean isReconnecting) throws Exception {
         if (isReconnecting && this.hasData(LOBBY_SESSION_ID_DATAMAP_KEY)) {
             String lobbySessionId = (String) this.getData(LOBBY_SESSION_ID_DATAMAP_KEY);
@@ -84,6 +66,24 @@ public class LobbyWebSocketClient extends BaseWebSocketClient {
         }
 
         super.connect(isReconnecting);
+    }
+
+    @Override
+    public void onOpen(WebSocket webSocket, Response response) {
+        super.onOpen(webSocket, response);
+        registerCallbacks();
+    }
+
+    @Override
+    public void onClosing(WebSocket webSocket, int code, String reason) {
+        unregisterCallbacks();
+        super.onClosing(webSocket, code, reason);
+    }
+
+    @Override
+    public void onFailure(WebSocket webSocket, Throwable t, okhttp3.Response response) {
+        unregisterCallbacks();
+        super.onFailure(webSocket, t, response);
     }
 
     private void registerCallbacks() {

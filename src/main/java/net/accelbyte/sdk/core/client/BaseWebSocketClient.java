@@ -20,18 +20,20 @@ import okio.ByteString;
 @Log
 public class BaseWebSocketClient extends WebSocketListener {
   // reconnectDelayMs = 0 to turn off websocket reconnect
+  // maxNumReconnectAttempts = -1 for unlimited reconnect attempts, given reconnectDelayMs > 0
   // pingIntervalMs = 0 to turn off websocket ping frames
   public static BaseWebSocketClient create(
       ConfigRepository configRepository,
       TokenRepository tokenRepository,
       WebSocketListener listener,
       int reconnectDelayMs,
+      int maxNumReconnectAttempts,
       int pingIntervalMs,
       String wsServicePathName)
       throws Exception {
     BaseWebSocketClient webSocketClient =
         new BaseWebSocketClient(
-            configRepository, tokenRepository, listener, reconnectDelayMs, pingIntervalMs, wsServicePathName);
+            configRepository, tokenRepository, listener, reconnectDelayMs, maxNumReconnectAttempts, pingIntervalMs, wsServicePathName);
     return webSocketClient;
   }
 
@@ -43,15 +45,16 @@ public class BaseWebSocketClient extends WebSocketListener {
   protected boolean isSocketConnected = false;
   protected int pingIntervalMs;
   protected int reconnectDelayMs;
+  protected int maxNumReconnectAttempts;
   protected int numReconnectAttempts;
   protected String wsUrl;
   protected HashMap<String, Object> dataMap = new HashMap<>();
 
-  protected Object getData(String key) {
+  public Object getData(String key) {
     return dataMap.get(key);
   }
 
-  protected boolean hasData(String key) {
+  public boolean hasData(String key) {
     return null != dataMap.get(key);
   }
 
@@ -63,6 +66,10 @@ public class BaseWebSocketClient extends WebSocketListener {
     dataMap.remove(key);
   }
 
+  protected void clearAllData() {
+    dataMap.clear();
+  }
+
   protected HashMap<String, String> headers = new HashMap<>();
 
   public BaseWebSocketClient(
@@ -70,6 +77,7 @@ public class BaseWebSocketClient extends WebSocketListener {
       TokenRepository tokenRepository,
       WebSocketListener webSocketListener,
       int reconnectDelayMs,
+      int maxNumReconnectAttempts,
       int pingIntervalMs,
       String wsServicePathName) {
 
@@ -80,6 +88,8 @@ public class BaseWebSocketClient extends WebSocketListener {
     if (webSocketListener == null) throw new IllegalArgumentException("listener can't be null");
     if (reconnectDelayMs < 0)
       throw new IllegalArgumentException("reconnectDelayMs can't be negative");
+    if (maxNumReconnectAttempts == 0)
+      throw new IllegalArgumentException("maxNumReconnectAttempts can't be 0");
     if (pingIntervalMs < 0) throw new IllegalArgumentException("pingIntervalMs can't be negative");
 
     if (wsServicePathName == null) throw new IllegalArgumentException("Websocket service path name can't be null");
@@ -89,6 +99,7 @@ public class BaseWebSocketClient extends WebSocketListener {
     this.tokenRepository = tokenRepository;
     this.webSocketListener = webSocketListener;
     this.pingIntervalMs = pingIntervalMs;
+    this.maxNumReconnectAttempts = maxNumReconnectAttempts;
     this.reconnectDelayMs = reconnectDelayMs;
     this.wsUrl = configRepository.getBaseURL() + "/" + wsServicePathName + "/";
 
@@ -107,6 +118,10 @@ public class BaseWebSocketClient extends WebSocketListener {
     return (reconnectDelayMs * (long) Math.pow(BACKOFF_RATE, numberOfAttempts - 1));
   }
 
+  public void connect() throws Exception {
+    connect(false);
+  }
+
   public void connect(boolean isReconnecting) throws Exception {
     try {
       if (isReconnecting) {
@@ -116,6 +131,7 @@ public class BaseWebSocketClient extends WebSocketListener {
         Thread.sleep(currentReconnectDelayMs);
       }
 
+      log.info("connecting to websocket");
       final Request request = constructOkHttpRequest();
       this.websocket = client.newWebSocket(request, this);
     } catch (Exception e) {
@@ -204,21 +220,28 @@ public class BaseWebSocketClient extends WebSocketListener {
     close(code, reason);
   }
 
+  public boolean isConnected() {
+    return isSocketConnected;
+  }
+
   @Override
   public void onClosed(WebSocket webSocket, int code, String reason) {
     super.onClosed(webSocket, code, reason);
 
     isSocketConnected = false;
+
     log.info("onClosed: " + code + " / " + reason);
 
     webSocketListener.onClosed(webSocket, code, reason);
 
-    if (shouldReconnect(code, reason)) {
+    if (shouldReconnect(code, reason, this.numReconnectAttempts)) {
       try {
         connect(true);
       } catch (Exception e) {
         throw new RuntimeException(e);
       }
+    } else {
+      clearAllData();
     }
   }
 
@@ -227,30 +250,59 @@ public class BaseWebSocketClient extends WebSocketListener {
     super.onFailure(webSocket, t, response);
 
     isSocketConnected = false;
+
     log.info("onFailure: " + t.getMessage());
 
     webSocketListener.onFailure(webSocket, t, response);
 
-    if (shouldReconnectOnFailure()) {
+    if (shouldReconnectOnFailure(this.numReconnectAttempts)) {
       try {
         connect(true);
       } catch (Exception e) {
         throw new RuntimeException(e);
       }
+    } else {
+      clearAllData();
     }
   }
 
+  protected boolean shouldReconnect(int code) {
+    return shouldReconnect(code, "");
+  }
   protected boolean shouldReconnect(int code, String reason) {
-    // https://accelbyte.atlassian.net/wiki/spaces/CG/pages/3355803729/Lobby+WebSocket+Reconnect+Logic
-    return (isReconnectEnabled()
-        && !isSocketConnected
-        && code >= 1001
-        && code <= 2999
-    );
+    return shouldReconnect(code, reason, -1);
+  }
+
+  protected boolean shouldReconnect(int code, String reason, int numReconnectAttempts) {
+    if (isReconnectEnabled()) {
+      if (isExceedingMaxAttempts(numReconnectAttempts)) {
+        return false;
+      }
+
+      return (code >= 1001 && code <= 2999);
+    }
+
+    return false;
   }
 
   protected boolean shouldReconnectOnFailure() {
-    return (isReconnectEnabled() && !isSocketConnected);
+    return shouldReconnectOnFailure(0);
+  }
+
+  protected boolean shouldReconnectOnFailure(int numReconnectAttempts) {
+    if (isReconnectEnabled()) {
+      if (isExceedingMaxAttempts(numReconnectAttempts)) {
+        return false;
+      }
+
+      return true;
+    }
+
+    return false;
+  }
+
+  private boolean isExceedingMaxAttempts(int numReconnectAttempts) {
+    return this.maxNumReconnectAttempts > 0 && numReconnectAttempts > 0 && numReconnectAttempts >= this.maxNumReconnectAttempts;
   }
 
   protected boolean isReconnectEnabled() {

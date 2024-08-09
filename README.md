@@ -289,13 +289,15 @@ final WebSocketListener listener =
     };
 
 final int RECONNECT_DELAY_MS = 60000;  // 1m (0 to disable)
+final int MAX_NUM_RECONNECT_ATTEMPTS = 10; // -1 for unlimited reconnect attempts (if RECONNECT_DELAY_MS > 0 to enable)
+
 final int PING_INTERVAL_MS = 30000;  // 30s (0 to disable)
 
 final LobbyWebSocketClient ws =
         LobbyWebSocketClient.create(
-            new DefaultConfigRepository(), DefaultTokenRepository.getInstance(), listener, RECONNECT_DELAY_MS, PING_INTERVAL_MS);
+            new DefaultConfigRepository(), DefaultTokenRepository.getInstance(), listener, RECONNECT_DELAY_MS, MAX_NUM_RECONNECT_ATTEMPTS, PING_INTERVAL_MS);
 
-ws.connect(false);
+ws.connect();
 
 final String requestMessage = PartyCreateRequest.builder().id(request_id).build().toWSM();
 ws.sendMessage(requestMessage);
