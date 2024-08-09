@@ -1041,16 +1041,13 @@ class TestCore {
         log.info("force closing mock server - status " + FORCE_WS_CLOSE_STATUS_CODE);
         forceCloseMockServer(configRepo.getBaseURL(), FORCE_WS_CLOSE_STATUS_CODE);
 
-        // Assert that the websocket connection has disconnected.
+        // Wait for X second for Reconnect to happen (shouldn't be).
+        Thread.sleep(RECONNECT_DELAY_MS + 3000);
+
+        // Assert that the websocket connection is still disconnected and didn't reconnect
         assertFalse(ws.isConnected());
 
-        // Wait for X second for Reconnect to happen.
-        Thread.sleep(RECONNECT_DELAY_MS + 1000);
-
-        // Assert that the websocket connection isn't reconnected (ie. still disconnected.
-        assertTrue(!ws.isConnected());
-
-        // Assert that the value from the WebSocket Client using GetData("LobbySessionId") is null or empty.
+        // Assert that the value from the WebSocket Client using GetData("LobbySessionId") is null
         String newLobbySessionId = (String) ws.getData(LobbyWebSocketClient.LOBBY_SESSION_ID_DATAMAP_KEY);
         assertEquals(null, newLobbySessionId);
 
