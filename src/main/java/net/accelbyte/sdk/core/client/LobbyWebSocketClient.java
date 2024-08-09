@@ -11,6 +11,15 @@ public class LobbyWebSocketClient extends BaseWebSocketClient {
     public static String LOBBY_SESSION_ID_DATAMAP_KEY = "lobbySessionId";
     private static String WS_SERVICE_PATH_NAME = "lobby";
     private TokenRepositoryCallbackListener tokenRepositoryCallbackListener;
+    public static LobbyWebSocketClient create(
+            ConfigRepository configRepository,
+            TokenRepository tokenRepository,
+            WebSocketListener listener) throws Exception {
+        LobbyWebSocketClient webSocketClient =
+                new LobbyWebSocketClient(
+                        configRepository, tokenRepository, listener, 0, -1, 0);
+        return webSocketClient;
+    }
 
     // reconnectDelayMs = 0 to turn off websocket reconnect
     // maxNumReconnectAttempts = -1 for unlimited reconnect attempts, given reconnectDelayMs > 0

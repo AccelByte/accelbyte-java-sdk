@@ -273,11 +273,21 @@ if (!logout) {
 ```
 
 ### Websocket
-**Ping Interval:** by default, automatic ping frames are not sent.  To control the ping interval, simply pass in for the OkhttpWebSocketClient.create() call for the argument "pingIntervalMs" > 0 to set the number of seconds between each automatic ping (until the connection is closed).  "pingIntervalMs" = 0 means disabled.
+- **Automatic Ping Interval:** by default, automatic ping frames are not sent.  
 
-**Websocket Reconnection:**  Websocket Reconnection an "experimental" feature currently to help support auto-reconnection on disconnects having RFC 6455 status code < 4000 and not 1000 (normal closure) status code.
-By default auto-reconnect is off.  To enable it, in the OkhttpWebSocketClient.create() call simply pass in for the argument "reconnectDelayMs" > 0 to control the delay between each reconnect attempt.    "reconnectDelayMs" = 0 means disabled.
+    To enable the feature, for the LobbyWebSocketClient.create() call, simply pass in:
+    - `pingIntervalMs` > 0 to set the number of seconds between each automatic ping (until the connection is closed) 
+    - `pingIntervalMs` = 0 means disabled
 
+- **Websocket Reconnection:**  Websocket Reconnection is a feature to help support auto-reconnection on websocket disconnects resulting from RFC 6455 status codes between 1001 to 2999. By default, the feature is off.  
+
+    To enable the feature, in the LobbyWebSocketClient.create() call, simply pass in: 
+    - `reconnectDelayMs` > 0 to control the delay between each reconnect attempt  
+    - `reconnectDelayMs` = 0 means disabled
+    - `maxNumReconnectAttempts` to control the maximum number of reconnection attempts
+    - `maxNumReconnectAttempts` = -1 means unlimited reconnect attempts (`reconnectDelayMs` must be > 0 to enable)
+
+Example:
 ```java
 final WebSocketListener listener =
     new WebSocketListener() {
@@ -289,7 +299,7 @@ final WebSocketListener listener =
     };
 
 final int RECONNECT_DELAY_MS = 60000;  // 1m (0 to disable)
-final int MAX_NUM_RECONNECT_ATTEMPTS = 10; // -1 for unlimited reconnect attempts (if RECONNECT_DELAY_MS > 0 to enable)
+final int MAX_NUM_RECONNECT_ATTEMPTS = 10; // -1 for unlimited reconnect attempts (RECONNECT_DELAY_MS must be > 0 to enable)
 
 final int PING_INTERVAL_MS = 30000;  // 30s (0 to disable)
 
