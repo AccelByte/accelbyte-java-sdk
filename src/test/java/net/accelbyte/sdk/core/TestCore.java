@@ -877,7 +877,7 @@ class TestCore {
     @Test
     public void testLobbyReconnectWithTokenRefresh() throws Exception {
         final int FORCE_WS_CLOSE_STATUS_CODE = 2000;
-        final int RECONNECT_DELAY_MS = 2000;
+        final int RECONNECT_DELAY_MS = 3000;
         final int PING_INTERVAL_MS = 1000;
         final int MAX_NUM_RECONNECT_ATTEMPTS = 10;
 
@@ -914,6 +914,7 @@ class TestCore {
         forceCloseMockServer(configRepo.getBaseURL(), FORCE_WS_CLOSE_STATUS_CODE);
 
         // Assert that the websocket connection has disconnected.
+        Thread.sleep(1000);
         assertFalse(ws.isConnected());
 
         // Assert that the websocket connection has reconnected.
