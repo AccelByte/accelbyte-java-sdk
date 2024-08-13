@@ -15,12 +15,12 @@ import net.accelbyte.sdk.core.util.Helper;
 @Log
 public class TokenRepositoryCallbackListener extends TokenRepositoryCallback {
   private final TokenRepository tokenRepository;
-  private final BaseWebSocketClient okhttpWebSocketClient;
+  private final BaseWebSocketClient baseWebSocketClient;
 
   public TokenRepositoryCallbackListener(
       TokenRepository tokenRepository, BaseWebSocketClient okhttpWebSocketClient) {
     this.tokenRepository = tokenRepository;
-    this.okhttpWebSocketClient = okhttpWebSocketClient;
+    this.baseWebSocketClient = okhttpWebSocketClient;
   }
 
   @Override
@@ -28,7 +28,7 @@ public class TokenRepositoryCallbackListener extends TokenRepositoryCallback {
     log.info("send websocket refresh token request because token refreshed");
     RefreshTokenRequest request =
         RefreshTokenRequest.builder().id(Helper.generateUUID()).token(newToken).build();
-    okhttpWebSocketClient.sendMessage(request.toWSM());
+    baseWebSocketClient.sendMessage(request.toWSM());
   }
 
   public void registerCallback() {

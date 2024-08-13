@@ -281,8 +281,8 @@ if (!logout) {
 
 - **Websocket Reconnection:**  Websocket Reconnection is a feature to help support auto-reconnection on websocket disconnects resulting from RFC 6455 status codes between 1001 to 2999. By default, the feature is off.  
 
-    To enable the feature, in the LobbyWebSocketClient.create() call, simply pass in: 
-    - `reconnectDelayMs` > 0 to control the delay between each reconnect attempt  
+    To enable the feature, for the LobbyWebSocketClient.create() call, simply pass in: 
+    - `reconnectDelayMs` > 0 to control the delay between each reconnect attempt (with exponential backoff)  
     - `reconnectDelayMs` = 0 means disabled
     - `maxNumReconnectAttempts` to control the maximum number of reconnection attempts
     - `maxNumReconnectAttempts` = -1 means unlimited reconnect attempts (`reconnectDelayMs` must be > 0 to enable)
