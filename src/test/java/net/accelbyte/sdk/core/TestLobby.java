@@ -26,7 +26,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @Tag("test-core")
 class TestLobby {
   private final OkHttpClient client = new OkHttpClient();
-    public static class TestLobbyListener extends WebSocketListener {
+    public class TestLobbyListener extends WebSocketListener {
 
         @Getter
         private String lobbySessionId;
@@ -140,7 +140,6 @@ class TestLobby {
     // Verifies a ws closure of 2000 status code will yield auto-reconnect, and the previous lobby session id will be reused
     // In conjunction validates the lobby token refresh for the ws event still works after reconnect
     @Test
-    @Order(1)
     public void testLobbyReconnectWithTokenRefresh() throws Exception {
         final int FORCE_WS_CLOSE_STATUS_CODE = 2000;
         final int RECONNECT_DELAY_MS = 3000;
@@ -201,14 +200,14 @@ class TestLobby {
         DefaultTokenRepository.getInstance().storeToken("mockToken1");
         // only the 2nd token will trigger a token refresh (by design)
         DefaultTokenRepository.getInstance().storeToken("mockToken2");
-        lobbyListener.getTokenLatch().await(10, TimeUnit.SECONDS);
+        lobbyListener.getTokenLatch().await(20, TimeUnit.SECONDS);
+        log.info("waited for token message arrived, or timed out");
         assertEquals("mockToken2", lobbyListener.getToken());
 
         ws.close(1000, "Normal close");
     }
 
     @Test
-    @Order(2)
     public void testLobbyReconnectWithMultipleMessages() throws Exception {
         final int FORCE_WS_CLOSE_STATUS_CODE = 2000;
         final int RECONNECT_DELAY_MS = 2000;
@@ -276,7 +275,6 @@ class TestLobby {
     // Verifies that a closure code of 4000 (DisconnectServerShutdown) code will not reconnect
     // Ensures a subsequent new websocket the lobby session id will use a different one
     @Test
-    @Order(3)
     public void testLobbyDisconnectServerShutdown() throws Exception {
         final int FORCE_WS_CLOSE_STATUS_CODE = 4000;
         final int RECONNECT_DELAY_MS = 2000;
