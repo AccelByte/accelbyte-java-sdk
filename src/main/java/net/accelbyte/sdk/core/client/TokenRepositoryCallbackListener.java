@@ -25,7 +25,7 @@ public class TokenRepositoryCallbackListener extends TokenRepositoryCallback {
 
   @Override
   public void onAccessTokenRefreshed(String newToken) {
-    log.info("send websocket refresh token request because token refreshed");
+    log.info("onAccessTokenRefreshed: " + newToken);
     RefreshTokenRequest request =
         RefreshTokenRequest.builder().id(Helper.generateUUID()).token(newToken).build();
     baseWebSocketClient.sendMessage(request.toWSM());
