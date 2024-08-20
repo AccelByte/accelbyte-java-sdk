@@ -7,11 +7,14 @@
 package net.accelbyte.sdk.core.repository;
 
 import com.google.common.base.Strings;
+import lombok.extern.java.Log;
+
 import java.util.Objects;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+@Log
 public class DefaultTokenRepository implements TokenRepository {
   private String accessToken = null;
 
@@ -54,7 +57,9 @@ public class DefaultTokenRepository implements TokenRepository {
   }
 
   protected void notifyOnAccessTokenRefreshed(String newToken) {
+    log.info("notifyOnAccessTokenRefreshed: " + newToken);
     for (TokenRepositoryCallback callback : callbacks) {
+      log.info("notifyOnAccessTokenRefreshed execute: " + newToken);
       executor.execute(() -> callback.onAccessTokenRefreshed(newToken));
     }
   }
