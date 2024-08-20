@@ -44,11 +44,15 @@ public class DefaultTokenRepository implements TokenRepository {
 
   @Override
   public void storeToken(String accessToken) {
+    log.info("storeToken: " + accessToken);
     if (Objects.isNull(accessToken) || accessToken.equals(this.accessToken)) {
+      log.info("accessToken is null or equals to current");
       return;
     }
     String oldToken = this.accessToken;
     this.accessToken = accessToken;
+
+    log.info("accessToken (oldToken): " + oldToken);
 
     // only notify if previous token not empty (i.e. previously already logged in)
     if (!Strings.isNullOrEmpty(oldToken)) {
