@@ -4,7 +4,9 @@ import lombok.extern.java.Log;
 import net.accelbyte.sdk.api.lobby.ws_models.ConnectNotif;
 import net.accelbyte.sdk.core.repository.ConfigRepository;
 import net.accelbyte.sdk.core.repository.TokenRepository;
-import okhttp3.*;
+import okhttp3.Response;
+import okhttp3.WebSocket;
+import okhttp3.WebSocketListener;
 
 @Log
 public class LobbyWebSocketClient extends BaseWebSocketClient {
@@ -79,8 +81,14 @@ public class LobbyWebSocketClient extends BaseWebSocketClient {
 
     @Override
     public void onOpen(WebSocket webSocket, Response response) {
-        super.onOpen(webSocket, response);
+        numReconnectAttempts = 0;
+
+        isSocketConnected = true;
+        log.info("Websocket is opened successfully");
+
+        // register cbs first, then notify listener onOpen
         registerCallbacks();
+        webSocketListener.onOpen(webSocket, response);
     }
 
     @Override
@@ -90,7 +98,7 @@ public class LobbyWebSocketClient extends BaseWebSocketClient {
     }
 
     @Override
-    public void onFailure(WebSocket webSocket, Throwable t, okhttp3.Response response) {
+    public void onFailure(WebSocket webSocket, Throwable t, Response response) {
         unregisterCallbacks();
         super.onFailure(webSocket, t, response);
     }
