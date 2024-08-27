@@ -106,7 +106,7 @@ public class TestIntegrationServiceMatch2 extends TestIntegration {
     final Map<String, Object> rulesetData =
         new ObjectMapper()
             .readValue(
-                "{\"alliance\":{\"minNumber\":\"2\",\"maxNumber\":\"10\",\"playerMinNumber\":\"2\",\"playerMaxNumber\":\"4\"},\"matchingRules\":[{\"attribute\":\"\",\"criteria\":\"distance\",\"reference\":\"\"}],\"flexingRules\":[{\"duration\":\"600\",\"attribute\":\"\",\"criteria\":\"distance\",\"reference\":\"\"}],\"match_options\":{\"options\":[{\"name\":\"\",\"type\":\"any\"}]},\"alliance_flexing_rule\":[{\"duration\":600,\"min_number\":0,\"max_number\":0,\"player_min_number\":0,\"player_max_number\":0}]}",
+                "{\"alliance\":{\"min_number\":2,\"max_number\":10,\"player_min_number\":2,\"player_max_number\":4},\"matchingRules\":[{\"attribute\":\"\",\"criteria\":\"distance\",\"reference\":\"\"}],\"flexingRules\":[{\"duration\":600,\"attribute\":\"\",\"criteria\":\"distance\",\"reference\":\"\"}],\"match_options\":{\"options\":[{\"name\":\"\",\"type\":\"any\"}]},\"alliance_flexing_rule\":[{\"duration\":600,\"min_number\":1,\"max_number\":2,\"player_min_number\":1,\"player_max_number\":2}]}",
                 Map.class);
 
     // CASE Create a match rule set
@@ -130,10 +130,10 @@ public class TestIntegrationServiceMatch2 extends TestIntegration {
     final Map<String, ?> matchRuleSetData = ruleSetDetailsResult.getData();
     final Map<String, ?> matchRuleSetDataAlliance =
         (Map<String, ?>) matchRuleSetData.get("alliance");
-    final String matchRuleSetDataAllianceMinNumber =
-        (String) matchRuleSetDataAlliance.get("minNumber");
+    final Integer matchRuleSetDataAllianceMinNumber =
+        (Integer) matchRuleSetDataAlliance.get("min_number");
 
-    assertEquals("2", matchRuleSetDataAllianceMinNumber);
+    assertEquals(2, matchRuleSetDataAllianceMinNumber);
 
     // CASE Create a match pool
 
