@@ -174,7 +174,7 @@ class TestCore {
       assertEquals("[?value\"1a&, ?value\"1b&]", result.getArgs().get("?key=1&").toString());
     } else {
       assertEquals(
-          "\"?value\"\"1a&\"" + delimiter + "\"?value\"\"1b&\"", result.getArgs().get("?key=1&"));
+          "?value\"1a&" + delimiter + "?value\"1b&", result.getArgs().get("?key=1&"));
     }
   }
 

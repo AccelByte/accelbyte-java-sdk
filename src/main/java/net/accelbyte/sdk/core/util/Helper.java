@@ -108,8 +108,7 @@ public class Helper {
             collectionBuilder.append(URLEncoder.encode(qParams.getKey(), "UTF-8")).append("=");
             Iterator<String> val = qParams.getValue().iterator();
             while (val.hasNext()) {
-              final String escaped = "\"" + val.next().replace("\"", "\"\"") + "\"";
-              collectionBuilder.append(URLEncoder.encode(escaped, "UTF-8"));
+              collectionBuilder.append(URLEncoder.encode(val.next(), "UTF-8"));
               if (val.hasNext()) {
                 collectionBuilder.append(URLEncoder.encode(delimiter, "UTF-8"));
               }
