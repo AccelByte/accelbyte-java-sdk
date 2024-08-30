@@ -51,6 +51,8 @@ if [ $EXIT_CODE -ne 0 ]; then
   exit $EXIT_CODE
 fi
 
+export AB_BASE_URL="http://127.0.0.1:8000"      # Switch to mock websocket server
+
 #- 2 AcceptFriendsNotif
 ./ng net.accelbyte.sdk.cli.Main lobbyWebsocket -m $'type: acceptFriendsNotif\nfriendId: EAxcVpFrttufHIRd' -u \
     > test.out 2>&1

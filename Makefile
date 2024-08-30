@@ -40,10 +40,10 @@ test_cli:
 	rm -f test.err
 	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/samples/cli -e GRADLE_USER_HOME=/data/.gradle $(GRADLE_IMAGE) \
 			gradle --console=plain -i --no-daemon installDist
-	sed -i "s/\r//" "$(SDK_MOCK_SERVER_PATH)/mock-server.sh" && \
-			trap "docker stop -t 1 justice-codegen-sdk-mock-server" EXIT && \
+	trap "docker stop justice-codegen-sdk-mock-server justice-codegen-sdk-ws-mock-server" EXIT && \
 			(bash "$(SDK_MOCK_SERVER_PATH)/mock-server.sh" -s /data/spec &) && \
-			(for i in $$(seq 1 10); do docker run -t --rm --add-host=host.docker.internal:host-gateway dwdraju/alpine-curl-jq curl http://host.docker.internal:8080 >/dev/null && exit 0 || sleep 10; done; exit 1) && \
+			(SPEC_DIR=/data/spec bash "$(SDK_MOCK_SERVER_PATH)/ws/ws-mock-server.sh" &) && \
+			(for i in $$(seq 1 10); do curl http://localhost:8080 2>/dev/null && exit 0 || sleep 10; done; exit 1) && \
 			sed -i "s/\r//" samples/cli/tests/* && \
 			rm -f samples/cli/tests/*.tap && \
 			for FILE in $$(ls samples/cli/tests/*.sh); do \
