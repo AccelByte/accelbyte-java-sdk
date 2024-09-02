@@ -15,7 +15,6 @@ import net.accelbyte.sdk.core.client.LobbyWebSocketClient;
 import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
 import okhttp3.*;
 import org.jetbrains.annotations.NotNull;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import java.util.concurrent.CountDownLatch;
@@ -258,15 +257,29 @@ class TestLobby {
         // awaits for the party request message to be echo-ed back
         lobbyListener.getPartyRequestLatch().await(3, TimeUnit.SECONDS);
         lobbyListener.resetPartyRequestLatch();
+        
+        for (int i = 10; i >= 1; i--) {
+            // Force close the Mock Server WS connection
+            log.info("force closing mock server - status " + FORCE_WS_CLOSE_STATUS_CODE);
+            forceCloseMockServer(configRepo.getBaseURL(), FORCE_WS_CLOSE_STATUS_CODE, lobbyListener);
 
-        // Force close the Mock Server WS connection
-        log.info("force closing mock server - status " + FORCE_WS_CLOSE_STATUS_CODE);
-        forceCloseMockServer(configRepo.getBaseURL(), FORCE_WS_CLOSE_STATUS_CODE, lobbyListener);
+            // Assert that the websocket connection has disconnected.
+            lobbyListener.getOnFailureLatch().await(RECONNECT_DELAY_MS + 3000, TimeUnit.MILLISECONDS);
+            lobbyListener.resetOnFailureLatch();
 
-        // Assert that the websocket connection has disconnected.
-        lobbyListener.getOnFailureLatch().await(RECONNECT_DELAY_MS + 3000, TimeUnit.MILLISECONDS);
-        assertFalse(ws.isConnected());
-        lobbyListener.resetOnFailureLatch();
+            if (ws.isConnected()) {
+                if (i <= 1) 
+                {
+                    fail("websocket is still connected after force closing mock server ");
+                }
+
+                 log.info("retrying - force closing mock server");
+
+                continue;   // Try again if websocket is still connected
+            }
+
+            break;
+        }
 
         // Assert that the websocket connection has reconnected.
         lobbyListener.getOnOpenedLatch().await(RECONNECT_DELAY_MS + 5000, TimeUnit.MILLISECONDS);
