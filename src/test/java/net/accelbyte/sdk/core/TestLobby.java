@@ -28,6 +28,9 @@ class TestLobby {
     public class TestLobbyListener extends WebSocketListener {
 
         @Getter
+        private Boolean isConnected;
+
+        @Getter
         private String lobbySessionId;
 
         @Getter
@@ -104,6 +107,7 @@ class TestLobby {
 
         @Override
         public void onOpen(WebSocket webSocket, Response response) {
+            isConnected = true;
             onOpenedLatch.countDown();
             log.info("Client onOpen");
         }
@@ -115,12 +119,14 @@ class TestLobby {
 
         @Override
         public void onClosed(WebSocket webSocket, int code, String reason) {
+            isConnected = false;
             onClosedLatch.countDown();
             log.info("Client onClosed");
         }
 
         @Override
         public void onFailure(WebSocket webSocket, Throwable t, Response response) {
+            isConnected = false;
             onFailureLatch.countDown();
             log.info("Client onFailure");
         }
@@ -144,16 +150,17 @@ class TestLobby {
         }
     }
 
-    // Verifies a ws closure of 2000 status code will yield auto-reconnect, and the previous lobby session id will be reused
+    // Verifies a ws closure of 1011 status code will yield auto-reconnect, and the previous lobby session id will be reused
     // In conjunction validates the lobby token refresh for the ws event still works after reconnect
     @Test
     public void testLobbyReconnectWithTokenRefresh() throws Exception {
-        final int FORCE_WS_CLOSE_STATUS_CODE = 2000;
-        final int RECONNECT_DELAY_MS = 3000;
+        final int FORCE_WS_CLOSE_STATUS_CODE = 1011;
+        final int RECONNECT_DELAY_MS = 5000;
         final int PING_INTERVAL_MS = 1000;
         final int MAX_NUM_RECONNECT_ATTEMPTS = 10;
 
         final MockServerConfigRepository configRepo = new MockServerConfigRepository();
+        configRepo.setBaseURL("http://127.0.0.1:8000"); // use standalone ws mock server
 
         final TestLobbyListener lobbyListener = new TestLobbyListener();
         final DefaultTokenRepository tokenRepo =  new DefaultTokenRepository();
@@ -183,17 +190,23 @@ class TestLobby {
         String originalLobbySessionId = (String) ws.getData(LobbyWebSocketClient.LOBBY_SESSION_ID_DATAMAP_KEY);
         assertEquals(lobbyListener.getLobbySessionId(), originalLobbySessionId);
 
+        Thread.sleep(1000);
+
         // Force close the Mock Server WS connection
         log.info("force closing mock server - status " + FORCE_WS_CLOSE_STATUS_CODE);
         forceCloseMockServer(configRepo.getBaseURL(), FORCE_WS_CLOSE_STATUS_CODE, lobbyListener);
 
         // Assert that the websocket connection has disconnected.
         lobbyListener.getOnClosedLatch().await(RECONNECT_DELAY_MS, TimeUnit.MILLISECONDS);
+        log.info("checking disconnection...");
+        assertFalse(lobbyListener.getIsConnected());
         assertFalse(ws.isConnected());
         lobbyListener.resetOnClosedLatch();
 
         // Assert that the websocket connection has reconnected.
-        lobbyListener.getOnOpenedLatch().await(RECONNECT_DELAY_MS + 2000, TimeUnit.MILLISECONDS);
+        lobbyListener.getOnOpenedLatch().await(RECONNECT_DELAY_MS + 3000, TimeUnit.MILLISECONDS);
+        log.info("checking reconnection...");
+        assertTrue(lobbyListener.getIsConnected());
         assertTrue(ws.isConnected());
         lobbyListener.resetOnOpenedLatch();
 
@@ -225,12 +238,13 @@ class TestLobby {
 
     @Test
     public void testLobbyReconnectWithMultipleMessages() throws Exception {
-        final int FORCE_WS_CLOSE_STATUS_CODE = 2000;
-        final int RECONNECT_DELAY_MS = 2000;
+        final int FORCE_WS_CLOSE_STATUS_CODE = 1011;
+        final int RECONNECT_DELAY_MS = 5000;
         final int PING_INTERVAL_MS = 1000;
         final int MAX_NUM_RECONNECT_ATTEMPTS = 10;
 
         final MockServerConfigRepository configRepo = new MockServerConfigRepository();
+        configRepo.setBaseURL("http://127.0.0.1:8000"); // use standalone ws mock server
 
         final TestLobbyListener lobbyListener = new TestLobbyListener();
 
@@ -257,32 +271,24 @@ class TestLobby {
         // awaits for the party request message to be echo-ed back
         lobbyListener.getPartyRequestLatch().await(3, TimeUnit.SECONDS);
         lobbyListener.resetPartyRequestLatch();
-        
-        for (int i = 10; i >= 1; i--) {
-            // Force close the Mock Server WS connection
-            log.info("force closing mock server - status " + FORCE_WS_CLOSE_STATUS_CODE);
-            forceCloseMockServer(configRepo.getBaseURL(), FORCE_WS_CLOSE_STATUS_CODE, lobbyListener);
 
-            // Assert that the websocket connection has disconnected.
-            lobbyListener.getOnFailureLatch().await(RECONNECT_DELAY_MS + 3000, TimeUnit.MILLISECONDS);
-            lobbyListener.resetOnFailureLatch();
+        Thread.sleep(1000);
 
-            if (ws.isConnected()) {
-                if (i <= 1) 
-                {
-                    fail("websocket is still connected after force closing mock server ");
-                }
+        // Force close the Mock Server WS connection
+        log.info("force closing mock server - status " + FORCE_WS_CLOSE_STATUS_CODE);
+        forceCloseMockServer(configRepo.getBaseURL(), FORCE_WS_CLOSE_STATUS_CODE, lobbyListener);
 
-                 log.info("retrying - force closing mock server");
-
-                continue;   // Try again if websocket is still connected
-            }
-
-            break;
-        }
+        // Assert that the websocket connection has disconnected.
+        lobbyListener.getOnClosedLatch().await(RECONNECT_DELAY_MS, TimeUnit.MILLISECONDS);
+        log.info("checking disconnection...");
+        assertFalse(lobbyListener.getIsConnected());
+        assertFalse(ws.isConnected());
+        lobbyListener.resetOnClosedLatch();
 
         // Assert that the websocket connection has reconnected.
-        lobbyListener.getOnOpenedLatch().await(RECONNECT_DELAY_MS + 5000, TimeUnit.MILLISECONDS);
+        lobbyListener.getOnOpenedLatch().await(RECONNECT_DELAY_MS + 3000, TimeUnit.MILLISECONDS);
+        log.info("checking reconnection...");
+        assertTrue(lobbyListener.getIsConnected());
         assertTrue(ws.isConnected());
         lobbyListener.resetOnOpenedLatch();
 
@@ -307,11 +313,12 @@ class TestLobby {
     @Test
     public void testLobbyDisconnectServerShutdown() throws Exception {
         final int FORCE_WS_CLOSE_STATUS_CODE = 4000;
-        final int RECONNECT_DELAY_MS = 2000;
+        final int RECONNECT_DELAY_MS = 5000;
         final int PING_INTERVAL_MS = 1000;
         final int MAX_NUM_RECONNECT_ATTEMPTS = 10;
 
         final MockServerConfigRepository configRepo = new MockServerConfigRepository();
+        configRepo.setBaseURL("http://127.0.0.1:8000"); // use standalone ws mock server
 
         final TestLobbyListener lobbyListener = new TestLobbyListener();
 
@@ -340,18 +347,25 @@ class TestLobby {
         final String originalLobbySessionId = (String) ws.getData(LobbyWebSocketClient.LOBBY_SESSION_ID_DATAMAP_KEY);
         assertEquals(lobbyListener.getLobbySessionId(), originalLobbySessionId);
 
+        Thread.sleep(1000);
+
         // Force close the Mock Server WS connection
         log.info("force closing mock server - status " + FORCE_WS_CLOSE_STATUS_CODE);
         forceCloseMockServer(configRepo.getBaseURL(), FORCE_WS_CLOSE_STATUS_CODE, lobbyListener);
 
-        // make sure we get onClosed
-        lobbyListener.getOnClosedLatch().await(RECONNECT_DELAY_MS+3000, TimeUnit.MILLISECONDS);
+        // Assert that the websocket connection has disconnected.
+        lobbyListener.getOnClosedLatch().await(RECONNECT_DELAY_MS, TimeUnit.MILLISECONDS);
+        log.info("checking disconnection...");
+        assertFalse(lobbyListener.getIsConnected());
+        assertFalse(ws.isConnected());
         lobbyListener.resetOnClosedLatch();
 
-        // Wait for X second to allow reconnection to happen (shouldn't be).
-        Thread.sleep(RECONNECT_DELAY_MS + 3000);
-        // Assert that the websocket connection is still disconnected and didn't reconnect
+        // Assert that the websocket connection is still disconnected and didn't reconnect (shouldn't be).
+        lobbyListener.getOnOpenedLatch().await(RECONNECT_DELAY_MS + 3000, TimeUnit.MILLISECONDS);
+        log.info("checking reconnection...");
+        assertFalse(lobbyListener.getIsConnected());
         assertFalse(ws.isConnected());
+        lobbyListener.resetOnOpenedLatch();
 
         // Assert that the value from the WebSocket Client using GetData("LobbySessionId") is null
         String newLobbySessionId = (String) ws.getData(LobbyWebSocketClient.LOBBY_SESSION_ID_DATAMAP_KEY);

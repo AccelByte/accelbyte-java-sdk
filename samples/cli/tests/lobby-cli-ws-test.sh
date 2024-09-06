@@ -13,7 +13,7 @@
 # Instructions:
 # - Run the Justice SDK Mock Server first before running this script.
 
-export AB_BASE_URL="http://127.0.0.1:8080"
+export AB_BASE_URL="http://127.0.0.1:8000"
 export AB_CLIENT_ID="admin"
 export AB_CLIENT_SECRET="admin"
 export AB_NAMESPACE="test"
@@ -40,18 +40,6 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 
 echo "TAP version 13"
 echo "1..106"
-
-#- 1 Login
-./ng net.accelbyte.sdk.cli.Main loginClient \
-    > test.out 2>&1
-eval_tap $? 1 'Login' test.out
-
-if [ $EXIT_CODE -ne 0 ]; then
-  echo "Bail out! Login failed."
-  exit $EXIT_CODE
-fi
-
-export AB_BASE_URL="http://127.0.0.1:8000"      # Switch to mock websocket server
 
 #- 2 AcceptFriendsNotif
 ./ng net.accelbyte.sdk.cli.Main lobbyWebsocket -m $'type: acceptFriendsNotif\nfriendId: EAxcVpFrttufHIRd' -u \

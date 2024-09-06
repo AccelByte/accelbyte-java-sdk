@@ -9,6 +9,8 @@ package net.accelbyte.sdk.core;
 import net.accelbyte.sdk.core.repository.ConfigRepository;
 
 class MockServerConfigRepository implements ConfigRepository {
+  private String baseURL = "http://127.0.0.1:8080";
+
   @Override
   public String getClientId() {
     return "admin";
@@ -21,7 +23,11 @@ class MockServerConfigRepository implements ConfigRepository {
 
   @Override
   public String getBaseURL() {
-    return "http://127.0.0.1:8080";
+    return baseURL;
+  }
+
+  public void setBaseURL(String baseURL) {
+    this.baseURL = baseURL;
   }
 
   @Override
