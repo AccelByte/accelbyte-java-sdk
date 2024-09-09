@@ -47,6 +47,10 @@ public class EntitlementGrant extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String language;
 
+  @JsonProperty("metadata")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> metadata;
+
   @JsonProperty("origin")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String origin;

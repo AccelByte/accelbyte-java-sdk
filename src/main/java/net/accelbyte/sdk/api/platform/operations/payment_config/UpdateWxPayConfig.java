@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateWxPayConfig
  *
- * <p>[Not Supported Yet In Starter] Update wxpay configuration. Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Update wxpay configuration. Other detail info:
  *
  * <p>* Returns : updated payment merchant config
  */
@@ -44,6 +44,7 @@ public class UpdateWxPayConfig extends Operation {
 
   /**
    * @param id required
+   * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.

@@ -41,7 +41,8 @@ public class BulkEnableCodes extends Operation {
   private String campaignId;
 
   private String namespace;
-  private Integer batchNo;
+  private String batchName;
+  private List<Integer> batchNo;
 
   /**
    * @param campaignId required
@@ -50,9 +51,11 @@ public class BulkEnableCodes extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public BulkEnableCodes(String campaignId, String namespace, Integer batchNo) {
+  public BulkEnableCodes(
+      String campaignId, String namespace, String batchName, List<Integer> batchNo) {
     this.campaignId = campaignId;
     this.namespace = namespace;
+    this.batchName = batchName;
     this.batchNo = batchNo;
 
     securities.add("Bearer");
@@ -73,8 +76,14 @@ public class BulkEnableCodes extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("batchName", this.batchName == null ? null : Arrays.asList(this.batchName));
     queryParams.put(
-        "batchNo", this.batchNo == null ? null : Arrays.asList(String.valueOf(this.batchNo)));
+        "batchNo",
+        this.batchNo == null
+            ? null
+            : this.batchNo.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     return queryParams;
   }
 
@@ -102,7 +111,8 @@ public class BulkEnableCodes extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
-    result.put("batchNo", "None");
+    result.put("batchName", "None");
+    result.put("batchNo", "multi");
     return result;
   }
 }

@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * createFulfillmentScript
  *
- * <p>[Not Supported Yet In Starter] Create fulfillment script. Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Create fulfillment script. Other detail info:
  *
  * <p>Fulfillment scripts are used for adding custom fulfillment logic based on ITEM_TYPE :
  * [MEDIA,INGAMEITEM] for now, and the custom scripts only cover grantDays. Example for grantDays:

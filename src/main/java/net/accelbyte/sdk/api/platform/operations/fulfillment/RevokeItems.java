@@ -21,9 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * revokeItems
  *
- * <p>[Not Supported Yet In Starter] Revoke items by transactionId. Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Revoke items by transactionId. Other detail info:
  *
- * <p>* Returns : revoke fulfillment v2 result
+ * <p>* Returns : revoke fulfillment v2 result, storeId field can be ignored.
  */
 @Getter
 @Setter

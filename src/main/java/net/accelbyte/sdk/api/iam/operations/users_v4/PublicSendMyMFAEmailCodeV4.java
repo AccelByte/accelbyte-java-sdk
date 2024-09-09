@@ -38,6 +38,7 @@ public class PublicSendMyMFAEmailCodeV4 extends Operation {
   private String namespace;
 
   private String action;
+  private String languageTag;
 
   /**
    * @param namespace required
@@ -45,9 +46,10 @@ public class PublicSendMyMFAEmailCodeV4 extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public PublicSendMyMFAEmailCodeV4(String namespace, String action) {
+  public PublicSendMyMFAEmailCodeV4(String namespace, String action, String languageTag) {
     this.namespace = namespace;
     this.action = action;
+    this.languageTag = languageTag;
 
     securities.add("Bearer");
   }
@@ -66,6 +68,9 @@ public class PublicSendMyMFAEmailCodeV4 extends Operation {
     Map<String, Object> formDataParams = new HashMap<>();
     if (this.action != null) {
       formDataParams.put("action", this.action);
+    }
+    if (this.languageTag != null) {
+      formDataParams.put("languageTag", this.languageTag);
     }
     return formDataParams;
   }

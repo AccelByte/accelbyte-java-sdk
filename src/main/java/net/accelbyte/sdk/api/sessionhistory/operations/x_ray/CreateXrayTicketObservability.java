@@ -23,17 +23,17 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Create ticket observability request Request body details (all attributes are optional):
  * Timestamp : timestamp when calling this endpoint Action : support one of the following value: 1.
- * "started" 2. "matchFound" 3. "matchNotFound" 4. "flexed" 5 "canceled" 6. "expired" PartyID :
- * ticket Party ID MatchID : match ID will be filled only when match found Namespace : ticket
- * current namespace GameMode : ticket current matchpool ActiveAllianceRule : current active
- * alliance ruleset ActiveMatchingRule : current active matching ruleset Function : name of the
- * function that called the endpoint Iteration : total iteration before match found TimeToMatchSec :
- * time to match (in seconds) will be filled only when match found UnmatchReason : reason when
- * unable to find match RemainingTickets : remaining ticket when unable to find match
- * RemainingPlayersPerTicket : remaining players when unable to find match UnbackfillReason : reason
- * when unable to backfill IsBackfillMatch : flag to distinguish between new match and backfill
- * match IsRuleSetFlexed : flag if ruleset is getting flexed TickID : tick id for the matchmaking
- * tick SessionTickID : session tick id for differentiate session when doing matches
+ * "matchFound" 2. "matchNotFound" 3. "flexed" PartyID : ticket Party ID MatchID : match ID will be
+ * filled only when match found Namespace : ticket current namespace GameMode : ticket current
+ * matchpool ActiveAllianceRule : current active alliance ruleset ActiveMatchingRule : current
+ * active matching ruleset Function : name of the function that called the endpoint Iteration :
+ * total iteration before match found TimeToMatchSec : time to match (in seconds) will be filled
+ * only when match found UnmatchReason : reason when unable to find match RemainingTickets :
+ * remaining ticket when unable to find match RemainingPlayersPerTicket : remaining players when
+ * unable to find match UnbackfillReason : reason when unable to backfill IsBackfillMatch : flag to
+ * distinguish between new match and backfill match IsRuleSetFlexed : flag if ruleset is getting
+ * flexed TickID : tick id for the matchmaking tick SessionTickID : session tick id for
+ * differentiate session when doing matches
  */
 @Getter
 @Setter

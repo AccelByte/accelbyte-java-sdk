@@ -1,3 +1,32 @@
+<a name="v0.66.0"></a>
+## [v0.66.0]
+### feat
+- **:** ws reconnect (added max num reconnect count, -1 for unlimited)
+- **:** ws reconnect - add create() override for backward comp
+- **:** ws reconnect - cleanup test
+- **:** ws reconnect - fix test timing issue
+### fix
+- **:** ws reconnect tests timing issue
+- **:** move ws reconnect tests to dedicated class to avoid affecting other tests
+- **:** attempt to fix test failure due to timing issue
+- **:** investigate timing related test (add more logging)
+- **:** increase verbosity to logging to investigate timing related test issues
+- **:** increase loggin verbosity to investigate timing related test issues
+- **:** fix timing related issue - should be registerCb then notify for webSocketListener.onOpen
+- **core:** query param collection format csv
+### chore
+- **:** adjust gradle jvm settings due to gc overhead limit exceeded
+- **gitignore:** add .vscode
+- **makefile:** clean up test_core target commands
+- **makefile:** update test_cli to use standalone ws mock server
+- **gradle:** due to GC overhead limit exceeded
+- **gradle:** due to GC overhead limit exceeded
+### test
+- **integration:** match2 - update alliance ruleset
+- **core:** improve websocket reconnect test
+- **integration:** add inventory test
+
+
 <a name="v0.65.0"></a>
 ## [v0.65.0]
 ### docs

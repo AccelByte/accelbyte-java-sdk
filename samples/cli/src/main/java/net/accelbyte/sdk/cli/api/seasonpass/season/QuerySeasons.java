@@ -47,7 +47,8 @@ public class QuerySeasons implements Callable<Integer> {
 
   @Option(
       names = {"--status"},
-      description = "status")
+      description = "status",
+      split = ",")
   List<String> status;
 
   @Option(

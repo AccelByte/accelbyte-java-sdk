@@ -21,9 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * simulatePaymentOrderNotification
  *
- * <p>[Not Supported Yet In Starter] [TEST FACILITY ONLY] Forbidden in live environment. Simulate
- * payment notification on sandbox payment order, usually for test usage to simulate real currency
- * payment notification. Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] [TEST FACILITY ONLY] Forbidden in live environment.
+ * Simulate payment notification on sandbox payment order, usually for test usage to simulate real
+ * currency payment notification. Other detail info:
  *
  * <p>* Returns : notification process result
  */
@@ -48,6 +48,7 @@ public class SimulatePaymentOrderNotification extends Operation {
   /**
    * @param namespace required
    * @param paymentOrderNo required
+   * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.

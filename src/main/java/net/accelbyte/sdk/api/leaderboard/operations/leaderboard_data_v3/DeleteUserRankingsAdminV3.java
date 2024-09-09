@@ -72,7 +72,13 @@ public class DeleteUserRankingsAdminV3 extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
-    queryParams.put("leaderboardCode", this.leaderboardCode == null ? null : this.leaderboardCode);
+    queryParams.put(
+        "leaderboardCode",
+        this.leaderboardCode == null
+            ? null
+            : this.leaderboardCode.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     return queryParams;
   }
 

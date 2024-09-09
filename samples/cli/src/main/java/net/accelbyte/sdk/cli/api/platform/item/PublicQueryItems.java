@@ -92,7 +92,8 @@ public class PublicQueryItems implements Callable<Integer> {
 
   @Option(
       names = {"--sortBy"},
-      description = "sortBy")
+      description = "sortBy",
+      split = ",")
   List<String> sortBy;
 
   @Option(

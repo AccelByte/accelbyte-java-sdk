@@ -21,8 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getPaymentCustomization
  *
- * <p>[Not Supported Yet In Starter] Get payment provider customization, at current only Adyen
- * provide customization. This api has been deprecated, pls use
+ * <p>[Not supported yet in AGS Shared Cloud] Get payment provider customization, at current only
+ * Adyen provide customization. This api has been deprecated, pls use
  * /public/namespaces/{namespace}/payment/publicconfig to get adyen config Other detail info:
  *
  * <p>* Returns : customization

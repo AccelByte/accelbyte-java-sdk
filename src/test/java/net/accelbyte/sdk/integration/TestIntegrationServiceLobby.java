@@ -74,7 +74,7 @@ class TestIntegrationServiceLobby extends TestIntegration {
         };
 
     final LobbyWebSocketClient ws =
-            LobbyWebSocketClient.create(
+        LobbyWebSocketClient.create(
             new DefaultConfigRepository(), DefaultTokenRepository.getInstance(), listener, 0, 5, 0);
 
     ws.connect();

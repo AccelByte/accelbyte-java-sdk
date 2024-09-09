@@ -93,7 +93,13 @@ public class PublicListGlobalAchievements extends Operation {
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
     queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
     queryParams.put("status", this.status == null ? null : Arrays.asList(this.status));
-    queryParams.put("tags", this.tags == null ? null : this.tags);
+    queryParams.put(
+        "tags",
+        this.tags == null
+            ? null
+            : this.tags.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     return queryParams;
   }
 

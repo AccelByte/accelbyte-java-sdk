@@ -40,6 +40,11 @@ public class GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet
   String namespace;
 
   @Option(
+      names = {"--deviceType"},
+      description = "deviceType")
+  String deviceType;
+
+  @Option(
       names = {"--endTime"},
       description = "endTime")
   String endTime;
@@ -113,6 +118,7 @@ public class GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet
               net.accelbyte.sdk.api.gametelemetry.operations.telemetry
                   .GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet.builder()
                   .namespace(namespace)
+                  .deviceType(deviceType)
                   .endTime(endTime)
                   .eventId(eventId)
                   .eventName(eventName)

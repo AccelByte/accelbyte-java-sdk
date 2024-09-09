@@ -62,7 +62,8 @@ public class PublicGetUserProgression implements Callable<Integer> {
 
   @Option(
       names = {"--tags"},
-      description = "tags")
+      description = "tags",
+      split = ",")
   List<String> tags;
 
   @Option(

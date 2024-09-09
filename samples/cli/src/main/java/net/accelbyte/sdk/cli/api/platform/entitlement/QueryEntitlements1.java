@@ -42,7 +42,8 @@ public class QueryEntitlements1 implements Callable<Integer> {
 
   @Option(
       names = {"--itemIds"},
-      description = "itemIds")
+      description = "itemIds",
+      split = ",")
   List<String> itemIds;
 
   @Option(

@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class CodeCreate extends Model {
 
+  @JsonProperty("batchName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String batchName;
+
   @JsonProperty("codeValue")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String codeValue;

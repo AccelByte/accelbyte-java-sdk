@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * queryPaymentProviderConfig
  *
- * <p>[Not Supported Yet In Starter] Query payment provider config. Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Query payment provider config. Other detail info:
  *
  * <p>* Returns : payment provider config list
  */

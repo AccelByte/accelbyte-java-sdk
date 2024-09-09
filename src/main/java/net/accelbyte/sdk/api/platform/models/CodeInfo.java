@@ -33,6 +33,10 @@ public class CodeInfo extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String acquireUserId;
 
+  @JsonProperty("batchName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String batchName;
+
   @JsonProperty("batchNo")
   private Integer batchNo;
 

@@ -131,7 +131,13 @@ public class AdminSearchContent extends Operation {
     queryParams.put("orderby", this.orderby == null ? null : Arrays.asList(this.orderby));
     queryParams.put("sortby", this.sortby == null ? null : Arrays.asList(this.sortby));
     queryParams.put("subtype", this.subtype == null ? null : Arrays.asList(this.subtype));
-    queryParams.put("tags", this.tags == null ? null : this.tags);
+    queryParams.put(
+        "tags",
+        this.tags == null
+            ? null
+            : this.tags.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     queryParams.put("type", this.type == null ? null : Arrays.asList(this.type));
     queryParams.put("userId", this.userId == null ? null : Arrays.asList(this.userId));
     return queryParams;

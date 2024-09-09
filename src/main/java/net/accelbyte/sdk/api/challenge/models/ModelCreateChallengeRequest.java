@@ -144,6 +144,7 @@ public class ModelCreateChallengeRequest extends Model {
   }
 
   public enum AssignmentRule {
+    CUSTOM("CUSTOM"),
     FIXED("FIXED"),
     RANDOMIZED("RANDOMIZED"),
     UNSCHEDULED("UNSCHEDULED");

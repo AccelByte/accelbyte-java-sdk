@@ -140,6 +140,7 @@ import picocli.CommandLine.Command;
       AdminCreateContentV2.class,
       AdminDeleteOfficialContentV2.class,
       AdminUpdateOfficialContentV2.class,
+      AdminCopyContent.class,
       AdminUpdateOfficialContentFileLocation.class,
       AdminGenerateOfficialContentUploadURLV2.class,
       AdminGetConfigs.class,

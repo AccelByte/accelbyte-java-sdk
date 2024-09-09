@@ -65,7 +65,13 @@ public class DeleteAdminEmailConfiguration extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
-    queryParams.put("emails", this.emails == null ? null : this.emails);
+    queryParams.put(
+        "emails",
+        this.emails == null
+            ? null
+            : this.emails.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     return queryParams;
   }
 

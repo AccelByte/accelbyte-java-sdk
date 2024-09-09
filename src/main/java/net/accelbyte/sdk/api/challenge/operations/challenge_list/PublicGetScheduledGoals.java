@@ -79,7 +79,13 @@ public class PublicGetScheduledGoals extends Operation {
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
-    queryParams.put("tags", this.tags == null ? null : this.tags);
+    queryParams.put(
+        "tags",
+        this.tags == null
+            ? null
+            : this.tags.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     return queryParams;
   }
 

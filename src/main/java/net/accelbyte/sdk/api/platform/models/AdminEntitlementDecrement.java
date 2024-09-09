@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class AdminEntitlementDecrement extends Model {
 
+  @JsonProperty("metadata")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> metadata;
+
   @JsonProperty("options")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> options;

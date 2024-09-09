@@ -83,10 +83,28 @@ public class ExistsAnyUserActiveEntitlement extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
-    queryParams.put("appIds", this.appIds == null ? null : this.appIds);
-    queryParams.put("itemIds", this.itemIds == null ? null : this.itemIds);
+    queryParams.put(
+        "appIds",
+        this.appIds == null
+            ? null
+            : this.appIds.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
+    queryParams.put(
+        "itemIds",
+        this.itemIds == null
+            ? null
+            : this.itemIds.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     queryParams.put("platform", this.platform == null ? null : Arrays.asList(this.platform));
-    queryParams.put("skus", this.skus == null ? null : this.skus);
+    queryParams.put(
+        "skus",
+        this.skus == null
+            ? null
+            : this.skus.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     return queryParams;
   }
 

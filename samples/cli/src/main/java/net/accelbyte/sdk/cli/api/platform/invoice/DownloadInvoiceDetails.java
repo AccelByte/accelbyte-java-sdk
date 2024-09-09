@@ -37,6 +37,11 @@ public class DownloadInvoiceDetails implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--endTime"},
+      description = "endTime")
+  String endTime;
+
+  @Option(
       names = {"--feature"},
       description = "feature")
   String feature;
@@ -50,11 +55,6 @@ public class DownloadInvoiceDetails implements Callable<Integer> {
       names = {"--itemType"},
       description = "itemType")
   String itemType;
-
-  @Option(
-      names = {"--endTime"},
-      description = "endTime")
-  String endTime;
 
   @Option(
       names = {"--startTime"},
@@ -85,10 +85,10 @@ public class DownloadInvoiceDetails implements Callable<Integer> {
       final net.accelbyte.sdk.api.platform.operations.invoice.DownloadInvoiceDetails operation =
           net.accelbyte.sdk.api.platform.operations.invoice.DownloadInvoiceDetails.builder()
               .namespace(namespace)
+              .endTime(endTime)
               .feature(feature)
               .itemId(itemId)
               .itemType(itemType)
-              .endTime(endTime)
               .startTime(startTime)
               .build();
       final InputStream response = wrapper.downloadInvoiceDetails(operation);

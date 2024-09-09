@@ -68,6 +68,8 @@ import picocli.CommandLine.Command;
       DeleteLeaderboardConfigurationAdminV3.class,
       GetAllTimeLeaderboardRankingAdminV3.class,
       GetCurrentCycleLeaderboardRankingAdminV3.class,
+      DeleteAllUserRankingByCycleIdAdminV3.class,
+      DeleteUserRankingByCycleIdAdminV3.class,
       HardDeleteLeaderboardAdminV3.class,
       DeleteUserRankingByLeaderboardCodeAdminV3.class,
       GetHiddenUsersV3.class,

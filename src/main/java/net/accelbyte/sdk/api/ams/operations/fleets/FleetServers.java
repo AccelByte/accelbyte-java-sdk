@@ -38,6 +38,8 @@ public class FleetServers extends Operation {
   private String fleetID;
 
   private String namespace;
+  private String count;
+  private Integer offset;
 
   /**
    * @param fleetID required
@@ -46,9 +48,11 @@ public class FleetServers extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public FleetServers(String fleetID, String namespace) {
+  public FleetServers(String fleetID, String namespace, String count, Integer offset) {
     this.fleetID = fleetID;
     this.namespace = namespace;
+    this.count = count;
+    this.offset = offset;
 
     securities.add("Bearer");
   }
@@ -63,6 +67,15 @@ public class FleetServers extends Operation {
       pathParams.put("namespace", this.namespace);
     }
     return pathParams;
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("count", this.count == null ? null : Arrays.asList(this.count));
+    queryParams.put(
+        "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+    return queryParams;
   }
 
   @Override
@@ -84,5 +97,13 @@ public class FleetServers extends Operation {
     }
     final String json = Helper.convertInputStreamToString(payload);
     return new ApiFleetServersResponse().createFromJson(json);
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("count", "None");
+    result.put("offset", "None");
+    return result;
   }
 }

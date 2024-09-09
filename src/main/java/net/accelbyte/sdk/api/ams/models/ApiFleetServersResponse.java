@@ -25,6 +25,9 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApiFleetServersResponse extends Model {
 
+  @JsonProperty("paging")
+  private ApiPagingInfo paging;
+
   @JsonProperty("regions")
   private List<ApiFleetRegionalServerCounts> regions;
 

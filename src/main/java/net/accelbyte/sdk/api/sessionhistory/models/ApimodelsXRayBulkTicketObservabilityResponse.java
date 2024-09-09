@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.platform.models;
+package net.accelbyte.sdk.api.sessionhistory.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,27 +23,22 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class EntitlementDecrement extends Model {
+public class ApimodelsXRayBulkTicketObservabilityResponse extends Model {
 
-  @JsonProperty("options")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private List<String> options;
-
-  @JsonProperty("requestId")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String requestId;
-
-  @JsonProperty("useCount")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Integer useCount;
+  @JsonProperty("ticketIDs")
+  private List<String> ticketIDs;
 
   @JsonIgnore
-  public EntitlementDecrement createFromJson(String json) throws JsonProcessingException {
+  public ApimodelsXRayBulkTicketObservabilityResponse createFromJson(String json)
+      throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<EntitlementDecrement> createFromJsonList(String json) throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<EntitlementDecrement>>() {});
+  public List<ApimodelsXRayBulkTicketObservabilityResponse> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(
+            json, new TypeReference<List<ApimodelsXRayBulkTicketObservabilityResponse>>() {});
   }
 }

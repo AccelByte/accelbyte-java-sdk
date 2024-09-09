@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * testAliPayConfigById
  *
- * <p>[Not Supported Yet In Starter] Test AliPay configuration in payment merchant config.
+ * <p>[Not supported yet in AGS Shared Cloud] Test AliPay configuration in payment merchant config.
  * Reference: [Alipay Document](https://docs.open.alipay.com/270/alipay.trade.page.pay). Other
  * detail info:
  *

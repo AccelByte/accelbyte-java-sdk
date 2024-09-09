@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * queryPaymentNotifications
  *
- * <p>[Not Supported Yet In Starter] Query payment notifications. Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Query payment notifications. Other detail info:
  *
  * <p>* Returns : Payment notifications
  */

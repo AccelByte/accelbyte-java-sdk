@@ -108,7 +108,13 @@ public class AdminQueryTopic extends Operation {
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
-    queryParams.put("topic", this.topic == null ? null : this.topic);
+    queryParams.put(
+        "topic",
+        this.topic == null
+            ? null
+            : this.topic.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     queryParams.put(
         "topicSubType", this.topicSubType == null ? null : Arrays.asList(this.topicSubType));
     queryParams.put("topicType", this.topicType == null ? null : Arrays.asList(this.topicType));

@@ -20,7 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminVerifyUserWithoutVerificationCodeV3
  *
- * <p>This endpoint force verify user action code: 10118
+ * <p>This endpoint force verify user Note: - namespace: only accept publisher/studio namespace -
+ * userId: only accept publisher/studio userId action code: 10118
  */
 @Getter
 @Setter

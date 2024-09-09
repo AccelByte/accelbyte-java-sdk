@@ -29,6 +29,10 @@ public class ApimodelsTotalActiveSession extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String createdAt;
 
+  @JsonProperty("matchPool")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String matchPool;
+
   @JsonProperty("namespace")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String namespace;

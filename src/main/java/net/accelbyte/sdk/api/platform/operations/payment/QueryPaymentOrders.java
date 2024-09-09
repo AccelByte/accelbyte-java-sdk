@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * queryPaymentOrders
  *
- * <p>[Not Supported Yet In Starter] Query payment orders. Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Query payment orders. Other detail info:
  *
  * <p>* Returns : query payment orders
  */

@@ -21,8 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * refundUserPaymentOrder
  *
- * <p>[Not Supported Yet In Starter] [SERVICE COMMUNICATION ONLY] This API is used to refund order
- * by paymentOrderNo from justice service.
+ * <p>[Not supported yet in AGS Shared Cloud] [SERVICE COMMUNICATION ONLY] This API is used to
+ * refund order by paymentOrderNo from justice service.
  */
 @Getter
 @Setter
@@ -47,6 +47,7 @@ public class RefundUserPaymentOrder extends Operation {
    * @param namespace required
    * @param paymentOrderNo required
    * @param userId required
+   * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.

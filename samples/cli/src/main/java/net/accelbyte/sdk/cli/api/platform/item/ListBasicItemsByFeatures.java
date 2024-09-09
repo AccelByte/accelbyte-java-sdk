@@ -42,7 +42,8 @@ public class ListBasicItemsByFeatures implements Callable<Integer> {
 
   @Option(
       names = {"--features"},
-      description = "features")
+      description = "features",
+      split = ",")
   List<String> features;
 
   @Option(

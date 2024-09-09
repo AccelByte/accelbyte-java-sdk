@@ -67,7 +67,8 @@ public class QueryUserEntitlements implements Callable<Integer> {
 
   @Option(
       names = {"--features"},
-      description = "features")
+      description = "features",
+      split = ",")
   List<String> features;
 
   @Option(
@@ -77,7 +78,8 @@ public class QueryUserEntitlements implements Callable<Integer> {
 
   @Option(
       names = {"--itemId"},
-      description = "itemId")
+      description = "itemId",
+      split = ",")
   List<String> itemId;
 
   @Option(

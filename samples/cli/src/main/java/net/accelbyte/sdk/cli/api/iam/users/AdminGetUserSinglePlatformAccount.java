@@ -46,6 +46,11 @@ public class AdminGetUserSinglePlatformAccount implements Callable<Integer> {
   String userId;
 
   @Option(
+      names = {"--crossNamespace"},
+      description = "crossNamespace")
+  Boolean crossNamespace;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -71,6 +76,7 @@ public class AdminGetUserSinglePlatformAccount implements Callable<Integer> {
               .namespace(namespace)
               .platformId(platformId)
               .userId(userId)
+              .crossNamespace(crossNamespace)
               .build();
       final ModelUserPlatformMetadata response =
           wrapper.adminGetUserSinglePlatformAccount(operation);

@@ -29,6 +29,10 @@ public class ModelUserInputValidationRequest extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String displayName;
 
+  @JsonProperty("password")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String password;
+
   @JsonProperty("uniqueDisplayName")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String uniqueDisplayName;

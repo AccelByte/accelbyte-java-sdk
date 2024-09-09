@@ -36,6 +36,10 @@ public class StatCycleCreate extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String end;
 
+  @JsonProperty("id")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String id;
+
   @JsonProperty("name")
   private String name;
 

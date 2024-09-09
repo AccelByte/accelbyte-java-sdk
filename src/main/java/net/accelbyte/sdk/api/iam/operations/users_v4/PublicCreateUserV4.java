@@ -28,7 +28,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * /v3/public/inputValidations API. - country: ISO3166-1 alpha-2 two letter, e.g. US. - dateOfBirth:
  * YYYY-MM-DD, e.g. 1990-01-01. valid values are between 1905-01-01 until current date. -
  * uniqueDisplayName: required when uniqueDisplayNameEnabled/UNIQUE_DISPLAY_NAME_ENABLED is true,
- * please refer to the rule from /v3/public/inputValidations API.
+ * please refer to the rule from /v3/public/inputValidations API. - code: required when
+ * mandatoryEmailVerificationEnabled config is true, please refer to the config from
+ * /iam/v3/public/namespaces/{namespace}/config/{configKey} [GET] API.
  *
  * <p>**Not required attributes:** - displayName: Please refer to the rule from
  * /v3/public/inputValidations API. This endpoint support accepting agreements for the created user.

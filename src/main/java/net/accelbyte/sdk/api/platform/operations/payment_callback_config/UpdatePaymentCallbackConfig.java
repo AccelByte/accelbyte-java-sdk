@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updatePaymentCallbackConfig
  *
- * <p>[Not Supported Yet In Starter] Update payment callback configuration. Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Update payment callback configuration. Other detail
+ * info:
  *
  * <p>* Returns : Payment callback config
  */
@@ -43,6 +44,7 @@ public class UpdatePaymentCallbackConfig extends Operation {
 
   /**
    * @param namespace required
+   * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.

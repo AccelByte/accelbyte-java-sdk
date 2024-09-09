@@ -69,13 +69,13 @@ public class GetLanguages extends Operation {
     return true;
   }
 
-  public Map<String, ?> parseResponse(int code, String contentType, InputStream payload)
+  public Map<String, String> parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ObjectMapper().readValue(json, new TypeReference<Map<String, ?>>() {});
+    return new ObjectMapper().readValue(json, new TypeReference<Map<String, String>>() {});
   }
 }

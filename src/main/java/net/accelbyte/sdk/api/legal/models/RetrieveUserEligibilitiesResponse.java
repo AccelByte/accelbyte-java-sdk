@@ -40,8 +40,16 @@ public class RetrieveUserEligibilitiesResponse extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String description;
 
+  @JsonProperty("hiddenPublic")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean hiddenPublic;
+
   @JsonProperty("isAccepted")
   private Boolean isAccepted;
+
+  @JsonProperty("isHiddenPublic")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean isHiddenPublic;
 
   @JsonProperty("isMandatory")
   private Boolean isMandatory;

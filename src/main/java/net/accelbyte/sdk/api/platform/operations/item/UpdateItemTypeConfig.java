@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateItemTypeConfig
  *
- * <p>[Not Supported Yet In Starter] This API is used to update an item type config.
+ * <p>[Not supported yet in AGS Shared Cloud] This API is used to update an item type config.
  *
  * <p>* Returns : item type config data
  */
@@ -43,6 +43,7 @@ public class UpdateItemTypeConfig extends Operation {
 
   /**
    * @param id required
+   * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.

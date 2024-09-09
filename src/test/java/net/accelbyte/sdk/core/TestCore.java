@@ -173,8 +173,7 @@ class TestCore {
     if ("multi".equals(format)) {
       assertEquals("[?value\"1a&, ?value\"1b&]", result.getArgs().get("?key=1&").toString());
     } else {
-      assertEquals(
-          "?value\"1a&" + delimiter + "?value\"1b&", result.getArgs().get("?key=1&"));
+      assertEquals("?value\"1a&" + delimiter + "?value\"1b&", result.getArgs().get("?key=1&"));
     }
   }
 

@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * testCheckoutConfig
  *
- * <p>[Not Supported Yet In Starter] Test checkout.com configuration.
+ * <p>[Not supported yet in AGS Shared Cloud] Test checkout.com configuration.
  *
  * <p>#### Check List:
  *
@@ -45,7 +45,9 @@ public class TestCheckoutConfig extends Operation {
 
   private CheckoutConfig body;
 
-  /** */
+  /**
+   * @param body required
+   */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated

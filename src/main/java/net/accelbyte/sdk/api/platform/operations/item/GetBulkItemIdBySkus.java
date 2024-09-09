@@ -72,7 +72,13 @@ public class GetBulkItemIdBySkus extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
-    queryParams.put("sku", this.sku == null ? null : this.sku);
+    queryParams.put(
+        "sku",
+        this.sku == null
+            ? null
+            : this.sku.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     queryParams.put("storeId", this.storeId == null ? null : Arrays.asList(this.storeId));
     return queryParams;
   }

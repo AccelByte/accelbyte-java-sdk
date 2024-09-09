@@ -52,12 +52,14 @@ public class PublicListMyStatItems implements Callable<Integer> {
 
   @Option(
       names = {"--statCodes"},
-      description = "statCodes")
+      description = "statCodes",
+      split = ",")
   List<String> statCodes;
 
   @Option(
       names = {"--tags"},
-      description = "tags")
+      description = "tags",
+      split = ",")
   List<String> tags;
 
   @Option(

@@ -60,7 +60,7 @@ public class GetLanguages implements Callable<Integer> {
           net.accelbyte.sdk.api.basic.operations.misc.GetLanguages.builder()
               .namespace(namespace)
               .build();
-      final Map<String, ?> response = wrapper.getLanguages(operation);
+      final Map<String, String> response = wrapper.getLanguages(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

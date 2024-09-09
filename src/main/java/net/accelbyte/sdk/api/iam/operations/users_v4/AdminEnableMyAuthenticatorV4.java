@@ -20,7 +20,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminEnableMyAuthenticatorV4
  *
- * <p>This endpoint is used to enable 2FA authenticator.
+ * <p>This endpoint is used to enable 2FA authenticator. ---------- Prerequisites: - Generate the
+ * secret key/QR code uri by **_/iam/v4/admin/users/me/mfa/authenticator/key_** - Consume the secret
+ * key/QR code by an authenticator app - Get the code from the authenticator app
  */
 @Getter
 @Setter
@@ -36,7 +38,9 @@ public class AdminEnableMyAuthenticatorV4 extends Operation {
   /** fields as input parameter */
   private String code;
 
-  /** */
+  /**
+   * @param code required
+   */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
@@ -57,6 +61,9 @@ public class AdminEnableMyAuthenticatorV4 extends Operation {
 
   @Override
   public boolean isValid() {
+    if (this.code == null) {
+      return false;
+    }
     return true;
   }
 

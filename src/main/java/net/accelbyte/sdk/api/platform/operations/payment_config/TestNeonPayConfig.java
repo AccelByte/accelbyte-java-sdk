@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * testNeonPayConfig
  *
- * <p>[Not Supported Yet In Starter] Check Neon Pay configuration, Reference: [Neon Pay
+ * <p>[Not supported yet in AGS Shared Cloud] Check Neon Pay configuration, Reference: [Neon Pay
  * Document](https://docs.neonpay.com/docs/checkout).
  *
  * <p>#### Check List:
@@ -46,7 +46,9 @@ public class TestNeonPayConfig extends Operation {
 
   private NeonPayConfig body;
 
-  /** */
+  /**
+   * @param body required
+   */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated

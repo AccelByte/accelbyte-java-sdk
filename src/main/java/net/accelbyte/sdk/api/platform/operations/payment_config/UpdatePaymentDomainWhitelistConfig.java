@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updatePaymentDomainWhitelistConfig
  *
- * <p>[Not Supported Yet In Starter] Update payment provider config by namespace.
+ * <p>[Not supported yet in AGS Shared Cloud] Update payment provider config by namespace.
  *
  * <p>Request Body Parameters:
  *
@@ -52,6 +52,7 @@ public class UpdatePaymentDomainWhitelistConfig extends Operation {
 
   /**
    * @param namespace required
+   * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.

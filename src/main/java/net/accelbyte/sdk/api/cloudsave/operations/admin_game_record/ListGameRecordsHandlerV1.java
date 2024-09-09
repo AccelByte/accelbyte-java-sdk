@@ -74,7 +74,13 @@ public class ListGameRecordsHandlerV1 extends Operation {
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
     queryParams.put("query", this.query == null ? null : Arrays.asList(this.query));
-    queryParams.put("tags", this.tags == null ? null : this.tags);
+    queryParams.put(
+        "tags",
+        this.tags == null
+            ? null
+            : this.tags.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));

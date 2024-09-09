@@ -25,9 +25,17 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApiPatchNamespaceConfigRequest extends Model {
 
+  @JsonProperty("crossPlatformNoCurrentPlatform")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean crossPlatformNoCurrentPlatform;
+
   @JsonProperty("extraPlatforms")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> extraPlatforms;
+
+  @JsonProperty("matchAnyCommon")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean matchAnyCommon;
 
   @JsonProperty("platformGroup")
   @JsonInclude(JsonInclude.Include.NON_NULL)

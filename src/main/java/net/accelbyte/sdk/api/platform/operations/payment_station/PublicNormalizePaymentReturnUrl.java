@@ -20,8 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicNormalizePaymentReturnUrl
  *
- * <p>[Not Supported Yet In Starter] Normalize payment return url for payment provider Field | Type
- * | Required | Description
+ * <p>[Not supported yet in AGS Shared Cloud] Normalize payment return url for payment provider
+ * Field | Type | Required | Description
  * -------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|----------|-----------------------
  * orderNo | String | Yes | order no paymentStatus | String | Yes |
  *

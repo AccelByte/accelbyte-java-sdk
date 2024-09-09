@@ -65,6 +65,8 @@ import picocli.CommandLine.Command;
       CreateCampaign.class,
       GetCampaign.class,
       UpdateCampaign.class,
+      RenameBatch.class,
+      QueryCampaignBatchNames.class,
       GetCampaignDynamic.class,
       GetCatalogConfig.class,
       UpdateCatalogConfig.class,

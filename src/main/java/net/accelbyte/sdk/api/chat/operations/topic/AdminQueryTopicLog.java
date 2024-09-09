@@ -99,7 +99,13 @@ public class AdminQueryTopicLog extends Operation {
         "startCreatedAt",
         this.startCreatedAt == null ? null : Arrays.asList(String.valueOf(this.startCreatedAt)));
     queryParams.put("topicId", this.topicId == null ? null : Arrays.asList(this.topicId));
-    queryParams.put("topicIds", this.topicIds == null ? null : this.topicIds);
+    queryParams.put(
+        "topicIds",
+        this.topicIds == null
+            ? null
+            : this.topicIds.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     queryParams.put("userId", this.userId == null ? null : Arrays.asList(this.userId));
     return queryParams;
   }

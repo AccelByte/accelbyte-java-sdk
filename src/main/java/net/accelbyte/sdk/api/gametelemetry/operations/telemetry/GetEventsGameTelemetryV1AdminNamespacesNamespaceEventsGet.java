@@ -38,6 +38,7 @@ public class GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet extends O
   /** fields as input parameter */
   private String namespace;
 
+  private String deviceType;
   private String endTime;
   private String eventId;
   private String eventName;
@@ -56,6 +57,7 @@ public class GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet extends O
   @Deprecated
   public GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet(
       String namespace,
+      String deviceType,
       String endTime,
       String eventId,
       String eventName,
@@ -66,6 +68,7 @@ public class GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet extends O
       String startTime,
       String userId) {
     this.namespace = namespace;
+    this.deviceType = deviceType;
     this.endTime = endTime;
     this.eventId = eventId;
     this.eventName = eventName;
@@ -92,6 +95,7 @@ public class GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet extends O
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("deviceType", this.deviceType == null ? null : Arrays.asList(this.deviceType));
     queryParams.put("endTime", this.endTime == null ? null : Arrays.asList(this.endTime));
     queryParams.put("eventId", this.eventId == null ? null : Arrays.asList(this.eventId));
     queryParams.put("eventName", this.eventName == null ? null : Arrays.asList(this.eventName));
@@ -127,6 +131,7 @@ public class GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet extends O
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("deviceType", "None");
     result.put("endTime", "None");
     result.put("eventId", "None");
     result.put("eventName", "None");

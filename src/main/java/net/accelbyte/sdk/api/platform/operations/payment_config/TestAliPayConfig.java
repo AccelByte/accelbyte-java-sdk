@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * testAliPayConfig
  *
- * <p>[Not Supported Yet In Starter] Test AliPay configuration.Reference: [Alipay
+ * <p>[Not supported yet in AGS Shared Cloud] Test AliPay configuration.Reference: [Alipay
  * Document](https://docs.open.alipay.com/270/alipay.trade.page.pay). Other detail info:
  *
  * <p>* Returns : test result
@@ -42,7 +42,9 @@ public class TestAliPayConfig extends Operation {
 
   private AliPayConfig body;
 
-  /** */
+  /**
+   * @param body required
+   */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated

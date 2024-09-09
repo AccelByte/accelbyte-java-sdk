@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * testStripeConfig
  *
- * <p>[Not Supported Yet In Starter] Test stripe configuration.
+ * <p>[Not supported yet in AGS Shared Cloud] Test stripe configuration.
  *
  * <p>#### Check List:
  *
@@ -49,7 +49,9 @@ public class TestStripeConfig extends Operation {
 
   private StripeConfig body;
 
-  /** */
+  /**
+   * @param body required
+   */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated

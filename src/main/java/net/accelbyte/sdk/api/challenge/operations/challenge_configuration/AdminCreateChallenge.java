@@ -38,14 +38,15 @@ import net.accelbyte.sdk.core.util.Helper;
  * a challenge will be available for players to progress before rotated with another goals.
  * (DAILY|WEEKLY|MONTHLY|NONE) * activeGoalsPerRotation: number of goals per rotation (currently
  * only applicable for RANDOMIZE assignment) * assignmentRule: describe how the goals will be
- * assigned and scheduled to users. (FIXED|RANDOMIZED|UNSCHEDULED) * goalsVisibility: describe
- * whether users can see all goals under challenge, or only active goal in one rotation period only.
- * (SHOWALL|PERIODONLY) * resetConfig: describe when rotation reset will happen (optional). *
- * resetTime: Reset time must follow hours:minutes in 24 hours format (e.g. 01:30, 23:15) and in UTC
- * timezone. Default to "00:00" * resetDay: Reset Day follows the ISO-8601 standard, from 1 (Monday)
- * to 7 (Sunday). Default to 1 in WEEKLY rotation. * resetDate: Reset Date must be a number 1 - 31.
- * Default to 1 in MONTHLY rotation. * randomizedPerRotation: * true: each goal will be randomly
- * assigned to multiple periods * false: a goal will only be assigned to one period
+ * assigned and scheduled to users. (FIXED|RANDOMIZED|UNSCHEDULED|CUSTOM) * goalsVisibility:
+ * describe whether users can see all goals under challenge, or only active goal in one rotation
+ * period only. (SHOWALL|PERIODONLY) * resetConfig: describe when rotation reset will happen
+ * (optional). * resetTime: Reset time must follow hours:minutes in 24 hours format (e.g. 01:30,
+ * 23:15) and in UTC timezone. Default to "00:00" * resetDay: Reset Day follows the ISO-8601
+ * standard, from 1 (Monday) to 7 (Sunday). Default to 1 in WEEKLY rotation. * resetDate: Reset Date
+ * must be a number 1 - 31. Default to 1 in MONTHLY rotation. * randomizedPerRotation: * true: each
+ * goal will be randomly assigned to multiple periods * false: a goal will only be assigned to one
+ * period
  */
 @Getter
 @Setter

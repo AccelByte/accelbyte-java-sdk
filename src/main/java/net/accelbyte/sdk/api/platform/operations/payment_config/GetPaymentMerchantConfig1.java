@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getPaymentMerchantConfig_1
  *
- * <p>[Not Supported Yet In Starter] Get payment merchant config by id. Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Get payment merchant config by id. Other detail info:
  *
  * <p>* Returns : payment merchant config info
  */

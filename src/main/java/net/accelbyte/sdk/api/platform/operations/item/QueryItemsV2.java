@@ -136,7 +136,13 @@ public class QueryItemsV2 extends Operation {
             : Arrays.asList(String.valueOf(this.includeSubCategoryItem)));
     queryParams.put("itemName", this.itemName == null ? null : Arrays.asList(this.itemName));
     queryParams.put("itemStatus", this.itemStatus == null ? null : Arrays.asList(this.itemStatus));
-    queryParams.put("itemType", this.itemType == null ? null : this.itemType);
+    queryParams.put(
+        "itemType",
+        this.itemType == null
+            ? null
+            : this.itemType.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
@@ -146,7 +152,13 @@ public class QueryItemsV2 extends Operation {
         this.sectionExclusive == null
             ? null
             : Arrays.asList(String.valueOf(this.sectionExclusive)));
-    queryParams.put("sortBy", this.sortBy == null ? null : this.sortBy);
+    queryParams.put(
+        "sortBy",
+        this.sortBy == null
+            ? null
+            : this.sortBy.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     queryParams.put("storeId", this.storeId == null ? null : Arrays.asList(this.storeId));
     queryParams.put("tags", this.tags == null ? null : Arrays.asList(this.tags));
     queryParams.put(

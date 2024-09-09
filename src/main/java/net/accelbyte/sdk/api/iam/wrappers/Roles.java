@@ -333,7 +333,9 @@ public class Roles {
 
   /**
    * @see AdminRemoveRoleMembersV3
+   * @deprecated
    */
+  @Deprecated
   public void adminRemoveRoleMembersV3(AdminRemoveRoleMembersV3 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(

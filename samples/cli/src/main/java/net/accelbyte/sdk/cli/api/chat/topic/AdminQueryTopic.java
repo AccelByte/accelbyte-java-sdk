@@ -62,7 +62,8 @@ public class AdminQueryTopic implements Callable<Integer> {
 
   @Option(
       names = {"--topic"},
-      description = "topic")
+      description = "topic",
+      split = ",")
   List<String> topic;
 
   @Option(

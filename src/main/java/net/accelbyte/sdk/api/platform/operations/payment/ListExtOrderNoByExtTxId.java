@@ -22,8 +22,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * listExtOrderNoByExtTxId
  *
- * <p>[Not Supported Yet In Starter] List external order No by external transaction id. Other detail
- * info:
+ * <p>[Not supported yet in AGS Shared Cloud] List external order No by external transaction id.
+ * Other detail info:
  *
  * <p>* Returns : payment orders
  */

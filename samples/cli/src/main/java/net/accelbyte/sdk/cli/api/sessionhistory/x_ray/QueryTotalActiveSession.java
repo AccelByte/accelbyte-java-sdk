@@ -36,6 +36,12 @@ public class QueryTotalActiveSession implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--matchPool"},
+      description = "matchPool",
+      split = ",")
+  List<String> matchPool;
+
+  @Option(
       names = {"--region"},
       description = "region")
   String region;
@@ -76,6 +82,7 @@ public class QueryTotalActiveSession implements Callable<Integer> {
               net.accelbyte.sdk.api.sessionhistory.operations.x_ray.QueryTotalActiveSession
                   .builder()
                   .namespace(namespace)
+                  .matchPool(matchPool)
                   .region(region)
                   .endDate(endDate)
                   .startDate(startDate)

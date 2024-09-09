@@ -73,7 +73,13 @@ public class BulkFetchOrDefaultStatItems extends Operation {
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
     queryParams.put("statCode", this.statCode == null ? null : Arrays.asList(this.statCode));
-    queryParams.put("userIds", this.userIds == null ? null : this.userIds);
+    queryParams.put(
+        "userIds",
+        this.userIds == null
+            ? null
+            : this.userIds.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     return queryParams;
   }
 

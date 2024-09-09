@@ -38,7 +38,7 @@ public class QueryXrayMatchPool implements Callable<Integer> {
   @Option(
       names = {"--poolName"},
       description = "poolName")
-  String poolName;
+  List<String> poolName;
 
   @Option(
       names = {"--endDate"},

@@ -43,7 +43,8 @@ public class PublicGetUserEntitlementOwnershipByItemIds implements Callable<Inte
 
   @Option(
       names = {"--ids"},
-      description = "ids")
+      description = "ids",
+      split = ",")
   List<String> ids;
 
   @Option(

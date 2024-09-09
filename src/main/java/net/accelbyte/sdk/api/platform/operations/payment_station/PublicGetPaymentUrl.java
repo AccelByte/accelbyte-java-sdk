@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicGetPaymentUrl
  *
- * <p>[Not Supported Yet In Starter] Get payment url. Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Get payment url. Other detail info:
  *
  * <p>* For Neon Pay payment provider, the 'neonPayConfig' field can be used to provide success and
  * cancel URL. If 'neonPayConfig' field is not present, the 'returnUrl' will be used for both
@@ -45,6 +45,7 @@ public class PublicGetPaymentUrl extends Operation {
 
   /**
    * @param namespace required
+   * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.

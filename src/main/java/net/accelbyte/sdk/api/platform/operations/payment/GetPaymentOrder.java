@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getPaymentOrder
  *
- * <p>[Not Supported Yet In Starter] Get payment order by paymentOrderNo. Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Get payment order by paymentOrderNo. Other detail
+ * info:
  *
  * <p>* Returns : payment order instance
  */

@@ -47,7 +47,8 @@ public class BulkFetchOrDefaultStatItems1 implements Callable<Integer> {
 
   @Option(
       names = {"--userIds"},
-      description = "userIds")
+      description = "userIds",
+      split = ",")
   List<String> userIds;
 
   @Option(

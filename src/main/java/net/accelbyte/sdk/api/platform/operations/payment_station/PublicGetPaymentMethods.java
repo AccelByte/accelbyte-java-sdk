@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicGetPaymentMethods
  *
- * <p>[Not Supported Yet In Starter] Get payment methods. Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Get payment methods. Other detail info:
  *
  * <p>* Returns : Payment method list
  */

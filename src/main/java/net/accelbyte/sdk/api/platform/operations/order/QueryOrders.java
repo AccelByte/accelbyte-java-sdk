@@ -93,7 +93,13 @@ public class QueryOrders extends Operation {
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
-    queryParams.put("orderNos", this.orderNos == null ? null : this.orderNos);
+    queryParams.put(
+        "orderNos",
+        this.orderNos == null
+            ? null
+            : this.orderNos.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
     queryParams.put("startTime", this.startTime == null ? null : Arrays.asList(this.startTime));
     queryParams.put("status", this.status == null ? null : Arrays.asList(this.status));

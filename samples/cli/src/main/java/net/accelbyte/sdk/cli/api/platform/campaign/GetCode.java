@@ -46,6 +46,11 @@ public class GetCode implements Callable<Integer> {
   Boolean redeemable;
 
   @Option(
+      names = {"--withBatchName"},
+      description = "withBatchName")
+  Boolean withBatchName;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -71,6 +76,7 @@ public class GetCode implements Callable<Integer> {
               .code(code)
               .namespace(namespace)
               .redeemable(redeemable)
+              .withBatchName(withBatchName)
               .build();
       final CodeInfo response = wrapper.getCode(operation);
       final String responseString =

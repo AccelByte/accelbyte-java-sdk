@@ -133,7 +133,13 @@ public class PublicQueryItems extends Operation {
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
     queryParams.put("region", this.region == null ? null : Arrays.asList(this.region));
-    queryParams.put("sortBy", this.sortBy == null ? null : this.sortBy);
+    queryParams.put(
+        "sortBy",
+        this.sortBy == null
+            ? null
+            : this.sortBy.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     queryParams.put("storeId", this.storeId == null ? null : Arrays.asList(this.storeId));
     queryParams.put("tags", this.tags == null ? null : Arrays.asList(this.tags));
     return queryParams;

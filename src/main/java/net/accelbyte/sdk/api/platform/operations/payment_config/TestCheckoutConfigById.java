@@ -21,8 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * testCheckoutConfigById
  *
- * <p>[Not Supported Yet In Starter] Test checkout.com configuration in payment merchant config.
- * Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Test checkout.com configuration in payment merchant
+ * config. Other detail info:
  *
  * <p>* Returns : test result
  */

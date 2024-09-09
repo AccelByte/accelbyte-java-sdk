@@ -35,6 +35,11 @@ public class AdminSendMyMFAEmailCodeV4 implements Callable<Integer> {
   String action;
 
   @Option(
+      names = {"--languageTag"},
+      description = "languageTag")
+  String languageTag;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -58,6 +63,7 @@ public class AdminSendMyMFAEmailCodeV4 implements Callable<Integer> {
       final net.accelbyte.sdk.api.iam.operations.users_v4.AdminSendMyMFAEmailCodeV4 operation =
           net.accelbyte.sdk.api.iam.operations.users_v4.AdminSendMyMFAEmailCodeV4.builder()
               .action(action != null ? action : null)
+              .languageTag(languageTag != null ? languageTag : null)
               .build();
       wrapper.adminSendMyMFAEmailCodeV4(operation);
       log.info("Operation successful");

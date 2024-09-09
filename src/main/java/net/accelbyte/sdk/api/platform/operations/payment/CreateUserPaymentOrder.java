@@ -21,8 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * createUserPaymentOrder
  *
- * <p>[Not Supported Yet In Starter] [SERVICE COMMUNICATION ONLY] This API is used to create payment
- * order from justice service. The result contains the payment station url. Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] [SERVICE COMMUNICATION ONLY] This API is used to
+ * create payment order from justice service. The result contains the payment station url. Other
+ * detail info:
  *
  * <p>* It will be forbidden while the user is banned: PAYMENT_INITIATE or ORDER_AND_PAYMENT *
  * Returns : created order
@@ -57,6 +58,7 @@ public class CreateUserPaymentOrder extends Operation {
   /**
    * @param namespace required
    * @param userId required
+   * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.

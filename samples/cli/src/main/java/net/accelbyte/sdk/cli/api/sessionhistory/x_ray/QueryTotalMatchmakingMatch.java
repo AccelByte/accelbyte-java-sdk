@@ -37,8 +37,9 @@ public class QueryTotalMatchmakingMatch implements Callable<Integer> {
 
   @Option(
       names = {"--matchPool"},
-      description = "matchPool")
-  String matchPool;
+      description = "matchPool",
+      split = ",")
+  List<String> matchPool;
 
   @Option(
       names = {"--endDate"},

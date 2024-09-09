@@ -50,6 +50,7 @@ public class AdminGetUserSinglePlatformAccount extends Operation {
 
   private String platformId;
   private String userId;
+  private Boolean crossNamespace;
 
   /**
    * @param namespace required
@@ -59,10 +60,12 @@ public class AdminGetUserSinglePlatformAccount extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public AdminGetUserSinglePlatformAccount(String namespace, String platformId, String userId) {
+  public AdminGetUserSinglePlatformAccount(
+      String namespace, String platformId, String userId, Boolean crossNamespace) {
     this.namespace = namespace;
     this.platformId = platformId;
     this.userId = userId;
+    this.crossNamespace = crossNamespace;
 
     securities.add("Bearer");
   }
@@ -80,6 +83,15 @@ public class AdminGetUserSinglePlatformAccount extends Operation {
       pathParams.put("userId", this.userId);
     }
     return pathParams;
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "crossNamespace",
+        this.crossNamespace == null ? null : Arrays.asList(String.valueOf(this.crossNamespace)));
+    return queryParams;
   }
 
   @Override
@@ -104,5 +116,12 @@ public class AdminGetUserSinglePlatformAccount extends Operation {
     }
     final String json = Helper.convertInputStreamToString(payload);
     return new ModelUserPlatformMetadata().createFromJson(json);
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("crossNamespace", "None");
+    return result;
   }
 }

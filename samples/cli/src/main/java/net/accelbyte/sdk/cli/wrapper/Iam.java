@@ -19,6 +19,7 @@ import net.accelbyte.sdk.cli.api.iam.o_auth.*;
 import net.accelbyte.sdk.cli.api.iam.o_auth2_0.*;
 import net.accelbyte.sdk.cli.api.iam.o_auth2_0_extension.*;
 import net.accelbyte.sdk.cli.api.iam.o_auth2_0_v4.*;
+import net.accelbyte.sdk.cli.api.iam.override_role_config_v3.*;
 import net.accelbyte.sdk.cli.api.iam.roles.*;
 import net.accelbyte.sdk.cli.api.iam.sso.*;
 import net.accelbyte.sdk.cli.api.iam.sso_credential.*;
@@ -182,6 +183,11 @@ import picocli.CommandLine.Command;
       UpdateSSOPlatformCredential.class,
       AdminListUserIDByPlatformUserIDsV3.class,
       AdminGetUserByPlatformUserIDV3.class,
+      AdminGetRoleOverrideConfigV3.class,
+      AdminUpdateRoleOverrideConfigV3.class,
+      AdminGetRoleSourceV3.class,
+      AdminChangeRoleOverrideConfigStatusV3.class,
+      AdminGetRoleNamespacePermissionV3.class,
       GetAdminUsersByRoleIdV3.class,
       AdminGetUserByEmailAddressV3.class,
       AdminBulkUpdateUsersV3.class,
@@ -397,6 +403,7 @@ import picocli.CommandLine.Command;
       AdminEnableMyEmailV4.class,
       AdminGetMyEnabledFactorsV4.class,
       AdminMakeFactorMyDefaultV4.class,
+      AdminGetMyOwnMFAStatusV4.class,
       AdminGetMyMFAStatusV4.class,
       AdminInviteUserV4.class,
       AuthenticationWithPlatformLinkV4.class,
@@ -432,6 +439,7 @@ import picocli.CommandLine.Command;
       PublicEnableMyEmailV4.class,
       PublicGetMyEnabledFactorsV4.class,
       PublicMakeFactorMyDefaultV4.class,
+      PublicGetMyOwnMFAStatusV4.class,
       PublicGetMyMFAStatusV4.class,
       PublicGetUserPublicInfoByUserIdV4.class,
       PublicInviteUserV4.class,

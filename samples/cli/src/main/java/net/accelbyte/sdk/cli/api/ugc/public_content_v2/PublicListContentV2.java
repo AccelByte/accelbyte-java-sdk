@@ -67,7 +67,8 @@ public class PublicListContentV2 implements Callable<Integer> {
 
   @Option(
       names = {"--tags"},
-      description = "tags")
+      description = "tags",
+      split = ",")
   List<String> tags;
 
   @Option(

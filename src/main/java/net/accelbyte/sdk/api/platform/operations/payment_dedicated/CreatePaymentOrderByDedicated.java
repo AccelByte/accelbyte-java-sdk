@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * createPaymentOrderByDedicated
  *
- * <p>[Not Supported Yet In Starter]
+ * <p>[Not supported yet in AGS Shared Cloud]
  *
  * <p>This API is used to create payment order from non justice service. e.g. from dedicated server,
  * the result contains the payment station url.
@@ -153,6 +153,7 @@ public class CreatePaymentOrderByDedicated extends Operation {
 
   /**
    * @param namespace required
+   * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.

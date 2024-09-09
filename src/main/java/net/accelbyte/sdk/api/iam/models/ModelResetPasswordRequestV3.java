@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ModelResetPasswordRequestV3 extends Model {
 
+  @JsonProperty("clientId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String clientId;
+
   @JsonProperty("code")
   private String code;
 

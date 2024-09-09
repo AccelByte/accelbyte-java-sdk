@@ -47,7 +47,8 @@ public class GetListOfFriends implements Callable<Integer> {
 
   @Option(
       names = {"--friendIds"},
-      description = "friendIds")
+      description = "friendIds",
+      split = ",")
   List<String> friendIds;
 
   @Option(

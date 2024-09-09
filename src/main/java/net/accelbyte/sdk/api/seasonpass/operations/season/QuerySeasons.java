@@ -75,7 +75,13 @@ public class QuerySeasons extends Operation {
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
-    queryParams.put("status", this.status == null ? null : this.status);
+    queryParams.put(
+        "status",
+        this.status == null
+            ? null
+            : this.status.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     return queryParams;
   }
 

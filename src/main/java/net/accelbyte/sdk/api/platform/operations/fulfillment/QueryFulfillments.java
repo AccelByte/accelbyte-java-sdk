@@ -21,9 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * queryFulfillments
  *
- * <p>[Not Supported Yet In Starter] Query fulfillments in a namespace. Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Query fulfillments in a namespace. Other detail info:
  *
- * <p>* Returns : query fulfillments
+ * <p>* Returns : list of fulfillment info, storeId field can be ignored.
  */
 @Getter
 @Setter

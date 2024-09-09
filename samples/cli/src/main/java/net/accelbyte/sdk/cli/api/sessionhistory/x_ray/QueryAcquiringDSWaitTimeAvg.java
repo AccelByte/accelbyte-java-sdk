@@ -36,6 +36,12 @@ public class QueryAcquiringDSWaitTimeAvg implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--matchPool"},
+      description = "matchPool",
+      split = ",")
+  List<String> matchPool;
+
+  @Option(
       names = {"--endDate"},
       description = "endDate")
   String endDate;
@@ -71,6 +77,7 @@ public class QueryAcquiringDSWaitTimeAvg implements Callable<Integer> {
               net.accelbyte.sdk.api.sessionhistory.operations.x_ray.QueryAcquiringDSWaitTimeAvg
                   .builder()
                   .namespace(namespace)
+                  .matchPool(matchPool)
                   .endDate(endDate)
                   .startDate(startDate)
                   .build();

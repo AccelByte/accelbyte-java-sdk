@@ -25,7 +25,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * registration through email.
  *
  * <p>**Note**: * **uniqueDisplayName**: this is required when
- * uniqueDisplayNameEnabled/UNIQUE_DISPLAY_NAME_ENABLED is true.
+ * uniqueDisplayNameEnabled/UNIQUE_DISPLAY_NAME_ENABLED is true. * **code**: this is required when
+ * mandatoryEmailVerificationEnabled config is true. please refer to the config from
+ * /iam/v3/public/namespaces/{namespace}/config/{configKey} [GET] API.
  *
  * <p>Country use ISO3166-1 alpha-2 two letter, e.g. US. Date of Birth format : YYYY-MM-DD, e.g.
  * 2019-04-29. This endpoint support accepting agreements for the created user. Supply the accepted

@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * listFulfillmentScripts
  *
- * <p>[Not Supported Yet In Starter] List all fulfillment scripts.
+ * <p>[Not supported yet in AGS Shared Cloud] List all fulfillment scripts.
  */
 @Getter
 @Setter

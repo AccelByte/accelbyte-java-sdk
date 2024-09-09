@@ -80,9 +80,29 @@ public class AdminItems {
   }
 
   /**
+   * @see AdminBulkSaveItemToInventory
+   */
+  public List<ApimodelsBulkSaveItemResp> adminBulkSaveItemToInventory(
+      AdminBulkSaveItemToInventory input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminSaveItem
    */
   public ApimodelsItemResp adminSaveItem(AdminSaveItem input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminBulkSaveItem
+   */
+  public List<ApimodelsBulkSaveItemResp> adminBulkSaveItem(AdminBulkSaveItem input)
+      throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

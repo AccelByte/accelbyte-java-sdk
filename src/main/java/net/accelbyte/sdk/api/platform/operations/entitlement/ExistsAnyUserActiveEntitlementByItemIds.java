@@ -76,7 +76,13 @@ public class ExistsAnyUserActiveEntitlementByItemIds extends Operation {
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
     queryParams.put("platform", this.platform == null ? null : Arrays.asList(this.platform));
-    queryParams.put("itemIds", this.itemIds == null ? null : this.itemIds);
+    queryParams.put(
+        "itemIds",
+        this.itemIds == null
+            ? null
+            : this.itemIds.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     return queryParams;
   }
 

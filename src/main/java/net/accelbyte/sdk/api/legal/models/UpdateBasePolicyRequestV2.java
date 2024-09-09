@@ -45,6 +45,10 @@ public class UpdateBasePolicyRequestV2 extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean isHidden;
 
+  @JsonProperty("isHiddenPublic")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean isHiddenPublic;
+
   @JsonProperty("tags")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> tags;

@@ -26,9 +26,11 @@ import net.accelbyte.sdk.core.Model;
 public class ModelsPartyMembers extends Model {
 
   @JsonProperty("partyID")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String partyID;
 
   @JsonProperty("userIDs")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> userIDs;
 
   @JsonIgnore

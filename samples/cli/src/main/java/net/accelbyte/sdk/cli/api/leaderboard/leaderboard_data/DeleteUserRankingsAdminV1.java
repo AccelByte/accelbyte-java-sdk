@@ -41,7 +41,8 @@ public class DeleteUserRankingsAdminV1 implements Callable<Integer> {
 
   @Option(
       names = {"--leaderboardCode"},
-      description = "leaderboardCode")
+      description = "leaderboardCode",
+      split = ",")
   List<String> leaderboardCode;
 
   @Option(

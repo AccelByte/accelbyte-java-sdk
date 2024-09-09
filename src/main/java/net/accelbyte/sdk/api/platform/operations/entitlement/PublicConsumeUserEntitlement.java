@@ -43,18 +43,19 @@ public class PublicConsumeUserEntitlement extends Operation {
 
   private String namespace;
   private String userId;
-  private EntitlementDecrement body;
+  private PublicEntitlementDecrement body;
 
   /**
    * @param entitlementId required
    * @param namespace required
    * @param userId required
+   * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public PublicConsumeUserEntitlement(
-      String entitlementId, String namespace, String userId, EntitlementDecrement body) {
+      String entitlementId, String namespace, String userId, PublicEntitlementDecrement body) {
     this.entitlementId = entitlementId;
     this.namespace = namespace;
     this.userId = userId;
@@ -79,7 +80,7 @@ public class PublicConsumeUserEntitlement extends Operation {
   }
 
   @Override
-  public EntitlementDecrement getBodyParams() {
+  public PublicEntitlementDecrement getBodyParams() {
     return this.body;
   }
 

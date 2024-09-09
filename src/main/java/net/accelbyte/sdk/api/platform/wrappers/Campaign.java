@@ -9,6 +9,7 @@
 package net.accelbyte.sdk.api.platform.wrappers;
 
 import java.io.*;
+import java.util.*;
 import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.operations.campaign.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
@@ -53,6 +54,25 @@ public class Campaign {
    * @see UpdateCampaign
    */
   public CampaignInfo updateCampaign(UpdateCampaign input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see RenameBatch
+   */
+  public void renameBatch(RenameBatch input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see QueryCampaignBatchNames
+   */
+  public List<CampaignBatchNameInfo> queryCampaignBatchNames(QueryCampaignBatchNames input)
+      throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

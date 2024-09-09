@@ -29,6 +29,10 @@ public class TelemetryBody extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String clientTimestamp;
 
+  @JsonProperty("DeviceType")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String deviceType;
+
   @JsonProperty("EventId")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String eventId;

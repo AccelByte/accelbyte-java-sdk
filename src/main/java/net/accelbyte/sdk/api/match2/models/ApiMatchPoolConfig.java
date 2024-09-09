@@ -34,6 +34,10 @@ public class ApiMatchPoolConfig extends Model {
   @JsonProperty("backfill_ticket_expiration_seconds")
   private Integer backfillTicketExpirationSeconds;
 
+  @JsonProperty("best_latency_calculation_method")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String bestLatencyCalculationMethod;
+
   @JsonProperty("crossplay_disabled")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean crossplayDisabled;

@@ -20,11 +20,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteUserRankingByLeaderboardCodeAdminV1
  *
- * <p>[Test Facility Only]
- *
  * <p>This endpoint will delete user ranking by leaderboard code
  *
- * <p>Note: this endpoint only works on development environment.
+ * <p>Warning : This will permanently delete your data. Make sure to back up anything important
+ * before continuing.
  */
 @Getter
 @Setter

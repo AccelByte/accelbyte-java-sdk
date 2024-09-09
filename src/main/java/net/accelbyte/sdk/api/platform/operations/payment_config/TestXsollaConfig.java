@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * testXsollaConfig
  *
- * <p>[Not Supported Yet In Starter] Check xsolla configuration, Reference: [Xsolla
+ * <p>[Not supported yet in AGS Shared Cloud] Check xsolla configuration, Reference: [Xsolla
  * Document](https://developers.xsolla.com/?#simple-checkout).
  *
  * <p>#### Check List:
@@ -48,7 +48,9 @@ public class TestXsollaConfig extends Operation {
   /** fields as input parameter */
   private XsollaConfig body;
 
-  /** */
+  /**
+   * @param body required
+   */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated

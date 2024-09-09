@@ -13,6 +13,7 @@ import net.accelbyte.sdk.cli.api.challenge.challenge_list.*;
 import net.accelbyte.sdk.cli.api.challenge.challenge_progression.*;
 import net.accelbyte.sdk.cli.api.challenge.goal_configuration.*;
 import net.accelbyte.sdk.cli.api.challenge.player_reward.*;
+import net.accelbyte.sdk.cli.api.challenge.plugins.*;
 import picocli.CommandLine.Command;
 
 @Command(
@@ -32,6 +33,10 @@ import picocli.CommandLine.Command;
       AdminGetPeriods.class,
       AdminRandomizeChallenge.class,
       AdminDeleteTiedChallenge.class,
+      AdminGetAssignmentPlugin.class,
+      AdminUpdateAssignmentPlugin.class,
+      AdminCreateAssignmentPlugin.class,
+      AdminDeleteAssignmentPlugin.class,
       AdminEvaluateProgress.class,
       AdminClaimUsersRewards.class,
       AdminGetUserRewards.class,

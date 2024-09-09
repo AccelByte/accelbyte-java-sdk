@@ -20,7 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteItemTypeConfig
  *
- * <p>[Not Supported Yet In Starter] This API is used to delete an item type config permanently.
+ * <p>[Not supported yet in AGS Shared Cloud] This API is used to delete an item type config
+ * permanently.
  */
 @Getter
 @Setter

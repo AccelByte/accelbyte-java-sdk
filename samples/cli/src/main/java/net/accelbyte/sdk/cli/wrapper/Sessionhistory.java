@@ -51,6 +51,7 @@ import picocli.CommandLine.Command;
       QueryTotalMatchmakingExpired.class,
       QueryTotalMatchmakingMatchTicket.class,
       CreateXrayTicketObservability.class,
+      CreateXrayBulkTicketObservability.class,
       QueryXrayTimelineByTicketID.class,
       QueryXrayTimelineByUserID.class,
     })

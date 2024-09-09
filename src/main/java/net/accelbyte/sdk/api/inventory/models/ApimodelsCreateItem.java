@@ -65,6 +65,26 @@ public class ApimodelsCreateItem extends Model {
   private String type;
 
   @JsonIgnore
+  public String getSource() {
+    return this.source;
+  }
+
+  @JsonIgnore
+  public Source getSourceAsEnum() {
+    return Source.valueOf(this.source);
+  }
+
+  @JsonIgnore
+  public void setSource(final String source) {
+    this.source = source;
+  }
+
+  @JsonIgnore
+  public void setSourceFromEnum(final Source source) {
+    this.source = source.toString();
+  }
+
+  @JsonIgnore
   public ApimodelsCreateItem createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
@@ -72,5 +92,35 @@ public class ApimodelsCreateItem extends Model {
   @JsonIgnore
   public List<ApimodelsCreateItem> createFromJsonList(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, new TypeReference<List<ApimodelsCreateItem>>() {});
+  }
+
+  public enum Source {
+    ECOMMERCE("ECOMMERCE"),
+    OTHER("OTHER");
+
+    private String value;
+
+    Source(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class ApimodelsCreateItemBuilder {
+    private String source;
+
+    public ApimodelsCreateItemBuilder source(final String source) {
+      this.source = source;
+      return this;
+    }
+
+    public ApimodelsCreateItemBuilder sourceFromEnum(final Source source) {
+      this.source = source.toString();
+      return this;
+    }
   }
 }

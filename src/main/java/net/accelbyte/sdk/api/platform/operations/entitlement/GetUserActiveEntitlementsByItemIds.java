@@ -76,7 +76,13 @@ public class GetUserActiveEntitlementsByItemIds extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
-    queryParams.put("ids", this.ids == null ? null : this.ids);
+    queryParams.put(
+        "ids",
+        this.ids == null
+            ? null
+            : this.ids.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     queryParams.put("platform", this.platform == null ? null : Arrays.asList(this.platform));
     return queryParams;
   }

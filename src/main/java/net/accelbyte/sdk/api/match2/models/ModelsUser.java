@@ -34,8 +34,15 @@ public class ModelsUser extends Model {
   @JsonProperty("PlatformUserID")
   private String platformUserID;
 
+  @JsonProperty("PreviousStatus")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String previousStatus;
+
   @JsonProperty("Status")
   private String status;
+
+  @JsonProperty("StatusV2")
+  private String statusV2;
 
   @JsonProperty("UpdatedAt")
   private String updatedAt;

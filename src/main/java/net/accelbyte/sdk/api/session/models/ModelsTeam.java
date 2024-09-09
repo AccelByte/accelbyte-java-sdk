@@ -25,13 +25,13 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ModelsTeam extends Model {
 
-  @JsonProperty("UserIDs")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private List<String> userIDs;
-
   @JsonProperty("parties")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsPartyMembers> parties;
+
+  @JsonProperty("userIDs")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> userIDs;
 
   @JsonIgnore
   public ModelsTeam createFromJson(String json) throws JsonProcessingException {

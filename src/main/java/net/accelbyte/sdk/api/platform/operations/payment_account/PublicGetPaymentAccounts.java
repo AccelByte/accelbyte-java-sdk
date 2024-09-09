@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicGetPaymentAccounts
  *
- * <p>[Not Supported Yet In Starter] Get payment accounts. Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Get payment accounts. Other detail info:
  *
  * <p>* Returns : Payment account list
  */

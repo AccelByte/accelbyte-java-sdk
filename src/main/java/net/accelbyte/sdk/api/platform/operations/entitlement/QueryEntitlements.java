@@ -104,7 +104,13 @@ public class QueryEntitlements extends Operation {
     queryParams.put(
         "entitlementName",
         this.entitlementName == null ? null : Arrays.asList(this.entitlementName));
-    queryParams.put("itemId", this.itemId == null ? null : this.itemId);
+    queryParams.put(
+        "itemId",
+        this.itemId == null
+            ? null
+            : this.itemId.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));

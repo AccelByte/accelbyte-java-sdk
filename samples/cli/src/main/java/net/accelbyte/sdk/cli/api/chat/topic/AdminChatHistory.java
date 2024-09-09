@@ -37,7 +37,8 @@ public class AdminChatHistory implements Callable<Integer> {
 
   @Option(
       names = {"--chatId"},
-      description = "chatId")
+      description = "chatId",
+      split = ",")
   List<String> chatId;
 
   @Option(
@@ -82,7 +83,8 @@ public class AdminChatHistory implements Callable<Integer> {
 
   @Option(
       names = {"--topic"},
-      description = "topic")
+      description = "topic",
+      split = ",")
   List<String> topic;
 
   @Option(

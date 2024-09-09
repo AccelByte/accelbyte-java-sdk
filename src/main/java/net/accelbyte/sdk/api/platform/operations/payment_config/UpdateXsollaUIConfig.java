@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateXsollaUIConfig
  *
- * <p>[Not Supported Yet In Starter] Update xsolla UI configuration.Reference: [Xsolla
+ * <p>[Not supported yet in AGS Shared Cloud] Update xsolla UI configuration.Reference: [Xsolla
  * Document](https://developers.xsolla.com/api.html#ui-integrations). Other detail info:
  *
  * <p>* Returns : updated payment merchant config
@@ -44,6 +44,7 @@ public class UpdateXsollaUIConfig extends Operation {
 
   /**
    * @param id required
+   * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.

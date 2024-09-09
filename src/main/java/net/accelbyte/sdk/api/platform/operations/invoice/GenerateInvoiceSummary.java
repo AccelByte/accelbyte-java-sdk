@@ -39,15 +39,18 @@ public class GenerateInvoiceSummary extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private String endTime;
   private String feature;
   private String itemId;
   private String itemType;
-  private String endTime;
   private String startTime;
 
   /**
    * @param namespace required
    * @param endTime required
+   * @param feature required
+   * @param itemId required
+   * @param itemType required
    * @param startTime required
    */
   @Builder
@@ -55,16 +58,16 @@ public class GenerateInvoiceSummary extends Operation {
   @Deprecated
   public GenerateInvoiceSummary(
       String namespace,
+      String endTime,
       String feature,
       String itemId,
       String itemType,
-      String endTime,
       String startTime) {
     this.namespace = namespace;
+    this.endTime = endTime;
     this.feature = feature;
     this.itemId = itemId;
     this.itemType = itemType;
-    this.endTime = endTime;
     this.startTime = startTime;
 
     securities.add("Bearer");
@@ -82,10 +85,10 @@ public class GenerateInvoiceSummary extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("endTime", this.endTime == null ? null : Arrays.asList(this.endTime));
     queryParams.put("feature", this.feature == null ? null : Arrays.asList(this.feature));
     queryParams.put("itemId", this.itemId == null ? null : Arrays.asList(this.itemId));
     queryParams.put("itemType", this.itemType == null ? null : Arrays.asList(this.itemType));
-    queryParams.put("endTime", this.endTime == null ? null : Arrays.asList(this.endTime));
     queryParams.put("startTime", this.startTime == null ? null : Arrays.asList(this.startTime));
     return queryParams;
   }
@@ -96,6 +99,15 @@ public class GenerateInvoiceSummary extends Operation {
       return false;
     }
     if (this.endTime == null) {
+      return false;
+    }
+    if (this.feature == null) {
+      return false;
+    }
+    if (this.itemId == null) {
+      return false;
+    }
+    if (this.itemType == null) {
       return false;
     }
     if (this.startTime == null) {
@@ -117,10 +129,10 @@ public class GenerateInvoiceSummary extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("endTime", "None");
     result.put("feature", "None");
     result.put("itemId", "None");
     result.put("itemType", "None");
-    result.put("endTime", "None");
     result.put("startTime", "None");
     return result;
   }

@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateWxPayConfigCert
  *
- * <p>[Not Supported Yet In Starter] Upload wxpay cert file. Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Upload wxpay cert file. Other detail info:
  *
  * <p>* Returns : updated payment merchant config
  */

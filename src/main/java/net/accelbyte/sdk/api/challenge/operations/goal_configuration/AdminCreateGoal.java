@@ -48,10 +48,11 @@ import net.accelbyte.sdk.core.util.Helper;
  * a goal is complete. * tag: goal's labels. * isActive: when goal is in a schedule, isActive
  * determine whether goal is active to progress or not. Goal describe set of requirements that need
  * to be fulfilled by players in order to complete it and describe what is the rewards given to
- * player when they complete the goal.The requirement will have target value and a operator that
+ * player when they complete the goal. The requirement will have target value and a operator that
  * will evaluate that against an observable playerâs attribute (e.g. statistic, entitlement). Goal
- * belongs to a challenge.Supported item type for ENTITLEMENT reward type: APP, BUNDLE, CODE, COINS,
- * EXTENSION, INGAMEITEM, LOOTBOX, MEDIA, OPTIONBOX
+ * belongs to a challenge. Supported item type for ENTITLEMENT reward type: APP, BUNDLE, CODE,
+ * COINS, EXTENSION, INGAMEITEM, LOOTBOX, MEDIA, OPTIONBOX. Number of goals per challenge is limited
+ * to 100 goals.
  */
 @Getter
 @Setter

@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateFulfillmentScript
  *
- * <p>[Not Supported Yet In Starter] Update fulfillment script.
+ * <p>[Not supported yet in AGS Shared Cloud] Update fulfillment script.
  */
 @Getter
 @Setter

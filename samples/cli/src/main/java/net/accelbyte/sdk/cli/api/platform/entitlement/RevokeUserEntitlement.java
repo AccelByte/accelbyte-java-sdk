@@ -46,6 +46,11 @@ public class RevokeUserEntitlement implements Callable<Integer> {
   String userId;
 
   @Option(
+      names = {"--body"},
+      description = "body")
+  String body;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -71,6 +76,7 @@ public class RevokeUserEntitlement implements Callable<Integer> {
               .entitlementId(entitlementId)
               .namespace(namespace)
               .userId(userId)
+              .body(new ObjectMapper().readValue(body, EntitlementRevokeRequest.class))
               .build();
       final EntitlementInfo response = wrapper.revokeUserEntitlement(operation);
       final String responseString =

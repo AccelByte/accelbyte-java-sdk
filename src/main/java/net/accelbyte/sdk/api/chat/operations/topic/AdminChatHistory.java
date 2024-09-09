@@ -96,7 +96,13 @@ public class AdminChatHistory extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
-    queryParams.put("chatId", this.chatId == null ? null : this.chatId);
+    queryParams.put(
+        "chatId",
+        this.chatId == null
+            ? null
+            : this.chatId.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     queryParams.put(
         "endCreatedAt",
         this.endCreatedAt == null ? null : Arrays.asList(String.valueOf(this.endCreatedAt)));
@@ -111,7 +117,13 @@ public class AdminChatHistory extends Operation {
     queryParams.put(
         "startCreatedAt",
         this.startCreatedAt == null ? null : Arrays.asList(String.valueOf(this.startCreatedAt)));
-    queryParams.put("topic", this.topic == null ? null : this.topic);
+    queryParams.put(
+        "topic",
+        this.topic == null
+            ? null
+            : this.topic.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     queryParams.put(
         "unfiltered",
         this.unfiltered == null ? null : Arrays.asList(String.valueOf(this.unfiltered)));

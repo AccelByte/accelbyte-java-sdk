@@ -48,7 +48,8 @@ public class ExistsAnyUserActiveEntitlementByItemIds implements Callable<Integer
 
   @Option(
       names = {"--itemIds"},
-      description = "itemIds")
+      description = "itemIds",
+      split = ",")
   List<String> itemIds;
 
   @Option(

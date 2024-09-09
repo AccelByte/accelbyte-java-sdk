@@ -23,7 +23,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Query campaign codes. Other detail info:
  *
- * <p>* Returns : list of codes
+ * <p>* Returns : list of codes * The batchName field in the codes response will be present only
+ * when the withBatchName parameter is true , or when the batchName filter is not blank.
  */
 @Getter
 @Setter
@@ -41,10 +42,12 @@ public class QueryCodes extends Operation {
 
   private String namespace;
   private Boolean activeOnly;
-  private Integer batchNo;
+  private String batchName;
+  private List<Integer> batchNo;
   private String code;
   private Integer limit;
   private Integer offset;
+  private Boolean withBatchName;
 
   /**
    * @param campaignId required
@@ -57,17 +60,21 @@ public class QueryCodes extends Operation {
       String campaignId,
       String namespace,
       Boolean activeOnly,
-      Integer batchNo,
+      String batchName,
+      List<Integer> batchNo,
       String code,
       Integer limit,
-      Integer offset) {
+      Integer offset,
+      Boolean withBatchName) {
     this.campaignId = campaignId;
     this.namespace = namespace;
     this.activeOnly = activeOnly;
+    this.batchName = batchName;
     this.batchNo = batchNo;
     this.code = code;
     this.limit = limit;
     this.offset = offset;
+    this.withBatchName = withBatchName;
 
     securities.add("Bearer");
   }
@@ -90,12 +97,21 @@ public class QueryCodes extends Operation {
     queryParams.put(
         "activeOnly",
         this.activeOnly == null ? null : Arrays.asList(String.valueOf(this.activeOnly)));
+    queryParams.put("batchName", this.batchName == null ? null : Arrays.asList(this.batchName));
     queryParams.put(
-        "batchNo", this.batchNo == null ? null : Arrays.asList(String.valueOf(this.batchNo)));
+        "batchNo",
+        this.batchNo == null
+            ? null
+            : this.batchNo.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     queryParams.put("code", this.code == null ? null : Arrays.asList(this.code));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+    queryParams.put(
+        "withBatchName",
+        this.withBatchName == null ? null : Arrays.asList(String.valueOf(this.withBatchName)));
     return queryParams;
   }
 
@@ -124,10 +140,12 @@ public class QueryCodes extends Operation {
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
     result.put("activeOnly", "None");
-    result.put("batchNo", "None");
+    result.put("batchName", "None");
+    result.put("batchNo", "multi");
     result.put("code", "None");
     result.put("limit", "None");
     result.put("offset", "None");
+    result.put("withBatchName", "None");
     return result;
   }
 }

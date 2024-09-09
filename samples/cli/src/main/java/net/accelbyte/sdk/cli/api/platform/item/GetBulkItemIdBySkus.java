@@ -37,7 +37,8 @@ public class GetBulkItemIdBySkus implements Callable<Integer> {
 
   @Option(
       names = {"--sku"},
-      description = "sku")
+      description = "sku",
+      split = ",")
   List<String> sku;
 
   @Option(

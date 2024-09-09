@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getFulfillmentScript
  *
- * <p>[Not Supported Yet In Starter] Get fulfillment script by id. Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Get fulfillment script by id. Other detail info:
  *
  * <p>* Returns : get fulfillment script
  */

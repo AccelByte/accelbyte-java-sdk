@@ -64,7 +64,13 @@ public class AdminGetInboxStats extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
-    queryParams.put("messageId", this.messageId == null ? null : this.messageId);
+    queryParams.put(
+        "messageId",
+        this.messageId == null
+            ? null
+            : this.messageId.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     return queryParams;
   }
 

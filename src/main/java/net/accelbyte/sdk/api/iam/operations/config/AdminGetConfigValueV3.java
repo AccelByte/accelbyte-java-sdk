@@ -24,7 +24,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>This endpoint return the value of config key. The namespace should be publisher namespace or
  * studio namespace.
  *
- * <p>**Supported config key:** * uniqueDisplayNameEnabled * usernameDisabled
+ * <p>**Supported config key:** * uniqueDisplayNameEnabled * usernameDisabled *
+ * mandatoryEmailVerificationEnabled
  */
 @Getter
 @Setter

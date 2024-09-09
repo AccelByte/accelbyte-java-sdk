@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getPaymentTaxConfig
  *
- * <p>[Not Supported Yet In Starter] Get payment global tax config. Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Get payment global tax config. Other detail info:
  *
  * <p>* Returns : payment provider list
  */

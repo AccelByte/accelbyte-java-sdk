@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicCheckPaymentOrderPaidStatus
  *
- * <p>[Not Supported Yet In Starter] Check payment order paid status. Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Check payment order paid status. Other detail info:
  *
  * <p>* Returns : Payment order paid result
  */

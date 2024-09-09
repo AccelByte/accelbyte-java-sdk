@@ -119,7 +119,13 @@ public class QueryChanges extends Operation {
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
     queryParams.put(
         "selected", this.selected == null ? null : Arrays.asList(String.valueOf(this.selected)));
-    queryParams.put("sortBy", this.sortBy == null ? null : this.sortBy);
+    queryParams.put(
+        "sortBy",
+        this.sortBy == null
+            ? null
+            : this.sortBy.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     queryParams.put("status", this.status == null ? null : Arrays.asList(this.status));
     queryParams.put("type", this.type == null ? null : Arrays.asList(this.type));
     queryParams.put(

@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * listItemTypeConfigs
  *
- * <p>[Not Supported Yet In Starter] This API is used to get all item type configs.
+ * <p>[Not supported yet in AGS Shared Cloud] This API is used to get all item type configs.
  *
  * <p>Other detail info:
  *

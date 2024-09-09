@@ -39,7 +39,7 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 ./ng ng-cp 1>&2
 
 echo "TAP version 13"
-echo "1..36"
+echo "1..37"
 
 #- 1 Login
 ./ng net.accelbyte.sdk.cli.Main loginClient \
@@ -175,62 +175,62 @@ eval_tap $? 15 'PublicQueryGameSessionMe' test.out
 #- 16 QueryXrayMatchPool
 ./ng net.accelbyte.sdk.cli.Main sessionhistory queryXrayMatchPool \
     --namespace "$AB_NAMESPACE" \
-    --poolName 'GrncqmLtjQHAf8Tg' \
-    --endDate 'oNm03VLisV6zwPuo' \
-    --startDate '3td6TC6I3lMjGSWN' \
+    --poolName 'GrncqmLtjQHAf8Tg,oNm03VLisV6zwPuo,3td6TC6I3lMjGSWN' \
+    --endDate '2laRlxfcjHfYakUC' \
+    --startDate 'TqGkE7wcWfDslpJS' \
     > test.out 2>&1
 eval_tap $? 16 'QueryXrayMatchPool' test.out
 
 #- 17 QueryDetailTickMatchPool
 ./ng net.accelbyte.sdk.cli.Main sessionhistory queryDetailTickMatchPool \
     --namespace "$AB_NAMESPACE" \
-    --podName '2laRlxfcjHfYakUC' \
-    --poolName 'TqGkE7wcWfDslpJS' \
+    --podName 'qGAXQ0yYoNRKd3IL' \
+    --poolName '5TAQ6iiPlSC2uE4o' \
     --all  \
-    --limit '33' \
-    --offset '50' \
-    --endDate 'GAXQ0yYoNRKd3IL5' \
-    --startDate 'TAQ6iiPlSC2uE4o5' \
+    --limit '61' \
+    --offset '97' \
+    --endDate '1ZBm3MqHcUmLZZbS' \
+    --startDate 'qb8RwNmn9HrNQy4u' \
     > test.out 2>&1
 eval_tap $? 17 'QueryDetailTickMatchPool' test.out
 
 #- 18 QueryDetailTickMatchPoolMatches
 ./ng net.accelbyte.sdk.cli.Main sessionhistory queryDetailTickMatchPoolMatches \
     --namespace "$AB_NAMESPACE" \
-    --podName 'Vwdo3fePqIJA8IHt' \
-    --poolName 'rkmu0hpDDWVAla2l' \
-    --tickId '5BYNtIuS5S5XUdjs' \
+    --podName 'ZAAiE0mit9RGCCHY' \
+    --poolName 'zUOcEdscKHPEqgA8' \
+    --tickId 'yu7Vk6Jt4Ymos9Jc' \
     > test.out 2>&1
 eval_tap $? 18 'QueryDetailTickMatchPoolMatches' test.out
 
 #- 19 QueryDetailTickMatchPoolTicket
 ./ng net.accelbyte.sdk.cli.Main sessionhistory queryDetailTickMatchPoolTicket \
     --namespace "$AB_NAMESPACE" \
-    --podName 'oqwGyzzWi9gwQYv7' \
-    --poolName 't1o7TTr1DmrhZv15' \
-    --tickId 'T7quIOvBMcaYmvCk' \
+    --podName 'dos4fYcTVU6RBt0z' \
+    --poolName 'YoMcHyCUEXlAvxJM' \
+    --tickId 'dalwSyliWMNW5NyL' \
     > test.out 2>&1
 eval_tap $? 19 'QueryDetailTickMatchPoolTicket' test.out
 
 #- 20 QueryMatchHistories
 ./ng net.accelbyte.sdk.cli.Main sessionhistory queryMatchHistories \
-    --matchId 'GZ5dAgqxpBFmaLox' \
+    --matchId 'u0M3VHh2EI8JlDbP' \
     --namespace "$AB_NAMESPACE" \
-    --limit '30' \
-    --offset '7' \
+    --limit '99' \
+    --offset '86' \
     > test.out 2>&1
 eval_tap $? 20 'QueryMatchHistories' test.out
 
 #- 21 QueryMatchTicketHistories
 ./ng net.accelbyte.sdk.cli.Main sessionhistory queryMatchTicketHistories \
-    --matchId 'zr6wfNPX2bOItRMv' \
+    --matchId 'bQ6Q9lNmqRBaAkLn' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 21 'QueryMatchTicketHistories' test.out
 
 #- 22 QueryXrayMatch
 ./ng net.accelbyte.sdk.cli.Main sessionhistory queryXrayMatch \
-    --matchId 'qtlB2jJCSQT279ZZ' \
+    --matchId 'vxkT1X68cmDc3fxU' \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
 eval_tap $? 22 'QueryXrayMatch' test.out
@@ -238,125 +238,138 @@ eval_tap $? 22 'QueryXrayMatch' test.out
 #- 23 QueryAcquiringDS
 ./ng net.accelbyte.sdk.cli.Main sessionhistory queryAcquiringDS \
     --namespace "$AB_NAMESPACE" \
-    --endDate 'PYGu0rdlgdWyOtXi' \
-    --startDate '3choQrpOsDBU5Sep' \
+    --matchPool '8MyKrQpM4hkkK6KK,XNB3Gv0IqmF51Tkh,jYnaq6foWvXa3bMr' \
+    --endDate 'XsDr6kILsSSyDdmy' \
+    --startDate 'kmoPYgc2L4jk4Lo0' \
     > test.out 2>&1
 eval_tap $? 23 'QueryAcquiringDS' test.out
 
 #- 24 QueryAcquiringDSWaitTimeAvg
 ./ng net.accelbyte.sdk.cli.Main sessionhistory queryAcquiringDSWaitTimeAvg \
     --namespace "$AB_NAMESPACE" \
-    --endDate 'jChB3V0v52Dlym6p' \
-    --startDate 'uQ23xoJ8aeCnaLpU' \
+    --matchPool 'LSP0pf4IxjUkl535,X3ateEKDpADz1x3p,oD3Qgb3boLQQ1MzH' \
+    --endDate '7Qm8bwbmXgdAPh1E' \
+    --startDate 'ThG96gAFKK2WDgCc' \
     > test.out 2>&1
 eval_tap $? 24 'QueryAcquiringDSWaitTimeAvg' test.out
 
 #- 25 QueryMatchLengthDurationpAvg
 ./ng net.accelbyte.sdk.cli.Main sessionhistory queryMatchLengthDurationpAvg \
     --namespace "$AB_NAMESPACE" \
-    --endDate 'Kp44YUDjasWIPUvm' \
-    --startDate 'EejtGeoyIPa8ZRrv' \
+    --matchPool 'xvONZm3EeERmDnye,FoF7VSZ6pf3vneSD,2Tb3g7mSQUhAEtrm' \
+    --endDate 'jqU6YE3p4lSck0ZH' \
+    --startDate 'n5GI39YBHqaTHeKt' \
     > test.out 2>&1
 eval_tap $? 25 'QueryMatchLengthDurationpAvg' test.out
 
 #- 26 QueryMatchLengthDurationp99
 ./ng net.accelbyte.sdk.cli.Main sessionhistory queryMatchLengthDurationp99 \
     --namespace "$AB_NAMESPACE" \
-    --endDate 'jj7il35MXbN9oCMN' \
-    --startDate 'qq98SjTvhZNkSQ70' \
+    --matchPool 'W18iGeUlc9d9sogW,a24CKNS0GqVvUfHQ,vsHXNUNe4mhgo5QB' \
+    --endDate '65lSAiYnNjkfZrQv' \
+    --startDate 'GgbLdLsFzHkBMr1y' \
     > test.out 2>&1
 eval_tap $? 26 'QueryMatchLengthDurationp99' test.out
 
 #- 27 QueryTotalActiveSession
 ./ng net.accelbyte.sdk.cli.Main sessionhistory queryTotalActiveSession \
     --namespace "$AB_NAMESPACE" \
-    --region 'D0H6BXksUC9b6i5l' \
-    --endDate 'ZC9xv32e8c5csSov' \
-    --startDate 'oqsZNBdte9NDUPVJ' \
+    --matchPool 'rOMlNFSrUEirnjX9,fDmIbeZxzfTcyiuA,Tus9hsfpFDcSDG8a' \
+    --region 'MVGLiBNrDjqoxcwg' \
+    --endDate 'GLXpUL4pp2ncYAHd' \
+    --startDate 'NzDmeIP6rOvDz9KO' \
     > test.out 2>&1
 eval_tap $? 27 'QueryTotalActiveSession' test.out
 
 #- 28 QueryTotalMatchmakingMatch
 ./ng net.accelbyte.sdk.cli.Main sessionhistory queryTotalMatchmakingMatch \
     --namespace "$AB_NAMESPACE" \
-    --matchPool 'f6c2Z0QZxfgPubTD' \
-    --endDate 'IHrvqAThuwjRHpKK' \
-    --startDate 'TlmVr9XuoJbRFQSK' \
+    --matchPool 'sb392k6YmJFfRByj,lBiuFM3FIoVk8T3G,pAnkCmBUqg2SCnqn' \
+    --endDate 'tX9y1aZSWMiVi10s' \
+    --startDate 'G6vxkfUcmqRRbceJ' \
     > test.out 2>&1
 eval_tap $? 28 'QueryTotalMatchmakingMatch' test.out
 
 #- 29 QueryTotalPlayerPersession
 ./ng net.accelbyte.sdk.cli.Main sessionhistory queryTotalPlayerPersession \
     --namespace "$AB_NAMESPACE" \
-    --endDate 'VPHbn4Xxtu7LQREN' \
-    --startDate 'jEEztx1WsYSiZqan' \
+    --matchPool '5i0EeDxOgBnhhqEl,IaDml48wdNFLTm5T,50x9WT0GfH2rtOa4' \
+    --endDate 'EXsXzOXQAk4mqrxz' \
+    --startDate 'TtuLl4XlbGL8QOxt' \
     > test.out 2>&1
 eval_tap $? 29 'QueryTotalPlayerPersession' test.out
 
 #- 30 QueryTotalMatchmakingCanceled
 ./ng net.accelbyte.sdk.cli.Main sessionhistory queryTotalMatchmakingCanceled \
     --namespace "$AB_NAMESPACE" \
-    --matchPool '0nSBJroav91GXlvP' \
-    --endDate 'G6bFYReVHQipcCx9' \
-    --startDate 'Zw5D2L7vIYhGGSyE' \
+    --matchPool 'jzm8y2wNhmwoYZyI,4EFZKBcYrCEAE7WI,sfmx40NLRc6m8heK' \
+    --endDate 'nWhzfe2NubeoKFeI' \
+    --startDate 'aFQCYoDPICpnduEE' \
     > test.out 2>&1
 eval_tap $? 30 'QueryTotalMatchmakingCanceled' test.out
 
 #- 31 QueryTotalMatchmakingCreated
 ./ng net.accelbyte.sdk.cli.Main sessionhistory queryTotalMatchmakingCreated \
     --namespace "$AB_NAMESPACE" \
-    --matchPool 'W4ZJJ42d3PBddN8S' \
-    --endDate '48l9lyNApflxqMrj' \
-    --startDate '3oZk03QXcKMDYDDx' \
+    --matchPool 'QlULdJz4mnRBkMNx,vvKgAT8mJrYq6hRk,loqxM3gpwxcfMy9X' \
+    --endDate 'zjjI5YbsKoADkzJE' \
+    --startDate 'N2VHzih3bit0VWn3' \
     > test.out 2>&1
 eval_tap $? 31 'QueryTotalMatchmakingCreated' test.out
 
 #- 32 QueryTotalMatchmakingExpired
 ./ng net.accelbyte.sdk.cli.Main sessionhistory queryTotalMatchmakingExpired \
     --namespace "$AB_NAMESPACE" \
-    --matchPool 'HSZjtqXyJ58f7Gc2' \
-    --endDate '6SaiGVkydwYWQG26' \
-    --startDate 'yUZNmTBcvrbYCwZt' \
+    --matchPool 'CO39PXDNxtXgeO3F,gkXhjDzaQY3snn2Z,kP7cFdP43e5dC9XI' \
+    --endDate 'BudfZgrbHDIDm4hM' \
+    --startDate 'zF4TxodenSrUTvfq' \
     > test.out 2>&1
 eval_tap $? 32 'QueryTotalMatchmakingExpired' test.out
 
 #- 33 QueryTotalMatchmakingMatchTicket
 ./ng net.accelbyte.sdk.cli.Main sessionhistory queryTotalMatchmakingMatchTicket \
     --namespace "$AB_NAMESPACE" \
-    --matchPool 'xFHyPLtI8ilbyDPU' \
-    --endDate 'Ij88cekdqCt81P1k' \
-    --startDate 'tfIovmv9gsR5cJcH' \
+    --matchPool 'U0bfoMm5cTtFWbot,QyXJRcQWsmqPNs92,epxk0i8VxsZNereS' \
+    --endDate 'vf9699mCEHThUJkE' \
+    --startDate 'TAsSp7gh4TeUTkOk' \
     > test.out 2>&1
 eval_tap $? 33 'QueryTotalMatchmakingMatchTicket' test.out
 
 #- 34 CreateXrayTicketObservability
 ./ng net.accelbyte.sdk.cli.Main sessionhistory createXrayTicketObservability \
     --namespace "$AB_NAMESPACE" \
-    --body '{"action": "m3SZLxoRDFuuuySj", "activeAllianceRule": {"max_number": 24, "min_number": 56, "player_max_number": 1, "player_min_number": 16}, "activeMatchingRule": [{"attribute": "9LJE8HoRS1X2PFAA", "criteria": "MwzHPxB1UskYs4Yw", "reference": 0.8780789181137458}, {"attribute": "0DOqOBSC2DKHRuPM", "criteria": "MWH8Yb33T5UBJCjf", "reference": 0.03912062253362525}, {"attribute": "nLRfxeCSz9WEi8Kl", "criteria": "loeH0JT1yduat2vQ", "reference": 0.7018636892334367}], "function": "3biBfsu4jmsRE2w1", "gameMode": "yEkLgh3tIYt4SqYU", "isBackfillMatch": false, "isRuleSetFlexed": true, "iteration": 2, "matchID": "x9gIiDandpGT2t24", "namespace": "aOMh5eC3IHeHSKLC", "partyID": "a3xreNDUWehwH3q3", "remainingPlayersPerTicket": [5, 54, 24], "remainingTickets": 15, "sessionTickID": "DJgas4b6z3LNUj7f", "tickID": 8, "timeToMatchSec": 0.06865267530832231, "timestamp": "1988-11-03T00:00:00Z", "unbackfillReason": "aFQCYoDPICpnduEE", "unmatchReason": "QlULdJz4mnRBkMNx"}' \
+    --body '{"action": "AYfJB8AT9t4Tv207", "activeAllianceRule": {"max_number": 85, "min_number": 33, "player_max_number": 87, "player_min_number": 74}, "activeMatchingRule": [{"attribute": "D3oD5fLCr3OOlXVv", "criteria": "8ZGF7uYnGzpipNDi", "reference": 0.101065178821099}, {"attribute": "NJma1MbqqZtfNWql", "criteria": "4nmwAft4gqkNNlWk", "reference": 0.4692255816039117}, {"attribute": "9eOziYRFOn0jJLHC", "criteria": "9LxhvNXTwGBCtohL", "reference": 0.3086985959229762}], "function": "l9Zuhytm5UDrT6QX", "gameMode": "Cs5SPBbRPZTF6oQA", "isBackfillMatch": false, "isRuleSetFlexed": true, "iteration": 24, "matchID": "nsZg5QgXjvyGJPN4", "namespace": "eXbJE5Vs2GcyomQo", "partyID": "IXimBJehyxlNsjUg", "remainingPlayersPerTicket": [48, 39, 56], "remainingTickets": 22, "sessionTickID": "P7WnbdSJtjX7ZshZ", "tickID": 51, "timeToMatchSec": 0.12676435581860468, "timestamp": "1990-03-30T00:00:00Z", "unbackfillReason": "2rIizGdKvOPdq5xr", "unmatchReason": "gxSmy1DN9LFkYW5D"}' \
     > test.out 2>&1
 eval_tap $? 34 'CreateXrayTicketObservability' test.out
 
-#- 35 QueryXrayTimelineByTicketID
+#- 35 CreateXrayBulkTicketObservability
+./ng net.accelbyte.sdk.cli.Main sessionhistory createXrayBulkTicketObservability \
+    --namespace "$AB_NAMESPACE" \
+    --body '{"ticketObservabilities": [{"action": "Qyj4bj5Ro2ogaKt2", "activeAllianceRule": {"max_number": 42, "min_number": 62, "player_max_number": 20, "player_min_number": 61}, "activeMatchingRule": [{"attribute": "QSa3Zdb65UXmy0Zp", "criteria": "6iIaTIKUkmkk9QM0", "reference": 0.6324027539027077}, {"attribute": "BMA9ORxpzwLR2AK6", "criteria": "eXUGPJsw1fiP80G9", "reference": 0.6729504320820341}, {"attribute": "clxcft2ulIJzPyrV", "criteria": "EiOG4UcqsuGKHhMR", "reference": 0.7751921786099131}], "function": "LVd3DlhLuIpomM8s", "gameMode": "m1MiaI1mX2tJoARt", "isBackfillMatch": false, "isRuleSetFlexed": true, "iteration": 2, "matchID": "vepnDCjgyJlXe36m", "namespace": "gWjLfFmteue9nzJ6", "partyID": "fH24T805tVg8JqU0", "remainingPlayersPerTicket": [18, 72, 8], "remainingTickets": 31, "sessionTickID": "vzcWbfUpaXp5JMl5", "tickID": 77, "timeToMatchSec": 0.27761178165275147, "timestamp": "1985-12-28T00:00:00Z", "unbackfillReason": "bTxBmZjdrrIxsB0N", "unmatchReason": "RsB1fPqqRRulpqpy"}, {"action": "mDkQhtrHWwRVnwVB", "activeAllianceRule": {"max_number": 83, "min_number": 76, "player_max_number": 33, "player_min_number": 51}, "activeMatchingRule": [{"attribute": "OHi8pWGd1juYhiqj", "criteria": "RJOqB5F93zFQbJnd", "reference": 0.7532645721323077}, {"attribute": "DpdONneAczbBdHb2", "criteria": "slt71B1SmZp2JZp5", "reference": 0.8517753424555412}, {"attribute": "CnPb71ORYcmQbTU5", "criteria": "JX8ccLjMXJRk0eaK", "reference": 0.6897516786999137}], "function": "DOJvrTefglSs6g4i", "gameMode": "Y9u02aCNYIWekp18", "isBackfillMatch": false, "isRuleSetFlexed": false, "iteration": 84, "matchID": "t9lIMGql5ElEa9EI", "namespace": "IlGcHB3CfR3ncDlw", "partyID": "i3v3MFFJ1KesKoEL", "remainingPlayersPerTicket": [57, 2, 31], "remainingTickets": 30, "sessionTickID": "DKKoxLE1Y3Dymtj3", "tickID": 13, "timeToMatchSec": 0.8461782420609313, "timestamp": "1980-12-06T00:00:00Z", "unbackfillReason": "YaT5hOPjaf3H0tYi", "unmatchReason": "ghU0VUfcYHJbBfAK"}, {"action": "SiPW3VgsZXiR1DJ7", "activeAllianceRule": {"max_number": 69, "min_number": 97, "player_max_number": 99, "player_min_number": 74}, "activeMatchingRule": [{"attribute": "qMkNSawQUWDFJvJB", "criteria": "Wic7UkBeIXuqDuAX", "reference": 0.5514568247782807}, {"attribute": "66bQ71w0deoV9Lx5", "criteria": "RDA1l2XcrciYNEzv", "reference": 0.7143627668665172}, {"attribute": "ZIPkhSgORcz5S5Bv", "criteria": "mgBLxh4ijFnE3Tam", "reference": 0.9427162380491856}], "function": "9qSZ7PC6f6QkmZXE", "gameMode": "lW9YfRSse6AAz3S4", "isBackfillMatch": false, "isRuleSetFlexed": true, "iteration": 53, "matchID": "7SBROPYuG6XqP6oo", "namespace": "7G73zdxTgOfnwIdl", "partyID": "Na29fDLh741IslKH", "remainingPlayersPerTicket": [52, 9, 67], "remainingTickets": 3, "sessionTickID": "lLKWUtDQs61OQAox", "tickID": 51, "timeToMatchSec": 0.9125214770457519, "timestamp": "1973-12-15T00:00:00Z", "unbackfillReason": "ZvWtND2tcBFpX8lN", "unmatchReason": "tFEJ7tnkY6Mca5af"}]}' \
+    > test.out 2>&1
+eval_tap $? 35 'CreateXrayBulkTicketObservability' test.out
+
+#- 36 QueryXrayTimelineByTicketID
 ./ng net.accelbyte.sdk.cli.Main sessionhistory queryXrayTimelineByTicketID \
     --namespace "$AB_NAMESPACE" \
-    --ticketId 'vvKgAT8mJrYq6hRk' \
-    --limit '23' \
-    --offset '30' \
-    --endDate '7A68eaqC2J9jyEW6' \
-    --startDate 'GLbc0NaKDUL3sa13' \
+    --ticketId 'j12K2IzrBvvWm4ud' \
+    --limit '62' \
+    --offset '62' \
+    --endDate '0OXudXgNne8kJATw' \
+    --startDate 'lc6esUp6Sw1I98je' \
     > test.out 2>&1
-eval_tap $? 35 'QueryXrayTimelineByTicketID' test.out
+eval_tap $? 36 'QueryXrayTimelineByTicketID' test.out
 
-#- 36 QueryXrayTimelineByUserID
+#- 37 QueryXrayTimelineByUserID
 ./ng net.accelbyte.sdk.cli.Main sessionhistory queryXrayTimelineByUserID \
     --namespace "$AB_NAMESPACE" \
-    --userId 'lk1dQBHO86IlBhne' \
-    --limit '41' \
-    --offset '94' \
-    --endDate '9PXDNxtXgeO3FgkX' \
-    --startDate 'hjDzaQY3snn2ZkP7' \
+    --userId 'ZQ7hfxnhLd3Knakn' \
+    --limit '30' \
+    --offset '9' \
+    --endDate 'glU6muswVJnNnN7k' \
+    --startDate 'Aa7j0riFc5HTHQIo' \
     > test.out 2>&1
-eval_tap $? 36 'QueryXrayTimelineByUserID' test.out
+eval_tap $? 37 'QueryXrayTimelineByUserID' test.out
 
 
 rm -f "tmp.dat"

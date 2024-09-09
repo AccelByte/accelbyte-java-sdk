@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deletePaymentProviderConfig
  *
- * <p>[Not Supported Yet In Starter] Delete payment provider config. Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Delete payment provider config. Other detail info:
  *
  * <p>* Returns : payment provider config
  */

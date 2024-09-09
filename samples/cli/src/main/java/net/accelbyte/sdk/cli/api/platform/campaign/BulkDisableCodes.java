@@ -41,9 +41,15 @@ public class BulkDisableCodes implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--batchName"},
+      description = "batchName")
+  String batchName;
+
+  @Option(
       names = {"--batchNo"},
-      description = "batchNo")
-  Integer batchNo;
+      description = "batchNo",
+      split = ",")
+  List<Integer> batchNo;
 
   @Option(
       names = {"--logging"},
@@ -70,6 +76,7 @@ public class BulkDisableCodes implements Callable<Integer> {
           net.accelbyte.sdk.api.platform.operations.campaign.BulkDisableCodes.builder()
               .campaignId(campaignId)
               .namespace(namespace)
+              .batchName(batchName)
               .batchNo(batchNo)
               .build();
       final BulkOperationResult response = wrapper.bulkDisableCodes(operation);

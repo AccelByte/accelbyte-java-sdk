@@ -42,9 +42,20 @@ public class Download implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--batchName"},
+      description = "batchName")
+  String batchName;
+
+  @Option(
       names = {"--batchNo"},
-      description = "batchNo")
-  Integer batchNo;
+      description = "batchNo",
+      split = ",")
+  List<Integer> batchNo;
+
+  @Option(
+      names = {"--withBatchName"},
+      description = "withBatchName")
+  Boolean withBatchName;
 
   @Option(
       names = {"--logging"},
@@ -71,7 +82,9 @@ public class Download implements Callable<Integer> {
           net.accelbyte.sdk.api.platform.operations.campaign.Download.builder()
               .campaignId(campaignId)
               .namespace(namespace)
+              .batchName(batchName)
               .batchNo(batchNo)
+              .withBatchName(withBatchName)
               .build();
       final InputStream response = wrapper.download(operation);
       final File outputFile = new File("response.out");

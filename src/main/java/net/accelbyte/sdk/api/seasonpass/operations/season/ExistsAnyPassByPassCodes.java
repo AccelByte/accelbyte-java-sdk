@@ -76,7 +76,13 @@ public class ExistsAnyPassByPassCodes extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
-    queryParams.put("passCodes", this.passCodes == null ? null : this.passCodes);
+    queryParams.put(
+        "passCodes",
+        this.passCodes == null
+            ? null
+            : this.passCodes.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     return queryParams;
   }
 

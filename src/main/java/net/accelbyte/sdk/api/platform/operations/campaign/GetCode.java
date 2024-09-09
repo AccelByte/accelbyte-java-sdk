@@ -42,6 +42,7 @@ public class GetCode extends Operation {
 
   private String namespace;
   private Boolean redeemable;
+  private Boolean withBatchName;
 
   /**
    * @param code required
@@ -50,10 +51,11 @@ public class GetCode extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public GetCode(String code, String namespace, Boolean redeemable) {
+  public GetCode(String code, String namespace, Boolean redeemable, Boolean withBatchName) {
     this.code = code;
     this.namespace = namespace;
     this.redeemable = redeemable;
+    this.withBatchName = withBatchName;
 
     securities.add("Bearer");
   }
@@ -76,6 +78,9 @@ public class GetCode extends Operation {
     queryParams.put(
         "redeemable",
         this.redeemable == null ? null : Arrays.asList(String.valueOf(this.redeemable)));
+    queryParams.put(
+        "withBatchName",
+        this.withBatchName == null ? null : Arrays.asList(String.valueOf(this.withBatchName)));
     return queryParams;
   }
 
@@ -104,6 +109,7 @@ public class GetCode extends Operation {
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
     result.put("redeemable", "None");
+    result.put("withBatchName", "None");
     return result;
   }
 }

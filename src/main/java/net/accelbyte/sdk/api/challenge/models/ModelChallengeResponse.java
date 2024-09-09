@@ -168,6 +168,7 @@ public class ModelChallengeResponse extends Model {
   }
 
   public enum AssignmentRule {
+    CUSTOM("CUSTOM"),
     FIXED("FIXED"),
     RANDOMIZED("RANDOMIZED"),
     UNSCHEDULED("UNSCHEDULED");

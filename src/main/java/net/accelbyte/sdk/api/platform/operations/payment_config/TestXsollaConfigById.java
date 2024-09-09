@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * testXsollaConfigById
  *
- * <p>[Not Supported Yet In Starter] Test xsolla configuration in payment merchant config.
+ * <p>[Not supported yet in AGS Shared Cloud] Test xsolla configuration in payment merchant config.
  * Reference: [Xsolla Document](https://developers.xsolla.com/?#simple-checkout). Other detail info:
  *
  * <p>* Returns : test xsolla config

@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteFulfillmentScript
  *
- * <p>[Not Supported Yet In Starter] Delete fulfillment script.
+ * <p>[Not supported yet in AGS Shared Cloud] Delete fulfillment script.
  */
 @Getter
 @Setter

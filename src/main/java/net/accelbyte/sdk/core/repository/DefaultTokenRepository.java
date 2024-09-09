@@ -7,12 +7,11 @@
 package net.accelbyte.sdk.core.repository;
 
 import com.google.common.base.Strings;
-import lombok.extern.java.Log;
-
 import java.util.Objects;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import lombok.extern.java.Log;
 
 @Log
 public class DefaultTokenRepository implements TokenRepository {

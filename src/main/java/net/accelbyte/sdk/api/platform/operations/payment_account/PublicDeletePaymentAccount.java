@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicDeletePaymentAccount
  *
- * <p>[Not Supported Yet In Starter] Delete payment account. Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Delete payment account. Other detail info:
  *
  * <p>* Returns :
  */

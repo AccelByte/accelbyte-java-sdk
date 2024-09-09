@@ -47,6 +47,11 @@ public class ImportStoreByCSV extends Operation {
   /**
    * @param namespace required
    * @param storeId required
+   * @param category required
+   * @param display required
+   * @param item required
+   * @param notes required
+   * @param section required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
@@ -109,6 +114,21 @@ public class ImportStoreByCSV extends Operation {
       return false;
     }
     if (this.storeId == null) {
+      return false;
+    }
+    if (this.category == null) {
+      return false;
+    }
+    if (this.display == null) {
+      return false;
+    }
+    if (this.item == null) {
+      return false;
+    }
+    if (this.notes == null) {
+      return false;
+    }
+    if (this.section == null) {
       return false;
     }
     return true;

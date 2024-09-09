@@ -29,6 +29,10 @@ public class EntitlementTransferRequest extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String entitlementId;
 
+  @JsonProperty("metadata")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private PublicEntitlementMetadata metadata;
+
   @JsonProperty("useCount")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer useCount;

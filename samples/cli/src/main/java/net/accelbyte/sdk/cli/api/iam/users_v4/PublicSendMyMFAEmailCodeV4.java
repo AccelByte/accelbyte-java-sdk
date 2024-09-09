@@ -40,6 +40,11 @@ public class PublicSendMyMFAEmailCodeV4 implements Callable<Integer> {
   String action;
 
   @Option(
+      names = {"--languageTag"},
+      description = "languageTag")
+  String languageTag;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -64,6 +69,7 @@ public class PublicSendMyMFAEmailCodeV4 implements Callable<Integer> {
           net.accelbyte.sdk.api.iam.operations.users_v4.PublicSendMyMFAEmailCodeV4.builder()
               .namespace(namespace)
               .action(action != null ? action : null)
+              .languageTag(languageTag != null ? languageTag : null)
               .build();
       wrapper.publicSendMyMFAEmailCodeV4(operation);
       log.info("Operation successful");

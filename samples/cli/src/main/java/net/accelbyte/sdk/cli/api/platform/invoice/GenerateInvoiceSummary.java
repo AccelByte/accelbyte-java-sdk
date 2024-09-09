@@ -36,6 +36,11 @@ public class GenerateInvoiceSummary implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--endTime"},
+      description = "endTime")
+  String endTime;
+
+  @Option(
       names = {"--feature"},
       description = "feature")
   String feature;
@@ -49,11 +54,6 @@ public class GenerateInvoiceSummary implements Callable<Integer> {
       names = {"--itemType"},
       description = "itemType")
   String itemType;
-
-  @Option(
-      names = {"--endTime"},
-      description = "endTime")
-  String endTime;
 
   @Option(
       names = {"--startTime"},
@@ -84,10 +84,10 @@ public class GenerateInvoiceSummary implements Callable<Integer> {
       final net.accelbyte.sdk.api.platform.operations.invoice.GenerateInvoiceSummary operation =
           net.accelbyte.sdk.api.platform.operations.invoice.GenerateInvoiceSummary.builder()
               .namespace(namespace)
+              .endTime(endTime)
               .feature(feature)
               .itemId(itemId)
               .itemType(itemType)
-              .endTime(endTime)
               .startTime(startTime)
               .build();
       final InvoiceSummary response = wrapper.generateInvoiceSummary(operation);

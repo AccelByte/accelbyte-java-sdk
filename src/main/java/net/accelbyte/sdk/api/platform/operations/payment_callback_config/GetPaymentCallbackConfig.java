@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getPaymentCallbackConfig
  *
- * <p>[Not Supported Yet In Starter] Get payment callback configuration. Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Get payment callback configuration. Other detail info:
  *
  * <p>* Returns : Payment callback config
  */

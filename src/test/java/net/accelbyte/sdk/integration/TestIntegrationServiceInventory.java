@@ -6,6 +6,8 @@
 
 package net.accelbyte.sdk.integration;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import net.accelbyte.sdk.api.iam.models.ModelUserResponseV3;
 import net.accelbyte.sdk.api.iam.operations.users.AdminGetMyUserV3;
 import net.accelbyte.sdk.api.iam.wrappers.Users;
@@ -19,8 +21,6 @@ import net.accelbyte.sdk.api.inventory.operations.admin_inventory_configurations
 import net.accelbyte.sdk.api.inventory.wrappers.AdminInventories;
 import net.accelbyte.sdk.api.inventory.wrappers.AdminInventoryConfigurations;
 import org.junit.jupiter.api.*;
-
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @Tag("test-integration")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -39,103 +39,98 @@ class TestIntegrationServiceInventory extends TestIntegration {
     final Users usersWrapper = new Users(sdk);
 
     final ModelUserResponseV3 getUserResult =
-            usersWrapper.adminGetMyUserV3(AdminGetMyUserV3.builder().build());
+        usersWrapper.adminGetMyUserV3(AdminGetMyUserV3.builder().build());
 
     assertNotNull(getUserResult);
 
     final String userId = getUserResult.getUserId();
 
-    final String codeInventoryConfig = "java-sdk-code-" + java.util.UUID.randomUUID().toString().substring(0, 4);
+    final String codeInventoryConfig =
+        "java-sdk-code-" + java.util.UUID.randomUUID().toString().substring(0, 4);
 
     // CASE Create inventory configuration
     final ApimodelsCreateInventoryConfigurationReq createInventoryConfigBody =
-            ApimodelsCreateInventoryConfigurationReq.builder()
-                    .code(codeInventoryConfig)
-                    .description("testing")
-                    .initialMaxSlots(3)
-                    .maxInstancesPerUser(2)
-                    .maxUpgradeSlots(5)
-                    .name(codeInventoryConfig)
-                    .build();
+        ApimodelsCreateInventoryConfigurationReq.builder()
+            .code(codeInventoryConfig)
+            .description("testing")
+            .initialMaxSlots(3)
+            .maxInstancesPerUser(2)
+            .maxUpgradeSlots(5)
+            .name(codeInventoryConfig)
+            .build();
 
     final ApimodelsInventoryConfigurationResp createInventoryConfigResult =
-            new AdminInventoryConfigurations(sdk)
-                    .adminCreateInventoryConfiguration(
-                            AdminCreateInventoryConfiguration.builder()
-                                    .body(createInventoryConfigBody)
-                                    .namespace(this.namespace)
-                                    .build()
-                    );
+        new AdminInventoryConfigurations(sdk)
+            .adminCreateInventoryConfiguration(
+                AdminCreateInventoryConfiguration.builder()
+                    .body(createInventoryConfigBody)
+                    .namespace(this.namespace)
+                    .build());
 
     assertNotNull(createInventoryConfigResult);
 
     // CASE Create inventory
     final ApimodelsCreateInventoryReq createInventoryBody =
-            ApimodelsCreateInventoryReq.builder()
-                    .inventoryConfigurationCode(createInventoryConfigResult.getCode())
-                    .userId(userId)
-                    .build();
+        ApimodelsCreateInventoryReq.builder()
+            .inventoryConfigurationCode(createInventoryConfigResult.getCode())
+            .userId(userId)
+            .build();
 
     final ApimodelsInventoryResp createInventoryResult =
-            new AdminInventories(sdk)
-                    .adminCreateInventory(
-                            AdminCreateInventory.builder()
-                                    .body(createInventoryBody)
-                                    .namespace(this.namespace)
-                                    .build()
-                    );
+        new AdminInventories(sdk)
+            .adminCreateInventory(
+                AdminCreateInventory.builder()
+                    .body(createInventoryBody)
+                    .namespace(this.namespace)
+                    .build());
 
     assertNotNull(createInventoryResult);
 
     // CASE Get Inventory
     final ApimodelsInventoryResp getInventoryResult =
-            new AdminInventories(sdk)
-                    .adminGetInventory(
-                            AdminGetInventory.builder()
-                                    .inventoryId(createInventoryResult.getId())
-                                    .namespace(this.namespace)
-                                    .build()
-                    );
+        new AdminInventories(sdk)
+            .adminGetInventory(
+                AdminGetInventory.builder()
+                    .inventoryId(createInventoryResult.getId())
+                    .namespace(this.namespace)
+                    .build());
 
     assertNotNull(getInventoryResult);
 
     // CASE Update inventory
     final ApimodelsUpdateInventoryReq updateInventoryBody =
-            ApimodelsUpdateInventoryReq.builder().incMaxSlots(2).build();
+        ApimodelsUpdateInventoryReq.builder().incMaxSlots(2).build();
 
     final ApimodelsInventoryResp updateInventoryResult =
-            new AdminInventories(sdk)
-                    .adminUpdateInventory(
-                            AdminUpdateInventory.builder()
-                                    .body(updateInventoryBody)
-                                    .inventoryId(createInventoryResult.getId())
-                                    .namespace(this.namespace)
-                                    .build()
-                    );
+        new AdminInventories(sdk)
+            .adminUpdateInventory(
+                AdminUpdateInventory.builder()
+                    .body(updateInventoryBody)
+                    .inventoryId(createInventoryResult.getId())
+                    .namespace(this.namespace)
+                    .build());
 
     assertNotNull(updateInventoryResult);
 
     // CASE Delete inventory
     final ApimodelsDeleteInventoryReq deleteInventoryBody =
-            ApimodelsDeleteInventoryReq.builder().message("delete").build();
+        ApimodelsDeleteInventoryReq.builder().message("delete").build();
 
     new AdminInventories(sdk)
-            .deleteInventory(
-                    DeleteInventory.builder()
-                            .body(deleteInventoryBody)
-                            .inventoryId(createInventoryResult.getId())
-                            .namespace(this.namespace)
-                            .build()
-            );
+        .deleteInventory(
+            DeleteInventory.builder()
+                .body(deleteInventoryBody)
+                .inventoryId(createInventoryResult.getId())
+                .namespace(this.namespace)
+                .build());
 
     // Clean up inventory configuration
     new AdminInventoryConfigurations(sdk)
-            .adminDeleteInventoryConfiguration(
-                    AdminDeleteInventoryConfiguration.builder()
-                            .inventoryConfigurationId(createInventoryConfigResult.getId())
-                            .namespace(this.namespace)
-                            .build()
-            );
+        .adminDeleteInventoryConfiguration(
+            AdminDeleteInventoryConfiguration.builder()
+                .inventoryConfigurationId(createInventoryConfigResult.getId())
+                .namespace(this.namespace)
+                .build());
   }
 
   @AfterAll

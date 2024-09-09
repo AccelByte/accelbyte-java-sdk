@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * testWxPayConfig
  *
- * <p>[Not Supported Yet In Starter] Test WxPay configuration. Reference: [WxPay
+ * <p>[Not supported yet in AGS Shared Cloud] Test WxPay configuration. Reference: [WxPay
  * Document](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_1). Other detail info:
  *
  * <p>* Returns : test WxPay config
@@ -40,7 +40,9 @@ public class TestWxPayConfig extends Operation {
   /** fields as input parameter */
   private WxPayConfigRequest body;
 
-  /** */
+  /**
+   * @param body required
+   */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated

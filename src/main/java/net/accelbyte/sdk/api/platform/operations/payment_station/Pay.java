@@ -21,8 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * pay
  *
- * <p>[Not Supported Yet In Starter] Do payment(For now, this only support checkout.com). Other
- * detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Do payment(For now, this only support checkout.com).
+ * Other detail info:
  *
  * <p>* Returns : Payment process result
  */
@@ -49,6 +49,7 @@ public class Pay extends Operation {
   /**
    * @param namespace required
    * @param paymentOrderNo required
+   * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.

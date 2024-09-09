@@ -46,9 +46,15 @@ public class QueryCodes implements Callable<Integer> {
   Boolean activeOnly;
 
   @Option(
+      names = {"--batchName"},
+      description = "batchName")
+  String batchName;
+
+  @Option(
       names = {"--batchNo"},
-      description = "batchNo")
-  Integer batchNo;
+      description = "batchNo",
+      split = ",")
+  List<Integer> batchNo;
 
   @Option(
       names = {"--code"},
@@ -64,6 +70,11 @@ public class QueryCodes implements Callable<Integer> {
       names = {"--offset"},
       description = "offset")
   Integer offset;
+
+  @Option(
+      names = {"--withBatchName"},
+      description = "withBatchName")
+  Boolean withBatchName;
 
   @Option(
       names = {"--logging"},
@@ -91,10 +102,12 @@ public class QueryCodes implements Callable<Integer> {
               .campaignId(campaignId)
               .namespace(namespace)
               .activeOnly(activeOnly)
+              .batchName(batchName)
               .batchNo(batchNo)
               .code(code)
               .limit(limit)
               .offset(offset)
+              .withBatchName(withBatchName)
               .build();
       final CodeInfoPagingSlicedResult response = wrapper.queryCodes(operation);
       final String responseString =

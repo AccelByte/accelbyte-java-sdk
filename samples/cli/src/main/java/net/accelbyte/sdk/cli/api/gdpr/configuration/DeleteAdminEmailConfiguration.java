@@ -36,7 +36,8 @@ public class DeleteAdminEmailConfiguration implements Callable<Integer> {
 
   @Option(
       names = {"--emails"},
-      description = "emails")
+      description = "emails",
+      split = ",")
   List<String> emails;
 
   @Option(

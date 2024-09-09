@@ -67,7 +67,8 @@ public class AdminQueryTopicLog implements Callable<Integer> {
 
   @Option(
       names = {"--topicIds"},
-      description = "topicIds")
+      description = "topicIds",
+      split = ",")
   List<String> topicIds;
 
   @Option(

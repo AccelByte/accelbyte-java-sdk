@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * searchItemTypeConfig
  *
- * <p>[Not Supported Yet In Starter] This API is used to get an item type config.
+ * <p>[Not supported yet in AGS Shared Cloud] This API is used to get an item type config.
  *
  * <p>Other detail info:
  *

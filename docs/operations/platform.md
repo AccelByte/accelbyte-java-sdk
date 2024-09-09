@@ -72,6 +72,8 @@
 | `/platform/admin/namespaces/{namespace}/campaigns` | POST | CreateCampaign | [CreateCampaign](../../src/main/java/net/accelbyte/sdk/api/platform/operations/campaign/CreateCampaign.java) | [CreateCampaign](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/campaign/CreateCampaign.java) |
 | `/platform/admin/namespaces/{namespace}/campaigns/{campaignId}` | GET | GetCampaign | [GetCampaign](../../src/main/java/net/accelbyte/sdk/api/platform/operations/campaign/GetCampaign.java) | [GetCampaign](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/campaign/GetCampaign.java) |
 | `/platform/admin/namespaces/{namespace}/campaigns/{campaignId}` | PUT | UpdateCampaign | [UpdateCampaign](../../src/main/java/net/accelbyte/sdk/api/platform/operations/campaign/UpdateCampaign.java) | [UpdateCampaign](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/campaign/UpdateCampaign.java) |
+| `/platform/admin/namespaces/{namespace}/campaigns/{campaignId}/batchName` | PUT | RenameBatch | [RenameBatch](../../src/main/java/net/accelbyte/sdk/api/platform/operations/campaign/RenameBatch.java) | [RenameBatch](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/campaign/RenameBatch.java) |
+| `/platform/admin/namespaces/{namespace}/campaigns/{campaignId}/batchNames` | GET | QueryCampaignBatchNames | [QueryCampaignBatchNames](../../src/main/java/net/accelbyte/sdk/api/platform/operations/campaign/QueryCampaignBatchNames.java) | [QueryCampaignBatchNames](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/campaign/QueryCampaignBatchNames.java) |
 | `/platform/admin/namespaces/{namespace}/campaigns/{campaignId}/dynamic` | GET | GetCampaignDynamic | [GetCampaignDynamic](../../src/main/java/net/accelbyte/sdk/api/platform/operations/campaign/GetCampaignDynamic.java) | [GetCampaignDynamic](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/campaign/GetCampaignDynamic.java) |
 | `/platform/admin/namespaces/{namespace}/codes/campaigns/{campaignId}` | GET | QueryCodes | [QueryCodes](../../src/main/java/net/accelbyte/sdk/api/platform/operations/campaign/QueryCodes.java) | [QueryCodes](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/campaign/QueryCodes.java) |
 | `/platform/admin/namespaces/{namespace}/codes/campaigns/{campaignId}` | POST | CreateCodes | [CreateCodes](../../src/main/java/net/accelbyte/sdk/api/platform/operations/campaign/CreateCodes.java) | [CreateCodes](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/campaign/CreateCodes.java) |
@@ -654,6 +656,8 @@
 | `BulkOperationResult` | [BulkOperationResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/BulkOperationResult.java) |
 | `BulkRegionDataChangeRequest` | [BulkRegionDataChangeRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/BulkRegionDataChangeRequest.java) |
 | `BundledItemInfo` | [BundledItemInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/BundledItemInfo.java) |
+| `CampaignBatchNameChange` | [CampaignBatchNameChange](../../src/main/java/net/accelbyte/sdk/api/platform/models/CampaignBatchNameChange.java) |
+| `CampaignBatchNameInfo` | [CampaignBatchNameInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/CampaignBatchNameInfo.java) |
 | `CampaignCreate` | [CampaignCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/CampaignCreate.java) |
 | `CampaignDynamicInfo` | [CampaignDynamicInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/CampaignDynamicInfo.java) |
 | `CampaignIfc` | [CampaignIfc](../../src/main/java/net/accelbyte/sdk/api/platform/models/CampaignIfc.java) |
@@ -716,7 +720,6 @@
 | `DiscountItem` | [DiscountItem](../../src/main/java/net/accelbyte/sdk/api/platform/models/DiscountItem.java) |
 | `DurableEntitlementRevocationConfig` | [DurableEntitlementRevocationConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/DurableEntitlementRevocationConfig.java) |
 | `EntitlementConfigInfo` | [EntitlementConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementConfigInfo.java) |
-| `EntitlementDecrement` | [EntitlementDecrement](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementDecrement.java) |
 | `EntitlementDecrementResult` | [EntitlementDecrementResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementDecrementResult.java) |
 | `EntitlementGrant` | [EntitlementGrant](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementGrant.java) |
 | `EntitlementGrantResult` | [EntitlementGrantResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementGrantResult.java) |
@@ -732,6 +735,7 @@
 | `EntitlementPrechekResult` | [EntitlementPrechekResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementPrechekResult.java) |
 | `EntitlementRevocation` | [EntitlementRevocation](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementRevocation.java) |
 | `EntitlementRevocationConfig` | [EntitlementRevocationConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementRevocationConfig.java) |
+| `EntitlementRevokeRequest` | [EntitlementRevokeRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementRevokeRequest.java) |
 | `EntitlementRevokeResult` | [EntitlementRevokeResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementRevokeResult.java) |
 | `EntitlementSoldRequest` | [EntitlementSoldRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementSoldRequest.java) |
 | `EntitlementSoldResult` | [EntitlementSoldResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/EntitlementSoldResult.java) |
@@ -931,7 +935,9 @@
 | `PredicateValidateResult` | [PredicateValidateResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/PredicateValidateResult.java) |
 | `PsnEntitlementOwnershipRequest` | [PsnEntitlementOwnershipRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/PsnEntitlementOwnershipRequest.java) |
 | `PublicCustomConfigInfo` | [PublicCustomConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/PublicCustomConfigInfo.java) |
+| `PublicEntitlementDecrement` | [PublicEntitlementDecrement](../../src/main/java/net/accelbyte/sdk/api/platform/models/PublicEntitlementDecrement.java) |
 | `PublicEntitlementHistoryInfo` | [PublicEntitlementHistoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/PublicEntitlementHistoryInfo.java) |
+| `PublicEntitlementMetadata` | [PublicEntitlementMetadata](../../src/main/java/net/accelbyte/sdk/api/platform/models/PublicEntitlementMetadata.java) |
 | `PurchaseCondition` | [PurchaseCondition](../../src/main/java/net/accelbyte/sdk/api/platform/models/PurchaseCondition.java) |
 | `PurchaseConditionUpdate` | [PurchaseConditionUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/PurchaseConditionUpdate.java) |
 | `PurchasedItemCount` | [PurchasedItemCount](../../src/main/java/net/accelbyte/sdk/api/platform/models/PurchasedItemCount.java) |

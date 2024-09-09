@@ -77,7 +77,8 @@ public class QueryItemsV2 implements Callable<Integer> {
 
   @Option(
       names = {"--itemType"},
-      description = "itemType")
+      description = "itemType",
+      split = ",")
   List<String> itemType;
 
   @Option(
@@ -102,7 +103,8 @@ public class QueryItemsV2 implements Callable<Integer> {
 
   @Option(
       names = {"--sortBy"},
-      description = "sortBy")
+      description = "sortBy",
+      split = ",")
   List<String> sortBy;
 
   @Option(

@@ -36,6 +36,12 @@ public class QueryAcquiringDS implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--matchPool"},
+      description = "matchPool",
+      split = ",")
+  List<String> matchPool;
+
+  @Option(
       names = {"--endDate"},
       description = "endDate")
   String endDate;
@@ -69,6 +75,7 @@ public class QueryAcquiringDS implements Callable<Integer> {
       final net.accelbyte.sdk.api.sessionhistory.operations.x_ray.QueryAcquiringDS operation =
           net.accelbyte.sdk.api.sessionhistory.operations.x_ray.QueryAcquiringDS.builder()
               .namespace(namespace)
+              .matchPool(matchPool)
               .endDate(endDate)
               .startDate(startDate)
               .build();

@@ -82,8 +82,20 @@ public class PublicListMyStatItems extends Operation {
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
     queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
-    queryParams.put("statCodes", this.statCodes == null ? null : this.statCodes);
-    queryParams.put("tags", this.tags == null ? null : this.tags);
+    queryParams.put(
+        "statCodes",
+        this.statCodes == null
+            ? null
+            : this.statCodes.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
+    queryParams.put(
+        "tags",
+        this.tags == null
+            ? null
+            : this.tags.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     return queryParams;
   }
 

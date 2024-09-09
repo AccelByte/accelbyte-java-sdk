@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * debugMatchedPaymentProviderConfig
  *
- * <p>[Not Supported Yet In Starter] Debug matched payment provider config. Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Debug matched payment provider config. Other detail
+ * info:
  *
  * <p>* Returns : payment provider config
  */

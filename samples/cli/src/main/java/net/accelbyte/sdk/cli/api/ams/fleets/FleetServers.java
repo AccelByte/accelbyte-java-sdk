@@ -41,6 +41,16 @@ public class FleetServers implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--count"},
+      description = "count")
+  String count;
+
+  @Option(
+      names = {"--offset"},
+      description = "offset")
+  Integer offset;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -65,6 +75,8 @@ public class FleetServers implements Callable<Integer> {
           net.accelbyte.sdk.api.ams.operations.fleets.FleetServers.builder()
               .fleetID(fleetID)
               .namespace(namespace)
+              .count(count)
+              .offset(offset)
               .build();
       final ApiFleetServersResponse response = wrapper.fleetServers(operation);
       final String responseString =

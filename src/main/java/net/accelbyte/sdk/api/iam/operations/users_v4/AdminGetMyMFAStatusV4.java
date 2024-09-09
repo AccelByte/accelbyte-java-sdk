@@ -21,8 +21,12 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetMyMFAStatusV4
  *
- * <p>This endpoint will get user's' MFA status.
+ * <p>This endpoint will get user's' MFA status. ------------ **Substitute endpoint**:
+ * /iam/v4/admin/users/me/mfa/status [GET]
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminGetMyMFAStatusV4 extends Operation {

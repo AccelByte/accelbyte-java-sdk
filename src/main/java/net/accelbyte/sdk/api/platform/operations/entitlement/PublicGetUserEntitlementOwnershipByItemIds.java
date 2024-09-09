@@ -74,7 +74,13 @@ public class PublicGetUserEntitlementOwnershipByItemIds extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
-    queryParams.put("ids", this.ids == null ? null : this.ids);
+    queryParams.put(
+        "ids",
+        this.ids == null
+            ? null
+            : this.ids.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     return queryParams;
   }
 

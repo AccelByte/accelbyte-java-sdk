@@ -45,6 +45,10 @@ public class CreateBasePolicyRequest extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean isHidden;
 
+  @JsonProperty("isHiddenPublic")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean isHiddenPublic;
+
   @JsonProperty("namespace")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String namespace;

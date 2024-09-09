@@ -73,7 +73,7 @@ public class Misc {
   /**
    * @see GetLanguages
    */
-  public Map<String, ?> getLanguages(GetLanguages input) throws Exception {
+  public Map<String, String> getLanguages(GetLanguages input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

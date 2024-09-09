@@ -21,9 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * fulfillItems
  *
- * <p>[Not Supported Yet In Starter] Fulfill items by transactionId. Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Fulfill items by transactionId. Other detail info:
  *
- * <p>* Returns : fulfillment v2 result
+ * <p>* Request body : storeId, region, language, and entitlementCollectionId can be ignored. *
+ * Returns : fulfillment v2 result, storeId field can be ignored.
  */
 @Getter
 @Setter
@@ -48,6 +49,7 @@ public class FulfillItems extends Operation {
    * @param namespace required
    * @param transactionId required
    * @param userId required
+   * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.

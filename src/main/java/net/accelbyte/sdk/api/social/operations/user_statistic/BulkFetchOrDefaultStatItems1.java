@@ -78,7 +78,13 @@ public class BulkFetchOrDefaultStatItems1 extends Operation {
     queryParams.put(
         "additionalKey", this.additionalKey == null ? null : Arrays.asList(this.additionalKey));
     queryParams.put("statCode", this.statCode == null ? null : Arrays.asList(this.statCode));
-    queryParams.put("userIds", this.userIds == null ? null : this.userIds);
+    queryParams.put(
+        "userIds",
+        this.userIds == null
+            ? null
+            : this.userIds.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     return queryParams;
   }
 

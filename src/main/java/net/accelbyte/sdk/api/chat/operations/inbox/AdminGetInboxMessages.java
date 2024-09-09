@@ -100,7 +100,13 @@ public class AdminGetInboxMessages extends Operation {
         "endCreatedAt",
         this.endCreatedAt == null ? null : Arrays.asList(String.valueOf(this.endCreatedAt)));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
-    queryParams.put("messageId", this.messageId == null ? null : this.messageId);
+    queryParams.put(
+        "messageId",
+        this.messageId == null
+            ? null
+            : this.messageId.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
     queryParams.put("order", this.order == null ? null : Arrays.asList(this.order));

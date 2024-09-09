@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * createPaymentProviderConfig
  *
- * <p>[Not Supported Yet In Starter] Create payment provider config.
+ * <p>[Not supported yet in AGS Shared Cloud] Create payment provider config.
  *
  * <p>Request Body Parameters:
  *
@@ -52,7 +52,9 @@ public class CreatePaymentProviderConfig extends Operation {
   /** fields as input parameter */
   private PaymentProviderConfigEdit body;
 
-  /** */
+  /**
+   * @param body required
+   */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated

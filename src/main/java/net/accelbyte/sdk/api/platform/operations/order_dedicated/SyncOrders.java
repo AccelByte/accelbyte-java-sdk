@@ -21,9 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * syncOrders
  *
- * <p>[Not Supported Yet In Starter] Sync orders. If response contains nextEvaluatedKey, please use
- * it as query param in the next call to fetch the next batch, a batch has 1000 elements or less.
- * Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Sync orders. If response contains nextEvaluatedKey,
+ * please use it as query param in the next call to fetch the next batch, a batch has 1000 elements
+ * or less. Other detail info:
  *
  * <p>* Returns : sync orders
  */

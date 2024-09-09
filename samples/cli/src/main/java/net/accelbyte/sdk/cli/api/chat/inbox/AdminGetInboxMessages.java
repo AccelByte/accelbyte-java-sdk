@@ -52,7 +52,8 @@ public class AdminGetInboxMessages implements Callable<Integer> {
 
   @Option(
       names = {"--messageId"},
-      description = "messageId")
+      description = "messageId",
+      split = ",")
   List<String> messageId;
 
   @Option(

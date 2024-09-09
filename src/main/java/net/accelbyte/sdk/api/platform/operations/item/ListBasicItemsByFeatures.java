@@ -75,7 +75,13 @@ public class ListBasicItemsByFeatures extends Operation {
     queryParams.put(
         "activeOnly",
         this.activeOnly == null ? null : Arrays.asList(String.valueOf(this.activeOnly)));
-    queryParams.put("features", this.features == null ? null : this.features);
+    queryParams.put(
+        "features",
+        this.features == null
+            ? null
+            : this.features.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     return queryParams;
   }
 

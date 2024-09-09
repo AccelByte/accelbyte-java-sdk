@@ -21,10 +21,15 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getUserVerificationCode
  *
- * <p>[WARNING] This endpoint is only for testing purpose. This endpoint get active user
- * verification code. There are 3 scenario of getting verification codes : after account
- * registration, after reset password request, and after headless account upgrade. All of them will
- * be returned on this endpoint. action code: 10146
+ * <p>**[WARNING] This endpoint is only for testing purpose.**
+ *
+ * <p>This endpoint get active user verification code. There are some scenarios of getting
+ * verification codes, all of them will be returned on this endpoint: - After account registration -
+ * After reset password request - After headless account upgrade - After update email request
+ *
+ * <p>This API only accept publisher/studio namespace and userId.
+ *
+ * <p>Action code: 10146
  */
 @Getter
 @Setter

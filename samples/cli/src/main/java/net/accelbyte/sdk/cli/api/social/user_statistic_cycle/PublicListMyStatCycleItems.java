@@ -57,7 +57,8 @@ public class PublicListMyStatCycleItems implements Callable<Integer> {
 
   @Option(
       names = {"--statCodes"},
-      description = "statCodes")
+      description = "statCodes",
+      split = ",")
   List<String> statCodes;
 
   @Option(

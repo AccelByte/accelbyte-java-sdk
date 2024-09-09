@@ -42,7 +42,8 @@ public class ExistsAnyPassByPassCodes implements Callable<Integer> {
 
   @Option(
       names = {"--passCodes"},
-      description = "passCodes")
+      description = "passCodes",
+      split = ",")
   List<String> passCodes;
 
   @Option(

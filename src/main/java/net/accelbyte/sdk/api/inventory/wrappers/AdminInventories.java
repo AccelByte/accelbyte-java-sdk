@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.api.inventory.wrappers;
 
+import java.util.*;
 import net.accelbyte.sdk.api.inventory.models.*;
 import net.accelbyte.sdk.api.inventory.operations.admin_inventories.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
@@ -64,6 +65,16 @@ public class AdminInventories {
   public void deleteInventory(DeleteInventory input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminUpdateUserInventoriesByInventoryCode
+   */
+  public List<ApimodelsInventoryResp> adminUpdateUserInventoriesByInventoryCode(
+      AdminUpdateUserInventoriesByInventoryCode input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 

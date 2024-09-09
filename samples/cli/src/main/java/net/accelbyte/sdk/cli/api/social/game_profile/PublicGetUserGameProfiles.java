@@ -37,7 +37,8 @@ public class PublicGetUserGameProfiles implements Callable<Integer> {
 
   @Option(
       names = {"--userIds"},
-      description = "userIds")
+      description = "userIds",
+      split = ",")
   List<String> userIds;
 
   @Option(

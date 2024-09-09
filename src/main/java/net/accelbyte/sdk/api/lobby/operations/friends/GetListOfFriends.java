@@ -83,7 +83,13 @@ public class GetListOfFriends extends Operation {
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
     queryParams.put("friendId", this.friendId == null ? null : Arrays.asList(this.friendId));
-    queryParams.put("friendIds", this.friendIds == null ? null : this.friendIds);
+    queryParams.put(
+        "friendIds",
+        this.friendIds == null
+            ? null
+            : this.friendIds.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));

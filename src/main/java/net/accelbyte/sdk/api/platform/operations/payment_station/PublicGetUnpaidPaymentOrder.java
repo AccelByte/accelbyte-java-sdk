@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicGetUnpaidPaymentOrder
  *
- * <p>[Not Supported Yet In Starter] Get payment order info. Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Get payment order info. Other detail info:
  *
  * <p>* Returns : Payment order details
  */

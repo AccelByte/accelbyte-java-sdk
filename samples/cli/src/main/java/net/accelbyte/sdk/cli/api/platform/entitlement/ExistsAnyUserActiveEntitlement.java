@@ -42,12 +42,14 @@ public class ExistsAnyUserActiveEntitlement implements Callable<Integer> {
 
   @Option(
       names = {"--appIds"},
-      description = "appIds")
+      description = "appIds",
+      split = ",")
   List<String> appIds;
 
   @Option(
       names = {"--itemIds"},
-      description = "itemIds")
+      description = "itemIds",
+      split = ",")
   List<String> itemIds;
 
   @Option(
@@ -57,7 +59,8 @@ public class ExistsAnyUserActiveEntitlement implements Callable<Integer> {
 
   @Option(
       names = {"--skus"},
-      description = "skus")
+      description = "skus",
+      split = ",")
   List<String> skus;
 
   @Option(

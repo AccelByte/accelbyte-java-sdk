@@ -34,6 +34,9 @@ public class MatchmakerTicket extends Model {
   @JsonProperty("IsPivot")
   private Boolean isPivot;
 
+  @JsonProperty("IsSinglePlay")
+  private Boolean isSinglePlay;
+
   @JsonProperty("Latencies")
   private Map<String, Integer> latencies;
 

@@ -345,8 +345,20 @@ public class UsersV4 {
   }
 
   /**
-   * @see AdminGetMyMFAStatusV4
+   * @see AdminGetMyOwnMFAStatusV4
    */
+  public ModelUserMFAStatusResponseV4 adminGetMyOwnMFAStatusV4(AdminGetMyOwnMFAStatusV4 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminGetMyMFAStatusV4
+   * @deprecated
+   */
+  @Deprecated
   public ModelUserMFAStatusResponseV4 adminGetMyMFAStatusV4(AdminGetMyMFAStatusV4 input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -622,8 +634,20 @@ public class UsersV4 {
   }
 
   /**
-   * @see PublicGetMyMFAStatusV4
+   * @see PublicGetMyOwnMFAStatusV4
    */
+  public ModelUserMFAStatusResponseV4 publicGetMyOwnMFAStatusV4(PublicGetMyOwnMFAStatusV4 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicGetMyMFAStatusV4
+   * @deprecated
+   */
+  @Deprecated
   public ModelUserMFAStatusResponseV4 publicGetMyMFAStatusV4(PublicGetMyMFAStatusV4 input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);

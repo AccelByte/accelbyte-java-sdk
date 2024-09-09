@@ -52,7 +52,8 @@ public class QueryUncategorizedItems implements Callable<Integer> {
 
   @Option(
       names = {"--sortBy"},
-      description = "sortBy")
+      description = "sortBy",
+      split = ",")
   List<String> sortBy;
 
   @Option(

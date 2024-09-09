@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicGetQRCode
  *
- * <p>[Not Supported Yet In Starter] Get qrcode. Other detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Get qrcode. Other detail info:
  *
  * <p>* Returns : QRCode image stream
  */

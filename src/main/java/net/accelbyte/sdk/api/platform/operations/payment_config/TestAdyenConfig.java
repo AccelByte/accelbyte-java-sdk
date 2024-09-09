@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * testAdyenConfig
  *
- * <p>[Not Supported Yet In Starter] Test adyen configuration.
+ * <p>[Not supported yet in AGS Shared Cloud] Test adyen configuration.
  *
  * <p>#### Check List:
  *
@@ -50,7 +50,9 @@ public class TestAdyenConfig extends Operation {
 
   private AdyenConfig body;
 
-  /** */
+  /**
+   * @param body required
+   */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated

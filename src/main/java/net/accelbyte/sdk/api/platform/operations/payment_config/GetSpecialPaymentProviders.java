@@ -22,8 +22,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getSpecialPaymentProviders
  *
- * <p>[Not Supported Yet In Starter] Get special payment providers, such as ALIPAY, WXPAY. Other
- * detail info:
+ * <p>[Not supported yet in AGS Shared Cloud] Get special payment providers, such as ALIPAY, WXPAY.
+ * Other detail info:
  *
  * <p>* Returns : payment provider list
  */

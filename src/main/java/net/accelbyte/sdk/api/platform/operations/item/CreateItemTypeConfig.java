@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * createItemTypeConfig
  *
- * <p>[Not Supported Yet In Starter] This API is used to create an item type config.
+ * <p>[Not supported yet in AGS Shared Cloud] This API is used to create an item type config.
  *
  * <p>* Returns : item type config data
  */
@@ -39,7 +39,9 @@ public class CreateItemTypeConfig extends Operation {
   /** fields as input parameter */
   private ItemTypeConfigCreate body;
 
-  /** */
+  /**
+   * @param body required
+   */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated

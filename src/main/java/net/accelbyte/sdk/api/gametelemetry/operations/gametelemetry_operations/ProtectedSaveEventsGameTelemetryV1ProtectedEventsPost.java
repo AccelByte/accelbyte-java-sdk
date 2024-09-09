@@ -49,6 +49,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Default maximum payload size is 1MB
  *
  * <p>- **ClientTimestamp (optional)**: Timestamp of the event captured by the client SDK.
+ *
+ * <p>- **DeviceType (optional)**: The device type of the user.
  */
 @Getter
 @Setter

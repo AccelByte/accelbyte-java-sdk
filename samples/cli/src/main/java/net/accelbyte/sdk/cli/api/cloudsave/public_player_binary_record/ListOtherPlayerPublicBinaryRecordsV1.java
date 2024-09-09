@@ -53,7 +53,8 @@ public class ListOtherPlayerPublicBinaryRecordsV1 implements Callable<Integer> {
 
   @Option(
       names = {"--tags"},
-      description = "tags")
+      description = "tags",
+      split = ",")
   List<String> tags;
 
   @Option(

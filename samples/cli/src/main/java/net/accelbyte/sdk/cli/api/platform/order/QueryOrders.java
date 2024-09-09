@@ -52,7 +52,8 @@ public class QueryOrders implements Callable<Integer> {
 
   @Option(
       names = {"--orderNos"},
-      description = "orderNos")
+      description = "orderNos",
+      split = ",")
   List<String> orderNos;
 
   @Option(

@@ -109,7 +109,13 @@ public class PublicListContentV2 extends Operation {
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
     queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
     queryParams.put("subType", this.subType == null ? null : Arrays.asList(this.subType));
-    queryParams.put("tags", this.tags == null ? null : this.tags);
+    queryParams.put(
+        "tags",
+        this.tags == null
+            ? null
+            : this.tags.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     queryParams.put("type", this.type == null ? null : Arrays.asList(this.type));
     return queryParams;
   }

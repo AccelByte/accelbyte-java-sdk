@@ -103,7 +103,13 @@ public class QueryUserExpGrantHistory extends Operation {
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
     queryParams.put("seasonId", this.seasonId == null ? null : Arrays.asList(this.seasonId));
     queryParams.put("source", this.source == null ? null : Arrays.asList(this.source));
-    queryParams.put("tags", this.tags == null ? null : this.tags);
+    queryParams.put(
+        "tags",
+        this.tags == null
+            ? null
+            : this.tags.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     queryParams.put("to", this.to == null ? null : Arrays.asList(this.to));
     return queryParams;
   }
