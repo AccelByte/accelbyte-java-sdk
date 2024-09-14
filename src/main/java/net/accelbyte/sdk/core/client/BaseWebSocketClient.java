@@ -7,6 +7,8 @@
 package net.accelbyte.sdk.core.client;
 
 import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 import lombok.extern.java.Log;
 import net.accelbyte.sdk.core.repository.ConfigRepository;
@@ -55,6 +57,7 @@ public class BaseWebSocketClient extends WebSocketListener {
   protected int numReconnectAttempts;
   protected String wsUrl;
   protected HashMap<String, Object> dataMap = new HashMap<>();
+  private Timer reconnectTimer;
 
   public Object getData(String key) {
     return dataMap.get(key);
@@ -131,25 +134,43 @@ public class BaseWebSocketClient extends WebSocketListener {
   }
 
   public void connect(boolean isReconnecting) throws Exception {
-    try {
-      if (isReconnecting) {
-        numReconnectAttempts++;
-        long currentReconnectDelayMs = reconnectDelay(numReconnectAttempts);
-        log.info(
-            "# reconnect attempts: "
-                + numReconnectAttempts
-                + ", attempting to reconnect in "
-                + currentReconnectDelayMs
-                + "ms");
-        Thread.sleep(currentReconnectDelayMs);
-      }
-
-      log.info("connecting to websocket");
-      final Request request = constructOkHttpRequest();
-      this.websocket = client.newWebSocket(request, this);
-    } catch (Exception e) {
-      throw new RuntimeException(e);
+    if (isReconnecting) {
+      scheduleReconnect();
+    } else {
+      connectNewWebSocket();
     }
+  }
+
+  private void scheduleReconnect() {
+    numReconnectAttempts++;
+    long currentReconnectDelayMs = reconnectDelay(numReconnectAttempts);
+    log.info("# reconnect attempts: "
+        + numReconnectAttempts
+        + ", reconnecting in "
+        + currentReconnectDelayMs
+        + "ms");
+
+    if (reconnectTimer == null) {
+      reconnectTimer = new Timer();
+    }
+
+    reconnectTimer.schedule(new TimerTask() {
+      @Override
+      public void run() {
+        try {
+          connectNewWebSocket();
+        } catch (Exception e) {
+          log.info("Reconnect fails, scheduling a reconnect");
+          scheduleReconnect();
+        }
+      }
+    }, currentReconnectDelayMs);
+  }
+
+  private void connectNewWebSocket() throws Exception {
+    log.info("connecting to websocket");
+    final Request request = constructOkHttpRequest();
+    this.websocket = client.newWebSocket(request, this);
   }
 
   private Request constructOkHttpRequest() throws Exception {
@@ -243,7 +264,7 @@ public class BaseWebSocketClient extends WebSocketListener {
 
     isSocketConnected = false;
 
-    log.info("onClosed: " + code + " / " + reason);
+    log.info("onClosed (start): " + code + " / " + reason);
 
     webSocketListener.onClosed(webSocket, code, reason);
 
@@ -256,6 +277,8 @@ public class BaseWebSocketClient extends WebSocketListener {
     } else {
       clearAllData();
     }
+
+    log.info("onClosed (end): " + code + " / " + reason);
   }
 
   @Override
