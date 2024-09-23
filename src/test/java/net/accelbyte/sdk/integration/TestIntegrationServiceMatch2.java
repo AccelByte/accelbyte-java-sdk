@@ -106,7 +106,7 @@ public class TestIntegrationServiceMatch2 extends TestIntegration {
     final Map<String, Object> rulesetData =
         new ObjectMapper()
             .readValue(
-                "{\"alliance\":{\"min_number\":2,\"max_number\":10,\"player_min_number\":2,\"player_max_number\":4},\"matchingRules\":[{\"attribute\":\"\",\"criteria\":\"distance\",\"reference\":\"\"}],\"flexingRules\":[{\"duration\":600,\"attribute\":\"\",\"criteria\":\"distance\",\"reference\":\"\"}],\"match_options\":{\"options\":[{\"name\":\"\",\"type\":\"any\"}]},\"alliance_flexing_rule\":[{\"duration\":600,\"min_number\":1,\"max_number\":2,\"player_min_number\":1,\"player_max_number\":2}]}",
+                "{\"alliance\":{\"min_number\":2,\"max_number\":10,\"player_min_number\":2,\"player_max_number\":4},\"matchingRules\":[{\"attribute\":\"\",\"criteria\":\"distance\",\"reference\":\"\"}],\"flexingRules\":[{\"duration\":600,\"attribute\":\"\",\"criteria\":\"distance\",\"reference\":\"\"}],\"match_options\":{\"options\":[{\"name\":\"myopt\",\"type\":\"any\"}]},\"alliance_flexing_rule\":[{\"duration\":600,\"min_number\":1,\"max_number\":2,\"player_min_number\":1,\"player_max_number\":2}]}",
                 Map.class);
 
     // CASE Create a match rule set
