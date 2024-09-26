@@ -29,7 +29,6 @@ import picocli.CommandLine;
       Dsartifact.class,
       Dslogmanager.class,
       Dsmc.class,
-      Eventlog.class,
       Gametelemetry.class,
       Gdpr.class,
       Group.class,
