@@ -596,94 +596,7 @@ final ModelFreeFormNotificationRequest notifBody =
 adminWrapper.freeFormNotification(
     FreeFormNotification.builder().namespace(this.namespace).body(notifBody).build());
 ```
-## Matchmaking
 
-Source: [TestIntegrationServiceMatchmaking.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceMatchmaking.java)
-
-### Create a channel
-
-```java
-final ModelsChannelRequest createChannelBody =
-    ModelsChannelRequest.builder()
-        .deployment("")
-        .description(channelDescription)
-        .findMatchTimeoutSeconds(3600)
-        .gameMode(channelName)
-        .joinable(false)
-        .maxDelayMs(0)
-        .sessionQueueTimeoutSeconds(0)
-        .socialMatchmaking(false)
-        .useSubGamemode(false)
-        .ruleSet(
-            ModelsRuleSet.builder()
-                .alliance(
-                    ModelsAllianceRule.builder()
-                        .maxNumber(2)
-                        .minNumber(2)
-                        .playerMaxNumber(1)
-                        .playerMinNumber(1)
-                        .build())
-                .allianceFlexingRule(new ArrayList<ModelsAllianceFlexingRule>())
-                .flexingRule(new ArrayList<ModelsFlexingRule>())
-                .matchOptions(
-                    ModelsMatchOptionRule.builder()
-                        .options(new ArrayList<ModelsMatchOption>())
-                        .build())
-                .matchingRule(new ArrayList<ModelsMatchingRule>())
-                .subGameModes(new HashMap<String, ModelsSubGameMode>())
-                .build())
-        .build();
-
-final ModelsCreateChannelResponse createChannelResult =
-    matchmakingWrapper.createChannelHandler(
-        CreateChannelHandler.builder()
-            .namespace(this.namespace)
-            .body(createChannelBody)
-            .build());
-```
-
-### Get a channel
-
-```java
-final ModelsChannelV1 getSingleChannelResult =
-    matchmakingWrapper.getSingleMatchmakingChannel(
-        GetSingleMatchmakingChannel.builder()
-            .namespace(this.namespace)
-            .channelName(channelName)
-            .build());
-```
-
-### Get sessions in channel
-
-```java
-final List<ModelsMatchmakingResult> getSessionsResult =
-    matchmakingWrapper.getAllSessionsInChannel(
-        GetAllSessionsInChannel.builder()
-            .namespace(this.namespace)
-            .channelName(channelName)
-            .build());
-```
-
-### Update a channel
-
-```java
-final ModelsUpdateChannelRequest updateChannelBody =
-    ModelsUpdateChannelRequest.builder().description(channelDescriptionUpdate).build();
-
-matchmakingWrapper.updateMatchmakingChannel(
-    UpdateMatchmakingChannel.builder()
-        .namespace(this.namespace)
-        .channelName(channelName)
-        .body(updateChannelBody)
-        .build());
-```
-
-### Delete a channel
-
-```java
-matchmakingWrapper.deleteChannelHandler(
-    DeleteChannelHandler.builder().namespace(this.namespace).channel(channelName).build());
-```
 ## MatchmakingV2
 
 Source: [TestIntegrationServiceMatch2.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceMatch2.java)
@@ -1145,63 +1058,7 @@ player2PartyWrapper.publicPartyLeave(
         .partyId(partyId)
         .build());
 ```
-## SessionBrowser
 
-Source: [TestIntegrationServiceSessionBrowser.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceSessionBrowser.java)
-
-### Create a session
-
-```java
-final ModelsCreateSessionRequest createSession =
-    ModelsCreateSessionRequest.builder()
-        .namespace(this.namespace)
-        .sessionType(sessionType)
-        .gameVersion(sessionGameVersion)
-        .username(sessionUsername)
-        .gameSessionSetting(
-            ModelsGameSessionSetting.builder()
-                .mode(mode)
-                .allowJoinInProgress(true)
-                .mapName(mapName)
-                .maxPlayer(100)
-                .build())
-        .build();
-
-final ModelsSessionResponse createSessionResult =
-    sessionWrapper.createSession(
-        CreateSession.builder().namespace(this.namespace).body(createSession).build());
-```
-
-### Get a session
-
-```java
-final ModelsSessionResponse getSessionResult =
-    sessionWrapper.getSession(
-        GetSession.builder().namespace(this.namespace).sessionID(sessionId).build());
-```
-
-### Update a session
-
-```java
-final ModelsUpdateSessionRequest updateSession =
-    ModelsUpdateSessionRequest.builder().gameMaxPlayer(150).build();
-
-final ModelsSessionResponse updateSessionResult =
-    sessionWrapper.updateSession(
-        UpdateSession.builder()
-            .namespace(this.namespace)
-            .sessionID(sessionId)
-            .body(updateSession)
-            .build());
-```
-
-### Delete a session
-
-```java
-final ModelsAdminSessionResponse deleteSessionResult =
-    sessionWrapper.adminDeleteSession(
-        AdminDeleteSession.builder().namespace(this.namespace).sessionID(sessionId).build());
-```
 ## Social
 
 Source: [TestIntegrationServiceSocial.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceSocial.java)
