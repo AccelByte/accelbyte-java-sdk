@@ -2,9 +2,10 @@
 ## [v0.66.0] - 2024-09-06
 
 ### BREAKING CHANGE
+
 ### Core
 - Class `net.accelbyte.sdk.core.client.OkhttpWebSocketClient` has been deprecated and replaced by the `net.accelbyte.sdk.core.client.LobbyWebSocketClient`.  For detailed usage instructions, please refer to the WebSocket section in the [README](../../README.md)
-- 
+
 ### Basic
 - Operation `net.accelbyte.sdk.api.basic.operations.misc.GetLanguages`
   - response is changed from `Map<String, ?>` to `Map<String, String>`
