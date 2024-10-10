@@ -1,3 +1,19 @@
+<a name="v0.67.0"></a>
+## [v0.67.0]
+### test
+- **lobby:** fix lobby test change status checking logic close connection after test
+- **ws:** sync test between modular->mono
+- **integration:** match2 - fix option name
+### fix
+- **:** use scheduled timer for ws reconnect
+### chore
+- **:** remove event log
+- **makefile:** improve mock server ready detection
+- **:** remove mmv1 and sessionbrowser test
+### docs
+- **common use case:** remove deprecated services
+
+
 <a name="v0.66.0"></a>
 ## [v0.66.0]
 ### feat

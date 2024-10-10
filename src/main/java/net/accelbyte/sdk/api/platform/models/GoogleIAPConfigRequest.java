@@ -28,6 +28,17 @@ public class GoogleIAPConfigRequest extends Model {
   @JsonProperty("applicationName")
   private String applicationName;
 
+  @JsonProperty("notificationTokenAudience")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String notificationTokenAudience;
+
+  @JsonProperty("notificationTokenEmail")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String notificationTokenEmail;
+
+  @JsonProperty("packageName")
+  private String packageName;
+
   @JsonProperty("serviceAccountId")
   private String serviceAccountId;
 

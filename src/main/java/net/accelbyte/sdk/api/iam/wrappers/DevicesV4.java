@@ -109,7 +109,9 @@ public class DevicesV4 {
 
   /**
    * @see AdminDecryptDeviceV4
+   * @deprecated
    */
+  @Deprecated
   public ModelDeviceIDDecryptResponseV4 adminDecryptDeviceV4(AdminDecryptDeviceV4 input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);

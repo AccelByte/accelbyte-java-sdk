@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicFulfillAppleIAPItem
  *
- * <p>Verify apple iap receipt and fulfill item.Other detail info: * Returns :
+ * <p>Verify apple iap receipt and fulfill item. don't support subscriptionOther detail info: *
+ * Returns :
  */
 @Getter
 @Setter

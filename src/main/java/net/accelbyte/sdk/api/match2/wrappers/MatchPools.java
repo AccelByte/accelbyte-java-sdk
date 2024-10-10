@@ -93,4 +93,13 @@ public class MatchPools {
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see PublicGetPlayerMetric
+   */
+  public ApiPlayerMetricRecord publicGetPlayerMetric(PublicGetPlayerMetric input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }

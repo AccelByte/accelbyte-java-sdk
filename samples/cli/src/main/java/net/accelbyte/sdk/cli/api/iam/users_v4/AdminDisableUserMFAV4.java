@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.cli.api.iam.users_v4;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.iam.models.*;
@@ -40,6 +41,11 @@ public class AdminDisableUserMFAV4 implements Callable<Integer> {
   String userId;
 
   @Option(
+      names = {"--body"},
+      description = "body")
+  String body;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -64,6 +70,7 @@ public class AdminDisableUserMFAV4 implements Callable<Integer> {
           net.accelbyte.sdk.api.iam.operations.users_v4.AdminDisableUserMFAV4.builder()
               .namespace(namespace)
               .userId(userId)
+              .body(new ObjectMapper().readValue(body, ModelDisableMFARequest.class))
               .build();
       wrapper.adminDisableUserMFAV4(operation);
       log.info("Operation successful");

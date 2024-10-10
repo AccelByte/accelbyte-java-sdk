@@ -57,6 +57,10 @@ public class StatUpdate extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> tags;
 
+  @JsonProperty("visibility")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String visibility;
+
   @JsonIgnore
   public String getGlobalAggregationMethod() {
     return this.globalAggregationMethod;
@@ -76,6 +80,26 @@ public class StatUpdate extends Model {
   public void setGlobalAggregationMethodFromEnum(
       final GlobalAggregationMethod globalAggregationMethod) {
     this.globalAggregationMethod = globalAggregationMethod.toString();
+  }
+
+  @JsonIgnore
+  public String getVisibility() {
+    return this.visibility;
+  }
+
+  @JsonIgnore
+  public Visibility getVisibilityAsEnum() {
+    return Visibility.valueOf(this.visibility);
+  }
+
+  @JsonIgnore
+  public void setVisibility(final String visibility) {
+    this.visibility = visibility;
+  }
+
+  @JsonIgnore
+  public void setVisibilityFromEnum(final Visibility visibility) {
+    this.visibility = visibility.toString();
   }
 
   @JsonIgnore
@@ -106,8 +130,25 @@ public class StatUpdate extends Model {
     }
   }
 
+  public enum Visibility {
+    SERVERONLY("SERVERONLY"),
+    SHOWALL("SHOWALL");
+
+    private String value;
+
+    Visibility(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public static class StatUpdateBuilder {
     private String globalAggregationMethod;
+    private String visibility;
 
     public StatUpdateBuilder globalAggregationMethod(final String globalAggregationMethod) {
       this.globalAggregationMethod = globalAggregationMethod;
@@ -117,6 +158,16 @@ public class StatUpdate extends Model {
     public StatUpdateBuilder globalAggregationMethodFromEnum(
         final GlobalAggregationMethod globalAggregationMethod) {
       this.globalAggregationMethod = globalAggregationMethod.toString();
+      return this;
+    }
+
+    public StatUpdateBuilder visibility(final String visibility) {
+      this.visibility = visibility;
+      return this;
+    }
+
+    public StatUpdateBuilder visibilityFromEnum(final Visibility visibility) {
+      this.visibility = visibility.toString();
       return this;
     }
   }

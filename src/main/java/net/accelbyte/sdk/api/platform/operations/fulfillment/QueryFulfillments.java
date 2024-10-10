@@ -23,7 +23,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>[Not supported yet in AGS Shared Cloud] Query fulfillments in a namespace. Other detail info:
  *
- * <p>* Returns : list of fulfillment info, storeId field can be ignored.
+ * <p>* Returns : list of fulfillment info: * storeId in items can be ignored * error in successList
+ * will always be null
  */
 @Getter
 @Setter
@@ -106,14 +107,14 @@ public class QueryFulfillments extends Operation {
     return true;
   }
 
-  public FulfillmentHistoryPagingSlicedResult parseResponse(
+  public FulfillmentPagingSlicedResult parseResponse(
       int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new FulfillmentHistoryPagingSlicedResult().createFromJson(json);
+    return new FulfillmentPagingSlicedResult().createFromJson(json);
   }
 
   @Override

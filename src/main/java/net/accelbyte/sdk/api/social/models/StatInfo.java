@@ -85,6 +85,10 @@ public class StatInfo extends Model {
   @JsonProperty("updatedAt")
   private String updatedAt;
 
+  @JsonProperty("visibility")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String visibility;
+
   @JsonIgnore
   public String getGlobalAggregationMethod() {
     return this.globalAggregationMethod;
@@ -147,6 +151,26 @@ public class StatInfo extends Model {
   }
 
   @JsonIgnore
+  public String getVisibility() {
+    return this.visibility;
+  }
+
+  @JsonIgnore
+  public Visibility getVisibilityAsEnum() {
+    return Visibility.valueOf(this.visibility);
+  }
+
+  @JsonIgnore
+  public void setVisibility(final String visibility) {
+    this.visibility = visibility;
+  }
+
+  @JsonIgnore
+  public void setVisibilityFromEnum(final Visibility visibility) {
+    this.visibility = visibility.toString();
+  }
+
+  @JsonIgnore
   public StatInfo createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
@@ -206,10 +230,27 @@ public class StatInfo extends Model {
     }
   }
 
+  public enum Visibility {
+    SERVERONLY("SERVERONLY"),
+    SHOWALL("SHOWALL");
+
+    private String value;
+
+    Visibility(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public static class StatInfoBuilder {
     private String globalAggregationMethod;
     private String setBy;
     private String status;
+    private String visibility;
 
     public StatInfoBuilder globalAggregationMethod(final String globalAggregationMethod) {
       this.globalAggregationMethod = globalAggregationMethod;
@@ -239,6 +280,16 @@ public class StatInfo extends Model {
 
     public StatInfoBuilder statusFromEnum(final Status status) {
       this.status = status.toString();
+      return this;
+    }
+
+    public StatInfoBuilder visibility(final String visibility) {
+      this.visibility = visibility;
+      return this;
+    }
+
+    public StatInfoBuilder visibilityFromEnum(final Visibility visibility) {
+      this.visibility = visibility.toString();
       return this;
     }
   }

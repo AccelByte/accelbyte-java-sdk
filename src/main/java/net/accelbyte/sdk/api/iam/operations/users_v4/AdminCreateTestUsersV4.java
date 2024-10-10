@@ -21,8 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminCreateTestUsersV4
  *
- * <p>Create test users and not send verification code email. Enter the number of test users you
- * want to create in the count field. The maximum value of the user count is 100.
+ * <p>Create test users and not send verification code email. Note: - count : Enter the number of
+ * test users you want to create in the count field. The maximum value of the user count is 100. -
+ * userInfo(optional) : - country: you can specify country for the test user. Country use ISO3166-1
+ * alpha-2 two letter, e.g. US
  */
 @Getter
 @Setter

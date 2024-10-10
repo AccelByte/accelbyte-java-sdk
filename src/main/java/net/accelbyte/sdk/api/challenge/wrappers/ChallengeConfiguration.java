@@ -41,6 +41,16 @@ public class ChallengeConfiguration {
   }
 
   /**
+   * @see AdminGetActiveChallenges
+   */
+  public ModelListChallengeResponse adminGetActiveChallenges(AdminGetActiveChallenges input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminGetChallenge
    */
   public ModelChallengeResponse adminGetChallenge(AdminGetChallenge input) throws Exception {
@@ -92,6 +102,16 @@ public class ChallengeConfiguration {
   public void adminDeleteTiedChallenge(AdminDeleteTiedChallenge input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminUpdateTiedChallengeSchedule
+   */
+  public ModelChallengeResponse adminUpdateTiedChallengeSchedule(
+      AdminUpdateTiedChallengeSchedule input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 }

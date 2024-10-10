@@ -119,6 +119,16 @@ public class UsersV4 {
   }
 
   /**
+   * @see AdminGetUserMFAStatusV4
+   */
+  public ModelUserMFAStatusResponseV4 adminGetUserMFAStatusV4(AdminGetUserMFAStatusV4 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminListUserRolesV4
    */
   public ModelListUserRolesV4Response adminListUserRolesV4(AdminListUserRolesV4 input)

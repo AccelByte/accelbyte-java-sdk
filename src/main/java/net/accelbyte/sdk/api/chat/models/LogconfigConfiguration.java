@@ -29,6 +29,14 @@ public class LogconfigConfiguration extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String logLevel;
 
+  @JsonProperty("logLevelDB")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String logLevelDB;
+
+  @JsonProperty("slowQueryThreshold")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Long slowQueryThreshold;
+
   @JsonProperty("socketLogEnabled")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean socketLogEnabled;
@@ -51,6 +59,26 @@ public class LogconfigConfiguration extends Model {
   @JsonIgnore
   public void setLogLevelFromEnum(final LogLevel logLevel) {
     this.logLevel = logLevel.toString();
+  }
+
+  @JsonIgnore
+  public String getLogLevelDB() {
+    return this.logLevelDB;
+  }
+
+  @JsonIgnore
+  public LogLevelDB getLogLevelDBAsEnum() {
+    return LogLevelDB.valueOf(this.logLevelDB);
+  }
+
+  @JsonIgnore
+  public void setLogLevelDB(final String logLevelDB) {
+    this.logLevelDB = logLevelDB;
+  }
+
+  @JsonIgnore
+  public void setLogLevelDBFromEnum(final LogLevelDB logLevelDB) {
+    this.logLevelDB = logLevelDB.toString();
   }
 
   @JsonIgnore
@@ -85,8 +113,30 @@ public class LogconfigConfiguration extends Model {
     }
   }
 
+  public enum LogLevelDB {
+    Debug("debug"),
+    Error("error"),
+    Fatal("fatal"),
+    Info("info"),
+    Panic("panic"),
+    Trace("trace"),
+    Warning("warning");
+
+    private String value;
+
+    LogLevelDB(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public static class LogconfigConfigurationBuilder {
     private String logLevel;
+    private String logLevelDB;
 
     public LogconfigConfigurationBuilder logLevel(final String logLevel) {
       this.logLevel = logLevel;
@@ -95,6 +145,16 @@ public class LogconfigConfiguration extends Model {
 
     public LogconfigConfigurationBuilder logLevelFromEnum(final LogLevel logLevel) {
       this.logLevel = logLevel.toString();
+      return this;
+    }
+
+    public LogconfigConfigurationBuilder logLevelDB(final String logLevelDB) {
+      this.logLevelDB = logLevelDB;
+      return this;
+    }
+
+    public LogconfigConfigurationBuilder logLevelDBFromEnum(final LogLevelDB logLevelDB) {
+      this.logLevelDB = logLevelDB.toString();
       return this;
     }
   }

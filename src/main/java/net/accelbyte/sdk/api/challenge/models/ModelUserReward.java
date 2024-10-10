@@ -109,7 +109,7 @@ public class ModelUserReward extends Model {
   }
 
   public enum Status {
-    CLAIM("CLAIM"),
+    CLAIMED("CLAIMED"),
     UNCLAIMED("UNCLAIMED");
 
     private String value;

@@ -37,6 +37,10 @@ public class ModelsTicket extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String matchPool;
 
+  @JsonProperty("MatchedAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String matchedAt;
+
   @JsonProperty("Namespace")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String namespace;

@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * ClaimGlobalAchievementReward
  *
- * <p>Required permission `NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [READ]` and scope
+ * <p>Required permission `NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [UPDATE]` and scope
  * `social`
  *
  * <p>Note:

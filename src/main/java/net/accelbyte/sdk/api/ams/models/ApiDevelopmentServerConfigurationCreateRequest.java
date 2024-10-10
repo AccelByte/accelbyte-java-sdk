@@ -28,6 +28,9 @@ public class ApiDevelopmentServerConfigurationCreateRequest extends Model {
   @JsonProperty("commandLineArguments")
   private String commandLineArguments;
 
+  @JsonProperty("expiresAt")
+  private String expiresAt;
+
   @JsonProperty("imageId")
   private String imageId;
 

@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApiBackFillAcceptRequest extends Model {
 
+  @JsonProperty("acceptedTicketIds")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> acceptedTicketIds;
+
   @JsonProperty("proposalId")
   private String proposalId;
 

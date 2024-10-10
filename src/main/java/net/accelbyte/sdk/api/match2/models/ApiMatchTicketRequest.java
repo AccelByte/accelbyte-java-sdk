@@ -28,6 +28,10 @@ public class ApiMatchTicketRequest extends Model {
   @JsonProperty("attributes")
   private Map<String, ?> attributes;
 
+  @JsonProperty("excludedSessions")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> excludedSessions;
+
   @JsonProperty("latencies")
   private Map<String, Integer> latencies;
 

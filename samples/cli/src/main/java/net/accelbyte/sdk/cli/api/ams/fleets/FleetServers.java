@@ -43,12 +43,37 @@ public class FleetServers implements Callable<Integer> {
   @Option(
       names = {"--count"},
       description = "count")
-  String count;
+  Integer count;
 
   @Option(
       names = {"--offset"},
       description = "offset")
   Integer offset;
+
+  @Option(
+      names = {"--region"},
+      description = "region")
+  String region;
+
+  @Option(
+      names = {"--serverId"},
+      description = "serverId")
+  String serverId;
+
+  @Option(
+      names = {"--sortBy"},
+      description = "sortBy")
+  String sortBy;
+
+  @Option(
+      names = {"--sortDirection"},
+      description = "sortDirection")
+  String sortDirection;
+
+  @Option(
+      names = {"--status"},
+      description = "status")
+  String status;
 
   @Option(
       names = {"--logging"},
@@ -77,6 +102,11 @@ public class FleetServers implements Callable<Integer> {
               .namespace(namespace)
               .count(count)
               .offset(offset)
+              .region(region)
+              .serverId(serverId)
+              .sortBy(sortBy)
+              .sortDirection(sortDirection)
+              .status(status)
               .build();
       final ApiFleetServersResponse response = wrapper.fleetServers(operation);
       final String responseString =

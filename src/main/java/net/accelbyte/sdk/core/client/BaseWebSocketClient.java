@@ -144,27 +144,30 @@ public class BaseWebSocketClient extends WebSocketListener {
   private void scheduleReconnect() {
     numReconnectAttempts++;
     long currentReconnectDelayMs = reconnectDelay(numReconnectAttempts);
-    log.info("# reconnect attempts: "
-        + numReconnectAttempts
-        + ", reconnecting in "
-        + currentReconnectDelayMs
-        + "ms");
+    log.info(
+        "# reconnect attempts: "
+            + numReconnectAttempts
+            + ", reconnecting in "
+            + currentReconnectDelayMs
+            + "ms");
 
     if (reconnectTimer == null) {
       reconnectTimer = new Timer();
     }
 
-    reconnectTimer.schedule(new TimerTask() {
-      @Override
-      public void run() {
-        try {
-          connectNewWebSocket();
-        } catch (Exception e) {
-          log.info("Reconnect fails, scheduling a reconnect");
-          scheduleReconnect();
-        }
-      }
-    }, currentReconnectDelayMs);
+    reconnectTimer.schedule(
+        new TimerTask() {
+          @Override
+          public void run() {
+            try {
+              connectNewWebSocket();
+            } catch (Exception e) {
+              log.info("Reconnect fails, scheduling a reconnect");
+              scheduleReconnect();
+            }
+          }
+        },
+        currentReconnectDelayMs);
   }
 
   private void connectNewWebSocket() throws Exception {

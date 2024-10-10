@@ -338,36 +338,36 @@ eval_tap $? 33 'QueryTotalMatchmakingMatchTicket' test.out
 #- 34 CreateXrayTicketObservability
 ./ng net.accelbyte.sdk.cli.Main sessionhistory createXrayTicketObservability \
     --namespace "$AB_NAMESPACE" \
-    --body '{"action": "AYfJB8AT9t4Tv207", "activeAllianceRule": {"max_number": 85, "min_number": 33, "player_max_number": 87, "player_min_number": 74}, "activeMatchingRule": [{"attribute": "D3oD5fLCr3OOlXVv", "criteria": "8ZGF7uYnGzpipNDi", "reference": 0.101065178821099}, {"attribute": "NJma1MbqqZtfNWql", "criteria": "4nmwAft4gqkNNlWk", "reference": 0.4692255816039117}, {"attribute": "9eOziYRFOn0jJLHC", "criteria": "9LxhvNXTwGBCtohL", "reference": 0.3086985959229762}], "function": "l9Zuhytm5UDrT6QX", "gameMode": "Cs5SPBbRPZTF6oQA", "isBackfillMatch": false, "isRuleSetFlexed": true, "iteration": 24, "matchID": "nsZg5QgXjvyGJPN4", "namespace": "eXbJE5Vs2GcyomQo", "partyID": "IXimBJehyxlNsjUg", "remainingPlayersPerTicket": [48, 39, 56], "remainingTickets": 22, "sessionTickID": "P7WnbdSJtjX7ZshZ", "tickID": 51, "timeToMatchSec": 0.12676435581860468, "timestamp": "1990-03-30T00:00:00Z", "unbackfillReason": "2rIizGdKvOPdq5xr", "unmatchReason": "gxSmy1DN9LFkYW5D"}' \
+    --body '{"action": "AYfJB8AT9t4Tv207", "activeAllianceRule": {"max_number": 85, "min_number": 33, "player_max_number": 87, "player_min_number": 74}, "activeMatchingRule": [{"attribute": "D3oD5fLCr3OOlXVv", "criteria": "8ZGF7uYnGzpipNDi", "reference": 0.101065178821099}, {"attribute": "NJma1MbqqZtfNWql", "criteria": "4nmwAft4gqkNNlWk", "reference": 0.4692255816039117}, {"attribute": "9eOziYRFOn0jJLHC", "criteria": "9LxhvNXTwGBCtohL", "reference": 0.3086985959229762}], "function": "l9Zuhytm5UDrT6QX", "gameMode": "Cs5SPBbRPZTF6oQA", "isBackfillMatch": false, "isRuleSetFlexed": true, "iteration": 24, "matchID": "nsZg5QgXjvyGJPN4", "namespace": "eXbJE5Vs2GcyomQo", "remainingPlayersPerTicket": [71, 55, 49], "remainingTickets": 17, "sessionTickID": "2K2zkRenmPZnGBt4", "tickID": 86, "ticketID": "F6wFPoJeQediogEh", "timeToMatchSec": 0.12676435581860468, "timestamp": "1990-03-30T00:00:00Z", "unbackfillReason": "2rIizGdKvOPdq5xr", "unmatchReason": "gxSmy1DN9LFkYW5D"}' \
     > test.out 2>&1
 eval_tap $? 34 'CreateXrayTicketObservability' test.out
 
 #- 35 CreateXrayBulkTicketObservability
 ./ng net.accelbyte.sdk.cli.Main sessionhistory createXrayBulkTicketObservability \
     --namespace "$AB_NAMESPACE" \
-    --body '{"ticketObservabilities": [{"action": "Qyj4bj5Ro2ogaKt2", "activeAllianceRule": {"max_number": 42, "min_number": 62, "player_max_number": 20, "player_min_number": 61}, "activeMatchingRule": [{"attribute": "QSa3Zdb65UXmy0Zp", "criteria": "6iIaTIKUkmkk9QM0", "reference": 0.6324027539027077}, {"attribute": "BMA9ORxpzwLR2AK6", "criteria": "eXUGPJsw1fiP80G9", "reference": 0.6729504320820341}, {"attribute": "clxcft2ulIJzPyrV", "criteria": "EiOG4UcqsuGKHhMR", "reference": 0.7751921786099131}], "function": "LVd3DlhLuIpomM8s", "gameMode": "m1MiaI1mX2tJoARt", "isBackfillMatch": false, "isRuleSetFlexed": true, "iteration": 2, "matchID": "vepnDCjgyJlXe36m", "namespace": "gWjLfFmteue9nzJ6", "partyID": "fH24T805tVg8JqU0", "remainingPlayersPerTicket": [18, 72, 8], "remainingTickets": 31, "sessionTickID": "vzcWbfUpaXp5JMl5", "tickID": 77, "timeToMatchSec": 0.27761178165275147, "timestamp": "1985-12-28T00:00:00Z", "unbackfillReason": "bTxBmZjdrrIxsB0N", "unmatchReason": "RsB1fPqqRRulpqpy"}, {"action": "mDkQhtrHWwRVnwVB", "activeAllianceRule": {"max_number": 83, "min_number": 76, "player_max_number": 33, "player_min_number": 51}, "activeMatchingRule": [{"attribute": "OHi8pWGd1juYhiqj", "criteria": "RJOqB5F93zFQbJnd", "reference": 0.7532645721323077}, {"attribute": "DpdONneAczbBdHb2", "criteria": "slt71B1SmZp2JZp5", "reference": 0.8517753424555412}, {"attribute": "CnPb71ORYcmQbTU5", "criteria": "JX8ccLjMXJRk0eaK", "reference": 0.6897516786999137}], "function": "DOJvrTefglSs6g4i", "gameMode": "Y9u02aCNYIWekp18", "isBackfillMatch": false, "isRuleSetFlexed": false, "iteration": 84, "matchID": "t9lIMGql5ElEa9EI", "namespace": "IlGcHB3CfR3ncDlw", "partyID": "i3v3MFFJ1KesKoEL", "remainingPlayersPerTicket": [57, 2, 31], "remainingTickets": 30, "sessionTickID": "DKKoxLE1Y3Dymtj3", "tickID": 13, "timeToMatchSec": 0.8461782420609313, "timestamp": "1980-12-06T00:00:00Z", "unbackfillReason": "YaT5hOPjaf3H0tYi", "unmatchReason": "ghU0VUfcYHJbBfAK"}, {"action": "SiPW3VgsZXiR1DJ7", "activeAllianceRule": {"max_number": 69, "min_number": 97, "player_max_number": 99, "player_min_number": 74}, "activeMatchingRule": [{"attribute": "qMkNSawQUWDFJvJB", "criteria": "Wic7UkBeIXuqDuAX", "reference": 0.5514568247782807}, {"attribute": "66bQ71w0deoV9Lx5", "criteria": "RDA1l2XcrciYNEzv", "reference": 0.7143627668665172}, {"attribute": "ZIPkhSgORcz5S5Bv", "criteria": "mgBLxh4ijFnE3Tam", "reference": 0.9427162380491856}], "function": "9qSZ7PC6f6QkmZXE", "gameMode": "lW9YfRSse6AAz3S4", "isBackfillMatch": false, "isRuleSetFlexed": true, "iteration": 53, "matchID": "7SBROPYuG6XqP6oo", "namespace": "7G73zdxTgOfnwIdl", "partyID": "Na29fDLh741IslKH", "remainingPlayersPerTicket": [52, 9, 67], "remainingTickets": 3, "sessionTickID": "lLKWUtDQs61OQAox", "tickID": 51, "timeToMatchSec": 0.9125214770457519, "timestamp": "1973-12-15T00:00:00Z", "unbackfillReason": "ZvWtND2tcBFpX8lN", "unmatchReason": "tFEJ7tnkY6Mca5af"}]}' \
+    --body '{"ticketObservabilities": [{"action": "Qyj4bj5Ro2ogaKt2", "activeAllianceRule": {"max_number": 42, "min_number": 62, "player_max_number": 20, "player_min_number": 61}, "activeMatchingRule": [{"attribute": "QSa3Zdb65UXmy0Zp", "criteria": "6iIaTIKUkmkk9QM0", "reference": 0.6324027539027077}, {"attribute": "BMA9ORxpzwLR2AK6", "criteria": "eXUGPJsw1fiP80G9", "reference": 0.6729504320820341}, {"attribute": "clxcft2ulIJzPyrV", "criteria": "EiOG4UcqsuGKHhMR", "reference": 0.7751921786099131}], "function": "LVd3DlhLuIpomM8s", "gameMode": "m1MiaI1mX2tJoARt", "isBackfillMatch": false, "isRuleSetFlexed": true, "iteration": 2, "matchID": "vepnDCjgyJlXe36m", "namespace": "gWjLfFmteue9nzJ6", "remainingPlayersPerTicket": [11, 46, 68], "remainingTickets": 66, "sessionTickID": "24T805tVg8JqU0jZ", "tickID": 31, "ticketID": "vzcWbfUpaXp5JMl5", "timeToMatchSec": 0.6053328460277004, "timestamp": "1990-08-21T00:00:00Z", "unbackfillReason": "4bTxBmZjdrrIxsB0", "unmatchReason": "NRsB1fPqqRRulpqp"}, {"action": "ymDkQhtrHWwRVnwV", "activeAllianceRule": {"max_number": 55, "min_number": 56, "player_max_number": 83, "player_min_number": 76}, "activeMatchingRule": [{"attribute": "qOHi8pWGd1juYhiq", "criteria": "jRJOqB5F93zFQbJn", "reference": 0.04934871954671649}, {"attribute": "UDpdONneAczbBdHb", "criteria": "2slt71B1SmZp2JZp", "reference": 0.9321572972886709}, {"attribute": "0CnPb71ORYcmQbTU", "criteria": "5JX8ccLjMXJRk0ea", "reference": 0.5831036286265601}], "function": "QDOJvrTefglSs6g4", "gameMode": "iY9u02aCNYIWekp1", "isBackfillMatch": false, "isRuleSetFlexed": false, "iteration": 18, "matchID": "OC3mNqF7Bl0LcghV", "namespace": "HfPEspxwhRON0bc1", "remainingPlayersPerTicket": [9, 17, 80], "remainingTickets": 2, "sessionTickID": "v3MFFJ1KesKoELCp", "tickID": 30, "ticketID": "DKKoxLE1Y3Dymtj3", "timeToMatchSec": 0.1044588524563479, "timestamp": "1975-05-27T00:00:00Z", "unbackfillReason": "Pg4x4yiPX6ues1Hh", "unmatchReason": "hkg1yLVbLFzHEP8c"}, {"action": "M4NTwr0KHaAsmTej", "activeAllianceRule": {"max_number": 69, "min_number": 97, "player_max_number": 99, "player_min_number": 74}, "activeMatchingRule": [{"attribute": "qMkNSawQUWDFJvJB", "criteria": "Wic7UkBeIXuqDuAX", "reference": 0.5514568247782807}, {"attribute": "66bQ71w0deoV9Lx5", "criteria": "RDA1l2XcrciYNEzv", "reference": 0.7143627668665172}, {"attribute": "ZIPkhSgORcz5S5Bv", "criteria": "mgBLxh4ijFnE3Tam", "reference": 0.9427162380491856}], "function": "9qSZ7PC6f6QkmZXE", "gameMode": "lW9YfRSse6AAz3S4", "isBackfillMatch": false, "isRuleSetFlexed": true, "iteration": 53, "matchID": "7SBROPYuG6XqP6oo", "namespace": "7G73zdxTgOfnwIdl", "remainingPlayersPerTicket": [82, 44, 0], "remainingTickets": 100, "sessionTickID": "9fDLh741IslKHzGl", "tickID": 77, "ticketID": "4sZKHcl5LLLOexL4", "timeToMatchSec": 0.08231489122904256, "timestamp": "1997-05-02T00:00:00Z", "unbackfillReason": "vWtND2tcBFpX8lNt", "unmatchReason": "FEJ7tnkY6Mca5afj"}]}' \
     > test.out 2>&1
 eval_tap $? 35 'CreateXrayBulkTicketObservability' test.out
 
 #- 36 QueryXrayTimelineByTicketID
 ./ng net.accelbyte.sdk.cli.Main sessionhistory queryXrayTimelineByTicketID \
     --namespace "$AB_NAMESPACE" \
-    --ticketId 'j12K2IzrBvvWm4ud' \
-    --limit '62' \
-    --offset '62' \
-    --endDate '0OXudXgNne8kJATw' \
-    --startDate 'lc6esUp6Sw1I98je' \
+    --ticketId '12K2IzrBvvWm4udE' \
+    --limit '57' \
+    --offset '83' \
+    --endDate 'M70TdlNBJYOmpu1V' \
+    --startDate 'CarzBsV6xnZ5Jrzz' \
     > test.out 2>&1
 eval_tap $? 36 'QueryXrayTimelineByTicketID' test.out
 
 #- 37 QueryXrayTimelineByUserID
 ./ng net.accelbyte.sdk.cli.Main sessionhistory queryXrayTimelineByUserID \
     --namespace "$AB_NAMESPACE" \
-    --userId 'ZQ7hfxnhLd3Knakn' \
-    --limit '30' \
-    --offset '9' \
-    --endDate 'glU6muswVJnNnN7k' \
-    --startDate 'Aa7j0riFc5HTHQIo' \
+    --userId 'jrcaug6CWVG8SWP3' \
+    --limit '12' \
+    --offset '6' \
+    --endDate 'lU6muswVJnNnN7kA' \
+    --startDate 'a7j0riFc5HTHQIoV' \
     > test.out 2>&1
 eval_tap $? 37 'QueryXrayTimelineByUserID' test.out
 

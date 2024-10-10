@@ -185,7 +185,7 @@ eval_tap $? 19 'AdminGetLogConfig' test.out
 
 #- 20 AdminPatchUpdateLogConfig
 ./ng net.accelbyte.sdk.cli.Main lobby adminPatchUpdateLogConfig \
-    --body '{"logLevel": "trace", "socketLogEnabled": false}' \
+    --body '{"logLevel": "trace", "logLevelDB": "trace", "slowQueryThreshold": 10, "socketLogEnabled": true}' \
     > test.out 2>&1
 eval_tap $? 20 'AdminPatchUpdateLogConfig' test.out
 
@@ -198,7 +198,7 @@ eval_tap $? 21 'AdminGetConfigV1' test.out
 #- 22 AdminUpdateConfigV1
 ./ng net.accelbyte.sdk.cli.Main lobby adminUpdateConfigV1 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"allowInviteNonConnectedUser": true, "allowJoinPartyDuringMatchmaking": true, "autoKickOnDisconnect": true, "autoKickOnDisconnectDelay": 10, "cancelTicketOnDisconnect": false, "chatRateLimitBurst": 79, "chatRateLimitDuration": 48, "concurrentUsersLimit": 19, "disableInvitationOnJoinParty": true, "enableChat": true, "entitlementCheck": false, "entitlementItemID": "laRlxfcjHfYakUCT", "generalRateLimitBurst": 33, "generalRateLimitDuration": 67, "keepPresenceActivityOnDisconnect": false, "maxDSWaitTime": 62, "maxFriendsLimit": 46, "maxPartyMember": 52, "profanityFilter": false, "readyConsentTimeout": 100, "unregisterDelay": 95}' \
+    --body '{"allowInviteNonConnectedUser": true, "allowJoinPartyDuringMatchmaking": true, "autoKickOnDisconnect": false, "autoKickOnDisconnectDelay": 23, "cancelTicketOnDisconnect": true, "chatRateLimitBurst": 19, "chatRateLimitDuration": 67, "concurrentUsersLimit": 36, "disableInvitationOnJoinParty": true, "enableChat": false, "entitlementCheck": false, "entitlementItemID": "na7qxNeIxPz6MbwL", "generalRateLimitBurst": 67, "generalRateLimitDuration": 70, "keepPresenceActivityOnDisconnect": false, "maxDSWaitTime": 62, "maxFriendsLimit": 46, "maxPartyMember": 52, "profanityFilter": false, "readyConsentTimeout": 100, "unregisterDelay": 95}' \
     > test.out 2>&1
 eval_tap $? 22 'AdminUpdateConfigV1' test.out
 

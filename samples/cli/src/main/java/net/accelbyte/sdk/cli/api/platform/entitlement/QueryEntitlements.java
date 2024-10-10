@@ -41,25 +41,10 @@ public class QueryEntitlements implements Callable<Integer> {
   Boolean activeOnly;
 
   @Option(
-      names = {"--appType"},
-      description = "appType")
-  String appType;
-
-  @Option(
-      names = {"--entitlementClazz"},
-      description = "entitlementClazz")
-  String entitlementClazz;
-
-  @Option(
-      names = {"--entitlementName"},
-      description = "entitlementName")
-  String entitlementName;
-
-  @Option(
-      names = {"--itemId"},
-      description = "itemId",
+      names = {"--itemIds"},
+      description = "itemIds",
       split = ",")
-  List<String> itemId;
+  List<String> itemIds;
 
   @Option(
       names = {"--limit"},
@@ -70,16 +55,6 @@ public class QueryEntitlements implements Callable<Integer> {
       names = {"--offset"},
       description = "offset")
   Integer offset;
-
-  @Option(
-      names = {"--origin"},
-      description = "origin")
-  String origin;
-
-  @Option(
-      names = {"--userId"},
-      description = "userId")
-  String userId;
 
   @Option(
       names = {"--logging"},
@@ -106,14 +81,9 @@ public class QueryEntitlements implements Callable<Integer> {
           net.accelbyte.sdk.api.platform.operations.entitlement.QueryEntitlements.builder()
               .namespace(namespace)
               .activeOnly(activeOnly)
-              .appType(appType)
-              .entitlementClazz(entitlementClazz)
-              .entitlementName(entitlementName)
-              .itemId(itemId)
+              .itemIds(itemIds)
               .limit(limit)
               .offset(offset)
-              .origin(origin)
-              .userId(userId)
               .build();
       final EntitlementPagingSlicedResult response = wrapper.queryEntitlements(operation);
       final String responseString =

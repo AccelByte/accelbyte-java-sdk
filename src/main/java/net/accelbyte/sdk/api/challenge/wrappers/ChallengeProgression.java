@@ -31,6 +31,16 @@ public class ChallengeProgression {
   }
 
   /**
+   * @see AdminGetUserProgression
+   */
+  public ModelUserProgressionResponse adminGetUserProgression(AdminGetUserProgression input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see EvaluateMyProgress
    */
   public void evaluateMyProgress(EvaluateMyProgress input) throws Exception {

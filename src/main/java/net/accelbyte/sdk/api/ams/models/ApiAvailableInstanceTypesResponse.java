@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ApiAvailableInstanceTypesResponse extends Model {
 
   @JsonProperty("availableInstanceTypes")
-  private List<ApiInstanceTypeDescriptionResponse> availableInstanceTypes;
+  private List<ApiAvailableInstanceType> availableInstanceTypes;
 
   @JsonIgnore
   public ApiAvailableInstanceTypesResponse createFromJson(String json)

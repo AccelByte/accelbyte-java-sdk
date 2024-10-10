@@ -28,6 +28,9 @@ public class ApiDSHostConfiguration extends Model {
   @JsonProperty("instanceId")
   private String instanceId;
 
+  @JsonProperty("instanceProvider")
+  private String instanceProvider;
+
   @JsonProperty("instanceType")
   private String instanceType;
 

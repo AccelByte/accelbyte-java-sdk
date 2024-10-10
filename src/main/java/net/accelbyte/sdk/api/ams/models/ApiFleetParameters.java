@@ -33,7 +33,7 @@ public class ApiFleetParameters extends Model {
   private List<String> claimKeys;
 
   @JsonProperty("dsHostConfiguration")
-  private ApiDSHostConfiguration dsHostConfiguration;
+  private ApiDSHostConfigurationParameters dsHostConfiguration;
 
   @JsonProperty("imageDeploymentProfile")
   private ApiImageDeploymentProfile imageDeploymentProfile;

@@ -23,19 +23,19 @@ public class Entitlement {
   }
 
   /**
-   * @see QueryEntitlements
+   * @see QueryEntitlements1
    */
-  public EntitlementPagingSlicedResult queryEntitlements(QueryEntitlements input) throws Exception {
+  public EntitlementPagingSlicedResult queryEntitlements1(QueryEntitlements1 input)
+      throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
-   * @see QueryEntitlements1
+   * @see QueryEntitlements
    */
-  public EntitlementPagingSlicedResult queryEntitlements1(QueryEntitlements1 input)
-      throws Exception {
+  public EntitlementPagingSlicedResult queryEntitlements(QueryEntitlements input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

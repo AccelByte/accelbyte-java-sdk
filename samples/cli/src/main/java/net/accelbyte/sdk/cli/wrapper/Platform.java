@@ -20,6 +20,8 @@ import net.accelbyte.sdk.cli.api.platform.entitlement.*;
 import net.accelbyte.sdk.cli.api.platform.fulfillment.*;
 import net.accelbyte.sdk.cli.api.platform.fulfillment_script.*;
 import net.accelbyte.sdk.cli.api.platform.iap.*;
+import net.accelbyte.sdk.cli.api.platform.iap_notification.*;
+import net.accelbyte.sdk.cli.api.platform.iap_subscription.*;
 import net.accelbyte.sdk.cli.api.platform.invoice.*;
 import net.accelbyte.sdk.cli.api.platform.item.*;
 import net.accelbyte.sdk.cli.api.platform.key_group.*;
@@ -111,8 +113,8 @@ import picocli.CommandLine.Command;
       GetPlatformDLCConfig.class,
       UpdatePlatformDLCConfig.class,
       DeletePlatformDLCConfig.class,
-      QueryEntitlements.class,
       QueryEntitlements1.class,
+      QueryEntitlements.class,
       EnableEntitlementOriginFeature.class,
       GetEntitlementConfigInfo.class,
       GrantEntitlements.class,
@@ -124,6 +126,7 @@ import picocli.CommandLine.Command;
       GetAppleIAPConfig.class,
       UpdateAppleIAPConfig.class,
       DeleteAppleIAPConfig.class,
+      UpdateAppleP8File.class,
       GetEpicGamesIAPConfig.class,
       UpdateEpicGamesIAPConfig.class,
       DeleteEpicGamesIAPConfig.class,
@@ -152,6 +155,8 @@ import picocli.CommandLine.Command;
       UpdateXblIAPConfig.class,
       DeleteXblAPConfig.class,
       UpdateXblBPCertFile.class,
+      QueryThirdPartyNotifications.class,
+      QueryThirdPartySubscription.class,
       DownloadInvoiceDetails.class,
       GenerateInvoiceSummary.class,
       SyncInGameItem.class,
@@ -323,6 +328,15 @@ import picocli.CommandLine.Command;
       QueryAllUserIAPOrders.class,
       QueryUserIAPConsumeHistory.class,
       MockFulfillIAPItem.class,
+      QueryUserThirdPartySubscription.class,
+      GetThirdPartyPlatformSubscriptionOwnershipByGroupId.class,
+      GetThirdPartyPlatformSubscriptionOwnershipByProductId.class,
+      QueryUserThirdPartySubscriptionTransactions.class,
+      GetThirdPartySubscriptionDetails.class,
+      GetSubscriptionHistory.class,
+      SyncSubscriptionTransaction.class,
+      GetThirdPartyUserSubscriptionDetails.class,
+      SyncSubscription.class,
       QueryUserOrders.class,
       AdminCreateUserOrder.class,
       CountOfPurchasedItem.class,
@@ -418,6 +432,7 @@ import picocli.CommandLine.Command;
       PublicGetDescendantCategories.class,
       PublicListCurrencies.class,
       GeDLCDurableRewardShortMap.class,
+      GetAppleConfigVersion.class,
       GetIAPItemMapping.class,
       PublicGetItemByAppId.class,
       PublicQueryItems.class,
@@ -481,6 +496,7 @@ import picocli.CommandLine.Command;
       PublicReconcilePlayStationStore.class,
       PublicReconcilePlayStationStoreWithMultipleServiceLabels.class,
       SyncSteamInventory.class,
+      PublicQueryUserThirdPartySubscription.class,
       SyncTwitchDropsEntitlement1.class,
       SyncXboxInventory.class,
       PublicQueryUserOrders.class,
@@ -510,7 +526,9 @@ import picocli.CommandLine.Command;
       ExportStore1.class,
       FulfillRewardsV2.class,
       FulfillItems.class,
+      RetryFulfillItems.class,
       RevokeItems.class,
+      V2PublicFulfillAppleIAPItem.class,
     })
 public class Platform implements Runnable {
 

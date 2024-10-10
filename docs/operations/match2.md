@@ -54,6 +54,7 @@
 | `/match2/v1/namespaces/{namespace}/match-pools/{pool}/metrics` | GET | MatchPoolMetric | [MatchPoolMetric](../../src/main/java/net/accelbyte/sdk/api/match2/operations/match_pools/MatchPoolMetric.java) | [MatchPoolMetric](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/match_pools/MatchPoolMetric.java) |
 | `/match2/v1/namespaces/{namespace}/match-pools/{pool}/metrics/player` | GET | GetPlayerMetric | [GetPlayerMetric](../../src/main/java/net/accelbyte/sdk/api/match2/operations/match_pools/GetPlayerMetric.java) | [GetPlayerMetric](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/match_pools/GetPlayerMetric.java) |
 | `/match2/v1/namespaces/{namespace}/match-pools/{pool}/tickets` | GET | AdminGetMatchPoolTickets | [AdminGetMatchPoolTickets](../../src/main/java/net/accelbyte/sdk/api/match2/operations/match_pools/AdminGetMatchPoolTickets.java) | [AdminGetMatchPoolTickets](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/match_pools/AdminGetMatchPoolTickets.java) |
+| `/match2/v1/public/namespaces/{namespace}/match-pools/{pool}/metrics/player` | GET | PublicGetPlayerMetric | [PublicGetPlayerMetric](../../src/main/java/net/accelbyte/sdk/api/match2/operations/match_pools/PublicGetPlayerMetric.java) | [PublicGetPlayerMetric](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/match_pools/PublicGetPlayerMetric.java) |
 
 ### Match-Tickets Wrapper:  [MatchTickets](../../src/main/java/net/accelbyte/sdk/api/match2/wrappers/MatchTickets.java)
 | Endpoint | Method | ID | Class | Example |

@@ -214,6 +214,7 @@
 | `/iam/v3/public/users/me` | GET | PublicGetMyUserV3 | [PublicGetMyUserV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/PublicGetMyUserV3.java) | [PublicGetMyUserV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/PublicGetMyUserV3.java) |
 | `/iam/v3/public/users/me/headless/link/conflict` | GET | PublicGetLinkHeadlessAccountToMyAccountConflictV3 | [PublicGetLinkHeadlessAccountToMyAccountConflictV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/PublicGetLinkHeadlessAccountToMyAccountConflictV3.java) | [PublicGetLinkHeadlessAccountToMyAccountConflictV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/PublicGetLinkHeadlessAccountToMyAccountConflictV3.java) |
 | `/iam/v3/public/users/me/headless/linkWithProgression` | POST | LinkHeadlessAccountToMyAccountV3 | [LinkHeadlessAccountToMyAccountV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/LinkHeadlessAccountToMyAccountV3.java) | [LinkHeadlessAccountToMyAccountV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/LinkHeadlessAccountToMyAccountV3.java) |
+| `/iam/v3/public/users/me/profileStatus` | GET | PublicGetMyProfileAllowUpdateStatusV3 | [PublicGetMyProfileAllowUpdateStatusV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/PublicGetMyProfileAllowUpdateStatusV3.java) | [PublicGetMyProfileAllowUpdateStatusV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/PublicGetMyProfileAllowUpdateStatusV3.java) |
 | `/iam/v3/public/users/me/verify_link/request` | POST | PublicSendVerificationLinkV3 | [PublicSendVerificationLinkV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/PublicSendVerificationLinkV3.java) | [PublicSendVerificationLinkV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/PublicSendVerificationLinkV3.java) |
 | `/iam/v3/public/users/verify_link/verify` | GET | PublicVerifyUserByLinkV3 | [PublicVerifyUserByLinkV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/PublicVerifyUserByLinkV3.java) | [PublicVerifyUserByLinkV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/PublicVerifyUserByLinkV3.java) |
 
@@ -313,6 +314,12 @@
 | `/iam/v3/admin/namespaces/{namespace}/countries/blacklist` | POST | AdminAddCountryBlacklistV3 | [AdminAddCountryBlacklistV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/country/AdminAddCountryBlacklistV3.java) | [AdminAddCountryBlacklistV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/country/AdminAddCountryBlacklistV3.java) |
 | `/iam/v3/public/namespaces/{namespace}/countries` | GET | PublicGetCountryListV3 | [PublicGetCountryListV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/country/PublicGetCountryListV3.java) | [PublicGetCountryListV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/country/PublicGetCountryListV3.java) |
 
+### Login Allowlist Wrapper:  [LoginAllowlist](../../src/main/java/net/accelbyte/sdk/api/iam/wrappers/LoginAllowlist.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/iam/v3/admin/namespaces/{namespace}/loginAllowlist` | GET | AdminGetLoginAllowlistV3 | [AdminGetLoginAllowlistV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/login_allowlist/AdminGetLoginAllowlistV3.java) | [AdminGetLoginAllowlistV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/login_allowlist/AdminGetLoginAllowlistV3.java) |
+| `/iam/v3/admin/namespaces/{namespace}/loginAllowlist` | PUT | AdminUpdateLoginAllowlistV3 | [AdminUpdateLoginAllowlistV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/login_allowlist/AdminUpdateLoginAllowlistV3.java) | [AdminUpdateLoginAllowlistV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/login_allowlist/AdminUpdateLoginAllowlistV3.java) |
+
 ### Third Party Credential Wrapper:  [ThirdPartyCredential](../../src/main/java/net/accelbyte/sdk/api/iam/wrappers/ThirdPartyCredential.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -336,6 +343,13 @@
 | `/iam/v3/admin/namespaces/{namespace}/platforms/{platformId}/sso` | POST | AddSSOLoginPlatformCredential | [AddSSOLoginPlatformCredential](../../src/main/java/net/accelbyte/sdk/api/iam/operations/sso_credential/AddSSOLoginPlatformCredential.java) | [AddSSOLoginPlatformCredential](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/sso_credential/AddSSOLoginPlatformCredential.java) |
 | `/iam/v3/admin/namespaces/{namespace}/platforms/{platformId}/sso` | DELETE | DeleteSSOLoginPlatformCredentialV3 | [DeleteSSOLoginPlatformCredentialV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/sso_credential/DeleteSSOLoginPlatformCredentialV3.java) | [DeleteSSOLoginPlatformCredentialV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/sso_credential/DeleteSSOLoginPlatformCredentialV3.java) |
 | `/iam/v3/admin/namespaces/{namespace}/platforms/{platformId}/sso` | PATCH | UpdateSSOPlatformCredential | [UpdateSSOPlatformCredential](../../src/main/java/net/accelbyte/sdk/api/iam/operations/sso_credential/UpdateSSOPlatformCredential.java) | [UpdateSSOPlatformCredential](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/sso_credential/UpdateSSOPlatformCredential.java) |
+
+### Profile Update Strategy Wrapper:  [ProfileUpdateStrategy](../../src/main/java/net/accelbyte/sdk/api/iam/wrappers/ProfileUpdateStrategy.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/iam/v3/admin/namespaces/{namespace}/profileUpdateStrategies` | GET | AdminGetProfileUpdateStrategyV3 | [AdminGetProfileUpdateStrategyV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/profile_update_strategy/AdminGetProfileUpdateStrategyV3.java) | [AdminGetProfileUpdateStrategyV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/profile_update_strategy/AdminGetProfileUpdateStrategyV3.java) |
+| `/iam/v3/admin/namespaces/{namespace}/profileUpdateStrategies` | PUT | AdminUpdateProfileUpdateStrategyV3 | [AdminUpdateProfileUpdateStrategyV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/profile_update_strategy/AdminUpdateProfileUpdateStrategyV3.java) | [AdminUpdateProfileUpdateStrategyV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/profile_update_strategy/AdminUpdateProfileUpdateStrategyV3.java) |
+| `/iam/v3/public/namespaces/{namespace}/profileUpdateStrategies` | GET | PublicGetProfileUpdateStrategyV3 | [PublicGetProfileUpdateStrategyV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/profile_update_strategy/PublicGetProfileUpdateStrategyV3.java) | [PublicGetProfileUpdateStrategyV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/profile_update_strategy/PublicGetProfileUpdateStrategyV3.java) |
 
 ### Override Role Config v3 Wrapper:  [OverrideRoleConfigV3](../../src/main/java/net/accelbyte/sdk/api/iam/wrappers/OverrideRoleConfigV3.java)
 | Endpoint | Method | ID | Class | Example |
@@ -406,6 +420,7 @@
 | `/iam/v4/admin/namespaces/{namespace}/users/{userId}` | PUT | AdminUpdateUserV4 | [AdminUpdateUserV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/AdminUpdateUserV4.java) | [AdminUpdateUserV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users_v4/AdminUpdateUserV4.java) |
 | `/iam/v4/admin/namespaces/{namespace}/users/{userId}/email` | PUT | AdminUpdateUserEmailAddressV4 | [AdminUpdateUserEmailAddressV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/AdminUpdateUserEmailAddressV4.java) | [AdminUpdateUserEmailAddressV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users_v4/AdminUpdateUserEmailAddressV4.java) |
 | `/iam/v4/admin/namespaces/{namespace}/users/{userId}/mfa/disable` | DELETE | AdminDisableUserMFAV4 | [AdminDisableUserMFAV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/AdminDisableUserMFAV4.java) | [AdminDisableUserMFAV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users_v4/AdminDisableUserMFAV4.java) |
+| `/iam/v4/admin/namespaces/{namespace}/users/{userId}/mfa/status` | GET | AdminGetUserMFAStatusV4 | [AdminGetUserMFAStatusV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/AdminGetUserMFAStatusV4.java) | [AdminGetUserMFAStatusV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users_v4/AdminGetUserMFAStatusV4.java) |
 | `/iam/v4/admin/namespaces/{namespace}/users/{userId}/roles` | GET | AdminListUserRolesV4 | [AdminListUserRolesV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/AdminListUserRolesV4.java) | [AdminListUserRolesV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users_v4/AdminListUserRolesV4.java) |
 | `/iam/v4/admin/namespaces/{namespace}/users/{userId}/roles` | PUT | AdminUpdateUserRoleV4 | [AdminUpdateUserRoleV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/AdminUpdateUserRoleV4.java) | [AdminUpdateUserRoleV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users_v4/AdminUpdateUserRoleV4.java) |
 | `/iam/v4/admin/namespaces/{namespace}/users/{userId}/roles` | POST | AdminAddUserRoleV4 | [AdminAddUserRoleV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users_v4/AdminAddUserRoleV4.java) | [AdminAddUserRoleV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users_v4/AdminAddUserRoleV4.java) |
@@ -475,7 +490,7 @@
 | `/iam/v4/admin/namespaces/{namespace}/devices/report` | GET | AdminGenerateReportV4 | [AdminGenerateReportV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/devices_v4/AdminGenerateReportV4.java) | [AdminGenerateReportV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/devices_v4/AdminGenerateReportV4.java) |
 | `/iam/v4/admin/namespaces/{namespace}/devices/types` | GET | AdminGetDeviceTypesV4 | [AdminGetDeviceTypesV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/devices_v4/AdminGetDeviceTypesV4.java) | [AdminGetDeviceTypesV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/devices_v4/AdminGetDeviceTypesV4.java) |
 | `/iam/v4/admin/namespaces/{namespace}/devices/{deviceId}/bans` | GET | AdminGetDeviceBansV4 | [AdminGetDeviceBansV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/devices_v4/AdminGetDeviceBansV4.java) | [AdminGetDeviceBansV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/devices_v4/AdminGetDeviceBansV4.java) |
-| `/iam/v4/admin/namespaces/{namespace}/devices/{deviceId}/decrypt` | GET | AdminDecryptDeviceV4 | [AdminDecryptDeviceV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/devices_v4/AdminDecryptDeviceV4.java) | [AdminDecryptDeviceV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/devices_v4/AdminDecryptDeviceV4.java) |
+| [DEPRECATED] `/iam/v4/admin/namespaces/{namespace}/devices/{deviceId}/decrypt` | GET | AdminDecryptDeviceV4 | [AdminDecryptDeviceV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/devices_v4/AdminDecryptDeviceV4.java) | [AdminDecryptDeviceV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/devices_v4/AdminDecryptDeviceV4.java) |
 | `/iam/v4/admin/namespaces/{namespace}/devices/{deviceId}/unban` | PUT | AdminUnbanDeviceV4 | [AdminUnbanDeviceV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/devices_v4/AdminUnbanDeviceV4.java) | [AdminUnbanDeviceV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/devices_v4/AdminUnbanDeviceV4.java) |
 | `/iam/v4/admin/namespaces/{namespace}/devices/{deviceId}/users` | GET | AdminGetUsersByDeviceV4 | [AdminGetUsersByDeviceV4](../../src/main/java/net/accelbyte/sdk/api/iam/operations/devices_v4/AdminGetUsersByDeviceV4.java) | [AdminGetUsersByDeviceV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/devices_v4/AdminGetUsersByDeviceV4.java) |
 
@@ -511,6 +526,7 @@
 | `account.createUserResponseV4` | [AccountCreateUserResponseV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountCreateUserResponseV4.java) |
 | `account.upgradeHeadlessAccountRequestV4` | [AccountUpgradeHeadlessAccountRequestV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountUpgradeHeadlessAccountRequestV4.java) |
 | `account.upgradeHeadlessAccountWithVerificationCodeRequestV4` | [AccountUpgradeHeadlessAccountWithVerificationCodeRequestV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountUpgradeHeadlessAccountWithVerificationCodeRequestV4.java) |
+| `account.userInfo` | [AccountUserInfo](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountUserInfo.java) |
 | `accountcommon.AllowedPermission` | [AccountcommonAllowedPermission](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonAllowedPermission.java) |
 | `accountcommon.AvatarConfig` | [AccountcommonAvatarConfig](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonAvatarConfig.java) |
 | `accountcommon.Ban` | [AccountcommonBan](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonBan.java) |
@@ -551,6 +567,7 @@
 | `accountcommon.PlatformAccount` | [AccountcommonPlatformAccount](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonPlatformAccount.java) |
 | `accountcommon.PlatformLinkingHistory` | [AccountcommonPlatformLinkingHistory](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonPlatformLinkingHistory.java) |
 | `accountcommon.PlatformUserInformationV3` | [AccountcommonPlatformUserInformationV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonPlatformUserInformationV3.java) |
+| `accountcommon.ProfileUpdateConfig` | [AccountcommonProfileUpdateConfig](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonProfileUpdateConfig.java) |
 | `accountcommon.RegisteredDomain` | [AccountcommonRegisteredDomain](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonRegisteredDomain.java) |
 | `accountcommon.ReplaceRolePermission` | [AccountcommonReplaceRolePermission](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonReplaceRolePermission.java) |
 | `accountcommon.Role` | [AccountcommonRole](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonRole.java) |
@@ -634,10 +651,12 @@
 | `model.EmailUpdateRequestV4` | [ModelEmailUpdateRequestV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelEmailUpdateRequestV4.java) |
 | `model.EnabledFactorsResponseV4` | [ModelEnabledFactorsResponseV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelEnabledFactorsResponseV4.java) |
 | `model.FailedBanUnbanUserV3` | [ModelFailedBanUnbanUserV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelFailedBanUnbanUserV3.java) |
+| `model.FieldUpdateAllowStatus` | [ModelFieldUpdateAllowStatus](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelFieldUpdateAllowStatus.java) |
 | `model.ForgotPasswordRequestV3` | [ModelForgotPasswordRequestV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelForgotPasswordRequestV3.java) |
 | `model.GetAdminUsersResponse` | [ModelGetAdminUsersResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelGetAdminUsersResponse.java) |
 | `model.GetBulkUserBansRequest` | [ModelGetBulkUserBansRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelGetBulkUserBansRequest.java) |
 | `model.GetLinkHeadlessAccountConflictResponse` | [ModelGetLinkHeadlessAccountConflictResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelGetLinkHeadlessAccountConflictResponse.java) |
+| `model.GetProfileUpdateStrategyConfigResponse` | [ModelGetProfileUpdateStrategyConfigResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelGetProfileUpdateStrategyConfigResponse.java) |
 | `model.GetPublisherUserResponse` | [ModelGetPublisherUserResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelGetPublisherUserResponse.java) |
 | `model.GetUserBanSummaryV3` | [ModelGetUserBanSummaryV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelGetUserBanSummaryV3.java) |
 | `model.GetUserBanV3Response` | [ModelGetUserBanV3Response](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelGetUserBanV3Response.java) |
@@ -671,6 +690,8 @@
 | `model.ListUserResponseV3` | [ModelListUserResponseV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelListUserResponseV3.java) |
 | `model.ListUserRolesV4Response` | [ModelListUserRolesV4Response](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelListUserRolesV4Response.java) |
 | `model.ListValidUserIDResponseV4` | [ModelListValidUserIDResponseV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelListValidUserIDResponseV4.java) |
+| `model.LoginAllowlistRequest` | [ModelLoginAllowlistRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelLoginAllowlistRequest.java) |
+| `model.LoginAllowlistResponse` | [ModelLoginAllowlistResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelLoginAllowlistResponse.java) |
 | `model.LoginHistoriesResponse` | [ModelLoginHistoriesResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelLoginHistoriesResponse.java) |
 | `model.NamespaceInvitationHistoryUserV4Response` | [ModelNamespaceInvitationHistoryUserV4Response](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelNamespaceInvitationHistoryUserV4Response.java) |
 | `model.NamespaceRoleRequest` | [ModelNamespaceRoleRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelNamespaceRoleRequest.java) |
@@ -729,11 +750,13 @@
 | `model.SendVerificationCodeRequest` | [ModelSendVerificationCodeRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelSendVerificationCodeRequest.java) |
 | `model.SendVerificationCodeRequestV3` | [ModelSendVerificationCodeRequestV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelSendVerificationCodeRequestV3.java) |
 | `model.SendVerificationLinkRequest` | [ModelSendVerificationLinkRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelSendVerificationLinkRequest.java) |
+| `model.SimpleProfileUpdateStrategyConfigs` | [ModelSimpleProfileUpdateStrategyConfigs](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelSimpleProfileUpdateStrategyConfigs.java) |
 | `model.ThirdPartyLoginPlatformCredentialRequest` | [ModelThirdPartyLoginPlatformCredentialRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelThirdPartyLoginPlatformCredentialRequest.java) |
 | `model.ThirdPartyLoginPlatformCredentialResponse` | [ModelThirdPartyLoginPlatformCredentialResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelThirdPartyLoginPlatformCredentialResponse.java) |
 | `model.TokenThirdPartyLinkStatusResponse` | [ModelTokenThirdPartyLinkStatusResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelTokenThirdPartyLinkStatusResponse.java) |
 | `model.UnlinkUserPlatformRequest` | [ModelUnlinkUserPlatformRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUnlinkUserPlatformRequest.java) |
 | `model.UpdatePermissionScheduleRequest` | [ModelUpdatePermissionScheduleRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUpdatePermissionScheduleRequest.java) |
+| `model.UpdateProfileUpdateStrategyConfigRequest` | [ModelUpdateProfileUpdateStrategyConfigRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUpdateProfileUpdateStrategyConfigRequest.java) |
 | `model.UpdateUserDeletionStatusRequest` | [ModelUpdateUserDeletionStatusRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUpdateUserDeletionStatusRequest.java) |
 | `model.UpdateUserStatusRequest` | [ModelUpdateUserStatusRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUpdateUserStatusRequest.java) |
 | `model.UpgradeHeadlessAccountRequest` | [ModelUpgradeHeadlessAccountRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUpgradeHeadlessAccountRequest.java) |
@@ -771,6 +794,7 @@
 | `model.UserPlatformLinkHistories` | [ModelUserPlatformLinkHistories](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserPlatformLinkHistories.java) |
 | `model.UserPlatformLinkHistory` | [ModelUserPlatformLinkHistory](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserPlatformLinkHistory.java) |
 | `model.UserPlatformMetadata` | [ModelUserPlatformMetadata](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserPlatformMetadata.java) |
+| `model.UserProfileUpdateAllowStatus` | [ModelUserProfileUpdateAllowStatus](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserProfileUpdateAllowStatus.java) |
 | `model.UserPublicInfoResponseV4` | [ModelUserPublicInfoResponseV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserPublicInfoResponseV4.java) |
 | `model.UserResponse` | [ModelUserResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserResponse.java) |
 | `model.UserResponseV3` | [ModelUserResponseV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelUserResponseV3.java) |

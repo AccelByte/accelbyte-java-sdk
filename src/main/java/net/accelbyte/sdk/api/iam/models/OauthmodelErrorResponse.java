@@ -72,6 +72,10 @@ public class OauthmodelErrorResponse extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String platformId;
 
+  @JsonProperty("remainingBackupCodeCount")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer remainingBackupCodeCount;
+
   @JsonProperty("userBan")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private OauthmodelUserBan userBan;

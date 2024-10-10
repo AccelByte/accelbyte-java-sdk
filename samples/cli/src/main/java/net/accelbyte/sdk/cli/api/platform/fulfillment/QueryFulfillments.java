@@ -102,7 +102,7 @@ public class QueryFulfillments implements Callable<Integer> {
               .transactionId(transactionId)
               .userId(userId)
               .build();
-      final FulfillmentHistoryPagingSlicedResult response = wrapper.queryFulfillments(operation);
+      final FulfillmentPagingSlicedResult response = wrapper.queryFulfillments(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

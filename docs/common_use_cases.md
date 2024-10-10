@@ -272,7 +272,6 @@ publicPlayerRecord.deletePlayerRecordHandlerV1(
         .key(playerRecordKey)
         .build());
 ```
-
 ## GameTelemetry
 
 Source: [TestIntegrationServiceGameTelemetry.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceGameTelemetry.java)
@@ -596,7 +595,6 @@ final ModelFreeFormNotificationRequest notifBody =
 adminWrapper.freeFormNotification(
     FreeFormNotification.builder().namespace(this.namespace).body(notifBody).build());
 ```
-
 ## MatchmakingV2
 
 Source: [TestIntegrationServiceMatch2.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceMatch2.java)
@@ -1058,7 +1056,6 @@ player2PartyWrapper.publicPartyLeave(
         .partyId(partyId)
         .build());
 ```
-
 ## Social
 
 Source: [TestIntegrationServiceSocial.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceSocial.java)

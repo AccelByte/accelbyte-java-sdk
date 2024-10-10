@@ -57,6 +57,7 @@ import picocli.CommandLine.Command;
       RuleSetDetails.class,
       UpdateRuleSet.class,
       DeleteRuleSet.class,
+      PublicGetPlayerMetric.class,
       VersionCheckHandler.class,
     })
 public class Match2 implements Runnable {

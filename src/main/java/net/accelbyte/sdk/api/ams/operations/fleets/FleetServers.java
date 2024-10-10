@@ -38,8 +38,13 @@ public class FleetServers extends Operation {
   private String fleetID;
 
   private String namespace;
-  private String count;
+  private Integer count;
   private Integer offset;
+  private String region;
+  private String serverId;
+  private String sortBy;
+  private String sortDirection;
+  private String status;
 
   /**
    * @param fleetID required
@@ -48,11 +53,25 @@ public class FleetServers extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public FleetServers(String fleetID, String namespace, String count, Integer offset) {
+  public FleetServers(
+      String fleetID,
+      String namespace,
+      Integer count,
+      Integer offset,
+      String region,
+      String serverId,
+      String sortBy,
+      String sortDirection,
+      String status) {
     this.fleetID = fleetID;
     this.namespace = namespace;
     this.count = count;
     this.offset = offset;
+    this.region = region;
+    this.serverId = serverId;
+    this.sortBy = sortBy;
+    this.sortDirection = sortDirection;
+    this.status = status;
 
     securities.add("Bearer");
   }
@@ -72,9 +91,15 @@ public class FleetServers extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
-    queryParams.put("count", this.count == null ? null : Arrays.asList(this.count));
+    queryParams.put("count", this.count == null ? null : Arrays.asList(String.valueOf(this.count)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+    queryParams.put("region", this.region == null ? null : Arrays.asList(this.region));
+    queryParams.put("serverId", this.serverId == null ? null : Arrays.asList(this.serverId));
+    queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
+    queryParams.put(
+        "sortDirection", this.sortDirection == null ? null : Arrays.asList(this.sortDirection));
+    queryParams.put("status", this.status == null ? null : Arrays.asList(this.status));
     return queryParams;
   }
 
@@ -104,6 +129,73 @@ public class FleetServers extends Operation {
     Map<String, String> result = new HashMap<>();
     result.put("count", "None");
     result.put("offset", "None");
+    result.put("region", "None");
+    result.put("serverId", "None");
+    result.put("sortBy", "None");
+    result.put("sortDirection", "None");
+    result.put("status", "None");
     return result;
+  }
+
+  public enum SortDirection {
+    Asc("asc"),
+    Desc("desc");
+
+    private String value;
+
+    SortDirection(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public enum Status {
+    Claimed("claimed"),
+    Claiming("claiming"),
+    CrashBackoff("crash backoff"),
+    Creating("creating"),
+    Draining("draining"),
+    Ready("ready"),
+    Unresponsive("unresponsive");
+
+    private String value;
+
+    Status(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class FleetServersBuilder {
+    private String sortDirection;
+    private String status;
+
+    public FleetServersBuilder sortDirection(final String sortDirection) {
+      this.sortDirection = sortDirection;
+      return this;
+    }
+
+    public FleetServersBuilder sortDirectionFromEnum(final SortDirection sortDirection) {
+      this.sortDirection = sortDirection.toString();
+      return this;
+    }
+
+    public FleetServersBuilder status(final String status) {
+      this.status = status;
+      return this;
+    }
+
+    public FleetServersBuilder statusFromEnum(final Status status) {
+      this.status = status.toString();
+      return this;
+    }
   }
 }

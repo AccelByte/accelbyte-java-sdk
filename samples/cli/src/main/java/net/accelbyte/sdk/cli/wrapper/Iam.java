@@ -15,11 +15,13 @@ import net.accelbyte.sdk.cli.api.iam.config.*;
 import net.accelbyte.sdk.cli.api.iam.country.*;
 import net.accelbyte.sdk.cli.api.iam.devices_v4.*;
 import net.accelbyte.sdk.cli.api.iam.input_validations.*;
+import net.accelbyte.sdk.cli.api.iam.login_allowlist.*;
 import net.accelbyte.sdk.cli.api.iam.o_auth.*;
 import net.accelbyte.sdk.cli.api.iam.o_auth2_0.*;
 import net.accelbyte.sdk.cli.api.iam.o_auth2_0_extension.*;
 import net.accelbyte.sdk.cli.api.iam.o_auth2_0_v4.*;
 import net.accelbyte.sdk.cli.api.iam.override_role_config_v3.*;
+import net.accelbyte.sdk.cli.api.iam.profile_update_strategy.*;
 import net.accelbyte.sdk.cli.api.iam.roles.*;
 import net.accelbyte.sdk.cli.api.iam.sso.*;
 import net.accelbyte.sdk.cli.api.iam.sso_credential.*;
@@ -168,6 +170,8 @@ import picocli.CommandLine.Command;
       AdminGetCountryListV3.class,
       AdminGetCountryBlacklistV3.class,
       AdminAddCountryBlacklistV3.class,
+      AdminGetLoginAllowlistV3.class,
+      AdminUpdateLoginAllowlistV3.class,
       RetrieveAllThirdPartyLoginPlatformCredentialV3.class,
       RetrieveAllActiveThirdPartyLoginPlatformCredentialV3.class,
       RetrieveAllSSOLoginPlatformCredentialV3.class,
@@ -183,6 +187,8 @@ import picocli.CommandLine.Command;
       UpdateSSOPlatformCredential.class,
       AdminListUserIDByPlatformUserIDsV3.class,
       AdminGetUserByPlatformUserIDV3.class,
+      AdminGetProfileUpdateStrategyV3.class,
+      AdminUpdateProfileUpdateStrategyV3.class,
       AdminGetRoleOverrideConfigV3.class,
       AdminUpdateRoleOverrideConfigV3.class,
       AdminGetRoleSourceV3.class,
@@ -297,6 +303,7 @@ import picocli.CommandLine.Command;
       RetrieveActiveOIDCClientsPublicV3.class,
       PublicListUserIDByPlatformUserIDsV3.class,
       PublicGetUserByPlatformUserIDV3.class,
+      PublicGetProfileUpdateStrategyV3.class,
       PublicGetAsyncStatus.class,
       PublicSearchUserV3.class,
       PublicCreateUserV3.class,
@@ -341,6 +348,7 @@ import picocli.CommandLine.Command;
       PublicGetMyUserV3.class,
       PublicGetLinkHeadlessAccountToMyAccountConflictV3.class,
       LinkHeadlessAccountToMyAccountV3.class,
+      PublicGetMyProfileAllowUpdateStatusV3.class,
       PublicSendVerificationLinkV3.class,
       PublicVerifyUserByLinkV3.class,
       PlatformAuthenticateSAMLV3Handler.class,
@@ -369,6 +377,7 @@ import picocli.CommandLine.Command;
       AdminUpdateUserV4.class,
       AdminUpdateUserEmailAddressV4.class,
       AdminDisableUserMFAV4.class,
+      AdminGetUserMFAStatusV4.class,
       AdminListUserRolesV4.class,
       AdminUpdateUserRoleV4.class,
       AdminAddUserRoleV4.class,

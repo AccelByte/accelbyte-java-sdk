@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ModelDisableMFARequest extends Model {
 
+  @JsonProperty("factor")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String factor;
+
   @JsonProperty("mfaToken")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String mfaToken;

@@ -60,9 +60,6 @@ public class ApimodelsXRayTicketObservabilityRequest extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
-  @JsonProperty("partyID")
-  private String partyID;
-
   @JsonProperty("remainingPlayersPerTicket")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<Integer> remainingPlayersPerTicket;
@@ -76,6 +73,9 @@ public class ApimodelsXRayTicketObservabilityRequest extends Model {
 
   @JsonProperty("tickID")
   private Long tickID;
+
+  @JsonProperty("ticketID")
+  private String ticketID;
 
   @JsonProperty("timeToMatchSec")
   @JsonInclude(JsonInclude.Include.NON_NULL)

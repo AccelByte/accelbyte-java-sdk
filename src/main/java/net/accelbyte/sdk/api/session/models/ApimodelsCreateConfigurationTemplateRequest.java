@@ -83,6 +83,10 @@ public class ApimodelsCreateConfigurationTemplateRequest extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> fallbackClaimKeys;
 
+  @JsonProperty("grpcSessionConfig")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ModelsExtendConfiguration grpcSessionConfig;
+
   @JsonProperty("immutableStorage")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean immutableStorage;

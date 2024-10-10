@@ -28,6 +28,9 @@ public class AccountCreateTestUsersRequestV4 extends Model {
   @JsonProperty("count")
   private Integer count;
 
+  @JsonProperty("userInfo")
+  private AccountUserInfo userInfo;
+
   @JsonIgnore
   public AccountCreateTestUsersRequestV4 createFromJson(String json)
       throws JsonProcessingException {

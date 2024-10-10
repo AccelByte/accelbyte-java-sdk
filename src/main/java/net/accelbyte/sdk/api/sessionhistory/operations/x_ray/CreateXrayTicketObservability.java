@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Create ticket observability request Request body details (all attributes are optional):
  * Timestamp : timestamp when calling this endpoint Action : support one of the following value: 1.
- * "matchFound" 2. "matchNotFound" 3. "flexed" PartyID : ticket Party ID MatchID : match ID will be
+ * "matchFound" 2. "matchNotFound" 3. "flexed" TicketID : ticket ID MatchID : match ID will be
  * filled only when match found Namespace : ticket current namespace GameMode : ticket current
  * matchpool ActiveAllianceRule : current active alliance ruleset ActiveMatchingRule : current
  * active matching ruleset Function : name of the function that called the endpoint Iteration :

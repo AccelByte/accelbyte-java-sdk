@@ -77,6 +77,10 @@ public class StatCreate extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> tags;
 
+  @JsonProperty("visibility")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String visibility;
+
   @JsonIgnore
   public String getGlobalAggregationMethod() {
     return this.globalAggregationMethod;
@@ -116,6 +120,26 @@ public class StatCreate extends Model {
   @JsonIgnore
   public void setSetByFromEnum(final SetBy setBy) {
     this.setBy = setBy.toString();
+  }
+
+  @JsonIgnore
+  public String getVisibility() {
+    return this.visibility;
+  }
+
+  @JsonIgnore
+  public Visibility getVisibilityAsEnum() {
+    return Visibility.valueOf(this.visibility);
+  }
+
+  @JsonIgnore
+  public void setVisibility(final String visibility) {
+    this.visibility = visibility;
+  }
+
+  @JsonIgnore
+  public void setVisibilityFromEnum(final Visibility visibility) {
+    this.visibility = visibility.toString();
   }
 
   @JsonIgnore
@@ -162,9 +186,26 @@ public class StatCreate extends Model {
     }
   }
 
+  public enum Visibility {
+    SERVERONLY("SERVERONLY"),
+    SHOWALL("SHOWALL");
+
+    private String value;
+
+    Visibility(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public static class StatCreateBuilder {
     private String globalAggregationMethod;
     private String setBy;
+    private String visibility;
 
     public StatCreateBuilder globalAggregationMethod(final String globalAggregationMethod) {
       this.globalAggregationMethod = globalAggregationMethod;
@@ -184,6 +225,16 @@ public class StatCreate extends Model {
 
     public StatCreateBuilder setByFromEnum(final SetBy setBy) {
       this.setBy = setBy.toString();
+      return this;
+    }
+
+    public StatCreateBuilder visibility(final String visibility) {
+      this.visibility = visibility;
+      return this;
+    }
+
+    public StatCreateBuilder visibilityFromEnum(final Visibility visibility) {
+      this.visibility = visibility.toString();
       return this;
     }
   }

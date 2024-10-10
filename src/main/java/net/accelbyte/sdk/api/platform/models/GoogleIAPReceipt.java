@@ -29,6 +29,10 @@ public class GoogleIAPReceipt extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean autoAck;
 
+  @JsonProperty("autoConsume")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean autoConsume;
+
   @JsonProperty("language")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String language;
@@ -40,9 +44,11 @@ public class GoogleIAPReceipt extends Model {
   private String packageName;
 
   @JsonProperty("productId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String productId;
 
   @JsonProperty("purchaseTime")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Long purchaseTime;
 
   @JsonProperty("purchaseToken")
@@ -51,6 +57,10 @@ public class GoogleIAPReceipt extends Model {
   @JsonProperty("region")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String region;
+
+  @JsonProperty("subscriptionPurchase")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean subscriptionPurchase;
 
   @JsonIgnore
   public GoogleIAPReceipt createFromJson(String json) throws JsonProcessingException {

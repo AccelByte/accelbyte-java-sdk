@@ -8,17 +8,6 @@
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
 | `/healthz` | GET | GetHealthcheckInfo | [GetHealthcheckInfo](../../src/main/java/net/accelbyte/sdk/api/session/operations/operations/GetHealthcheckInfo.java) | [GetHealthcheckInfo](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/operations/GetHealthcheckInfo.java) |
-| `/session/admin/internal/pprof` | GET | PprofHandler | [PprofHandler](../../src/main/java/net/accelbyte/sdk/api/session/operations/operations/PprofHandler.java) | [PprofHandler](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/operations/PprofHandler.java) |
-| `/session/admin/internal/pprof/allocs` | GET | AllocsHandler | [AllocsHandler](../../src/main/java/net/accelbyte/sdk/api/session/operations/operations/AllocsHandler.java) | [AllocsHandler](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/operations/AllocsHandler.java) |
-| `/session/admin/internal/pprof/block` | GET | BlockHandler | [BlockHandler](../../src/main/java/net/accelbyte/sdk/api/session/operations/operations/BlockHandler.java) | [BlockHandler](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/operations/BlockHandler.java) |
-| `/session/admin/internal/pprof/cmdline` | GET | CmdlineHandler | [CmdlineHandler](../../src/main/java/net/accelbyte/sdk/api/session/operations/operations/CmdlineHandler.java) | [CmdlineHandler](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/operations/CmdlineHandler.java) |
-| `/session/admin/internal/pprof/goroutine` | GET | GoroutineHandler | [GoroutineHandler](../../src/main/java/net/accelbyte/sdk/api/session/operations/operations/GoroutineHandler.java) | [GoroutineHandler](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/operations/GoroutineHandler.java) |
-| `/session/admin/internal/pprof/heap` | GET | HeapHandler | [HeapHandler](../../src/main/java/net/accelbyte/sdk/api/session/operations/operations/HeapHandler.java) | [HeapHandler](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/operations/HeapHandler.java) |
-| `/session/admin/internal/pprof/mutex` | GET | MutexHandler | [MutexHandler](../../src/main/java/net/accelbyte/sdk/api/session/operations/operations/MutexHandler.java) | [MutexHandler](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/operations/MutexHandler.java) |
-| `/session/admin/internal/pprof/profile` | GET | Profile | [Profile](../../src/main/java/net/accelbyte/sdk/api/session/operations/operations/Profile.java) | [Profile](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/operations/Profile.java) |
-| `/session/admin/internal/pprof/symbol` | GET | SymbolHandler | [SymbolHandler](../../src/main/java/net/accelbyte/sdk/api/session/operations/operations/SymbolHandler.java) | [SymbolHandler](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/operations/SymbolHandler.java) |
-| `/session/admin/internal/pprof/threadcreate` | GET | ThreadcreateHandler | [ThreadcreateHandler](../../src/main/java/net/accelbyte/sdk/api/session/operations/operations/ThreadcreateHandler.java) | [ThreadcreateHandler](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/operations/ThreadcreateHandler.java) |
-| `/session/admin/internal/pprof/trace` | GET | TraceHandler | [TraceHandler](../../src/main/java/net/accelbyte/sdk/api/session/operations/operations/TraceHandler.java) | [TraceHandler](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/operations/TraceHandler.java) |
 | `/session/healthz` | GET | GetHealthcheckInfoV1 | [GetHealthcheckInfoV1](../../src/main/java/net/accelbyte/sdk/api/session/operations/operations/GetHealthcheckInfoV1.java) | [GetHealthcheckInfoV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/session/operations/GetHealthcheckInfoV1.java) |
 
 ### Config Wrapper:  [Config](../../src/main/java/net/accelbyte/sdk/api/session/wrappers/Config.java)
@@ -217,6 +206,7 @@
 | `model.NativeSessionMember` | [ModelNativeSessionMember](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelNativeSessionMember.java) |
 | `models.DSMConfigRecord` | [ModelsDSMConfigRecord](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsDSMConfigRecord.java) |
 | `models.DefaultDSMCConfig` | [ModelsDefaultDSMCConfig](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsDefaultDSMCConfig.java) |
+| `models.ExtendConfiguration` | [ModelsExtendConfiguration](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsExtendConfiguration.java) |
 | `models.GameServer` | [ModelsGameServer](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsGameServer.java) |
 | `models.MemberActiveSession` | [ModelsMemberActiveSession](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsMemberActiveSession.java) |
 | `models.NativeSessionSetting` | [ModelsNativeSessionSetting](../../src/main/java/net/accelbyte/sdk/api/session/models/ModelsNativeSessionSetting.java) |

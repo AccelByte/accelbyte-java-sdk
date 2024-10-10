@@ -80,8 +80,7 @@ public class Fulfillment {
   /**
    * @see QueryFulfillments
    */
-  public FulfillmentHistoryPagingSlicedResult queryFulfillments(QueryFulfillments input)
-      throws Exception {
+  public FulfillmentPagingSlicedResult queryFulfillments(QueryFulfillments input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
@@ -100,6 +99,15 @@ public class Fulfillment {
    * @see FulfillItems
    */
   public FulfillmentV2Result fulfillItems(FulfillItems input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see RetryFulfillItems
+   */
+  public FulfillmentV2Result retryFulfillItems(RetryFulfillItems input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

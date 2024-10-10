@@ -32,9 +32,21 @@ public class GoogleIAPConfigInfo extends Model {
   @JsonProperty("namespace")
   private String namespace;
 
+  @JsonProperty("notificationTokenAudience")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String notificationTokenAudience;
+
+  @JsonProperty("notificationTokenEmail")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String notificationTokenEmail;
+
   @JsonProperty("p12FileName")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String p12FileName;
+
+  @JsonProperty("packageName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String packageName;
 
   @JsonProperty("serviceAccountId")
   @JsonInclude(JsonInclude.Include.NON_NULL)

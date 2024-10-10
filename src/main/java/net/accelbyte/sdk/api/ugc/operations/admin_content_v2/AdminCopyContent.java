@@ -18,7 +18,11 @@ import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
-/** AdminCopyContent */
+/**
+ * AdminCopyContent
+ *
+ * <p>Copy existing content from source channel to target channel.
+ */
 @Getter
 @Setter
 public class AdminCopyContent extends Operation {

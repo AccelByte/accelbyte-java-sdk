@@ -114,10 +114,13 @@
 | `api.ArtifactTypeSamplingRules` | [ApiArtifactTypeSamplingRules](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiArtifactTypeSamplingRules.java) |
 | `api.ArtifactURLResponse` | [ApiArtifactURLResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiArtifactURLResponse.java) |
 | `api.ArtifactUsageResponse` | [ApiArtifactUsageResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiArtifactUsageResponse.java) |
+| `api.AvailableInstanceType` | [ApiAvailableInstanceType](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiAvailableInstanceType.java) |
 | `api.AvailableInstanceTypesResponse` | [ApiAvailableInstanceTypesResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiAvailableInstanceTypesResponse.java) |
+| `api.Capacity` | [ApiCapacity](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiCapacity.java) |
 | `api.DSHistoryEvent` | [ApiDSHistoryEvent](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiDSHistoryEvent.java) |
 | `api.DSHistoryList` | [ApiDSHistoryList](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiDSHistoryList.java) |
 | `api.DSHostConfiguration` | [ApiDSHostConfiguration](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiDSHostConfiguration.java) |
+| `api.DSHostConfigurationParameters` | [ApiDSHostConfigurationParameters](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiDSHostConfigurationParameters.java) |
 | `api.DevelopmentServerConfigurationCreateRequest` | [ApiDevelopmentServerConfigurationCreateRequest](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiDevelopmentServerConfigurationCreateRequest.java) |
 | `api.DevelopmentServerConfigurationCreateResponse` | [ApiDevelopmentServerConfigurationCreateResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiDevelopmentServerConfigurationCreateResponse.java) |
 | `api.DevelopmentServerConfigurationGetResponse` | [ApiDevelopmentServerConfigurationGetResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiDevelopmentServerConfigurationGetResponse.java) |
@@ -143,7 +146,6 @@
 | `api.ImageListItem` | [ApiImageListItem](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiImageListItem.java) |
 | `api.ImageStorage` | [ApiImageStorage](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiImageStorage.java) |
 | `api.ImageUpdate` | [ApiImageUpdate](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiImageUpdate.java) |
-| `api.InstanceTypeDescriptionResponse` | [ApiInstanceTypeDescriptionResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiInstanceTypeDescriptionResponse.java) |
 | `api.PagingInfo` | [ApiPagingInfo](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiPagingInfo.java) |
 | `api.PortConfiguration` | [ApiPortConfiguration](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiPortConfiguration.java) |
 | `api.QoSEndpointResponse` | [ApiQoSEndpointResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiQoSEndpointResponse.java) |

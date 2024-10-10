@@ -25,9 +25,25 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class AppleIAPConfigInfo extends Model {
 
+  @JsonProperty("appAppleId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Long appAppleId;
+
+  @JsonProperty("authKeyFileName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String authKeyFileName;
+
   @JsonProperty("bundleId")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String bundleId;
+
+  @JsonProperty("issuerId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String issuerId;
+
+  @JsonProperty("keyId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String keyId;
 
   @JsonProperty("namespace")
   private String namespace;
@@ -35,6 +51,30 @@ public class AppleIAPConfigInfo extends Model {
   @JsonProperty("password")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String password;
+
+  @JsonProperty("version")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String version;
+
+  @JsonIgnore
+  public String getVersion() {
+    return this.version;
+  }
+
+  @JsonIgnore
+  public Version getVersionAsEnum() {
+    return Version.valueOf(this.version);
+  }
+
+  @JsonIgnore
+  public void setVersion(final String version) {
+    this.version = version;
+  }
+
+  @JsonIgnore
+  public void setVersionFromEnum(final Version version) {
+    this.version = version.toString();
+  }
 
   @JsonIgnore
   public AppleIAPConfigInfo createFromJson(String json) throws JsonProcessingException {
@@ -44,5 +84,35 @@ public class AppleIAPConfigInfo extends Model {
   @JsonIgnore
   public List<AppleIAPConfigInfo> createFromJsonList(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, new TypeReference<List<AppleIAPConfigInfo>>() {});
+  }
+
+  public enum Version {
+    V1("V1"),
+    V2("V2");
+
+    private String value;
+
+    Version(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class AppleIAPConfigInfoBuilder {
+    private String version;
+
+    public AppleIAPConfigInfoBuilder version(final String version) {
+      this.version = version;
+      return this;
+    }
+
+    public AppleIAPConfigInfoBuilder versionFromEnum(final Version version) {
+      this.version = version.toString();
+      return this;
+    }
   }
 }

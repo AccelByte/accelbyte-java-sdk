@@ -37,6 +37,9 @@ public class ApiFleetListItemResponse extends Model {
   @JsonProperty("image")
   private String image;
 
+  @JsonProperty("instanceProvider")
+  private String instanceProvider;
+
   @JsonProperty("isLocal")
   private Boolean isLocal;
 

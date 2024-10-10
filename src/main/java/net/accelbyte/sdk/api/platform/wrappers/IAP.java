@@ -50,6 +50,15 @@ public class IAP {
   }
 
   /**
+   * @see UpdateAppleP8File
+   */
+  public AppleIAPConfigInfo updateAppleP8File(UpdateAppleP8File input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetEpicGamesIAPConfig
    */
   public EpicGamesIAPConfigInfo getEpicGamesIAPConfig(GetEpicGamesIAPConfig input)
@@ -346,6 +355,16 @@ public class IAP {
   }
 
   /**
+   * @see GetAppleConfigVersion
+   */
+  public AppleIAPConfigVersionInfo getAppleConfigVersion(GetAppleConfigVersion input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetIAPItemMapping
    */
   public IAPItemMappingInfo getIAPItemMapping(GetIAPItemMapping input) throws Exception {
@@ -447,6 +466,15 @@ public class IAP {
   public List<XblReconcileResult> syncXboxInventory(SyncXboxInventory input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see V2PublicFulfillAppleIAPItem
+   */
+  public void v2PublicFulfillAppleIAPItem(V2PublicFulfillAppleIAPItem input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 }

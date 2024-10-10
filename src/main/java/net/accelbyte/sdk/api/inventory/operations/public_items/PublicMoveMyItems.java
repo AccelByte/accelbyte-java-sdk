@@ -22,10 +22,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * PublicMoveMyItems
  *
  * <p>Move items between inventories that is owned by the same user.
- *
- * <p>Currently, this endpoint supports transferring items exclusively from source OTHER. Items from
- * source ECOMMERCE are not yet eligible for transfer. We are working on expanding support to
- * include source ECOMMERCE in future updates.
  */
 @Getter
 @Setter

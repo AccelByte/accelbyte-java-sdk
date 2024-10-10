@@ -80,7 +80,7 @@ public class CreateReward extends Operation {
 
   public RewardInfo parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
-    if (code != 200) {
+    if (code != 201) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }

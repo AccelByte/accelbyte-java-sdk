@@ -21,7 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AcceptBackfill
  *
- * <p>Accept backfill proposal.
+ * <p>Accept backfill proposal. Field **acceptedTicketIds** can be used to accept specific tickets
+ * within a backfill proposal. If the ticketIDs are not mentioned in this field, those tickets will
+ * be rejected and reactivated for future proposals. If **acceptedTicketIds** is nil or not
+ * specified, then all tickets in the proposal will be accepted.
  */
 @Getter
 @Setter

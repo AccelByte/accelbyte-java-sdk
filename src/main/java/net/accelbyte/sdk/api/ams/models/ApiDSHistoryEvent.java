@@ -43,6 +43,9 @@ public class ApiDSHistoryEvent extends Model {
   @JsonProperty("serverId")
   private String serverId;
 
+  @JsonProperty("sessionId")
+  private String sessionId;
+
   @JsonProperty("status")
   private String status;
 

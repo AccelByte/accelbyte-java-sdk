@@ -28,6 +28,14 @@ public class ApiDevelopmentServerConfigurationGetResponse extends Model {
   @JsonProperty("commandLineArguments")
   private String commandLineArguments;
 
+  @JsonProperty("createdAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String createdAt;
+
+  @JsonProperty("expiresAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String expiresAt;
+
   @JsonProperty("imageId")
   private String imageId;
 

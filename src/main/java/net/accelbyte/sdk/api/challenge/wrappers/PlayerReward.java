@@ -33,6 +33,16 @@ public class PlayerReward {
   }
 
   /**
+   * @see AdminClaimUserRewardsByGoalCode
+   */
+  public List<ModelUserReward> adminClaimUserRewardsByGoalCode(
+      AdminClaimUserRewardsByGoalCode input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminGetUserRewards
    */
   public ModelListUserRewardsResponse adminGetUserRewards(AdminGetUserRewards input)
@@ -46,6 +56,16 @@ public class PlayerReward {
    * @see AdminClaimUserRewards
    */
   public List<ModelUserReward> adminClaimUserRewards(AdminClaimUserRewards input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicClaimUserRewardsByGoalCode
+   */
+  public List<ModelUserReward> publicClaimUserRewardsByGoalCode(
+      PublicClaimUserRewardsByGoalCode input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

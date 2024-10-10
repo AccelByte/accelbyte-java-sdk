@@ -327,7 +327,7 @@ eval_tap $? 33 'AdminGetLogConfig' test.out
 
 #- 34 AdminPatchUpdateLogConfig
 ./ng net.accelbyte.sdk.cli.Main chat adminPatchUpdateLogConfig \
-    --body '{"logLevel": "fatal", "socketLogEnabled": false}' \
+    --body '{"logLevel": "fatal", "logLevelDB": "trace", "slowQueryThreshold": 0, "socketLogEnabled": true}' \
     > test.out 2>&1
 eval_tap $? 34 'AdminPatchUpdateLogConfig' test.out
 
@@ -340,7 +340,7 @@ eval_tap $? 35 'AdminGetConfigV1' test.out
 #- 36 AdminUpdateConfigV1
 ./ng net.accelbyte.sdk.cli.Main chat adminUpdateConfigV1 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"chatRateLimitBurst": 39, "chatRateLimitDuration": 48, "concurrentUsersLimit": 43, "enableClanChat": false, "enableManualTopicCreation": false, "enableProfanityFilter": false, "filterAppName": "Bfsu4jmsRE2w1yEk", "filterParam": "Lgh3tIYt4SqYUTLD", "filterType": "x9gIiDandpGT2t24", "generalRateLimitBurst": 1, "generalRateLimitDuration": 25, "maxChatMessageLength": 83, "shardCapacityLimit": 45, "shardDefaultLimit": 78, "shardHardLimit": 29, "spamChatBurst": 16, "spamChatDuration": 8, "spamMuteDuration": 50}' \
+    --body '{"chatRateLimitBurst": 48, "chatRateLimitDuration": 43, "concurrentUsersLimit": 88, "enableClanChat": false, "enableManualTopicCreation": false, "enableProfanityFilter": false, "filterAppName": "Bfsu4jmsRE2w1yEk", "filterParam": "Lgh3tIYt4SqYUTLD", "filterType": "x9gIiDandpGT2t24", "generalRateLimitBurst": 1, "generalRateLimitDuration": 25, "maxChatMessageLength": 83, "shardCapacityLimit": 45, "shardDefaultLimit": 78, "shardHardLimit": 29, "spamChatBurst": 16, "spamChatDuration": 8, "spamMuteDuration": 50}' \
     > test.out 2>&1
 eval_tap $? 36 'AdminUpdateConfigV1' test.out
 

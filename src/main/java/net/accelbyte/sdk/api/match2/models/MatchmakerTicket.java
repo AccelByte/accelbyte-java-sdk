@@ -28,6 +28,9 @@ public class MatchmakerTicket extends Model {
   @JsonProperty("CreatedAt")
   private String createdAt;
 
+  @JsonProperty("ExcludedSessions")
+  private List<String> excludedSessions;
+
   @JsonProperty("IsActive")
   private Boolean isActive;
 
@@ -42,6 +45,9 @@ public class MatchmakerTicket extends Model {
 
   @JsonProperty("MatchPool")
   private String matchPool;
+
+  @JsonProperty("MatchedAt")
+  private String matchedAt;
 
   @JsonProperty("Namespace")
   private String namespace;

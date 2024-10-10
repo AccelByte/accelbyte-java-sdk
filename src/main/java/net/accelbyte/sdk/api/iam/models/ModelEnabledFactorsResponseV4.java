@@ -31,6 +31,10 @@ public class ModelEnabledFactorsResponseV4 extends Model {
   @JsonProperty("enabled")
   private List<String> enabled;
 
+  @JsonProperty("remainingBackupCodeCount")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer remainingBackupCodeCount;
+
   @JsonIgnore
   public ModelEnabledFactorsResponseV4 createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
