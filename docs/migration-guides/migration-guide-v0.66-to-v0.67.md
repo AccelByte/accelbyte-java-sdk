@@ -3,11 +3,6 @@
 
 ### BREAKING CHANGE
 
-### Achievement
-The following have been updated:
-- Operation `ClaimGlobalAchievementReward`
-  - required user permission is changed from `NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [READ]` to `NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [UPDATE]`
-  - 
 ### AMS
 The following have been updated:
 - Model `net.accelbyte.sdk.api.ams.models.ApiInstanceTypeDescriptionResponse` renamed to `net.accelbyte.sdk.api.ams.models.ApiAvailableInstanceType `
@@ -38,8 +33,6 @@ The following models have been updated:
 
 ### Match2
 The following have been updated:
-- Model `net.accelbyte.sdk.api.match2.models.ApiPatchNamespaceConfigRequest`
-  - required user permission is changed from `ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CONFIG [READ]` to `ADMIN:NAMESPACE:{namespace}:MATCHMAKING:CONFIG [UPDATE]`
 - Model `net.accelbyte.sdk.api.match2.models.MatchmakerTicket`
   - field `ExcludedSessions` is now required
   - field `MatchedAt` is now required
