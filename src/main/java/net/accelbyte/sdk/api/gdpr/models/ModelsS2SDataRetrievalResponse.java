@@ -31,6 +31,9 @@ public class ModelsS2SDataRetrievalResponse extends Model {
   @JsonProperty("requestDate")
   private String requestDate;
 
+  @JsonProperty("requestId")
+  private String requestId;
+
   @JsonProperty("userId")
   private String userId;
 

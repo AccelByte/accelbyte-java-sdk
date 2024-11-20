@@ -52,6 +52,15 @@ public class BaseLegalPoliciesWithNamespace {
   }
 
   /**
+   * @see DeleteBasePolicy
+   */
+  public void deleteBasePolicy(DeleteBasePolicy input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PartialUpdatePolicy1
    */
   public UpdateBasePolicyResponse partialUpdatePolicy1(PartialUpdatePolicy1 input)
@@ -65,6 +74,26 @@ public class BaseLegalPoliciesWithNamespace {
    * @see RetrievePolicyCountry1
    */
   public RetrievePolicyResponse retrievePolicyCountry1(RetrievePolicyCountry1 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see RetrieveAllPoliciesFromBasePolicy
+   */
+  public List<RetrievePoliciesFromBasePolicyResponse> retrieveAllPoliciesFromBasePolicy(
+      RetrieveAllPoliciesFromBasePolicy input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see CreatePolicyUnderBasePolicy
+   */
+  public CreatePolicyResponse createPolicyUnderBasePolicy(CreatePolicyUnderBasePolicy input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(

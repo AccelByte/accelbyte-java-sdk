@@ -21,7 +21,13 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * createPolicy
  *
- * <p>Create a legal policy.
+ * <p>Create a legal policy. Note:
+ *
+ * <p>* countryType field only accept COUNTRY or COUNTRY_GROUP. * COUNTRY_GROUP countryType requires
+ * the countryGroupName and affectedCountries fields to be provided.
+ *
+ * <p>* policy with COUNTRY_GROUP type include multiple countries and apply the same policy across
+ * the entire list of countries
  */
 @Getter
 @Setter

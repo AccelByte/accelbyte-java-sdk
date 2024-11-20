@@ -40,4 +40,13 @@ public class Clawback {
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see MockXblClawbackEvent
+   */
+  public ClawbackInfo mockXblClawbackEvent(MockXblClawbackEvent input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }

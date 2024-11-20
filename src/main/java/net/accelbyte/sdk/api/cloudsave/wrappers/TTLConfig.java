@@ -21,6 +21,16 @@ public class TTLConfig {
   }
 
   /**
+   * @see DeleteAdminGameRecordTTLConfig
+   */
+  public void deleteAdminGameRecordTTLConfig(DeleteAdminGameRecordTTLConfig input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see DeleteGameBinaryRecordTTLConfig
    */
   public void deleteGameBinaryRecordTTLConfig(DeleteGameBinaryRecordTTLConfig input)

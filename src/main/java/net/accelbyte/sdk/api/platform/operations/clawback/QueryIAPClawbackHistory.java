@@ -139,7 +139,8 @@ public class QueryIAPClawbackHistory extends Operation {
     CHARGEBACK("CHARGEBACK"),
     CHARGEBACKREVERSED("CHARGEBACK_REVERSED"),
     OTHER("OTHER"),
-    REFUND("REFUND");
+    REFUND("REFUND"),
+    REVOKED("REVOKED");
 
     private String value;
 

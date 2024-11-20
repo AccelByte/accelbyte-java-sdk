@@ -21,7 +21,13 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateNamespace
  *
- * <p>Update namespace basic info. Other detail info:
+ * <p>Update namespace basic info. displayName rule:
+ *
+ * <p>* Alphanumeric lowercase and uppercase are allowed * Allowed Special Character: ',. - * Must
+ * start and end with alphanumeric * Spaces and special character are allowed but cannot appear
+ * twice in a row
+ *
+ * <p>Other detail info:
  *
  * <p>* Action code : 11302 * Returns : updated namespace
  */

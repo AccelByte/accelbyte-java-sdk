@@ -60,7 +60,8 @@ public class InfoSupportedInstances implements Callable<Integer> {
           net.accelbyte.sdk.api.ams.operations.ams_info.InfoSupportedInstances.builder()
               .namespace(namespace)
               .build();
-      final ApiAvailableInstanceTypesResponse response = wrapper.infoSupportedInstances(operation);
+      final ApiInstanceTypesForNamespaceResponse response =
+          wrapper.infoSupportedInstances(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

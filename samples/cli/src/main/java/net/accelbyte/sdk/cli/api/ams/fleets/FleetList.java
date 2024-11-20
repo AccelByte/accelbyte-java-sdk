@@ -36,6 +36,21 @@ public class FleetList implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--active"},
+      description = "active")
+  Boolean active;
+
+  @Option(
+      names = {"--name"},
+      description = "name")
+  String name;
+
+  @Option(
+      names = {"--region"},
+      description = "region")
+  String region;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -59,6 +74,9 @@ public class FleetList implements Callable<Integer> {
       final net.accelbyte.sdk.api.ams.operations.fleets.FleetList operation =
           net.accelbyte.sdk.api.ams.operations.fleets.FleetList.builder()
               .namespace(namespace)
+              .active(active)
+              .name(name)
+              .region(region)
               .build();
       final ApiFleetListResponse response = wrapper.fleetList(operation);
       final String responseString =

@@ -43,6 +43,10 @@ public class ModelGoalProgressionResponse extends Model {
   @JsonProperty("status")
   private String status;
 
+  @JsonProperty("toClaimRewards")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<ModelClaimableUserReward> toClaimRewards;
+
   @JsonIgnore
   public String getStatus() {
     return this.status;

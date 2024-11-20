@@ -37,14 +37,21 @@ public class FleetList extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private Boolean active;
+  private String name;
+  private String region;
+
   /**
    * @param namespace required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public FleetList(String namespace) {
+  public FleetList(String namespace, Boolean active, String name, String region) {
     this.namespace = namespace;
+    this.active = active;
+    this.name = name;
+    this.region = region;
 
     securities.add("Bearer");
   }
@@ -56,6 +63,16 @@ public class FleetList extends Operation {
       pathParams.put("namespace", this.namespace);
     }
     return pathParams;
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "active", this.active == null ? null : Arrays.asList(String.valueOf(this.active)));
+    queryParams.put("name", this.name == null ? null : Arrays.asList(this.name));
+    queryParams.put("region", this.region == null ? null : Arrays.asList(this.region));
+    return queryParams;
   }
 
   @Override
@@ -74,5 +91,14 @@ public class FleetList extends Operation {
     }
     final String json = Helper.convertInputStreamToString(payload);
     return new ApiFleetListResponse().createFromJson(json);
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("active", "None");
+    result.put("name", "None");
+    result.put("region", "None");
+    return result;
   }
 }

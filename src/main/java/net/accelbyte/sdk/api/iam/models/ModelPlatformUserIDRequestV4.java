@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ModelPlatformUserIDRequestV4 extends Model {
 
+  @JsonProperty("pidType")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String pidType;
+
   @JsonProperty("platformUserIds")
   private List<String> platformUserIds;
 

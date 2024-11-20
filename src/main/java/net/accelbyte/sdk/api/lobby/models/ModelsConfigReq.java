@@ -105,6 +105,10 @@ public class ModelsConfigReq extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Long readyConsentTimeout;
 
+  @JsonProperty("requestMetadataMaxSize")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer requestMetadataMaxSize;
+
   @JsonProperty("unregisterDelay")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Long unregisterDelay;

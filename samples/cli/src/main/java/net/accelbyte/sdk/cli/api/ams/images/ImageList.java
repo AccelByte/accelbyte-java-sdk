@@ -36,6 +36,51 @@ public class ImageList implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--count"},
+      description = "count")
+  Integer count;
+
+  @Option(
+      names = {"--inUse"},
+      description = "inUse")
+  String inUse;
+
+  @Option(
+      names = {"--isProtected"},
+      description = "isProtected")
+  Boolean isProtected;
+
+  @Option(
+      names = {"--name"},
+      description = "name")
+  String name;
+
+  @Option(
+      names = {"--offset"},
+      description = "offset")
+  Integer offset;
+
+  @Option(
+      names = {"--sortBy"},
+      description = "sortBy")
+  String sortBy;
+
+  @Option(
+      names = {"--sortDirection"},
+      description = "sortDirection")
+  String sortDirection;
+
+  @Option(
+      names = {"--status"},
+      description = "status")
+  String status;
+
+  @Option(
+      names = {"--tag"},
+      description = "tag")
+  String tag;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -59,6 +104,15 @@ public class ImageList implements Callable<Integer> {
       final net.accelbyte.sdk.api.ams.operations.images.ImageList operation =
           net.accelbyte.sdk.api.ams.operations.images.ImageList.builder()
               .namespace(namespace)
+              .count(count)
+              .inUse(inUse)
+              .isProtected(isProtected)
+              .name(name)
+              .offset(offset)
+              .sortBy(sortBy)
+              .sortDirection(sortDirection)
+              .status(status)
+              .tag(tag)
               .build();
       final ApiImageList response = wrapper.imageList(operation);
       final String responseString =

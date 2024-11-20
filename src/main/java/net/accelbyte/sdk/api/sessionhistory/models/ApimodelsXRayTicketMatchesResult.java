@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApimodelsXRayTicketMatchesResult extends Model {
 
+  @JsonProperty("ActualTimeToMatch")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String actualTimeToMatch;
+
   @JsonProperty("CreatedAt")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String createdAt;

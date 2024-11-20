@@ -35,6 +35,7 @@ import picocli.CommandLine.Command;
       AdminPutAdminGameRecordV1.class,
       AdminPostAdminGameRecordV1.class,
       AdminDeleteAdminGameRecordV1.class,
+      DeleteAdminGameRecordTTLConfig.class,
       AdminListGameBinaryRecordsV1.class,
       AdminPostGameBinaryRecordV1.class,
       AdminGetGameBinaryRecordV1.class,

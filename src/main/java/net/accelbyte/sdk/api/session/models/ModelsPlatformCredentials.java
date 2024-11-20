@@ -31,6 +31,10 @@ public class ModelsPlatformCredentials extends Model {
   @JsonProperty("updatedAt")
   private String updatedAt;
 
+  @JsonProperty("xbox")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ModelsXBLCertificateCredential xbox;
+
   @JsonIgnore
   public ModelsPlatformCredentials createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

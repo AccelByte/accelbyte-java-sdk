@@ -157,6 +157,8 @@
 | `BulkUserStatItemInc` | [BulkUserStatItemInc](../../src/main/java/net/accelbyte/sdk/api/social/models/BulkUserStatItemInc.java) |
 | `BulkUserStatItemReset` | [BulkUserStatItemReset](../../src/main/java/net/accelbyte/sdk/api/social/models/BulkUserStatItemReset.java) |
 | `BulkUserStatItemUpdate` | [BulkUserStatItemUpdate](../../src/main/java/net/accelbyte/sdk/api/social/models/BulkUserStatItemUpdate.java) |
+| `CycleOverride` | [CycleOverride](../../src/main/java/net/accelbyte/sdk/api/social/models/CycleOverride.java) |
+| `CycleOverrideRequest` | [CycleOverrideRequest](../../src/main/java/net/accelbyte/sdk/api/social/models/CycleOverrideRequest.java) |
 | `ErrorEntity` | [ErrorEntity](../../src/main/java/net/accelbyte/sdk/api/social/models/ErrorEntity.java) |
 | `FieldValidationError` | [FieldValidationError](../../src/main/java/net/accelbyte/sdk/api/social/models/FieldValidationError.java) |
 | `GameProfileHeader` | [GameProfileHeader](../../src/main/java/net/accelbyte/sdk/api/social/models/GameProfileHeader.java) |

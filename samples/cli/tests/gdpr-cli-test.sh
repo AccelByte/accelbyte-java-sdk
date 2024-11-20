@@ -39,7 +39,7 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 ./ng ng-cp 1>&2
 
 echo "TAP version 13"
-echo "1..39"
+echo "1..40"
 
 #- 1 Login
 ./ng net.accelbyte.sdk.cli.Main loginClient \
@@ -316,27 +316,34 @@ eval_tap $? 35 'S2SGetListFinishedAccountDeletionRequest' test.out
     > test.out 2>&1
 eval_tap $? 36 'S2SGetListFinishedPersonalDataRequest' test.out
 
-#- 37 S2SSubmitUserAccountDeletionRequest
-./ng net.accelbyte.sdk.cli.Main gdpr s2sSubmitUserAccountDeletionRequest \
+#- 37 S2SGetDataRequestByRequestID
+./ng net.accelbyte.sdk.cli.Main gdpr s2sGetDataRequestByRequestID \
     --namespace "$AB_NAMESPACE" \
-    --userId 'MWH8Yb33T5UBJCjf' \
+    --requestId 'MWH8Yb33T5UBJCjf' \
     > test.out 2>&1
-eval_tap $? 37 'S2SSubmitUserAccountDeletionRequest' test.out
+eval_tap $? 37 'S2SGetDataRequestByRequestID' test.out
 
-#- 38 S2SRequestDataRetrieval
-./ng net.accelbyte.sdk.cli.Main gdpr s2sRequestDataRetrieval \
+#- 38 S2SSubmitUserAccountDeletionRequest
+./ng net.accelbyte.sdk.cli.Main gdpr s2sSubmitUserAccountDeletionRequest \
     --namespace "$AB_NAMESPACE" \
     --userId 'cnLRfxeCSz9WEi8K' \
     > test.out 2>&1
-eval_tap $? 38 'S2SRequestDataRetrieval' test.out
+eval_tap $? 38 'S2SSubmitUserAccountDeletionRequest' test.out
 
-#- 39 S2SGeneratePersonalDataURL
+#- 39 S2SRequestDataRetrieval
+./ng net.accelbyte.sdk.cli.Main gdpr s2sRequestDataRetrieval \
+    --namespace "$AB_NAMESPACE" \
+    --userId 'lloeH0JT1yduat2v' \
+    > test.out 2>&1
+eval_tap $? 39 'S2SRequestDataRetrieval' test.out
+
+#- 40 S2SGeneratePersonalDataURL
 ./ng net.accelbyte.sdk.cli.Main gdpr s2sGeneratePersonalDataURL \
     --namespace "$AB_NAMESPACE" \
-    --requestDate 'lloeH0JT1yduat2v' \
-    --userId 'QR3biBfsu4jmsRE2' \
+    --requestDate 'QR3biBfsu4jmsRE2' \
+    --userId 'w1yEkLgh3tIYt4Sq' \
     > test.out 2>&1
-eval_tap $? 39 'S2SGeneratePersonalDataURL' test.out
+eval_tap $? 40 'S2SGeneratePersonalDataURL' test.out
 
 
 rm -f "tmp.dat"

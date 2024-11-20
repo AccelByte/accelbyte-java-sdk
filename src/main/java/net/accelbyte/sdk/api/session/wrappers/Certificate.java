@@ -22,10 +22,12 @@ public class Certificate {
   }
 
   /**
-   * @see HandleUploadXboxPFXCertificate
+   * @see AdminUploadXBoxCertificate
+   * @deprecated
    */
-  public ModelsPlatformCredentials handleUploadXboxPFXCertificate(
-      HandleUploadXboxPFXCertificate input) throws Exception {
+  @Deprecated
+  public ModelsPlatformCredentials adminUploadXBoxCertificate(AdminUploadXBoxCertificate input)
+      throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

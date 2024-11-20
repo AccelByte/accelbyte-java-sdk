@@ -70,6 +70,8 @@ public class TwitchSyncResult extends Model {
   public enum IapOrderStatus {
     FAILED("FAILED"),
     FULFILLED("FULFILLED"),
+    PARTIALREVOKED("PARTIAL_REVOKED"),
+    REVOKED("REVOKED"),
     VERIFIED("VERIFIED");
 
     private String value;

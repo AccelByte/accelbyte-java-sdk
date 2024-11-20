@@ -30,7 +30,7 @@ import picocli.CommandLine.Command;
       AdminAccountGet.class,
       AdminAccountCreate.class,
       AdminAccountLinkTokenGet.class,
-      AdminAccountLinkTokenPost.class,
+      AdminAccountLink.class,
       ArtifactGet.class,
       ArtifactBulkDelete.class,
       ArtifactUsageGet.class,

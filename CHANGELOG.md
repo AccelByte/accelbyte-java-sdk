@@ -1,3 +1,9 @@
+<a name="v0.68.0"></a>
+## [v0.68.0]
+### feat
+- **:** add challenge service integration tests
+
+
 <a name="v0.67.0"></a>
 ## [v0.67.0]
 ### test

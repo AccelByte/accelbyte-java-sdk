@@ -86,6 +86,16 @@ public class ArtifactGet implements Callable<Integer> {
   String serverId;
 
   @Option(
+      names = {"--sortBy"},
+      description = "sortBy")
+  String sortBy;
+
+  @Option(
+      names = {"--sortDirection"},
+      description = "sortDirection")
+  String sortDirection;
+
+  @Option(
       names = {"--startDate"},
       description = "startDate")
   String startDate;
@@ -129,6 +139,8 @@ public class ArtifactGet implements Callable<Integer> {
               .offset(offset)
               .region(region)
               .serverId(serverId)
+              .sortBy(sortBy)
+              .sortDirection(sortDirection)
               .startDate(startDate)
               .status(status)
               .build();

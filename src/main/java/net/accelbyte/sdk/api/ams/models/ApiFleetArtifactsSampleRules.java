@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ApiFleetArtifactsSampleRules extends Model {
 
   @JsonProperty("coredumps")
-  private ApiArtifactTypeSamplingRules coredumps;
+  private ApiCoredumpSamplingRules coredumps;
 
   @JsonProperty("logs")
   private ApiArtifactTypeSamplingRules logs;

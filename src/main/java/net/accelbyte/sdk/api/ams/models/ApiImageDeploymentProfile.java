@@ -35,6 +35,7 @@ public class ApiImageDeploymentProfile extends Model {
   private List<ApiPortConfiguration> portConfigurations;
 
   @JsonProperty("timeout")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private ApiTimeout timeout;
 
   @JsonIgnore

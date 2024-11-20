@@ -31,8 +31,17 @@ public class ModelsPSNAppServerCredentials extends Model {
   @JsonProperty("clientSecret")
   private String clientSecret;
 
+  @JsonProperty("createdAt")
+  private String createdAt;
+
+  @JsonProperty("createdBy")
+  private String createdBy;
+
   @JsonProperty("scope")
   private String scope;
+
+  @JsonProperty("updatedAt")
+  private String updatedAt;
 
   @JsonIgnore
   public ModelsPSNAppServerCredentials createFromJson(String json) throws JsonProcessingException {

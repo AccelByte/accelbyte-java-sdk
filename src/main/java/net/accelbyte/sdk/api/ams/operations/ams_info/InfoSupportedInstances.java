@@ -66,13 +66,13 @@ public class InfoSupportedInstances extends Operation {
     return true;
   }
 
-  public ApiAvailableInstanceTypesResponse parseResponse(
+  public ApiInstanceTypesForNamespaceResponse parseResponse(
       int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ApiAvailableInstanceTypesResponse().createFromJson(json);
+    return new ApiInstanceTypesForNamespaceResponse().createFromJson(json);
   }
 }

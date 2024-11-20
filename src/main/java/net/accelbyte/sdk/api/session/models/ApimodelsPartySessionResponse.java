@@ -30,7 +30,6 @@ public class ApimodelsPartySessionResponse extends Model {
   private Map<String, ?> attributes;
 
   @JsonProperty("code")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String code;
 
   @JsonProperty("configuration")

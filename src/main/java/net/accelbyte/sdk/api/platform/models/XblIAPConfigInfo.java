@@ -33,6 +33,22 @@ public class XblIAPConfigInfo extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String businessPartnerCertFileName;
 
+  @JsonProperty("enableClawback")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean enableClawback;
+
+  @JsonProperty("entraAppClientId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String entraAppClientId;
+
+  @JsonProperty("entraAppClientSecret")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String entraAppClientSecret;
+
+  @JsonProperty("entraTenantId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String entraTenantId;
+
   @JsonProperty("namespace")
   private String namespace;
 

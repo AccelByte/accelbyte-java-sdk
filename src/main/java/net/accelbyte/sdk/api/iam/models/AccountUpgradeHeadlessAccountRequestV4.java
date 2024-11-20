@@ -25,11 +25,23 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class AccountUpgradeHeadlessAccountRequestV4 extends Model {
 
+  @JsonProperty("dateOfBirth")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String dateOfBirth;
+
+  @JsonProperty("displayName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String displayName;
+
   @JsonProperty("emailAddress")
   private String emailAddress;
 
   @JsonProperty("password")
   private String password;
+
+  @JsonProperty("uniqueDisplayName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String uniqueDisplayName;
 
   @JsonProperty("username")
   private String username;

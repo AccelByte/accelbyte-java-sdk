@@ -33,6 +33,10 @@ public class ModelUserRequestFriendRequest extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String friendPublicId;
 
+  @JsonProperty("metadata")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, String> metadata;
+
   @JsonIgnore
   public ModelUserRequestFriendRequest createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

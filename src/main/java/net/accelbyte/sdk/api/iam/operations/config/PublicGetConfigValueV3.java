@@ -25,7 +25,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * studio namespace. Note: this endpoint does not need any authorization.
  *
  * <p>**Supported config key:** * uniqueDisplayNameEnabled * usernameDisabled *
- * mandatoryEmailVerificationEnabled
+ * mandatoryEmailVerificationEnabled * verificationCodeType
+ *
+ * <p>If the key is verificationCodeType, then possible value format will be '{collection}:{N}';
+ * example: 'ABCDEFGHI:6', 'ABCDEFGHI1234:8','01234567894:7'
  */
 @Getter
 @Setter

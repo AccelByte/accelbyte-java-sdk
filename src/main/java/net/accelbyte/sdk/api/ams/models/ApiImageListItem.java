@@ -43,6 +43,9 @@ public class ApiImageListItem extends Model {
   @JsonProperty("name")
   private String name;
 
+  @JsonProperty("referencingConfigs")
+  private Integer referencingConfigs;
+
   @JsonProperty("referencingFleets")
   private Integer referencingFleets;
 

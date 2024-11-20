@@ -33,6 +33,14 @@ public class CreateBasePolicyResponse extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> affectedCountries;
 
+  @JsonProperty("countryGroupName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String countryGroupName;
+
+  @JsonProperty("countryType")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String countryType;
+
   @JsonProperty("createdAt")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String createdAt;
@@ -77,6 +85,26 @@ public class CreateBasePolicyResponse extends Model {
   private String updatedAt;
 
   @JsonIgnore
+  public String getCountryType() {
+    return this.countryType;
+  }
+
+  @JsonIgnore
+  public CountryType getCountryTypeAsEnum() {
+    return CountryType.valueOf(this.countryType);
+  }
+
+  @JsonIgnore
+  public void setCountryType(final String countryType) {
+    this.countryType = countryType;
+  }
+
+  @JsonIgnore
+  public void setCountryTypeFromEnum(final CountryType countryType) {
+    this.countryType = countryType.toString();
+  }
+
+  @JsonIgnore
   public CreateBasePolicyResponse createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
@@ -86,5 +114,35 @@ public class CreateBasePolicyResponse extends Model {
       throws JsonProcessingException {
     return new ObjectMapper()
         .readValue(json, new TypeReference<List<CreateBasePolicyResponse>>() {});
+  }
+
+  public enum CountryType {
+    COUNTRY("COUNTRY"),
+    COUNTRYGROUP("COUNTRY_GROUP");
+
+    private String value;
+
+    CountryType(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class CreateBasePolicyResponseBuilder {
+    private String countryType;
+
+    public CreateBasePolicyResponseBuilder countryType(final String countryType) {
+      this.countryType = countryType;
+      return this;
+    }
+
+    public CreateBasePolicyResponseBuilder countryTypeFromEnum(final CountryType countryType) {
+      this.countryType = countryType.toString();
+      return this;
+    }
   }
 }

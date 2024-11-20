@@ -29,6 +29,10 @@ public class ModelsAdminGameConcurrentRecordRequest extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> tags;
 
+  @JsonProperty("ttl_config")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ModelsTTLConfigDTO ttlConfig;
+
   @JsonProperty("updatedAt")
   private String updatedAt;
 

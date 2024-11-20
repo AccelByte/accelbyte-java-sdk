@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicConsumeMyItem
  *
- * <p>Consume user's own item.
+ * <p>Consume user's own item. Client should pass item ID in options if item type is OPTIONBOX
  */
 @Getter
 @Setter

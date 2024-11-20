@@ -23,6 +23,15 @@ public class LocalizedPolicyVersionsWithNamespace {
   }
 
   /**
+   * @see DeleteLocalizedPolicy
+   */
+  public void deleteLocalizedPolicy(DeleteLocalizedPolicy input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see RetrieveLocalizedPolicyVersions1
    */
   public List<RetrieveLocalizedPolicyVersionResponse> retrieveLocalizedPolicyVersions1(

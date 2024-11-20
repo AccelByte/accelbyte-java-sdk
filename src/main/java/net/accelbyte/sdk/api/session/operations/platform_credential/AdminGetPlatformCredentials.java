@@ -25,6 +25,11 @@ import net.accelbyte.sdk.core.util.Helper;
  * Credential) ClientID - clientSecret: Auth Server (Client Credential) Secret. For security, only
  * the first few characters are shown. - scope: should be psn:s2s.service (For Sync non PSN member
  * to PSN Session)
+ *
+ * <p>XBOX: - namespace: namespace of the configuration - businessPartnerCertFileName: name of pfx
+ * xbox configuration file - businessPartnerCertFileBytes: the pfx configuration file - updatedAt:
+ * date time when the record is updated - createdAt: date time when the record is created -
+ * createdBy: the actor who trigger the xbox configuration sync
  */
 @Getter
 @Setter
@@ -33,7 +38,7 @@ public class AdminGetPlatformCredentials extends Operation {
   private String path = "/session/v1/admin/namespaces/{namespace}/platform-credentials";
 
   private String method = "GET";
-  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
 

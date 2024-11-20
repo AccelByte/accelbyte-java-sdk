@@ -21,9 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminConsumeUserItem
  *
- * <p>Consume user's own item
- *
- * <p>Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [UPDATE]
+ * <p>Consume user's own item Client should pass item ID in options if item type is OPTIONBOX
+ * Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [UPDATE]
  */
 @Getter
 @Setter

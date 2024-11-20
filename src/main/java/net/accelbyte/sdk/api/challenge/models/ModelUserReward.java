@@ -34,6 +34,9 @@ public class ModelUserReward extends Model {
   @JsonProperty("goalCode")
   private String goalCode;
 
+  @JsonProperty("goalProgressionId")
+  private String goalProgressionId;
+
   @JsonProperty("id")
   private String id;
 

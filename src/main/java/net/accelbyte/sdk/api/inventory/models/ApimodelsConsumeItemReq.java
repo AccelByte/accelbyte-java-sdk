@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApimodelsConsumeItemReq extends Model {
 
+  @JsonProperty("options")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> options;
+
   @JsonProperty("qty")
   private Integer qty;
 

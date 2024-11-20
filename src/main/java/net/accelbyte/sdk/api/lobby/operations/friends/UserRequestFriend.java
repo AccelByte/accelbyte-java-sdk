@@ -23,7 +23,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Client should provide either friendID or friendPublicID. If both are provided, friendID will
  * be chosen to be used. This endpoint will only send a pending invite that can be either
- * rejected/accepted
+ * rejected/accepted. Metadata is optional parameter which will be sent over via friend request
+ * notification.
  */
 @Getter
 @Setter

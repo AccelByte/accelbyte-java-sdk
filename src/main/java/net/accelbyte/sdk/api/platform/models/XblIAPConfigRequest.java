@@ -25,7 +25,24 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class XblIAPConfigRequest extends Model {
 
+  @JsonProperty("enableClawback")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean enableClawback;
+
+  @JsonProperty("entraAppClientId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String entraAppClientId;
+
+  @JsonProperty("entraAppClientSecret")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String entraAppClientSecret;
+
+  @JsonProperty("entraTenantId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String entraTenantId;
+
   @JsonProperty("relyingPartyCert")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String relyingPartyCert;
 
   @JsonIgnore

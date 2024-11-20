@@ -28,6 +28,10 @@ public class ApimodelsConsumeItem extends Model {
   @JsonProperty("inventoryId")
   private String inventoryId;
 
+  @JsonProperty("options")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> options;
+
   @JsonProperty("qty")
   private Integer qty;
 

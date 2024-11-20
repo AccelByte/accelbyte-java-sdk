@@ -23,6 +23,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Invite a user to a game session. platformID represents the native platform of the invitee. API
  * will return the corresponding native platform's userID. supported platforms: - STEAM - XBOX - PSN
+ * Metadata is optional parameter which will be sent over via invitation notification and is not
+ * permanently stored in the game session storage.
  */
 @Getter
 @Setter

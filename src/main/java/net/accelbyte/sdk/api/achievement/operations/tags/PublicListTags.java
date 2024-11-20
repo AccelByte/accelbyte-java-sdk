@@ -106,4 +106,38 @@ public class PublicListTags extends Operation {
     result.put("sortBy", "None");
     return result;
   }
+
+  public enum SortBy {
+    CreatedAt("createdAt"),
+    CreatedAtasc("createdAt:asc"),
+    CreatedAtdesc("createdAt:desc"),
+    Name("name"),
+    Nameasc("name:asc"),
+    Namedesc("name:desc");
+
+    private String value;
+
+    SortBy(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class PublicListTagsBuilder {
+    private String sortBy;
+
+    public PublicListTagsBuilder sortBy(final String sortBy) {
+      this.sortBy = sortBy;
+      return this;
+    }
+
+    public PublicListTagsBuilder sortByFromEnum(final SortBy sortBy) {
+      this.sortBy = sortBy.toString();
+      return this;
+    }
+  }
 }

@@ -25,12 +25,24 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class PolicyObject extends Model {
 
+  @JsonProperty("countries")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> countries;
+
   @JsonProperty("countryCode")
   private String countryCode;
 
   @JsonProperty("countryGroupCode")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String countryGroupCode;
+
+  @JsonProperty("countryGroupName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String countryGroupName;
+
+  @JsonProperty("countryType")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String countryType;
 
   @JsonProperty("createdAt")
   @JsonInclude(JsonInclude.Include.NON_NULL)

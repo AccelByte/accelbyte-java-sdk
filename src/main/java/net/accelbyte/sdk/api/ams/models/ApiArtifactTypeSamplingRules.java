@@ -31,6 +31,10 @@ public class ApiArtifactTypeSamplingRules extends Model {
   @JsonProperty("success")
   private ApiArtifactSamplingRule success;
 
+  @JsonProperty("unclaimed")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ApiArtifactSamplingRule unclaimed;
+
   @JsonIgnore
   public ApiArtifactTypeSamplingRules createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

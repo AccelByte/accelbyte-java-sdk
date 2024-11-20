@@ -25,16 +25,24 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApiTimeout extends Model {
 
+  @JsonProperty("claim")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Long claim;
+
   @JsonProperty("creation")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Long creation;
 
   @JsonProperty("drain")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Long drain;
 
   @JsonProperty("session")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Long session;
 
   @JsonProperty("unresponsive")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Long unresponsive;
 
   @JsonIgnore

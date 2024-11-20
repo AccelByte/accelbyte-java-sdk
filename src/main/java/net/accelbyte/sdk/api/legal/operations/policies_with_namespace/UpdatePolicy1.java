@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updatePolicy_1
  *
- * <p>Update country-specific policy.
+ * <p>Update country-specific and country-group policy.
  */
 @Getter
 @Setter

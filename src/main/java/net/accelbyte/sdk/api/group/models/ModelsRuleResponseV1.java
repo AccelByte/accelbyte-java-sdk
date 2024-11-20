@@ -32,6 +32,26 @@ public class ModelsRuleResponseV1 extends Model {
   private List<ModelsRuleInformation> ruleDetail;
 
   @JsonIgnore
+  public String getAllowedAction() {
+    return this.allowedAction;
+  }
+
+  @JsonIgnore
+  public AllowedAction getAllowedActionAsEnum() {
+    return AllowedAction.valueOf(this.allowedAction);
+  }
+
+  @JsonIgnore
+  public void setAllowedAction(final String allowedAction) {
+    this.allowedAction = allowedAction;
+  }
+
+  @JsonIgnore
+  public void setAllowedActionFromEnum(final AllowedAction allowedAction) {
+    this.allowedAction = allowedAction.toString();
+  }
+
+  @JsonIgnore
   public ModelsRuleResponseV1 createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
@@ -39,5 +59,35 @@ public class ModelsRuleResponseV1 extends Model {
   @JsonIgnore
   public List<ModelsRuleResponseV1> createFromJsonList(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, new TypeReference<List<ModelsRuleResponseV1>>() {});
+  }
+
+  public enum AllowedAction {
+    CreateGroup("createGroup"),
+    JoinGroup("joinGroup");
+
+    private String value;
+
+    AllowedAction(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class ModelsRuleResponseV1Builder {
+    private String allowedAction;
+
+    public ModelsRuleResponseV1Builder allowedAction(final String allowedAction) {
+      this.allowedAction = allowedAction;
+      return this;
+    }
+
+    public ModelsRuleResponseV1Builder allowedActionFromEnum(final AllowedAction allowedAction) {
+      this.allowedAction = allowedAction.toString();
+      return this;
+    }
   }
 }

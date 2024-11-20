@@ -77,6 +77,11 @@ public class QueryUserEntitlements implements Callable<Integer> {
   Boolean fuzzyMatchName;
 
   @Option(
+      names = {"--ignoreActiveDate"},
+      description = "ignoreActiveDate")
+  Boolean ignoreActiveDate;
+
+  @Option(
       names = {"--itemId"},
       description = "itemId",
       split = ",")
@@ -129,6 +134,7 @@ public class QueryUserEntitlements implements Callable<Integer> {
               .entitlementName(entitlementName)
               .features(features)
               .fuzzyMatchName(fuzzyMatchName)
+              .ignoreActiveDate(ignoreActiveDate)
               .itemId(itemId)
               .limit(limit)
               .offset(offset)

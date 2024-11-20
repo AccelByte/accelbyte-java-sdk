@@ -29,21 +29,22 @@ import net.accelbyte.sdk.core.util.Helper;
  * "autoKickOnDisconnect", "profanityFilter", "enableChat", "entitlementCheck",
  * "cancelTicketOnDisconnect", "concurrentUsersLimit", "readyConsentTimeout",
  * "disableInvitationOnJoinParty", "allowJoinPartyDuringMatchmaking", "allowInviteNonConnectedUser",
- * "keepPresenceActivityOnDisconnect", "maxDSWaitTime", "maxFriendsLimit" ], "properties": {
- * "allowInviteNonConnectedUser": { "type": "boolean" }, "allowJoinPartyDuringMatchmaking": {
- * "type": "boolean" }, "autoKickOnDisconnect": { "type": "boolean" }, "autoKickOnDisconnectDelay":
- * { "type": "integer", "format": "int64" }, "cancelTicketOnDisconnect": { "type": "boolean" },
- * "chatRateLimitBurst": { "type": "integer", "format": "int32" }, "chatRateLimitDuration": {
- * "type": "integer", "format": "int64" }, "concurrentUsersLimit": { "type": "integer", "format":
- * "int32" }, "disableInvitationOnJoinParty": { "type": "boolean" }, "enableChat": { "type":
- * "boolean" }, "entitlementCheck": { "type": "boolean" }, "entitlementItemID": { "type": "string"
- * }, "generalRateLimitBurst": { "type": "integer", "format": "int32" }, "generalRateLimitDuration":
- * { "type": "integer", "format": "int64" }, "keepPresenceActivityOnDisconnect": { "type": "boolean"
- * }, "maxDSWaitTime": { "type": "integer", "format": "int64" }, "maxFriendsLimit": { "type":
- * "integer", "format": "int32" }, "maxPartyMember": { "type": "integer", "format": "int32" },
- * "namespace": { "type": "string" }, "profanityFilter": { "type": "boolean" },
- * "readyConsentTimeout": { "type": "integer", "format": "int64" }, "unregisterDelay": { "type":
- * "integer", "format": "int64" } } }
+ * "keepPresenceActivityOnDisconnect", "maxDSWaitTime", "maxFriendsLimit", "requestMetadataMaxSize"
+ * ], "properties": { "allowInviteNonConnectedUser": { "type": "boolean" },
+ * "allowJoinPartyDuringMatchmaking": { "type": "boolean" }, "autoKickOnDisconnect": { "type":
+ * "boolean" }, "autoKickOnDisconnectDelay": { "type": "integer", "format": "int64" },
+ * "cancelTicketOnDisconnect": { "type": "boolean" }, "chatRateLimitBurst": { "type": "integer",
+ * "format": "int32" }, "chatRateLimitDuration": { "type": "integer", "format": "int64" },
+ * "concurrentUsersLimit": { "type": "integer", "format": "int32" }, "disableInvitationOnJoinParty":
+ * { "type": "boolean" }, "enableChat": { "type": "boolean" }, "entitlementCheck": { "type":
+ * "boolean" }, "entitlementItemID": { "type": "string" }, "generalRateLimitBurst": { "type":
+ * "integer", "format": "int32" }, "generalRateLimitDuration": { "type": "integer", "format":
+ * "int64" }, "keepPresenceActivityOnDisconnect": { "type": "boolean" }, "maxDSWaitTime": { "type":
+ * "integer", "format": "int64" }, "maxFriendsLimit": { "type": "integer", "format": "int32" },
+ * "maxPartyMember": { "type": "integer", "format": "int32" }, "namespace": { "type": "string" },
+ * "profanityFilter": { "type": "boolean" }, "readyConsentTimeout": { "type": "integer", "format":
+ * "int64" }, "requestMetadataMaxSize": { "type": "integer", "format": "int32" }, "unregisterDelay":
+ * { "type": "integer", "format": "int64" } } }
  */
 @Getter
 @Setter

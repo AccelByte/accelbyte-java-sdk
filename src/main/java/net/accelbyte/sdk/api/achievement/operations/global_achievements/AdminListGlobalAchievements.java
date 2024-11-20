@@ -132,4 +132,38 @@ public class AdminListGlobalAchievements extends Operation {
     result.put("tags", "csv");
     return result;
   }
+
+  public enum SortBy {
+    AchievedAt("achievedAt"),
+    AchievedAtasc("achievedAt:asc"),
+    AchievedAtdesc("achievedAt:desc"),
+    CreatedAt("createdAt"),
+    CreatedAtasc("createdAt:asc"),
+    CreatedAtdesc("createdAt:desc");
+
+    private String value;
+
+    SortBy(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class AdminListGlobalAchievementsBuilder {
+    private String sortBy;
+
+    public AdminListGlobalAchievementsBuilder sortBy(final String sortBy) {
+      this.sortBy = sortBy;
+      return this;
+    }
+
+    public AdminListGlobalAchievementsBuilder sortByFromEnum(final SortBy sortBy) {
+      this.sortBy = sortBy.toString();
+      return this;
+    }
+  }
 }

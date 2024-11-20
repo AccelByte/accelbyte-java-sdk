@@ -135,4 +135,35 @@ public class ListUserContributions extends Operation {
     result.put("tags", "csv");
     return result;
   }
+
+  public enum SortBy {
+    ContributedValue("contributedValue"),
+    ContributedValueasc("contributedValue:asc"),
+    ContributedValuedesc("contributedValue:desc");
+
+    private String value;
+
+    SortBy(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class ListUserContributionsBuilder {
+    private String sortBy;
+
+    public ListUserContributionsBuilder sortBy(final String sortBy) {
+      this.sortBy = sortBy;
+      return this;
+    }
+
+    public ListUserContributionsBuilder sortByFromEnum(final SortBy sortBy) {
+      this.sortBy = sortBy.toString();
+      return this;
+    }
+  }
 }

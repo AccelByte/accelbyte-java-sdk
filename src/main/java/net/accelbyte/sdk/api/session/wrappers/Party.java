@@ -31,6 +31,16 @@ public class Party {
   }
 
   /**
+   * @see AdminDeleteBulkParties
+   */
+  public ApimodelsDeleteBulkPartySessionsAPIResponse adminDeleteBulkParties(
+      AdminDeleteBulkParties input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminSyncNativeSession
    */
   public void adminSyncNativeSession(AdminSyncNativeSession input) throws Exception {

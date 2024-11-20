@@ -41,7 +41,7 @@ public class AdminQueryPlayerAttributes extends Operation {
   private String path = "/session/v1/admin/namespaces/{namespace}/users/attributes";
 
   private String method = "GET";
-  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
 

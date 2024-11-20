@@ -25,6 +25,14 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class UpdatePolicyRequest extends Model {
 
+  @JsonProperty("countries")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> countries;
+
+  @JsonProperty("countryGroupName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String countryGroupName;
+
   @JsonProperty("description")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String description;

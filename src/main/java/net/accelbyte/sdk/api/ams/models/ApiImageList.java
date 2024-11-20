@@ -28,6 +28,9 @@ public class ApiImageList extends Model {
   @JsonProperty("images")
   private List<ApiImageListItem> images;
 
+  @JsonProperty("paging")
+  private ApiPagingInfo paging;
+
   @JsonIgnore
   public ApiImageList createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

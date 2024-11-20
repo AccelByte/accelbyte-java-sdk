@@ -106,4 +106,38 @@ public class AdminListTags extends Operation {
     result.put("sortBy", "None");
     return result;
   }
+
+  public enum SortBy {
+    CreatedAt("createdAt"),
+    CreatedAtasc("createdAt:asc"),
+    CreatedAtdesc("createdAt:desc"),
+    Name("name"),
+    Nameasc("name:asc"),
+    Namedesc("name:desc");
+
+    private String value;
+
+    SortBy(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class AdminListTagsBuilder {
+    private String sortBy;
+
+    public AdminListTagsBuilder sortBy(final String sortBy) {
+      this.sortBy = sortBy;
+      return this;
+    }
+
+    public AdminListTagsBuilder sortByFromEnum(final SortBy sortBy) {
+      this.sortBy = sortBy.toString();
+      return this;
+    }
+  }
 }

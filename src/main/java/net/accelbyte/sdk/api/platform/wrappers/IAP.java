@@ -317,6 +317,16 @@ public class IAP {
   }
 
   /**
+   * @see GetIAPOrderConsumeDetails
+   */
+  public List<IAPOrderConsumeDetailInfo> getIAPOrderConsumeDetails(GetIAPOrderConsumeDetails input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see QueryUserIAPOrders
    */
   public IAPOrderPagingSlicedResult queryUserIAPOrders(QueryUserIAPOrders input) throws Exception {

@@ -50,6 +50,8 @@ public class ArtifactGet extends Operation {
   private Integer offset;
   private String region;
   private String serverId;
+  private String sortBy;
+  private String sortDirection;
   private String startDate;
   private String status;
 
@@ -71,6 +73,8 @@ public class ArtifactGet extends Operation {
       Integer offset,
       String region,
       String serverId,
+      String sortBy,
+      String sortDirection,
       String startDate,
       String status) {
     this.namespace = namespace;
@@ -84,6 +88,8 @@ public class ArtifactGet extends Operation {
     this.offset = offset;
     this.region = region;
     this.serverId = serverId;
+    this.sortBy = sortBy;
+    this.sortDirection = sortDirection;
     this.startDate = startDate;
     this.status = status;
 
@@ -116,6 +122,9 @@ public class ArtifactGet extends Operation {
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
     queryParams.put("region", this.region == null ? null : Arrays.asList(this.region));
     queryParams.put("serverId", this.serverId == null ? null : Arrays.asList(this.serverId));
+    queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
+    queryParams.put(
+        "sortDirection", this.sortDirection == null ? null : Arrays.asList(this.sortDirection));
     queryParams.put("startDate", this.startDate == null ? null : Arrays.asList(this.startDate));
     queryParams.put("status", this.status == null ? null : Arrays.asList(this.status));
     return queryParams;
@@ -152,8 +161,40 @@ public class ArtifactGet extends Operation {
     result.put("offset", "None");
     result.put("region", "None");
     result.put("serverId", "None");
+    result.put("sortBy", "None");
+    result.put("sortDirection", "None");
     result.put("startDate", "None");
     result.put("status", "None");
     return result;
+  }
+
+  public enum SortDirection {
+    Asc("asc"),
+    Desc("desc");
+
+    private String value;
+
+    SortDirection(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class ArtifactGetBuilder {
+    private String sortDirection;
+
+    public ArtifactGetBuilder sortDirection(final String sortDirection) {
+      this.sortDirection = sortDirection;
+      return this;
+    }
+
+    public ArtifactGetBuilder sortDirectionFromEnum(final SortDirection sortDirection) {
+      this.sortDirection = sortDirection.toString();
+      return this;
+    }
   }
 }

@@ -74,7 +74,8 @@ public class DtoFinishedDataDeletion extends Model {
   }
 
   public enum Status {
-    CompletedFailed("Completed,Failed");
+    Completed("Completed"),
+    Failed("Failed");
 
     private String value;
 

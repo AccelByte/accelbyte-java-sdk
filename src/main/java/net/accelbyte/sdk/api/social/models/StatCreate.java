@@ -29,6 +29,10 @@ public class StatCreate extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> cycleIds;
 
+  @JsonProperty("cycleOverrides")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<CycleOverrideRequest> cycleOverrides;
+
   @JsonProperty("defaultValue")
   private Float defaultValue;
 

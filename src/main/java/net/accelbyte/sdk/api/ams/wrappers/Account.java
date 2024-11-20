@@ -50,10 +50,9 @@ public class Account {
   }
 
   /**
-   * @see AdminAccountLinkTokenPost
+   * @see AdminAccountLink
    */
-  public ApiAccountLinkResponse adminAccountLinkTokenPost(AdminAccountLinkTokenPost input)
-      throws Exception {
+  public ApiAccountLinkResponse adminAccountLink(AdminAccountLink input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

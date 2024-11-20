@@ -25,9 +25,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * namespace This endpoint return list of user ID by given platform ID and list of platform user ID,
  * the max count is 100.
  *
- * <p>Supported platform: - steam - steamopenid - ps4web - ps4 - ps5 - live - xblweb - oculus -
- * oculusweb - facebook - google - googleplaygames - twitch - discord - apple - device - justice -
- * epicgames - nintendo - awscognito - netflix - snapchat - oidc platform id
+ * <p>Supported platform: - steam - steamopenid - ps4web - ps4 - ps5 - live - xblweb - oculus - if
+ * query by app user id, please set the param **pidType** to **OCULUS_APP_USER_ID** - oculusweb -
+ * facebook - google - googleplaygames - twitch - discord - apple - device - justice - epicgames -
+ * nintendo - awscognito - netflix - snapchat - oidc platform id
  *
  * <p>Note: **nintendo platform user ID**: NSA ID need to be appended with Environment ID using
  * colon as separator. e.g kmzwa8awaa:dd1

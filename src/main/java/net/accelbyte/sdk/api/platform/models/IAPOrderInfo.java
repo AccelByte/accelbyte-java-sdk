@@ -155,6 +155,8 @@ public class IAPOrderInfo extends Model {
   public enum Status {
     FAILED("FAILED"),
     FULFILLED("FULFILLED"),
+    PARTIALREVOKED("PARTIAL_REVOKED"),
+    REVOKED("REVOKED"),
     VERIFIED("VERIFIED");
 
     private String value;

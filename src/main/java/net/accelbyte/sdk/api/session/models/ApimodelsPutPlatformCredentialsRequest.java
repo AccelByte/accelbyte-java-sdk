@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ApimodelsPutPlatformCredentialsRequest extends Model {
 
   @JsonProperty("psn")
-  private ModelsPSNAppServerCredentials psn;
+  private ApimodelsPSNAppServerCredentialRecord psn;
 
   @JsonIgnore
   public ApimodelsPutPlatformCredentialsRequest createFromJson(String json)

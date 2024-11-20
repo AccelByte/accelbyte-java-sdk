@@ -29,6 +29,14 @@ public class RetrieveAcceptedAgreementResponse extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String countryCode;
 
+  @JsonProperty("countryGroupName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String countryGroupName;
+
+  @JsonProperty("countryType")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String countryType;
+
   @JsonProperty("createdAt")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String createdAt;

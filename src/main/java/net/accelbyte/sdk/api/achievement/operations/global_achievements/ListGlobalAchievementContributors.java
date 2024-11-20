@@ -112,4 +112,35 @@ public class ListGlobalAchievementContributors extends Operation {
     result.put("sortBy", "None");
     return result;
   }
+
+  public enum SortBy {
+    ContributedValue("contributedValue"),
+    ContributedValueasc("contributedValue:asc"),
+    ContributedValuedesc("contributedValue:desc");
+
+    private String value;
+
+    SortBy(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class ListGlobalAchievementContributorsBuilder {
+    private String sortBy;
+
+    public ListGlobalAchievementContributorsBuilder sortBy(final String sortBy) {
+      this.sortBy = sortBy;
+      return this;
+    }
+
+    public ListGlobalAchievementContributorsBuilder sortByFromEnum(final SortBy sortBy) {
+      this.sortBy = sortBy.toString();
+      return this;
+    }
+  }
 }

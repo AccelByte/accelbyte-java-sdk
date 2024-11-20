@@ -23,20 +23,25 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminBulkSaveItemToInventory
  *
- * <p>This endpoint will be used by client to save the purchased item to user's inventory, since
- * want to integrate the inventory service to e-commerce, source field will be mandatory to
- * determine the item, supported field âOTHERâ and âECOMMERCEâ
+ * <p>**This endpoint is used for bulk saving purchased items to a specific inventory of the player,
+ * with the following conditions for E-commerce items:** - Attributes such as slotUsed,
+ * serverCustomAttributes, customAttributes, and type will be overridden by the attributes
+ * configured in the AccelByte Gaming Services (AGS) Store. - Storing E-commerce items in a
+ * particular slot will follow its entitlement and item configuration, such as durable, consumable,
+ * stackable and non-stackable. - The quantity is dynamically set based on an itemâs useCount
+ * configured in Store. When saving an item, the specified quantity will be multiplied by configured
+ * useCount for that particular item. For example, if an Item is configured with a useCount of 5 in
+ * the AGS Store and it is saved with a qty of 2, the itemâs quantity will be stored as 2 in the
+ * playerâs inventory.
  *
- * <p>Notes : source ECOMMERCE, the quantity of ecommerce items saved is dynamically adjusted based
- * on an item's useCount configured in Store. When saving items, the quantity specified for each
- * item will be multiplied by the useCount i.e. If the store item is configured with a useCount of 5
- * and the quantity of a particular item is set to 2 during saving, it will be stored as 10
+ * <p>**When configuring your request, note the following:** - The source field is mandatory for
+ * determining the source of the item. The supported values are OTHER (for items coming from other
+ * sources) and E-commerce for items coming from the E-commerce integration. - For other-sourced
+ * items, the type can be manually defined when saving the item. - A maximum of 10 items can be
+ * saved in a single bulk call.
  *
- * <p>Type: - ingame - app - coin etc..
- *
- * <p>Max length of the payload is 10 items
- *
- * <p>Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [CREATE]
+ * <p>You must have this permission to access this endpoint: **Permission:
+ * ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM[CREATE]**
  */
 @Getter
 @Setter

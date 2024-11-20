@@ -141,4 +141,38 @@ public class PublicListUserAchievements extends Operation {
     result.put("tags", "csv");
     return result;
   }
+
+  public enum SortBy {
+    AchievedAt("achievedAt"),
+    AchievedAtasc("achievedAt:asc"),
+    AchievedAtdesc("achievedAt:desc"),
+    CreatedAt("createdAt"),
+    CreatedAtasc("createdAt:asc"),
+    CreatedAtdesc("createdAt:desc");
+
+    private String value;
+
+    SortBy(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class PublicListUserAchievementsBuilder {
+    private String sortBy;
+
+    public PublicListUserAchievementsBuilder sortBy(final String sortBy) {
+      this.sortBy = sortBy;
+      return this;
+    }
+
+    public PublicListUserAchievementsBuilder sortByFromEnum(final SortBy sortBy) {
+      this.sortBy = sortBy.toString();
+      return this;
+    }
+  }
 }

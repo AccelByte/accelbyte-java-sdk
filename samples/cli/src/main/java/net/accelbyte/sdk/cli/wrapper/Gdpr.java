@@ -56,6 +56,7 @@ import picocli.CommandLine.Command;
       PublicGetMyAccountDeletionStatus.class,
       S2SGetListFinishedAccountDeletionRequest.class,
       S2SGetListFinishedPersonalDataRequest.class,
+      S2SGetDataRequestByRequestID.class,
       S2SSubmitUserAccountDeletionRequest.class,
       S2SRequestDataRetrieval.class,
       S2SGeneratePersonalDataURL.class,

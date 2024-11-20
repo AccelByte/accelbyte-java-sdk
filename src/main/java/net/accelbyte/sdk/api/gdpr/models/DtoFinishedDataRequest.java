@@ -39,6 +39,9 @@ public class DtoFinishedDataRequest extends Model {
   @JsonProperty("requestDate")
   private String requestDate;
 
+  @JsonProperty("requestId")
+  private String requestId;
+
   @JsonProperty("status")
   private String status;
 
@@ -77,7 +80,8 @@ public class DtoFinishedDataRequest extends Model {
   }
 
   public enum Status {
-    CompletedFailed("Completed,Failed");
+    Completed("Completed"),
+    Failed("Failed");
 
     private String value;
 
