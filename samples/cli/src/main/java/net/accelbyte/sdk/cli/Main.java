@@ -26,6 +26,7 @@ import picocli.CommandLine;
       Basic.class,
       Chat.class,
       Cloudsave.class,
+      Csm.class,
       Dsartifact.class,
       Dslogmanager.class,
       Dsmc.class,
