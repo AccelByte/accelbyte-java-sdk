@@ -272,6 +272,162 @@ publicPlayerRecord.deletePlayerRecordHandlerV1(
         .key(playerRecordKey)
         .build());
 ```
+## CSM
+
+Source: [TestIntegrationServiceCsm.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceCsm.java)
+
+### Create Extend app
+
+```java
+final CreateAppV2 createAppV2Op = CreateAppV2.builder()
+    .app(EXTEND_APP_NAME)
+    .namespace(namespace)
+    .body(ApimodelCreateAppV2Request.builder()
+        .cpu(ApimodelCPURequest.builder().requestCPU(100).build())
+        .description("test integration create extend app for extend sdk")
+        .memory(ApimodelMemoryRequest.builder().requestMemory(100).build())
+        .scenario("service-extension")
+        .build())
+    .build();
+
+final ApimodelAppItem createAppV2Res = appV2Wrapper.createAppV2(createAppV2Op);
+```
+
+### Get Extend app
+
+```java
+final GetAppV2 getAppV2Op = GetAppV2.builder()
+    .app(EXTEND_APP_NAME)
+    .namespace(namespace)
+    .build();
+
+final ApimodelAppItem getAppv2Res = appV2Wrapper.getAppV2(getAppV2Op);
+```
+
+### Save secret variable
+
+```java
+final SaveSecretV2 saveSecretV2Op = SaveSecretV2
+    .builder()
+    .app(EXTEND_APP_NAME)
+    .namespace(namespace)
+    .body(ApimodelSaveConfigurationV2Request.builder()
+        .configName("THIS_IS_A_SECRET")
+        .value("ssshhhh")
+        .source("plaintext")
+        .applyMask(true)
+        .build())
+    .build();
+
+final ApimodelSaveConfigurationV2Response saveSecretV2Res = wrapper.saveSecretV2(saveSecretV2Op);
+```
+
+### Get secret variable list
+
+```java
+final GetListOfSecretsV2 getListOfSecretsV2Op = GetListOfSecretsV2.builder()
+    .app(EXTEND_APP_NAME)
+    .namespace(namespace)
+    .build();
+
+final ApimodelGetListOfConfigurationsV2Response getListOfSecretsV2Res = wrapper
+    .getListOfSecretsV2(getListOfSecretsV2Op);
+```
+
+### Update secret variable
+
+```java
+final UpdateSecretV2 updateSecretV2Op = UpdateSecretV2.builder()
+    .app(EXTEND_APP_NAME)
+    .configId(secretConfigId)
+    .namespace(namespace)
+    .body(ApimodelUpdateConfigurationV2Request.builder()
+        .value("silence")
+        .applyMask(true)
+        .build())
+    .build();
+
+final ApimodelUpdateConfigurationV2Response updateSecretV2Res = wrapper.updateSecretV2(updateSecretV2Op);
+```
+
+### Delete secret variable
+
+```java
+final DeleteSecretV2 operation = DeleteSecretV2.builder()
+    .app(EXTEND_APP_NAME)
+    .configId(secretConfigId)
+    .namespace(namespace)
+    .build();
+
+wrapper.deleteSecretV2(operation);
+```
+
+### Save environment variable
+
+```java
+final SaveVariableV2 saveVariableV2Op = SaveVariableV2.builder()
+    .app(EXTEND_APP_NAME)
+    .namespace(namespace)
+    .body(ApimodelSaveConfigurationV2Request.builder()
+        .configName("MY_ENV_VAR")
+        .value("helloworld!")
+        .source("plaintext")
+        .applyMask(true)
+        .build())
+    .build();
+
+final ApimodelSaveConfigurationV2Response saveVariableV2Res = wrapper.saveVariableV2(saveVariableV2Op);
+```
+
+### Get environment variable list
+
+```java
+final GetListOfVariablesV2 getListOfVariablesV2Op = GetListOfVariablesV2.builder()
+    .app(EXTEND_APP_NAME)
+    .namespace(namespace)
+    .build();
+final ApimodelGetListOfConfigurationsV2Response getListOfVariablesV2Res = wrapper
+    .getListOfVariablesV2(getListOfVariablesV2Op);
+```
+
+### Update environment variable
+
+```java
+final UpdateVariableV2 updateVariableV2Op = UpdateVariableV2.builder()
+    .app(EXTEND_APP_NAME)
+    .configId(envConfigId)
+    .namespace(namespace)
+    .body(ApimodelUpdateConfigurationV2Request.builder()
+        .value("hellosekai!")
+        .applyMask(true)
+        .build())
+    .build();
+final ApimodelUpdateConfigurationV2Response updateVariableV2Res = wrapper.updateVariableV2(updateVariableV2Op);
+```
+
+### Delete environment variable
+
+```java
+final DeleteVariableV2 operation = DeleteVariableV2.builder()
+    .app(EXTEND_APP_NAME)
+    .configId(envConfigId)
+    .namespace(namespace)
+    .build();
+
+wrapper.deleteVariableV2(operation);
+```
+
+### Delete Extend app
+
+```java
+final DeleteAppV2 deleteAppV2Op = DeleteAppV2.builder()
+    .app(EXTEND_APP_NAME)
+    .namespace(namespace)
+    .forced("true")
+    .build();
+
+appV2Wrapper.deleteAppV2(deleteAppV2Op);
+```
 ## GameTelemetry
 
 Source: [TestIntegrationServiceGameTelemetry.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceGameTelemetry.java)
