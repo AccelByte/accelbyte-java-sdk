@@ -39,6 +39,10 @@ public class TestIntegrationServiceGameTelemetry extends TestIntegration {
   @Test
   @Order(1)
   public void test() throws Exception {
+    if (isUsingAGSStarter()) {
+      return; // SKIP
+    }
+
     final String steamId = "76561199259217491";
     final String playTime = "4";
     final String eventName = "javaserversdkevent";
