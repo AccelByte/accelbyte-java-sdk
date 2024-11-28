@@ -16,7 +16,6 @@ import java.time.temporal.ChronoUnit;
 import java.util.Collections;
 import net.accelbyte.sdk.api.challenge.models.*;
 import net.accelbyte.sdk.api.challenge.models.ModelCreateChallengeRequest.*;
-import net.accelbyte.sdk.api.challenge.models.ModelCreateGoalRequest.*;
 import net.accelbyte.sdk.api.challenge.models.ModelPredicate.*;
 import net.accelbyte.sdk.api.challenge.models.ModelRequirement.Operator;
 import net.accelbyte.sdk.api.challenge.operations.challenge_configuration.*;
