@@ -16,16 +16,16 @@ import java.time.format.DateTimeFormatter;
 import net.accelbyte.sdk.api.iam.models.AccountCreateUserRequestV4;
 import net.accelbyte.sdk.api.iam.models.AccountCreateUserRequestV4.AuthType;
 import net.accelbyte.sdk.api.iam.models.AccountCreateUserResponseV4;
-import net.accelbyte.sdk.api.iam.models.ModelPublicUserResponseV3;
 import net.accelbyte.sdk.api.iam.models.ModelUserCreateRequestV3;
 import net.accelbyte.sdk.api.iam.models.ModelUserCreateResponseV3;
+import net.accelbyte.sdk.api.iam.models.ModelUserPublicInfoResponseV4;
 import net.accelbyte.sdk.api.iam.models.ModelUserResponseV3;
 import net.accelbyte.sdk.api.iam.models.ModelUserUpdateRequestV3;
 import net.accelbyte.sdk.api.iam.operations.users.AdminDeleteUserInformationV3;
 import net.accelbyte.sdk.api.iam.operations.users.AdminUpdateUserV3;
 import net.accelbyte.sdk.api.iam.operations.users.PublicCreateUserV3;
-import net.accelbyte.sdk.api.iam.operations.users.PublicGetUserByUserIdV3;
 import net.accelbyte.sdk.api.iam.operations.users_v4.PublicCreateUserV4;
+import net.accelbyte.sdk.api.iam.operations.users_v4.PublicGetUserPublicInfoByUserIdV4;
 import net.accelbyte.sdk.api.iam.wrappers.Users;
 import net.accelbyte.sdk.api.iam.wrappers.UsersV4;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -58,6 +58,7 @@ public class TestIntegrationServiceIam extends TestIntegration {
     final String userCountry = "ID";
 
     final Users usersWrapper = new Users(sdk);
+    final UsersV4 usersV4Wrapper = new UsersV4(sdk);
 
     // CASE Create a user (v3)
 
@@ -90,8 +91,8 @@ public class TestIntegrationServiceIam extends TestIntegration {
     assertThrows(
         HttpResponseException.class,
         () -> {
-          usersWrapper.publicGetUserByUserIdV3(
-              PublicGetUserByUserIdV3.builder().namespace(this.namespace).userId(userId).build());
+            usersV4Wrapper.publicGetUserPublicInfoByUserIdV4(
+                PublicGetUserPublicInfoByUserIdV4.builder().namespace(this.namespace).userId(userId).build());
         });
   }
 
@@ -135,9 +136,9 @@ public class TestIntegrationServiceIam extends TestIntegration {
 
     // CASE Get a user
 
-    final ModelPublicUserResponseV3 getUserResult =
-        usersWrapper.publicGetUserByUserIdV3(
-            PublicGetUserByUserIdV3.builder().namespace(this.namespace).userId(userId).build());
+    final ModelUserPublicInfoResponseV4 getUserResult =
+        usersV4Wrapper.publicGetUserPublicInfoByUserIdV4(
+            PublicGetUserPublicInfoByUserIdV4.builder().namespace(this.namespace).userId(userId).build());
 
     // ESAC
 
@@ -183,8 +184,8 @@ public class TestIntegrationServiceIam extends TestIntegration {
     assertThrows(
         HttpResponseException.class,
         () -> {
-          usersWrapper.publicGetUserByUserIdV3(
-              PublicGetUserByUserIdV3.builder().namespace(this.namespace).userId(userId).build());
+            usersV4Wrapper.publicGetUserPublicInfoByUserIdV4(
+                PublicGetUserPublicInfoByUserIdV4.builder().namespace(this.namespace).userId(userId).build());
         });
   }
 
