@@ -20,11 +20,11 @@ application {
 }
 
 dependencies {
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.18.2'
     implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.13.0'
-    implementation 'com.google.guava:guava:11.0.2'
+    implementation 'com.google.guava:guava:33.3.1-jre'
     implementation 'com.squareup.okhttp3:okhttp:4.9.1'
-    implementation 'commons-io:commons-io:2.11.0'
+    implementation 'commons-io:commons-io:2.18.0'
     implementation 'info.picocli:picocli:4.6.2'
     implementation 'net.accelbyte.sdk:sdk:+'
     implementation 'org.apache.commons:commons-lang3:3.0'
