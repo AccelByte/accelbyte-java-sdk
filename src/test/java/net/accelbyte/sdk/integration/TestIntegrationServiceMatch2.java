@@ -191,6 +191,7 @@ public class TestIntegrationServiceMatch2 extends TestIntegration {
                           .username(player1Username)
                           .country("ID")
                           .dateOfBirth("1995-01-10")
+                          .uniqueDisplayName(player1Username)
                           .build())
                   .build());
 

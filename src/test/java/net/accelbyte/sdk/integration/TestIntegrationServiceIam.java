@@ -121,6 +121,7 @@ public class TestIntegrationServiceIam extends TestIntegration {
             .username(userName)
             .country(userCountry)
             .dateOfBirth(userDateOfBirth)
+            .uniqueDisplayName(userName)
             .build();
 
     final AccountCreateUserResponseV4 createUserResult =

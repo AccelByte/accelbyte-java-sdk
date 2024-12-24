@@ -208,6 +208,7 @@ public class TestIntegrationServiceSession extends TestIntegration {
                           .username(player1Username)
                           .country("ID")
                           .dateOfBirth("1995-01-10")
+                          .uniqueDisplayName(player1Username)
                           .build())
                   .build());
 
@@ -226,6 +227,7 @@ public class TestIntegrationServiceSession extends TestIntegration {
                           .username(player2Username)
                           .country("ID")
                           .dateOfBirth("1995-01-10")
+                          .uniqueDisplayName(player2Username)
                           .build())
                   .build());
 
@@ -406,6 +408,7 @@ public class TestIntegrationServiceSession extends TestIntegration {
                           .username(player1Username)
                           .country("ID")
                           .dateOfBirth("1995-01-10")
+                          .uniqueDisplayName(player1Username)
                           .build())
                   .build());
 
@@ -424,6 +427,7 @@ public class TestIntegrationServiceSession extends TestIntegration {
                           .username(player2Username)
                           .country("ID")
                           .dateOfBirth("1995-01-10")
+                          .uniqueDisplayName(player2Username)
                           .build())
                   .build());
 
