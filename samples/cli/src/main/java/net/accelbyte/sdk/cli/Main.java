@@ -1,7 +1,9 @@
 /*
- * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * Copyright (c) 2024 AccelByte Inc. All Rights Reserved
  * This is licensed software from AccelByte Inc, for limitations
  * and restrictions contact your company contract manager.
+ *
+ * Code generated. DO NOT EDIT.
  */
 
 package net.accelbyte.sdk.cli;
@@ -21,9 +23,11 @@ import picocli.CommandLine;
       Logout.class,
       LoginClient.class,
       LobbyWebsocket.class,
+      // API
       Achievement.class,
       Ams.class,
       Basic.class,
+      Challenge.class,
       Chat.class,
       Cloudsave.class,
       Csm.class,
@@ -34,22 +38,22 @@ import picocli.CommandLine;
       Gdpr.class,
       Group.class,
       Iam.class,
+      Inventory.class,
       Leaderboard.class,
       Legal.class,
       Lobby.class,
-      Matchmaking.class,
       Match2.class,
+      Matchmaking.class,
       Platform.class,
       Qosm.class,
       Reporting.class,
       Seasonpass.class,
       Session.class,
       Sessionbrowser.class,
+      Sessionhistory.class,
       Social.class,
-      Ugc.class,
-      Inventory.class,
-      Challenge.class,
-      Sessionhistory.class
+      Ugc.class
+      // API
     })
 public class Main implements Callable<Integer> {
 
