@@ -104,6 +104,8 @@ public class TestIntegrationServiceReporting extends TestIntegration {
       final String player1Password = TestHelper.generateRandomPassword(10);
       final String player2Username = ("javasdk_" + TestHelper.generateRandomId(8));
       final String player2Password = TestHelper.generateRandomPassword(10);
+      final String player1EmailAdd = player1Username + "test.com";
+      final String player2EmailAdd = player2Username + "test.com";
 
       final AccountCreateUserResponseV4 createUserResult1 =
           usersV4Wrapper.publicCreateUserV4(
@@ -112,7 +114,7 @@ public class TestIntegrationServiceReporting extends TestIntegration {
                   .body(
                       AccountCreateUserRequestV4.builder()
                           .authTypeFromEnum(AuthType.EMAILPASSWD)
-                          .emailAddress(player1Username + "@test.com")
+                          .emailAddress(player1EmailAdd)
                           .password(player1Password)
                           .displayName("Java Server SDK Test")
                           .username(player1Username)
@@ -128,7 +130,7 @@ public class TestIntegrationServiceReporting extends TestIntegration {
                   .body(
                       AccountCreateUserRequestV4.builder()
                           .authTypeFromEnum(AuthType.EMAILPASSWD)
-                          .emailAddress(player2Username + "@test.com")
+                          .emailAddress(player2EmailAdd)
                           .password(player2Password)
                           .displayName("Java Server SDK Test")
                           .username(player2Username)
@@ -150,7 +152,7 @@ public class TestIntegrationServiceReporting extends TestIntegration {
                 new DefaultTokenRepository(),
                 sdk.getSdkConfiguration().getConfigRepository());
 
-        player1Sdk.loginUser(player1Username, player1Password);
+        player1Sdk.loginUser(player1EmailAdd, player1Password);
 
         final PublicReports publicReportsWrapper = new PublicReports(player1Sdk);
 

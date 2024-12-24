@@ -177,6 +177,7 @@ public class TestIntegrationServiceMatch2 extends TestIntegration {
     try {
       final String player1Username = ("javasdk_" + TestHelper.generateRandomId(8));
       final String player1Password = TestHelper.generateRandomPassword(10);
+      final String player1EmailAdd = player1Username + "test.com";
 
       final AccountCreateUserResponseV4 createUserResult =
           usersV4Wrapper.publicCreateUserV4(
@@ -185,7 +186,7 @@ public class TestIntegrationServiceMatch2 extends TestIntegration {
                   .body(
                       AccountCreateUserRequestV4.builder()
                           .authTypeFromEnum(AuthType.EMAILPASSWD)
-                          .emailAddress(player1Username + "@test.com")
+                          .emailAddress(player1EmailAdd)
                           .password(player1Password)
                           .displayName("Java Server SDK Test")
                           .username(player1Username)
@@ -197,7 +198,7 @@ public class TestIntegrationServiceMatch2 extends TestIntegration {
 
       player1UserId = createUserResult.getUserId();
 
-      player1Sdk.loginUser(player1Username, player1Password);
+      player1Sdk.loginUser(player1EmailAdd, player1Password);
 
       final Party player1PartyWrapper = new Party(player1Sdk);
       final MatchTickets player1MatchTicketWrapper = new MatchTickets(player1Sdk);
