@@ -177,7 +177,7 @@ public class TestIntegrationServiceMatch2 extends TestIntegration {
     try {
       final String player1Username = ("javasdk_" + TestHelper.generateRandomId(8));
       final String player1Password = TestHelper.generateRandomPassword(10);
-      final String player1EmailAdd = player1Username + "test.com";
+      final String player1EmailAdd = player1Username + "@test.com";
 
       final AccountCreateUserResponseV4 createUserResult =
           usersV4Wrapper.publicCreateUserV4(
