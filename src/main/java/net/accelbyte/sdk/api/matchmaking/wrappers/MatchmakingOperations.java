@@ -42,7 +42,9 @@ public class MatchmakingOperations {
 
   /**
    * @see PublicGetMessages
+   * @deprecated
    */
+  @Deprecated
   public List<LogAppMessageDeclaration> publicGetMessages(PublicGetMessages input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);

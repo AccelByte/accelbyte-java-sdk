@@ -88,6 +88,9 @@ public class PublicPatchUpdateParty extends Operation {
     if (this.partyId == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

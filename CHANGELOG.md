@@ -1,3 +1,24 @@
+<a name="v0.69.0"></a>
+## [v0.69.0]
+### test
+- **:** update junit due to https://github.com/microsoft/vscode-java-test/issues/1740
+- **integration:** add csm
+- **integration:** game telemetry - disable for shared cloud
+- **integration:** challenge - remove unused imports
+- **integration:** iam - replace deprecated endpoint
+### feat
+- **api:** add csm
+### docs
+- **common-use:** add csm
+### chore
+- **:** update dependencies to remove vulnerabilities
+- **test:** integration - add unique display name on iam create user
+- **integration:** integration - login with email address
+- **test:** integration - add unique display name on iam create userv3
+- **cli:** generate cli Main.java
+- **test:** integration - typo on the email
+
+
 <a name="v0.68.0"></a>
 ## [v0.68.0]
 ### feat

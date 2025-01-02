@@ -25,8 +25,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Gets the List of Apps for AB-Extend Customer
  *
- * <p>Available scenario: - scenario 1: `function-override` - scenario 2: `service-extension` -
- * scenario 3: `event-handler`
+ * <p>Available scenario: - scenario 3: `event-handler` - scenario 1: `function-override` - scenario
+ * 2: `service-extension`
  *
  * @deprecated
  */
@@ -92,6 +92,9 @@ public class GetAppListV1 extends Operation {
   @Override
   public boolean isValid() {
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

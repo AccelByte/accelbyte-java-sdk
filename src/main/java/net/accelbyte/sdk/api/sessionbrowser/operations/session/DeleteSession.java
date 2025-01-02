@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * DeleteSession
  *
  * <p>Delete the session (p2p) by session ID
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class DeleteSession extends Operation {

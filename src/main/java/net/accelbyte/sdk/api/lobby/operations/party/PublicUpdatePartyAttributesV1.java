@@ -24,7 +24,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Required valid user authorization
  *
  * <p>update party attributes in a namespace.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class PublicUpdatePartyAttributesV1 extends Operation {
@@ -83,6 +86,9 @@ public class PublicUpdatePartyAttributesV1 extends Operation {
       return false;
     }
     if (this.partyId == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

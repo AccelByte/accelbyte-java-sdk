@@ -29,6 +29,10 @@ public class ModelsTeam extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ModelsPartyTeam> parties;
 
+  @JsonProperty("TeamID")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String teamID;
+
   @JsonProperty("UserIDs")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> userIDs;

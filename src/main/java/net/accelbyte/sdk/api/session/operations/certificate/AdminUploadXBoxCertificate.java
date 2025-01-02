@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminUploadXBoxCertificate
  *
- * <p>Upload certificates for XBox. Certificate must be in the valid form of PFX format.
+ * <p>Upload certificates for XBox. Certificate must be in the valid form of PFX format. 'certname''
+ * must be specified to 'xbl-pfx' for Session Sync to work
  *
  * @deprecated
  */

@@ -109,6 +109,9 @@ public class AdminListUserIDByPlatformUserIDsV3 extends Operation {
     if (this.platformId == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

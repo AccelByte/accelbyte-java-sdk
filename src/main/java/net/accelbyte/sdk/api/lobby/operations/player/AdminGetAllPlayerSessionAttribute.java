@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminGetAllPlayerSessionAttribute
  *
  * <p>Get all player's session attribute by user id in a namespace.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminGetAllPlayerSessionAttribute extends Operation {

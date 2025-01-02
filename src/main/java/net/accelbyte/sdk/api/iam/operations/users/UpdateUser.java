@@ -101,6 +101,9 @@ public class UpdateUser extends Operation {
     if (this.userId == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

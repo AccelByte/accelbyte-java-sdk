@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminDeleteGoal
  *
- * <p>* Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [DELETE]
+ * <p>- Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [DELETE]
  */
 @Getter
 @Setter

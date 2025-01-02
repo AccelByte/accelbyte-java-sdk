@@ -94,6 +94,9 @@ public class CheckBalance extends Operation {
     if (this.userId == null) {
       return false;
     }
+    if (this.request == null) {
+      return false;
+    }
     return true;
   }
 

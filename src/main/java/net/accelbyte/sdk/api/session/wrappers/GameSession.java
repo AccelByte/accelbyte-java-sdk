@@ -251,7 +251,9 @@ public class GameSession {
 
   /**
    * @see AppendTeamGameSession
+   * @deprecated
    */
+  @Deprecated
   public ApimodelsGameSessionResponse appendTeamGameSession(AppendTeamGameSession input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);

@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * AddPlayerToSession
  *
  * <p>Add player to game session
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AddPlayerToSession extends Operation {
@@ -79,6 +82,9 @@ public class AddPlayerToSession extends Operation {
       return false;
     }
     if (this.sessionID == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

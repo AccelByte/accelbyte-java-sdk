@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminClaimUserRewards
  *
- * <p>* Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:REWARD [UPDATE]
+ * <p>- Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:REWARD [UPDATE]
  */
 @Getter
 @Setter
@@ -81,6 +81,9 @@ public class AdminClaimUserRewards extends Operation {
       return false;
     }
     if (this.userId == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

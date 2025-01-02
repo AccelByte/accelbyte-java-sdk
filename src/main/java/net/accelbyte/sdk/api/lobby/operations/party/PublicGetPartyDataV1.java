@@ -26,7 +26,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>load personal party data in a namespace based on Party ID
  *
  * <p>Action Code: 50101
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class PublicGetPartyDataV1 extends Operation {

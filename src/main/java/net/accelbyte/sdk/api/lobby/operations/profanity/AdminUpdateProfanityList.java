@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminUpdateProfanityList
  *
  * <p>Update the list
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminUpdateProfanityList extends Operation {
@@ -80,6 +83,9 @@ public class AdminUpdateProfanityList extends Operation {
       return false;
     }
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

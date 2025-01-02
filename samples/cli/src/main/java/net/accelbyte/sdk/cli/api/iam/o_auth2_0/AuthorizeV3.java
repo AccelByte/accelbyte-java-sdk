@@ -30,6 +30,11 @@ public class AuthorizeV3 implements Callable<Integer> {
   private static final Logger log = LogManager.getLogger(AuthorizeV3.class);
 
   @Option(
+      names = {"--blockedPlatformId"},
+      description = "blockedPlatformId")
+  String blockedPlatformId;
+
+  @Option(
       names = {"--codeChallenge"},
       description = "codeChallenge")
   String codeChallenge;
@@ -43,6 +48,16 @@ public class AuthorizeV3 implements Callable<Integer> {
       names = {"--createHeadless"},
       description = "createHeadless")
   Boolean createHeadless;
+
+  @Option(
+      names = {"--loginWebBased"},
+      description = "loginWebBased")
+  Boolean loginWebBased;
+
+  @Option(
+      names = {"--nonce"},
+      description = "nonce")
+  String nonce;
 
   @Option(
       names = {"--oneTimeLinkCode"},
@@ -107,9 +122,12 @@ public class AuthorizeV3 implements Callable<Integer> {
       final OAuth20 wrapper = new OAuth20(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth2_0.AuthorizeV3 operation =
           net.accelbyte.sdk.api.iam.operations.o_auth2_0.AuthorizeV3.builder()
+              .blockedPlatformId(blockedPlatformId)
               .codeChallenge(codeChallenge)
               .codeChallengeMethod(codeChallengeMethod)
               .createHeadless(createHeadless)
+              .loginWebBased(loginWebBased)
+              .nonce(nonce)
               .oneTimeLinkCode(oneTimeLinkCode)
               .redirectUri(redirectUri)
               .scope(scope)

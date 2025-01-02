@@ -85,6 +85,9 @@ public class PublicGameSessionInvite extends Operation {
     if (this.sessionId == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

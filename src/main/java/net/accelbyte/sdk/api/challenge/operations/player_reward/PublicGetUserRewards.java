@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicGetUserRewards
  *
- * <p>* Required permission: NAMESPACE:{namespace}:CHALLENGE:REWARD [READ]
+ * <p>- Required permission: NAMESPACE:{namespace}:CHALLENGE:REWARD [READ]
  */
 @Getter
 @Setter
@@ -37,6 +37,8 @@ public class PublicGetUserRewards extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private String challengeCode;
+  private String goalProgressionId;
   private Integer limit;
   private Integer offset;
   private String sortBy;
@@ -49,8 +51,16 @@ public class PublicGetUserRewards extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public PublicGetUserRewards(
-      String namespace, Integer limit, Integer offset, String sortBy, String status) {
+      String namespace,
+      String challengeCode,
+      String goalProgressionId,
+      Integer limit,
+      Integer offset,
+      String sortBy,
+      String status) {
     this.namespace = namespace;
+    this.challengeCode = challengeCode;
+    this.goalProgressionId = goalProgressionId;
     this.limit = limit;
     this.offset = offset;
     this.sortBy = sortBy;
@@ -71,6 +81,11 @@ public class PublicGetUserRewards extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "challengeCode", this.challengeCode == null ? null : Arrays.asList(this.challengeCode));
+    queryParams.put(
+        "goalProgressionId",
+        this.goalProgressionId == null ? null : Arrays.asList(this.goalProgressionId));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
@@ -100,11 +115,33 @@ public class PublicGetUserRewards extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("challengeCode", "None");
+    result.put("goalProgressionId", "None");
     result.put("limit", "None");
     result.put("offset", "None");
     result.put("sortBy", "None");
     result.put("status", "None");
     return result;
+  }
+
+  public enum SortBy {
+    CreatedAt("createdAt"),
+    CreatedAtasc("createdAt:asc"),
+    CreatedAtdesc("createdAt:desc"),
+    UpdatedAt("updatedAt"),
+    UpdatedAtasc("updatedAt:asc"),
+    UpdatedAtdesc("updatedAt:desc");
+
+    private String value;
+
+    SortBy(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
   }
 
   public enum Status {
@@ -124,7 +161,18 @@ public class PublicGetUserRewards extends Operation {
   }
 
   public static class PublicGetUserRewardsBuilder {
+    private String sortBy;
     private String status;
+
+    public PublicGetUserRewardsBuilder sortBy(final String sortBy) {
+      this.sortBy = sortBy;
+      return this;
+    }
+
+    public PublicGetUserRewardsBuilder sortByFromEnum(final SortBy sortBy) {
+      this.sortBy = sortBy.toString();
+      return this;
+    }
 
     public PublicGetUserRewardsBuilder status(final String status) {
       this.status = status;

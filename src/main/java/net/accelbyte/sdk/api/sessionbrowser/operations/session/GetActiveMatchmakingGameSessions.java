@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * GetActiveMatchmakingGameSessions
  *
  * <p>Get all active session for matchmaking game, this return only dedicated session type
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetActiveMatchmakingGameSessions extends Operation {

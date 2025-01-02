@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminSetPlayerSessionAttribute
  *
  * <p>Set player's session attribute by user id in a namespace.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminSetPlayerSessionAttribute extends Operation {
@@ -80,6 +83,9 @@ public class AdminSetPlayerSessionAttribute extends Operation {
       return false;
     }
     if (this.userId == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

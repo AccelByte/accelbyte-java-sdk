@@ -24,7 +24,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Update channel based on namespace and channel name
  *
  * <p>Action Code: 510111
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class UpdateMatchmakingChannel extends Operation {
@@ -82,6 +85,9 @@ public class UpdateMatchmakingChannel extends Operation {
       return false;
     }
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

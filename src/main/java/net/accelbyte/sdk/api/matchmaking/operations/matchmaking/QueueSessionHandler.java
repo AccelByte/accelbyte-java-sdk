@@ -32,7 +32,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>If a session is already queued, and game server wants to modify the data or renew the queue
  * timeout (e.g. some player left and more empty slot opened up), simply call this endpoint with the
  * updated session data.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class QueueSessionHandler extends Operation {
@@ -80,6 +83,9 @@ public class QueueSessionHandler extends Operation {
   @Override
   public boolean isValid() {
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

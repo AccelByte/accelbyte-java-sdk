@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * AddUserIntoSessionInChannel
  *
  * <p>Add user into the session in a channel.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AddUserIntoSessionInChannel extends Operation {
@@ -93,6 +96,9 @@ public class AddUserIntoSessionInChannel extends Operation {
       return false;
     }
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

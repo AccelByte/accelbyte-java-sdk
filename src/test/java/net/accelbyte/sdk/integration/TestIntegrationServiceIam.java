@@ -92,8 +92,11 @@ public class TestIntegrationServiceIam extends TestIntegration {
     assertThrows(
         HttpResponseException.class,
         () -> {
-            usersV4Wrapper.publicGetUserPublicInfoByUserIdV4(
-                PublicGetUserPublicInfoByUserIdV4.builder().namespace(this.namespace).userId(userId).build());
+          usersV4Wrapper.publicGetUserPublicInfoByUserIdV4(
+              PublicGetUserPublicInfoByUserIdV4.builder()
+                  .namespace(this.namespace)
+                  .userId(userId)
+                  .build());
         });
   }
 
@@ -140,7 +143,10 @@ public class TestIntegrationServiceIam extends TestIntegration {
 
     final ModelUserPublicInfoResponseV4 getUserResult =
         usersV4Wrapper.publicGetUserPublicInfoByUserIdV4(
-            PublicGetUserPublicInfoByUserIdV4.builder().namespace(this.namespace).userId(userId).build());
+            PublicGetUserPublicInfoByUserIdV4.builder()
+                .namespace(this.namespace)
+                .userId(userId)
+                .build());
 
     // ESAC
 
@@ -186,8 +192,11 @@ public class TestIntegrationServiceIam extends TestIntegration {
     assertThrows(
         HttpResponseException.class,
         () -> {
-            usersV4Wrapper.publicGetUserPublicInfoByUserIdV4(
-                PublicGetUserPublicInfoByUserIdV4.builder().namespace(this.namespace).userId(userId).build());
+          usersV4Wrapper.publicGetUserPublicInfoByUserIdV4(
+              PublicGetUserPublicInfoByUserIdV4.builder()
+                  .namespace(this.namespace)
+                  .userId(userId)
+                  .build());
         });
   }
 

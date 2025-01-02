@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetPlatformAccountClosureClient
  *
- * <p>Get platform account closure config. Scope: account
+ * <p>Get platform account closure config. The namespace should be **publisher or studio namespace**
+ * ---------- Platform: - steamnetwork - xbox - psn Scope: account
  */
 @Getter
 @Setter

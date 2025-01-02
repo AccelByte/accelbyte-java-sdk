@@ -77,6 +77,9 @@ public class ApimodelAppItem extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String description;
 
+  @JsonProperty("gameName")
+  private String gameName;
+
   @JsonProperty("memory")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private ApimodelMemoryResponse memory;

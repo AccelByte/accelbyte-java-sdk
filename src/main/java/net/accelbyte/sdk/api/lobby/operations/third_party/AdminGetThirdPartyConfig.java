@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminGetThirdPartyConfig
  *
  * <p>Get third party config for specified namespace.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminGetThirdPartyConfig extends Operation {

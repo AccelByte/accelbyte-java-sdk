@@ -58,10 +58,13 @@ public class AuthorizeV3 extends Operation {
   private String locationQuery = "request_id";
 
   /** fields as input parameter */
-  private String codeChallenge;
+  private String blockedPlatformId;
 
+  private String codeChallenge;
   private String codeChallengeMethod;
   private Boolean createHeadless;
+  private Boolean loginWebBased;
+  private String nonce;
   private String oneTimeLinkCode;
   private String redirectUri;
   private String scope;
@@ -79,9 +82,12 @@ public class AuthorizeV3 extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public AuthorizeV3(
+      String blockedPlatformId,
       String codeChallenge,
       String codeChallengeMethod,
       Boolean createHeadless,
+      Boolean loginWebBased,
+      String nonce,
       String oneTimeLinkCode,
       String redirectUri,
       String scope,
@@ -90,9 +96,12 @@ public class AuthorizeV3 extends Operation {
       Boolean useRedirectUriAsLoginUrlWhenLocked,
       String clientId,
       String responseType) {
+    this.blockedPlatformId = blockedPlatformId;
     this.codeChallenge = codeChallenge;
     this.codeChallengeMethod = codeChallengeMethod;
     this.createHeadless = createHeadless;
+    this.loginWebBased = loginWebBased;
+    this.nonce = nonce;
     this.oneTimeLinkCode = oneTimeLinkCode;
     this.redirectUri = redirectUri;
     this.scope = scope;
@@ -109,6 +118,9 @@ public class AuthorizeV3 extends Operation {
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
     queryParams.put(
+        "blockedPlatformId",
+        this.blockedPlatformId == null ? null : Arrays.asList(this.blockedPlatformId));
+    queryParams.put(
         "code_challenge", this.codeChallenge == null ? null : Arrays.asList(this.codeChallenge));
     queryParams.put(
         "code_challenge_method",
@@ -116,6 +128,10 @@ public class AuthorizeV3 extends Operation {
     queryParams.put(
         "createHeadless",
         this.createHeadless == null ? null : Arrays.asList(String.valueOf(this.createHeadless)));
+    queryParams.put(
+        "loginWebBased",
+        this.loginWebBased == null ? null : Arrays.asList(String.valueOf(this.loginWebBased)));
+    queryParams.put("nonce", this.nonce == null ? null : Arrays.asList(this.nonce));
     queryParams.put(
         "oneTimeLinkCode",
         this.oneTimeLinkCode == null ? null : Arrays.asList(this.oneTimeLinkCode));
@@ -160,9 +176,12 @@ public class AuthorizeV3 extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("blockedPlatformId", "None");
     result.put("code_challenge", "None");
     result.put("code_challenge_method", "None");
     result.put("createHeadless", "None");
+    result.put("loginWebBased", "None");
+    result.put("nonce", "None");
     result.put("oneTimeLinkCode", "None");
     result.put("redirect_uri", "None");
     result.put("scope", "None");

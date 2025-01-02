@@ -182,6 +182,9 @@ public class RefundPaymentOrderByDedicated extends Operation {
     if (this.paymentOrderNo == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

@@ -21,7 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * DeleteUserFromSessionInChannel
  *
  * <p>Delete a user from a session in the channel.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class DeleteUserFromSessionInChannel extends Operation {

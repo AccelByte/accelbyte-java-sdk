@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminSetProfanityRuleForNamespace
  *
  * <p>Set current profanity rule
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminSetProfanityRuleForNamespace extends Operation {
@@ -71,6 +74,9 @@ public class AdminSetProfanityRuleForNamespace extends Operation {
   @Override
   public boolean isValid() {
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

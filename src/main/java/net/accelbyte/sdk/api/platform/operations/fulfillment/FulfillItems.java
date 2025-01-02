@@ -21,11 +21,22 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * fulfillItems
  *
- * <p>[Not supported yet in AGS Shared Cloud] Fulfill items by transactionId. Other detail info:
+ * <p>### The endpoint is going to be deprecated
+ *
+ * <p>Description: this endpoint is Not supported yet in AGS Shared Cloud and it's used to fulfill
+ * items by transaction id.
  *
  * <p>* Request body : storeId, region, language, and entitlementCollectionId can be ignored. *
  * Returns : fulfillment v2 result, storeId field can be ignored.
+ *
+ * <p>### Endpoint migration guide
+ *
+ * <p>* Substitute endpoint:
+ * /v3/admin/namespaces/{namespace}/users/{userId}/fulfillments/{transactionId} [PUT]
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class FulfillItems extends Operation {
@@ -93,6 +104,9 @@ public class FulfillItems extends Operation {
       return false;
     }
     if (this.userId == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

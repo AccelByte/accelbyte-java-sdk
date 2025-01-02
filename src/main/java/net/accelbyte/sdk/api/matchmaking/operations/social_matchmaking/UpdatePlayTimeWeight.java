@@ -25,7 +25,10 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>This endpoint is intended to be called by admin for debugging purpose on social matchmaking
  * rule.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class UpdatePlayTimeWeight extends Operation {
@@ -73,6 +76,9 @@ public class UpdatePlayTimeWeight extends Operation {
   @Override
   public boolean isValid() {
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

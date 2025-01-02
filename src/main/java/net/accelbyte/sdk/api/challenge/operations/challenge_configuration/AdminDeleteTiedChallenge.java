@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminDeleteTiedChallenge
  *
- * <p>* Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [DELETE] * This endpoint will
+ * <p>- Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [DELETE] - This endpoint will
  * delete the combination of related data: CHALLENGES, GOALS, SCHEDULES, PLAYER PROGRESSIONS
  */
 @Getter

@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicClaimUserRewardsByGoalCode
  *
- * <p>* Required permission: NAMESPACE:{namespace}:CHALLENGE:REWARD [UPDATE]
+ * <p>- Required permission: NAMESPACE:{namespace}:CHALLENGE:REWARD [UPDATE]
  */
 @Getter
 @Setter
@@ -83,6 +83,9 @@ public class PublicClaimUserRewardsByGoalCode extends Operation {
       return false;
     }
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

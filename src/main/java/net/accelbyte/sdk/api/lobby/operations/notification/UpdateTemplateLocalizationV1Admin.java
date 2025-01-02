@@ -97,6 +97,9 @@ public class UpdateTemplateLocalizationV1Admin extends Operation {
     if (this.templateSlug == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

@@ -532,6 +532,9 @@ import picocli.CommandLine.Command;
       RetryFulfillItems.class,
       RevokeItems.class,
       V2PublicFulfillAppleIAPItem.class,
+      FulfillItemsV3.class,
+      RetryFulfillItemsV3.class,
+      RevokeItemsV3.class,
     })
 public class Platform implements Runnable {
 

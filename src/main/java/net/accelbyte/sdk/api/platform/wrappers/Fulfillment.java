@@ -97,7 +97,9 @@ public class Fulfillment {
 
   /**
    * @see FulfillItems
+   * @deprecated
    */
+  @Deprecated
   public FulfillmentV2Result fulfillItems(FulfillItems input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -106,7 +108,9 @@ public class Fulfillment {
 
   /**
    * @see RetryFulfillItems
+   * @deprecated
    */
+  @Deprecated
   public FulfillmentV2Result retryFulfillItems(RetryFulfillItems input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -115,8 +119,37 @@ public class Fulfillment {
 
   /**
    * @see RevokeItems
+   * @deprecated
    */
+  @Deprecated
   public RevokeFulfillmentV2Result revokeItems(RevokeItems input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see FulfillItemsV3
+   */
+  public FulfillmentV2Result fulfillItemsV3(FulfillItemsV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see RetryFulfillItemsV3
+   */
+  public FulfillmentV2Result retryFulfillItemsV3(RetryFulfillItemsV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see RevokeItemsV3
+   */
+  public RevokeFulfillmentV2Result revokeItemsV3(RevokeItemsV3 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

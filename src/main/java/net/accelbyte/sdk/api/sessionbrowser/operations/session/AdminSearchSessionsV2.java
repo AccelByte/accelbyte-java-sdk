@@ -25,7 +25,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * filter with namespace & other filter (partyID, userID, matchID). Query with filter namespace only
  * will not group whole session data while query with filter namespace & other filter will include
  * session data.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminSearchSessionsV2 extends Operation {

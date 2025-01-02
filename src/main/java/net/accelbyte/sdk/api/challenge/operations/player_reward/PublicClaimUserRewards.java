@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicClaimUserRewards
  *
- * <p>* Required permission: NAMESPACE:{namespace}:CHALLENGE:REWARD [UPDATE]
+ * <p>- Required permission: NAMESPACE:{namespace}:CHALLENGE:REWARD [UPDATE]
  */
 @Getter
 @Setter
@@ -72,6 +72,9 @@ public class PublicClaimUserRewards extends Operation {
   @Override
   public boolean isValid() {
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

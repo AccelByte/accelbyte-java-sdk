@@ -605,6 +605,7 @@ final ModelUserCreateRequestV3 createUserV3 =
         .displayName(userDisplayName)
         .country(userCountry)
         .dateOfBirth(userDateOfBirth)
+        .uniqueDisplayName(userName)
         .build();
 
 final ModelUserCreateResponseV3 createUserV3Result =
@@ -624,6 +625,7 @@ final AccountCreateUserRequestV4 createUser =
         .username(userName)
         .country(userCountry)
         .dateOfBirth(userDateOfBirth)
+        .uniqueDisplayName(userName)
         .build();
 
 final AccountCreateUserResponseV4 createUserResult =
@@ -634,9 +636,9 @@ final AccountCreateUserResponseV4 createUserResult =
 ### Get a user
 
 ```java
-final ModelPublicUserResponseV3 getUserResult =
-    usersWrapper.publicGetUserByUserIdV3(
-        PublicGetUserByUserIdV3.builder().namespace(this.namespace).userId(userId).build());
+final ModelUserPublicInfoResponseV4 getUserResult =
+    usersV4Wrapper.publicGetUserPublicInfoByUserIdV4(
+        PublicGetUserPublicInfoByUserIdV4.builder().namespace(this.namespace).userId(userId).build());
 ```
 
 ### Update a user

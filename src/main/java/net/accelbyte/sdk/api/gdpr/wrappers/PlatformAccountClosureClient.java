@@ -22,6 +22,26 @@ public class PlatformAccountClosureClient {
   }
 
   /**
+   * @see AdminGetPlatformAccountClosureClients
+   */
+  public DtoPlatformAccountClosureClientsResponse adminGetPlatformAccountClosureClients(
+      AdminGetPlatformAccountClosureClients input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminValidateXboxBPCertFile
+   */
+  public DtoXboxBPCertValidationResponse adminValidateXboxBPCertFile(
+      AdminValidateXboxBPCertFile input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminGetPlatformAccountClosureClient
    */
   public DtoPlatformAccountClosureClientResponse adminGetPlatformAccountClosureClient(
@@ -45,6 +65,16 @@ public class PlatformAccountClosureClient {
    * @see AdminDeletePlatformAccountClosureClient
    */
   public void adminDeletePlatformAccountClosureClient(AdminDeletePlatformAccountClosureClient input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminMockPlatformAccountClosureData
+   */
+  public void adminMockPlatformAccountClosureData(AdminMockPlatformAccountClosureData input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(

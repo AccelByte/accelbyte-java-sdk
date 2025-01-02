@@ -23,7 +23,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Export channels configuration to file.
  *
  * <p>Action Code: 510114
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class ExportChannels extends Operation {

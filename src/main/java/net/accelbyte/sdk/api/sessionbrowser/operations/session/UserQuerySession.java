@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * UserQuerySession
  *
  * <p>Query available game session
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class UserQuerySession extends Operation {

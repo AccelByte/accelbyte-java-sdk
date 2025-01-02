@@ -28,6 +28,9 @@ public class ApiFleetListResponse extends Model {
   @JsonProperty("fleets")
   private List<ApiFleetListItemResponse> fleets;
 
+  @JsonProperty("paging")
+  private PaginationPaginationInfo paging;
+
   @JsonIgnore
   public ApiFleetListResponse createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

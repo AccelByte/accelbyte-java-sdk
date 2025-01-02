@@ -73,12 +73,15 @@ public class AdminUpdateLoginAllowlistV3 extends Operation {
     if (this.namespace == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 
   public void handleEmptyResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
-    if (code >= 400 && code <= 599) {
+    if (code != 204) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }

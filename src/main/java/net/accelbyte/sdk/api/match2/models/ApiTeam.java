@@ -29,6 +29,10 @@ public class ApiTeam extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ApiParty> parties;
 
+  @JsonProperty("teamID")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String teamID;
+
   @JsonProperty("userIDs")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> userIDs;

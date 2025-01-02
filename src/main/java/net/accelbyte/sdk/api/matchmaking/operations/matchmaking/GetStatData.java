@@ -23,7 +23,10 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get a channel's stat data (mean, stddev, min, max) according to the stats collected from
  * statistics service. '
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetStatData extends Operation {

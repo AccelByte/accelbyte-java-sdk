@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get user's platform account closure histories. Scope: account
  *
- * <p>------ Supported platforms: * psn
+ * <p>------ Supported platforms: - psn - steamnetwork - xbox
  */
 @Getter
 @Setter

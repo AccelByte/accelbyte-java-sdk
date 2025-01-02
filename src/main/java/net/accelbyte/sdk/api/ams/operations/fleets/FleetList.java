@@ -38,8 +38,12 @@ public class FleetList extends Operation {
   private String namespace;
 
   private Boolean active;
+  private Integer count;
+  private String desc;
   private String name;
+  private Integer offset;
   private String region;
+  private String sortBy;
 
   /**
    * @param namespace required
@@ -47,11 +51,23 @@ public class FleetList extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public FleetList(String namespace, Boolean active, String name, String region) {
+  public FleetList(
+      String namespace,
+      Boolean active,
+      Integer count,
+      String desc,
+      String name,
+      Integer offset,
+      String region,
+      String sortBy) {
     this.namespace = namespace;
     this.active = active;
+    this.count = count;
+    this.desc = desc;
     this.name = name;
+    this.offset = offset;
     this.region = region;
+    this.sortBy = sortBy;
 
     securities.add("Bearer");
   }
@@ -70,8 +86,13 @@ public class FleetList extends Operation {
     Map<String, List<String>> queryParams = new HashMap<>();
     queryParams.put(
         "active", this.active == null ? null : Arrays.asList(String.valueOf(this.active)));
+    queryParams.put("count", this.count == null ? null : Arrays.asList(String.valueOf(this.count)));
+    queryParams.put("desc", this.desc == null ? null : Arrays.asList(this.desc));
     queryParams.put("name", this.name == null ? null : Arrays.asList(this.name));
+    queryParams.put(
+        "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
     queryParams.put("region", this.region == null ? null : Arrays.asList(this.region));
+    queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
     return queryParams;
   }
 
@@ -97,8 +118,69 @@ public class FleetList extends Operation {
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
     result.put("active", "None");
+    result.put("count", "None");
+    result.put("desc", "None");
     result.put("name", "None");
+    result.put("offset", "None");
     result.put("region", "None");
+    result.put("sortBy", "None");
     return result;
+  }
+
+  public enum Desc {
+    Asc("asc"),
+    Desc("desc");
+
+    private String value;
+
+    Desc(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public enum SortBy {
+    Active("active"),
+    Name("name");
+
+    private String value;
+
+    SortBy(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class FleetListBuilder {
+    private String desc;
+    private String sortBy;
+
+    public FleetListBuilder desc(final String desc) {
+      this.desc = desc;
+      return this;
+    }
+
+    public FleetListBuilder descFromEnum(final Desc desc) {
+      this.desc = desc.toString();
+      return this;
+    }
+
+    public FleetListBuilder sortBy(final String sortBy) {
+      this.sortBy = sortBy;
+      return this;
+    }
+
+    public FleetListBuilder sortByFromEnum(final SortBy sortBy) {
+      this.sortBy = sortBy.toString();
+      return this;
+    }
   }
 }

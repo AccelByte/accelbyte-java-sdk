@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * sendPartyFreeformNotificationV1Admin
  *
  * <p>Sends notification to a party.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class SendPartyFreeformNotificationV1Admin extends Operation {
@@ -81,6 +84,9 @@ public class SendPartyFreeformNotificationV1Admin extends Operation {
       return false;
     }
     if (this.partyId == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

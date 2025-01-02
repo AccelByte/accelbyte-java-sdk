@@ -42,7 +42,9 @@ public class Player {
 
   /**
    * @see AdminGetAllPlayerSessionAttribute
+   * @deprecated
    */
+  @Deprecated
   public ModelsGetAllPlayerSessionAttributeResponse adminGetAllPlayerSessionAttribute(
       AdminGetAllPlayerSessionAttribute input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -52,7 +54,9 @@ public class Player {
 
   /**
    * @see AdminSetPlayerSessionAttribute
+   * @deprecated
    */
+  @Deprecated
   public void adminSetPlayerSessionAttribute(AdminSetPlayerSessionAttribute input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -62,7 +66,9 @@ public class Player {
 
   /**
    * @see AdminGetPlayerSessionAttribute
+   * @deprecated
    */
+  @Deprecated
   public ModelsGetPlayerSessionAttributeResponse adminGetPlayerSessionAttribute(
       AdminGetPlayerSessionAttribute input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);

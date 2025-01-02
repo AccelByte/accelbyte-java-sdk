@@ -24,7 +24,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminDeleteProfanityFilter
  *
  * <p>Delete the filter from the list
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminDeleteProfanityFilter extends Operation {
@@ -83,6 +86,9 @@ public class AdminDeleteProfanityFilter extends Operation {
       return false;
     }
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

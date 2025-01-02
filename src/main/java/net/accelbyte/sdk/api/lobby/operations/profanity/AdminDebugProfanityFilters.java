@@ -24,7 +24,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminDebugProfanityFilters
  *
  * <p>Get the list of filters that would modify the phrase
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminDebugProfanityFilters extends Operation {
@@ -72,6 +75,9 @@ public class AdminDebugProfanityFilters extends Operation {
   @Override
   public boolean isValid() {
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

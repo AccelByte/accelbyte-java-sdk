@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * GetTotalActiveSession
  *
  * <p>Get all active session
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetTotalActiveSession extends Operation {

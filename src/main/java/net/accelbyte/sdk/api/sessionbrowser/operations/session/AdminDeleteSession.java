@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * AdminDeleteSession
  *
  * <p>Admin delete the session by session ID
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminDeleteSession extends Operation {

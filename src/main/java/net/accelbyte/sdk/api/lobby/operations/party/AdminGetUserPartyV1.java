@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminGetUserPartyV1
  *
  * <p>Get party data in a namespace.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminGetUserPartyV1 extends Operation {

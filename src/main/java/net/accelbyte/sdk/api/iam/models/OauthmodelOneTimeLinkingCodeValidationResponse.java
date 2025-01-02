@@ -28,6 +28,10 @@ public class OauthmodelOneTimeLinkingCodeValidationResponse extends Model {
   @JsonProperty("expired")
   private Boolean expired;
 
+  @JsonProperty("platformId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String platformId;
+
   @JsonProperty("valid")
   private Boolean valid;
 

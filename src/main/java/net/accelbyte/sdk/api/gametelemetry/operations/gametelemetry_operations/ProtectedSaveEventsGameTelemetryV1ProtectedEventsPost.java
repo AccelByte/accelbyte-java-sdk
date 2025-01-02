@@ -92,6 +92,9 @@ public class ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost extends Opera
 
   @Override
   public boolean isValid() {
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

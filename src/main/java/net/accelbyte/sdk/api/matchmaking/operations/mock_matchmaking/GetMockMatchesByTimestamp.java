@@ -23,7 +23,10 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Read mock matches that has timestamp older than specified timestamp in a channel resulted from
  * matching mock tickets. '
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetMockMatchesByTimestamp extends Operation {
@@ -81,6 +84,9 @@ public class GetMockMatchesByTimestamp extends Operation {
       return false;
     }
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

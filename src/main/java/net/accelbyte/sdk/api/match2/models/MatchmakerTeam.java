@@ -29,6 +29,10 @@ public class MatchmakerTeam extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<MatchmakerParty> parties;
 
+  @JsonProperty("TeamID")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String teamID;
+
   @JsonProperty("UserIDs")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> userIDs;

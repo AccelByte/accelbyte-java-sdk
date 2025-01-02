@@ -80,6 +80,9 @@ public class PostGameBinaryRecordV1 extends Operation {
     if (this.namespace == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

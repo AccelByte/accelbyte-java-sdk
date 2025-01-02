@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * debitByWalletPlatform
  *
- * <p>Pay with user wallet by currency code and client platform. Other detail info:
+ * <p>Debit user wallet by currency code and client platform. Other detail info:
  *
  * <p>## Restrictions for metadata
  *
@@ -100,6 +100,9 @@ public class DebitByWalletPlatform extends Operation {
       return false;
     }
     if (this.userId == null) {
+      return false;
+    }
+    if (this.request == null) {
       return false;
     }
     return true;

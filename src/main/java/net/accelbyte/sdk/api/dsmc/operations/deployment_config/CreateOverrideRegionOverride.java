@@ -110,6 +110,9 @@ public class CreateOverrideRegionOverride extends Operation {
     if (this.version == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

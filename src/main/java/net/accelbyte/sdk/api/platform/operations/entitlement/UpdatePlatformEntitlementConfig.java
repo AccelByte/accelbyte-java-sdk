@@ -85,6 +85,9 @@ public class UpdatePlatformEntitlementConfig extends Operation {
     if (this.platform == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

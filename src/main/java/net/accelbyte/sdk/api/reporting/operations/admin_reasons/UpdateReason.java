@@ -81,6 +81,9 @@ public class UpdateReason extends Operation {
     if (this.reasonId == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

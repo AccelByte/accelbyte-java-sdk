@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * GetSession
  *
  * <p>Get the session by session ID
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetSession extends Operation {

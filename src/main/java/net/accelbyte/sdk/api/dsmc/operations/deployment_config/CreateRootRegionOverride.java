@@ -97,6 +97,9 @@ public class CreateRootRegionOverride extends Operation {
     if (this.region == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

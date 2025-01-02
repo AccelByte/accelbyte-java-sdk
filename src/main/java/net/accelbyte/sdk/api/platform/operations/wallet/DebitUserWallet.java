@@ -94,6 +94,9 @@ public class DebitUserWallet extends Operation {
     if (this.walletId == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

@@ -21,7 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminJoinPartyV1
  *
  * <p>Admin join a player into a party.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminJoinPartyV1 extends Operation {

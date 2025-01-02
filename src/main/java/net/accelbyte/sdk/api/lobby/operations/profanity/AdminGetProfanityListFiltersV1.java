@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminGetProfanityListFiltersV1
  *
  * <p>Get the list of filters inside the list.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminGetProfanityListFiltersV1 extends Operation {

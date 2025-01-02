@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * GetRecentPlayer
  *
  * <p>Query recent player by user ID
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetRecentPlayer extends Operation {

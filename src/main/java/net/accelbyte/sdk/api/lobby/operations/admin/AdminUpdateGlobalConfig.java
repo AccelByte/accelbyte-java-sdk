@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminUpdateGlobalConfig
  *
  * <p>Upsert global configuration data.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminUpdateGlobalConfig extends Operation {
@@ -56,6 +59,9 @@ public class AdminUpdateGlobalConfig extends Operation {
 
   @Override
   public boolean isValid() {
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

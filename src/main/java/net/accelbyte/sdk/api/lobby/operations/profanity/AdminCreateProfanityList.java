@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminCreateProfanityList
  *
  * <p>Create a new list
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminCreateProfanityList extends Operation {
@@ -70,6 +73,9 @@ public class AdminCreateProfanityList extends Operation {
   @Override
   public boolean isValid() {
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

@@ -21,7 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * CleanAllMocks
  *
  * <p>Delete all mock tickets and matches in a channel. '
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class CleanAllMocks extends Operation {

@@ -683,4 +683,14 @@ public class UsersV4 {
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see PublicUpgradeHeadlessWithCodeV4Forward
+   */
+  public String publicUpgradeHeadlessWithCodeV4Forward(PublicUpgradeHeadlessWithCodeV4Forward input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }

@@ -84,6 +84,9 @@ public class PublicBulkIncUserStatItem1 extends Operation {
     if (this.userId == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

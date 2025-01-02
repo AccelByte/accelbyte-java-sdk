@@ -24,7 +24,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * publicGetMessages
  *
  * <p>get the list of messages.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class PublicGetMessages extends Operation {

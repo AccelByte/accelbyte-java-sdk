@@ -36,6 +36,18 @@ public class ModelAccountProgressionInfo extends Model {
   @JsonProperty("linkedGames")
   private List<String> linkedGames;
 
+  @JsonProperty("platformId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String platformId;
+
+  @JsonProperty("progressions")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<ModelProgressionInfo> progressions;
+
+  @JsonProperty("uniqueDisplayName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String uniqueDisplayName;
+
   @JsonProperty("userName")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String userName;

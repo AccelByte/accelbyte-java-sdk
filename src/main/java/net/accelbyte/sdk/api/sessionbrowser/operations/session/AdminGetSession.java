@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * AdminGetSession
  *
  * <p>Get the session by session ID for admin user
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminGetSession extends Operation {

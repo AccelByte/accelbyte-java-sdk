@@ -21,10 +21,15 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getPaymentCallbackConfig
  *
+ * <p>### The endpoint is going to be deprecated
+ *
  * <p>[Not supported yet in AGS Shared Cloud] Get payment callback configuration. Other detail info:
  *
  * <p>* Returns : Payment callback config
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetPaymentCallbackConfig extends Operation {

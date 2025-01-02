@@ -93,6 +93,9 @@ public class UpdateMatchPool extends Operation {
     if (this.pool == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

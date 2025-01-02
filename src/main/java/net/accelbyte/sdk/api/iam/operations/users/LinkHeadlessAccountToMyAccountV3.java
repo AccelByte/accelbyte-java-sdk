@@ -57,6 +57,9 @@ public class LinkHeadlessAccountToMyAccountV3 extends Operation {
 
   @Override
   public boolean isValid() {
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminGetGoals
  *
- * <p>* Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
+ * <p>- Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
  */
 @Getter
 @Setter
@@ -111,5 +111,39 @@ public class AdminGetGoals extends Operation {
     result.put("offset", "None");
     result.put("sortBy", "None");
     return result;
+  }
+
+  public enum SortBy {
+    CreatedAt("createdAt"),
+    CreatedAtasc("createdAt:asc"),
+    CreatedAtdesc("createdAt:desc"),
+    UpdatedAt("updatedAt"),
+    UpdatedAtasc("updatedAt:asc"),
+    UpdatedAtdesc("updatedAt:desc");
+
+    private String value;
+
+    SortBy(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class AdminGetGoalsBuilder {
+    private String sortBy;
+
+    public AdminGetGoalsBuilder sortBy(final String sortBy) {
+      this.sortBy = sortBy;
+      return this;
+    }
+
+    public AdminGetGoalsBuilder sortByFromEnum(final SortBy sortBy) {
+      this.sortBy = sortBy.toString();
+      return this;
+    }
   }
 }

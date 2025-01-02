@@ -24,7 +24,9 @@ public class MockMatchmaking {
 
   /**
    * @see CleanAllMocks
+   * @deprecated
    */
+  @Deprecated
   public void cleanAllMocks(CleanAllMocks input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
@@ -33,7 +35,9 @@ public class MockMatchmaking {
 
   /**
    * @see GetAllMockMatches
+   * @deprecated
    */
+  @Deprecated
   public ModelsGetMockMatchesResponse getAllMockMatches(GetAllMockMatches input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -42,7 +46,9 @@ public class MockMatchmaking {
 
   /**
    * @see GetMockMatchesByTimestamp
+   * @deprecated
    */
+  @Deprecated
   public ModelsGetMockMatchesResponse getMockMatchesByTimestamp(GetMockMatchesByTimestamp input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -52,7 +58,9 @@ public class MockMatchmaking {
 
   /**
    * @see GetAllMockTickets
+   * @deprecated
    */
+  @Deprecated
   public ModelsGetMockTicketsResponse getAllMockTickets(GetAllMockTickets input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -61,7 +69,9 @@ public class MockMatchmaking {
 
   /**
    * @see CreateMockTickets
+   * @deprecated
    */
+  @Deprecated
   public List<ModelsMockTicket> createMockTickets(CreateMockTickets input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -70,7 +80,9 @@ public class MockMatchmaking {
 
   /**
    * @see BulkCreateMockTickets
+   * @deprecated
    */
+  @Deprecated
   public void bulkCreateMockTickets(BulkCreateMockTickets input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
@@ -79,7 +91,9 @@ public class MockMatchmaking {
 
   /**
    * @see GetMockTicketsByTimestamp
+   * @deprecated
    */
+  @Deprecated
   public ModelsGetMockTicketsResponse getMockTicketsByTimestamp(GetMockTicketsByTimestamp input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);

@@ -23,7 +23,9 @@ public class Party {
 
   /**
    * @see AdminGetPartyDataV1
+   * @deprecated
    */
+  @Deprecated
   public ModelsPartyData adminGetPartyDataV1(AdminGetPartyDataV1 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -32,7 +34,9 @@ public class Party {
 
   /**
    * @see AdminGetUserPartyV1
+   * @deprecated
    */
+  @Deprecated
   public ModelsPartyData adminGetUserPartyV1(AdminGetUserPartyV1 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -41,7 +45,9 @@ public class Party {
 
   /**
    * @see PublicGetPartyDataV1
+   * @deprecated
    */
+  @Deprecated
   public ModelsPartyData publicGetPartyDataV1(PublicGetPartyDataV1 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -50,7 +56,9 @@ public class Party {
 
   /**
    * @see PublicUpdatePartyAttributesV1
+   * @deprecated
    */
+  @Deprecated
   public ModelsPartyData publicUpdatePartyAttributesV1(PublicUpdatePartyAttributesV1 input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -60,7 +68,9 @@ public class Party {
 
   /**
    * @see PublicSetPartyLimitV1
+   * @deprecated
    */
+  @Deprecated
   public void publicSetPartyLimitV1(PublicSetPartyLimitV1 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(

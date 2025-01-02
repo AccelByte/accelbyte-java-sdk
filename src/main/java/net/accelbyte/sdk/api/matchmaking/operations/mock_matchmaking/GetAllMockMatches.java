@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * GetAllMockMatches
  *
  * <p>Read all mock matches in a channel resulted from matching mock tickets. '
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetAllMockMatches extends Operation {

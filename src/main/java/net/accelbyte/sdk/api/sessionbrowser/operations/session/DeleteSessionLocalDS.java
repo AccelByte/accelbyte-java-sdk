@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * DeleteSessionLocalDS
  *
  * <p>Only use for local DS entry, will error when calling non local DS entry
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class DeleteSessionLocalDS extends Operation {

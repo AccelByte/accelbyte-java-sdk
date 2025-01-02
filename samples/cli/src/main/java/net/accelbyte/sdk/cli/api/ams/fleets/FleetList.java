@@ -41,14 +41,34 @@ public class FleetList implements Callable<Integer> {
   Boolean active;
 
   @Option(
+      names = {"--count"},
+      description = "count")
+  Integer count;
+
+  @Option(
+      names = {"--desc"},
+      description = "desc")
+  String desc;
+
+  @Option(
       names = {"--name"},
       description = "name")
   String name;
 
   @Option(
+      names = {"--offset"},
+      description = "offset")
+  Integer offset;
+
+  @Option(
       names = {"--region"},
       description = "region")
   String region;
+
+  @Option(
+      names = {"--sortBy"},
+      description = "sortBy")
+  String sortBy;
 
   @Option(
       names = {"--logging"},
@@ -75,8 +95,12 @@ public class FleetList implements Callable<Integer> {
           net.accelbyte.sdk.api.ams.operations.fleets.FleetList.builder()
               .namespace(namespace)
               .active(active)
+              .count(count)
+              .desc(desc)
               .name(name)
+              .offset(offset)
               .region(region)
+              .sortBy(sortBy)
               .build();
       final ApiFleetListResponse response = wrapper.fleetList(operation);
       final String responseString =

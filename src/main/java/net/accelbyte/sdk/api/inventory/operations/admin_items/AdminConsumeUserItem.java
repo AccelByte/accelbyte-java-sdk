@@ -41,6 +41,7 @@ public class AdminConsumeUserItem extends Operation {
 
   private String namespace;
   private String userId;
+  private String dateRangeValidation;
   private ApimodelsConsumeItemReq body;
 
   /**
@@ -53,10 +54,15 @@ public class AdminConsumeUserItem extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public AdminConsumeUserItem(
-      String inventoryId, String namespace, String userId, ApimodelsConsumeItemReq body) {
+      String inventoryId,
+      String namespace,
+      String userId,
+      String dateRangeValidation,
+      ApimodelsConsumeItemReq body) {
     this.inventoryId = inventoryId;
     this.namespace = namespace;
     this.userId = userId;
+    this.dateRangeValidation = dateRangeValidation;
     this.body = body;
 
     securities.add("Bearer");
@@ -78,6 +84,15 @@ public class AdminConsumeUserItem extends Operation {
   }
 
   @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "dateRangeValidation",
+        this.dateRangeValidation == null ? null : Arrays.asList(this.dateRangeValidation));
+    return queryParams;
+  }
+
+  @Override
   public ApimodelsConsumeItemReq getBodyParams() {
     return this.body;
   }
@@ -93,6 +108,9 @@ public class AdminConsumeUserItem extends Operation {
     if (this.userId == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 
@@ -104,5 +122,12 @@ public class AdminConsumeUserItem extends Operation {
     }
     final String json = Helper.convertInputStreamToString(payload);
     return new ApimodelsItemResp().createFromJson(json);
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("dateRangeValidation", "None");
+    return result;
   }
 }

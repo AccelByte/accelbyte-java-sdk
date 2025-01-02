@@ -84,6 +84,9 @@ public class UpdateReward extends Operation {
     if (this.rewardId == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

@@ -86,6 +86,9 @@ public class SaveConfig extends Operation {
 
   @Override
   public boolean isValid() {
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

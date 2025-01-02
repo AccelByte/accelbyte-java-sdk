@@ -44,7 +44,9 @@ public class Notification {
 
   /**
    * @see SendPartyFreeformNotificationV1Admin
+   * @deprecated
    */
+  @Deprecated
   public void sendPartyFreeformNotificationV1Admin(SendPartyFreeformNotificationV1Admin input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -54,7 +56,9 @@ public class Notification {
 
   /**
    * @see SendPartyTemplatedNotificationV1Admin
+   * @deprecated
    */
+  @Deprecated
   public void sendPartyTemplatedNotificationV1Admin(SendPartyTemplatedNotificationV1Admin input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);

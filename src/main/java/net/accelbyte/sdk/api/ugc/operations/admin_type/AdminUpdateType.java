@@ -81,6 +81,9 @@ public class AdminUpdateType extends Operation {
     if (this.typeId == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

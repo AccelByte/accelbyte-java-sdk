@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminGetUserRewards
  *
- * <p>* Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:REWARD [READ]
+ * <p>- Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:REWARD [READ]
  */
 @Getter
 @Setter
@@ -38,6 +38,8 @@ public class AdminGetUserRewards extends Operation {
   private String namespace;
 
   private String userId;
+  private String challengeCode;
+  private String goalProgressionId;
   private Integer limit;
   private Integer offset;
   private String sortBy;
@@ -53,12 +55,16 @@ public class AdminGetUserRewards extends Operation {
   public AdminGetUserRewards(
       String namespace,
       String userId,
+      String challengeCode,
+      String goalProgressionId,
       Integer limit,
       Integer offset,
       String sortBy,
       String status) {
     this.namespace = namespace;
     this.userId = userId;
+    this.challengeCode = challengeCode;
+    this.goalProgressionId = goalProgressionId;
     this.limit = limit;
     this.offset = offset;
     this.sortBy = sortBy;
@@ -82,6 +88,11 @@ public class AdminGetUserRewards extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "challengeCode", this.challengeCode == null ? null : Arrays.asList(this.challengeCode));
+    queryParams.put(
+        "goalProgressionId",
+        this.goalProgressionId == null ? null : Arrays.asList(this.goalProgressionId));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
@@ -114,11 +125,33 @@ public class AdminGetUserRewards extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("challengeCode", "None");
+    result.put("goalProgressionId", "None");
     result.put("limit", "None");
     result.put("offset", "None");
     result.put("sortBy", "None");
     result.put("status", "None");
     return result;
+  }
+
+  public enum SortBy {
+    CreatedAt("createdAt"),
+    CreatedAtasc("createdAt:asc"),
+    CreatedAtdesc("createdAt:desc"),
+    UpdatedAt("updatedAt"),
+    UpdatedAtasc("updatedAt:asc"),
+    UpdatedAtdesc("updatedAt:desc");
+
+    private String value;
+
+    SortBy(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
   }
 
   public enum Status {
@@ -138,7 +171,18 @@ public class AdminGetUserRewards extends Operation {
   }
 
   public static class AdminGetUserRewardsBuilder {
+    private String sortBy;
     private String status;
+
+    public AdminGetUserRewardsBuilder sortBy(final String sortBy) {
+      this.sortBy = sortBy;
+      return this;
+    }
+
+    public AdminGetUserRewardsBuilder sortByFromEnum(final SortBy sortBy) {
+      this.sortBy = sortBy.toString();
+      return this;
+    }
 
     public AdminGetUserRewardsBuilder status(final String status) {
       this.status = status;

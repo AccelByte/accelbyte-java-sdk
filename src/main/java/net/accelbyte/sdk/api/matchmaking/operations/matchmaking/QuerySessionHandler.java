@@ -27,7 +27,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Possible session statuses are "sessionInQueue", "sessionFull", and "sessionTimeout".
  *
  * <p>if party_id value empty/null, field will not show in response body.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class QuerySessionHandler extends Operation {

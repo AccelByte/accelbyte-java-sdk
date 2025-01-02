@@ -23,7 +23,10 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Create and queue mock tickets into specified game mode's pool. The tickets input will be used
  * as is. '
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class BulkCreateMockTickets extends Operation {
@@ -82,6 +85,9 @@ public class BulkCreateMockTickets extends Operation {
       return false;
     }
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

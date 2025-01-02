@@ -109,7 +109,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * order of preference, to match with fleets. - The claim key list is built build from the
  * preferredClaimKeys, fallbackClaimKeys, and clientVersion as follows: [preferredClaimKeys..,
  * clientVersion, fallbackClaimKeys...] for session override can follow guideline in here
- * https://docs.accelbyte.io/gaming-services/services/extend/override-ags-feature/getting-started-with-session-customization/
+ * https://docs.accelbyte.io/gaming-services/services/extend/override-ags-feature/getting-started-with-session-customization-server-dsm/
  */
 @Getter
 @Setter
@@ -158,6 +158,9 @@ public class CreateGameSession extends Operation {
   @Override
   public boolean isValid() {
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

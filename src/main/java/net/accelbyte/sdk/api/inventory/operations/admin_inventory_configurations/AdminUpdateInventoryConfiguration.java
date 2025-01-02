@@ -85,6 +85,9 @@ public class AdminUpdateInventoryConfiguration extends Operation {
     if (this.namespace == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

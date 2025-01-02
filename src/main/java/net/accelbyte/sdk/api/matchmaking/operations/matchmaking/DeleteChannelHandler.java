@@ -24,7 +24,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * for matchmaking processes. GameMode isolates each matchmaking pools.
  *
  * <p>Trying to delete non-existent channel will result deletion success
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class DeleteChannelHandler extends Operation {

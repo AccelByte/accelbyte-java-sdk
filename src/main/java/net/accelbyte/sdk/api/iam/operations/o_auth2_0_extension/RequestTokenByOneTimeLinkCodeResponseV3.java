@@ -21,8 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * RequestTokenByOneTimeLinkCodeResponseV3
  *
- * <p>This endpoint is being used to generate user's token by one time link code. It require
- * publisher ClientID It required a code which can be generated from `/iam/v3/link/code/request`.
+ * <p>This endpoint is being used to generate user's token by one time link code. It requires a code
+ * which can be generated from `/iam/v3/link/code/request` or
+ * `/iam/v3/public/users/me/link/forward`.
  *
  * <p>This endpoint support creating transient token by utilizing **isTransient** param:
  * **isTransient=true** will generate a transient token with a short Time Expiration and without a

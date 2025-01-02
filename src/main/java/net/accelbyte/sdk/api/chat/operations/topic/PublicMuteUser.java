@@ -81,6 +81,9 @@ public class PublicMuteUser extends Operation {
     if (this.topic == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

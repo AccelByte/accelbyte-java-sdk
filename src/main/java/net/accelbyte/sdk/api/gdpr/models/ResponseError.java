@@ -31,6 +31,10 @@ public class ResponseError extends Model {
   @JsonProperty("errorMessage")
   private String errorMessage;
 
+  @JsonProperty("messageVariables")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, String> messageVariables;
+
   @JsonIgnore
   public ResponseError createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

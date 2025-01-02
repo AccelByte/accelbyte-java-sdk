@@ -96,6 +96,15 @@ public class OAuth20 {
   }
 
   /**
+   * @see Verify2faCodeForward
+   */
+  public String verify2faCodeForward(Verify2faCodeForward input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see RetrieveUserThirdPartyPlatformTokenV3
    */
   public OauthmodelTokenThirdPartyResponse retrieveUserThirdPartyPlatformTokenV3(

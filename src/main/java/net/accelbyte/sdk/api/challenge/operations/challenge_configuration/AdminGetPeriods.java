@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminGetPeriods
  *
- * <p>* Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
+ * <p>- Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
  */
 @Getter
 @Setter

@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicGetPastUserProgression
  *
- * <p>* Required permission: NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [READ]
+ * <p>- Required permission: NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [READ]
  */
 @Getter
 @Setter

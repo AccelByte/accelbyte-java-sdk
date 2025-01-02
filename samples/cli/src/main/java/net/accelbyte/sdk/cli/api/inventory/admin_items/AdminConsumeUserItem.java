@@ -46,6 +46,11 @@ public class AdminConsumeUserItem implements Callable<Integer> {
   String userId;
 
   @Option(
+      names = {"--dateRangeValidation"},
+      description = "dateRangeValidation")
+  String dateRangeValidation;
+
+  @Option(
       names = {"--body"},
       description = "body")
   String body;
@@ -76,6 +81,7 @@ public class AdminConsumeUserItem implements Callable<Integer> {
               .inventoryId(inventoryId)
               .namespace(namespace)
               .userId(userId)
+              .dateRangeValidation(dateRangeValidation)
               .body(new ObjectMapper().readValue(body, ApimodelsConsumeItemReq.class))
               .build();
       final ApimodelsItemResp response = wrapper.adminConsumeUserItem(operation);

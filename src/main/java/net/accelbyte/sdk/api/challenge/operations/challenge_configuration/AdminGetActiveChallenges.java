@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminGetActiveChallenges
  *
- * <p>* Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
+ * <p>- Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ] The endpoint provides you
+ * an access to list of currently active challenges in which the player is participating
  */
 @Getter
 @Setter

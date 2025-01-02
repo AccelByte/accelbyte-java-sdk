@@ -21,7 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminDeleteGlobalConfig
  *
  * <p>Delete of global configuration data.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminDeleteGlobalConfig extends Operation {

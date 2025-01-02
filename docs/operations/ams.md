@@ -156,6 +156,7 @@
 | `api.Time` | [ApiTime](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiTime.java) |
 | `api.Timeout` | [ApiTimeout](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiTimeout.java) |
 | `api.UpdateServerRequest` | [ApiUpdateServerRequest](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiUpdateServerRequest.java) |
+| `pagination.PaginationInfo` | [PaginationPaginationInfo](../../src/main/java/net/accelbyte/sdk/api/ams/models/PaginationPaginationInfo.java) |
 | `response.ErrorResponse` | [ResponseErrorResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ResponseErrorResponse.java) |
 | `time.Location` | [TimeLocation](../../src/main/java/net/accelbyte/sdk/api/ams/models/TimeLocation.java) |
 | `time.zone` | [TimeZone](../../src/main/java/net/accelbyte/sdk/api/ams/models/TimeZone.java) |

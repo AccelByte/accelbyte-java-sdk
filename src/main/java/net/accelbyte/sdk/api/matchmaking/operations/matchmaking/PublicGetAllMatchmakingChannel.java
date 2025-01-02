@@ -24,7 +24,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * PublicGetAllMatchmakingChannel
  *
  * <p>Reads all available channels in a namespace
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class PublicGetAllMatchmakingChannel extends Operation {

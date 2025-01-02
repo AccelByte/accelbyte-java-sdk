@@ -21,11 +21,20 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * retryFulfillItems
  *
- * <p>[Not supported yet in AGS Shared Cloud] Retry fulfill items by transactionId without sending
- * the original payload. Other detail info:
+ * <p>### The endpoint is going to be deprecated
  *
- * <p>* Returns : fulfillment v2 result, storeId field can be ignored.
+ * <p>[Not supported yet in AGS Shared Cloud] Retry fulfill items by transactionId without sending
+ * the original payload. Other detail info: * Returns : fulfillment v2 result, storeId field can be
+ * ignored.
+ *
+ * <p>### Endpoint migration guide
+ *
+ * <p>* Substitute endpoint:
+ * /v3/admin/namespaces/{namespace}/users/{userId}/fulfillments/{transactionId}/retry [PUT]
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class RetryFulfillItems extends Operation {

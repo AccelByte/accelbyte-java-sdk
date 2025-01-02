@@ -31,6 +31,16 @@ public class RequestOneTimeLinkingCodeV3 implements Callable<Integer> {
   private static final Logger log = LogManager.getLogger(RequestOneTimeLinkingCodeV3.class);
 
   @Option(
+      names = {"--redirectUri"},
+      description = "redirectUri")
+  String redirectUri;
+
+  @Option(
+      names = {"--state"},
+      description = "state")
+  String state;
+
+  @Option(
       names = {"--platformId"},
       description = "platformId")
   String platformId;
@@ -60,6 +70,8 @@ public class RequestOneTimeLinkingCodeV3 implements Callable<Integer> {
           operation =
               net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.RequestOneTimeLinkingCodeV3
                   .builder()
+                  .redirectUri(redirectUri != null ? redirectUri : null)
+                  .state(state != null ? state : null)
                   .platformId(platformId != null ? platformId : null)
                   .build();
       final OauthmodelOneTimeLinkingCodeResponse response =

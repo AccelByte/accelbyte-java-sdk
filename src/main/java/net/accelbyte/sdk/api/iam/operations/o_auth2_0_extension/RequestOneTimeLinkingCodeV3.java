@@ -41,6 +41,9 @@ public class RequestOneTimeLinkingCodeV3 extends Operation {
   private String locationQuery = null;
 
   /** fields as input parameter */
+  private String redirectUri;
+
+  private String state;
   private String platformId;
 
   /**
@@ -49,7 +52,9 @@ public class RequestOneTimeLinkingCodeV3 extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public RequestOneTimeLinkingCodeV3(String platformId) {
+  public RequestOneTimeLinkingCodeV3(String redirectUri, String state, String platformId) {
+    this.redirectUri = redirectUri;
+    this.state = state;
     this.platformId = platformId;
 
     securities.add("Bearer");
@@ -58,6 +63,12 @@ public class RequestOneTimeLinkingCodeV3 extends Operation {
   @Override
   public Map<String, Object> getFormParams() {
     Map<String, Object> formDataParams = new HashMap<>();
+    if (this.redirectUri != null) {
+      formDataParams.put("redirectUri", this.redirectUri);
+    }
+    if (this.state != null) {
+      formDataParams.put("state", this.state);
+    }
     if (this.platformId != null) {
       formDataParams.put("platformId", this.platformId);
     }

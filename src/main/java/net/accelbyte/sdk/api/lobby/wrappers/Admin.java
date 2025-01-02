@@ -24,7 +24,9 @@ public class Admin {
 
   /**
    * @see AdminGetGlobalConfig
+   * @deprecated
    */
+  @Deprecated
   public ModelGlobalConfiguration adminGetGlobalConfig(AdminGetGlobalConfig input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -34,7 +36,9 @@ public class Admin {
 
   /**
    * @see AdminUpdateGlobalConfig
+   * @deprecated
    */
+  @Deprecated
   public ModelGlobalConfiguration adminUpdateGlobalConfig(AdminUpdateGlobalConfig input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -44,7 +48,9 @@ public class Admin {
 
   /**
    * @see AdminDeleteGlobalConfig
+   * @deprecated
    */
+  @Deprecated
   public void adminDeleteGlobalConfig(AdminDeleteGlobalConfig input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(

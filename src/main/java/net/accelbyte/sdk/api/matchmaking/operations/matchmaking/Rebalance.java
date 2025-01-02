@@ -25,7 +25,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * (case-insensitive), or any first attribute with criteria "distance"
  *
  * <p>Will return rebalanced mm result
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class Rebalance extends Operation {
@@ -73,6 +76,9 @@ public class Rebalance extends Operation {
   @Override
   public boolean isValid() {
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

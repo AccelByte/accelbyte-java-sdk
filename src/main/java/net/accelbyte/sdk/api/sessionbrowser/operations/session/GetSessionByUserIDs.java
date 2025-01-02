@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * GetSessionByUserIDs
  *
  * <p>Query game sessions by comma separated user ids
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetSessionByUserIDs extends Operation {

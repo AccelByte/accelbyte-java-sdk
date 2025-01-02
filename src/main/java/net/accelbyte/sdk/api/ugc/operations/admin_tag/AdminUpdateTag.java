@@ -81,6 +81,9 @@ public class AdminUpdateTag extends Operation {
     if (this.tagId == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

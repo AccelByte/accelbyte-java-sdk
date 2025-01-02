@@ -27,7 +27,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * channel will be used and existing one will be removed
  *
  * <p>Action Code: 510113
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class ImportChannels extends Operation {

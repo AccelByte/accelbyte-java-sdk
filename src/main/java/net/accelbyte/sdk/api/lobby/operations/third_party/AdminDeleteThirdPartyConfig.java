@@ -24,7 +24,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * `social`
  *
  * <p>delete third party config in a namespace.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminDeleteThirdPartyConfig extends Operation {

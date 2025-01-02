@@ -95,6 +95,9 @@ public class UpdateLocalizationTemplate extends Operation {
     if (this.templateSlug == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

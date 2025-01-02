@@ -109,6 +109,9 @@ public class UpdateCategory extends Operation {
     if (this.storeId == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

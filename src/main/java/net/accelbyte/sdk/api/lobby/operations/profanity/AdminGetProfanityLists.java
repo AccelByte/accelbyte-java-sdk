@@ -24,7 +24,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminGetProfanityLists
  *
  * <p>Get lists
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminGetProfanityLists extends Operation {

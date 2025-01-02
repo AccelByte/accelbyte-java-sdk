@@ -23,7 +23,9 @@ public class SocialMatchmaking {
 
   /**
    * @see UpdatePlayTimeWeight
+   * @deprecated
    */
+  @Deprecated
   public ModelsUpdatePlayerPlaytimeWeightResponse updatePlayTimeWeight(UpdatePlayTimeWeight input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);

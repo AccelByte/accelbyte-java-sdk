@@ -24,7 +24,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Get metric for a specific match pool
  *
  * <p>Result: queue_time in seconds
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetMatchPoolMetric extends Operation {

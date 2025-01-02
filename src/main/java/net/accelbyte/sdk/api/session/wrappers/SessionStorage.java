@@ -22,6 +22,16 @@ public class SessionStorage {
   }
 
   /**
+   * @see AdminReadPartySessionStorage
+   */
+  public Map<String, ?> adminReadPartySessionStorage(AdminReadPartySessionStorage input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminReadSessionStorage
    */
   public Map<String, ?> adminReadSessionStorage(AdminReadSessionStorage input) throws Exception {
@@ -44,6 +54,26 @@ public class SessionStorage {
    */
   public Map<String, ?> adminReadUserSessionStorage(AdminReadUserSessionStorage input)
       throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicReadPartySessionStorage
+   */
+  public Map<String, ?> publicReadPartySessionStorage(PublicReadPartySessionStorage input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicUpdateInsertPartySessionStorageReserved
+   */
+  public Map<String, ?> publicUpdateInsertPartySessionStorageReserved(
+      PublicUpdateInsertPartySessionStorageReserved input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

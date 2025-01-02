@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * GetAllChannelsHandler
  *
  * <p>Reads all available channels in a namespace
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetAllChannelsHandler extends Operation {

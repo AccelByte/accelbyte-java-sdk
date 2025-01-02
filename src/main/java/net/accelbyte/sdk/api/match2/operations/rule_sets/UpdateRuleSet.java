@@ -86,6 +86,9 @@ public class UpdateRuleSet extends Operation {
     if (this.ruleset == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

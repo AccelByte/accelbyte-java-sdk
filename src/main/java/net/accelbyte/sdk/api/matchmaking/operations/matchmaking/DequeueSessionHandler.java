@@ -25,7 +25,10 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>This endpoint is intended to be called by game server to let matchmaker know that the game
  * server does not want more players to its session, even though it is not full.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class DequeueSessionHandler extends Operation {
@@ -73,6 +76,9 @@ public class DequeueSessionHandler extends Operation {
   @Override
   public boolean isValid() {
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

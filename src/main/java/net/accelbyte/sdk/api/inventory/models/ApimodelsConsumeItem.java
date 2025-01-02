@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApimodelsConsumeItem extends Model {
 
+  @JsonProperty("dateRangeValidation")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean dateRangeValidation;
+
   @JsonProperty("inventoryId")
   private String inventoryId;
 

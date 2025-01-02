@@ -41,6 +41,16 @@ public class AdminGetUserRewards implements Callable<Integer> {
   String userId;
 
   @Option(
+      names = {"--challengeCode"},
+      description = "challengeCode")
+  String challengeCode;
+
+  @Option(
+      names = {"--goalProgressionId"},
+      description = "goalProgressionId")
+  String goalProgressionId;
+
+  @Option(
       names = {"--limit"},
       description = "limit")
   Integer limit;
@@ -85,6 +95,8 @@ public class AdminGetUserRewards implements Callable<Integer> {
           net.accelbyte.sdk.api.challenge.operations.player_reward.AdminGetUserRewards.builder()
               .namespace(namespace)
               .userId(userId)
+              .challengeCode(challengeCode)
+              .goalProgressionId(goalProgressionId)
               .limit(limit)
               .offset(offset)
               .sortBy(sortBy)

@@ -22,6 +22,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * PublicMoveMyItems
  *
  * <p>Move items between inventories that is owned by the same user.
+ *
+ * <p>For Ecommerce items, the *qty* is *useCount*. For example, moving 2 of an item's *qty* will
+ * move 2 of the entitlement's *useCount*.
  */
 @Getter
 @Setter
@@ -80,6 +83,9 @@ public class PublicMoveMyItems extends Operation {
       return false;
     }
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

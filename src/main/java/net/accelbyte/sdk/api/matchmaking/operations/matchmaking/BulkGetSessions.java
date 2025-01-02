@@ -24,7 +24,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * BulkGetSessions
  *
  * <p>Bulk get sessions.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class BulkGetSessions extends Operation {

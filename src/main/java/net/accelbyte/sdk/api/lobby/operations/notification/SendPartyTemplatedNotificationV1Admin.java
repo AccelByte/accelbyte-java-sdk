@@ -29,7 +29,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>NotificationTemplate context is the key-value pair defining the value of each handlebar
  * specified in the template content. Template need to be published before it can be use to send
  * notifications
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class SendPartyTemplatedNotificationV1Admin extends Operation {
@@ -88,6 +91,9 @@ public class SendPartyTemplatedNotificationV1Admin extends Operation {
       return false;
     }
     if (this.partyId == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

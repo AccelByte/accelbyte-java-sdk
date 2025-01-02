@@ -41,6 +41,15 @@ public class OAuth20Extension {
   }
 
   /**
+   * @see AuthenticateAndLinkForwardV3
+   */
+  public String authenticateAndLinkForwardV3(AuthenticateAndLinkForwardV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GenerateTokenByNewHeadlessAccountV3
    */
   public OauthmodelTokenResponseV3 generateTokenByNewHeadlessAccountV3(
@@ -132,6 +141,16 @@ public class OAuth20Extension {
    * @see RequestTargetTokenResponseV3
    */
   public OauthmodelTokenResponseV3 requestTargetTokenResponseV3(RequestTargetTokenResponseV3 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see UpgradeAndAuthenticateForwardV3
+   */
+  public String upgradeAndAuthenticateForwardV3(UpgradeAndAuthenticateForwardV3 input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(

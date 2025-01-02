@@ -35,9 +35,12 @@
 ### Platform Account Closure Client Wrapper:  [PlatformAccountClosureClient](../../src/main/java/net/accelbyte/sdk/api/gdpr/wrappers/PlatformAccountClosureClient.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
+| `/gdpr/admin/namespaces/{namespace}/platforms/closure/clients` | GET | AdminGetPlatformAccountClosureClients | [AdminGetPlatformAccountClosureClients](../../src/main/java/net/accelbyte/sdk/api/gdpr/operations/platform_account_closure_client/AdminGetPlatformAccountClosureClients.java) | [AdminGetPlatformAccountClosureClients](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/gdpr/platform_account_closure_client/AdminGetPlatformAccountClosureClients.java) |
+| `/gdpr/admin/namespaces/{namespace}/platforms/xbox/closure/cert/validation` | POST | AdminValidateXboxBPCertFile | [AdminValidateXboxBPCertFile](../../src/main/java/net/accelbyte/sdk/api/gdpr/operations/platform_account_closure_client/AdminValidateXboxBPCertFile.java) | [AdminValidateXboxBPCertFile](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/gdpr/platform_account_closure_client/AdminValidateXboxBPCertFile.java) |
 | `/gdpr/admin/namespaces/{namespace}/platforms/{platform}/closure/client` | GET | AdminGetPlatformAccountClosureClient | [AdminGetPlatformAccountClosureClient](../../src/main/java/net/accelbyte/sdk/api/gdpr/operations/platform_account_closure_client/AdminGetPlatformAccountClosureClient.java) | [AdminGetPlatformAccountClosureClient](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/gdpr/platform_account_closure_client/AdminGetPlatformAccountClosureClient.java) |
 | `/gdpr/admin/namespaces/{namespace}/platforms/{platform}/closure/client` | POST | AdminUpdatePlatformAccountClosureClient | [AdminUpdatePlatformAccountClosureClient](../../src/main/java/net/accelbyte/sdk/api/gdpr/operations/platform_account_closure_client/AdminUpdatePlatformAccountClosureClient.java) | [AdminUpdatePlatformAccountClosureClient](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/gdpr/platform_account_closure_client/AdminUpdatePlatformAccountClosureClient.java) |
 | `/gdpr/admin/namespaces/{namespace}/platforms/{platform}/closure/client` | DELETE | AdminDeletePlatformAccountClosureClient | [AdminDeletePlatformAccountClosureClient](../../src/main/java/net/accelbyte/sdk/api/gdpr/operations/platform_account_closure_client/AdminDeletePlatformAccountClosureClient.java) | [AdminDeletePlatformAccountClosureClient](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/gdpr/platform_account_closure_client/AdminDeletePlatformAccountClosureClient.java) |
+| `/gdpr/admin/namespaces/{namespace}/platforms/{platform}/closure/mock` | POST | AdminMockPlatformAccountClosureData | [AdminMockPlatformAccountClosureData](../../src/main/java/net/accelbyte/sdk/api/gdpr/operations/platform_account_closure_client/AdminMockPlatformAccountClosureData.java) | [AdminMockPlatformAccountClosureData](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/gdpr/platform_account_closure_client/AdminMockPlatformAccountClosureData.java) |
 
 ### Data Retrieval Wrapper:  [DataRetrieval](../../src/main/java/net/accelbyte/sdk/api/gdpr/wrappers/DataRetrieval.java)
 | Endpoint | Method | ID | Class | Example |
@@ -85,6 +88,8 @@
 | `dto.ListFinishedDataRequests` | [DtoListFinishedDataRequests](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/DtoListFinishedDataRequests.java) |
 | `dto.PlatformAccountClosureClientRequest` | [DtoPlatformAccountClosureClientRequest](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/DtoPlatformAccountClosureClientRequest.java) |
 | `dto.PlatformAccountClosureClientResponse` | [DtoPlatformAccountClosureClientResponse](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/DtoPlatformAccountClosureClientResponse.java) |
+| `dto.PlatformAccountClosureClientsResponse` | [DtoPlatformAccountClosureClientsResponse](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/DtoPlatformAccountClosureClientsResponse.java) |
+| `dto.PlatformAccountClosureMockRequest` | [DtoPlatformAccountClosureMockRequest](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/DtoPlatformAccountClosureMockRequest.java) |
 | `dto.S2SDataRequestSummary` | [DtoS2SDataRequestSummary](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/DtoS2SDataRequestSummary.java) |
 | `dto.ServiceConfigDTO` | [DtoServiceConfigDTO](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/DtoServiceConfigDTO.java) |
 | `dto.ServiceConfigurationDTO` | [DtoServiceConfigurationDTO](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/DtoServiceConfigurationDTO.java) |
@@ -92,6 +97,8 @@
 | `dto.ServicesConfigurationResponse` | [DtoServicesConfigurationResponse](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/DtoServicesConfigurationResponse.java) |
 | `dto.UserPlatformAccountClosureHistoriesResponse` | [DtoUserPlatformAccountClosureHistoriesResponse](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/DtoUserPlatformAccountClosureHistoriesResponse.java) |
 | `dto.UserPlatformAccountClosureHistory` | [DtoUserPlatformAccountClosureHistory](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/DtoUserPlatformAccountClosureHistory.java) |
+| `dto.XboxBPCertValidationRequest` | [DtoXboxBPCertValidationRequest](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/DtoXboxBPCertValidationRequest.java) |
+| `dto.XboxBPCertValidationResponse` | [DtoXboxBPCertValidationResponse](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/DtoXboxBPCertValidationResponse.java) |
 | `models.DataRetrievalResponse` | [ModelsDataRetrievalResponse](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/ModelsDataRetrievalResponse.java) |
 | `models.DeletionData` | [ModelsDeletionData](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/ModelsDeletionData.java) |
 | `models.DeletionStatus` | [ModelsDeletionStatus](../../src/main/java/net/accelbyte/sdk/api/gdpr/models/ModelsDeletionStatus.java) |

@@ -28,6 +28,10 @@ public class ModelGoalProgressionResponse extends Model {
   @JsonProperty("challengeCode")
   private String challengeCode;
 
+  @JsonProperty("completedAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String completedAt;
+
   @JsonProperty("goal")
   private ModelGoalMeta goal;
 

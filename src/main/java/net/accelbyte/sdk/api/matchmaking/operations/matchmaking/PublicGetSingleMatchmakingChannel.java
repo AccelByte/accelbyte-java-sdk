@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * PublicGetSingleMatchmakingChannel
  *
  * <p>Reads single channel based on namespace and channel name
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class PublicGetSingleMatchmakingChannel extends Operation {

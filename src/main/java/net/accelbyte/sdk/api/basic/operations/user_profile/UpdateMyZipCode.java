@@ -74,6 +74,9 @@ public class UpdateMyZipCode extends Operation {
     if (this.namespace == null) {
       return false;
     }
+    if (this.userZipCodeUpdate == null) {
+      return false;
+    }
     return true;
   }
 

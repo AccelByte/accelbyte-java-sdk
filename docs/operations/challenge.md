@@ -27,6 +27,14 @@
 | `/challenge/v1/admin/namespaces/{namespace}/challenges/{challengeCode}/goals/{code}` | PUT | AdminUpdateGoals | [AdminUpdateGoals](../../src/main/java/net/accelbyte/sdk/api/challenge/operations/goal_configuration/AdminUpdateGoals.java) | [AdminUpdateGoals](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/challenge/goal_configuration/AdminUpdateGoals.java) |
 | `/challenge/v1/admin/namespaces/{namespace}/challenges/{challengeCode}/goals/{code}` | DELETE | AdminDeleteGoal | [AdminDeleteGoal](../../src/main/java/net/accelbyte/sdk/api/challenge/operations/goal_configuration/AdminDeleteGoal.java) | [AdminDeleteGoal](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/challenge/goal_configuration/AdminDeleteGoal.java) |
 
+### Schedules Wrapper:  [Schedules](../../src/main/java/net/accelbyte/sdk/api/challenge/wrappers/Schedules.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/challenge/v1/admin/namespaces/{namespace}/challenges/{challengeCode}/goals/{code}/schedules` | GET | AdminListSchedulesByGoal | [AdminListSchedulesByGoal](../../src/main/java/net/accelbyte/sdk/api/challenge/operations/schedules/AdminListSchedulesByGoal.java) | [AdminListSchedulesByGoal](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/challenge/schedules/AdminListSchedulesByGoal.java) |
+| `/challenge/v1/admin/namespaces/{namespace}/challenges/{challengeCode}/schedules` | GET | AdminListSchedules | [AdminListSchedules](../../src/main/java/net/accelbyte/sdk/api/challenge/operations/schedules/AdminListSchedules.java) | [AdminListSchedules](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/challenge/schedules/AdminListSchedules.java) |
+| `/challenge/v1/public/namespaces/{namespace}/challenges/{challengeCode}/goals/{code}/schedules` | GET | PublicListSchedulesByGoal | [PublicListSchedulesByGoal](../../src/main/java/net/accelbyte/sdk/api/challenge/operations/schedules/PublicListSchedulesByGoal.java) | [PublicListSchedulesByGoal](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/challenge/schedules/PublicListSchedulesByGoal.java) |
+| `/challenge/v1/public/namespaces/{namespace}/challenges/{challengeCode}/schedules` | GET | PublicListSchedules | [PublicListSchedules](../../src/main/java/net/accelbyte/sdk/api/challenge/operations/schedules/PublicListSchedules.java) | [PublicListSchedules](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/challenge/schedules/PublicListSchedules.java) |
+
 ### Plugins Wrapper:  [Plugins](../../src/main/java/net/accelbyte/sdk/api/challenge/wrappers/Plugins.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -80,6 +88,7 @@
 | `model.CreateGoalRequest` | [ModelCreateGoalRequest](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelCreateGoalRequest.java) |
 | `model.EvaluatePlayerProgressionRequest` | [ModelEvaluatePlayerProgressionRequest](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelEvaluatePlayerProgressionRequest.java) |
 | `model.GetGoalsResponse` | [ModelGetGoalsResponse](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelGetGoalsResponse.java) |
+| `model.GoalInSchedulesResponse` | [ModelGoalInSchedulesResponse](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelGoalInSchedulesResponse.java) |
 | `model.GoalMeta` | [ModelGoalMeta](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelGoalMeta.java) |
 | `model.GoalOrder` | [ModelGoalOrder](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelGoalOrder.java) |
 | `model.GoalProgressionResponse` | [ModelGoalProgressionResponse](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelGoalProgressionResponse.java) |
@@ -87,6 +96,8 @@
 | `model.GoalSchedule` | [ModelGoalSchedule](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelGoalSchedule.java) |
 | `model.ListChallengeResponse` | [ModelListChallengeResponse](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelListChallengeResponse.java) |
 | `model.ListPeriodsResponse` | [ModelListPeriodsResponse](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelListPeriodsResponse.java) |
+| `model.ListScheduleByGoalResponse` | [ModelListScheduleByGoalResponse](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelListScheduleByGoalResponse.java) |
+| `model.ListSchedulesResponse` | [ModelListSchedulesResponse](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelListSchedulesResponse.java) |
 | `model.ListUserRewardsResponse` | [ModelListUserRewardsResponse](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelListUserRewardsResponse.java) |
 | `model.Pagination` | [ModelPagination](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelPagination.java) |
 | `model.PluginAsignmentAppConfig` | [ModelPluginAsignmentAppConfig](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelPluginAsignmentAppConfig.java) |
@@ -99,6 +110,8 @@
 | `model.ResetConfig` | [ModelResetConfig](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelResetConfig.java) |
 | `model.Reward` | [ModelReward](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelReward.java) |
 | `model.Schedule` | [ModelSchedule](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelSchedule.java) |
+| `model.ScheduleByGoalResponse` | [ModelScheduleByGoalResponse](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelScheduleByGoalResponse.java) |
+| `model.ScheduleResponse` | [ModelScheduleResponse](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelScheduleResponse.java) |
 | `model.UpdateChallengeRequest` | [ModelUpdateChallengeRequest](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelUpdateChallengeRequest.java) |
 | `model.UpdateChallengeScheduleRequest` | [ModelUpdateChallengeScheduleRequest](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelUpdateChallengeScheduleRequest.java) |
 | `model.UpdateGoalRequest` | [ModelUpdateGoalRequest](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelUpdateGoalRequest.java) |

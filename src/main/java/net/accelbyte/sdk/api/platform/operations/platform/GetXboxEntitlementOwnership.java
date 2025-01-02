@@ -83,6 +83,9 @@ public class GetXboxEntitlementOwnership extends Operation {
     if (this.productSku == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

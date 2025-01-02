@@ -23,7 +23,9 @@ public class ThirdParty {
 
   /**
    * @see AdminGetThirdPartyConfig
+   * @deprecated
    */
+  @Deprecated
   public ModelsGetConfigResponse adminGetThirdPartyConfig(AdminGetThirdPartyConfig input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -33,7 +35,9 @@ public class ThirdParty {
 
   /**
    * @see AdminUpdateThirdPartyConfig
+   * @deprecated
    */
+  @Deprecated
   public ModelsUpdateConfigResponse adminUpdateThirdPartyConfig(AdminUpdateThirdPartyConfig input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -43,7 +47,9 @@ public class ThirdParty {
 
   /**
    * @see AdminCreateThirdPartyConfig
+   * @deprecated
    */
+  @Deprecated
   public ModelsCreateConfigResponse adminCreateThirdPartyConfig(AdminCreateThirdPartyConfig input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -53,7 +59,9 @@ public class ThirdParty {
 
   /**
    * @see AdminDeleteThirdPartyConfig
+   * @deprecated
    */
+  @Deprecated
   public void adminDeleteThirdPartyConfig(AdminDeleteThirdPartyConfig input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(

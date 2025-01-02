@@ -25,7 +25,9 @@ public class Matchmaking {
 
   /**
    * @see GetAllChannelsHandler
+   * @deprecated
    */
+  @Deprecated
   public ModelsGetChannelsResponse getAllChannelsHandler(GetAllChannelsHandler input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -35,7 +37,9 @@ public class Matchmaking {
 
   /**
    * @see CreateChannelHandler
+   * @deprecated
    */
+  @Deprecated
   public ModelsCreateChannelResponse createChannelHandler(CreateChannelHandler input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -45,7 +49,9 @@ public class Matchmaking {
 
   /**
    * @see GetMatchPoolMetric
+   * @deprecated
    */
+  @Deprecated
   public ModelsTicketMetricResultRecord getMatchPoolMetric(GetMatchPoolMetric input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -55,7 +61,9 @@ public class Matchmaking {
 
   /**
    * @see DeleteChannelHandler
+   * @deprecated
    */
+  @Deprecated
   public void deleteChannelHandler(DeleteChannelHandler input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
@@ -64,7 +72,9 @@ public class Matchmaking {
 
   /**
    * @see StoreMatchResults
+   * @deprecated
    */
+  @Deprecated
   public ModelsMatchResultResponse storeMatchResults(StoreMatchResults input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -73,7 +83,9 @@ public class Matchmaking {
 
   /**
    * @see Rebalance
+   * @deprecated
    */
+  @Deprecated
   public ModelsRebalanceResponse rebalance(Rebalance input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -82,7 +94,9 @@ public class Matchmaking {
 
   /**
    * @see QueueSessionHandler
+   * @deprecated
    */
+  @Deprecated
   public void queueSessionHandler(QueueSessionHandler input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
@@ -91,7 +105,9 @@ public class Matchmaking {
 
   /**
    * @see DequeueSessionHandler
+   * @deprecated
    */
+  @Deprecated
   public void dequeueSessionHandler(DequeueSessionHandler input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
@@ -100,7 +116,9 @@ public class Matchmaking {
 
   /**
    * @see QuerySessionHandler
+   * @deprecated
    */
+  @Deprecated
   public ModelsMatchmakingResult querySessionHandler(QuerySessionHandler input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -109,7 +127,9 @@ public class Matchmaking {
 
   /**
    * @see GetAllPartyInAllChannel
+   * @deprecated
    */
+  @Deprecated
   public Map<String, List<ModelsMatchingParty>> getAllPartyInAllChannel(
       GetAllPartyInAllChannel input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -119,7 +139,9 @@ public class Matchmaking {
 
   /**
    * @see BulkGetSessions
+   * @deprecated
    */
+  @Deprecated
   public List<ModelsMatchmakingResult> bulkGetSessions(BulkGetSessions input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -128,7 +150,9 @@ public class Matchmaking {
 
   /**
    * @see ExportChannels
+   * @deprecated
    */
+  @Deprecated
   public InputStream exportChannels(ExportChannels input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -137,7 +161,9 @@ public class Matchmaking {
 
   /**
    * @see ImportChannels
+   * @deprecated
    */
+  @Deprecated
   public ModelsImportConfigResponse importChannels(ImportChannels input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -146,7 +172,9 @@ public class Matchmaking {
 
   /**
    * @see GetSingleMatchmakingChannel
+   * @deprecated
    */
+  @Deprecated
   public ModelsChannelV1 getSingleMatchmakingChannel(GetSingleMatchmakingChannel input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -156,7 +184,9 @@ public class Matchmaking {
 
   /**
    * @see UpdateMatchmakingChannel
+   * @deprecated
    */
+  @Deprecated
   public void updateMatchmakingChannel(UpdateMatchmakingChannel input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
@@ -165,7 +195,9 @@ public class Matchmaking {
 
   /**
    * @see GetAllPartyInChannel
+   * @deprecated
    */
+  @Deprecated
   public List<ModelsMatchingParty> getAllPartyInChannel(GetAllPartyInChannel input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -175,7 +207,9 @@ public class Matchmaking {
 
   /**
    * @see GetAllSessionsInChannel
+   * @deprecated
    */
+  @Deprecated
   public List<ModelsMatchmakingResult> getAllSessionsInChannel(GetAllSessionsInChannel input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -185,7 +219,9 @@ public class Matchmaking {
 
   /**
    * @see AddUserIntoSessionInChannel
+   * @deprecated
    */
+  @Deprecated
   public void addUserIntoSessionInChannel(AddUserIntoSessionInChannel input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
@@ -194,7 +230,9 @@ public class Matchmaking {
 
   /**
    * @see DeleteSessionInChannel
+   * @deprecated
    */
+  @Deprecated
   public void deleteSessionInChannel(DeleteSessionInChannel input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
@@ -203,7 +241,9 @@ public class Matchmaking {
 
   /**
    * @see DeleteUserFromSessionInChannel
+   * @deprecated
    */
+  @Deprecated
   public void deleteUserFromSessionInChannel(DeleteUserFromSessionInChannel input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -213,7 +253,9 @@ public class Matchmaking {
 
   /**
    * @see GetStatData
+   * @deprecated
    */
+  @Deprecated
   public ModelsStatResumeResponse getStatData(GetStatData input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -246,7 +288,9 @@ public class Matchmaking {
 
   /**
    * @see PublicGetAllMatchmakingChannel
+   * @deprecated
    */
+  @Deprecated
   public List<ModelsChannelV1> publicGetAllMatchmakingChannel(PublicGetAllMatchmakingChannel input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -256,7 +300,9 @@ public class Matchmaking {
 
   /**
    * @see PublicGetSingleMatchmakingChannel
+   * @deprecated
    */
+  @Deprecated
   public ModelsChannelV1 publicGetSingleMatchmakingChannel(PublicGetSingleMatchmakingChannel input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);

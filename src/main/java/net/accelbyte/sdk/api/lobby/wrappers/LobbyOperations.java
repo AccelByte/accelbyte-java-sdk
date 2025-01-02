@@ -24,7 +24,9 @@ public class LobbyOperations {
 
   /**
    * @see AdminUpdatePartyAttributesV1
+   * @deprecated
    */
+  @Deprecated
   public ModelsPartyData adminUpdatePartyAttributesV1(AdminUpdatePartyAttributesV1 input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -34,7 +36,9 @@ public class LobbyOperations {
 
   /**
    * @see AdminJoinPartyV1
+   * @deprecated
    */
+  @Deprecated
   public void adminJoinPartyV1(AdminJoinPartyV1 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(

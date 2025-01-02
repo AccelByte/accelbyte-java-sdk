@@ -76,6 +76,9 @@ public class UpdateClientPermission extends Operation {
     if (this.clientId == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

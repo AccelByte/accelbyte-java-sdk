@@ -81,6 +81,9 @@ public class RefundOrder extends Operation {
     if (this.orderNo == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

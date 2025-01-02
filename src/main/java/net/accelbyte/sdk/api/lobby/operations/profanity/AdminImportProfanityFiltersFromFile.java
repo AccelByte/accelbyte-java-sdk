@@ -21,7 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminImportProfanityFiltersFromFile
  *
  * <p>Import a file with filters
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminImportProfanityFiltersFromFile extends Operation {

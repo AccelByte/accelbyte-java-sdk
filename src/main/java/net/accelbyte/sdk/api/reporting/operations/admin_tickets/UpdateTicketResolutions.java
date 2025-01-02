@@ -82,6 +82,9 @@ public class UpdateTicketResolutions extends Operation {
     if (this.ticketId == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

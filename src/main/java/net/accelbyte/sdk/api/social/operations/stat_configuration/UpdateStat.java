@@ -83,6 +83,9 @@ public class UpdateStat extends Operation {
     if (this.statCode == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

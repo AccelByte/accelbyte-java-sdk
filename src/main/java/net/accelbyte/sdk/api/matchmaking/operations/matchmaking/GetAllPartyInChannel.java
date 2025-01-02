@@ -24,7 +24,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * GetAllPartyInChannel
  *
  * <p>Get all parties queueing in a channel.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetAllPartyInChannel extends Operation {

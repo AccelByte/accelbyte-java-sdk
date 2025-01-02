@@ -80,6 +80,9 @@ public class AddRoleMembers extends Operation {
     if (this.roleId == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

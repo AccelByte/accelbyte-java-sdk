@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminGetGlobalConfig
  *
  * <p>Get dsmc global configuration.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminGetGlobalConfig extends Operation {

@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * CreateSession
  *
  * <p>This end point intended to be called directly by P2P game client host or by DSMC
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class CreateSession extends Operation {
@@ -70,6 +73,9 @@ public class CreateSession extends Operation {
   @Override
   public boolean isValid() {
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

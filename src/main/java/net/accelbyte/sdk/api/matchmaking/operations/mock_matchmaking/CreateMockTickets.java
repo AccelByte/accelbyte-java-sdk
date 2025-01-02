@@ -26,7 +26,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Create and queue mock tickets into specified game mode's pool. Ticket's MMRs will be
  * randomized using Normal distribution according to the input mean and standard deviation. All mock
  * tickets and matches will be cleaned up automatically after 1 day. '
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class CreateMockTickets extends Operation {
@@ -84,6 +87,9 @@ public class CreateMockTickets extends Operation {
       return false;
     }
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

@@ -85,6 +85,9 @@ public class UpdateModerationRule extends Operation {
     if (this.ruleId == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

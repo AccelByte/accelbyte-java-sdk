@@ -87,6 +87,9 @@ public class AdminChangeRoleOverrideConfigStatusV3 extends Operation {
     if (this.identity == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

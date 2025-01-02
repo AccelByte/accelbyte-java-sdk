@@ -24,7 +24,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Process match result into final attribute value and stores it to player attribute
  *
  * <p>Will return final attribute value
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class StoreMatchResults extends Operation {
@@ -72,6 +75,9 @@ public class StoreMatchResults extends Operation {
   @Override
   public boolean isValid() {
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

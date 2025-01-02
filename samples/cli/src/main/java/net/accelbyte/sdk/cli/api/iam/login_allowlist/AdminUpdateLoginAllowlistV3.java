@@ -69,6 +69,7 @@ public class AdminUpdateLoginAllowlistV3 implements Callable<Integer> {
                   .body(new ObjectMapper().readValue(body, ModelLoginAllowlistRequest.class))
                   .build();
       wrapper.adminUpdateLoginAllowlistV3(operation);
+      log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

@@ -21,8 +21,11 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * appendTeamGameSession
  *
- * <p>Append new member or team to session
+ * <p>Append new member or team to session. Please use patchUpdateGameSession instead
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AppendTeamGameSession extends Operation {
@@ -80,6 +83,9 @@ public class AppendTeamGameSession extends Operation {
       return false;
     }
     if (this.sessionId == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

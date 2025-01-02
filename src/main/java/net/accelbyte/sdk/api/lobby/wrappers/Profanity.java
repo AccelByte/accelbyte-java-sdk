@@ -24,7 +24,9 @@ public class Profanity {
 
   /**
    * @see AdminDebugProfanityFilters
+   * @deprecated
    */
+  @Deprecated
   public List<ModelsProfanityFilter> adminDebugProfanityFilters(AdminDebugProfanityFilters input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -34,7 +36,9 @@ public class Profanity {
 
   /**
    * @see AdminGetProfanityListFiltersV1
+   * @deprecated
    */
+  @Deprecated
   public ModelsAdminGetProfanityListFiltersV1Response adminGetProfanityListFiltersV1(
       AdminGetProfanityListFiltersV1 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -44,7 +48,9 @@ public class Profanity {
 
   /**
    * @see AdminAddProfanityFilterIntoList
+   * @deprecated
    */
+  @Deprecated
   public void adminAddProfanityFilterIntoList(AdminAddProfanityFilterIntoList input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -54,7 +60,9 @@ public class Profanity {
 
   /**
    * @see AdminAddProfanityFilters
+   * @deprecated
    */
+  @Deprecated
   public void adminAddProfanityFilters(AdminAddProfanityFilters input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
@@ -63,7 +71,9 @@ public class Profanity {
 
   /**
    * @see AdminImportProfanityFiltersFromFile
+   * @deprecated
    */
+  @Deprecated
   public void adminImportProfanityFiltersFromFile(AdminImportProfanityFiltersFromFile input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -73,7 +83,9 @@ public class Profanity {
 
   /**
    * @see AdminDeleteProfanityFilter
+   * @deprecated
    */
+  @Deprecated
   public List<ModelsProfanityFilter> adminDeleteProfanityFilter(AdminDeleteProfanityFilter input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -83,7 +95,9 @@ public class Profanity {
 
   /**
    * @see AdminGetProfanityLists
+   * @deprecated
    */
+  @Deprecated
   public List<ModelsAdminGetProfanityListsListResponse> adminGetProfanityLists(
       AdminGetProfanityLists input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -93,7 +107,9 @@ public class Profanity {
 
   /**
    * @see AdminCreateProfanityList
+   * @deprecated
    */
+  @Deprecated
   public void adminCreateProfanityList(AdminCreateProfanityList input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
@@ -102,7 +118,9 @@ public class Profanity {
 
   /**
    * @see AdminUpdateProfanityList
+   * @deprecated
    */
+  @Deprecated
   public void adminUpdateProfanityList(AdminUpdateProfanityList input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
@@ -111,7 +129,9 @@ public class Profanity {
 
   /**
    * @see AdminDeleteProfanityList
+   * @deprecated
    */
+  @Deprecated
   public void adminDeleteProfanityList(AdminDeleteProfanityList input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
@@ -120,7 +140,9 @@ public class Profanity {
 
   /**
    * @see AdminGetProfanityRule
+   * @deprecated
    */
+  @Deprecated
   public ModelsProfanityRule adminGetProfanityRule(AdminGetProfanityRule input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -129,7 +151,9 @@ public class Profanity {
 
   /**
    * @see AdminSetProfanityRuleForNamespace
+   * @deprecated
    */
+  @Deprecated
   public void adminSetProfanityRuleForNamespace(AdminSetProfanityRuleForNamespace input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -139,7 +163,9 @@ public class Profanity {
 
   /**
    * @see AdminVerifyMessageProfanityResponse
+   * @deprecated
    */
+  @Deprecated
   public ModelsAdminVerifyMessageProfanityResponse adminVerifyMessageProfanityResponse(
       AdminVerifyMessageProfanityResponse input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);

@@ -87,6 +87,9 @@ public class AdminUpdateProfileUpdateStrategyV3 extends Operation {
     if (this.field == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

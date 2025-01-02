@@ -85,6 +85,9 @@ public class UpdateXsollaConfig extends Operation {
     if (this.id == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

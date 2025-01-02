@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * EvaluateMyProgress
  *
- * <p>* Required permission: NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [UPDATE]
+ * <p>- Required permission: NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [UPDATE]
  */
 @Getter
 @Setter

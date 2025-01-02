@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminGetAssignmentPlugin
  *
- * <p>* Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PLUGIN [READ]
+ * <p>- Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PLUGIN [READ]
  */
 @Getter
 @Setter

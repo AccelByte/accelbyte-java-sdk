@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminUpdateThirdPartyConfig
  *
  * <p>Update third party config in a namespace.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminUpdateThirdPartyConfig extends Operation {
@@ -70,6 +73,9 @@ public class AdminUpdateThirdPartyConfig extends Operation {
   @Override
   public boolean isValid() {
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

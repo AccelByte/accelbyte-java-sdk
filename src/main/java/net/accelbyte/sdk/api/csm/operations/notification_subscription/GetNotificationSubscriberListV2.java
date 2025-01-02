@@ -48,6 +48,7 @@ public class GetNotificationSubscriberListV2 extends Operation {
   /**
    * @param app required
    * @param namespace required
+   * @param notificationType required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
@@ -87,6 +88,9 @@ public class GetNotificationSubscriberListV2 extends Operation {
       return false;
     }
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.notificationType == null) {
       return false;
     }
     return true;

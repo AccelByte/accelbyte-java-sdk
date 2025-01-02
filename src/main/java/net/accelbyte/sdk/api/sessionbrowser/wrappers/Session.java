@@ -24,7 +24,9 @@ public class Session {
 
   /**
    * @see AdminQuerySession
+   * @deprecated
    */
+  @Deprecated
   public ModelsSessionQueryResponse adminQuerySession(AdminQuerySession input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -33,7 +35,9 @@ public class Session {
 
   /**
    * @see GetTotalActiveSession
+   * @deprecated
    */
+  @Deprecated
   public ModelsCountActiveSessionResponse getTotalActiveSession(GetTotalActiveSession input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -43,7 +47,9 @@ public class Session {
 
   /**
    * @see GetActiveCustomGameSessions
+   * @deprecated
    */
+  @Deprecated
   public ModelsActiveCustomGameResponse getActiveCustomGameSessions(
       GetActiveCustomGameSessions input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -53,7 +59,9 @@ public class Session {
 
   /**
    * @see GetActiveMatchmakingGameSessions
+   * @deprecated
    */
+  @Deprecated
   public ModelsActiveMatchmakingGameResponse getActiveMatchmakingGameSessions(
       GetActiveMatchmakingGameSessions input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -63,7 +71,9 @@ public class Session {
 
   /**
    * @see AdminGetSession
+   * @deprecated
    */
+  @Deprecated
   public ModelsAdminSessionResponse adminGetSession(AdminGetSession input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -72,7 +82,9 @@ public class Session {
 
   /**
    * @see AdminDeleteSession
+   * @deprecated
    */
+  @Deprecated
   public ModelsAdminSessionResponse adminDeleteSession(AdminDeleteSession input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -81,7 +93,9 @@ public class Session {
 
   /**
    * @see AdminSearchSessionsV2
+   * @deprecated
    */
+  @Deprecated
   public ModelsGetSessionHistorySearchResponseV2 adminSearchSessionsV2(AdminSearchSessionsV2 input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -91,7 +105,9 @@ public class Session {
 
   /**
    * @see GetSessionHistoryDetailed
+   * @deprecated
    */
+  @Deprecated
   public List<ModelsGetSessionHistoryDetailedResponseItem> getSessionHistoryDetailed(
       GetSessionHistoryDetailed input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -101,7 +117,9 @@ public class Session {
 
   /**
    * @see UserQuerySession
+   * @deprecated
    */
+  @Deprecated
   public ModelsSessionQueryResponse userQuerySession(UserQuerySession input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -110,7 +128,9 @@ public class Session {
 
   /**
    * @see CreateSession
+   * @deprecated
    */
+  @Deprecated
   public ModelsSessionResponse createSession(CreateSession input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -119,7 +139,9 @@ public class Session {
 
   /**
    * @see GetSessionByUserIDs
+   * @deprecated
    */
+  @Deprecated
   public ModelsSessionByUserIDsResponse getSessionByUserIDs(GetSessionByUserIDs input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -129,7 +151,9 @@ public class Session {
 
   /**
    * @see GetSession
+   * @deprecated
    */
+  @Deprecated
   public ModelsSessionResponse getSession(GetSession input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -138,7 +162,9 @@ public class Session {
 
   /**
    * @see UpdateSession
+   * @deprecated
    */
+  @Deprecated
   public ModelsSessionResponse updateSession(UpdateSession input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -147,7 +173,9 @@ public class Session {
 
   /**
    * @see DeleteSession
+   * @deprecated
    */
+  @Deprecated
   public ModelsSessionResponse deleteSession(DeleteSession input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -156,7 +184,9 @@ public class Session {
 
   /**
    * @see JoinSession
+   * @deprecated
    */
+  @Deprecated
   public ModelsSessionResponse joinSession(JoinSession input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -165,7 +195,9 @@ public class Session {
 
   /**
    * @see DeleteSessionLocalDS
+   * @deprecated
    */
+  @Deprecated
   public ModelsSessionResponse deleteSessionLocalDS(DeleteSessionLocalDS input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -174,7 +206,9 @@ public class Session {
 
   /**
    * @see AddPlayerToSession
+   * @deprecated
    */
+  @Deprecated
   public ModelsAddPlayerResponse addPlayerToSession(AddPlayerToSession input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -183,7 +217,9 @@ public class Session {
 
   /**
    * @see RemovePlayerFromSession
+   * @deprecated
    */
+  @Deprecated
   public ModelsAddPlayerResponse removePlayerFromSession(RemovePlayerFromSession input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -193,7 +229,9 @@ public class Session {
 
   /**
    * @see UpdateSettings
+   * @deprecated
    */
+  @Deprecated
   public ModelsSessionResponse updateSettings(UpdateSettings input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -202,7 +240,9 @@ public class Session {
 
   /**
    * @see GetRecentPlayer
+   * @deprecated
    */
+  @Deprecated
   public ModelsRecentPlayerQueryResponse getRecentPlayer(GetRecentPlayer input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(

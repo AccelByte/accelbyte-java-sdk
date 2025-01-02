@@ -82,6 +82,9 @@ public class UpdateSSOPlatformCredential extends Operation {
     if (this.platformId == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

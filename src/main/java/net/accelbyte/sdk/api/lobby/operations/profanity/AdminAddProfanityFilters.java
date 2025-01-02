@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminAddProfanityFilters
  *
  * <p>Add multiple filters into the list
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminAddProfanityFilters extends Operation {
@@ -80,6 +83,9 @@ public class AdminAddProfanityFilters extends Operation {
       return false;
     }
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

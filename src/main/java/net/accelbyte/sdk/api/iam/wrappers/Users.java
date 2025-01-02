@@ -1735,6 +1735,15 @@ public class Users {
   }
 
   /**
+   * @see PublicSendCodeForwardV3
+   */
+  public String publicSendCodeForwardV3(PublicSendCodeForwardV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicGetLinkHeadlessAccountToMyAccountConflictV3
    */
   public ModelGetLinkHeadlessAccountConflictResponse
@@ -1756,6 +1765,16 @@ public class Users {
   }
 
   /**
+   * @see PublicGetMyRedirectionAfterLinkV3
+   */
+  public ModelOneTimeCodeLinkRedirectionResponse publicGetMyRedirectionAfterLinkV3(
+      PublicGetMyRedirectionAfterLinkV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicGetMyProfileAllowUpdateStatusV3
    */
   public ModelUserProfileUpdateAllowStatus publicGetMyProfileAllowUpdateStatusV3(
@@ -1771,6 +1790,16 @@ public class Users {
   public void publicSendVerificationLinkV3(PublicSendVerificationLinkV3 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicGetOpenidUserInfoV3
+   */
+  public ModelPublicOpenIDUserInfoResponse publicGetOpenidUserInfoV3(
+      PublicGetOpenidUserInfoV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 

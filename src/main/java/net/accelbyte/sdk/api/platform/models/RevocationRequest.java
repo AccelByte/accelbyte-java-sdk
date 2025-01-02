@@ -33,6 +33,10 @@ public class RevocationRequest extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String reason;
 
+  @JsonProperty("requestId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String requestId;
+
   @JsonProperty("revokeEntries")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<RevokeEntry> revokeEntries;

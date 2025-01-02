@@ -24,7 +24,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Reads single channel based on namespace and channel name
  *
  * <p>Action Code: 510112
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetSingleMatchmakingChannel extends Operation {

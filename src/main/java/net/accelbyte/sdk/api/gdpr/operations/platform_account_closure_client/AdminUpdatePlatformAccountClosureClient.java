@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdatePlatformAccountClosureClient
  *
- * <p>Update platform account closure client. Scope: account
+ * <p>Update platform account closure client. The namespace should be the **publisher or studio
+ * namespace**. ------ Platform: - steamnetwork - xbox - psn Scope: account
  */
 @Getter
 @Setter
@@ -80,6 +81,9 @@ public class AdminUpdatePlatformAccountClosureClient extends Operation {
       return false;
     }
     if (this.platform == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

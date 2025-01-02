@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetChallenges
  *
- * <p>* Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
+ * <p>- Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
  */
 @Getter
 @Setter
@@ -107,6 +107,26 @@ public class GetChallenges extends Operation {
     return result;
   }
 
+  public enum SortBy {
+    CreatedAt("createdAt"),
+    CreatedAtasc("createdAt:asc"),
+    CreatedAtdesc("createdAt:desc"),
+    UpdatedAt("updatedAt"),
+    UpdatedAtasc("updatedAt:asc"),
+    UpdatedAtdesc("updatedAt:desc");
+
+    private String value;
+
+    SortBy(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public enum Status {
     INIT("INIT"),
     RETIRED("RETIRED"),
@@ -125,7 +145,18 @@ public class GetChallenges extends Operation {
   }
 
   public static class GetChallengesBuilder {
+    private String sortBy;
     private String status;
+
+    public GetChallengesBuilder sortBy(final String sortBy) {
+      this.sortBy = sortBy;
+      return this;
+    }
+
+    public GetChallengesBuilder sortByFromEnum(final SortBy sortBy) {
+      this.sortBy = sortBy.toString();
+      return this;
+    }
 
     public GetChallengesBuilder status(final String status) {
       this.status = status;

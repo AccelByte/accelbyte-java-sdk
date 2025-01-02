@@ -36,9 +36,17 @@ public class RevocationResult extends Model {
   @JsonProperty("id")
   private String id;
 
+  @JsonProperty("isReplayed")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean isReplayed;
+
   @JsonProperty("itemRevocations")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<ItemRevocation> itemRevocations;
+
+  @JsonProperty("requestId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String requestId;
 
   @JsonProperty("status")
   private String status;

@@ -26,7 +26,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Get all sessions in a channel.
  *
  * <p>if party_id value empty/null, field will not show in response body.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetAllSessionsInChannel extends Operation {

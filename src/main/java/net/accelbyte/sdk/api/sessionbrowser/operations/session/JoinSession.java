@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * JoinSession
  *
  * <p>Join the specified session by session ID. Possible the game required a password to join
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class JoinSession extends Operation {
@@ -79,6 +82,9 @@ public class JoinSession extends Operation {
       return false;
     }
     if (this.sessionID == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminVerifyMessageProfanityResponse
  *
  * <p>Verify a message directly from the UI or other services
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminVerifyMessageProfanityResponse extends Operation {
@@ -71,6 +74,9 @@ public class AdminVerifyMessageProfanityResponse extends Operation {
   @Override
   public boolean isValid() {
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

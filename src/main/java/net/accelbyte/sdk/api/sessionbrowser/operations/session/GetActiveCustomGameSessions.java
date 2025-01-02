@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * GetActiveCustomGameSessions
  *
  * <p>Get all active session for custom game, this return only dedicated session type
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetActiveCustomGameSessions extends Operation {

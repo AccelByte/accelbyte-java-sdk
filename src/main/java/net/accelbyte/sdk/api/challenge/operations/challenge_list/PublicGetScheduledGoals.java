@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicGetScheduledGoals
  *
- * <p>* Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
+ * <p>- Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
  */
 @Getter
 @Setter

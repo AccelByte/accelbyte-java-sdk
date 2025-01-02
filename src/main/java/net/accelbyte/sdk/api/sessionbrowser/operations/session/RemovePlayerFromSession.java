@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * RemovePlayerFromSession
  *
  * <p>Remove player from game session
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class RemovePlayerFromSession extends Operation {

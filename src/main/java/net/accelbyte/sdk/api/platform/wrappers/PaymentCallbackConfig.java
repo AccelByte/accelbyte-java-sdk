@@ -23,7 +23,9 @@ public class PaymentCallbackConfig {
 
   /**
    * @see GetPaymentCallbackConfig
+   * @deprecated
    */
+  @Deprecated
   public PaymentCallbackConfigInfo getPaymentCallbackConfig(GetPaymentCallbackConfig input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -33,7 +35,9 @@ public class PaymentCallbackConfig {
 
   /**
    * @see UpdatePaymentCallbackConfig
+   * @deprecated
    */
+  @Deprecated
   public PaymentCallbackConfigInfo updatePaymentCallbackConfig(UpdatePaymentCallbackConfig input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);

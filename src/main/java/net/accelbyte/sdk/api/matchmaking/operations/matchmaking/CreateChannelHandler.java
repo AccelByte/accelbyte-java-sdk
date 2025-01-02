@@ -38,7 +38,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * together within an ally.
  *
  * <p>Valid value for criteria is "distance"
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class CreateChannelHandler extends Operation {
@@ -86,6 +89,9 @@ public class CreateChannelHandler extends Operation {
   @Override
   public boolean isValid() {
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

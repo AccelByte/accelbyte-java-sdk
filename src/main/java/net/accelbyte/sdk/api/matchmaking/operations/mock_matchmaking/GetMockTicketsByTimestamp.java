@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * GetMockTicketsByTimestamp
  *
  * <p>Read mock tickets after the specified timestamp in a channel. '
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class GetMockTicketsByTimestamp extends Operation {
@@ -80,6 +83,9 @@ public class GetMockTicketsByTimestamp extends Operation {
       return false;
     }
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

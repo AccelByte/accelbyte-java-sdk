@@ -25,7 +25,16 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class DtoPlatformAccountClosureClientResponse extends Model {
 
+  @JsonProperty("bpCertExpireAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Long bpCertExpireAt;
+
+  @JsonProperty("bpCertFileName")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String bpCertFileName;
+
   @JsonProperty("clientId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String clientId;
 
   @JsonProperty("namespace")
@@ -34,7 +43,16 @@ public class DtoPlatformAccountClosureClientResponse extends Model {
   @JsonProperty("platform")
   private String platform;
 
+  @JsonProperty("publisherKey")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String publisherKey;
+
+  @JsonProperty("sandboxId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String sandboxId;
+
   @JsonProperty("secret")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String secret;
 
   @JsonProperty("updatedAt")

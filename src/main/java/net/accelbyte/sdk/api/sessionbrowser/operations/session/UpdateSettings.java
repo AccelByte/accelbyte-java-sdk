@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * UpdateSettings
  *
  * <p>Update game session, used to update OtherSettings
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class UpdateSettings extends Operation {
@@ -79,6 +82,9 @@ public class UpdateSettings extends Operation {
       return false;
     }
     if (this.sessionID == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

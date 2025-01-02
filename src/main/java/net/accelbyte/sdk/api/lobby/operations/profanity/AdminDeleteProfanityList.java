@@ -21,7 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminDeleteProfanityList
  *
  * <p>Delete a list include all filters inside of it
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminDeleteProfanityList extends Operation {

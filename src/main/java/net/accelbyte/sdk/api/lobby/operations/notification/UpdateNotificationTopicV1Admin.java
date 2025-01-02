@@ -87,6 +87,9 @@ public class UpdateNotificationTopicV1Admin extends Operation {
     if (this.topicName == null) {
       return false;
     }
+    if (this.body == null) {
+      return false;
+    }
     return true;
   }
 

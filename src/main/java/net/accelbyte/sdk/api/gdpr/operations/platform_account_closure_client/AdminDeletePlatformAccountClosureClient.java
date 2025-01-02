@@ -20,7 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDeletePlatformAccountClosureClient
  *
- * <p>Delete platform account closure client.
+ * <p>Delete platform account closure client. The namespace should be **publisher or studio
+ * namespace** ------- Platform: - steamnetwork - xbox - psn
  */
 @Getter
 @Setter

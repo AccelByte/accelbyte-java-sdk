@@ -36,6 +36,10 @@ public class ModelSendVerificationCodeRequestV3 extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String languageTag;
 
+  @JsonProperty("upgradeToken")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String upgradeToken;
+
   @JsonIgnore
   public ModelSendVerificationCodeRequestV3 createFromJson(String json)
       throws JsonProcessingException {
