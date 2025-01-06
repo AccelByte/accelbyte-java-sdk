@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * Copyright (c) 2022-2025 AccelByte Inc. All Rights Reserved
  * This is licensed software from AccelByte Inc, for limitations
  * and restrictions contact your company contract manager.
  */
@@ -16,4 +16,10 @@ public interface HttpClient<T extends HttpLogger<?, ?>> {
       throws Exception;
 
   void setLogger(T logger);
+
+  boolean uploadBinaryData(String url, byte[] dataToUpload, String contentType)
+    throws Exception;
+
+  byte[] downloadBinaryData(String url)
+    throws Exception;
 }

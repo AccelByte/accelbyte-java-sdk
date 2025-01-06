@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * Copyright (c) 2022-2025 AccelByte Inc. All Rights Reserved
  * This is licensed software from AccelByte Inc, for limitations
  * and restrictions contact your company contract manager.
  */
@@ -846,6 +846,14 @@ public class AccelByteSDK {
     }
 
     return false;
+  }
+
+  public boolean uploadBinaryData(String url, byte[] dataToUpload, String contentType) throws Exception {
+    return sdkConfiguration.getHttpClient().uploadBinaryData(url, dataToUpload, contentType);
+  }
+
+  public byte[] downloadBinaryData(String url) throws Exception {
+    return sdkConfiguration.getHttpClient().downloadBinaryData(url);
   }
 
   private void scheduleRefreshTokenTask(long delaySeconds) {

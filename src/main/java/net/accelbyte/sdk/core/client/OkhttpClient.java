@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * Copyright (c) 2022-2025 AccelByte Inc. All Rights Reserved
  * This is licensed software from AccelByte Inc, for limitations
  * and restrictions contact your company contract manager.
  */
@@ -30,6 +30,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
+import okhttp3.MediaType;
 
 public class OkhttpClient implements HttpClient<HttpLogger<Request, Response>> {
   private static final OkHttpClient client =
@@ -178,6 +179,41 @@ public class OkhttpClient implements HttpClient<HttpLogger<Request, Response>> {
             .execute();
 
     return createResponse(response);
+  }
+
+  public boolean uploadBinaryData(String url, byte[] dataToUpload, String contentType) throws Exception {
+
+    final Request.Builder requestBuilder = new Request.Builder().url(url);
+    RequestBody requestBody = RequestBody.create(MediaType.parse(contentType), dataToUpload);
+    requestBuilder.method("PUT", requestBody);
+
+    final Request request = requestBuilder.build();
+
+    Builder okHttpBuilder = client.newBuilder();
+    final Response response = okHttpBuilder.build().newCall(request).execute();
+
+    final int statusCode = response.code();
+    return (statusCode >= 200 && statusCode <= 299);
+  }
+
+  public byte[] downloadBinaryData(String url) throws Exception {
+    final Request.Builder requestBuilder = new Request.Builder().url(url);
+    final Request request = requestBuilder.get().build();
+
+    Builder okHttpBuilder = client.newBuilder();
+    final Response response = okHttpBuilder.build().newCall(request).execute();
+
+    final int statusCode = response.code();
+    if (statusCode >= 200 && statusCode <= 299) {
+      final ResponseBody body = response.body();
+      if (body != null) {
+        return body.bytes();        
+      } else {
+        throw new IllegalArgumentException("Response body is null");
+      }
+    } else {
+      throw new IllegalArgumentException("Response status code is not within acceptable range. (" + statusCode + ")");
+    }
   }
 
   @Override
