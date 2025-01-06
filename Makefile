@@ -50,6 +50,12 @@ test_integration:
 	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ --env-file $(ENV_FILE_PATH) -e GRADLE_USER_HOME=/data/.gradle $(GRADLE_IMAGE) \
 			gradle --console=plain -i --no-daemon testIntegration
 
+test_method:
+	@test -n "$(ENV_FILE_PATH)" || (echo "ENV_FILE_PATH is not set" ; exit 1)
+	@test -n "$(TEST_METHOD)" || (echo "TEST_METHOD is not set" ; exit 1)
+	docker run -t --rm -u $$(id -u):$$(id -g) -v $$(pwd):/data/ -w /data/ --env-file $(ENV_FILE_PATH) -e GRADLE_USER_HOME=/data/.gradle $(GRADLE_IMAGE) \
+			gradle --console=plain -i testIntegration --tests $(TEST_METHOD)
+
 test_cli:
 	@test -n "$(SDK_MOCK_SERVER_PATH)" || (echo "SDK_MOCK_SERVER_PATH is not set" ; exit 1)
 	rm -f test.err
