@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 import lombok.*;
 import net.accelbyte.sdk.api.iam.models.AccountcommonPermissionV3;
+import net.accelbyte.sdk.api.iam.models.AccountcommonPermission;
 
 @Getter
 @Setter
@@ -61,6 +62,13 @@ public class AccessTokenPayload {
         return Permission.builder()
             .resource(permissionV3.getResource())
             .action(permissionV3.getAction())
+            .build();
+      }
+
+      public static Permission of(AccountcommonPermission permission) {
+        return Permission.builder()
+            .resource(permission.getResource())
+            .action(permission.getAction())
             .build();
       }
     }

@@ -48,9 +48,11 @@ import net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenGrantV3;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0.VerifyTokenV3;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.UserAuthenticationV3;
 import net.accelbyte.sdk.api.iam.operations.roles.AdminGetRoleV3;
+import net.accelbyte.sdk.api.iam.operations.override_role_config_v3.AdminGetRoleNamespacePermissionV3;
 import net.accelbyte.sdk.api.iam.wrappers.OAuth20;
 import net.accelbyte.sdk.api.iam.wrappers.OAuth20Extension;
 import net.accelbyte.sdk.api.iam.wrappers.Roles;
+import net.accelbyte.sdk.api.iam.wrappers.OverrideRoleConfigV3;
 import net.accelbyte.sdk.core.client.HttpClient;
 import net.accelbyte.sdk.core.repository.*;
 import net.accelbyte.sdk.core.util.BloomFilter;
@@ -900,9 +902,13 @@ public class AccelByteSDK {
         new CacheLoader<RoleCacheKey, List<Permission>>() {
           @Override
           public List<Permission> load(RoleCacheKey key) throws Exception {
-            final Roles rolesWrapper = new Roles(sdk);
-            final AdminGetRoleV3 param = AdminGetRoleV3.builder().roleId(key.getRoleId()).build();
-            final ModelRoleResponseV3 getRoleV3Result = rolesWrapper.adminGetRoleV3(param);
+
+            final OverrideRoleConfigV3 oRoleConfigWrapper = new OverrideRoleConfigV3(sdk);
+            final AdminGetRoleNamespacePermissionV3 param = AdminGetRoleNamespacePermissionV3.builder()
+              .namespace(key.getNamespace())
+              .roleId(key.getRoleId())
+              .build();              
+            final ModelRolePermissionResponseV3 getRoleV3Result = oRoleConfigWrapper.adminGetRoleNamespacePermissionV3(param);
 
             // go ref: getRolePermission
             List<Permission> permissions =
