@@ -10,8 +10,8 @@ An AWS Lambda Sample App built using AccelByte Java SDK for adding statistic to 
     * AWS SAM CLI
 * AccelByte Gaming Services
     * Base URL: https://test.accelbyte.io.
-    * [Create a Game Namespace](https://docs.accelbyte.io/gaming-services/getting-started/how-to/create-a-game-namespace/) if you don't have one yet. Keep the `Namespace ID`.
-    * [Create an OAuth Client](https://docs.accelbyte.io/gaming-services/services/access/authorization/manage-access-control-for-applications/#create-an-iam-client) with confidential client type with the following permission. Keep the `Client ID` and `Client Secret`.
+    * [Create a Game Namespace](https://docs.accelbyte.io/gaming-services/services/access/reference/namespaces/manage-your-namespaces/) if you don't have one yet. Keep the `Namespace ID`.
+    * [Create an OAuth Client](https://docs.accelbyte.io/gaming-services/services/access/reference/authorization/manage-access-control-for-applications/#create-an-iam-client) with confidential client type with the following permission. Keep the `Client ID` and `Client Secret`.
        - ADMIN:NAMESPACE:{namespace}:USER:*:STATITEM - CREATE,READ,DELETE
     * A user. Keep the `User ID`.
     * A statistic. Keep the `Stat Code`.
