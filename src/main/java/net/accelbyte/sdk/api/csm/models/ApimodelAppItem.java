@@ -80,6 +80,9 @@ public class ApimodelAppItem extends Model {
   @JsonProperty("gameName")
   private String gameName;
 
+  @JsonProperty("isResourceApplied")
+  private Boolean isResourceApplied;
+
   @JsonProperty("memory")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private ApimodelMemoryResponse memory;
@@ -105,6 +108,9 @@ public class ApimodelAppItem extends Model {
 
   @JsonProperty("updatedAt")
   private String updatedAt;
+
+  @JsonProperty("vmSharingConfiguration")
+  private String vmSharingConfiguration;
 
   @JsonIgnore
   public ApimodelAppItem createFromJson(String json) throws JsonProcessingException {

@@ -40,10 +40,6 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>`{ "data2": "new value" }`
  *
- * <p>## Restriction This is the restriction of Key Naming for the record: 1. Cannot use **"."** as
- * the key name - `{ "data.2": "value" }` 2. Cannot use **"$"** as the prefix in key names - `{
- * "$data": "value" }`
- *
  * <p>## Warning: This endpoint is going to deprecate
  *
  * <p>This endpoint is going to deprecate in the future please don't use it.

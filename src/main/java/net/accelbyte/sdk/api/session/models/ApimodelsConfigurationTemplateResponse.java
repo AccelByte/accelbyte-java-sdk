@@ -33,6 +33,10 @@ public class ApimodelsConfigurationTemplateResponse extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String appName;
 
+  @JsonProperty("asyncProcessDSRequest")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ModelsAsyncProcessDSRequest asyncProcessDSRequest;
+
   @JsonProperty("attributes")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ?> attributes;
@@ -144,6 +148,10 @@ public class ApimodelsConfigurationTemplateResponse extends Model {
   @JsonProperty("textChat")
   private Boolean textChat;
 
+  @JsonProperty("textChatMode")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String textChatMode;
+
   @JsonProperty("tieTeamsSessionLifetime")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean tieTeamsSessionLifetime;
@@ -153,6 +161,26 @@ public class ApimodelsConfigurationTemplateResponse extends Model {
 
   @JsonProperty("updatedAt")
   private String updatedAt;
+
+  @JsonIgnore
+  public String getTextChatMode() {
+    return this.textChatMode;
+  }
+
+  @JsonIgnore
+  public TextChatMode getTextChatModeAsEnum() {
+    return TextChatMode.valueOf(this.textChatMode);
+  }
+
+  @JsonIgnore
+  public void setTextChatMode(final String textChatMode) {
+    this.textChatMode = textChatMode;
+  }
+
+  @JsonIgnore
+  public void setTextChatModeFromEnum(final TextChatMode textChatMode) {
+    this.textChatMode = textChatMode.toString();
+  }
 
   @JsonIgnore
   public ApimodelsConfigurationTemplateResponse createFromJson(String json)
@@ -165,5 +193,37 @@ public class ApimodelsConfigurationTemplateResponse extends Model {
       throws JsonProcessingException {
     return new ObjectMapper()
         .readValue(json, new TypeReference<List<ApimodelsConfigurationTemplateResponse>>() {});
+  }
+
+  public enum TextChatMode {
+    GAME("GAME"),
+    NONE("NONE"),
+    TEAM("TEAM");
+
+    private String value;
+
+    TextChatMode(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class ApimodelsConfigurationTemplateResponseBuilder {
+    private String textChatMode;
+
+    public ApimodelsConfigurationTemplateResponseBuilder textChatMode(final String textChatMode) {
+      this.textChatMode = textChatMode;
+      return this;
+    }
+
+    public ApimodelsConfigurationTemplateResponseBuilder textChatModeFromEnum(
+        final TextChatMode textChatMode) {
+      this.textChatMode = textChatMode.toString();
+      return this;
+    }
   }
 }

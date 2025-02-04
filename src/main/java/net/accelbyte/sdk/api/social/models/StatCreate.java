@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class StatCreate extends Model {
 
+  @JsonProperty("capCycleOverride")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean capCycleOverride;
+
   @JsonProperty("cycleIds")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> cycleIds;

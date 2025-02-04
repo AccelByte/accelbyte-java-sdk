@@ -67,6 +67,7 @@ public class AdminProfanityCreateBulk implements Callable<Integer> {
               .body(new ObjectMapper().readValue(body, ModelsDictionaryInsertBulkRequest.class))
               .build();
       wrapper.adminProfanityCreateBulk(operation);
+      log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

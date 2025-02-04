@@ -52,10 +52,6 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>`{ "data1": { "data2": "value", "data3": "new value" }`
  *
- * <p>## Restriction This is the restriction of Key Naming for the record: 1. Cannot use **"."** as
- * the key name - `{ "data.2": "value" }` 2. Cannot use **"$"** as the prefix in key names - `{
- * "$data": "value" }`
- *
  * <p>## Record Metadata
  *
  * <p>Metadata allows user to define the behaviour of the record. Metadata can be defined in request
@@ -67,6 +63,16 @@ import net.accelbyte.sdk.core.util.Helper;
  * record is a public record or not.
  *
  * <p>**Request Body Example:** ``` { "__META": { "is_public": true } ... } ```
+ *
+ * <p>## Recommended Request Body Size
+ *
+ * <p>To ensure optimal performance and efficient resource utilization, it is recommended that the
+ * request body size for this endpoint does not exceed 250 KB.
+ *
+ * <p>## Exceeding the recommended limit
+ *
+ * <p>While it's possible to handle larger request, exceeding this limit may lead to increased
+ * processing time, potential performance degradation, and potential timeout issues.
  */
 @Getter
 @Setter

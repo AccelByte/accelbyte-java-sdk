@@ -121,6 +121,10 @@ public class ModelThirdPartyLoginPlatformCredentialRequest extends Model {
   @JsonProperty("UserInfoHTTPMethod")
   private String userInfoHTTPMethod;
 
+  @JsonProperty("googleAdminConsoleKey")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String googleAdminConsoleKey;
+
   @JsonProperty("scopes")
   private List<String> scopes;
 

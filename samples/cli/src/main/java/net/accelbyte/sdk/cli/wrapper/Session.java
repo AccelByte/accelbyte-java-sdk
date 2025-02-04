@@ -56,6 +56,7 @@ import picocli.CommandLine.Command;
       AdminQueryGameSessionsByAttributes.class,
       AdminDeleteBulkGameSessions.class,
       AdminSetDSReady.class,
+      AdminUpdateDSInformation.class,
       AdminKickGameSessionMember.class,
       AdminUpdateGameSessionMember.class,
       AdminGetListNativeSession.class,

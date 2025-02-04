@@ -65,7 +65,8 @@ public class PublicUpgradeHeadlessWithCodeV4Forward implements Callable<Integer>
                       new ObjectMapper()
                           .readValue(
                               body,
-                              AccountUpgradeHeadlessAccountWithVerificationCodeRequestV4.class))
+                              AccountUpgradeHeadlessAccountWithVerificationCodeForwardRequestV4
+                                  .class))
                   .build();
       wrapper.publicUpgradeHeadlessWithCodeV4Forward(operation);
       log.info("Operation successful");

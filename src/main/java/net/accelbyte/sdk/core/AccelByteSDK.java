@@ -47,11 +47,9 @@ import net.accelbyte.sdk.api.iam.operations.o_auth2_0.PlatformTokenGrantV3;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenGrantV3;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0.VerifyTokenV3;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.UserAuthenticationV3;
-import net.accelbyte.sdk.api.iam.operations.roles.AdminGetRoleV3;
 import net.accelbyte.sdk.api.iam.operations.override_role_config_v3.AdminGetRoleNamespacePermissionV3;
 import net.accelbyte.sdk.api.iam.wrappers.OAuth20;
 import net.accelbyte.sdk.api.iam.wrappers.OAuth20Extension;
-import net.accelbyte.sdk.api.iam.wrappers.Roles;
 import net.accelbyte.sdk.api.iam.wrappers.OverrideRoleConfigV3;
 import net.accelbyte.sdk.core.client.HttpClient;
 import net.accelbyte.sdk.core.repository.*;
@@ -850,7 +848,8 @@ public class AccelByteSDK {
     return false;
   }
 
-  public boolean uploadBinaryData(String url, byte[] dataToUpload, String contentType) throws Exception {
+  public boolean uploadBinaryData(String url, byte[] dataToUpload, String contentType)
+      throws Exception {
     return sdkConfiguration.getHttpClient().uploadBinaryData(url, dataToUpload, contentType);
   }
 
@@ -904,11 +903,13 @@ public class AccelByteSDK {
           public List<Permission> load(RoleCacheKey key) throws Exception {
 
             final OverrideRoleConfigV3 oRoleConfigWrapper = new OverrideRoleConfigV3(sdk);
-            final AdminGetRoleNamespacePermissionV3 param = AdminGetRoleNamespacePermissionV3.builder()
-              .namespace(key.getNamespace())
-              .roleId(key.getRoleId())
-              .build();              
-            final ModelRolePermissionResponseV3 getRoleV3Result = oRoleConfigWrapper.adminGetRoleNamespacePermissionV3(param);
+            final AdminGetRoleNamespacePermissionV3 param =
+                AdminGetRoleNamespacePermissionV3.builder()
+                    .namespace(key.getNamespace())
+                    .roleId(key.getRoleId())
+                    .build();
+            final ModelRolePermissionResponseV3 getRoleV3Result =
+                oRoleConfigWrapper.adminGetRoleNamespacePermissionV3(param);
 
             // go ref: getRolePermission
             List<Permission> permissions =

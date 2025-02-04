@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminGetDSMCConfiguration
  *
  * <p>Get a dsmc configuration.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminGetDSMCConfiguration extends Operation {

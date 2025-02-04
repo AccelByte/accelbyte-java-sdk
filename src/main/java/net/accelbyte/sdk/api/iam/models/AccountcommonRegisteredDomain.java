@@ -37,6 +37,10 @@ public class AccountcommonRegisteredDomain extends Model {
   @JsonProperty("roleId")
   private String roleId;
 
+  @JsonProperty("ssoCfg")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private AccountcommonSsoConfig ssoCfg;
+
   @JsonIgnore
   public AccountcommonRegisteredDomain createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

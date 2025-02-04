@@ -42,7 +42,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * standard, from 1 (Monday) to 7 (Sunday). Default to 1 in WEEKLY rotation. - resetDate: Reset Date
  * must be a number 1 - 31. Default to 1 in MONTHLY rotation. - randomizedPerRotation: - true: each
  * goal will be randomly assigned to multiple periods - false: a goal will only be assigned to one
- * period
+ * period - tags: challenge's labels.
  */
 @Getter
 @Setter

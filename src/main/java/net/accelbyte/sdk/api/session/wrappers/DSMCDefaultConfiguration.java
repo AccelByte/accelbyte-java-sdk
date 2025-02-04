@@ -23,7 +23,9 @@ public class DSMCDefaultConfiguration {
 
   /**
    * @see AdminGetDSMCConfigurationDefault
+   * @deprecated
    */
+  @Deprecated
   public ModelsDefaultDSMCConfig adminGetDSMCConfigurationDefault(
       AdminGetDSMCConfigurationDefault input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);

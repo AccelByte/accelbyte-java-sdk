@@ -42,6 +42,7 @@ import picocli.CommandLine;
       Leaderboard.class,
       Legal.class,
       Lobby.class,
+      Loginqueue.class,
       Match2.class,
       Matchmaking.class,
       Platform.class,

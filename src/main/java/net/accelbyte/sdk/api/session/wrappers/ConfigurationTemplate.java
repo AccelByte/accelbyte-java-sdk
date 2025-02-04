@@ -113,7 +113,9 @@ public class ConfigurationTemplate {
 
   /**
    * @see AdminGetDSMCConfiguration
+   * @deprecated
    */
+  @Deprecated
   public ModelsDSMConfigRecord adminGetDSMCConfiguration(AdminGetDSMCConfiguration input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -123,7 +125,9 @@ public class ConfigurationTemplate {
 
   /**
    * @see AdminSyncDSMCConfiguration
+   * @deprecated
    */
+  @Deprecated
   public ModelsDSMConfigRecord adminSyncDSMCConfiguration(AdminSyncDSMCConfiguration input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);

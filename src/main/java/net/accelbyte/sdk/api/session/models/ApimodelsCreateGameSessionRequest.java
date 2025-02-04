@@ -98,6 +98,10 @@ public class ApimodelsCreateGameSessionRequest extends Model {
   @JsonProperty("textChat")
   private Boolean textChat;
 
+  @JsonProperty("textChatMode")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String textChatMode;
+
   @JsonProperty("ticketIDs")
   private List<String> ticketIDs;
 
@@ -107,6 +111,26 @@ public class ApimodelsCreateGameSessionRequest extends Model {
 
   @JsonProperty("type")
   private String type;
+
+  @JsonIgnore
+  public String getTextChatMode() {
+    return this.textChatMode;
+  }
+
+  @JsonIgnore
+  public TextChatMode getTextChatModeAsEnum() {
+    return TextChatMode.valueOf(this.textChatMode);
+  }
+
+  @JsonIgnore
+  public void setTextChatMode(final String textChatMode) {
+    this.textChatMode = textChatMode;
+  }
+
+  @JsonIgnore
+  public void setTextChatModeFromEnum(final TextChatMode textChatMode) {
+    this.textChatMode = textChatMode.toString();
+  }
 
   @JsonIgnore
   public ApimodelsCreateGameSessionRequest createFromJson(String json)
@@ -119,5 +143,37 @@ public class ApimodelsCreateGameSessionRequest extends Model {
       throws JsonProcessingException {
     return new ObjectMapper()
         .readValue(json, new TypeReference<List<ApimodelsCreateGameSessionRequest>>() {});
+  }
+
+  public enum TextChatMode {
+    GAME("GAME"),
+    NONE("NONE"),
+    TEAM("TEAM");
+
+    private String value;
+
+    TextChatMode(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class ApimodelsCreateGameSessionRequestBuilder {
+    private String textChatMode;
+
+    public ApimodelsCreateGameSessionRequestBuilder textChatMode(final String textChatMode) {
+      this.textChatMode = textChatMode;
+      return this;
+    }
+
+    public ApimodelsCreateGameSessionRequestBuilder textChatModeFromEnum(
+        final TextChatMode textChatMode) {
+      this.textChatMode = textChatMode.toString();
+      return this;
+    }
   }
 }

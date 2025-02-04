@@ -73,6 +73,10 @@ public class ModelUpdateChallengeRequest extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String startDate;
 
+  @JsonProperty("tags")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> tags;
+
   @JsonIgnore
   public String getAssignmentRule() {
     return this.assignmentRule;

@@ -10,15 +10,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Map;
 import java.util.Random;
-
-import net.accelbyte.sdk.api.cloudsave.models.ModelsGameRecordResponse;
-import net.accelbyte.sdk.api.cloudsave.models.ModelsPlayerRecordResponse;
-import net.accelbyte.sdk.api.cloudsave.models.ModelsGameBinaryRecordCreate;
-import net.accelbyte.sdk.api.cloudsave.models.ModelsGameBinaryRecordResponse;
-import net.accelbyte.sdk.api.cloudsave.models.ModelsUploadBinaryRecordResponse;
+import net.accelbyte.sdk.api.cloudsave.models.ModelsBinaryInfoResponse;
 import net.accelbyte.sdk.api.cloudsave.models.ModelsBinaryRecordRequest;
 import net.accelbyte.sdk.api.cloudsave.models.ModelsGameBinaryRecordAdminResponse;
-import net.accelbyte.sdk.api.cloudsave.models.ModelsBinaryInfoResponse;
+import net.accelbyte.sdk.api.cloudsave.models.ModelsGameBinaryRecordCreate;
+import net.accelbyte.sdk.api.cloudsave.models.ModelsGameRecordResponse;
+import net.accelbyte.sdk.api.cloudsave.models.ModelsPlayerRecordResponse;
+import net.accelbyte.sdk.api.cloudsave.models.ModelsUploadBinaryRecordResponse;
+import net.accelbyte.sdk.api.cloudsave.operations.admin_game_binary_record.AdminDeleteGameBinaryRecordV1;
+import net.accelbyte.sdk.api.cloudsave.operations.admin_game_binary_record.AdminGetGameBinaryRecordV1;
+import net.accelbyte.sdk.api.cloudsave.operations.admin_game_binary_record.AdminPostGameBinaryRecordV1;
+import net.accelbyte.sdk.api.cloudsave.operations.admin_game_binary_record.AdminPutGameBinaryRecordV1;
 import net.accelbyte.sdk.api.cloudsave.operations.public_game_record.DeleteGameRecordHandlerV1;
 import net.accelbyte.sdk.api.cloudsave.operations.public_game_record.GetGameRecordHandlerV1;
 import net.accelbyte.sdk.api.cloudsave.operations.public_game_record.PostGameRecordHandlerV1;
@@ -27,13 +29,9 @@ import net.accelbyte.sdk.api.cloudsave.operations.public_player_record.DeletePla
 import net.accelbyte.sdk.api.cloudsave.operations.public_player_record.GetPlayerRecordHandlerV1;
 import net.accelbyte.sdk.api.cloudsave.operations.public_player_record.PostPlayerRecordHandlerV1;
 import net.accelbyte.sdk.api.cloudsave.operations.public_player_record.PutPlayerRecordHandlerV1;
-import net.accelbyte.sdk.api.cloudsave.operations.admin_game_binary_record.AdminPostGameBinaryRecordV1;
-import net.accelbyte.sdk.api.cloudsave.operations.admin_game_binary_record.AdminPutGameBinaryRecordV1;
-import net.accelbyte.sdk.api.cloudsave.operations.admin_game_binary_record.AdminGetGameBinaryRecordV1;
-import net.accelbyte.sdk.api.cloudsave.operations.admin_game_binary_record.AdminDeleteGameBinaryRecordV1;
+import net.accelbyte.sdk.api.cloudsave.wrappers.AdminGameBinaryRecord;
 import net.accelbyte.sdk.api.cloudsave.wrappers.PublicGameRecord;
 import net.accelbyte.sdk.api.cloudsave.wrappers.PublicPlayerRecord;
-import net.accelbyte.sdk.api.cloudsave.wrappers.AdminGameBinaryRecord;
 import net.accelbyte.sdk.api.iam.models.ModelUserResponseV3;
 import net.accelbyte.sdk.api.iam.operations.users.AdminGetMyUserV3;
 import net.accelbyte.sdk.api.iam.wrappers.Users;
@@ -284,15 +282,17 @@ public class TestIntegrationServiceCloudSave extends TestIntegration {
     final AdminGameBinaryRecord adminGameBinaryRecord = new AdminGameBinaryRecord(sdk);
 
     // create and upload binary record
-    final ModelsUploadBinaryRecordResponse cResponse = adminGameBinaryRecord.adminPostGameBinaryRecordV1(
-        AdminPostGameBinaryRecordV1.builder()
-            .namespace(this.namespace)
-            .body(ModelsGameBinaryRecordCreate.builder()
-                .key(binaryGameRecordKey)
-                .fileType("bin")
-                .setBy("CLIENT")
-                .build())
-            .build());
+    final ModelsUploadBinaryRecordResponse cResponse =
+        adminGameBinaryRecord.adminPostGameBinaryRecordV1(
+            AdminPostGameBinaryRecordV1.builder()
+                .namespace(this.namespace)
+                .body(
+                    ModelsGameBinaryRecordCreate.builder()
+                        .key(binaryGameRecordKey)
+                        .fileType("bin")
+                        .setBy("CLIENT")
+                        .build())
+                .build());
 
     assertNotNull(cResponse);
     final String uploadUrl = cResponse.getUrl();
@@ -302,23 +302,25 @@ public class TestIntegrationServiceCloudSave extends TestIntegration {
     assertTrue(isSuccess);
 
     if (isSuccess) {
-        adminGameBinaryRecord.adminPutGameBinaryRecordV1(
-            AdminPutGameBinaryRecordV1.builder()
-                .namespace(this.namespace)
-                .key(binaryGameRecordKey)
-                .body(ModelsBinaryRecordRequest.builder()
-                    .contentType(binaryContentType)
-                    .fileLocation(cResponse.getFileLocation())
-                    .build())
-                .build());
+      adminGameBinaryRecord.adminPutGameBinaryRecordV1(
+          AdminPutGameBinaryRecordV1.builder()
+              .namespace(this.namespace)
+              .key(binaryGameRecordKey)
+              .body(
+                  ModelsBinaryRecordRequest.builder()
+                      .contentType(binaryContentType)
+                      .fileLocation(cResponse.getFileLocation())
+                      .build())
+              .build());
     }
 
     // get and download binary record
-    final ModelsGameBinaryRecordAdminResponse sResponse = adminGameBinaryRecord.adminGetGameBinaryRecordV1(
-        AdminGetGameBinaryRecordV1.builder()
-            .namespace(this.namespace)
-            .key(binaryGameRecordKey)
-            .build());
+    final ModelsGameBinaryRecordAdminResponse sResponse =
+        adminGameBinaryRecord.adminGetGameBinaryRecordV1(
+            AdminGetGameBinaryRecordV1.builder()
+                .namespace(this.namespace)
+                .key(binaryGameRecordKey)
+                .build());
     assertNotNull(sResponse);
 
     final ModelsBinaryInfoResponse binaryInfo = sResponse.getBinaryInfo();

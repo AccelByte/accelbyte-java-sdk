@@ -61,6 +61,15 @@ public class GameSession {
   }
 
   /**
+   * @see AdminUpdateDSInformation
+   */
+  public void adminUpdateDSInformation(AdminUpdateDSInformation input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminKickGameSessionMember
    */
   public void adminKickGameSessionMember(AdminKickGameSessionMember input) throws Exception {

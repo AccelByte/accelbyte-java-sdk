@@ -1,3 +1,16 @@
+<a name="v0.70.0"></a>
+## [v0.70.0]
+### feat
+- **:** add upload and download helper methods
+- **:** add makefile action for method integration test
+- **:** update role fetch to use role override endpoint
+- **:** add role override integration test
+### test
+- **:** add upload and download integration tests
+### docs
+- **readme:** update doc links
+
+
 <a name="v0.69.0"></a>
 ## [v0.69.0]
 ### test

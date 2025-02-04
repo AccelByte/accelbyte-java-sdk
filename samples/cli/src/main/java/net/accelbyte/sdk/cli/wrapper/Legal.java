@@ -20,6 +20,7 @@ import net.accelbyte.sdk.cli.api.legal.localized_policy_versions.*;
 import net.accelbyte.sdk.cli.api.legal.localized_policy_versions_with_namespace.*;
 import net.accelbyte.sdk.cli.api.legal.policies.*;
 import net.accelbyte.sdk.cli.api.legal.policies_with_namespace.*;
+import net.accelbyte.sdk.cli.api.legal.policies_with_namespace_v2.*;
 import net.accelbyte.sdk.cli.api.legal.policy_versions.*;
 import net.accelbyte.sdk.cli.api.legal.policy_versions_with_namespace.*;
 import net.accelbyte.sdk.cli.api.legal.user_info.*;
@@ -103,6 +104,7 @@ import picocli.CommandLine.Command;
       RetrieveLatestPoliciesPublic.class,
       RetrieveLatestPoliciesByNamespaceAndCountryPublic.class,
       CheckReadiness.class,
+      RetrieveLatestPoliciesByNamespaceAndCountryPublic1.class,
     })
 public class Legal implements Runnable {
 

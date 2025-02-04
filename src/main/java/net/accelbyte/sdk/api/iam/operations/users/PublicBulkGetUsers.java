@@ -24,7 +24,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Notes: - This endpoint bulk get users' basic info by userId, max allowed 100 at a time - If
  * namespace is game, will search by game user Id, other wise will search by publisher namespace -
  * **Result will include displayName(if it exists)**
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class PublicBulkGetUsers extends Operation {

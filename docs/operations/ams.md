@@ -145,8 +145,8 @@
 | `api.ImageListItem` | [ApiImageListItem](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiImageListItem.java) |
 | `api.ImageStorage` | [ApiImageStorage](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiImageStorage.java) |
 | `api.ImageUpdate` | [ApiImageUpdate](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiImageUpdate.java) |
-| `api.InstanceTypeForNamespaceResponse` | [ApiInstanceTypeForNamespaceResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiInstanceTypeForNamespaceResponse.java) |
-| `api.InstanceTypesForNamespaceResponse` | [ApiInstanceTypesForNamespaceResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiInstanceTypesForNamespaceResponse.java) |
+| `api.InstanceType` | [ApiInstanceType](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiInstanceType.java) |
+| `api.InstanceTypesResponse` | [ApiInstanceTypesResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiInstanceTypesResponse.java) |
 | `api.PagingInfo` | [ApiPagingInfo](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiPagingInfo.java) |
 | `api.PortConfiguration` | [ApiPortConfiguration](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiPortConfiguration.java) |
 | `api.QoSEndpointResponse` | [ApiQoSEndpointResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiQoSEndpointResponse.java) |

@@ -76,6 +76,15 @@ public class MatchPools {
   }
 
   /**
+   * @see PostMatchErrorMetric
+   */
+  public void postMatchErrorMetric(PostMatchErrorMetric input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetPlayerMetric
    */
   public ApiPlayerMetricRecord getPlayerMetric(GetPlayerMetric input) throws Exception {

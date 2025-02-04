@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.ams.models;
+package net.accelbyte.sdk.api.session.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,45 +23,52 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ApiInstanceTypeForNamespaceResponse extends Model {
+public class ApimodelsUpdateGamesessionDSInformationRequest extends Model {
 
-  @JsonProperty("capacity")
-  private List<ApiCapacity> capacity;
+  @JsonProperty("clientVersion")
+  private String clientVersion;
+
+  @JsonProperty("createdRegion")
+  private String createdRegion;
+
+  @JsonProperty("deployment")
+  private String deployment;
 
   @JsonProperty("description")
   private String description;
 
-  @JsonProperty("id")
-  private String id;
+  @JsonProperty("gameMode")
+  private String gameMode;
 
-  @JsonProperty("memoryGiB")
-  private Float memoryGiB;
+  @JsonProperty("ip")
+  private String ip;
 
-  @JsonProperty("minSpeed")
-  private String minSpeed;
+  @JsonProperty("port")
+  private Integer port;
 
-  @JsonProperty("name")
-  private String name;
+  @JsonProperty("region")
+  private String region;
 
-  @JsonProperty("ownerAccountId")
-  private String ownerAccountId;
+  @JsonProperty("serverId")
+  private String serverId;
 
-  @JsonProperty("provider")
-  private String provider;
+  @JsonProperty("source")
+  private String source;
 
-  @JsonProperty("virtualCpu")
-  private Integer virtualCpu;
+  @JsonProperty("status")
+  private String status;
 
   @JsonIgnore
-  public ApiInstanceTypeForNamespaceResponse createFromJson(String json)
+  public ApimodelsUpdateGamesessionDSInformationRequest createFromJson(String json)
       throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ApiInstanceTypeForNamespaceResponse> createFromJsonList(String json)
+  public List<ApimodelsUpdateGamesessionDSInformationRequest> createFromJsonList(String json)
       throws JsonProcessingException {
     return new ObjectMapper()
-        .readValue(json, new TypeReference<List<ApiInstanceTypeForNamespaceResponse>>() {});
+        .readValue(
+            json, new TypeReference<List<ApimodelsUpdateGamesessionDSInformationRequest>>() {});
   }
 }

@@ -46,7 +46,7 @@ public class ModelUpdateGoalRequest extends Model {
 
   @JsonProperty("schedule")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private ModelGoalSchedule schedule;
+  private ModelGoalScheduleRequest schedule;
 
   @JsonProperty("tags")
   @JsonInclude(JsonInclude.Include.NON_NULL)

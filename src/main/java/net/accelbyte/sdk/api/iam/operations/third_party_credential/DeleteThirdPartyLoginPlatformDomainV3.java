@@ -21,7 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteThirdPartyLoginPlatformDomainV3
  *
- * <p>This is the API to unregister 3rd Platform domain.
+ * <p>This is the API to unregister 3rd Platform domain. If there is a ssoGroups in request body,
+ * then this request wil only delete the sso group from the target domain, it will not delete
+ * domain.
  */
 @Getter
 @Setter

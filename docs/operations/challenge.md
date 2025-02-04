@@ -94,6 +94,7 @@
 | `model.GoalProgressionResponse` | [ModelGoalProgressionResponse](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelGoalProgressionResponse.java) |
 | `model.GoalResponse` | [ModelGoalResponse](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelGoalResponse.java) |
 | `model.GoalSchedule` | [ModelGoalSchedule](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelGoalSchedule.java) |
+| `model.GoalScheduleRequest` | [ModelGoalScheduleRequest](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelGoalScheduleRequest.java) |
 | `model.ListChallengeResponse` | [ModelListChallengeResponse](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelListChallengeResponse.java) |
 | `model.ListPeriodsResponse` | [ModelListPeriodsResponse](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelListPeriodsResponse.java) |
 | `model.ListScheduleByGoalResponse` | [ModelListScheduleByGoalResponse](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelListScheduleByGoalResponse.java) |

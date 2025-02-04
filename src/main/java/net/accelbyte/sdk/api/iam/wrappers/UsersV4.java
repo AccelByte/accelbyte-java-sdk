@@ -398,6 +398,16 @@ public class UsersV4 {
   }
 
   /**
+   * @see PublicGetUserByPlatformUserIDV4
+   */
+  public ModelUserResponseV3 publicGetUserByPlatformUserIDV4(PublicGetUserByPlatformUserIDV4 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicCreateTestUserV4
    */
   public AccountCreateUserResponseV4 publicCreateTestUserV4(PublicCreateTestUserV4 input)

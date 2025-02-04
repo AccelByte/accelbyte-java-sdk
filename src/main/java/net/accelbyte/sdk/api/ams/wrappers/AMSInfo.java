@@ -33,7 +33,7 @@ public class AMSInfo {
   /**
    * @see InfoSupportedInstances
    */
-  public ApiInstanceTypesForNamespaceResponse infoSupportedInstances(InfoSupportedInstances input)
+  public ApiInstanceTypesResponse infoSupportedInstances(InfoSupportedInstances input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(

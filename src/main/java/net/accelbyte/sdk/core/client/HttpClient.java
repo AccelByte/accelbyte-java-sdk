@@ -17,9 +17,7 @@ public interface HttpClient<T extends HttpLogger<?, ?>> {
 
   void setLogger(T logger);
 
-  boolean uploadBinaryData(String url, byte[] dataToUpload, String contentType)
-    throws Exception;
+  boolean uploadBinaryData(String url, byte[] dataToUpload, String contentType) throws Exception;
 
-  byte[] downloadBinaryData(String url)
-    throws Exception;
+  byte[] downloadBinaryData(String url) throws Exception;
 }

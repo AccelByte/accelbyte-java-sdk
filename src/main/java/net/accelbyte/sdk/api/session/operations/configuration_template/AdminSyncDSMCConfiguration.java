@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminSyncDSMCConfiguration
  *
  * <p>sync dsmc configuration.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminSyncDSMCConfiguration extends Operation {

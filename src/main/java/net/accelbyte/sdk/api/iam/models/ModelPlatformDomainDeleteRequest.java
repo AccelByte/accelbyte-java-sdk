@@ -28,6 +28,9 @@ public class ModelPlatformDomainDeleteRequest extends Model {
   @JsonProperty("domain")
   private String domain;
 
+  @JsonProperty("ssoGroups")
+  private List<String> ssoGroups;
+
   @JsonIgnore
   public ModelPlatformDomainDeleteRequest createFromJson(String json)
       throws JsonProcessingException {

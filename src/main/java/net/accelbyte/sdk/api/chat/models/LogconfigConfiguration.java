@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class LogconfigConfiguration extends Model {
 
+  @JsonProperty("internalAccessLogEnabled")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean internalAccessLogEnabled;
+
   @JsonProperty("logLevel")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String logLevel;

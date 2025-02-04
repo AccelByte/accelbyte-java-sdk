@@ -45,6 +45,10 @@ public class ModelsConfigResponse extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean enableManualTopicCreation;
 
+  @JsonProperty("enablePmSendPlatformId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean enablePmSendPlatformId;
+
   @JsonProperty("enableProfanityFilter")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean enableProfanityFilter;

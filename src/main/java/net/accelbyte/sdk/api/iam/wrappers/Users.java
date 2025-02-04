@@ -1280,6 +1280,16 @@ public class Users {
   }
 
   /**
+   * @see AdminGetUserStateByUserIdV3
+   */
+  public ModelUserStateResponseV3 adminGetUserStateByUserIdV3(AdminGetUserStateByUserIdV3 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminUpdateUserStatusV3
    */
   public void adminUpdateUserStatusV3(AdminUpdateUserStatusV3 input) throws Exception {
@@ -1341,7 +1351,9 @@ public class Users {
 
   /**
    * @see PublicGetUserByPlatformUserIDV3
+   * @deprecated
    */
+  @Deprecated
   public ModelUserResponseV3 publicGetUserByPlatformUserIDV3(PublicGetUserByPlatformUserIDV3 input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -1388,7 +1400,9 @@ public class Users {
 
   /**
    * @see PublicBulkGetUsers
+   * @deprecated
    */
+  @Deprecated
   public ModelListBulkUserResponse publicBulkGetUsers(PublicBulkGetUsers input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(

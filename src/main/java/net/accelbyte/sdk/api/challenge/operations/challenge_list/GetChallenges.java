@@ -37,10 +37,12 @@ public class GetChallenges extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private String keyword;
   private Integer limit;
   private Integer offset;
   private String sortBy;
   private String status;
+  private List<String> tags;
 
   /**
    * @param namespace required
@@ -49,12 +51,20 @@ public class GetChallenges extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public GetChallenges(
-      String namespace, Integer limit, Integer offset, String sortBy, String status) {
+      String namespace,
+      String keyword,
+      Integer limit,
+      Integer offset,
+      String sortBy,
+      String status,
+      List<String> tags) {
     this.namespace = namespace;
+    this.keyword = keyword;
     this.limit = limit;
     this.offset = offset;
     this.sortBy = sortBy;
     this.status = status;
+    this.tags = tags;
 
     securities.add("Bearer");
   }
@@ -71,11 +81,19 @@ public class GetChallenges extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("keyword", this.keyword == null ? null : Arrays.asList(this.keyword));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
     queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
     queryParams.put("status", this.status == null ? null : Arrays.asList(this.status));
+    queryParams.put(
+        "tags",
+        this.tags == null
+            ? null
+            : this.tags.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
     return queryParams;
   }
 
@@ -100,10 +118,12 @@ public class GetChallenges extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("keyword", "None");
     result.put("limit", "None");
     result.put("offset", "None");
     result.put("sortBy", "None");
     result.put("status", "None");
+    result.put("tags", "csv");
     return result;
   }
 

@@ -385,6 +385,8 @@ import picocli.CommandLine.Command;
       GetView.class,
       UpdateView.class,
       DeleteView.class,
+      GetWalletConfig.class,
+      UpdateWalletConfig.class,
       QueryWallets.class,
       BulkCredit.class,
       BulkDebit.class,

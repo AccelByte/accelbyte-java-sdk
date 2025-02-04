@@ -48,6 +48,10 @@ public class ApimodelCreateAppV2Request extends Model {
   @JsonProperty("scenario")
   private String scenario;
 
+  @JsonProperty("vmSharingConfiguration")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String vmSharingConfiguration;
+
   @JsonIgnore
   public ApimodelCreateAppV2Request createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

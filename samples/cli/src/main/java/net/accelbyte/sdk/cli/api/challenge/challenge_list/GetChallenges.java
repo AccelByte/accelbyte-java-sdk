@@ -36,6 +36,11 @@ public class GetChallenges implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--keyword"},
+      description = "keyword")
+  String keyword;
+
+  @Option(
       names = {"--limit"},
       description = "limit")
   Integer limit;
@@ -54,6 +59,12 @@ public class GetChallenges implements Callable<Integer> {
       names = {"--status"},
       description = "status")
   String status;
+
+  @Option(
+      names = {"--tags"},
+      description = "tags",
+      split = ",")
+  List<String> tags;
 
   @Option(
       names = {"--logging"},
@@ -79,10 +90,12 @@ public class GetChallenges implements Callable<Integer> {
       final net.accelbyte.sdk.api.challenge.operations.challenge_list.GetChallenges operation =
           net.accelbyte.sdk.api.challenge.operations.challenge_list.GetChallenges.builder()
               .namespace(namespace)
+              .keyword(keyword)
               .limit(limit)
               .offset(offset)
               .sortBy(sortBy)
               .status(status)
+              .tags(tags)
               .build();
       final ModelListChallengeResponse response = wrapper.getChallenges(operation);
       final String responseString =

@@ -7,8 +7,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 import lombok.*;
-import net.accelbyte.sdk.api.iam.models.AccountcommonPermissionV3;
 import net.accelbyte.sdk.api.iam.models.AccountcommonPermission;
+import net.accelbyte.sdk.api.iam.models.AccountcommonPermissionV3;
 
 @Getter
 @Setter

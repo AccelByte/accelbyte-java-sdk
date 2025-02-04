@@ -73,6 +73,10 @@ public class ModelChallengeResponse extends Model {
   @JsonProperty("status")
   private String status;
 
+  @JsonProperty("tags")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> tags;
+
   @JsonProperty("updatedAt")
   private String updatedAt;
 

@@ -31,6 +31,10 @@ public class ModelsPublicConfigResponse extends Model {
   @JsonProperty("chatRateLimitDuration")
   private Long chatRateLimitDuration;
 
+  @JsonProperty("enablePmSendPlatformId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean enablePmSendPlatformId;
+
   @JsonProperty("generalRateLimitBurst")
   private Integer generalRateLimitBurst;
 

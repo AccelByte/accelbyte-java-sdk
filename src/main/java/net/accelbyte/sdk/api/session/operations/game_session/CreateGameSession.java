@@ -27,8 +27,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * automatically joined the initial game session creation. Game session will not send any invite and
  * players dont need to act upon it. - minPlayers - maxPlayers - inviteTimeout - inactiveTimeout -
  * attributes - dsSource - tieTeamsSessionLifetime - matchPool - clientVersion - deployment -
- * serverName - textChat - autoJoin - requestedRegions - dsSource - preferredClaimKeys -
- * fallbackClaimKeys - customURLGRPC
+ * serverName - textChat - autoJoin - requestedRegions - preferredClaimKeys - fallbackClaimKeys -
+ * customURLGRPC
  *
  * <p>When the tieTeamsSessionLifetime is true, the lifetime of any partyId inside teams attribute
  * will be tied to the game session. Only applies when the teams partyId is a game session.

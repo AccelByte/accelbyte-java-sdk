@@ -7,9 +7,9 @@
 package net.accelbyte.sdk.integration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.Instant;
@@ -18,32 +18,31 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import net.accelbyte.sdk.api.iam.models.AccountCreateUserRequestV4;
 import net.accelbyte.sdk.api.iam.models.AccountCreateUserRequestV4.AuthType;
 import net.accelbyte.sdk.api.iam.models.AccountCreateUserResponseV4;
+import net.accelbyte.sdk.api.iam.models.AccountcommonOverrideRolePermission;
 import net.accelbyte.sdk.api.iam.models.AccountcommonPermission;
+import net.accelbyte.sdk.api.iam.models.ModelListRoleV4Response;
+import net.accelbyte.sdk.api.iam.models.ModelRoleOverrideResponse;
+import net.accelbyte.sdk.api.iam.models.ModelRoleOverrideStatsUpdateRequest;
+import net.accelbyte.sdk.api.iam.models.ModelRoleOverrideUpdateRequest;
+import net.accelbyte.sdk.api.iam.models.ModelRolePermissionResponseV3;
+import net.accelbyte.sdk.api.iam.models.ModelRoleV4Response;
 import net.accelbyte.sdk.api.iam.models.ModelUserCreateRequestV3;
 import net.accelbyte.sdk.api.iam.models.ModelUserCreateResponseV3;
 import net.accelbyte.sdk.api.iam.models.ModelUserPublicInfoResponseV4;
 import net.accelbyte.sdk.api.iam.models.ModelUserResponseV3;
 import net.accelbyte.sdk.api.iam.models.ModelUserUpdateRequestV3;
-import net.accelbyte.sdk.api.iam.models.ModelListRoleV4Response;
-import net.accelbyte.sdk.api.iam.models.ModelRoleV4Response;
-import net.accelbyte.sdk.api.iam.models.ModelRolePermissionResponseV3;
-import net.accelbyte.sdk.api.iam.models.ModelRoleOverrideResponse;
-import net.accelbyte.sdk.api.iam.models.ModelRoleOverrideUpdateRequest;
-import net.accelbyte.sdk.api.iam.models.ModelRoleOverrideStatsUpdateRequest;
-import net.accelbyte.sdk.api.iam.models.AccountcommonOverrideRolePermission;
+import net.accelbyte.sdk.api.iam.operations.override_role_config_v3.AdminChangeRoleOverrideConfigStatusV3;
+import net.accelbyte.sdk.api.iam.operations.override_role_config_v3.AdminGetRoleNamespacePermissionV3;
+import net.accelbyte.sdk.api.iam.operations.override_role_config_v3.AdminUpdateRoleOverrideConfigV3;
+import net.accelbyte.sdk.api.iam.operations.roles.AdminGetRolesV4;
 import net.accelbyte.sdk.api.iam.operations.users.AdminDeleteUserInformationV3;
 import net.accelbyte.sdk.api.iam.operations.users.AdminUpdateUserV3;
 import net.accelbyte.sdk.api.iam.operations.users.PublicCreateUserV3;
 import net.accelbyte.sdk.api.iam.operations.users_v4.PublicCreateUserV4;
 import net.accelbyte.sdk.api.iam.operations.users_v4.PublicGetUserPublicInfoByUserIdV4;
-import net.accelbyte.sdk.api.iam.operations.roles.AdminGetRolesV4;
-import net.accelbyte.sdk.api.iam.operations.override_role_config_v3.AdminGetRoleNamespacePermissionV3;
-import net.accelbyte.sdk.api.iam.operations.override_role_config_v3.AdminUpdateRoleOverrideConfigV3;
-import net.accelbyte.sdk.api.iam.operations.override_role_config_v3.AdminChangeRoleOverrideConfigStatusV3;
 import net.accelbyte.sdk.api.iam.wrappers.OverrideRoleConfigV3;
 import net.accelbyte.sdk.api.iam.wrappers.Roles;
 import net.accelbyte.sdk.api.iam.wrappers.Users;
@@ -220,22 +219,23 @@ public class TestIntegrationServiceIam extends TestIntegration {
         });
   }
 
-  protected Integer findAndCheckResourceActionFromRole(OverrideRoleConfigV3 wrapper, String roleId, String resourceToCheck) throws Exception {
-    final ModelRolePermissionResponseV3 permissions = wrapper.adminGetRoleNamespacePermissionV3(
-        AdminGetRoleNamespacePermissionV3.builder()
-            .namespace(this.namespace)
-            .roleId(roleId)
-            .build());
+  protected Integer findAndCheckResourceActionFromRole(
+      OverrideRoleConfigV3 wrapper, String roleId, String resourceToCheck) throws Exception {
+    final ModelRolePermissionResponseV3 permissions =
+        wrapper.adminGetRoleNamespacePermissionV3(
+            AdminGetRoleNamespacePermissionV3.builder()
+                .namespace(this.namespace)
+                .roleId(roleId)
+                .build());
 
-    if (permissions == null)
-        throw new Exception("Role's permissions object is null.");
+    if (permissions == null) throw new Exception("Role's permissions object is null.");
 
     Integer resultAction = -1;
     for (AccountcommonPermission permission : permissions.getPermissions()) {
-        if (permission.getResource().equalsIgnoreCase(resourceToCheck)) {
-            resultAction = permission.getAction();
-            break;
-        }
+      if (permission.getResource().equalsIgnoreCase(resourceToCheck)) {
+        resultAction = permission.getAction();
+        break;
+      }
     }
 
     return resultAction;
@@ -255,79 +255,76 @@ public class TestIntegrationServiceIam extends TestIntegration {
     final Roles roleWrapper = new Roles(sdk);
     final OverrideRoleConfigV3 roleConfigWrapper = new OverrideRoleConfigV3(sdk);
 
-    final ModelListRoleV4Response roles = roleWrapper.adminGetRolesV4(
-        AdminGetRolesV4.builder()
-            .adminRole(false)
-            .build());
+    final ModelListRoleV4Response roles =
+        roleWrapper.adminGetRolesV4(AdminGetRolesV4.builder().adminRole(false).build());
 
     String userRoleId = "";
     for (ModelRoleV4Response role : roles.getData()) {
-        if (role.getRoleName().equalsIgnoreCase(roleIdentityToUpdate)) {
-            userRoleId = role.getRoleId();
-            break;
-        }
+      if (role.getRoleName().equalsIgnoreCase(roleIdentityToUpdate)) {
+        userRoleId = role.getRoleId();
+        break;
+      }
     }
 
     assertFalse(userRoleId.equals(""));
 
-    final Integer oAction = this.findAndCheckResourceActionFromRole(roleConfigWrapper, userRoleId, resourceToCheck);
+    final Integer oAction =
+        this.findAndCheckResourceActionFromRole(roleConfigWrapper, userRoleId, resourceToCheck);
     assertEquals(actionToCheck, oAction);
 
-    //Do role override
-    List<AccountcommonOverrideRolePermission> exclusionList = new ArrayList<AccountcommonOverrideRolePermission>();
-    exclusionList.add(AccountcommonOverrideRolePermission.builder()
-        .resource(resourceToCheck)
-        .actions(new ArrayList<Integer>(Arrays.asList(1,4)))
-        .build());
-
-
-    final ModelRoleOverrideResponse updateResponse = roleConfigWrapper.adminUpdateRoleOverrideConfigV3(
-        AdminUpdateRoleOverrideConfigV3.builder()
-            .namespace(this.namespace)
-            .identity(roleIdentityToUpdate)
-            .body(ModelRoleOverrideUpdateRequest.builder()
-                .exclusions(exclusionList)
-                .build())
+    // Do role override
+    List<AccountcommonOverrideRolePermission> exclusionList =
+        new ArrayList<AccountcommonOverrideRolePermission>();
+    exclusionList.add(
+        AccountcommonOverrideRolePermission.builder()
+            .resource(resourceToCheck)
+            .actions(new ArrayList<Integer>(Arrays.asList(1, 4)))
             .build());
+
+    final ModelRoleOverrideResponse updateResponse =
+        roleConfigWrapper.adminUpdateRoleOverrideConfigV3(
+            AdminUpdateRoleOverrideConfigV3.builder()
+                .namespace(this.namespace)
+                .identity(roleIdentityToUpdate)
+                .body(ModelRoleOverrideUpdateRequest.builder().exclusions(exclusionList).build())
+                .build());
     assertNotNull(updateResponse);
 
-    //Activate role override
-    final ModelRoleOverrideResponse activateResponse = roleConfigWrapper.adminChangeRoleOverrideConfigStatusV3(
-        AdminChangeRoleOverrideConfigStatusV3.builder()
-            .namespace(this.namespace)
-            .identity(roleIdentityToUpdate)
-            .body(ModelRoleOverrideStatsUpdateRequest.builder()
-                .active(true)
-                .build())
-            .build());
-    assertNotNull(activateResponse);
-    assertTrue(activateResponse.getActive());
-
-    try {
-        Boolean uValid = false;
-        Integer currentCount = 0;
-        while (currentCount < checkCount) {
-            Integer uAction = this.findAndCheckResourceActionFromRole(roleConfigWrapper, userRoleId, resourceToCheck);
-            if (uAction == updatedActionToCheck) {
-                uValid = true;
-                break;
-            }
-
-            currentCount++;
-            Thread.sleep(checkInterval);
-        }
-
-        assertTrue(uValid);
-    } finally {
-        //Deactivate role override
+    // Activate role override
+    final ModelRoleOverrideResponse activateResponse =
         roleConfigWrapper.adminChangeRoleOverrideConfigStatusV3(
             AdminChangeRoleOverrideConfigStatusV3.builder()
                 .namespace(this.namespace)
                 .identity(roleIdentityToUpdate)
-                .body(ModelRoleOverrideStatsUpdateRequest.builder()
-                    .active(false)
-                    .build())
+                .body(ModelRoleOverrideStatsUpdateRequest.builder().active(true).build())
                 .build());
+    assertNotNull(activateResponse);
+    assertTrue(activateResponse.getActive());
+
+    try {
+      Boolean uValid = false;
+      Integer currentCount = 0;
+      while (currentCount < checkCount) {
+        Integer uAction =
+            this.findAndCheckResourceActionFromRole(roleConfigWrapper, userRoleId, resourceToCheck);
+        if (uAction == updatedActionToCheck) {
+          uValid = true;
+          break;
+        }
+
+        currentCount++;
+        Thread.sleep(checkInterval);
+      }
+
+      assertTrue(uValid);
+    } finally {
+      // Deactivate role override
+      roleConfigWrapper.adminChangeRoleOverrideConfigStatusV3(
+          AdminChangeRoleOverrideConfigStatusV3.builder()
+              .namespace(this.namespace)
+              .identity(roleIdentityToUpdate)
+              .body(ModelRoleOverrideStatsUpdateRequest.builder().active(false).build())
+              .build());
     }
   }
 

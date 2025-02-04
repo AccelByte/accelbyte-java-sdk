@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UpdateThirdPartyLoginPlatformDomainV3
  *
- * <p>This is the API to set 3rd Platform domain.
+ * <p>This is the API to set 3rd Platform domain. This API is a create-or-update behavior. If it is
+ * update, it is a replacement behavior.
  */
 @Getter
 @Setter

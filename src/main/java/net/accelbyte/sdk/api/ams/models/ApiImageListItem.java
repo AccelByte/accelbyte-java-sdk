@@ -29,7 +29,7 @@ public class ApiImageListItem extends Model {
   private String createdAt;
 
   @JsonProperty("deleteAt")
-  private ApiTime deleteAt;
+  private String deleteAt;
 
   @JsonProperty("executable")
   private String executable;

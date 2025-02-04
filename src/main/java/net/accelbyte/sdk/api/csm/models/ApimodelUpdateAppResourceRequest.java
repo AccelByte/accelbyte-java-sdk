@@ -40,6 +40,10 @@ public class ApimodelUpdateAppResourceRequest extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private ApimodelReplicaRequest replica;
 
+  @JsonProperty("vmSharingConfiguration")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String vmSharingConfiguration;
+
   @JsonIgnore
   public ApimodelUpdateAppResourceRequest createFromJson(String json)
       throws JsonProcessingException {

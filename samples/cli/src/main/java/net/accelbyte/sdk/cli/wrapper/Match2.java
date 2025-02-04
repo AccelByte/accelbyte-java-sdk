@@ -46,6 +46,7 @@ import picocli.CommandLine.Command;
       UpdateMatchPool.class,
       DeleteMatchPool.class,
       MatchPoolMetric.class,
+      PostMatchErrorMetric.class,
       GetPlayerMetric.class,
       AdminGetMatchPoolTickets.class,
       CreateMatchTicket.class,

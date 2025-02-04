@@ -21,9 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGeneratePersonalDataURL
  *
- * <p>Generate personal data download url. Scope: account
+ * <p>Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER:{userId} [READ]` and scope
+ * `account`
  *
- * <p>### Request Header: - **Content-Type: application/x-www-form-urlencoded**
+ * <p>If admin request data for themselves, password is need to be set
  */
 @Getter
 @Setter
@@ -48,7 +49,6 @@ public class AdminGeneratePersonalDataURL extends Operation {
    * @param namespace required
    * @param requestDate required
    * @param userId required
-   * @param password required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
@@ -96,9 +96,6 @@ public class AdminGeneratePersonalDataURL extends Operation {
       return false;
     }
     if (this.userId == null) {
-      return false;
-    }
-    if (this.password == null) {
       return false;
     }
     return true;

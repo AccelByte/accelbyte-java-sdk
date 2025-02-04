@@ -37,6 +37,10 @@ public class ModelPlatformDomainUpdateRequest extends Model {
   @JsonProperty("roleId")
   private String roleId;
 
+  @JsonProperty("ssoCfg")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private AccountcommonSsoConfig ssoCfg;
+
   @JsonIgnore
   public ModelPlatformDomainUpdateRequest createFromJson(String json)
       throws JsonProcessingException {
