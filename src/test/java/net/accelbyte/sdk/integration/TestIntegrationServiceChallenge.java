@@ -126,7 +126,7 @@ public class TestIntegrationServiceChallenge extends TestIntegration {
               .code(goalCode)
               .name(goalName)
               .description("")
-              .schedule(ModelGoalSchedule.builder().startTime(startTime).order(1).build())
+              .schedule(ModelGoalScheduleRequest.builder().startTime(startTime).order(1).build())
               .requirementGroups(
                   Collections.singletonList(
                       ModelRequirement.builder()
