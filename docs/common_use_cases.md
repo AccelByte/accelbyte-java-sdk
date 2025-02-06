@@ -762,6 +762,27 @@ final ModelFreeFormNotificationRequest notifBody =
 adminWrapper.freeFormNotification(
     FreeFormNotification.builder().namespace(this.namespace).body(notifBody).build());
 ```
+## LoginQueue
+
+Source: [TestIntegrationServiceLoginQueue.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceLoginQueue.java)
+
+### Get configuration
+
+```java
+final ApimodelsConfigurationResponse config = wrapper.adminGetConfiguration(AdminGetConfiguration.builder()
+    .namespace(namespace)
+    .build());
+```
+
+### Update configurationF
+
+```java
+final ApimodelsConfigurationResponse configUpdate = wrapper.adminUpdateConfiguration(AdminUpdateConfiguration
+    .builder()
+    .namespace(namespace)
+    .body(ApimodelsConfigurationRequest.builder().maxLoginRate(maxLoginRate).build())
+    .build());
+```
 ## MatchmakingV2
 
 Source: [TestIntegrationServiceMatch2.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceMatch2.java)
