@@ -28,6 +28,10 @@ public class TestIntegrationServiceLoginQueue extends TestIntegration {
   @Test
   @Order(1)
   public void test() throws Exception {
+    if (isUsingAGSStarter()) {
+      return; // SKIP
+    }
+
     final AdminV1 wrapper = new AdminV1(sdk);
     final int maxLoginRate = 100;
 
