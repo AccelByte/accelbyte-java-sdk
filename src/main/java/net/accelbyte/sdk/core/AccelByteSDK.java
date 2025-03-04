@@ -486,32 +486,7 @@ public class AccelByteSDK {
   }
 
   public boolean loginClient() {
-    try {
-      final OAuth20 oAuth20 = new OAuth20(this);
-
-      final Instant utcNow = Instant.now();
-      final TokenGrantV3 tokenGrantV3 =
-          TokenGrantV3.builder()
-              .grantTypeFromEnum(TokenGrantV3.GrantType.ClientCredentials)
-              .build();
-      final OauthmodelTokenWithDeviceCookieResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
-
-      final TokenRepository tokenRepository = this.sdkConfiguration.getTokenRepository();
-      tokenRepository.storeToken(token.getAccessToken());
-      if (tokenRepository instanceof TokenRefresh) {
-        final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
-        final long expiresIn = (long) (token.getExpiresIn() * tokenRefreshRatio);
-        tokenRefresh.setTokenExpiresAt(Date.from(utcNow.plusSeconds(expiresIn)));
-        tokenRefresh.storeRefreshToken(null);
-        tokenRefresh.setRefreshTokenExpiresAt(null);
-        scheduleRefreshTokenTask(expiresIn);
-      }
-
-      return true;
-    } catch (Exception e) {
-      log.warning(e.getMessage());
-    }
-    return false;
+    return loginClientInternal(true);
   }
 
   public boolean loginUser(String username, String password) {
@@ -519,86 +494,7 @@ public class AccelByteSDK {
   }
 
   public boolean loginUser(String username, String password, String scope) {
-    final String codeVerifier = Helper.generateCodeVerifier();
-    final String codeChallenge = Helper.generateCodeChallenge(codeVerifier);
-    final String clientId = this.sdkConfiguration.getConfigRepository().getClientId();
-
-    try {
-      final OAuth20 oAuth20 = new OAuth20(this);
-      final OAuth20Extension oAuth20Extension = new OAuth20Extension(this);
-
-      final AuthorizeV3 authorizeV3 =
-          AuthorizeV3.builder()
-              .codeChallenge(codeChallenge)
-              .codeChallengeMethodFromEnum(CodeChallengeMethod.S256)
-              .scope(scope)
-              .clientId(clientId)
-              .responseTypeFromEnum(AuthorizeV3.ResponseType.Code)
-              .build();
-      final String authorizeResponse = oAuth20.authorizeV3(authorizeV3);
-
-      final List<NameValuePair> authorizeParams =
-          URLEncodedUtils.parse(new URI(authorizeResponse), StandardCharsets.UTF_8);
-      final String requestId =
-          authorizeParams.stream()
-              .filter(
-                  (q) -> {
-                    return q.getName().equals(authorizeV3.getLocationQuery());
-                  })
-              .findFirst()
-              .map(NameValuePair::getValue)
-              .orElse(null);
-      final UserAuthenticationV3 userAuthenticationV3 =
-          UserAuthenticationV3.builder()
-              .clientId(clientId)
-              .userName(username)
-              .password(password)
-              .requestId(requestId)
-              .build();
-      final String authenticationResponse =
-          oAuth20Extension.userAuthenticationV3(userAuthenticationV3);
-
-      final List<NameValuePair> authenticationParams =
-          URLEncodedUtils.parse(new URI(authenticationResponse), StandardCharsets.UTF_8);
-      final String code =
-          authenticationParams.stream()
-              .filter(
-                  (q) -> {
-                    return q.getName().equals(userAuthenticationV3.getLocationQuery());
-                  })
-              .findFirst()
-              .map(NameValuePair::getValue)
-              .orElse(null);
-      if (code == null) {
-        return false; // Invalid username or password?
-      }
-      final Instant utcNow = Instant.now();
-      final TokenGrantV3 tokenGrantV3 =
-          TokenGrantV3.builder()
-              .clientId(clientId)
-              .code(code)
-              .codeVerifier(codeVerifier)
-              .grantTypeFromEnum(TokenGrantV3.GrantType.AuthorizationCode)
-              .build();
-      final OauthmodelTokenWithDeviceCookieResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
-
-      final TokenRepository tokenRepository = this.sdkConfiguration.getTokenRepository();
-      tokenRepository.storeToken(token.getAccessToken());
-      if (tokenRepository instanceof TokenRefresh) {
-        final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
-        final long expiresIn = (long) (token.getExpiresIn() * tokenRefreshRatio);
-        final long refreshExpiresIn = (long) (token.getRefreshExpiresIn() * tokenRefreshRatio);
-        tokenRefresh.setTokenExpiresAt(Date.from(utcNow.plusSeconds(expiresIn)));
-        tokenRefresh.storeRefreshToken(token.getRefreshToken());
-        tokenRefresh.setRefreshTokenExpiresAt(Date.from(utcNow.plusSeconds(refreshExpiresIn)));
-        scheduleRefreshTokenTask(expiresIn);
-      }
-
-      return true;
-    } catch (Exception e) {
-      log.warning(e.getMessage());
-    }
-    return false;
+    return loginUserInternal(username, password, scope, true);
   }
 
   public boolean loginPlatform(String platformId, String platformToken) {
@@ -644,7 +540,7 @@ public class AccelByteSDK {
     }
 
     if (Strings.isNullOrEmpty(tokenRepo.getToken())) {
-      return loginClient();
+      return loginClientInternal(false);
     }
 
     boolean isAccessTokenExpired = isExpired(refreshRepo.getTokenExpiresAt());
@@ -652,7 +548,7 @@ public class AccelByteSDK {
       return true; // do nothing, since accessToken still valid
     }
 
-    return loginClient();
+    return loginClientInternal(false);
   }
 
   @SneakyThrows // TODO: remove unused exception from getToken, getTokenExpiredAt
@@ -667,7 +563,7 @@ public class AccelByteSDK {
     }
 
     if (Strings.isNullOrEmpty(tokenRepo.getToken())) {
-      return loginUser(username, password);
+      return loginUserInternal(username, password, DEFAULT_LOGIN_USER_SCOPE, false);
     }
 
     boolean isAccessTokenExpired = isExpired(refreshRepo.getTokenExpiresAt());
@@ -681,7 +577,7 @@ public class AccelByteSDK {
       return refreshToken();
     }
 
-    return loginUser(username, password);
+    return loginUserInternal(username, password, DEFAULT_LOGIN_USER_SCOPE, false);
   }
 
   /**
@@ -1022,5 +918,121 @@ public class AccelByteSDK {
     return CacheBuilder.newBuilder()
         .refreshAfterWrite(refreshIntervalSeconds, TimeUnit.SECONDS)
         .build(revocationLoader);
+  }
+
+  private boolean loginClientInternal(boolean startRefreshTokenTask) {
+    try {
+      final OAuth20 oAuth20 = new OAuth20(this);
+
+      final Instant utcNow = Instant.now();
+      final TokenGrantV3 tokenGrantV3 =
+          TokenGrantV3.builder()
+              .grantTypeFromEnum(TokenGrantV3.GrantType.ClientCredentials)
+              .build();
+      final OauthmodelTokenWithDeviceCookieResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
+
+      final TokenRepository tokenRepository = this.sdkConfiguration.getTokenRepository();
+      tokenRepository.storeToken(token.getAccessToken());
+      if (tokenRepository instanceof TokenRefresh) {
+        final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
+        final long expiresIn = (long) (token.getExpiresIn() * tokenRefreshRatio);
+        tokenRefresh.setTokenExpiresAt(Date.from(utcNow.plusSeconds(expiresIn)));
+        tokenRefresh.storeRefreshToken(null);
+        tokenRefresh.setRefreshTokenExpiresAt(null);
+        if (startRefreshTokenTask) {
+          scheduleRefreshTokenTask(expiresIn);
+        }
+      }
+
+      return true;
+    } catch (Exception e) {
+      log.warning(e.getMessage());
+    }
+    return false;
+  }
+
+  private boolean loginUserInternal(String username, String password, String scope, boolean startRefreshTokenTask) {
+    final String codeVerifier = Helper.generateCodeVerifier();
+    final String codeChallenge = Helper.generateCodeChallenge(codeVerifier);
+    final String clientId = this.sdkConfiguration.getConfigRepository().getClientId();
+
+    try {
+      final OAuth20 oAuth20 = new OAuth20(this);
+      final OAuth20Extension oAuth20Extension = new OAuth20Extension(this);
+
+      final AuthorizeV3 authorizeV3 =
+          AuthorizeV3.builder()
+              .codeChallenge(codeChallenge)
+              .codeChallengeMethodFromEnum(CodeChallengeMethod.S256)
+              .scope(scope)
+              .clientId(clientId)
+              .responseTypeFromEnum(AuthorizeV3.ResponseType.Code)
+              .build();
+      final String authorizeResponse = oAuth20.authorizeV3(authorizeV3);
+
+      final List<NameValuePair> authorizeParams =
+          URLEncodedUtils.parse(new URI(authorizeResponse), StandardCharsets.UTF_8);
+      final String requestId =
+          authorizeParams.stream()
+              .filter(
+                  (q) -> {
+                    return q.getName().equals(authorizeV3.getLocationQuery());
+                  })
+              .findFirst()
+              .map(NameValuePair::getValue)
+              .orElse(null);
+      final UserAuthenticationV3 userAuthenticationV3 =
+          UserAuthenticationV3.builder()
+              .clientId(clientId)
+              .userName(username)
+              .password(password)
+              .requestId(requestId)
+              .build();
+      final String authenticationResponse =
+          oAuth20Extension.userAuthenticationV3(userAuthenticationV3);
+
+      final List<NameValuePair> authenticationParams =
+          URLEncodedUtils.parse(new URI(authenticationResponse), StandardCharsets.UTF_8);
+      final String code =
+          authenticationParams.stream()
+              .filter(
+                  (q) -> {
+                    return q.getName().equals(userAuthenticationV3.getLocationQuery());
+                  })
+              .findFirst()
+              .map(NameValuePair::getValue)
+              .orElse(null);
+      if (code == null) {
+        return false; // Invalid username or password?
+      }
+      final Instant utcNow = Instant.now();
+      final TokenGrantV3 tokenGrantV3 =
+          TokenGrantV3.builder()
+              .clientId(clientId)
+              .code(code)
+              .codeVerifier(codeVerifier)
+              .grantTypeFromEnum(TokenGrantV3.GrantType.AuthorizationCode)
+              .build();
+      final OauthmodelTokenWithDeviceCookieResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
+
+      final TokenRepository tokenRepository = this.sdkConfiguration.getTokenRepository();
+      tokenRepository.storeToken(token.getAccessToken());
+      if (tokenRepository instanceof TokenRefresh) {
+        final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
+        final long expiresIn = (long) (token.getExpiresIn() * tokenRefreshRatio);
+        final long refreshExpiresIn = (long) (token.getRefreshExpiresIn() * tokenRefreshRatio);
+        tokenRefresh.setTokenExpiresAt(Date.from(utcNow.plusSeconds(expiresIn)));
+        tokenRefresh.storeRefreshToken(token.getRefreshToken());
+        tokenRefresh.setRefreshTokenExpiresAt(Date.from(utcNow.plusSeconds(refreshExpiresIn)));
+        if (startRefreshTokenTask) {
+          scheduleRefreshTokenTask(expiresIn);
+        }
+      }
+
+      return true;
+    } catch (Exception e) {
+      log.warning(e.getMessage());
+    }
+    return false;
   }
 }
