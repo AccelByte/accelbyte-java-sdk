@@ -23,8 +23,13 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicGetUserProfiles
  *
+ * <p>## The endpoint is going to be deprecated
+ *
  * <p>Returns all profiles' header for a user. Other detail info: * Returns : list of profiles
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class PublicGetUserProfiles extends Operation {

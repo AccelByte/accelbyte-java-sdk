@@ -56,6 +56,12 @@ public class AdminGetGoals implements Callable<Integer> {
   String sortBy;
 
   @Option(
+      names = {"--tags"},
+      description = "tags",
+      split = ",")
+  List<String> tags;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -83,6 +89,7 @@ public class AdminGetGoals implements Callable<Integer> {
               .limit(limit)
               .offset(offset)
               .sortBy(sortBy)
+              .tags(tags)
               .build();
       final ModelGetGoalsResponse response = wrapper.adminGetGoals(operation);
       final String responseString =

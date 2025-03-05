@@ -18,6 +18,11 @@
 | `/challenge/v1/admin/namespaces/{namespace}/challenges/{challengeCode}/tied` | DELETE | AdminDeleteTiedChallenge | [AdminDeleteTiedChallenge](../../src/main/java/net/accelbyte/sdk/api/challenge/operations/challenge_configuration/AdminDeleteTiedChallenge.java) | [AdminDeleteTiedChallenge](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/challenge/challenge_configuration/AdminDeleteTiedChallenge.java) |
 | `/challenge/v1/admin/namespaces/{namespace}/challenges/{challengeCode}/tied/schedule` | PUT | AdminUpdateTiedChallengeSchedule | [AdminUpdateTiedChallengeSchedule](../../src/main/java/net/accelbyte/sdk/api/challenge/operations/challenge_configuration/AdminUpdateTiedChallengeSchedule.java) | [AdminUpdateTiedChallengeSchedule](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/challenge/challenge_configuration/AdminUpdateTiedChallengeSchedule.java) |
 
+### Utilities Wrapper:  [Utilities](../../src/main/java/net/accelbyte/sdk/api/challenge/wrappers/Utilities.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/challenge/v1/admin/namespaces/{namespace}/challenges/item/references` | GET | AdminGetItemReferences | [AdminGetItemReferences](../../src/main/java/net/accelbyte/sdk/api/challenge/operations/utilities/AdminGetItemReferences.java) | [AdminGetItemReferences](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/challenge/utilities/AdminGetItemReferences.java) |
+
 ### Goal Configuration Wrapper:  [GoalConfiguration](../../src/main/java/net/accelbyte/sdk/api/challenge/wrappers/GoalConfiguration.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -78,6 +83,7 @@
 |---|---|
 | `iam.ErrorResponse` | [IamErrorResponse](../../src/main/java/net/accelbyte/sdk/api/challenge/models/IamErrorResponse.java) |
 | `iam.Permission` | [IamPermission](../../src/main/java/net/accelbyte/sdk/api/challenge/models/IamPermission.java) |
+| `model.ChallengeReference` | [ModelChallengeReference](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelChallengeReference.java) |
 | `model.ChallengeResponse` | [ModelChallengeResponse](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelChallengeResponse.java) |
 | `model.ClaimUserRewardsByGoalCodeRequest` | [ModelClaimUserRewardsByGoalCodeRequest](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelClaimUserRewardsByGoalCodeRequest.java) |
 | `model.ClaimUserRewardsReq` | [ModelClaimUserRewardsReq](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelClaimUserRewardsReq.java) |
@@ -95,6 +101,8 @@
 | `model.GoalResponse` | [ModelGoalResponse](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelGoalResponse.java) |
 | `model.GoalSchedule` | [ModelGoalSchedule](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelGoalSchedule.java) |
 | `model.GoalScheduleRequest` | [ModelGoalScheduleRequest](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelGoalScheduleRequest.java) |
+| `model.ItemReference` | [ModelItemReference](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelItemReference.java) |
+| `model.ItemReferenceResponse` | [ModelItemReferenceResponse](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelItemReferenceResponse.java) |
 | `model.ListChallengeResponse` | [ModelListChallengeResponse](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelListChallengeResponse.java) |
 | `model.ListPeriodsResponse` | [ModelListPeriodsResponse](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelListPeriodsResponse.java) |
 | `model.ListScheduleByGoalResponse` | [ModelListScheduleByGoalResponse](../../src/main/java/net/accelbyte/sdk/api/challenge/models/ModelListScheduleByGoalResponse.java) |

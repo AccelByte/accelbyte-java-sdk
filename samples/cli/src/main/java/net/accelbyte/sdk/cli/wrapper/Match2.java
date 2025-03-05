@@ -30,6 +30,7 @@ import picocli.CommandLine.Command;
       AdminGetConfigV1.class,
       AdminPatchConfigV1.class,
       EnvironmentVariableList.class,
+      AdminQueryBackfill.class,
       CreateBackfill.class,
       GetBackfillProposal.class,
       GetBackfill.class,

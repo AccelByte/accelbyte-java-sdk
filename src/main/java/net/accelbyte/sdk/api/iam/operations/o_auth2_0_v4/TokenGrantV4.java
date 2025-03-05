@@ -93,6 +93,7 @@ public class TokenGrantV4 extends Operation {
   private String password;
   private String redirectUri;
   private String refreshToken;
+  private String scope;
   private String username;
   private String grantType;
 
@@ -116,6 +117,7 @@ public class TokenGrantV4 extends Operation {
       String password,
       String redirectUri,
       String refreshToken,
+      String scope,
       String username,
       String grantType) {
     this.codeChallenge = codeChallenge;
@@ -131,6 +133,7 @@ public class TokenGrantV4 extends Operation {
     this.password = password;
     this.redirectUri = redirectUri;
     this.refreshToken = refreshToken;
+    this.scope = scope;
     this.username = username;
     this.grantType = grantType;
 
@@ -184,6 +187,9 @@ public class TokenGrantV4 extends Operation {
     }
     if (this.refreshToken != null) {
       formDataParams.put("refresh_token", this.refreshToken);
+    }
+    if (this.scope != null) {
+      formDataParams.put("scope", this.scope);
     }
     if (this.username != null) {
       formDataParams.put("username", this.username);

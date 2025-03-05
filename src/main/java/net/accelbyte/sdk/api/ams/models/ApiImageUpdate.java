@@ -29,9 +29,11 @@ public class ApiImageUpdate extends Model {
   private List<String> addedTags;
 
   @JsonProperty("isProtected")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean isProtected;
 
   @JsonProperty("name")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String name;
 
   @JsonProperty("removedTags")

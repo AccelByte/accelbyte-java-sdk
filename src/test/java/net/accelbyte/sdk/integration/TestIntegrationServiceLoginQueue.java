@@ -37,9 +37,8 @@ public class TestIntegrationServiceLoginQueue extends TestIntegration {
 
     // CASE Get configuration
 
-    final ApimodelsConfigurationResponse config = wrapper.adminGetConfiguration(AdminGetConfiguration.builder()
-        .namespace(namespace)
-        .build());
+    final ApimodelsConfigurationResponse config =
+        wrapper.adminGetConfiguration(AdminGetConfiguration.builder().namespace(namespace).build());
 
     // ESAC
 
@@ -47,11 +46,12 @@ public class TestIntegrationServiceLoginQueue extends TestIntegration {
 
     // CASE Update configurationF
 
-    final ApimodelsConfigurationResponse configUpdate = wrapper.adminUpdateConfiguration(AdminUpdateConfiguration
-        .builder()
-        .namespace(namespace)
-        .body(ApimodelsConfigurationRequest.builder().maxLoginRate(maxLoginRate).build())
-        .build());
+    final ApimodelsConfigurationResponse configUpdate =
+        wrapper.adminUpdateConfiguration(
+            AdminUpdateConfiguration.builder()
+                .namespace(namespace)
+                .body(ApimodelsConfigurationRequest.builder().maxLoginRate(maxLoginRate).build())
+                .build());
 
     // ESAC
 

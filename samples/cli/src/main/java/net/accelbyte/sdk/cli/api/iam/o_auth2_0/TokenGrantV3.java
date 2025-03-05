@@ -81,6 +81,11 @@ public class TokenGrantV3 implements Callable<Integer> {
   String refreshToken;
 
   @Option(
+      names = {"--scope"},
+      description = "scope")
+  String scope;
+
+  @Option(
       names = {"--username"},
       description = "username")
   String username;
@@ -123,6 +128,7 @@ public class TokenGrantV3 implements Callable<Integer> {
               .password(password != null ? password : null)
               .redirectUri(redirectUri != null ? redirectUri : null)
               .refreshToken(refreshToken != null ? refreshToken : null)
+              .scope(scope != null ? scope : null)
               .username(username != null ? username : null)
               .grantType(grantType != null ? grantType : null)
               .build();

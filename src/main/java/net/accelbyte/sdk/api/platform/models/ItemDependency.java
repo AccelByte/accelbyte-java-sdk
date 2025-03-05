@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.ams.models;
+package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,24 +23,19 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class TimeZone extends Model {
+public class ItemDependency extends Model {
 
-  @JsonProperty("isDST")
-  private Boolean isDST;
-
-  @JsonProperty("name")
-  private String name;
-
-  @JsonProperty("offset")
-  private Integer offset;
+  @JsonProperty("references")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<FeatureReference> references;
 
   @JsonIgnore
-  public TimeZone createFromJson(String json) throws JsonProcessingException {
+  public ItemDependency createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<TimeZone> createFromJsonList(String json) throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<TimeZone>>() {});
+  public List<ItemDependency> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ItemDependency>>() {});
   }
 }

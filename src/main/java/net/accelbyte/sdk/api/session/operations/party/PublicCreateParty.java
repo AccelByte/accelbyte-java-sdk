@@ -94,7 +94,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * reconnects lobby websocket, unless "manualRejoin" sets to True in the session configuration. When
  * "manualRejoin" is enabled, after lobby websocket reconnect, the game client will need to manually
  * invoke join session again to rejoin the session. - If the user was on INVITED state before the
- * disconnect happened, the user's status will return back to INVITED after they reconnect.
+ * disconnect happened, the user's status will return back to INVITED after they reconnect. -
+ * ttlHours is how long the session will active, max value is 168 hours
  */
 @Getter
 @Setter

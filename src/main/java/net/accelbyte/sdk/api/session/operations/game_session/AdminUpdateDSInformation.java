@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminUpdateDSInformation
  *
- * <p>Update Game Session DS Information for Asynchronous Process
+ * <p>This API is used for create custom DS asynchronously flow and is expected to be called after
+ * the service receives response from the Async RPC.
  */
 @Getter
 @Setter

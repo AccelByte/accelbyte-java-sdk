@@ -1,3 +1,15 @@
+<a name="v0.71.0"></a>
+## [v0.71.0]
+### test
+- **integration:** skip login queue in ags shared cloud
+### ci
+- **coverity:** update coverity tool
+### chore
+- **sdk:** no code change
+### fix
+- **sdk:** do not start refresh token task when using on demand login client/user
+
+
 <a name="v0.70.0"></a>
 ## [v0.70.0]
 ### feat

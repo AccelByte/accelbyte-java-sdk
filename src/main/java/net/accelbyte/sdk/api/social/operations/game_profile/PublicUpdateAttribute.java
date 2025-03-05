@@ -21,9 +21,14 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicUpdateAttribute
  *
+ * <p>## The endpoint is going to be deprecated
+ *
  * <p>Updates game profile attribute, returns updated profile. Other detail info: * Returns :
  * updated attribute
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class PublicUpdateAttribute extends Operation {

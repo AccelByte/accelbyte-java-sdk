@@ -51,6 +51,11 @@ public class PublicGetScheduledGoals implements Callable<Integer> {
   Integer offset;
 
   @Option(
+      names = {"--sortBy"},
+      description = "sortBy")
+  String sortBy;
+
+  @Option(
       names = {"--tags"},
       description = "tags",
       split = ",")
@@ -85,6 +90,7 @@ public class PublicGetScheduledGoals implements Callable<Integer> {
                   .namespace(namespace)
                   .limit(limit)
                   .offset(offset)
+                  .sortBy(sortBy)
                   .tags(tags)
                   .build();
       final ModelGetGoalsResponse response = wrapper.publicGetScheduledGoals(operation);

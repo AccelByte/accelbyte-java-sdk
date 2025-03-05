@@ -39,11 +39,11 @@ public class FleetList extends Operation {
 
   private Boolean active;
   private Integer count;
-  private String desc;
   private String name;
   private Integer offset;
   private String region;
   private String sortBy;
+  private String sortDirection;
 
   /**
    * @param namespace required
@@ -55,19 +55,19 @@ public class FleetList extends Operation {
       String namespace,
       Boolean active,
       Integer count,
-      String desc,
       String name,
       Integer offset,
       String region,
-      String sortBy) {
+      String sortBy,
+      String sortDirection) {
     this.namespace = namespace;
     this.active = active;
     this.count = count;
-    this.desc = desc;
     this.name = name;
     this.offset = offset;
     this.region = region;
     this.sortBy = sortBy;
+    this.sortDirection = sortDirection;
 
     securities.add("Bearer");
   }
@@ -87,12 +87,13 @@ public class FleetList extends Operation {
     queryParams.put(
         "active", this.active == null ? null : Arrays.asList(String.valueOf(this.active)));
     queryParams.put("count", this.count == null ? null : Arrays.asList(String.valueOf(this.count)));
-    queryParams.put("desc", this.desc == null ? null : Arrays.asList(this.desc));
     queryParams.put("name", this.name == null ? null : Arrays.asList(this.name));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
     queryParams.put("region", this.region == null ? null : Arrays.asList(this.region));
     queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
+    queryParams.put(
+        "sortDirection", this.sortDirection == null ? null : Arrays.asList(this.sortDirection));
     return queryParams;
   }
 
@@ -119,28 +120,12 @@ public class FleetList extends Operation {
     Map<String, String> result = new HashMap<>();
     result.put("active", "None");
     result.put("count", "None");
-    result.put("desc", "None");
     result.put("name", "None");
     result.put("offset", "None");
     result.put("region", "None");
     result.put("sortBy", "None");
+    result.put("sortDirection", "None");
     return result;
-  }
-
-  public enum Desc {
-    Asc("asc"),
-    Desc("desc");
-
-    private String value;
-
-    Desc(String value) {
-      this.value = value;
-    }
-
-    @Override
-    public String toString() {
-      return this.value;
-    }
   }
 
   public enum SortBy {
@@ -159,19 +144,25 @@ public class FleetList extends Operation {
     }
   }
 
+  public enum SortDirection {
+    Asc("asc"),
+    Desc("desc");
+
+    private String value;
+
+    SortDirection(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public static class FleetListBuilder {
-    private String desc;
     private String sortBy;
-
-    public FleetListBuilder desc(final String desc) {
-      this.desc = desc;
-      return this;
-    }
-
-    public FleetListBuilder descFromEnum(final Desc desc) {
-      this.desc = desc.toString();
-      return this;
-    }
+    private String sortDirection;
 
     public FleetListBuilder sortBy(final String sortBy) {
       this.sortBy = sortBy;
@@ -180,6 +171,16 @@ public class FleetList extends Operation {
 
     public FleetListBuilder sortByFromEnum(final SortBy sortBy) {
       this.sortBy = sortBy.toString();
+      return this;
+    }
+
+    public FleetListBuilder sortDirection(final String sortDirection) {
+      this.sortDirection = sortDirection;
+      return this;
+    }
+
+    public FleetListBuilder sortDirectionFromEnum(final SortDirection sortDirection) {
+      this.sortDirection = sortDirection.toString();
       return this;
     }
   }

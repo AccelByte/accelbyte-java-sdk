@@ -52,6 +52,7 @@
 | `/platform/admin/namespaces/{namespace}/items/{itemId}/features/{feature}` | DELETE | DefeatureItem | [DefeatureItem](../../src/main/java/net/accelbyte/sdk/api/platform/operations/item/DefeatureItem.java) | [DefeatureItem](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/item/DefeatureItem.java) |
 | `/platform/admin/namespaces/{namespace}/items/{itemId}/locale` | GET | GetLocaleItem | [GetLocaleItem](../../src/main/java/net/accelbyte/sdk/api/platform/operations/item/GetLocaleItem.java) | [GetLocaleItem](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/item/GetLocaleItem.java) |
 | `/platform/admin/namespaces/{namespace}/items/{itemId}/purchase/condition` | PUT | UpdateItemPurchaseCondition | [UpdateItemPurchaseCondition](../../src/main/java/net/accelbyte/sdk/api/platform/operations/item/UpdateItemPurchaseCondition.java) | [UpdateItemPurchaseCondition](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/item/UpdateItemPurchaseCondition.java) |
+| `/platform/admin/namespaces/{namespace}/items/{itemId}/references` | GET | QueryItemReferences | [QueryItemReferences](../../src/main/java/net/accelbyte/sdk/api/platform/operations/item/QueryItemReferences.java) | [QueryItemReferences](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/item/QueryItemReferences.java) |
 | `/platform/admin/namespaces/{namespace}/items/{itemId}/return` | PUT | ReturnItem | [ReturnItem](../../src/main/java/net/accelbyte/sdk/api/platform/operations/item/ReturnItem.java) | [ReturnItem](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/item/ReturnItem.java) |
 | `/platform/public/namespaces/{namespace}/items/byAppId` | GET | PublicGetItemByAppId | [PublicGetItemByAppId](../../src/main/java/net/accelbyte/sdk/api/platform/operations/item/PublicGetItemByAppId.java) | [PublicGetItemByAppId](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/item/PublicGetItemByAppId.java) |
 | `/platform/public/namespaces/{namespace}/items/byCriteria` | GET | PublicQueryItems | [PublicQueryItems](../../src/main/java/net/accelbyte/sdk/api/platform/operations/item/PublicQueryItems.java) | [PublicQueryItems](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/item/PublicQueryItems.java) |
@@ -302,11 +303,19 @@
 | `/platform/admin/namespaces/{namespace}/iap/config/xbl` | PUT | UpdateXblIAPConfig | [UpdateXblIAPConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/UpdateXblIAPConfig.java) | [UpdateXblIAPConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/UpdateXblIAPConfig.java) |
 | `/platform/admin/namespaces/{namespace}/iap/config/xbl` | DELETE | DeleteXblAPConfig | [DeleteXblAPConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/DeleteXblAPConfig.java) | [DeleteXblAPConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/DeleteXblAPConfig.java) |
 | `/platform/admin/namespaces/{namespace}/iap/config/xbl/cert` | PUT | UpdateXblBPCertFile | [UpdateXblBPCertFile](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/UpdateXblBPCertFile.java) | [UpdateXblBPCertFile](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/UpdateXblBPCertFile.java) |
+| `/platform/admin/namespaces/{namespace}/iap/steam/abnormal_transactions` | GET | QueryAbnormalTransactions | [QueryAbnormalTransactions](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/QueryAbnormalTransactions.java) | [QueryAbnormalTransactions](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/QueryAbnormalTransactions.java) |
+| `/platform/admin/namespaces/{namespace}/iap/steam/job` | GET | AdminGetSteamJobInfo | [AdminGetSteamJobInfo](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/AdminGetSteamJobInfo.java) | [AdminGetSteamJobInfo](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/AdminGetSteamJobInfo.java) |
+| `/platform/admin/namespaces/{namespace}/iap/steam/job/reset` | PUT | AdminResetSteamJobTime | [AdminResetSteamJobTime](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/AdminResetSteamJobTime.java) | [AdminResetSteamJobTime](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/AdminResetSteamJobTime.java) |
+| `/platform/admin/namespaces/{namespace}/iap/steam/orders/{iapOrderNo}/refund` | PUT | AdminRefundIAPOrder | [AdminRefundIAPOrder](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/AdminRefundIAPOrder.java) | [AdminRefundIAPOrder](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/AdminRefundIAPOrder.java) |
+| `/platform/admin/namespaces/{namespace}/iap/steam/report/histories` | GET | QuerySteamReportHistories | [QuerySteamReportHistories](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/QuerySteamReportHistories.java) | [QuerySteamReportHistories](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/QuerySteamReportHistories.java) |
 | `/platform/admin/namespaces/{namespace}/iap/{iapOrderNo}/consumedetails` | GET | GetIAPOrderConsumeDetails | [GetIAPOrderConsumeDetails](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/GetIAPOrderConsumeDetails.java) | [GetIAPOrderConsumeDetails](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/GetIAPOrderConsumeDetails.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/iap` | GET | QueryUserIAPOrders | [QueryUserIAPOrders](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/QueryUserIAPOrders.java) | [QueryUserIAPOrders](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/QueryUserIAPOrders.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/iap/all` | GET | QueryAllUserIAPOrders | [QueryAllUserIAPOrders](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/QueryAllUserIAPOrders.java) | [QueryAllUserIAPOrders](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/QueryAllUserIAPOrders.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/iap/consume/history` | GET | QueryUserIAPConsumeHistory | [QueryUserIAPConsumeHistory](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/QueryUserIAPConsumeHistory.java) | [QueryUserIAPConsumeHistory](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/QueryUserIAPConsumeHistory.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/iap/mock/receipt` | PUT | MockFulfillIAPItem | [MockFulfillIAPItem](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/MockFulfillIAPItem.java) | [MockFulfillIAPItem](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/MockFulfillIAPItem.java) |
+| `/platform/admin/namespaces/{namespace}/users/{userId}/iap/orders/{iapOrderNo}/line_items` | GET | AdminGetIAPOrderLineItems | [AdminGetIAPOrderLineItems](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/AdminGetIAPOrderLineItems.java) | [AdminGetIAPOrderLineItems](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/AdminGetIAPOrderLineItems.java) |
+| `/platform/admin/namespaces/{namespace}/users/{userId}/iap/steam/syncAbnormalTransaction` | PUT | AdminSyncSteamAbnormalTransaction | [AdminSyncSteamAbnormalTransaction](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/AdminSyncSteamAbnormalTransaction.java) | [AdminSyncSteamAbnormalTransaction](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/AdminSyncSteamAbnormalTransaction.java) |
+| `/platform/admin/namespaces/{namespace}/users/{userId}/iap/steam/syncByTransaction` | PUT | AdminSyncSteamIAPByTransaction | [AdminSyncSteamIAPByTransaction](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/AdminSyncSteamIAPByTransaction.java) | [AdminSyncSteamIAPByTransaction](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/AdminSyncSteamIAPByTransaction.java) |
 | `/platform/public/namespaces/{namespace}/iap/apple/config/version` | GET | GetAppleConfigVersion | [GetAppleConfigVersion](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/GetAppleConfigVersion.java) | [GetAppleConfigVersion](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/GetAppleConfigVersion.java) |
 | `/platform/public/namespaces/{namespace}/iap/item/mapping` | GET | GetIAPItemMapping | [GetIAPItemMapping](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/GetIAPItemMapping.java) | [GetIAPItemMapping](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/GetIAPItemMapping.java) |
 | `/platform/public/namespaces/{namespace}/users/me/iap/twitch/sync` | PUT | SyncTwitchDropsEntitlement | [SyncTwitchDropsEntitlement](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/SyncTwitchDropsEntitlement.java) | [SyncTwitchDropsEntitlement](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/SyncTwitchDropsEntitlement.java) |
@@ -317,6 +326,8 @@
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/psn/sync` | PUT | PublicReconcilePlayStationStore | [PublicReconcilePlayStationStore](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/PublicReconcilePlayStationStore.java) | [PublicReconcilePlayStationStore](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/PublicReconcilePlayStationStore.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/psn/sync/multiServiceLabels` | PUT | PublicReconcilePlayStationStoreWithMultipleServiceLabels | [PublicReconcilePlayStationStoreWithMultipleServiceLabels](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/PublicReconcilePlayStationStoreWithMultipleServiceLabels.java) | [PublicReconcilePlayStationStoreWithMultipleServiceLabels](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/PublicReconcilePlayStationStoreWithMultipleServiceLabels.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/steam/sync` | PUT | SyncSteamInventory | [SyncSteamInventory](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/SyncSteamInventory.java) | [SyncSteamInventory](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/SyncSteamInventory.java) |
+| `/platform/public/namespaces/{namespace}/users/{userId}/iap/steam/syncAbnormalTransaction` | PUT | SyncSteamAbnormalTransaction | [SyncSteamAbnormalTransaction](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/SyncSteamAbnormalTransaction.java) | [SyncSteamAbnormalTransaction](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/SyncSteamAbnormalTransaction.java) |
+| `/platform/public/namespaces/{namespace}/users/{userId}/iap/steam/syncByTransaction` | PUT | SyncSteamIAPByTransaction | [SyncSteamIAPByTransaction](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/SyncSteamIAPByTransaction.java) | [SyncSteamIAPByTransaction](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/SyncSteamIAPByTransaction.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/twitch/sync` | PUT | SyncTwitchDropsEntitlement1 | [SyncTwitchDropsEntitlement1](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/SyncTwitchDropsEntitlement1.java) | [SyncTwitchDropsEntitlement1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/SyncTwitchDropsEntitlement1.java) |
 | `/platform/public/namespaces/{namespace}/users/{userId}/iap/xbl/sync` | PUT | SyncXboxInventory | [SyncXboxInventory](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/SyncXboxInventory.java) | [SyncXboxInventory](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/SyncXboxInventory.java) |
 | `/platform/v2/public/namespaces/{namespace}/users/{userId}/iap/apple/receipt` | PUT | V2PublicFulfillAppleIAPItem | [V2PublicFulfillAppleIAPItem](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/V2PublicFulfillAppleIAPItem.java) | [V2PublicFulfillAppleIAPItem](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/V2PublicFulfillAppleIAPItem.java) |
@@ -709,6 +720,7 @@
 | `CategoryCreate` | [CategoryCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/CategoryCreate.java) |
 | `CategoryInfo` | [CategoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/CategoryInfo.java) |
 | `CategoryUpdate` | [CategoryUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/CategoryUpdate.java) |
+| `ChangeStatusItemRequest` | [ChangeStatusItemRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/ChangeStatusItemRequest.java) |
 | `CheckoutConfig` | [CheckoutConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/CheckoutConfig.java) |
 | `ClawbackInfo` | [ClawbackInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/ClawbackInfo.java) |
 | `ClientRequestParameter` | [ClientRequestParameter](../../src/main/java/net/accelbyte/sdk/api/platform/models/ClientRequestParameter.java) |
@@ -793,6 +805,7 @@
 | `ExportStoreToCSVRequest` | [ExportStoreToCSVRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/ExportStoreToCSVRequest.java) |
 | `ExtensionFulfillmentSummary` | [ExtensionFulfillmentSummary](../../src/main/java/net/accelbyte/sdk/api/platform/models/ExtensionFulfillmentSummary.java) |
 | `ExternalPaymentOrderCreate` | [ExternalPaymentOrderCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/ExternalPaymentOrderCreate.java) |
+| `FeatureReference` | [FeatureReference](../../src/main/java/net/accelbyte/sdk/api/platform/models/FeatureReference.java) |
 | `FieldValidationError` | [FieldValidationError](../../src/main/java/net/accelbyte/sdk/api/platform/models/FieldValidationError.java) |
 | `FixedPeriodRotationConfig` | [FixedPeriodRotationConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/FixedPeriodRotationConfig.java) |
 | `FulFillItemPayload` | [FulFillItemPayload](../../src/main/java/net/accelbyte/sdk/api/platform/models/FulFillItemPayload.java) |
@@ -839,7 +852,9 @@
 | `IAPItemMappingInfo` | [IAPItemMappingInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/IAPItemMappingInfo.java) |
 | `IAPOrderConsumeDetailInfo` | [IAPOrderConsumeDetailInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/IAPOrderConsumeDetailInfo.java) |
 | `IAPOrderInfo` | [IAPOrderInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/IAPOrderInfo.java) |
+| `IAPOrderLineItemInfo` | [IAPOrderLineItemInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/IAPOrderLineItemInfo.java) |
 | `IAPOrderPagingSlicedResult` | [IAPOrderPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/IAPOrderPagingSlicedResult.java) |
+| `IAPOrderShortInfo` | [IAPOrderShortInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/IAPOrderShortInfo.java) |
 | `Image` | [Image](../../src/main/java/net/accelbyte/sdk/api/platform/models/Image.java) |
 | `ImportErrorDetails` | [ImportErrorDetails](../../src/main/java/net/accelbyte/sdk/api/platform/models/ImportErrorDetails.java) |
 | `ImportStoreAppInfo` | [ImportStoreAppInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/ImportStoreAppInfo.java) |
@@ -858,6 +873,7 @@
 | `ItemAcquireRequest` | [ItemAcquireRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemAcquireRequest.java) |
 | `ItemAcquireResult` | [ItemAcquireResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemAcquireResult.java) |
 | `ItemCreate` | [ItemCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemCreate.java) |
+| `ItemDependency` | [ItemDependency](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemDependency.java) |
 | `ItemDynamicDataInfo` | [ItemDynamicDataInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemDynamicDataInfo.java) |
 | `ItemId` | [ItemId](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemId.java) |
 | `ItemInfo` | [ItemInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemInfo.java) |
@@ -865,6 +881,7 @@
 | `ItemPagingSlicedResult` | [ItemPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemPagingSlicedResult.java) |
 | `ItemPurchaseConditionValidateRequest` | [ItemPurchaseConditionValidateRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemPurchaseConditionValidateRequest.java) |
 | `ItemPurchaseConditionValidateResult` | [ItemPurchaseConditionValidateResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemPurchaseConditionValidateResult.java) |
+| `ItemReference` | [ItemReference](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemReference.java) |
 | `ItemReturnRequest` | [ItemReturnRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemReturnRequest.java) |
 | `ItemRevocation` | [ItemRevocation](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemRevocation.java) |
 | `ItemSnapshot` | [ItemSnapshot](../../src/main/java/net/accelbyte/sdk/api/platform/models/ItemSnapshot.java) |
@@ -886,6 +903,7 @@
 | `LootBoxPluginConfigUpdate` | [LootBoxPluginConfigUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/LootBoxPluginConfigUpdate.java) |
 | `LootBoxReward` | [LootBoxReward](../../src/main/java/net/accelbyte/sdk/api/platform/models/LootBoxReward.java) |
 | `MockIAPReceipt` | [MockIAPReceipt](../../src/main/java/net/accelbyte/sdk/api/platform/models/MockIAPReceipt.java) |
+| `ModuleReference` | [ModuleReference](../../src/main/java/net/accelbyte/sdk/api/platform/models/ModuleReference.java) |
 | `NeonPayConfig` | [NeonPayConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/NeonPayConfig.java) |
 | `NotificationPagingSlicedResult` | [NotificationPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/NotificationPagingSlicedResult.java) |
 | `NotificationProcessResult` | [NotificationProcessResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/NotificationProcessResult.java) |
@@ -993,6 +1011,7 @@
 | `RegionDataItemDTO` | [RegionDataItemDTO](../../src/main/java/net/accelbyte/sdk/api/platform/models/RegionDataItemDTO.java) |
 | `RequestHistory` | [RequestHistory](../../src/main/java/net/accelbyte/sdk/api/platform/models/RequestHistory.java) |
 | `Requirement` | [Requirement](../../src/main/java/net/accelbyte/sdk/api/platform/models/Requirement.java) |
+| `ResetJobRequest` | [ResetJobRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/ResetJobRequest.java) |
 | `RevocationConfigInfo` | [RevocationConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevocationConfigInfo.java) |
 | `RevocationConfigUpdate` | [RevocationConfigUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevocationConfigUpdate.java) |
 | `RevocationError` | [RevocationError](../../src/main/java/net/accelbyte/sdk/api/platform/models/RevocationError.java) |
@@ -1037,12 +1056,16 @@
 | `SimpleWallet` | [SimpleWallet](../../src/main/java/net/accelbyte/sdk/api/platform/models/SimpleWallet.java) |
 | `Slide` | [Slide](../../src/main/java/net/accelbyte/sdk/api/platform/models/Slide.java) |
 | `StackableEntitlementInfo` | [StackableEntitlementInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/StackableEntitlementInfo.java) |
+| `SteamAbnormalTransactionPagingSlicedResult` | [SteamAbnormalTransactionPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/SteamAbnormalTransactionPagingSlicedResult.java) |
 | `SteamAchievement` | [SteamAchievement](../../src/main/java/net/accelbyte/sdk/api/platform/models/SteamAchievement.java) |
 | `SteamAchievementUpdateRequest` | [SteamAchievementUpdateRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/SteamAchievementUpdateRequest.java) |
 | `SteamDLCSyncRequest` | [SteamDLCSyncRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/SteamDLCSyncRequest.java) |
 | `SteamIAPConfig` | [SteamIAPConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/SteamIAPConfig.java) |
 | `SteamIAPConfigInfo` | [SteamIAPConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/SteamIAPConfigInfo.java) |
 | `SteamIAPConfigRequest` | [SteamIAPConfigRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/SteamIAPConfigRequest.java) |
+| `SteamReportInfoPagingSlicedResult` | [SteamReportInfoPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/SteamReportInfoPagingSlicedResult.java) |
+| `SteamReportJobInfo` | [SteamReportJobInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/SteamReportJobInfo.java) |
+| `SteamSyncByTransactionRequest` | [SteamSyncByTransactionRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/SteamSyncByTransactionRequest.java) |
 | `SteamSyncRequest` | [SteamSyncRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/SteamSyncRequest.java) |
 | `StoreBackupInfo` | [StoreBackupInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/StoreBackupInfo.java) |
 | `StoreCreate` | [StoreCreate](../../src/main/java/net/accelbyte/sdk/api/platform/models/StoreCreate.java) |

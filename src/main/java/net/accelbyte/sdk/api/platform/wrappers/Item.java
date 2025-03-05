@@ -351,6 +351,15 @@ public class Item {
   }
 
   /**
+   * @see QueryItemReferences
+   */
+  public ItemDependency queryItemReferences(QueryItemReferences input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see ReturnItem
    */
   public void returnItem(ReturnItem input) throws Exception {

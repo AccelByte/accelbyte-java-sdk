@@ -35,6 +35,10 @@ public class ApiFleetParameters extends Model {
   @JsonProperty("dsHostConfiguration")
   private ApiDSHostConfigurationParameters dsHostConfiguration;
 
+  @JsonProperty("fallbackFleet")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String fallbackFleet;
+
   @JsonProperty("imageDeploymentProfile")
   private ApiImageDeploymentProfile imageDeploymentProfile;
 

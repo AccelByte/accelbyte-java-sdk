@@ -46,11 +46,6 @@ public class FleetList implements Callable<Integer> {
   Integer count;
 
   @Option(
-      names = {"--desc"},
-      description = "desc")
-  String desc;
-
-  @Option(
       names = {"--name"},
       description = "name")
   String name;
@@ -69,6 +64,11 @@ public class FleetList implements Callable<Integer> {
       names = {"--sortBy"},
       description = "sortBy")
   String sortBy;
+
+  @Option(
+      names = {"--sortDirection"},
+      description = "sortDirection")
+  String sortDirection;
 
   @Option(
       names = {"--logging"},
@@ -96,11 +96,11 @@ public class FleetList implements Callable<Integer> {
               .namespace(namespace)
               .active(active)
               .count(count)
-              .desc(desc)
               .name(name)
               .offset(offset)
               .region(region)
               .sortBy(sortBy)
+              .sortDirection(sortDirection)
               .build();
       final ApiFleetListResponse response = wrapper.fleetList(operation);
       final String responseString =

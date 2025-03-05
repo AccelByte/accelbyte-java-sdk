@@ -146,6 +146,10 @@ public class ApimodelsCreateConfigurationTemplateRequest extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean tieTeamsSessionLifetime;
 
+  @JsonProperty("ttlHours")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer ttlHours;
+
   @JsonProperty("type")
   private String type;
 

@@ -951,7 +951,8 @@ public class AccelByteSDK {
     return false;
   }
 
-  private boolean loginUserInternal(String username, String password, String scope, boolean startRefreshTokenTask) {
+  private boolean loginUserInternal(
+      String username, String password, String scope, boolean startRefreshTokenTask) {
     final String codeVerifier = Helper.generateCodeVerifier();
     final String codeChallenge = Helper.generateCodeChallenge(codeVerifier);
     final String clientId = this.sdkConfiguration.getConfigRepository().getClientId();

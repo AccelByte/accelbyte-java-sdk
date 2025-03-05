@@ -121,6 +121,10 @@ public class ModelUserResponseV3 extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean skipLoginQueue;
 
+  @JsonProperty("tags")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> tags;
+
   @JsonProperty("testAccount")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean testAccount;

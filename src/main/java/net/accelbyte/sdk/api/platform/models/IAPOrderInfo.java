@@ -89,6 +89,10 @@ public class IAPOrderInfo extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String statusReason;
 
+  @JsonProperty("syncMode")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String syncMode;
+
   @JsonProperty("transactionId")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String transactionId;
@@ -120,6 +124,26 @@ public class IAPOrderInfo extends Model {
   @JsonIgnore
   public void setStatusFromEnum(final Status status) {
     this.status = status.toString();
+  }
+
+  @JsonIgnore
+  public String getSyncMode() {
+    return this.syncMode;
+  }
+
+  @JsonIgnore
+  public SyncMode getSyncModeAsEnum() {
+    return SyncMode.valueOf(this.syncMode);
+  }
+
+  @JsonIgnore
+  public void setSyncMode(final String syncMode) {
+    this.syncMode = syncMode;
+  }
+
+  @JsonIgnore
+  public void setSyncModeFromEnum(final SyncMode syncMode) {
+    this.syncMode = syncMode.toString();
   }
 
   @JsonIgnore
@@ -157,11 +181,28 @@ public class IAPOrderInfo extends Model {
     FULFILLED("FULFILLED"),
     PARTIALREVOKED("PARTIAL_REVOKED"),
     REVOKED("REVOKED"),
+    REVOKEFAILED("REVOKE_FAILED"),
     VERIFIED("VERIFIED");
 
     private String value;
 
     Status(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public enum SyncMode {
+    INVENTORY("INVENTORY"),
+    TRANSACTION("TRANSACTION");
+
+    private String value;
+
+    SyncMode(String value) {
       this.value = value;
     }
 
@@ -196,6 +237,7 @@ public class IAPOrderInfo extends Model {
 
   public static class IAPOrderInfoBuilder {
     private String status;
+    private String syncMode;
     private String type;
 
     public IAPOrderInfoBuilder status(final String status) {
@@ -205,6 +247,16 @@ public class IAPOrderInfo extends Model {
 
     public IAPOrderInfoBuilder statusFromEnum(final Status status) {
       this.status = status.toString();
+      return this;
+    }
+
+    public IAPOrderInfoBuilder syncMode(final String syncMode) {
+      this.syncMode = syncMode;
+      return this;
+    }
+
+    public IAPOrderInfoBuilder syncModeFromEnum(final SyncMode syncMode) {
+      this.syncMode = syncMode.toString();
       return this;
     }
 

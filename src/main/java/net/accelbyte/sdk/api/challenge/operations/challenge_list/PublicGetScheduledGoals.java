@@ -41,6 +41,7 @@ public class PublicGetScheduledGoals extends Operation {
   private String namespace;
   private Integer limit;
   private Integer offset;
+  private String sortBy;
   private List<String> tags;
 
   /**
@@ -51,11 +52,17 @@ public class PublicGetScheduledGoals extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public PublicGetScheduledGoals(
-      String challengeCode, String namespace, Integer limit, Integer offset, List<String> tags) {
+      String challengeCode,
+      String namespace,
+      Integer limit,
+      Integer offset,
+      String sortBy,
+      List<String> tags) {
     this.challengeCode = challengeCode;
     this.namespace = namespace;
     this.limit = limit;
     this.offset = offset;
+    this.sortBy = sortBy;
     this.tags = tags;
 
     securities.add("Bearer");
@@ -79,6 +86,7 @@ public class PublicGetScheduledGoals extends Operation {
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+    queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
     queryParams.put(
         "tags",
         this.tags == null
@@ -115,7 +123,42 @@ public class PublicGetScheduledGoals extends Operation {
     Map<String, String> result = new HashMap<>();
     result.put("limit", "None");
     result.put("offset", "None");
+    result.put("sortBy", "None");
     result.put("tags", "csv");
     return result;
+  }
+
+  public enum SortBy {
+    CreatedAt("createdAt"),
+    CreatedAtasc("createdAt:asc"),
+    CreatedAtdesc("createdAt:desc"),
+    UpdatedAt("updatedAt"),
+    UpdatedAtasc("updatedAt:asc"),
+    UpdatedAtdesc("updatedAt:desc");
+
+    private String value;
+
+    SortBy(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class PublicGetScheduledGoalsBuilder {
+    private String sortBy;
+
+    public PublicGetScheduledGoalsBuilder sortBy(final String sortBy) {
+      this.sortBy = sortBy;
+      return this;
+    }
+
+    public PublicGetScheduledGoalsBuilder sortByFromEnum(final SortBy sortBy) {
+      this.sortBy = sortBy.toString();
+      return this;
+    }
   }
 }

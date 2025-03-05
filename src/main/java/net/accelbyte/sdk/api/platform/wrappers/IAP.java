@@ -317,6 +317,54 @@ public class IAP {
   }
 
   /**
+   * @see QueryAbnormalTransactions
+   */
+  public SteamAbnormalTransactionPagingSlicedResult queryAbnormalTransactions(
+      QueryAbnormalTransactions input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminGetSteamJobInfo
+   */
+  public List<SteamReportJobInfo> adminGetSteamJobInfo(AdminGetSteamJobInfo input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminResetSteamJobTime
+   */
+  public SteamReportJobInfo adminResetSteamJobTime(AdminResetSteamJobTime input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminRefundIAPOrder
+   */
+  public IAPOrderInfo adminRefundIAPOrder(AdminRefundIAPOrder input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see QuerySteamReportHistories
+   */
+  public SteamReportInfoPagingSlicedResult querySteamReportHistories(
+      QuerySteamReportHistories input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetIAPOrderConsumeDetails
    */
   public List<IAPOrderConsumeDetailInfo> getIAPOrderConsumeDetails(GetIAPOrderConsumeDetails input)
@@ -361,6 +409,36 @@ public class IAP {
   public void mockFulfillIAPItem(MockFulfillIAPItem input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminGetIAPOrderLineItems
+   */
+  public List<IAPOrderLineItemInfo> adminGetIAPOrderLineItems(AdminGetIAPOrderLineItems input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminSyncSteamAbnormalTransaction
+   */
+  public IAPOrderShortInfo adminSyncSteamAbnormalTransaction(
+      AdminSyncSteamAbnormalTransaction input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminSyncSteamIAPByTransaction
+   */
+  public IAPOrderShortInfo adminSyncSteamIAPByTransaction(AdminSyncSteamIAPByTransaction input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
@@ -458,6 +536,26 @@ public class IAP {
   public void syncSteamInventory(SyncSteamInventory input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see SyncSteamAbnormalTransaction
+   */
+  public IAPOrderShortInfo syncSteamAbnormalTransaction(SyncSteamAbnormalTransaction input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see SyncSteamIAPByTransaction
+   */
+  public IAPOrderShortInfo syncSteamIAPByTransaction(SyncSteamIAPByTransaction input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 

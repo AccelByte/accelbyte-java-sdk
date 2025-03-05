@@ -29,6 +29,7 @@ public class ApiImageDetails extends Model {
   private String createdAt;
 
   @JsonProperty("deleteAt")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String deleteAt;
 
   @JsonProperty("executable")

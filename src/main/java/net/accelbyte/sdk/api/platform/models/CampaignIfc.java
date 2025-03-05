@@ -29,9 +29,17 @@ public class CampaignIfc extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String id;
 
+  @JsonProperty("items")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<RedeemableItem> items;
+
   @JsonProperty("name")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String name;
+
+  @JsonProperty("namespace")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String namespace;
 
   @JsonIgnore
   public CampaignIfc createFromJson(String json) throws JsonProcessingException {

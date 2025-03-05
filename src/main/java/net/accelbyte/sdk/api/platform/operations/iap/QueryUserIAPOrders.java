@@ -143,6 +143,7 @@ public class QueryUserIAPOrders extends Operation {
     FULFILLED("FULFILLED"),
     PARTIALREVOKED("PARTIAL_REVOKED"),
     REVOKED("REVOKED"),
+    REVOKEFAILED("REVOKE_FAILED"),
     VERIFIED("VERIFIED");
 
     private String value;

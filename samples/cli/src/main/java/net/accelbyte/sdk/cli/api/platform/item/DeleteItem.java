@@ -40,6 +40,12 @@ public class DeleteItem implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--featuresToCheck"},
+      description = "featuresToCheck",
+      split = ",")
+  List<String> featuresToCheck;
+
+  @Option(
       names = {"--force"},
       description = "force")
   Boolean force;
@@ -74,6 +80,7 @@ public class DeleteItem implements Callable<Integer> {
           net.accelbyte.sdk.api.platform.operations.item.DeleteItem.builder()
               .itemId(itemId)
               .namespace(namespace)
+              .featuresToCheck(featuresToCheck)
               .force(force)
               .storeId(storeId)
               .build();

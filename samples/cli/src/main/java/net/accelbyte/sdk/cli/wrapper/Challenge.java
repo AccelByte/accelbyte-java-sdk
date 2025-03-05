@@ -15,6 +15,7 @@ import net.accelbyte.sdk.cli.api.challenge.goal_configuration.*;
 import net.accelbyte.sdk.cli.api.challenge.player_reward.*;
 import net.accelbyte.sdk.cli.api.challenge.plugins.*;
 import net.accelbyte.sdk.cli.api.challenge.schedules.*;
+import net.accelbyte.sdk.cli.api.challenge.utilities.*;
 import picocli.CommandLine.Command;
 
 @Command(
@@ -23,6 +24,7 @@ import picocli.CommandLine.Command;
     subcommands = {
       AdminGetChallenges.class,
       AdminCreateChallenge.class,
+      AdminGetItemReferences.class,
       AdminGetActiveChallenges.class,
       AdminGetChallenge.class,
       AdminUpdateChallenge.class,

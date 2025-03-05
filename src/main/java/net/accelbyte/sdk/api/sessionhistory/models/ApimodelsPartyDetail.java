@@ -31,6 +31,15 @@ public class ApimodelsPartyDetail extends Model {
   @JsonProperty("histories")
   private List<ApimodelsPartyHistory> histories;
 
+  @JsonProperty("joinability")
+  private String joinability;
+
+  @JsonProperty("last_data")
+  private ModelsParty lastData;
+
+  @JsonProperty("leader_id")
+  private String leaderId;
+
   @JsonProperty("namespace")
   private String namespace;
 
@@ -39,6 +48,9 @@ public class ApimodelsPartyDetail extends Model {
 
   @JsonProperty("session_template")
   private String sessionTemplate;
+
+  @JsonProperty("updated_at")
+  private String updatedAt;
 
   @JsonIgnore
   public ApimodelsPartyDetail createFromJson(String json) throws JsonProcessingException {

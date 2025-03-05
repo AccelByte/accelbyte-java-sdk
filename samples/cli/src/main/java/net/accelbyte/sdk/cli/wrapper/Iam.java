@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.cli.wrapper;
 
+import net.accelbyte.sdk.cli.api.iam.account_idenfifier_tag.*;
 import net.accelbyte.sdk.cli.api.iam.bans.*;
 import net.accelbyte.sdk.cli.api.iam.clients.*;
 import net.accelbyte.sdk.cli.api.iam.clients_config_v3.*;
@@ -196,6 +197,10 @@ import picocli.CommandLine.Command;
       AdminChangeRoleOverrideConfigStatusV3.class,
       AdminGetRoleNamespacePermissionV3.class,
       GetAdminUsersByRoleIdV3.class,
+      AdminQueryTagV3.class,
+      AdminCreateTagV3.class,
+      AdminUpdateTagV3.class,
+      AdminDeleteTagV3.class,
       AdminGetUserByEmailAddressV3.class,
       AdminBulkUpdateUsersV3.class,
       AdminGetBulkUserBanV3.class,

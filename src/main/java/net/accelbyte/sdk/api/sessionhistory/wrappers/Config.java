@@ -22,6 +22,25 @@ public class Config {
   }
 
   /**
+   * @see AdminGetEnvConfig
+   */
+  public EnvconfigConfiguration adminGetEnvConfig(AdminGetEnvConfig input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminPatchUpdateEnvConfig
+   */
+  public EnvconfigConfiguration adminPatchUpdateEnvConfig(AdminPatchUpdateEnvConfig input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminGetLogConfig
    */
   public LogconfigConfiguration adminGetLogConfig(AdminGetLogConfig input) throws Exception {

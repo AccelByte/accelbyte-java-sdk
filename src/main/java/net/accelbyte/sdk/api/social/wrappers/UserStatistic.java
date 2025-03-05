@@ -225,9 +225,9 @@ public class UserStatistic {
   }
 
   /**
-   * @see PublicQueryUserStatItems
+   * @see PublicQueryUserStatItems1
    */
-  public UserStatItemPagingSlicedResult publicQueryUserStatItems(PublicQueryUserStatItems input)
+  public UserStatItemPagingSlicedResult publicQueryUserStatItems1(PublicQueryUserStatItems1 input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -245,10 +245,10 @@ public class UserStatistic {
   }
 
   /**
-   * @see PublicQueryUserStatItems1
+   * @see PublicQueryUserStatItems
    */
-  public List<ADTOObjectForUserStatItemValue> publicQueryUserStatItems1(
-      PublicQueryUserStatItems1 input) throws Exception {
+  public List<ADTOObjectForUserStatItemValue> publicQueryUserStatItems(
+      PublicQueryUserStatItems input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

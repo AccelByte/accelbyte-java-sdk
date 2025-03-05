@@ -21,8 +21,13 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicGetProfile
  *
+ * <p>## The endpoint is going to be deprecated
+ *
  * <p>Returns profile for a user. Other detail info: * Returns : game profile info
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class PublicGetProfile extends Operation {

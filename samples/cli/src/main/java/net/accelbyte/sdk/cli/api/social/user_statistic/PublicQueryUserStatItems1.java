@@ -41,21 +41,29 @@ public class PublicQueryUserStatItems1 implements Callable<Integer> {
   String userId;
 
   @Option(
-      names = {"--additionalKey"},
-      description = "additionalKey")
-  String additionalKey;
+      names = {"--limit"},
+      description = "limit")
+  Integer limit;
+
+  @Option(
+      names = {"--offset"},
+      description = "offset")
+  Integer offset;
+
+  @Option(
+      names = {"--sortBy"},
+      description = "sortBy")
+  String sortBy;
 
   @Option(
       names = {"--statCodes"},
-      description = "statCodes",
-      split = ",")
-  List<String> statCodes;
+      description = "statCodes")
+  String statCodes;
 
   @Option(
       names = {"--tags"},
-      description = "tags",
-      split = ",")
-  List<String> tags;
+      description = "tags")
+  String tags;
 
   @Option(
       names = {"--logging"},
@@ -84,12 +92,13 @@ public class PublicQueryUserStatItems1 implements Callable<Integer> {
                   .builder()
                   .namespace(namespace)
                   .userId(userId)
-                  .additionalKey(additionalKey)
+                  .limit(limit)
+                  .offset(offset)
+                  .sortBy(sortBy)
                   .statCodes(statCodes)
                   .tags(tags)
                   .build();
-      final List<ADTOObjectForUserStatItemValue> response =
-          wrapper.publicQueryUserStatItems1(operation);
+      final UserStatItemPagingSlicedResult response = wrapper.publicQueryUserStatItems1(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

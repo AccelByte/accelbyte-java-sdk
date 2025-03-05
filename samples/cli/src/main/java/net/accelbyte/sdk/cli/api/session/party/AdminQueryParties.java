@@ -36,6 +36,11 @@ public class AdminQueryParties implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--fromTime"},
+      description = "fromTime")
+  String fromTime;
+
+  @Option(
       names = {"--isSoftDeleted"},
       description = "isSoftDeleted")
   String isSoftDeleted;
@@ -91,6 +96,11 @@ public class AdminQueryParties implements Callable<Integer> {
   String partyID;
 
   @Option(
+      names = {"--toTime"},
+      description = "toTime")
+  String toTime;
+
+  @Option(
       names = {"--value"},
       description = "value")
   String value;
@@ -119,6 +129,7 @@ public class AdminQueryParties implements Callable<Integer> {
       final net.accelbyte.sdk.api.session.operations.party.AdminQueryParties operation =
           net.accelbyte.sdk.api.session.operations.party.AdminQueryParties.builder()
               .namespace(namespace)
+              .fromTime(fromTime)
               .isSoftDeleted(isSoftDeleted)
               .joinability(joinability)
               .key(key)
@@ -130,6 +141,7 @@ public class AdminQueryParties implements Callable<Integer> {
               .order(order)
               .orderBy(orderBy)
               .partyID(partyID)
+              .toTime(toTime)
               .value(value)
               .build();
       final ApimodelsPartyQueryResponse response = wrapper.adminQueryParties(operation);

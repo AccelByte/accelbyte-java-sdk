@@ -72,6 +72,7 @@ public class TwitchSyncResult extends Model {
     FULFILLED("FULFILLED"),
     PARTIALREVOKED("PARTIAL_REVOKED"),
     REVOKED("REVOKED"),
+    REVOKEFAILED("REVOKE_FAILED"),
     VERIFIED("VERIFIED");
 
     private String value;

@@ -36,6 +36,21 @@ public class AdminQueryPartyDetail implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--endDate"},
+      description = "endDate")
+  String endDate;
+
+  @Option(
+      names = {"--joinability"},
+      description = "joinability")
+  String joinability;
+
+  @Option(
+      names = {"--leaderID"},
+      description = "leaderID")
+  String leaderID;
+
+  @Option(
       names = {"--limit"},
       description = "limit")
   Integer limit;
@@ -59,6 +74,11 @@ public class AdminQueryPartyDetail implements Callable<Integer> {
       names = {"--partyID"},
       description = "partyID")
   String partyID;
+
+  @Option(
+      names = {"--startDate"},
+      description = "startDate")
+  String startDate;
 
   @Option(
       names = {"--userID"},
@@ -92,11 +112,15 @@ public class AdminQueryPartyDetail implements Callable<Integer> {
               net.accelbyte.sdk.api.sessionhistory.operations.game_session_detail
                   .AdminQueryPartyDetail.builder()
                   .namespace(namespace)
+                  .endDate(endDate)
+                  .joinability(joinability)
+                  .leaderID(leaderID)
                   .limit(limit)
                   .offset(offset)
                   .order(order)
                   .orderBy(orderBy)
                   .partyID(partyID)
+                  .startDate(startDate)
                   .userID(userID)
                   .build();
       final ApimodelsPartyDetailQueryResponse response = wrapper.adminQueryPartyDetail(operation);

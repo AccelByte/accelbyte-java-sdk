@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ApiFleetServerConnectionInfoResponse extends Model {
 
   @JsonProperty("expiresAt")
-  private ApiTime expiresAt;
+  private String expiresAt;
 
   @JsonProperty("host")
   private String host;

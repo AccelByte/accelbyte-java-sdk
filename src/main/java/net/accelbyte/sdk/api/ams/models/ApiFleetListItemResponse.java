@@ -31,6 +31,9 @@ public class ApiFleetListItemResponse extends Model {
   @JsonProperty("counts")
   private List<ApiFleetRegionalServerCounts> counts;
 
+  @JsonProperty("fallbackFleet")
+  private String fallbackFleet;
+
   @JsonProperty("id")
   private String id;
 
@@ -48,6 +51,9 @@ public class ApiFleetListItemResponse extends Model {
 
   @JsonProperty("onDemand")
   private Boolean onDemand;
+
+  @JsonProperty("primaryFleet")
+  private String primaryFleet;
 
   @JsonProperty("regions")
   private List<String> regions;

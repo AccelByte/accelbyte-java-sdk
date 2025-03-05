@@ -21,8 +21,13 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicCreateProfile
  *
+ * <p>## The endpoint is going to be deprecated
+ *
  * <p>Create new profile for user. Other detail info: * Returns : created game profile
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class PublicCreateProfile extends Operation {

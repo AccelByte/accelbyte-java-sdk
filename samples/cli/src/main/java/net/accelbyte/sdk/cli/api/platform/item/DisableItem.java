@@ -46,6 +46,11 @@ public class DisableItem implements Callable<Integer> {
   String storeId;
 
   @Option(
+      names = {"--body"},
+      description = "body")
+  String body;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -71,6 +76,7 @@ public class DisableItem implements Callable<Integer> {
               .itemId(itemId)
               .namespace(namespace)
               .storeId(storeId)
+              .body(new ObjectMapper().readValue(body, ChangeStatusItemRequest.class))
               .build();
       final FullItemInfo response = wrapper.disableItem(operation);
       final String responseString =

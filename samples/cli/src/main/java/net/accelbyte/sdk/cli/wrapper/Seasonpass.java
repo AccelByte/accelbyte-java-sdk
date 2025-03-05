@@ -13,6 +13,7 @@ import net.accelbyte.sdk.cli.api.seasonpass.pass.*;
 import net.accelbyte.sdk.cli.api.seasonpass.reward.*;
 import net.accelbyte.sdk.cli.api.seasonpass.season.*;
 import net.accelbyte.sdk.cli.api.seasonpass.tier.*;
+import net.accelbyte.sdk.cli.api.seasonpass.utilities.*;
 import picocli.CommandLine.Command;
 
 @Command(
@@ -24,6 +25,7 @@ import picocli.CommandLine.Command;
       CreateSeason.class,
       GetCurrentSeason.class,
       BulkGetUserSeasonProgression.class,
+      GetItemReferences.class,
       GetSeason.class,
       DeleteSeason.class,
       UpdateSeason.class,

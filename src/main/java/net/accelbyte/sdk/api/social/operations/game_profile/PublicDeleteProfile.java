@@ -20,8 +20,13 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicDeleteProfile
  *
+ * <p>## The endpoint is going to be deprecated
+ *
  * <p>Deletes game profile.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class PublicDeleteProfile extends Operation {

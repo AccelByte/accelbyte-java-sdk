@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.ams.models;
+package net.accelbyte.sdk.api.seasonpass.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,36 +23,19 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class TimeLocation extends Model {
+public class ItemReferenceInfo extends Model {
 
-  @JsonProperty("cacheEnd")
-  private Long cacheEnd;
-
-  @JsonProperty("cacheStart")
-  private Long cacheStart;
-
-  @JsonProperty("cacheZone")
-  private TimeZone cacheZone;
-
-  @JsonProperty("extend")
-  private String extend;
-
-  @JsonProperty("name")
-  private String name;
-
-  @JsonProperty("tx")
-  private List<TimeZoneTrans> tx;
-
-  @JsonProperty("zone")
-  private List<TimeZone> zone;
+  @JsonProperty("references")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<ItemReference> references;
 
   @JsonIgnore
-  public TimeLocation createFromJson(String json) throws JsonProcessingException {
+  public ItemReferenceInfo createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<TimeLocation> createFromJsonList(String json) throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<TimeLocation>>() {});
+  public List<ItemReferenceInfo> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ItemReferenceInfo>>() {});
   }
 }

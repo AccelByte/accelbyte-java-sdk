@@ -36,6 +36,21 @@ public class AdminQueryGameSessionDetail implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--completedOnly"},
+      description = "completedOnly")
+  String completedOnly;
+
+  @Option(
+      names = {"--configurationName"},
+      description = "configurationName")
+  String configurationName;
+
+  @Option(
+      names = {"--dsPodName"},
+      description = "dsPodName")
+  String dsPodName;
+
+  @Option(
       names = {"--endDate"},
       description = "endDate")
   String endDate;
@@ -46,9 +61,24 @@ public class AdminQueryGameSessionDetail implements Callable<Integer> {
   String gameSessionID;
 
   @Option(
+      names = {"--isPersistent"},
+      description = "isPersistent")
+  String isPersistent;
+
+  @Option(
+      names = {"--joinability"},
+      description = "joinability")
+  String joinability;
+
+  @Option(
       names = {"--limit"},
       description = "limit")
   Integer limit;
+
+  @Option(
+      names = {"--matchPool"},
+      description = "matchPool")
+  String matchPool;
 
   @Option(
       names = {"--offset"},
@@ -69,6 +99,11 @@ public class AdminQueryGameSessionDetail implements Callable<Integer> {
       names = {"--startDate"},
       description = "startDate")
   String startDate;
+
+  @Option(
+      names = {"--statusV2"},
+      description = "statusV2")
+  String statusV2;
 
   @Option(
       names = {"--userID"},
@@ -102,13 +137,20 @@ public class AdminQueryGameSessionDetail implements Callable<Integer> {
               net.accelbyte.sdk.api.sessionhistory.operations.game_session_detail
                   .AdminQueryGameSessionDetail.builder()
                   .namespace(namespace)
+                  .completedOnly(completedOnly)
+                  .configurationName(configurationName)
+                  .dsPodName(dsPodName)
                   .endDate(endDate)
                   .gameSessionID(gameSessionID)
+                  .isPersistent(isPersistent)
+                  .joinability(joinability)
                   .limit(limit)
+                  .matchPool(matchPool)
                   .offset(offset)
                   .order(order)
                   .orderBy(orderBy)
                   .startDate(startDate)
+                  .statusV2(statusV2)
                   .userID(userID)
                   .build();
       final ApimodelsGameSessionDetailQueryResponse response =

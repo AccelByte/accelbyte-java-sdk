@@ -34,6 +34,9 @@ public class ApiFleetGetResponse extends Model {
   @JsonProperty("dsHostConfiguration")
   private ApiDSHostConfiguration dsHostConfiguration;
 
+  @JsonProperty("fallbackFleet")
+  private String fallbackFleet;
+
   @JsonProperty("id")
   private String id;
 
@@ -48,6 +51,9 @@ public class ApiFleetGetResponse extends Model {
 
   @JsonProperty("onDemand")
   private Boolean onDemand;
+
+  @JsonProperty("primaryFleet")
+  private String primaryFleet;
 
   @JsonProperty("regions")
   private List<ApiRegionConfig> regions;

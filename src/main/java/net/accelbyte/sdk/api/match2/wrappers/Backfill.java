@@ -22,6 +22,16 @@ public class Backfill {
   }
 
   /**
+   * @see AdminQueryBackfill
+   */
+  public ApiListBackfillQueryResponse adminQueryBackfill(AdminQueryBackfill input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see CreateBackfill
    */
   public ApiBackfillCreateResponse createBackfill(CreateBackfill input) throws Exception {

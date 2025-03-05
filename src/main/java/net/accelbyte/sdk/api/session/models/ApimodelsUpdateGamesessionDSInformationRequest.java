@@ -25,9 +25,6 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApimodelsUpdateGamesessionDSInformationRequest extends Model {
 
-  @JsonProperty("clientVersion")
-  private String clientVersion;
-
   @JsonProperty("createdRegion")
   private String createdRegion;
 
@@ -36,9 +33,6 @@ public class ApimodelsUpdateGamesessionDSInformationRequest extends Model {
 
   @JsonProperty("description")
   private String description;
-
-  @JsonProperty("gameMode")
-  private String gameMode;
 
   @JsonProperty("ip")
   private String ip;

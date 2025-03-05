@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.ams.models;
+package net.accelbyte.sdk.api.challenge.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,27 +23,23 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class TimeZoneTrans extends Model {
+public class ModelChallengeReference extends Model {
 
-  @JsonProperty("index")
-  private Integer index;
+  @JsonProperty("challengeCode")
+  private String challengeCode;
 
-  @JsonProperty("isstd")
-  private Boolean isstd;
-
-  @JsonProperty("isutc")
-  private Boolean isutc;
-
-  @JsonProperty("when")
-  private Long when;
+  @JsonProperty("goalCode")
+  private String goalCode;
 
   @JsonIgnore
-  public TimeZoneTrans createFromJson(String json) throws JsonProcessingException {
+  public ModelChallengeReference createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<TimeZoneTrans> createFromJsonList(String json) throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<TimeZoneTrans>>() {});
+  public List<ModelChallengeReference> createFromJsonList(String json)
+      throws JsonProcessingException {
+    return new ObjectMapper()
+        .readValue(json, new TypeReference<List<ModelChallengeReference>>() {});
   }
 }

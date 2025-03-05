@@ -28,9 +28,57 @@ public class SteamIAPConfigRequest extends Model {
   @JsonProperty("appId")
   private String appId;
 
+  @JsonProperty("env")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String env;
+
   @JsonProperty("publisherAuthenticationKey")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String publisherAuthenticationKey;
+
+  @JsonProperty("syncMode")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String syncMode;
+
+  @JsonIgnore
+  public String getEnv() {
+    return this.env;
+  }
+
+  @JsonIgnore
+  public Env getEnvAsEnum() {
+    return Env.valueOf(this.env);
+  }
+
+  @JsonIgnore
+  public void setEnv(final String env) {
+    this.env = env;
+  }
+
+  @JsonIgnore
+  public void setEnvFromEnum(final Env env) {
+    this.env = env.toString();
+  }
+
+  @JsonIgnore
+  public String getSyncMode() {
+    return this.syncMode;
+  }
+
+  @JsonIgnore
+  public SyncMode getSyncModeAsEnum() {
+    return SyncMode.valueOf(this.syncMode);
+  }
+
+  @JsonIgnore
+  public void setSyncMode(final String syncMode) {
+    this.syncMode = syncMode;
+  }
+
+  @JsonIgnore
+  public void setSyncModeFromEnum(final SyncMode syncMode) {
+    this.syncMode = syncMode.toString();
+  }
 
   @JsonIgnore
   public SteamIAPConfigRequest createFromJson(String json) throws JsonProcessingException {
@@ -41,5 +89,62 @@ public class SteamIAPConfigRequest extends Model {
   public List<SteamIAPConfigRequest> createFromJsonList(String json)
       throws JsonProcessingException {
     return new ObjectMapper().readValue(json, new TypeReference<List<SteamIAPConfigRequest>>() {});
+  }
+
+  public enum Env {
+    LIVE("LIVE"),
+    SANDBOX("SANDBOX");
+
+    private String value;
+
+    Env(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public enum SyncMode {
+    INVENTORY("INVENTORY"),
+    TRANSACTION("TRANSACTION");
+
+    private String value;
+
+    SyncMode(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class SteamIAPConfigRequestBuilder {
+    private String env;
+    private String syncMode;
+
+    public SteamIAPConfigRequestBuilder env(final String env) {
+      this.env = env;
+      return this;
+    }
+
+    public SteamIAPConfigRequestBuilder envFromEnum(final Env env) {
+      this.env = env.toString();
+      return this;
+    }
+
+    public SteamIAPConfigRequestBuilder syncMode(final String syncMode) {
+      this.syncMode = syncMode;
+      return this;
+    }
+
+    public SteamIAPConfigRequestBuilder syncModeFromEnum(final SyncMode syncMode) {
+      this.syncMode = syncMode.toString();
+      return this;
+    }
   }
 }

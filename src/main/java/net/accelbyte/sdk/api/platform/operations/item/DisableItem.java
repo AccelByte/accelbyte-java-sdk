@@ -41,6 +41,7 @@ public class DisableItem extends Operation {
 
   private String namespace;
   private String storeId;
+  private ChangeStatusItemRequest body;
 
   /**
    * @param itemId required
@@ -50,10 +51,12 @@ public class DisableItem extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public DisableItem(String itemId, String namespace, String storeId) {
+  public DisableItem(
+      String itemId, String namespace, String storeId, ChangeStatusItemRequest body) {
     this.itemId = itemId;
     this.namespace = namespace;
     this.storeId = storeId;
+    this.body = body;
 
     securities.add("Bearer");
   }
@@ -75,6 +78,11 @@ public class DisableItem extends Operation {
     Map<String, List<String>> queryParams = new HashMap<>();
     queryParams.put("storeId", this.storeId == null ? null : Arrays.asList(this.storeId));
     return queryParams;
+  }
+
+  @Override
+  public ChangeStatusItemRequest getBodyParams() {
+    return this.body;
   }
 
   @Override

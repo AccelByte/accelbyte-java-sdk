@@ -24,7 +24,9 @@ public class GameProfile {
 
   /**
    * @see GetUserProfiles
+   * @deprecated
    */
+  @Deprecated
   public List<GameProfileHeader> getUserProfiles(GetUserProfiles input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -33,7 +35,9 @@ public class GameProfile {
 
   /**
    * @see GetProfile
+   * @deprecated
    */
+  @Deprecated
   public GameProfileInfo getProfile(GetProfile input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -42,7 +46,9 @@ public class GameProfile {
 
   /**
    * @see PublicGetUserGameProfiles
+   * @deprecated
    */
+  @Deprecated
   public List<UserGameProfiles> publicGetUserGameProfiles(PublicGetUserGameProfiles input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -52,7 +58,9 @@ public class GameProfile {
 
   /**
    * @see PublicGetUserProfiles
+   * @deprecated
    */
+  @Deprecated
   public List<GameProfileHeader> publicGetUserProfiles(PublicGetUserProfiles input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -62,7 +70,9 @@ public class GameProfile {
 
   /**
    * @see PublicCreateProfile
+   * @deprecated
    */
+  @Deprecated
   public void publicCreateProfile(PublicCreateProfile input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
@@ -71,7 +81,9 @@ public class GameProfile {
 
   /**
    * @see PublicGetProfile
+   * @deprecated
    */
+  @Deprecated
   public GameProfileInfo publicGetProfile(PublicGetProfile input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -80,7 +92,9 @@ public class GameProfile {
 
   /**
    * @see PublicUpdateProfile
+   * @deprecated
    */
+  @Deprecated
   public GameProfileInfo publicUpdateProfile(PublicUpdateProfile input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -89,7 +103,9 @@ public class GameProfile {
 
   /**
    * @see PublicDeleteProfile
+   * @deprecated
    */
+  @Deprecated
   public void publicDeleteProfile(PublicDeleteProfile input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
@@ -98,7 +114,9 @@ public class GameProfile {
 
   /**
    * @see PublicGetProfileAttribute
+   * @deprecated
    */
+  @Deprecated
   public Attribute publicGetProfileAttribute(PublicGetProfileAttribute input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -107,7 +125,9 @@ public class GameProfile {
 
   /**
    * @see PublicUpdateAttribute
+   * @deprecated
    */
+  @Deprecated
   public GameProfileInfo publicUpdateAttribute(PublicUpdateAttribute input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
