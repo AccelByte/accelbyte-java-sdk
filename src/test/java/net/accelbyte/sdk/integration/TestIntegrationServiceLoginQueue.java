@@ -44,7 +44,7 @@ public class TestIntegrationServiceLoginQueue extends TestIntegration {
 
     assertNotNull(config);
 
-    // CASE Update configurationF
+    // CASE Update configuration
 
     final ApimodelsConfigurationResponse configUpdate =
         wrapper.adminUpdateConfiguration(
