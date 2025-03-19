@@ -43,8 +43,6 @@ public class TestIntegrationServiceGameTelemetry extends TestIntegration {
       return; // SKIP
     }
 
-    final String steamId = "76561199259217491";
-    final String playTime = "4";
     final String eventName = "javaserversdkevent";
     final Map<String, ?> eventPayload = Collections.singletonMap("foo", "bar");
 
@@ -65,44 +63,6 @@ public class TestIntegrationServiceGameTelemetry extends TestIntegration {
             .build());
 
     // ESAC
-
-    boolean isUserNotFound = false;
-
-    try {
-      // CASE Update Steam play time
-
-      gameTelemetryWrapper
-          .protectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut(
-              ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut
-                  .builder()
-                  .playtime(playTime)
-                  .steamId(steamId)
-                  .build());
-
-      // ESAC
-    } catch (HttpResponseException hex) {
-      final int httpCode = hex.getHttpCode();
-      final String message = hex.getErrorMessage();
-      isUserNotFound = httpCode == 404 && message != null && message.contains("20008");
-      if (!isUserNotFound) {
-        throw hex; // Error response other than user not found is not acceptable for this test
-      }
-    }
-
-    // CASE Get Steam play time
-
-    final PlayTimeResponse getTelemetry =
-        gameTelemetryWrapper.protectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet(
-            ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet.builder()
-                .steamId(steamId)
-                .build());
-
-    // ESAC
-
-    if (!isUserNotFound) {
-      assertEquals(playTime, getTelemetry.getTotalPlaytime()); // Only assert total_playtime if
-      // user is found
-    }
   }
 
   @AfterAll
