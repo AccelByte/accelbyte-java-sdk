@@ -453,28 +453,6 @@ gameTelemetryWrapper.protectedSaveEventsGameTelemetryV1ProtectedEventsPost(
         .body(Arrays.asList(saveTelemetryBody))
         .build());
 ```
-
-### Update Steam play time
-
-```java
-gameTelemetryWrapper
-    .protectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut(
-        ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut
-            .builder()
-            .playtime(playTime)
-            .steamId(steamId)
-            .build());
-```
-
-### Get Steam play time
-
-```java
-final PlayTimeResponse getTelemetry =
-    gameTelemetryWrapper.protectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet(
-        ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet.builder()
-            .steamId(steamId)
-            .build());
-```
 ## GDPR
 
 Source: [TestIntegrationServiceGdpr.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceGdpr.java)
@@ -769,19 +747,19 @@ Source: [TestIntegrationServiceLoginQueue.java](../src/test/java/net/accelbyte/s
 ### Get configuration
 
 ```java
-final ApimodelsConfigurationResponse config = wrapper.adminGetConfiguration(AdminGetConfiguration.builder()
-    .namespace(namespace)
-    .build());
+final ApimodelsConfigurationResponse config =
+    wrapper.adminGetConfiguration(AdminGetConfiguration.builder().namespace(namespace).build());
 ```
 
-### Update configurationF
+### Update configuration
 
 ```java
-final ApimodelsConfigurationResponse configUpdate = wrapper.adminUpdateConfiguration(AdminUpdateConfiguration
-    .builder()
-    .namespace(namespace)
-    .body(ApimodelsConfigurationRequest.builder().maxLoginRate(maxLoginRate).build())
-    .build());
+final ApimodelsConfigurationResponse configUpdate =
+    wrapper.adminUpdateConfiguration(
+        AdminUpdateConfiguration.builder()
+            .namespace(namespace)
+            .body(ApimodelsConfigurationRequest.builder().maxLoginRate(maxLoginRate).build())
+            .build());
 ```
 ## MatchmakingV2
 
