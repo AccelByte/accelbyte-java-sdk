@@ -11,8 +11,10 @@ import net.accelbyte.sdk.api.csm.models.ApimodelGetListOfConfigurationsV2Respons
 import net.accelbyte.sdk.api.csm.models.ApimodelMemoryRequest;
 import net.accelbyte.sdk.api.csm.models.ApimodelSaveConfigurationV2Request;
 import net.accelbyte.sdk.api.csm.models.ApimodelSaveConfigurationV2Response;
+import net.accelbyte.sdk.api.csm.models.ApimodelSaveSecretConfigurationV2Request;
 import net.accelbyte.sdk.api.csm.models.ApimodelUpdateConfigurationV2Request;
 import net.accelbyte.sdk.api.csm.models.ApimodelUpdateConfigurationV2Response;
+import net.accelbyte.sdk.api.csm.models.ApimodelUpdateSecretConfigurationV2Request;
 import net.accelbyte.sdk.api.csm.operations.app_v2.CreateAppV2;
 import net.accelbyte.sdk.api.csm.operations.app_v2.DeleteAppV2;
 import net.accelbyte.sdk.api.csm.operations.app_v2.GetAppV2;
@@ -127,11 +129,10 @@ public class TestIntegrationServiceCsm extends TestIntegration {
             .app(EXTEND_APP_NAME)
             .namespace(namespace)
             .body(
-                ApimodelSaveConfigurationV2Request.builder()
+                ApimodelSaveSecretConfigurationV2Request.builder()
                     .configName("THIS_IS_A_SECRET")
                     .value("ssshhhh")
                     .source("plaintext")
-                    .applyMask(true)
                     .build())
             .build();
 
@@ -164,9 +165,8 @@ public class TestIntegrationServiceCsm extends TestIntegration {
             .configId(secretConfigId)
             .namespace(namespace)
             .body(
-                ApimodelUpdateConfigurationV2Request.builder()
+                ApimodelUpdateSecretConfigurationV2Request.builder()
                     .value("silence")
-                    .applyMask(true)
                     .build())
             .build();
 
