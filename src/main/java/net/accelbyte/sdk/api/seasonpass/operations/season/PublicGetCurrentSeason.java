@@ -53,6 +53,8 @@ public class PublicGetCurrentSeason extends Operation {
   public PublicGetCurrentSeason(String namespace, String language) {
     this.namespace = namespace;
     this.language = language;
+
+    securities.add("Bearer");
   }
 
   @Override

@@ -57,6 +57,10 @@ public class ApimodelsMatchmakingDetail extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String partySessionID;
 
+  @JsonProperty("ruleSet")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ?> ruleSet;
+
   @JsonProperty("ticketID")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String ticketID;

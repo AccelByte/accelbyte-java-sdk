@@ -28,6 +28,9 @@ public class ModelPublicOpenIDUserInfoResponse extends Model {
   @JsonProperty("email")
   private String email;
 
+  @JsonProperty("email_verified")
+  private Boolean emailVerified;
+
   @JsonProperty("name")
   private String name;
 

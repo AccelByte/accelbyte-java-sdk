@@ -62,6 +62,7 @@ import picocli.CommandLine.Command;
       AdminDeleteInboxCategory.class,
       AdminUpdateInboxCategory.class,
       AdminGetCategorySchema.class,
+      AdminListKafkaTopic.class,
       AdminDeleteInboxMessage.class,
       AdminGetInboxMessages.class,
       AdminSaveInboxMessage.class,

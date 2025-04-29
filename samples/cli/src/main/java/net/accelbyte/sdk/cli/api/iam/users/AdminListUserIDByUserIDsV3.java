@@ -64,7 +64,7 @@ public class AdminListUserIDByUserIDsV3 implements Callable<Integer> {
       final net.accelbyte.sdk.api.iam.operations.users.AdminListUserIDByUserIDsV3 operation =
           net.accelbyte.sdk.api.iam.operations.users.AdminListUserIDByUserIDsV3.builder()
               .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ModelUserIDsRequest.class))
+              .body(new ObjectMapper().readValue(body, ModelAdminBulkUserRequest.class))
               .build();
       final ModelListUserInformationResult response = wrapper.adminListUserIDByUserIDsV3(operation);
       final String responseString =

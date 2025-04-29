@@ -122,6 +122,7 @@
 | `/iam/v3/admin/namespaces/{namespace}/users/bans` | POST | AdminGetBulkUserBanV3 | [AdminGetBulkUserBanV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/AdminGetBulkUserBanV3.java) | [AdminGetBulkUserBanV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/AdminGetBulkUserBanV3.java) |
 | `/iam/v3/admin/namespaces/{namespace}/users/bulk` | POST | AdminListUserIDByUserIDsV3 | [AdminListUserIDByUserIDsV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/AdminListUserIDByUserIDsV3.java) | [AdminListUserIDByUserIDsV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/AdminListUserIDByUserIDsV3.java) |
 | `/iam/v3/admin/namespaces/{namespace}/users/bulk/platforms` | POST | AdminBulkGetUsersPlatform | [AdminBulkGetUsersPlatform](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/AdminBulkGetUsersPlatform.java) | [AdminBulkGetUsersPlatform](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/AdminBulkGetUsersPlatform.java) |
+| `/iam/v3/admin/namespaces/{namespace}/users/cursor` | POST | AdminCursorGetUserV3 | [AdminCursorGetUserV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/AdminCursorGetUserV3.java) | [AdminCursorGetUserV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/AdminCursorGetUserV3.java) |
 | `/iam/v3/admin/namespaces/{namespace}/users/invite` | POST | AdminInviteUserV3 | [AdminInviteUserV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/AdminInviteUserV3.java) | [AdminInviteUserV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/AdminInviteUserV3.java) |
 | `/iam/v3/admin/namespaces/{namespace}/users/linkhistories` | GET | AdminQueryThirdPlatformLinkHistoryV3 | [AdminQueryThirdPlatformLinkHistoryV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/AdminQueryThirdPlatformLinkHistoryV3.java) | [AdminQueryThirdPlatformLinkHistoryV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/AdminQueryThirdPlatformLinkHistoryV3.java) |
 | `/iam/v3/admin/namespaces/{namespace}/users/platforms/justice` | GET | AdminListUsersV3 | [AdminListUsersV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/AdminListUsersV3.java) | [AdminListUsersV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/AdminListUsersV3.java) |
@@ -212,6 +213,7 @@
 | `/iam/v3/public/namespaces/{namespace}/users/{userId}/platforms/linkWithProgression` | POST | PublicForceLinkPlatformWithProgression | [PublicForceLinkPlatformWithProgression](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/PublicForceLinkPlatformWithProgression.java) | [PublicForceLinkPlatformWithProgression](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/PublicForceLinkPlatformWithProgression.java) |
 | `/iam/v3/public/namespaces/{namespace}/users/{userId}/publisher` | GET | PublicGetPublisherUserV3 | [PublicGetPublisherUserV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/PublicGetPublisherUserV3.java) | [PublicGetPublisherUserV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/PublicGetPublisherUserV3.java) |
 | `/iam/v3/public/namespaces/{namespace}/users/{userId}/validate` | POST | PublicValidateUserByUserIDAndPasswordV3 | [PublicValidateUserByUserIDAndPasswordV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/PublicValidateUserByUserIDAndPasswordV3.java) | [PublicValidateUserByUserIDAndPasswordV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/PublicValidateUserByUserIDAndPasswordV3.java) |
+| `/iam/v3/public/users/forgot` | POST | PublicForgotPasswordWithoutNamespaceV3 | [PublicForgotPasswordWithoutNamespaceV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/PublicForgotPasswordWithoutNamespaceV3.java) | [PublicForgotPasswordWithoutNamespaceV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/PublicForgotPasswordWithoutNamespaceV3.java) |
 | `/iam/v3/public/users/me` | GET | PublicGetMyUserV3 | [PublicGetMyUserV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/PublicGetMyUserV3.java) | [PublicGetMyUserV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/PublicGetMyUserV3.java) |
 | `/iam/v3/public/users/me/code/request/forward` | POST | PublicSendCodeForwardV3 | [PublicSendCodeForwardV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/PublicSendCodeForwardV3.java) | [PublicSendCodeForwardV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/PublicSendCodeForwardV3.java) |
 | `/iam/v3/public/users/me/headless/link/conflict` | GET | PublicGetLinkHeadlessAccountToMyAccountConflictV3 | [PublicGetLinkHeadlessAccountToMyAccountConflictV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/users/PublicGetLinkHeadlessAccountToMyAccountConflictV3.java) | [PublicGetLinkHeadlessAccountToMyAccountConflictV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/users/PublicGetLinkHeadlessAccountToMyAccountConflictV3.java) |
@@ -308,6 +310,7 @@
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
 | `/iam/v3/admin/namespaces/{namespace}/config/{configKey}` | GET | AdminGetConfigValueV3 | [AdminGetConfigValueV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/config/AdminGetConfigValueV3.java) | [AdminGetConfigValueV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/config/AdminGetConfigValueV3.java) |
+| `/iam/v3/config/public` | GET | PublicGetSystemConfigV3 | [PublicGetSystemConfigV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/config/PublicGetSystemConfigV3.java) | [PublicGetSystemConfigV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/config/PublicGetSystemConfigV3.java) |
 | `/iam/v3/public/namespaces/{namespace}/config/{configKey}` | GET | PublicGetConfigValueV3 | [PublicGetConfigValueV3](../../src/main/java/net/accelbyte/sdk/api/iam/operations/config/PublicGetConfigValueV3.java) | [PublicGetConfigValueV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/iam/config/PublicGetConfigValueV3.java) |
 
 ### Country Wrapper:  [Country](../../src/main/java/net/accelbyte/sdk/api/iam/wrappers/Country.java)
@@ -589,6 +592,7 @@
 | `accountcommon.PlatformLinkingHistory` | [AccountcommonPlatformLinkingHistory](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonPlatformLinkingHistory.java) |
 | `accountcommon.PlatformUserInformationV3` | [AccountcommonPlatformUserInformationV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonPlatformUserInformationV3.java) |
 | `accountcommon.ProfileUpdateConfig` | [AccountcommonProfileUpdateConfig](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonProfileUpdateConfig.java) |
+| `accountcommon.QueryCursor` | [AccountcommonQueryCursor](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonQueryCursor.java) |
 | `accountcommon.RegisteredDomain` | [AccountcommonRegisteredDomain](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonRegisteredDomain.java) |
 | `accountcommon.ReplaceRolePermission` | [AccountcommonReplaceRolePermission](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonReplaceRolePermission.java) |
 | `accountcommon.Role` | [AccountcommonRole](../../src/main/java/net/accelbyte/sdk/api/iam/models/AccountcommonRole.java) |
@@ -635,6 +639,7 @@
 | `legal.AcceptedPoliciesRequest` | [LegalAcceptedPoliciesRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/LegalAcceptedPoliciesRequest.java) |
 | `model.AccountProgressionInfo` | [ModelAccountProgressionInfo](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelAccountProgressionInfo.java) |
 | `model.AddUserRoleV4Request` | [ModelAddUserRoleV4Request](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelAddUserRoleV4Request.java) |
+| `model.AdminBulkUserRequest` | [ModelAdminBulkUserRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelAdminBulkUserRequest.java) |
 | `model.AgeRestrictionRequest` | [ModelAgeRestrictionRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelAgeRestrictionRequest.java) |
 | `model.AgeRestrictionRequestV3` | [ModelAgeRestrictionRequestV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelAgeRestrictionRequestV3.java) |
 | `model.AgeRestrictionResponse` | [ModelAgeRestrictionResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelAgeRestrictionResponse.java) |
@@ -659,6 +664,9 @@
 | `model.CountryResponse` | [ModelCountryResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelCountryResponse.java) |
 | `model.CountryV3Response` | [ModelCountryV3Response](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelCountryV3Response.java) |
 | `model.CreateJusticeUserResponse` | [ModelCreateJusticeUserResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelCreateJusticeUserResponse.java) |
+| `model.CursorGetUserRequest` | [ModelCursorGetUserRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelCursorGetUserRequest.java) |
+| `model.CursorGetUserResponse` | [ModelCursorGetUserResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelCursorGetUserResponse.java) |
+| `model.CursorGetUserResponse.data` | [ModelCursorGetUserResponseData](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelCursorGetUserResponseData.java) |
 | `model.DeviceBanRequestV4` | [ModelDeviceBanRequestV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelDeviceBanRequestV4.java) |
 | `model.DeviceBanResponseV4` | [ModelDeviceBanResponseV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelDeviceBanResponseV4.java) |
 | `model.DeviceBanUpdateRequestV4` | [ModelDeviceBanUpdateRequestV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelDeviceBanUpdateRequestV4.java) |
@@ -678,6 +686,8 @@
 | `model.FailedBanUnbanUserV3` | [ModelFailedBanUnbanUserV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelFailedBanUnbanUserV3.java) |
 | `model.FieldUpdateAllowStatus` | [ModelFieldUpdateAllowStatus](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelFieldUpdateAllowStatus.java) |
 | `model.ForgotPasswordRequestV3` | [ModelForgotPasswordRequestV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelForgotPasswordRequestV3.java) |
+| `model.ForgotPasswordResponseV3` | [ModelForgotPasswordResponseV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelForgotPasswordResponseV3.java) |
+| `model.ForgotPasswordWithoutNamespaceRequestV3` | [ModelForgotPasswordWithoutNamespaceRequestV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelForgotPasswordWithoutNamespaceRequestV3.java) |
 | `model.GetAdminUsersResponse` | [ModelGetAdminUsersResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelGetAdminUsersResponse.java) |
 | `model.GetBulkUserBansRequest` | [ModelGetBulkUserBansRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelGetBulkUserBansRequest.java) |
 | `model.GetLinkHeadlessAccountConflictResponse` | [ModelGetLinkHeadlessAccountConflictResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelGetLinkHeadlessAccountConflictResponse.java) |
@@ -695,6 +705,7 @@
 | `model.InputValidationUpdatePayload` | [ModelInputValidationUpdatePayload](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelInputValidationUpdatePayload.java) |
 | `model.InputValidationsPublicResponse` | [ModelInputValidationsPublicResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelInputValidationsPublicResponse.java) |
 | `model.InputValidationsResponse` | [ModelInputValidationsResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelInputValidationsResponse.java) |
+| `model.InternalConfigResponseV3` | [ModelInternalConfigResponseV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelInternalConfigResponseV3.java) |
 | `model.InvitationHistoryResponse` | [ModelInvitationHistoryResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelInvitationHistoryResponse.java) |
 | `model.InviteUserRequestV3` | [ModelInviteUserRequestV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelInviteUserRequestV3.java) |
 | `model.InviteUserRequestV4` | [ModelInviteUserRequestV4](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelInviteUserRequestV4.java) |
@@ -782,6 +793,7 @@
 | `model.SimpleProfileUpdateStrategyConfigs` | [ModelSimpleProfileUpdateStrategyConfigs](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelSimpleProfileUpdateStrategyConfigs.java) |
 | `model.SimpleUserBan` | [ModelSimpleUserBan](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelSimpleUserBan.java) |
 | `model.TagCreateRequestV3` | [ModelTagCreateRequestV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelTagCreateRequestV3.java) |
+| `model.TagDetail` | [ModelTagDetail](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelTagDetail.java) |
 | `model.TagUpdateRequestV3` | [ModelTagUpdateRequestV3](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelTagUpdateRequestV3.java) |
 | `model.ThirdPartyLoginPlatformCredentialRequest` | [ModelThirdPartyLoginPlatformCredentialRequest](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelThirdPartyLoginPlatformCredentialRequest.java) |
 | `model.ThirdPartyLoginPlatformCredentialResponse` | [ModelThirdPartyLoginPlatformCredentialResponse](../../src/main/java/net/accelbyte/sdk/api/iam/models/ModelThirdPartyLoginPlatformCredentialResponse.java) |

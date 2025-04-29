@@ -388,8 +388,10 @@ eval_tap $? 38 'QueryXrayTimelineByTicketID' test.out
     --userId 'oTsMWPAxUMkawaGp' \
     --limit '54' \
     --offset '62' \
-    --endDate 'yrIwMif3BOdkocVT' \
-    --startDate 'd4BxqGWV6mTJ0sQs' \
+    --order 'yrIwMif3BOdkocVT' \
+    --orderBy 'd4BxqGWV6mTJ0sQs' \
+    --endDate '6XNbjvqhnUVLWu8o' \
+    --startDate 'lKdxL6ozRmDD0jJv' \
     > test.out 2>&1
 eval_tap $? 39 'QueryXrayTimelineByUserID' test.out
 

@@ -31,6 +31,9 @@ public class ApimodelsGameSessionDetail extends Model {
   @JsonProperty("created_at")
   private String createdAt;
 
+  @JsonProperty("ds_status_v2")
+  private String dsStatusV2;
+
   @JsonProperty("ended")
   private Boolean ended;
 

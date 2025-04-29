@@ -32,6 +32,16 @@ public class Config {
   }
 
   /**
+   * @see PublicGetSystemConfigV3
+   */
+  public ModelInternalConfigResponseV3 publicGetSystemConfigV3(PublicGetSystemConfigV3 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicGetConfigValueV3
    */
   public ModelConfigValueResponseV3 publicGetConfigValueV3(PublicGetConfigValueV3 input)

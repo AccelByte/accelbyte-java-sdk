@@ -21,27 +21,29 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminSearchUserV3
  *
- * <p>Endpoint behavior : - by default this endpoint searches all users on the specified namespace -
- * if query parameter is defined, endpoint will search users whose email address, display name,
- * username, or third party partially match with the query - if startDate and endDate parameters is
- * defined, endpoint will search users which created on the certain date range - if query, startDate
- * and endDate parameters are defined, endpoint will search users whose email address and display
- * name match and created on the certain date range - if startDate parameter is defined, endpoint
- * will search users that created start from the defined date - if endDate parameter is defined,
- * endpoint will search users that created until the defined date - if platformId parameter is
- * defined and by parameter is using thirdparty, endpoint will search users based on the platformId
- * they have linked to - if platformBy parameter is defined and by parameter is using thirdparty,
- * endpoint will search users based on the platformUserId or platformDisplayName they have linked
- * to, example value: platformUserId or platformDisplayName - if limit is not defined, The default
- * limit is 100
+ * <p>Endpoint behavior : - By default this endpoint searches all users on the specified namespace.
+ * - If query parameter is defined, endpoint will search users whose email address, display name,
+ * username, or third party partially match with the query. - The query parameter length must be
+ * between 3 and 30 characters. For email address queries (i.e., contains '@'), the allowed length
+ * is 3 to 40 characters. Otherwise, the database will not be queried. - If startDate and endDate
+ * parameters is defined, endpoint will search users which created on the certain date range. - If
+ * query, startDate and endDate parameters are defined, endpoint will search users whose email
+ * address and display name match and created on the certain date range. - If startDate parameter is
+ * defined, endpoint will search users that created start from the defined date. - If endDate
+ * parameter is defined, endpoint will search users that created until the defined date. - If
+ * platformId parameter is defined and by parameter is using thirdparty, endpoint will search users
+ * based on the platformId they have linked to. - If platformBy parameter is defined and by
+ * parameter is using thirdparty, endpoint will search users based on the platformUserId or
+ * platformDisplayName they have linked to, example value: platformUserId or platformDisplayName. -
+ * If limit is not defined, The default limit is 100.
  *
- * <p>In multi tenant mode :
+ * <p>In Multi Tenant mode :
  *
- * <p>- if super admin search in super admin namespace, the result will be all game admin user - if
+ * <p>- If super admin search in super admin namespace, the result will be all game admin user - If
  * super admin search in game studio namespace, the result will be all game admin user and players
- * under the game studio namespace - if super admin search in game namespace, the result will be all
- * game admin users and players under the game namespace - if game admin search in their game studio
- * namespace, the result will be all game admin user in the studio namespace - if game admin search
+ * under the game studio namespace - If super admin search in game namespace, the result will be all
+ * game admin users and players under the game namespace - If game admin search in their game studio
+ * namespace, the result will be all game admin user in the studio namespace - If game admin search
  * in their game namespace, the result will be all player in the game namespace
  *
  * <p>action code : 10133
@@ -71,6 +73,7 @@ public class AdminSearchUserV3 extends Operation {
   private String roleIds;
   private Boolean skipLoginQueue;
   private String startDate;
+  private String tagIds;
   private Boolean testAccount;
 
   /**
@@ -92,6 +95,7 @@ public class AdminSearchUserV3 extends Operation {
       String roleIds,
       Boolean skipLoginQueue,
       String startDate,
+      String tagIds,
       Boolean testAccount) {
     this.namespace = namespace;
     this.by = by;
@@ -105,6 +109,7 @@ public class AdminSearchUserV3 extends Operation {
     this.roleIds = roleIds;
     this.skipLoginQueue = skipLoginQueue;
     this.startDate = startDate;
+    this.tagIds = tagIds;
     this.testAccount = testAccount;
 
     securities.add("Bearer");
@@ -138,6 +143,7 @@ public class AdminSearchUserV3 extends Operation {
         "skipLoginQueue",
         this.skipLoginQueue == null ? null : Arrays.asList(String.valueOf(this.skipLoginQueue)));
     queryParams.put("startDate", this.startDate == null ? null : Arrays.asList(this.startDate));
+    queryParams.put("tagIds", this.tagIds == null ? null : Arrays.asList(this.tagIds));
     queryParams.put(
         "testAccount",
         this.testAccount == null ? null : Arrays.asList(String.valueOf(this.testAccount)));
@@ -176,6 +182,7 @@ public class AdminSearchUserV3 extends Operation {
     result.put("roleIds", "None");
     result.put("skipLoginQueue", "None");
     result.put("startDate", "None");
+    result.put("tagIds", "None");
     result.put("testAccount", "None");
     return result;
   }

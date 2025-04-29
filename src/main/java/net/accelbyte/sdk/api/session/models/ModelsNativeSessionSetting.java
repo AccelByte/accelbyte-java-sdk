@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ModelsNativeSessionSetting extends Model {
 
+  @JsonProperty("PSNDisableSystemUIMenu")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> psnDisableSystemUIMenu;
+
   @JsonProperty("PSNServiceLabel")
   private Integer psnServiceLabel;
 
@@ -59,6 +63,31 @@ public class ModelsNativeSessionSetting extends Model {
   private Map<String, ?> localizedSessionName;
 
   @JsonIgnore
+  public List<String> getPSNDisableSystemUIMenu() {
+    return this.psnDisableSystemUIMenu;
+  }
+
+  @JsonIgnore
+  public List<PSNDisableSystemUIMenu> getPSNDisableSystemUIMenuAsEnum() {
+    ArrayList<PSNDisableSystemUIMenu> en = new ArrayList<PSNDisableSystemUIMenu>();
+    for (String e : this.psnDisableSystemUIMenu) en.add(PSNDisableSystemUIMenu.valueOf(e));
+    return en;
+  }
+
+  @JsonIgnore
+  public void setPSNDisableSystemUIMenu(final List<String> psnDisableSystemUIMenu) {
+    this.psnDisableSystemUIMenu = psnDisableSystemUIMenu;
+  }
+
+  @JsonIgnore
+  public void setPSNDisableSystemUIMenuFromEnum(
+      final List<PSNDisableSystemUIMenu> psnDisableSystemUIMenu) {
+    ArrayList<String> en = new ArrayList<String>();
+    for (PSNDisableSystemUIMenu e : psnDisableSystemUIMenu) en.add(e.toString());
+    this.psnDisableSystemUIMenu = en;
+  }
+
+  @JsonIgnore
   public ModelsNativeSessionSetting createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
@@ -68,5 +97,41 @@ public class ModelsNativeSessionSetting extends Model {
       throws JsonProcessingException {
     return new ObjectMapper()
         .readValue(json, new TypeReference<List<ModelsNativeSessionSetting>>() {});
+  }
+
+  public enum PSNDisableSystemUIMenu {
+    KICK("KICK"),
+    PROMOTETOLEADER("PROMOTE_TO_LEADER"),
+    UPDATEINVITABLEUSERTYPE("UPDATE_INVITABLE_USER_TYPE"),
+    UPDATEJOINABLEUSERTYPE("UPDATE_JOINABLE_USER_TYPE");
+
+    private String value;
+
+    PSNDisableSystemUIMenu(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class ModelsNativeSessionSettingBuilder {
+    private List<String> psnDisableSystemUIMenu;
+
+    public ModelsNativeSessionSettingBuilder psnDisableSystemUIMenu(
+        final List<String> psnDisableSystemUIMenu) {
+      this.psnDisableSystemUIMenu = psnDisableSystemUIMenu;
+      return this;
+    }
+
+    public ModelsNativeSessionSettingBuilder psnDisableSystemUIMenuFromEnum(
+        final List<PSNDisableSystemUIMenu> psnDisableSystemUIMenu) {
+      ArrayList<String> en = new ArrayList<String>();
+      for (PSNDisableSystemUIMenu e : psnDisableSystemUIMenu) en.add(e.toString());
+      this.psnDisableSystemUIMenu = en;
+      return this;
+    }
   }
 }

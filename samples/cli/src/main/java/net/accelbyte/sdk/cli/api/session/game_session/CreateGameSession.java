@@ -36,6 +36,11 @@ public class CreateGameSession implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--resolveMaxActiveSession"},
+      description = "resolveMaxActiveSession")
+  Boolean resolveMaxActiveSession;
+
+  @Option(
       names = {"--body"},
       description = "body")
   String body;
@@ -64,6 +69,7 @@ public class CreateGameSession implements Callable<Integer> {
       final net.accelbyte.sdk.api.session.operations.game_session.CreateGameSession operation =
           net.accelbyte.sdk.api.session.operations.game_session.CreateGameSession.builder()
               .namespace(namespace)
+              .resolveMaxActiveSession(resolveMaxActiveSession)
               .body(new ObjectMapper().readValue(body, ApimodelsCreateGameSessionRequest.class))
               .build();
       final ApimodelsGameSessionResponse response = wrapper.createGameSession(operation);

@@ -29,6 +29,10 @@ public class ApimodelsPublicConfiguration extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String psnBaseURL;
 
+  @JsonProperty("amsClaimTimeoutMinutes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer amsClaimTimeoutMinutes;
+
   @JsonProperty("appName")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String appName;

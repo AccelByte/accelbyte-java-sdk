@@ -39,6 +39,7 @@ import picocli.CommandLine.Command;
       RejectBackfill.class,
       MatchFunctionList.class,
       CreateMatchFunction.class,
+      MatchFunctionGet.class,
       UpdateMatchFunction.class,
       DeleteMatchFunction.class,
       MatchPoolList.class,

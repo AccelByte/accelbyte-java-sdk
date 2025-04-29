@@ -51,6 +51,11 @@ public class GetUserLeaderboardRankingsAdminV3 implements Callable<Integer> {
   Integer offset;
 
   @Option(
+      names = {"--previousVersion"},
+      description = "previousVersion")
+  Integer previousVersion;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -80,6 +85,7 @@ public class GetUserLeaderboardRankingsAdminV3 implements Callable<Integer> {
                   .userId(userId)
                   .limit(limit)
                   .offset(offset)
+                  .previousVersion(previousVersion)
                   .build();
       final ModelsGetAllUserLeaderboardsRespV3 response =
           wrapper.getUserLeaderboardRankingsAdminV3(operation);

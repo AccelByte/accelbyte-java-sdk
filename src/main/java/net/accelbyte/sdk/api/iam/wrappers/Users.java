@@ -868,6 +868,16 @@ public class Users {
   }
 
   /**
+   * @see AdminCursorGetUserV3
+   */
+  public ModelCursorGetUserResponse adminCursorGetUserV3(AdminCursorGetUserV3 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminInviteUserV3
    */
   public ModelInviteUserResponseV3 adminInviteUserV3(AdminInviteUserV3 input) throws Exception {
@@ -1736,6 +1746,16 @@ public class Users {
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicForgotPasswordWithoutNamespaceV3
+   */
+  public ModelForgotPasswordResponseV3 publicForgotPasswordWithoutNamespaceV3(
+      PublicForgotPasswordWithoutNamespaceV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 

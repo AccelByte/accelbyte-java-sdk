@@ -23,9 +23,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:SECRET [UPDATE]`
  *
- * <p>Update an environment secret. Request body: - value : configuration value - Required. -
- * description : description of the configuration - Optional. - applyMask : mask the value in the
- * Helm manifest for sensitive information (true or false) - Optional.
+ * <p>Update an environment secret. Secret will always be masked. Request body: - value :
+ * configuration value - Required. - description : description of the configuration - Optional.
  */
 @Getter
 @Setter
@@ -43,7 +42,7 @@ public class UpdateSecretV2 extends Operation {
 
   private String configId;
   private String namespace;
-  private ApimodelUpdateConfigurationV2Request body;
+  private ApimodelUpdateSecretConfigurationV2Request body;
 
   /**
    * @param app required
@@ -55,7 +54,10 @@ public class UpdateSecretV2 extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public UpdateSecretV2(
-      String app, String configId, String namespace, ApimodelUpdateConfigurationV2Request body) {
+      String app,
+      String configId,
+      String namespace,
+      ApimodelUpdateSecretConfigurationV2Request body) {
     this.app = app;
     this.configId = configId;
     this.namespace = namespace;
@@ -80,7 +82,7 @@ public class UpdateSecretV2 extends Operation {
   }
 
   @Override
-  public ApimodelUpdateConfigurationV2Request getBodyParams() {
+  public ApimodelUpdateSecretConfigurationV2Request getBodyParams() {
     return this.body;
   }
 

@@ -123,7 +123,7 @@ public class ModelUserResponseV3 extends Model {
 
   @JsonProperty("tags")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private List<String> tags;
+  private List<ModelTagDetail> tags;
 
   @JsonProperty("testAccount")
   @JsonInclude(JsonInclude.Include.NON_NULL)

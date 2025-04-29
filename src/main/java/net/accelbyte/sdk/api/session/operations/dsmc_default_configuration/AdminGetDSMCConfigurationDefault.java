@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminGetDSMCConfigurationDefault
  *
- * <p>Get dsmc default configuration.
+ * <p>Get the DSMC default configuration from this service
  *
  * @deprecated
  */

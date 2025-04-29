@@ -51,6 +51,16 @@ public class QueryXrayTimelineByUserID implements Callable<Integer> {
   Integer offset;
 
   @Option(
+      names = {"--order"},
+      description = "order")
+  String order;
+
+  @Option(
+      names = {"--orderBy"},
+      description = "orderBy")
+  String orderBy;
+
+  @Option(
       names = {"--endDate"},
       description = "endDate")
   String endDate;
@@ -89,6 +99,8 @@ public class QueryXrayTimelineByUserID implements Callable<Integer> {
                   .userId(userId)
                   .limit(limit)
                   .offset(offset)
+                  .order(order)
+                  .orderBy(orderBy)
                   .endDate(endDate)
                   .startDate(startDate)
                   .build();

@@ -40,6 +40,15 @@ public class MatchFunctions {
   }
 
   /**
+   * @see MatchFunctionGet
+   */
+  public ApiMatchFunctionConfig matchFunctionGet(MatchFunctionGet input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see UpdateMatchFunction
    */
   public ApiMatchFunctionConfig updateMatchFunction(UpdateMatchFunction input) throws Exception {

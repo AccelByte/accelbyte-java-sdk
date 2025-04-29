@@ -40,7 +40,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * The quantity is dynamically set based on an itemâs useCount configured in Store. When saving an
  * item, the specified quantity will be multiplied by configured useCount for that particular item.
  * For example, if an Item is configured with a useCount of 5 in the AGS Store and it is saved with
- * a qty of 2, the itemâs quantity will be stored as 2 in the playerâs inventory.
+ * a qty of 2, the itemâs quantity will be stored as 10 in the playerâs inventory.
  *
  * <p>**When configuring your request, note the following:** - The source field is mandatory for
  * determining the source of the item. The supported values are OTHER (for items coming from other

@@ -70,7 +70,9 @@ public class SaveSecretV2 implements Callable<Integer> {
           net.accelbyte.sdk.api.csm.operations.configuration_v2.SaveSecretV2.builder()
               .app(app)
               .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ApimodelSaveConfigurationV2Request.class))
+              .body(
+                  new ObjectMapper()
+                      .readValue(body, ApimodelSaveSecretConfigurationV2Request.class))
               .build();
       final ApimodelSaveConfigurationV2Response response = wrapper.saveSecretV2(operation);
       final String responseString =

@@ -6,18 +6,13 @@
 
 package net.accelbyte.sdk.integration;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Map;
-import net.accelbyte.sdk.api.gametelemetry.models.PlayTimeResponse;
 import net.accelbyte.sdk.api.gametelemetry.models.TelemetryBody;
-import net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations.ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet;
 import net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations.ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost;
-import net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations.ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut;
 import net.accelbyte.sdk.api.gametelemetry.wrappers.GametelemetryOperations;
-import net.accelbyte.sdk.core.HttpResponseException;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer;

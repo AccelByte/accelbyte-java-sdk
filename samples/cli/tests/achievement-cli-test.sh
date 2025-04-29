@@ -39,7 +39,7 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 ./ng ng-cp 1>&2
 
 echo "TAP version 13"
-echo "1..28"
+echo "1..30"
 
 #- 1 Login
 ./ng net.accelbyte.sdk.cli.Main loginClient \
@@ -174,132 +174,148 @@ eval_tap $? 14 'AdminListTags' test.out
     > test.out 2>&1
 eval_tap $? 15 'AdminListUserAchievements' test.out
 
-#- 16 AdminResetAchievement
+#- 16 AdminBulkUnlockAchievement
+./ng net.accelbyte.sdk.cli.Main achievement adminBulkUnlockAchievement \
+    --namespace "$AB_NAMESPACE" \
+    --userId 'OLFKx1dX4LuWJu3p' \
+    --body '{"achievementCodes": ["DMUAeeZ97SBROPYu", "G6XqP6oo7G73zdxT", "gOfnwIdlNa29fDLh"]}' \
+    > test.out 2>&1
+eval_tap $? 16 'AdminBulkUnlockAchievement' test.out
+
+#- 17 AdminResetAchievement
 ./ng net.accelbyte.sdk.cli.Main achievement adminResetAchievement \
-    --achievementCode 'OLFKx1dX4LuWJu3p' \
-    --namespace "$AB_NAMESPACE" \
-    --userId 'DMUAeeZ97SBROPYu' \
-    > test.out 2>&1
-eval_tap $? 16 'AdminResetAchievement' test.out
-
-#- 17 AdminUnlockAchievement
-./ng net.accelbyte.sdk.cli.Main achievement adminUnlockAchievement \
-    --achievementCode 'G6XqP6oo7G73zdxT' \
-    --namespace "$AB_NAMESPACE" \
-    --userId 'gOfnwIdlNa29fDLh' \
-    > test.out 2>&1
-eval_tap $? 17 'AdminUnlockAchievement' test.out
-
-#- 18 AdminAnonymizeUserAchievement
-./ng net.accelbyte.sdk.cli.Main achievement adminAnonymizeUserAchievement \
-    --namespace "$AB_NAMESPACE" \
-    --userId '741IslKHzGlLKWUt' \
-    > test.out 2>&1
-eval_tap $? 18 'AdminAnonymizeUserAchievement' test.out
-
-#- 19 AdminListUserContributions
-./ng net.accelbyte.sdk.cli.Main achievement adminListUserContributions \
+    --achievementCode '741IslKHzGlLKWUt' \
     --namespace "$AB_NAMESPACE" \
     --userId 'DQs61OQAoxyyQpRW' \
-    --achievementCodes 'CiiPDGQhNPEwiJCf' \
-    --limit '40' \
-    --offset '73' \
-    --sortBy 'contributedValue' \
-    --tags 'VrlzqQls1ozhLVA3,kE8jKvgatOEBM70T,dlNBJYOmpu1VCarz' \
     > test.out 2>&1
-eval_tap $? 19 'AdminListUserContributions' test.out
+eval_tap $? 17 'AdminResetAchievement' test.out
 
-#- 20 PublicListAchievements
+#- 18 AdminUnlockAchievement
+./ng net.accelbyte.sdk.cli.Main achievement adminUnlockAchievement \
+    --achievementCode 'CiiPDGQhNPEwiJCf' \
+    --namespace "$AB_NAMESPACE" \
+    --userId '2XJVrlzqQls1ozhL' \
+    > test.out 2>&1
+eval_tap $? 18 'AdminUnlockAchievement' test.out
+
+#- 19 AdminAnonymizeUserAchievement
+./ng net.accelbyte.sdk.cli.Main achievement adminAnonymizeUserAchievement \
+    --namespace "$AB_NAMESPACE" \
+    --userId 'VA3kE8jKvgatOEBM' \
+    > test.out 2>&1
+eval_tap $? 19 'AdminAnonymizeUserAchievement' test.out
+
+#- 20 AdminListUserContributions
+./ng net.accelbyte.sdk.cli.Main achievement adminListUserContributions \
+    --namespace "$AB_NAMESPACE" \
+    --userId '70TdlNBJYOmpu1VC' \
+    --achievementCodes 'arzBsV6xnZ5Jrzzj' \
+    --limit '35' \
+    --offset '16' \
+    --sortBy 'contributedValue' \
+    --tags 'fxnhLd3Knaknoed9,DHhLOqQGhCUr6iTr,jyEgarAdNJOIG36I' \
+    > test.out 2>&1
+eval_tap $? 20 'AdminListUserContributions' test.out
+
+#- 21 PublicListAchievements
 ./ng net.accelbyte.sdk.cli.Main achievement publicListAchievements \
     --namespace "$AB_NAMESPACE" \
     --global  \
-    --limit '57' \
-    --offset '32' \
-    --sortBy 'createdAt:asc' \
-    --tags '6Sw1I98jeZQ7hfxn,hLd3Knaknoed9DHh,LOqQGhCUr6iTrjyE' \
-    --language 'garAdNJOIG36I6tR' \
+    --limit '29' \
+    --offset '40' \
+    --sortBy 'listOrder' \
+    --tags 'bRcrEveMdAdiPKDU,VSC00PYeDcagginx,nFIna3yddcbsPheT' \
+    --language 'H26IUJNvYuGRUvpZ' \
     > test.out 2>&1
-eval_tap $? 20 'PublicListAchievements' test.out
+eval_tap $? 21 'PublicListAchievements' test.out
 
-#- 21 PublicGetAchievement
+#- 22 PublicGetAchievement
 ./ng net.accelbyte.sdk.cli.Main achievement publicGetAchievement \
-    --achievementCode 'bRcrEveMdAdiPKDU' \
+    --achievementCode 'aHCuESOiIZsMfB4Z' \
     --namespace "$AB_NAMESPACE" \
-    --language 'VSC00PYeDcagginx' \
+    --language 'H3mtgWgU4pCAKxeE' \
     > test.out 2>&1
-eval_tap $? 21 'PublicGetAchievement' test.out
+eval_tap $? 22 'PublicGetAchievement' test.out
 
-#- 22 PublicListGlobalAchievements
+#- 23 PublicListGlobalAchievements
 ./ng net.accelbyte.sdk.cli.Main achievement publicListGlobalAchievements \
     --namespace "$AB_NAMESPACE" \
-    --achievementCodes 'nFIna3yddcbsPheT' \
-    --limit '69' \
-    --offset '59' \
-    --sortBy 'achievedAt:asc' \
-    --status '6IUJNvYuGRUvpZaH' \
-    --tags 'CuESOiIZsMfB4ZH3,mtgWgU4pCAKxeE70,CaunQNxot371W9G4' \
+    --achievementCodes '70CaunQNxot371W9' \
+    --limit '67' \
+    --offset '1' \
+    --sortBy 'createdAt' \
+    --status 'cFX3SUBhyoTsMWPA' \
+    --tags 'xUMkawaGpAyrIwMi,f3BOdkocVTd4BxqG,WV6mTJ0sQs6XNbjv' \
     > test.out 2>&1
-eval_tap $? 22 'PublicListGlobalAchievements' test.out
+eval_tap $? 23 'PublicListGlobalAchievements' test.out
 
-#- 23 ListGlobalAchievementContributors
+#- 24 ListGlobalAchievementContributors
 ./ng net.accelbyte.sdk.cli.Main achievement listGlobalAchievementContributors \
-    --achievementCode 'AvQkqsGnmyo5JJTU' \
+    --achievementCode 'qhnUVLWu8olKdxL6' \
     --namespace "$AB_NAMESPACE" \
-    --limit '99' \
-    --offset '48' \
-    --sortBy 'contributedValue' \
+    --limit '30' \
+    --offset '58' \
+    --sortBy 'contributedValue:asc' \
     > test.out 2>&1
-eval_tap $? 23 'ListGlobalAchievementContributors' test.out
+eval_tap $? 24 'ListGlobalAchievementContributors' test.out
 
-#- 24 PublicListTags
+#- 25 PublicListTags
 ./ng net.accelbyte.sdk.cli.Main achievement publicListTags \
     --namespace "$AB_NAMESPACE" \
-    --limit '96' \
-    --name 'b8GEXFTlEMEsFzYq' \
-    --offset '46' \
-    --sortBy 'name' \
+    --limit '2' \
+    --name 'RmDD0jJvlfV5OemP' \
+    --offset '6' \
+    --sortBy 'name:asc' \
     > test.out 2>&1
-eval_tap $? 24 'PublicListTags' test.out
+eval_tap $? 25 'PublicListTags' test.out
 
-#- 25 PublicListUserAchievements
+#- 26 PublicListUserAchievements
 ./ng net.accelbyte.sdk.cli.Main achievement publicListUserAchievements \
     --namespace "$AB_NAMESPACE" \
-    --userId 'gK1Np5nodqpLm7Fh' \
-    --limit '73' \
-    --offset '26' \
+    --userId 'YT7DROCjtuzFMbAG' \
+    --limit '23' \
+    --offset '75' \
     --preferUnlocked  \
-    --sortBy 'createdAt' \
-    --tags 'TJ0sQs6XNbjvqhnU,VLWu8olKdxL6ozRm,DD0jJvlfV5OemPYd' \
+    --sortBy 'createdAt:asc' \
+    --tags 'lpO2pqiXJF3WGRao,QomSJC4DdrKF7SUQ,PLG59e0k5ZtX6wK7' \
     > test.out 2>&1
-eval_tap $? 25 'PublicListUserAchievements' test.out
+eval_tap $? 26 'PublicListUserAchievements' test.out
 
-#- 26 PublicUnlockAchievement
-./ng net.accelbyte.sdk.cli.Main achievement publicUnlockAchievement \
-    --achievementCode 'YT7DROCjtuzFMbAG' \
+#- 27 PublicBulkUnlockAchievement
+./ng net.accelbyte.sdk.cli.Main achievement publicBulkUnlockAchievement \
     --namespace "$AB_NAMESPACE" \
-    --userId '9YI89hmguB8FOTjM' \
+    --userId 'PpUlcIW32iK7MGt1' \
+    --body '{"achievementCodes": ["ixY5rA1WoVeJIePF", "8ZrQzP4zvtdxdbZU", "pd6FJtHJ1pyVwyKQ"]}' \
     > test.out 2>&1
-eval_tap $? 26 'PublicUnlockAchievement' test.out
+eval_tap $? 27 'PublicBulkUnlockAchievement' test.out
 
-#- 27 ListUserContributions
+#- 28 PublicUnlockAchievement
+./ng net.accelbyte.sdk.cli.Main achievement publicUnlockAchievement \
+    --achievementCode 'LY6FEO65Rb3z7CYL' \
+    --namespace "$AB_NAMESPACE" \
+    --userId 'M8IlsHqffnrfsGlf' \
+    > test.out 2>&1
+eval_tap $? 28 'PublicUnlockAchievement' test.out
+
+#- 29 ListUserContributions
 ./ng net.accelbyte.sdk.cli.Main achievement listUserContributions \
     --namespace "$AB_NAMESPACE" \
-    --userId 'Lo4b9rIzqYkEpsty' \
-    --achievementCodes 'VTBcrM8rG0rH0zcs' \
-    --limit '46' \
-    --offset '74' \
+    --userId 'PaZKBwa3Ddb60ufP' \
+    --achievementCodes 'pzwj1QGIFmlVf4jv' \
+    --limit '1' \
+    --offset '20' \
     --sortBy 'contributedValue:asc' \
-    --tags '7PpUlcIW32iK7MGt,1ixY5rA1WoVeJIeP,F8ZrQzP4zvtdxdbZ' \
+    --tags '5DiXZtLW87rGysry,od3dNQrmsApRA6HX,3RwrKt2ecozL0TOg' \
     > test.out 2>&1
-eval_tap $? 27 'ListUserContributions' test.out
+eval_tap $? 29 'ListUserContributions' test.out
 
-#- 28 ClaimGlobalAchievementReward
+#- 30 ClaimGlobalAchievementReward
 ./ng net.accelbyte.sdk.cli.Main achievement claimGlobalAchievementReward \
-    --achievementCode 'Upd6FJtHJ1pyVwyK' \
+    --achievementCode '54vCE48L5oLF6M4l' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'QLY6FEO65Rb3z7CY' \
+    --userId 'Na4JUMSHNgqRqCV7' \
     > test.out 2>&1
-eval_tap $? 28 'ClaimGlobalAchievementReward' test.out
+eval_tap $? 30 'ClaimGlobalAchievementReward' test.out
 
 
 rm -f "tmp.dat"

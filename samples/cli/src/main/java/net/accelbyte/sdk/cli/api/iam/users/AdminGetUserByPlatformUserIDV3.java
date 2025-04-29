@@ -46,6 +46,11 @@ public class AdminGetUserByPlatformUserIDV3 implements Callable<Integer> {
   String platformUserId;
 
   @Option(
+      names = {"--pidType"},
+      description = "pidType")
+  String pidType;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -71,6 +76,7 @@ public class AdminGetUserByPlatformUserIDV3 implements Callable<Integer> {
               .namespace(namespace)
               .platformId(platformId)
               .platformUserId(platformUserId)
+              .pidType(pidType)
               .build();
       final ModelUserResponseV3 response = wrapper.adminGetUserByPlatformUserIDV3(operation);
       final String responseString =

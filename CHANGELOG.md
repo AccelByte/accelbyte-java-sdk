@@ -1,3 +1,16 @@
+<a name="v0.72.0"></a>
+## [v0.72.0]
+### ci
+- **coverity:** add arm64 build machine support
+- **coverity:** this job often stuck in ec2 build machine for certain language
+- **coverity:** change coverity download path
+### test
+- **integration:** gametelemetry - remove deprecated endpoints
+- **integration:** loginqueue - fix typo
+### docs
+- **common use cases:** update
+
+
 <a name="v0.71.0"></a>
 ## [v0.71.0]
 ### test

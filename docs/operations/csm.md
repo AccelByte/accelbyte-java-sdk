@@ -142,6 +142,7 @@
 | `apimodel.ReplicaResponse` | [ApimodelReplicaResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelReplicaResponse.java) |
 | `apimodel.SaveConfigurationV2Request` | [ApimodelSaveConfigurationV2Request](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelSaveConfigurationV2Request.java) |
 | `apimodel.SaveConfigurationV2Response` | [ApimodelSaveConfigurationV2Response](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelSaveConfigurationV2Response.java) |
+| `apimodel.SaveSecretConfigurationV2Request` | [ApimodelSaveSecretConfigurationV2Request](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelSaveSecretConfigurationV2Request.java) |
 | `apimodel.SelfSubscribeNotificationRequest` | [ApimodelSelfSubscribeNotificationRequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelSelfSubscribeNotificationRequest.java) |
 | `apimodel.SubscribeNotificationRequest` | [ApimodelSubscribeNotificationRequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelSubscribeNotificationRequest.java) |
 | `apimodel.SubscribeNotificationResponse` | [ApimodelSubscribeNotificationResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelSubscribeNotificationResponse.java) |
@@ -151,6 +152,7 @@
 | `apimodel.UpdateAppV2Request` | [ApimodelUpdateAppV2Request](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelUpdateAppV2Request.java) |
 | `apimodel.UpdateConfigurationV2Request` | [ApimodelUpdateConfigurationV2Request](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelUpdateConfigurationV2Request.java) |
 | `apimodel.UpdateConfigurationV2Response` | [ApimodelUpdateConfigurationV2Response](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelUpdateConfigurationV2Response.java) |
+| `apimodel.UpdateSecretConfigurationV2Request` | [ApimodelUpdateSecretConfigurationV2Request](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelUpdateSecretConfigurationV2Request.java) |
 | `generated.CreateAppV1Request` | [GeneratedCreateAppV1Request](../../src/main/java/net/accelbyte/sdk/api/csm/models/GeneratedCreateAppV1Request.java) |
 | `generated.CreateAppV1Response` | [GeneratedCreateAppV1Response](../../src/main/java/net/accelbyte/sdk/api/csm/models/GeneratedCreateAppV1Response.java) |
 | `generated.CreateDeploymentV1Request` | [GeneratedCreateDeploymentV1Request](../../src/main/java/net/accelbyte/sdk/api/csm/models/GeneratedCreateDeploymentV1Request.java) |

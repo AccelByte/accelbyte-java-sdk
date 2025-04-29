@@ -76,7 +76,9 @@ public class UpdateSecretV2 implements Callable<Integer> {
               .app(app)
               .configId(configId)
               .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ApimodelUpdateConfigurationV2Request.class))
+              .body(
+                  new ObjectMapper()
+                      .readValue(body, ApimodelUpdateSecretConfigurationV2Request.class))
               .build();
       final ApimodelUpdateConfigurationV2Response response = wrapper.updateSecretV2(operation);
       final String responseString =

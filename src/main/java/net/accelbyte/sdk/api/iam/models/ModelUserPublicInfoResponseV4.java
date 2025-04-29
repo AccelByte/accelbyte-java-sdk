@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ModelUserPublicInfoResponseV4 extends Model {
 
+  @JsonProperty("avatarUrl")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String avatarUrl;
+
   @JsonProperty("displayName")
   private String displayName;
 

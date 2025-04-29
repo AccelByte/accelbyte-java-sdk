@@ -41,6 +41,7 @@ public class ApimodelsAdminUpdateItemReq extends Model {
   private List<String> tags;
 
   @JsonProperty("type")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String type;
 
   @JsonIgnore

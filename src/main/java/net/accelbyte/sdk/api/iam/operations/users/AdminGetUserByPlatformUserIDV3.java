@@ -34,7 +34,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Note: - You can use either platform id or platform group as **platformId** parameter. -
  * **Nintendo platform user id**: NSA ID need to be appended with Environment ID using colon as
- * separator. e.g kmzwa8awaa:dd1
+ * separator. e.g kmzwa8awaa:dd1 - **oculus**: if query by app user id, please set the query param
+ * **pidType** to **OCULUS_APP_USER_ID** (support game namespace only)
  */
 @Getter
 @Setter
@@ -53,6 +54,7 @@ public class AdminGetUserByPlatformUserIDV3 extends Operation {
 
   private String platformId;
   private String platformUserId;
+  private String pidType;
 
   /**
    * @param namespace required
@@ -63,10 +65,11 @@ public class AdminGetUserByPlatformUserIDV3 extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public AdminGetUserByPlatformUserIDV3(
-      String namespace, String platformId, String platformUserId) {
+      String namespace, String platformId, String platformUserId, String pidType) {
     this.namespace = namespace;
     this.platformId = platformId;
     this.platformUserId = platformUserId;
+    this.pidType = pidType;
 
     securities.add("Bearer");
   }
@@ -84,6 +87,13 @@ public class AdminGetUserByPlatformUserIDV3 extends Operation {
       pathParams.put("platformUserId", this.platformUserId);
     }
     return pathParams;
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("pidType", this.pidType == null ? null : Arrays.asList(this.pidType));
+    return queryParams;
   }
 
   @Override
@@ -108,5 +118,12 @@ public class AdminGetUserByPlatformUserIDV3 extends Operation {
     }
     final String json = Helper.convertInputStreamToString(payload);
     return new ModelUserResponseV3().createFromJson(json);
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("pidType", "None");
+    return result;
   }
 }

@@ -91,6 +91,11 @@ public class AdminSearchUserV3 implements Callable<Integer> {
   String startDate;
 
   @Option(
+      names = {"--tagIds"},
+      description = "tagIds")
+  String tagIds;
+
+  @Option(
       names = {"--testAccount"},
       description = "testAccount")
   Boolean testAccount;
@@ -130,6 +135,7 @@ public class AdminSearchUserV3 implements Callable<Integer> {
               .roleIds(roleIds)
               .skipLoginQueue(skipLoginQueue)
               .startDate(startDate)
+              .tagIds(tagIds)
               .testAccount(testAccount)
               .build();
       final ModelSearchUsersResponseWithPaginationV3 response =

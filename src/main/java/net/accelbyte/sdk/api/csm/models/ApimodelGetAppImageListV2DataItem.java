@@ -25,6 +25,9 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApimodelGetAppImageListV2DataItem extends Model {
 
+  @JsonProperty("IsActive")
+  private Boolean isActive;
+
   @JsonProperty("imageDigest")
   private String imageDigest;
 

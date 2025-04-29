@@ -57,6 +57,11 @@ public class GetCurrentCycleLeaderboardRankingPublicV3 implements Callable<Integ
   Integer offset;
 
   @Option(
+      names = {"--previousVersion"},
+      description = "previousVersion")
+  Integer previousVersion;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -87,6 +92,7 @@ public class GetCurrentCycleLeaderboardRankingPublicV3 implements Callable<Integ
                   .namespace(namespace)
                   .limit(limit)
                   .offset(offset)
+                  .previousVersion(previousVersion)
                   .build();
       final ModelsGetLeaderboardRankingResp response =
           wrapper.getCurrentCycleLeaderboardRankingPublicV3(operation);

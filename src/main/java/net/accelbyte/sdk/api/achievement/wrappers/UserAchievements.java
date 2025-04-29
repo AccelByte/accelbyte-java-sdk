@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.api.achievement.wrappers;
 
+import java.util.*;
 import net.accelbyte.sdk.api.achievement.models.*;
 import net.accelbyte.sdk.api.achievement.operations.user_achievements.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
@@ -26,6 +27,16 @@ public class UserAchievements {
    */
   public ModelsPaginatedUserAchievementResponse adminListUserAchievements(
       AdminListUserAchievements input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminBulkUnlockAchievement
+   */
+  public List<ModelsBulkUnlockAchievementResponse> adminBulkUnlockAchievement(
+      AdminBulkUnlockAchievement input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
@@ -54,6 +65,16 @@ public class UserAchievements {
    */
   public ModelsPaginatedUserAchievementResponse publicListUserAchievements(
       PublicListUserAchievements input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicBulkUnlockAchievement
+   */
+  public List<ModelsBulkUnlockAchievementResponse> publicBulkUnlockAchievement(
+      PublicBulkUnlockAchievement input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

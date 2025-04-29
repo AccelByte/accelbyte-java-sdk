@@ -71,6 +71,16 @@ public class Inbox {
   }
 
   /**
+   * @see AdminListKafkaTopic
+   */
+  public ModelsGetListTopicKafkaResponse adminListKafkaTopic(AdminListKafkaTopic input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminDeleteInboxMessage
    */
   public void adminDeleteInboxMessage(AdminDeleteInboxMessage input) throws Exception {

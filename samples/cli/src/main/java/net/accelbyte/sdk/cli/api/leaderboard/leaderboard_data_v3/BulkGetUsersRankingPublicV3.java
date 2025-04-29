@@ -41,6 +41,11 @@ public class BulkGetUsersRankingPublicV3 implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--previousVersion"},
+      description = "previousVersion")
+  Integer previousVersion;
+
+  @Option(
       names = {"--body"},
       description = "body")
   String body;
@@ -73,6 +78,7 @@ public class BulkGetUsersRankingPublicV3 implements Callable<Integer> {
                   .BulkGetUsersRankingPublicV3.builder()
                   .leaderboardCode(leaderboardCode)
                   .namespace(namespace)
+                  .previousVersion(previousVersion)
                   .body(new ObjectMapper().readValue(body, ModelsBulkUserIDsRequest.class))
                   .build();
       final ModelsBulkUserRankingResponseV3 response =
