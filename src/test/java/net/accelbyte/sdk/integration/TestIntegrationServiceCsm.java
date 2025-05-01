@@ -164,10 +164,7 @@ public class TestIntegrationServiceCsm extends TestIntegration {
             .app(EXTEND_APP_NAME)
             .configId(secretConfigId)
             .namespace(namespace)
-            .body(
-                ApimodelUpdateSecretConfigurationV2Request.builder()
-                    .value("silence")
-                    .build())
+            .body(ApimodelUpdateSecretConfigurationV2Request.builder().value("silence").build())
             .build();
 
     final ApimodelUpdateConfigurationV2Response updateSecretV2Res =

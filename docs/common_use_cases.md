@@ -312,11 +312,10 @@ final SaveSecretV2 saveSecretV2Op =
         .app(EXTEND_APP_NAME)
         .namespace(namespace)
         .body(
-            ApimodelSaveConfigurationV2Request.builder()
+            ApimodelSaveSecretConfigurationV2Request.builder()
                 .configName("THIS_IS_A_SECRET")
                 .value("ssshhhh")
                 .source("plaintext")
-                .applyMask(true)
                 .build())
         .build();
 
@@ -343,9 +342,8 @@ final UpdateSecretV2 updateSecretV2Op =
         .configId(secretConfigId)
         .namespace(namespace)
         .body(
-            ApimodelUpdateConfigurationV2Request.builder()
+            ApimodelUpdateSecretConfigurationV2Request.builder()
                 .value("silence")
-                .applyMask(true)
                 .build())
         .build();
 

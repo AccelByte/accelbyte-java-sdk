@@ -6,7 +6,6 @@
 
 package net.accelbyte.sdk.integration;
 
-
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Map;
