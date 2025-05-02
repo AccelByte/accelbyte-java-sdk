@@ -1,5 +1,5 @@
-<a name="v0.73.0"></a>
-## [v0.73.0]
+<a name="v0.72.0"></a>
+## [v0.72.0]
 ### ci
 - **coverity:** add arm64 build machine support
 - **coverity:** this job often stuck in ec2 build machine for certain language
@@ -12,19 +12,6 @@
 - **common use cases:** update
 ### chore
 - **sdk:** generated from openapi spec commit: a2c66653b15e9f6a946f1b0f72073f508f4f1299
-
-
-<a name="v0.72.0"></a>
-## [v0.72.0]
-### ci
-- **coverity:** add arm64 build machine support
-- **coverity:** this job often stuck in ec2 build machine for certain language
-- **coverity:** change coverity download path
-### test
-- **integration:** gametelemetry - remove deprecated endpoints
-- **integration:** loginqueue - fix typo
-### docs
-- **common use cases:** update
 
 
 <a name="v0.71.0"></a>
