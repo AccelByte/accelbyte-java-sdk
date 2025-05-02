@@ -1,6 +1,6 @@
 # AccelByte Java SDK CLI Sample App
 
-A CLI sample app to showcase AccelByte Java SDK.
+A command-line sample application that demonstrates how to use AccelByte Java SDK.
 
 ## Prerequsites
 
@@ -9,7 +9,7 @@ A CLI sample app to showcase AccelByte Java SDK.
 
 ## Build
 
-To build this CLI sample app, execute the following command.
+To build this command-line sample app, execute the following command.
 
 ```
 bash gradlew installDist
@@ -19,28 +19,34 @@ bash gradlew installDist
 
 ### Setup
 
-The following environment variables are required by this CLI sample app.
+The following environment variables are required by this command-line sample app.
 
 ```
-export AB_BASE_URL='https://test.accelbyte.io'    # Required
-export AB_CLIENT_ID='xxxxxxxxxx'                  # Required
-export AB_CLIENT_SECRET='xxxxxxxxxx'              # Required for confidential OAuth client only
+export AB_BASE_URL='https://test.accelbyte.io'
+export AB_CLIENT_ID='xxxxxxxxxx'
+export AB_CLIENT_SECRET='xxxxxxxxxx'
 ```
 
 ### Login
 
-Before calling any service endpoints, perform login first. Your access token will be saved and it will be used to call service endpoints.
+Before invoking any service endpoints, you must first log in. The access token 
+obtained during login will be stored and used for subsequent requests to 
+service endpoints.
 
 ```
 build/install/cli/bin/cli login -u myUsername -p myPassword
 ```
 
-### Calling a Service Endpoint
+### Invoking a Service Endpoint
 
-To call a service endpoint, the CLI command structure is shown below.
+To invoke a service endpoint, use the CLI command structure shown below.
 
 ```
-build/install/cli/bin/cli <service name> <operation> --<parameter> <parameter value>
+build/install/cli/bin/cli <service name> <operation> \
+        --<parameter1> <parameter 1 value> \
+        --<parameter2> <parameter 2 value> \
+        --<parameter2> <parameter 3 value> \
+        ...
 ```
 
 For example:
@@ -49,16 +55,28 @@ For example:
 build/install/cli/bin/cli basic publicGetCountries --namespace accelbyte
 ```
 
+See this [index](./operations/index.md) for the list of services and the 
+operations they support.
+
+### Sending a Lobby WebSocket Message
+
+To send a `lobby` WebSocket message, use the CLI command structure shown below.
+
+```
+build/install/cli/bin/cli -m $'type: acceptFriendsNotif\nfriendId: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+```
+
 ### Help
 
-To see general help:
+To view general help information:
 
 
 ```
 build/install/cli/bin/cli -h
 ```
 
-To see specific help for `iam` service:
+To view a specific help information for invoking a service endpoint, for 
+example for `iam` service:
 
 ```
 build/install/cli/bin/cli iam -h
