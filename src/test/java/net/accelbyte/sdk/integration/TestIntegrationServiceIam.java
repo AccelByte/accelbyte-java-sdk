@@ -18,8 +18,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import net.accelbyte.sdk.api.iam.models.AccountCreateUserRequestV4;
-import net.accelbyte.sdk.api.iam.models.AccountCreateUserRequestV4.AuthType;
+import net.accelbyte.sdk.api.iam.models.AccountCreateTestUserRequestV4;
+import net.accelbyte.sdk.api.iam.models.AccountCreateTestUserRequestV4.AuthType;
 import net.accelbyte.sdk.api.iam.models.AccountCreateUserResponseV4;
 import net.accelbyte.sdk.api.iam.models.AccountcommonOverrideRolePermission;
 import net.accelbyte.sdk.api.iam.models.AccountcommonPermission;
@@ -41,7 +41,7 @@ import net.accelbyte.sdk.api.iam.operations.roles.AdminGetRolesV4;
 import net.accelbyte.sdk.api.iam.operations.users.AdminDeleteUserInformationV3;
 import net.accelbyte.sdk.api.iam.operations.users.AdminUpdateUserV3;
 import net.accelbyte.sdk.api.iam.operations.users.PublicCreateUserV3;
-import net.accelbyte.sdk.api.iam.operations.users_v4.PublicCreateUserV4;
+import net.accelbyte.sdk.api.iam.operations.users_v4.PublicCreateTestUserV4;
 import net.accelbyte.sdk.api.iam.operations.users_v4.PublicGetUserPublicInfoByUserIdV4;
 import net.accelbyte.sdk.api.iam.wrappers.OverrideRoleConfigV3;
 import net.accelbyte.sdk.api.iam.wrappers.Roles;
@@ -135,8 +135,8 @@ public class TestIntegrationServiceIam extends TestIntegration {
 
     // CASE Create a user
 
-    final AccountCreateUserRequestV4 createUser =
-        AccountCreateUserRequestV4.builder()
+    final AccountCreateTestUserRequestV4 createUser =
+        AccountCreateTestUserRequestV4.builder()
             .authTypeFromEnum(AuthType.EMAILPASSWD)
             .emailAddress(userEmail)
             .password(userPassword)
@@ -148,8 +148,8 @@ public class TestIntegrationServiceIam extends TestIntegration {
             .build();
 
     final AccountCreateUserResponseV4 createUserResult =
-        usersV4Wrapper.publicCreateUserV4(
-            PublicCreateUserV4.builder().namespace(this.namespace).body(createUser).build());
+        usersV4Wrapper.publicCreateTestUserV4(
+            PublicCreateTestUserV4.builder().namespace(this.namespace).body(createUser).build());
 
     // ESAC
 

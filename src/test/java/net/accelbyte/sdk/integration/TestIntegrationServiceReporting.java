@@ -9,11 +9,11 @@ package net.accelbyte.sdk.integration;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.UUID;
-import net.accelbyte.sdk.api.iam.models.AccountCreateUserRequestV4;
-import net.accelbyte.sdk.api.iam.models.AccountCreateUserRequestV4.AuthType;
+import net.accelbyte.sdk.api.iam.models.AccountCreateTestUserRequestV4;
+import net.accelbyte.sdk.api.iam.models.AccountCreateTestUserRequestV4.AuthType;
 import net.accelbyte.sdk.api.iam.models.AccountCreateUserResponseV4;
 import net.accelbyte.sdk.api.iam.operations.users.AdminDeleteUserInformationV3;
-import net.accelbyte.sdk.api.iam.operations.users_v4.PublicCreateUserV4;
+import net.accelbyte.sdk.api.iam.operations.users_v4.PublicCreateTestUserV4;
 import net.accelbyte.sdk.api.iam.wrappers.Users;
 import net.accelbyte.sdk.api.iam.wrappers.UsersV4;
 import net.accelbyte.sdk.api.reporting.models.RestapiAdminReasonResponse;
@@ -108,11 +108,11 @@ public class TestIntegrationServiceReporting extends TestIntegration {
       final String player2EmailAdd = player2Username + "@test.com";
 
       final AccountCreateUserResponseV4 createUserResult1 =
-          usersV4Wrapper.publicCreateUserV4(
-              PublicCreateUserV4.builder()
+          usersV4Wrapper.publicCreateTestUserV4(
+              PublicCreateTestUserV4.builder()
                   .namespace(namespace)
                   .body(
-                      AccountCreateUserRequestV4.builder()
+                      AccountCreateTestUserRequestV4.builder()
                           .authTypeFromEnum(AuthType.EMAILPASSWD)
                           .emailAddress(player1EmailAdd)
                           .password(player1Password)
@@ -124,11 +124,11 @@ public class TestIntegrationServiceReporting extends TestIntegration {
                           .build())
                   .build());
       final AccountCreateUserResponseV4 createUserResult2 =
-          usersV4Wrapper.publicCreateUserV4(
-              PublicCreateUserV4.builder()
+          usersV4Wrapper.publicCreateTestUserV4(
+              PublicCreateTestUserV4.builder()
                   .namespace(namespace)
                   .body(
-                      AccountCreateUserRequestV4.builder()
+                      AccountCreateTestUserRequestV4.builder()
                           .authTypeFromEnum(AuthType.EMAILPASSWD)
                           .emailAddress(player2EmailAdd)
                           .password(player2Password)
