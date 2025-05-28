@@ -44,14 +44,11 @@ import picocli.CommandLine;
       Lobby.class,
       Loginqueue.class,
       Match2.class,
-      Matchmaking.class,
       Platform.class,
       Qosm.class,
       Reporting.class,
       Seasonpass.class,
       Session.class,
-      Sessionbrowser.class,
-      Sessionhistory.class,
       Social.class,
       Ugc.class
       // API
