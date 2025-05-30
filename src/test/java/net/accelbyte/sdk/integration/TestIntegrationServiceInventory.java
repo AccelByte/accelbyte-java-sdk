@@ -49,6 +49,7 @@ class TestIntegrationServiceInventory extends TestIntegration {
         "java-sdk-code-" + java.util.UUID.randomUUID().toString().substring(0, 4);
 
     // CASE Create inventory configuration
+
     final ApimodelsCreateInventoryConfigurationReq createInventoryConfigBody =
         ApimodelsCreateInventoryConfigurationReq.builder()
             .code(codeInventoryConfig)
@@ -67,9 +68,12 @@ class TestIntegrationServiceInventory extends TestIntegration {
                     .namespace(this.namespace)
                     .build());
 
+    // ESAC
+
     assertNotNull(createInventoryConfigResult);
 
     // CASE Create inventory
+
     final ApimodelsCreateInventoryReq createInventoryBody =
         ApimodelsCreateInventoryReq.builder()
             .inventoryConfigurationCode(createInventoryConfigResult.getCode())
@@ -84,9 +88,12 @@ class TestIntegrationServiceInventory extends TestIntegration {
                     .namespace(this.namespace)
                     .build());
 
+    // ESAC
+
     assertNotNull(createInventoryResult);
 
     // CASE Get Inventory
+
     final ApimodelsInventoryResp getInventoryResult =
         new AdminInventories(sdk)
             .adminGetInventory(
@@ -95,9 +102,12 @@ class TestIntegrationServiceInventory extends TestIntegration {
                     .namespace(this.namespace)
                     .build());
 
+    // ESAC
+
     assertNotNull(getInventoryResult);
 
     // CASE Update inventory
+
     final ApimodelsUpdateInventoryReq updateInventoryBody =
         ApimodelsUpdateInventoryReq.builder().incMaxSlots(2).build();
 
@@ -110,9 +120,12 @@ class TestIntegrationServiceInventory extends TestIntegration {
                     .namespace(this.namespace)
                     .build());
 
+    // ESAC
+
     assertNotNull(updateInventoryResult);
 
     // CASE Delete inventory
+
     final ApimodelsDeleteInventoryReq deleteInventoryBody =
         ApimodelsDeleteInventoryReq.builder().message("delete").build();
 
@@ -124,7 +137,10 @@ class TestIntegrationServiceInventory extends TestIntegration {
                 .namespace(this.namespace)
                 .build());
 
+    // ESAC
+
     // Clean up inventory configuration
+    
     new AdminInventoryConfigurations(sdk)
         .adminDeleteInventoryConfiguration(
             AdminDeleteInventoryConfiguration.builder()
