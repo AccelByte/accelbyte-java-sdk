@@ -60,4 +60,14 @@ public class Development {
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see DevelopmentServerConfigurationPatch
+   */
+  public void developmentServerConfigurationPatch(DevelopmentServerConfigurationPatch input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }

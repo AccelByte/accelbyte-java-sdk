@@ -25,9 +25,16 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ModelUserInvitationV3 extends Model {
 
+  @JsonProperty("acceptanceLink")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String acceptanceLink;
+
   @JsonProperty("additionalData")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String additionalData;
+
+  @JsonProperty("createdAt")
+  private String createdAt;
 
   @JsonProperty("email")
   private String email;
@@ -42,6 +49,10 @@ public class ModelUserInvitationV3 extends Model {
   @JsonProperty("isNewStudio")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean isNewStudio;
+
+  @JsonProperty("languageTag")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String languageTag;
 
   @JsonProperty("namespace")
   @JsonInclude(JsonInclude.Include.NON_NULL)

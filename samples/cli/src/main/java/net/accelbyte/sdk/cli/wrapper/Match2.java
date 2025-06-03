@@ -15,6 +15,7 @@ import net.accelbyte.sdk.cli.api.match2.match_functions.*;
 import net.accelbyte.sdk.cli.api.match2.match_pools.*;
 import net.accelbyte.sdk.cli.api.match2.match_tickets.*;
 import net.accelbyte.sdk.cli.api.match2.operations.*;
+import net.accelbyte.sdk.cli.api.match2.play_feature_flag.*;
 import net.accelbyte.sdk.cli.api.match2.rule_sets.*;
 import picocli.CommandLine.Command;
 
@@ -26,6 +27,9 @@ import picocli.CommandLine.Command;
       GetHealthcheckInfoV1.class,
       AdminGetLogConfig.class,
       AdminPatchUpdateLogConfig.class,
+      AdminGetPlayFeatureFlag.class,
+      AdminUpsertPlayFeatureFlag.class,
+      AdminDeletePlayFeatureFlag.class,
       AdminGetAllConfigV1.class,
       AdminGetConfigV1.class,
       AdminPatchConfigV1.class,

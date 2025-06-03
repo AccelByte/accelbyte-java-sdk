@@ -164,6 +164,8 @@
 ### DLC Wrapper:  [DLC](../../src/main/java/net/accelbyte/sdk/api/platform/wrappers/DLC.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
+| `/platform/admin/namespaces/{namespace}/dlc/config/history` | GET | GetDLCItemConfigHistory | [GetDLCItemConfigHistory](../../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/GetDLCItemConfigHistory.java) | [GetDLCItemConfigHistory](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/GetDLCItemConfigHistory.java) |
+| `/platform/admin/namespaces/{namespace}/dlc/config/history/{id}/restore` | POST | RestoreDLCItemConfigHistory | [RestoreDLCItemConfigHistory](../../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/RestoreDLCItemConfigHistory.java) | [RestoreDLCItemConfigHistory](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/RestoreDLCItemConfigHistory.java) |
 | `/platform/admin/namespaces/{namespace}/dlc/config/item` | GET | GetDLCItemConfig | [GetDLCItemConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/GetDLCItemConfig.java) | [GetDLCItemConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/GetDLCItemConfig.java) |
 | `/platform/admin/namespaces/{namespace}/dlc/config/item` | PUT | UpdateDLCItemConfig | [UpdateDLCItemConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/UpdateDLCItemConfig.java) | [UpdateDLCItemConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/UpdateDLCItemConfig.java) |
 | `/platform/admin/namespaces/{namespace}/dlc/config/item` | DELETE | DeleteDLCItemConfig | [DeleteDLCItemConfig](../../src/main/java/net/accelbyte/sdk/api/platform/operations/dlc/DeleteDLCItemConfig.java) | [DeleteDLCItemConfig](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/dlc/DeleteDLCItemConfig.java) |
@@ -748,6 +750,8 @@
 | `Customization` | [Customization](../../src/main/java/net/accelbyte/sdk/api/platform/models/Customization.java) |
 | `DLCConfigRewardShortInfo` | [DLCConfigRewardShortInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/DLCConfigRewardShortInfo.java) |
 | `DLCItem` | [DLCItem](../../src/main/java/net/accelbyte/sdk/api/platform/models/DLCItem.java) |
+| `DLCItemConfigHistoryInfo` | [DLCItemConfigHistoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/DLCItemConfigHistoryInfo.java) |
+| `DLCItemConfigHistoryResult` | [DLCItemConfigHistoryResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/DLCItemConfigHistoryResult.java) |
 | `DLCItemConfigInfo` | [DLCItemConfigInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/DLCItemConfigInfo.java) |
 | `DLCItemConfigUpdate` | [DLCItemConfigUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/DLCItemConfigUpdate.java) |
 | `DLCRecord` | [DLCRecord](../../src/main/java/net/accelbyte/sdk/api/platform/models/DLCRecord.java) |

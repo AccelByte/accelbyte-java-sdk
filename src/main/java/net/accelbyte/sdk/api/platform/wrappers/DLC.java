@@ -23,6 +23,25 @@ public class DLC {
   }
 
   /**
+   * @see GetDLCItemConfigHistory
+   */
+  public DLCItemConfigHistoryResult getDLCItemConfigHistory(GetDLCItemConfigHistory input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see RestoreDLCItemConfigHistory
+   */
+  public void restoreDLCItemConfigHistory(RestoreDLCItemConfigHistory input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetDLCItemConfig
    */
   public DLCItemConfigInfo getDLCItemConfig(GetDLCItemConfig input) throws Exception {

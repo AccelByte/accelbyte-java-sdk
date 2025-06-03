@@ -1,3 +1,14 @@
+<a name="v0.73.0"></a>
+## [v0.73.0]
+### fix
+- **test:** use create test user endpoint for integration test
+- **:** delete iam client after csm test
+### chore
+- **:** remove mmv1 related apis
+### test
+- **integration:** inventory - adjust code snippet
+
+
 <a name="v0.72.0"></a>
 ## [v0.72.0]
 ### ci

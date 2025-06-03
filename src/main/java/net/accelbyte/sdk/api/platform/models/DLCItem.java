@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class DLCItem extends Model {
 
+  @JsonProperty("autoUpdate")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean autoUpdate;
+
   @JsonProperty("id")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String id;
@@ -32,6 +36,10 @@ public class DLCItem extends Model {
   @JsonProperty("rewards")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<PlatformReward> rewards;
+
+  @JsonProperty("rvn")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer rvn;
 
   @JsonIgnore
   public DLCItem createFromJson(String json) throws JsonProcessingException {

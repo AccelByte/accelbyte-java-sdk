@@ -21,12 +21,17 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicGeneratedUserUploadContentUrl
  *
- * <p>Generate an upload URL for user content. It's valid for 10 minutes. There are 2 kinds of
- * storage limitation per user : maximum file count and maximum file size. The threshold of those
- * limitations is different between upload category that is used. Other detail info:
+ * <p>Generate an upload URL for user content. It's valid for 10 minutes. There are two types of
+ * storage limits per user: maximum file count and maximum total file size. These limits vary
+ * depending on the upload category used.
  *
- * <p>* Action code : 11102 * Default maximum file count per user : 10 files * Default maximum file
- * size per user : 104857600 bytes * Returns : URL data
+ * <p>1. Default category: - Maximum file count per user: 10 files - Maximum total file size per
+ * user: 100MB 2. Reporting category: - Maximum file count per user: 3 files every 1 hour - Maximum
+ * total file size per user: 30MB every 1 hour
+ *
+ * <p>Other detail info:
+ *
+ * <p>* Action code : 11102 * Returns : URL data
  */
 @Getter
 @Setter

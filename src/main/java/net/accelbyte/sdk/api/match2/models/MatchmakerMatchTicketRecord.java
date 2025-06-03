@@ -28,6 +28,9 @@ public class MatchmakerMatchTicketRecord extends Model {
   @JsonProperty("CreatedAt")
   private String createdAt;
 
+  @JsonProperty("ExpiredAt")
+  private String expiredAt;
+
   @JsonProperty("IsActive")
   private Boolean isActive;
 

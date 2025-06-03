@@ -81,6 +81,11 @@ public class AdminSearchUserV3 implements Callable<Integer> {
   String roleIds;
 
   @Option(
+      names = {"--selectedFields"},
+      description = "selectedFields")
+  String selectedFields;
+
+  @Option(
       names = {"--skipLoginQueue"},
       description = "skipLoginQueue")
   Boolean skipLoginQueue;
@@ -133,6 +138,7 @@ public class AdminSearchUserV3 implements Callable<Integer> {
               .platformId(platformId)
               .query(query)
               .roleIds(roleIds)
+              .selectedFields(selectedFields)
               .skipLoginQueue(skipLoginQueue)
               .startDate(startDate)
               .tagIds(tagIds)

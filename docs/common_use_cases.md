@@ -157,6 +157,172 @@ final UserProfilePrivateInfo deleteUserProfileResult =
     userProfileWrapper.deleteUserProfile(
         DeleteUserProfile.builder().namespace(this.namespace).userId(userId).build());
 ```
+## Challenge
+
+Source: [TestIntegrationServiceChallenge.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceChallenge.java)
+
+### Create a new challenge
+
+```java
+final ModelCreateChallengeRequest newChallengeRequest =
+    ModelCreateChallengeRequest.builder()
+        .code(challengeCode)
+        .description("")
+        .name(challengeName)
+        .assignmentRuleFromEnum(AssignmentRule.FIXED)
+        .goalsVisibilityFromEnum(GoalsVisibility.SHOWALL)
+        .rotationFromEnum(Rotation.DAILY)
+        .startDate(startTime)
+        .build();
+
+final ModelChallengeResponse challengeResult =
+    challengeConfigWrapper.adminCreateChallenge(
+        AdminCreateChallenge.builder()
+            .namespace(this.namespace)
+            .body(newChallengeRequest)
+            .build());
+```
+
+### Get challenge
+
+```java
+final ModelChallengeResponse getChallengeResult =
+    challengeConfigWrapper.adminGetChallenge(
+        AdminGetChallenge.builder()
+            .namespace(this.namespace)
+            .challengeCode(challengeCode)
+            .build());
+```
+
+### Update a challenge
+
+```java
+final ModelUpdateChallengeRequest updateRequest =
+    ModelUpdateChallengeRequest.builder().name(updatedChallengeName).build();
+
+final ModelChallengeResponse updateChallengeResult =
+    challengeConfigWrapper.adminUpdateChallenge(
+        AdminUpdateChallenge.builder()
+            .namespace(this.namespace)
+            .challengeCode(challengeCode)
+            .body(updateRequest)
+            .build());
+```
+
+### Create a goal
+
+```java
+final ModelCreateGoalRequest newGoalRequest =
+    ModelCreateGoalRequest.builder()
+        .code(goalCode)
+        .name(goalName)
+        .description("")
+        .schedule(ModelGoalScheduleRequest.builder().startTime(startTime).order(1).build())
+        .requirementGroups(
+            Collections.singletonList(
+                ModelRequirement.builder()
+                    .operatorFromEnum(Operator.AND)
+                    .predicates(
+                        Collections.singletonList(
+                            ModelPredicate.builder()
+                                .matcherFromEnum(Matcher.EQUAL)
+                                .parameterTypeFromEnum(ParameterType.USERACCOUNT)
+                                .parameterName("userAccountVerified")
+                                .targetValue(1.0f)
+                                .build()))
+                    .build()))
+        .build();
+
+final ModelGoalResponse newGoalResponse =
+    goalConfigWrapper.adminCreateGoal(
+        AdminCreateGoal.builder()
+            .namespace(this.namespace)
+            .challengeCode(challengeCode)
+            .body(newGoalRequest)
+            .build());
+assertNotNull(newGoalResponse);
+```
+
+### delete a goal
+
+```java
+goalConfigWrapper.adminDeleteGoal(
+    AdminDeleteGoal.builder()
+        .namespace(this.namespace)
+        .challengeCode(challengeCode)
+        .code(goalCode)
+        .build());
+```
+
+### Delete a challenge
+
+```java
+challengeConfigWrapper.adminDeleteChallenge(
+    AdminDeleteChallenge.builder()
+        .namespace(this.namespace)
+        .challengeCode(challengeCode)
+        .build());
+```
+## Chat
+
+Source: [TestIntegrationServiceChat.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceChat.java)
+
+### Add word to profanity filter
+
+```java
+final AdminProfanityCreate adminProfanityCreateOp =
+    AdminProfanityCreate.builder()
+        .namespace(namespace)
+        .body(
+            ModelsDictionaryInsertRequest.builder()
+                .falseNegative(new ArrayList<String>())
+                .falsePositive(new ArrayList<String>())
+                .word(profanityWord1)
+                .wordType("FALSEPOSITIVE")
+                .build())
+        .build();
+
+final ModelsDictionary adminProfanityCreateResponse =
+    profanityWrapper.adminProfanityCreate(adminProfanityCreateOp);
+```
+
+### Update word in profanity filter
+
+```java
+final AdminProfanityUpdate adminProfanityUpdateOp =
+    AdminProfanityUpdate.builder()
+        .id(profanityId)
+        .namespace(namespace)
+        .body(
+            ModelsDictionaryUpdateRequest.builder()
+                .falseNegative(new ArrayList<String>())
+                .falsePositive(new ArrayList<String>())
+                .word(profanityWord2)
+                .wordType("FALSEPOSITIVE")
+                .build())
+        .build();
+
+profanityWrapper.adminProfanityUpdate(adminProfanityUpdateOp);
+```
+
+### Query word in profanity filter
+
+```java
+final AdminProfanityQuery adminProfanityQueryOp =
+    AdminProfanityQuery.builder().namespace(namespace).startWith(profanityPrefix).build();
+
+final ModelsDictionaryQueryResult adminProfanityQueryResponse =
+    profanityWrapper.adminProfanityQuery(adminProfanityQueryOp);
+```
+
+### Delete word from profanity filter
+
+```java
+final AdminProfanityDelete adminProfanityDeleteOp =
+    AdminProfanityDelete.builder().id(profanityId).namespace(namespace).build();
+
+profanityWrapper.adminProfanityDelete(adminProfanityDeleteOp);
+```
 ## CloudSave
 
 Source: [TestIntegrationServiceCloudSave.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceCloudSave.java)
@@ -341,10 +507,7 @@ final UpdateSecretV2 updateSecretV2Op =
         .app(EXTEND_APP_NAME)
         .configId(secretConfigId)
         .namespace(namespace)
-        .body(
-            ApimodelUpdateSecretConfigurationV2Request.builder()
-                .value("silence")
-                .build())
+        .body(ApimodelUpdateSecretConfigurationV2Request.builder().value("silence").build())
         .build();
 
 final ApimodelUpdateConfigurationV2Response updateSecretV2Res =
@@ -598,8 +761,8 @@ final ModelUserCreateResponseV3 createUserV3Result =
 ### Create a user
 
 ```java
-final AccountCreateUserRequestV4 createUser =
-    AccountCreateUserRequestV4.builder()
+final AccountCreateTestUserRequestV4 createUser =
+    AccountCreateTestUserRequestV4.builder()
         .authTypeFromEnum(AuthType.EMAILPASSWD)
         .emailAddress(userEmail)
         .password(userPassword)
@@ -611,8 +774,8 @@ final AccountCreateUserRequestV4 createUser =
         .build();
 
 final AccountCreateUserResponseV4 createUserResult =
-    usersV4Wrapper.publicCreateUserV4(
-        PublicCreateUserV4.builder().namespace(this.namespace).body(createUser).build());
+    usersV4Wrapper.publicCreateTestUserV4(
+        PublicCreateTestUserV4.builder().namespace(this.namespace).body(createUser).build());
 ```
 
 ### Get a user
@@ -646,6 +809,92 @@ final ModelUserResponseV3 updateUserResult =
 ```java
 usersWrapper.adminDeleteUserInformationV3(
     AdminDeleteUserInformationV3.builder().namespace(this.namespace).userId(userId).build());
+```
+## Inventory
+
+Source: [TestIntegrationServiceInventory.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceInventory.java)
+
+### Create inventory configuration
+
+```java
+final ApimodelsCreateInventoryConfigurationReq createInventoryConfigBody =
+    ApimodelsCreateInventoryConfigurationReq.builder()
+        .code(codeInventoryConfig)
+        .description("testing")
+        .initialMaxSlots(3)
+        .maxInstancesPerUser(2)
+        .maxUpgradeSlots(5)
+        .name(codeInventoryConfig)
+        .build();
+
+final ApimodelsInventoryConfigurationResp createInventoryConfigResult =
+    new AdminInventoryConfigurations(sdk)
+        .adminCreateInventoryConfiguration(
+            AdminCreateInventoryConfiguration.builder()
+                .body(createInventoryConfigBody)
+                .namespace(this.namespace)
+                .build());
+```
+
+### Create inventory
+
+```java
+final ApimodelsCreateInventoryReq createInventoryBody =
+    ApimodelsCreateInventoryReq.builder()
+        .inventoryConfigurationCode(createInventoryConfigResult.getCode())
+        .userId(userId)
+        .build();
+
+final ApimodelsInventoryResp createInventoryResult =
+    new AdminInventories(sdk)
+        .adminCreateInventory(
+            AdminCreateInventory.builder()
+                .body(createInventoryBody)
+                .namespace(this.namespace)
+                .build());
+```
+
+### Get Inventory
+
+```java
+final ApimodelsInventoryResp getInventoryResult =
+    new AdminInventories(sdk)
+        .adminGetInventory(
+            AdminGetInventory.builder()
+                .inventoryId(createInventoryResult.getId())
+                .namespace(this.namespace)
+                .build());
+```
+
+### Update inventory
+
+```java
+final ApimodelsUpdateInventoryReq updateInventoryBody =
+    ApimodelsUpdateInventoryReq.builder().incMaxSlots(2).build();
+
+final ApimodelsInventoryResp updateInventoryResult =
+    new AdminInventories(sdk)
+        .adminUpdateInventory(
+            AdminUpdateInventory.builder()
+                .body(updateInventoryBody)
+                .inventoryId(createInventoryResult.getId())
+                .namespace(this.namespace)
+                .build());
+```
+
+### Delete inventory
+
+```java
+final ApimodelsDeleteInventoryReq deleteInventoryBody =
+    ApimodelsDeleteInventoryReq.builder().message("delete").build();
+
+new AdminInventories(sdk)
+    .deleteInventory(
+        DeleteInventory.builder()
+            .body(deleteInventoryBody)
+            .inventoryId(createInventoryResult.getId())
+            .namespace(this.namespace)
+            .build());
 ```
 ## Leaderboard
 

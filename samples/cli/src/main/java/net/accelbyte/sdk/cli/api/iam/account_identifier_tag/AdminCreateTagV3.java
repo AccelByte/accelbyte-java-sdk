@@ -6,12 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.iam.account_idenfifier_tag;
+package net.accelbyte.sdk.cli.api.iam.account_identifier_tag;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.iam.models.*;
-import net.accelbyte.sdk.api.iam.wrappers.AccountIdenfifierTag;
+import net.accelbyte.sdk.api.iam.wrappers.AccountIdentifierTag;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -24,10 +25,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "adminDeleteTagV3", mixinStandardHelpOptions = true)
-public class AdminDeleteTagV3 implements Callable<Integer> {
+@Command(name = "adminCreateTagV3", mixinStandardHelpOptions = true)
+public class AdminCreateTagV3 implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(AdminDeleteTagV3.class);
+  private static final Logger log = LogManager.getLogger(AdminCreateTagV3.class);
 
   @Option(
       names = {"--namespace"},
@@ -35,9 +36,9 @@ public class AdminDeleteTagV3 implements Callable<Integer> {
   String namespace;
 
   @Option(
-      names = {"--tagId"},
-      description = "tagId")
-  String tagId;
+      names = {"--body"},
+      description = "body")
+  String body;
 
   @Option(
       names = {"--logging"},
@@ -45,7 +46,7 @@ public class AdminDeleteTagV3 implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new AdminDeleteTagV3()).execute(args);
+    int exitCode = new CommandLine(new AdminCreateTagV3()).execute(args);
     System.exit(exitCode);
   }
 
@@ -59,14 +60,16 @@ public class AdminDeleteTagV3 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final AccountIdenfifierTag wrapper = new AccountIdenfifierTag(sdk);
-      final net.accelbyte.sdk.api.iam.operations.account_idenfifier_tag.AdminDeleteTagV3 operation =
-          net.accelbyte.sdk.api.iam.operations.account_idenfifier_tag.AdminDeleteTagV3.builder()
+      final AccountIdentifierTag wrapper = new AccountIdentifierTag(sdk);
+      final net.accelbyte.sdk.api.iam.operations.account_identifier_tag.AdminCreateTagV3 operation =
+          net.accelbyte.sdk.api.iam.operations.account_identifier_tag.AdminCreateTagV3.builder()
               .namespace(namespace)
-              .tagId(tagId)
+              .body(new ObjectMapper().readValue(body, ModelTagCreateRequestV3.class))
               .build();
-      wrapper.adminDeleteTagV3(operation);
-      log.info("Operation successful");
+      final AccountcommonTagResponse response = wrapper.adminCreateTagV3(operation);
+      final String responseString =
+          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
+      log.info("Operation successful\n{}", responseString);
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

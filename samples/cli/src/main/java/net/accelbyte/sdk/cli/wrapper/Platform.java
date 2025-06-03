@@ -107,6 +107,8 @@ import picocli.CommandLine.Command;
       DeleteCurrency.class,
       GetCurrencyConfig.class,
       GetCurrencySummary.class,
+      GetDLCItemConfigHistory.class,
+      RestoreDLCItemConfigHistory.class,
       GetDLCItemConfig.class,
       UpdateDLCItemConfig.class,
       DeleteDLCItemConfig.class,

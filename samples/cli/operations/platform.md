@@ -438,6 +438,22 @@ $ build/install/cli/bin/cli platform getCurrencySummary \
     --namespace <namespace value>
 ```
 
+### Operation GetDLCItemConfigHistory
+
+```sh
+$ build/install/cli/bin/cli platform getDLCItemConfigHistory \
+    --namespace <namespace value> \
+    --dlcId <dlcId value>
+```
+
+### Operation RestoreDLCItemConfigHistory
+
+```sh
+$ build/install/cli/bin/cli platform restoreDLCItemConfigHistory \
+    --id <id value> \
+    --namespace <namespace value>
+```
+
 ### Operation GetDLCItemConfig
 
 ```sh

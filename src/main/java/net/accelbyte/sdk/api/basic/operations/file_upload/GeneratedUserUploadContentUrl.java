@@ -23,8 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Generate an upload URL for user content. It's valid for 10 minutes. Other detail info:
  *
- * <p>* Action code : 11102 * Default maximum file count per user : 10 files * Default maximum file
- * size per user : 104857600 bytes * Returns : URL data
+ * <p>* Action code : 11102 * Returns : URL data
  */
 @Getter
 @Setter

@@ -6,13 +6,12 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.iam.account_idenfifier_tag;
+package net.accelbyte.sdk.cli.api.match2.play_feature_flag;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
-import net.accelbyte.sdk.api.iam.models.*;
-import net.accelbyte.sdk.api.iam.wrappers.AccountIdenfifierTag;
+import net.accelbyte.sdk.api.match2.models.*;
+import net.accelbyte.sdk.api.match2.wrappers.PlayFeatureFlag;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,10 +24,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "adminUpdateTagV3", mixinStandardHelpOptions = true)
-public class AdminUpdateTagV3 implements Callable<Integer> {
+@Command(name = "adminDeletePlayFeatureFlag", mixinStandardHelpOptions = true)
+public class AdminDeletePlayFeatureFlag implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(AdminUpdateTagV3.class);
+  private static final Logger log = LogManager.getLogger(AdminDeletePlayFeatureFlag.class);
 
   @Option(
       names = {"--namespace"},
@@ -36,22 +35,12 @@ public class AdminUpdateTagV3 implements Callable<Integer> {
   String namespace;
 
   @Option(
-      names = {"--tagId"},
-      description = "tagId")
-  String tagId;
-
-  @Option(
-      names = {"--body"},
-      description = "body")
-  String body;
-
-  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new AdminUpdateTagV3()).execute(args);
+    int exitCode = new CommandLine(new AdminDeletePlayFeatureFlag()).execute(args);
     System.exit(exitCode);
   }
 
@@ -65,17 +54,15 @@ public class AdminUpdateTagV3 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final AccountIdenfifierTag wrapper = new AccountIdenfifierTag(sdk);
-      final net.accelbyte.sdk.api.iam.operations.account_idenfifier_tag.AdminUpdateTagV3 operation =
-          net.accelbyte.sdk.api.iam.operations.account_idenfifier_tag.AdminUpdateTagV3.builder()
-              .namespace(namespace)
-              .tagId(tagId)
-              .body(new ObjectMapper().readValue(body, ModelTagUpdateRequestV3.class))
-              .build();
-      final AccountcommonTagResponse response = wrapper.adminUpdateTagV3(operation);
-      final String responseString =
-          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-      log.info("Operation successful\n{}", responseString);
+      final PlayFeatureFlag wrapper = new PlayFeatureFlag(sdk);
+      final net.accelbyte.sdk.api.match2.operations.play_feature_flag.AdminDeletePlayFeatureFlag
+          operation =
+              net.accelbyte.sdk.api.match2.operations.play_feature_flag.AdminDeletePlayFeatureFlag
+                  .builder()
+                  .namespace(namespace)
+                  .build();
+      wrapper.adminDeletePlayFeatureFlag(operation);
+      log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

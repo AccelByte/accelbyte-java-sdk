@@ -20,6 +20,13 @@
 | `/match2/v1/config/namespaces/{namespace}` | GET | AdminGetConfigV1 | [AdminGetConfigV1](../../src/main/java/net/accelbyte/sdk/api/match2/operations/config/AdminGetConfigV1.java) | [AdminGetConfigV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/config/AdminGetConfigV1.java) |
 | `/match2/v1/config/namespaces/{namespace}` | PATCH | AdminPatchConfigV1 | [AdminPatchConfigV1](../../src/main/java/net/accelbyte/sdk/api/match2/operations/config/AdminPatchConfigV1.java) | [AdminPatchConfigV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/config/AdminPatchConfigV1.java) |
 
+### PlayFeatureFlag Wrapper:  [PlayFeatureFlag](../../src/main/java/net/accelbyte/sdk/api/match2/wrappers/PlayFeatureFlag.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/match2/v1/admin/namespaces/{namespace}/playfeatureflag` | GET | AdminGetPlayFeatureFlag | [AdminGetPlayFeatureFlag](../../src/main/java/net/accelbyte/sdk/api/match2/operations/play_feature_flag/AdminGetPlayFeatureFlag.java) | [AdminGetPlayFeatureFlag](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/play_feature_flag/AdminGetPlayFeatureFlag.java) |
+| `/match2/v1/admin/namespaces/{namespace}/playfeatureflag` | POST | AdminUpsertPlayFeatureFlag | [AdminUpsertPlayFeatureFlag](../../src/main/java/net/accelbyte/sdk/api/match2/operations/play_feature_flag/AdminUpsertPlayFeatureFlag.java) | [AdminUpsertPlayFeatureFlag](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/play_feature_flag/AdminUpsertPlayFeatureFlag.java) |
+| `/match2/v1/admin/namespaces/{namespace}/playfeatureflag` | DELETE | AdminDeletePlayFeatureFlag | [AdminDeletePlayFeatureFlag](../../src/main/java/net/accelbyte/sdk/api/match2/operations/play_feature_flag/AdminDeletePlayFeatureFlag.java) | [AdminDeletePlayFeatureFlag](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/match2/play_feature_flag/AdminDeletePlayFeatureFlag.java) |
+
 ### Environment-Variables Wrapper:  [EnvironmentVariables](../../src/main/java/net/accelbyte/sdk/api/match2/wrappers/EnvironmentVariables.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -129,6 +136,7 @@
 | `models.DSInformation` | [ModelsDSInformation](../../src/main/java/net/accelbyte/sdk/api/match2/models/ModelsDSInformation.java) |
 | `models.GameSession` | [ModelsGameSession](../../src/main/java/net/accelbyte/sdk/api/match2/models/ModelsGameSession.java) |
 | `models.Pagination` | [ModelsPagination](../../src/main/java/net/accelbyte/sdk/api/match2/models/ModelsPagination.java) |
+| `models.PlayFeatureFlag` | [ModelsPlayFeatureFlag](../../src/main/java/net/accelbyte/sdk/api/match2/models/ModelsPlayFeatureFlag.java) |
 | `models.Server` | [ModelsServer](../../src/main/java/net/accelbyte/sdk/api/match2/models/ModelsServer.java) |
 | `models.User` | [ModelsUser](../../src/main/java/net/accelbyte/sdk/api/match2/models/ModelsUser.java) |
 | `player.PlayerData` | [PlayerPlayerData](../../src/main/java/net/accelbyte/sdk/api/match2/models/PlayerPlayerData.java) |

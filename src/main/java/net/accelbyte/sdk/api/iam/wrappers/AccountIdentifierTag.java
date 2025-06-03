@@ -9,15 +9,15 @@
 package net.accelbyte.sdk.api.iam.wrappers;
 
 import net.accelbyte.sdk.api.iam.models.*;
-import net.accelbyte.sdk.api.iam.operations.account_idenfifier_tag.*;
+import net.accelbyte.sdk.api.iam.operations.account_identifier_tag.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponse;
 
-public class AccountIdenfifierTag {
+public class AccountIdentifierTag {
 
   private AccelByteSDK sdk;
 
-  public AccountIdenfifierTag(AccelByteSDK sdk) {
+  public AccountIdentifierTag(AccelByteSDK sdk) {
     this.sdk = sdk;
   }
 

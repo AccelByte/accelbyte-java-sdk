@@ -6,13 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.iam.account_idenfifier_tag;
+package net.accelbyte.sdk.cli.api.match2.play_feature_flag;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
-import net.accelbyte.sdk.api.iam.models.*;
-import net.accelbyte.sdk.api.iam.wrappers.AccountIdenfifierTag;
+import net.accelbyte.sdk.api.match2.models.*;
+import net.accelbyte.sdk.api.match2.wrappers.PlayFeatureFlag;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,10 +25,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "adminCreateTagV3", mixinStandardHelpOptions = true)
-public class AdminCreateTagV3 implements Callable<Integer> {
+@Command(name = "adminUpsertPlayFeatureFlag", mixinStandardHelpOptions = true)
+public class AdminUpsertPlayFeatureFlag implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(AdminCreateTagV3.class);
+  private static final Logger log = LogManager.getLogger(AdminUpsertPlayFeatureFlag.class);
 
   @Option(
       names = {"--namespace"},
@@ -46,7 +46,7 @@ public class AdminCreateTagV3 implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new AdminCreateTagV3()).execute(args);
+    int exitCode = new CommandLine(new AdminUpsertPlayFeatureFlag()).execute(args);
     System.exit(exitCode);
   }
 
@@ -60,13 +60,15 @@ public class AdminCreateTagV3 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final AccountIdenfifierTag wrapper = new AccountIdenfifierTag(sdk);
-      final net.accelbyte.sdk.api.iam.operations.account_idenfifier_tag.AdminCreateTagV3 operation =
-          net.accelbyte.sdk.api.iam.operations.account_idenfifier_tag.AdminCreateTagV3.builder()
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ModelTagCreateRequestV3.class))
-              .build();
-      final AccountcommonTagResponse response = wrapper.adminCreateTagV3(operation);
+      final PlayFeatureFlag wrapper = new PlayFeatureFlag(sdk);
+      final net.accelbyte.sdk.api.match2.operations.play_feature_flag.AdminUpsertPlayFeatureFlag
+          operation =
+              net.accelbyte.sdk.api.match2.operations.play_feature_flag.AdminUpsertPlayFeatureFlag
+                  .builder()
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, ModelsPlayFeatureFlag.class))
+                  .build();
+      final ModelsPlayFeatureFlag response = wrapper.adminUpsertPlayFeatureFlag(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -140,7 +140,7 @@ class TestIntegrationServiceInventory extends TestIntegration {
     // ESAC
 
     // Clean up inventory configuration
-    
+
     new AdminInventoryConfigurations(sdk)
         .adminDeleteInventoryConfiguration(
             AdminDeleteInventoryConfiguration.builder()

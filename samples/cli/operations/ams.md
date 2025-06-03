@@ -129,6 +129,15 @@ $ build/install/cli/bin/cli ams developmentServerConfigurationDelete \
     --namespace <namespace value>
 ```
 
+### Operation DevelopmentServerConfigurationPatch
+
+```sh
+$ build/install/cli/bin/cli ams developmentServerConfigurationPatch \
+    --developmentServerConfigID <developmentServerConfigID value> \
+    --namespace <namespace value> \
+    --body <json string for request body>
+```
+
 ### Operation FleetList
 
 ```sh

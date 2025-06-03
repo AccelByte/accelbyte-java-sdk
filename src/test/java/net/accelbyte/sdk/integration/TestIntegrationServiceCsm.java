@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 import net.accelbyte.sdk.api.csm.models.ApimodelAppItem;
 import net.accelbyte.sdk.api.csm.models.ApimodelCPURequest;
 import net.accelbyte.sdk.api.csm.models.ApimodelCreateAppV2Request;
+import net.accelbyte.sdk.api.csm.models.ApimodelGetListOfConfigurationsV2DataItem;
 import net.accelbyte.sdk.api.csm.models.ApimodelGetListOfConfigurationsV2Response;
 import net.accelbyte.sdk.api.csm.models.ApimodelMemoryRequest;
 import net.accelbyte.sdk.api.csm.models.ApimodelSaveConfigurationV2Request;
@@ -15,7 +16,6 @@ import net.accelbyte.sdk.api.csm.models.ApimodelSaveSecretConfigurationV2Request
 import net.accelbyte.sdk.api.csm.models.ApimodelUpdateConfigurationV2Request;
 import net.accelbyte.sdk.api.csm.models.ApimodelUpdateConfigurationV2Response;
 import net.accelbyte.sdk.api.csm.models.ApimodelUpdateSecretConfigurationV2Request;
-import net.accelbyte.sdk.api.csm.models.ApimodelGetListOfConfigurationsV2DataItem;
 import net.accelbyte.sdk.api.csm.operations.app_v2.CreateAppV2;
 import net.accelbyte.sdk.api.csm.operations.app_v2.DeleteAppV2;
 import net.accelbyte.sdk.api.csm.operations.app_v2.GetAppV2;
@@ -29,8 +29,8 @@ import net.accelbyte.sdk.api.csm.operations.configuration_v2.UpdateSecretV2;
 import net.accelbyte.sdk.api.csm.operations.configuration_v2.UpdateVariableV2;
 import net.accelbyte.sdk.api.csm.wrappers.AppV2;
 import net.accelbyte.sdk.api.csm.wrappers.ConfigurationV2;
-import net.accelbyte.sdk.api.iam.wrappers.Clients;
 import net.accelbyte.sdk.api.iam.operations.clients.AdminDeleteClientV3;
+import net.accelbyte.sdk.api.iam.wrappers.Clients;
 import net.accelbyte.sdk.core.HttpResponseException;
 import org.junit.jupiter.api.*;
 
@@ -40,7 +40,7 @@ import org.junit.jupiter.api.*;
 public class TestIntegrationServiceCsm extends TestIntegration {
   public String EXTEND_APP_NAME = "test-java-app-integration";
 
-  private String getExtendAppClientId(String appName) throws Exception {    
+  private String getExtendAppClientId(String appName) throws Exception {
 
     final ConfigurationV2 wrapper = new ConfigurationV2(sdk);
 
@@ -49,10 +49,9 @@ public class TestIntegrationServiceCsm extends TestIntegration {
 
     final ApimodelGetListOfConfigurationsV2Response getListOfSecretsV2Res =
         wrapper.getListOfSecretsV2(getListOfSecretsV2Op);
-        
-    if (getListOfSecretsV2Res == null)
-      throw new Exception("getListOfSecretsV2 returns NULL");
-    
+
+    if (getListOfSecretsV2Res == null) throw new Exception("getListOfSecretsV2 returns NULL");
+
     String clientId = "";
     for (ApimodelGetListOfConfigurationsV2DataItem item : getListOfSecretsV2Res.getData()) {
       final String configName = item.getConfigName().trim().toUpperCase();
@@ -66,14 +65,10 @@ public class TestIntegrationServiceCsm extends TestIntegration {
   }
 
   private void deleteOAuthClient(String clientId) throws Exception {
-    if (clientId != "") {      
+    if (clientId != "") {
       final Clients clientsWrapper = new Clients(sdk);
       clientsWrapper.adminDeleteClientV3(
-        AdminDeleteClientV3.builder()
-          .namespace(namespace)
-          .clientId(clientId)
-          .build()
-      );
+          AdminDeleteClientV3.builder().namespace(namespace).clientId(clientId).build());
     }
   }
 
@@ -99,7 +94,7 @@ public class TestIntegrationServiceCsm extends TestIntegration {
       final String appClientId = getExtendAppClientId(EXTEND_APP_NAME);
 
       appV2Wrapper.deleteAppV2(
-          DeleteAppV2.builder().app(EXTEND_APP_NAME).namespace(namespace).forced("true").build());    
+          DeleteAppV2.builder().app(EXTEND_APP_NAME).namespace(namespace).forced("true").build());
 
       deleteOAuthClient(appClientId);
     }

@@ -6,13 +6,12 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.iam.account_idenfifier_tag;
+package net.accelbyte.sdk.cli.api.iam.account_identifier_tag;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
 import net.accelbyte.sdk.api.iam.models.*;
-import net.accelbyte.sdk.api.iam.wrappers.AccountIdenfifierTag;
+import net.accelbyte.sdk.api.iam.wrappers.AccountIdentifierTag;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,10 +24,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "adminQueryTagV3", mixinStandardHelpOptions = true)
-public class AdminQueryTagV3 implements Callable<Integer> {
+@Command(name = "adminDeleteTagV3", mixinStandardHelpOptions = true)
+public class AdminDeleteTagV3 implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(AdminQueryTagV3.class);
+  private static final Logger log = LogManager.getLogger(AdminDeleteTagV3.class);
 
   @Option(
       names = {"--namespace"},
@@ -36,19 +35,9 @@ public class AdminQueryTagV3 implements Callable<Integer> {
   String namespace;
 
   @Option(
-      names = {"--limit"},
-      description = "limit")
-  Integer limit;
-
-  @Option(
-      names = {"--offset"},
-      description = "offset")
-  Integer offset;
-
-  @Option(
-      names = {"--tagName"},
-      description = "tagName")
-  String tagName;
+      names = {"--tagId"},
+      description = "tagId")
+  String tagId;
 
   @Option(
       names = {"--logging"},
@@ -56,7 +45,7 @@ public class AdminQueryTagV3 implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new AdminQueryTagV3()).execute(args);
+    int exitCode = new CommandLine(new AdminDeleteTagV3()).execute(args);
     System.exit(exitCode);
   }
 
@@ -70,18 +59,14 @@ public class AdminQueryTagV3 implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final AccountIdenfifierTag wrapper = new AccountIdenfifierTag(sdk);
-      final net.accelbyte.sdk.api.iam.operations.account_idenfifier_tag.AdminQueryTagV3 operation =
-          net.accelbyte.sdk.api.iam.operations.account_idenfifier_tag.AdminQueryTagV3.builder()
+      final AccountIdentifierTag wrapper = new AccountIdentifierTag(sdk);
+      final net.accelbyte.sdk.api.iam.operations.account_identifier_tag.AdminDeleteTagV3 operation =
+          net.accelbyte.sdk.api.iam.operations.account_identifier_tag.AdminDeleteTagV3.builder()
               .namespace(namespace)
-              .limit(limit)
-              .offset(offset)
-              .tagName(tagName)
+              .tagId(tagId)
               .build();
-      final AccountcommonTagsGetResponseV3 response = wrapper.adminQueryTagV3(operation);
-      final String responseString =
-          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
-      log.info("Operation successful\n{}", responseString);
+      wrapper.adminDeleteTagV3(operation);
+      log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

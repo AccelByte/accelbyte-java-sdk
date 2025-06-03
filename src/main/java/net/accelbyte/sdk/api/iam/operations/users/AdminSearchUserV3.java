@@ -37,6 +37,12 @@ import net.accelbyte.sdk.core.util.Helper;
  * platformDisplayName they have linked to, example value: platformUserId or platformDisplayName. -
  * If limit is not defined, The default limit is 100.
  *
+ * <p>GraphQL-Like Querying: - By default, the API only returns the minimum fields -> [displayName,
+ * authType, createdAt, uniqueDisplayName, deletionStatus, enabled, emailAddress, skipLoginQueue,
+ * testAccount] - To include additional fields in the response, specify them in the request params.
+ * - Supported fields: [country, emailVerified, avatarUrl, enabled] - Note: If a value is not in the
+ * allowed list, the API will ignore it.
+ *
  * <p>In Multi Tenant mode :
  *
  * <p>- If super admin search in super admin namespace, the result will be all game admin user - If
@@ -71,6 +77,7 @@ public class AdminSearchUserV3 extends Operation {
   private String platformId;
   private String query;
   private String roleIds;
+  private String selectedFields;
   private Boolean skipLoginQueue;
   private String startDate;
   private String tagIds;
@@ -93,6 +100,7 @@ public class AdminSearchUserV3 extends Operation {
       String platformId,
       String query,
       String roleIds,
+      String selectedFields,
       Boolean skipLoginQueue,
       String startDate,
       String tagIds,
@@ -107,6 +115,7 @@ public class AdminSearchUserV3 extends Operation {
     this.platformId = platformId;
     this.query = query;
     this.roleIds = roleIds;
+    this.selectedFields = selectedFields;
     this.skipLoginQueue = skipLoginQueue;
     this.startDate = startDate;
     this.tagIds = tagIds;
@@ -139,6 +148,8 @@ public class AdminSearchUserV3 extends Operation {
     queryParams.put("platformId", this.platformId == null ? null : Arrays.asList(this.platformId));
     queryParams.put("query", this.query == null ? null : Arrays.asList(this.query));
     queryParams.put("roleIds", this.roleIds == null ? null : Arrays.asList(this.roleIds));
+    queryParams.put(
+        "selectedFields", this.selectedFields == null ? null : Arrays.asList(this.selectedFields));
     queryParams.put(
         "skipLoginQueue",
         this.skipLoginQueue == null ? null : Arrays.asList(String.valueOf(this.skipLoginQueue)));
@@ -180,6 +191,7 @@ public class AdminSearchUserV3 extends Operation {
     result.put("platformId", "None");
     result.put("query", "None");
     result.put("roleIds", "None");
+    result.put("selectedFields", "None");
     result.put("skipLoginQueue", "None");
     result.put("startDate", "None");
     result.put("tagIds", "None");

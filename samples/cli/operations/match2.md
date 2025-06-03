@@ -25,6 +25,28 @@ $ build/install/cli/bin/cli match2 adminPatchUpdateLogConfig \
     --body <json string for request body>
 ```
 
+### Operation AdminGetPlayFeatureFlag
+
+```sh
+$ build/install/cli/bin/cli match2 adminGetPlayFeatureFlag \
+    --namespace <namespace value>
+```
+
+### Operation AdminUpsertPlayFeatureFlag
+
+```sh
+$ build/install/cli/bin/cli match2 adminUpsertPlayFeatureFlag \
+    --namespace <namespace value> \
+    --body <json string for request body>
+```
+
+### Operation AdminDeletePlayFeatureFlag
+
+```sh
+$ build/install/cli/bin/cli match2 adminDeletePlayFeatureFlag \
+    --namespace <namespace value>
+```
+
 ### Operation AdminGetAllConfigV1
 
 ```sh

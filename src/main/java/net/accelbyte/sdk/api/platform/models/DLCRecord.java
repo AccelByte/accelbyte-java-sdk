@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class DLCRecord extends Model {
 
+  @JsonProperty("dlcRewardVersion")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer dlcRewardVersion;
+
   @JsonProperty("entitlementOriginSyncResult")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<EntitlementOriginSyncResult> entitlementOriginSyncResult;
