@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * Copyright (c) 2022-2025 AccelByte Inc. All Rights Reserved
  * This is licensed software from AccelByte Inc, for limitations
  * and restrictions contact your company contract manager.
  */
@@ -34,6 +34,7 @@ import net.accelbyte.sdk.api.iam.models.ModelUserCreateResponseV3;
 import net.accelbyte.sdk.api.iam.models.ModelUserPublicInfoResponseV4;
 import net.accelbyte.sdk.api.iam.models.ModelUserResponseV3;
 import net.accelbyte.sdk.api.iam.models.ModelUserUpdateRequestV3;
+import net.accelbyte.sdk.api.iam.models.AccountCreateUserRequestV4;
 import net.accelbyte.sdk.api.iam.operations.override_role_config_v3.AdminChangeRoleOverrideConfigStatusV3;
 import net.accelbyte.sdk.api.iam.operations.override_role_config_v3.AdminGetRoleNamespacePermissionV3;
 import net.accelbyte.sdk.api.iam.operations.override_role_config_v3.AdminUpdateRoleOverrideConfigV3;
@@ -43,6 +44,7 @@ import net.accelbyte.sdk.api.iam.operations.users.AdminUpdateUserV3;
 import net.accelbyte.sdk.api.iam.operations.users.PublicCreateUserV3;
 import net.accelbyte.sdk.api.iam.operations.users_v4.PublicCreateTestUserV4;
 import net.accelbyte.sdk.api.iam.operations.users_v4.PublicGetUserPublicInfoByUserIdV4;
+import net.accelbyte.sdk.api.iam.operations.users_v4.AdminCreateUserV4;
 import net.accelbyte.sdk.api.iam.wrappers.OverrideRoleConfigV3;
 import net.accelbyte.sdk.api.iam.wrappers.Roles;
 import net.accelbyte.sdk.api.iam.wrappers.Users;
@@ -68,21 +70,21 @@ public class TestIntegrationServiceIam extends TestIntegration {
 
   @Test
   @Order(1)
-  public void testV3() throws Exception {
+  public void createUserV4() throws Exception {
     final String userName = ("javasdk_" + TestHelper.generateRandomId(8));
     final String userPassword = TestHelper.generateRandomPassword(10);
     final String userEmail = (userName + "@test.com");
-    final String userDisplayName = "Java Server SDK Test";
+    final String userDisplayName = "Java Extend SDK Test";
     final String userDateOfBirth = "1995-01-10";
     final String userCountry = "ID";
 
     final Users usersWrapper = new Users(sdk);
     final UsersV4 usersV4Wrapper = new UsersV4(sdk);
 
-    // CASE Create a user (v3)
+    // CASE Create a user (v4)
 
-    final ModelUserCreateRequestV3 createUserV3 =
-        ModelUserCreateRequestV3.builder()
+    final AccountCreateUserRequestV4 newUser =
+        AccountCreateUserRequestV4.builder()
             .authType("EMAILPASSWD")
             .emailAddress(userEmail)
             .password(userPassword)
@@ -92,16 +94,16 @@ public class TestIntegrationServiceIam extends TestIntegration {
             .uniqueDisplayName(userName)
             .build();
 
-    final ModelUserCreateResponseV3 createUserV3Result =
-        usersWrapper.publicCreateUserV3(
-            PublicCreateUserV3.builder().namespace(namespace).body(createUserV3).build());
+    final AccountCreateUserResponseV4 createUserResult =
+        usersV4Wrapper.adminCreateUserV4(
+            AdminCreateUserV4.builder().namespace(namespace).body(newUser).build());
 
     // ESAC
 
-    assertNotNull(createUserV3Result);
-    assertEquals(userEmail, createUserV3Result.getEmailAddress());
+    assertNotNull(createUserResult);
+    assertEquals(userEmail, createUserResult.getEmailAddress());
 
-    final String userId = createUserV3Result.getUserId();
+    final String userId = createUserResult.getUserId();
 
     // Clean up
 
