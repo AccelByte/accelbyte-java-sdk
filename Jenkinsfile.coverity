@@ -16,7 +16,7 @@ pipeline {
     label "lima"
   }
   stages {
-    stage('Coverity') {
+    stage('Setup') {
       agent {
         docker {
           image 'gradle:8.5-jdk8'
@@ -31,17 +31,35 @@ pipeline {
             sh "curl -L '${env.COV_ANALYSIS_ARM64_TGZ_SHA1_URL}' -o /tmp/cov-analysis/cov-analysis-arm64.tar.gz.sha1"
             sh "[ -f /tmp/cov-analysis/cov-analysis-arm64.tar.gz ] || curl -L '${env.COV_ANALYSIS_ARM64_TGZ_URL}' -o /tmp/cov-analysis/cov-analysis-arm64.tar.gz"
             sh "(echo \$(cat /tmp/cov-analysis/cov-analysis-arm64.tar.gz.sha1) /tmp/cov-analysis/cov-analysis-arm64.tar.gz | sha1sum -c) || (echo 'Download corrupted. Please try again!' && rm -f /tmp/cov-analysis/cov-analysis-arm64.tar.gz.sha1 /tmp/cov-analysis/cov-analysis-arm64.tar.gz && exit 100)"
-            sh "mkdir -p /opt/cov-analysis && rm -rf /opt/cov-analysis/* && tar xf /tmp/cov-analysis/cov-analysis-arm64.tar.gz -C /opt/cov-analysis --strip-components=1"
           }
           else {
             sh "curl -L '${env.COV_ANALYSIS_TGZ_SHA1_URL}' -o /tmp/cov-analysis/cov-analysis.tar.gz.sha1"
             sh "[ -f /tmp/cov-analysis/cov-analysis.tar.gz ] || curl -L '${env.COV_ANALYSIS_TGZ_URL}' -o /tmp/cov-analysis/cov-analysis.tar.gz"
             sh "(echo \$(cat /tmp/cov-analysis/cov-analysis.tar.gz.sha1) /tmp/cov-analysis/cov-analysis.tar.gz | sha1sum -c) || (echo 'Download corrupted. Please try again!' && rm -f /tmp/cov-analysis/cov-analysis.tar.gz.sha1 /tmp/cov-analysis/cov-analysis.tar.gz && exit 100)"
-            sh "mkdir -p /opt/cov-analysis && rm -rf /opt/cov-analysis/* && tar xf /tmp/cov-analysis/cov-analysis.tar.gz -C /opt/cov-analysis --strip-components=1"
+          }
+        }
+      }
+    }
+    stage('Coverity') {
+      agent {
+        docker {
+          image 'gradle:8.5-jdk8'
+          args "-e HOME=/tmp -v cov-analysis:/tmp/cov-analysis"
+          reuseNode true
+        }
+      }
+      steps {
+        script {
+          def arch = sh(script: 'uname -m', returnStdout: true).trim()
+          if (arch == 'aarch64') {
+            sh "mkdir -p /tmp/cov-analysis-install && rm -rf /tmp/cov-analysis-install/* && tar xf /tmp/cov-analysis/cov-analysis-arm64.tar.gz -C /tmp/cov-analysis-install --strip-components=1"
+          }
+          else {
+            sh "mkdir -p /tmp/cov-analysis-install && rm -rf /tmp/cov-analysis-install/* && tar xf /tmp/cov-analysis/cov-analysis.tar.gz -C /tmp/cov-analysis-install --strip-components=1"
           }
 
           sh "git config --global --add safe.directory '*' && git clean -xfd"
-          sh "PATH=/opt/cov-analysis/bin:\$PATH cov-build --dir cov-int bash gradlew build -x test --no-daemon"
+          sh "PATH=/tmp/cov-analysis-install/bin:\$PATH cov-build --dir cov-int bash gradlew build -x test --no-daemon"
           sh "tar caf cov-int.tar.gz cov-int"
 
           withCredentials([usernamePassword(credentialsId: 'coverity-accelbyte-java-sdk', passwordVariable: 'COVERITY_TOKEN', usernameVariable: 'COVERITY_EMAIL')]) {
