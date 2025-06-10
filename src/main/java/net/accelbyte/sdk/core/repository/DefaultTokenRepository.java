@@ -7,7 +7,6 @@
 package net.accelbyte.sdk.core.repository;
 
 import com.google.common.base.Strings;
-import java.util.Objects;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -43,26 +42,17 @@ public class DefaultTokenRepository implements TokenRepository {
 
   @Override
   public void storeToken(String accessToken) {
-    log.info("storeToken: " + accessToken);
-    if (Objects.isNull(accessToken) || accessToken.equals(this.accessToken)) {
-      log.info("accessToken is null or equals to current");
-      return;
-    }
     String oldToken = this.accessToken;
     this.accessToken = accessToken;
 
-    log.info("accessToken (oldToken): " + oldToken);
-
-    // only notify if previous token not empty (i.e. previously already logged in)
+    // Only notify if previous token not empty (i.e. previously already logged in)
     if (!Strings.isNullOrEmpty(oldToken)) {
       notifyOnAccessTokenRefreshed(accessToken);
     }
   }
 
   protected void notifyOnAccessTokenRefreshed(String newToken) {
-    log.info("notifyOnAccessTokenRefreshed: " + newToken);
     for (TokenRepositoryCallback callback : callbacks) {
-      log.info("notifyOnAccessTokenRefreshed execute: " + newToken);
       executor.execute(() -> callback.onAccessTokenRefreshed(newToken));
     }
   }
