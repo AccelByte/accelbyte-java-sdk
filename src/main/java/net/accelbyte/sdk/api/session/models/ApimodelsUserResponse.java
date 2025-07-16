@@ -48,6 +48,46 @@ public class ApimodelsUserResponse extends Model {
   private String updatedAt;
 
   @JsonIgnore
+  public String getStatus() {
+    return this.status;
+  }
+
+  @JsonIgnore
+  public Status getStatusAsEnum() {
+    return Status.valueOf(this.status);
+  }
+
+  @JsonIgnore
+  public void setStatus(final String status) {
+    this.status = status;
+  }
+
+  @JsonIgnore
+  public void setStatusFromEnum(final Status status) {
+    this.status = status.toString();
+  }
+
+  @JsonIgnore
+  public String getStatusV2() {
+    return this.statusV2;
+  }
+
+  @JsonIgnore
+  public StatusV2 getStatusV2AsEnum() {
+    return StatusV2.valueOf(this.statusV2);
+  }
+
+  @JsonIgnore
+  public void setStatusV2(final String statusV2) {
+    this.statusV2 = statusV2;
+  }
+
+  @JsonIgnore
+  public void setStatusV2FromEnum(final StatusV2 statusV2) {
+    this.statusV2 = statusV2.toString();
+  }
+
+  @JsonIgnore
   public ApimodelsUserResponse createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
@@ -56,5 +96,75 @@ public class ApimodelsUserResponse extends Model {
   public List<ApimodelsUserResponse> createFromJsonList(String json)
       throws JsonProcessingException {
     return new ObjectMapper().readValue(json, new TypeReference<List<ApimodelsUserResponse>>() {});
+  }
+
+  public enum Status {
+    CONNECTED("CONNECTED"),
+    INVITED("INVITED"),
+    JOINED("JOINED"),
+    KICKED("KICKED"),
+    LEFT("LEFT"),
+    REJECTED("REJECTED");
+
+    private String value;
+
+    Status(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public enum StatusV2 {
+    CANCELLED("CANCELLED"),
+    CONNECTED("CONNECTED"),
+    DISCONNECTED("DISCONNECTED"),
+    DROPPED("DROPPED"),
+    INVITED("INVITED"),
+    JOINED("JOINED"),
+    KICKED("KICKED"),
+    LEFT("LEFT"),
+    REJECTED("REJECTED"),
+    TERMINATED("TERMINATED"),
+    TIMEOUT("TIMEOUT");
+
+    private String value;
+
+    StatusV2(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class ApimodelsUserResponseBuilder {
+    private String status;
+    private String statusV2;
+
+    public ApimodelsUserResponseBuilder status(final String status) {
+      this.status = status;
+      return this;
+    }
+
+    public ApimodelsUserResponseBuilder statusFromEnum(final Status status) {
+      this.status = status.toString();
+      return this;
+    }
+
+    public ApimodelsUserResponseBuilder statusV2(final String statusV2) {
+      this.statusV2 = statusV2;
+      return this;
+    }
+
+    public ApimodelsUserResponseBuilder statusV2FromEnum(final StatusV2 statusV2) {
+      this.statusV2 = statusV2.toString();
+      return this;
+    }
   }
 }

@@ -836,7 +836,8 @@ $ build/install/cli/bin/cli iam adminGetListJusticePlatformAccounts \
 $ build/install/cli/bin/cli iam adminGetUserMapping \
     --namespace <namespace value> \
     --targetNamespace <targetNamespace value> \
-    --userId <userId value>
+    --userId <userId value> \
+    --createIfNotFound <createIfNotFound value - optional>
 ```
 
 ### Operation AdminCreateJusticeUser

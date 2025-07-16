@@ -36,6 +36,11 @@ public class AdminQueryParties implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--configurationName"},
+      description = "configurationName")
+  String configurationName;
+
+  @Option(
       names = {"--fromTime"},
       description = "fromTime")
   String fromTime;
@@ -129,6 +134,7 @@ public class AdminQueryParties implements Callable<Integer> {
       final net.accelbyte.sdk.api.session.operations.party.AdminQueryParties operation =
           net.accelbyte.sdk.api.session.operations.party.AdminQueryParties.builder()
               .namespace(namespace)
+              .configurationName(configurationName)
               .fromTime(fromTime)
               .isSoftDeleted(isSoftDeleted)
               .joinability(joinability)

@@ -25,6 +25,9 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApiFleetClaimResponse extends Model {
 
+  @JsonProperty("fleetId")
+  private String fleetId;
+
   @JsonProperty("ip")
   private String ip;
 

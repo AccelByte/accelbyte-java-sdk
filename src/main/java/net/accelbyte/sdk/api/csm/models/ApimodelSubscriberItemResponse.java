@@ -41,6 +41,7 @@ public class ApimodelSubscriberItemResponse extends Model {
   private String notificationType;
 
   @JsonProperty("userId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String userId;
 
   @JsonIgnore

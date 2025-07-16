@@ -39,14 +39,17 @@ public class GetNamespaceContext extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private Boolean refreshOnCacheMiss;
+
   /**
    * @param namespace required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public GetNamespaceContext(String namespace) {
+  public GetNamespaceContext(String namespace, Boolean refreshOnCacheMiss) {
     this.namespace = namespace;
+    this.refreshOnCacheMiss = refreshOnCacheMiss;
 
     securities.add("Bearer");
   }
@@ -58,6 +61,17 @@ public class GetNamespaceContext extends Operation {
       pathParams.put("namespace", this.namespace);
     }
     return pathParams;
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "refreshOnCacheMiss",
+        this.refreshOnCacheMiss == null
+            ? null
+            : Arrays.asList(String.valueOf(this.refreshOnCacheMiss)));
+    return queryParams;
   }
 
   @Override
@@ -76,5 +90,12 @@ public class GetNamespaceContext extends Operation {
     }
     final String json = Helper.convertInputStreamToString(payload);
     return new NamespaceContext().createFromJson(json);
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("refreshOnCacheMiss", "None");
+    return result;
   }
 }

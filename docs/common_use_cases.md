@@ -739,11 +739,11 @@ configurationWrapper.deleteGroupConfigurationV1(
 
 Source: [TestIntegrationServiceIam.java](../src/test/java/net/accelbyte/sdk/integration/TestIntegrationServiceIam.java)
 
-### Create a user (v3)
+### Create a user (v4)
 
 ```java
-final ModelUserCreateRequestV3 createUserV3 =
-    ModelUserCreateRequestV3.builder()
+final AccountCreateUserRequestV4 newUser =
+    AccountCreateUserRequestV4.builder()
         .authType("EMAILPASSWD")
         .emailAddress(userEmail)
         .password(userPassword)
@@ -751,11 +751,12 @@ final ModelUserCreateRequestV3 createUserV3 =
         .country(userCountry)
         .dateOfBirth(userDateOfBirth)
         .uniqueDisplayName(userName)
+        .username(userName)
         .build();
 
-final ModelUserCreateResponseV3 createUserV3Result =
-    usersWrapper.publicCreateUserV3(
-        PublicCreateUserV3.builder().namespace(namespace).body(createUserV3).build());
+final AccountCreateUserResponseV4 createUserResult =
+    usersV4Wrapper.adminCreateUserV4(
+        AdminCreateUserV4.builder().namespace(namespace).body(newUser).build());
 ```
 
 ### Create a user

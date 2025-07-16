@@ -82,7 +82,8 @@ $ build/install/cli/bin/cli basic updateConfig \
 
 ```sh
 $ build/install/cli/bin/cli basic getNamespaceContext \
-    --namespace <namespace value>
+    --namespace <namespace value> \
+    --refreshOnCacheMiss <refreshOnCacheMiss value - optional>
 ```
 
 ### Operation GeneratedUploadUrl

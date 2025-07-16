@@ -236,6 +236,16 @@ public class Notification {
   }
 
   /**
+   * @see GetMyOfflineNotifications
+   */
+  public ModelNotificationsResponse getMyOfflineNotifications(GetMyOfflineNotifications input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetTopicByNamespace
    */
   public ModelTopicByNamespacesResponse getTopicByNamespace(GetTopicByNamespace input)

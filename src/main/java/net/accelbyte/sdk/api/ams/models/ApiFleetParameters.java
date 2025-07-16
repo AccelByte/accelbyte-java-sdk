@@ -39,6 +39,10 @@ public class ApiFleetParameters extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String fallbackFleet;
 
+  @JsonProperty("hibernateAfterPeriod")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String hibernateAfterPeriod;
+
   @JsonProperty("imageDeploymentProfile")
   private ApiImageDeploymentProfile imageDeploymentProfile;
 

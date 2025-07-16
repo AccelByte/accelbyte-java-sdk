@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP:ALERT:SUBSCRIPTION [UPDATE]`
  *
- * <p>Update the subscription the user(s) is an app notification.
+ * <p>Bulk update of users subscribed to an app's notifications.
  *
  * <p>Request body: - notificationType : type of the app notification to be subscribed - Required. -
  * values: - "all" - "app-down" - "critical-vulnerability" - subscribers : user(s) notification

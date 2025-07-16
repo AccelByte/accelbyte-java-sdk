@@ -235,6 +235,7 @@ $ build/install/cli/bin/cli session adminGetListNativeSession \
 ```sh
 $ build/install/cli/bin/cli session adminQueryParties \
     --namespace <namespace value> \
+    --configurationName <configurationName value - optional> \
     --fromTime <fromTime value - optional> \
     --isSoftDeleted <isSoftDeleted value - optional> \
     --joinability <joinability value - optional> \

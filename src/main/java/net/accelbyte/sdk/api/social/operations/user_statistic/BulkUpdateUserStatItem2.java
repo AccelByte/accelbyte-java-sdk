@@ -34,6 +34,29 @@ import net.accelbyte.sdk.core.util.Helper;
  * key: *userId_additionalKey*
  *
  * <p>Other detail info: + *Returns*: bulk updated result
+ *
+ * <p>### â ï¸ Important Note on Bulk Update Behavior
+ *
+ * <p>To ensure data integrity and avoid inconsistencies or race conditions, it is crucial to make
+ * each stat update unique per request. We strongly advise against including multiple updates for
+ * the same `statCode` with the same `updateStrategy` in a single request, as bulk operations are
+ * processed concurrently.
+ *
+ * <p>Avoid including multiple entries with the same`statCode` but different `updateStrategy`
+ * values.
+ *
+ * <p>To apply multiple operations on the same stat, please batch or sequence them in separate
+ * requests , according to your business logic.
+ *
+ * <p>â Incorrect Example:
+ *
+ * <p>[ { "statCode": "exp", "updateStrategy": "OVERRIDE", "value": 10 }, { "statCode": "exp",
+ * "updateStrategy": "INCREMENT", "value": 50 } ]
+ *
+ * <p>â Correct Example:
+ *
+ * <p>[ { "statCode": "exp", "updateStrategy": "OVERRIDE", "value": 10 }. { "statCode": "headshot",
+ * "updateStrategy": "INCREMENT", "value": 10 } ]
  */
 @Getter
 @Setter

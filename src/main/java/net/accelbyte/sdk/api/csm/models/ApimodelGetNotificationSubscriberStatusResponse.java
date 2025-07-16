@@ -46,6 +46,7 @@ public class ApimodelGetNotificationSubscriberStatusResponse extends Model {
   private Integer subscriptionsCount;
 
   @JsonProperty("userId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String userId;
 
   @JsonIgnore

@@ -124,6 +124,7 @@ eval_tap $? 11 'UpdateConfig' test.out
 #- 12 GetNamespaceContext
 ./ng net.accelbyte.sdk.cli.Main basic getNamespaceContext \
     --namespace "$AB_NAMESPACE" \
+    --refreshOnCacheMiss  \
     > test.out 2>&1
 eval_tap $? 12 'GetNamespaceContext' test.out
 

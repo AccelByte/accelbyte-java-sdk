@@ -103,6 +103,12 @@
 |---|---|---|---|---|
 | `/csm/v2/admin/namespaces/{namespace}/resources/limits` | GET | GetResourcesLimits | [GetResourcesLimits](../../src/main/java/net/accelbyte/sdk/api/csm/operations/resources_limits/GetResourcesLimits.java) | [GetResourcesLimits](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/resources_limits/GetResourcesLimits.java) |
 
+### Notification Subscription V3 Wrapper:  [NotificationSubscriptionV3](../../src/main/java/net/accelbyte/sdk/api/csm/wrappers/NotificationSubscriptionV3.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/csm/v3/admin/namespaces/{namespace}/apps/{app}/subscriptions` | GET | GetNotificationSubscriberListV3 | [GetNotificationSubscriberListV3](../../src/main/java/net/accelbyte/sdk/api/csm/operations/notification_subscription_v3/GetNotificationSubscriberListV3.java) | [GetNotificationSubscriberListV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/notification_subscription_v3/GetNotificationSubscriberListV3.java) |
+| `/csm/v3/admin/namespaces/{namespace}/apps/{app}/subscriptions` | DELETE | DeleteSubscriptionAppNotificationV3 | [DeleteSubscriptionAppNotificationV3](../../src/main/java/net/accelbyte/sdk/api/csm/operations/notification_subscription_v3/DeleteSubscriptionAppNotificationV3.java) | [DeleteSubscriptionAppNotificationV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/notification_subscription_v3/DeleteSubscriptionAppNotificationV3.java) |
+
 
 &nbsp;  
 
@@ -133,11 +139,14 @@
 | `apimodel.GetListOfConfigurationsV2DataItem` | [ApimodelGetListOfConfigurationsV2DataItem](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelGetListOfConfigurationsV2DataItem.java) |
 | `apimodel.GetListOfConfigurationsV2Response` | [ApimodelGetListOfConfigurationsV2Response](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelGetListOfConfigurationsV2Response.java) |
 | `apimodel.GetNotificationSubscriberItem` | [ApimodelGetNotificationSubscriberItem](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelGetNotificationSubscriberItem.java) |
+| `apimodel.GetNotificationSubscriberItemV2` | [ApimodelGetNotificationSubscriberItemV2](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelGetNotificationSubscriberItemV2.java) |
 | `apimodel.GetNotificationSubscriberListResponse` | [ApimodelGetNotificationSubscriberListResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelGetNotificationSubscriberListResponse.java) |
+| `apimodel.GetNotificationSubscriberListResponseV2` | [ApimodelGetNotificationSubscriberListResponseV2](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelGetNotificationSubscriberListResponseV2.java) |
 | `apimodel.GetNotificationSubscriberStatusResponse` | [ApimodelGetNotificationSubscriberStatusResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelGetNotificationSubscriberStatusResponse.java) |
 | `apimodel.IncreaseLimitFormRequest` | [ApimodelIncreaseLimitFormRequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelIncreaseLimitFormRequest.java) |
 | `apimodel.MemoryRequest` | [ApimodelMemoryRequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelMemoryRequest.java) |
 | `apimodel.MemoryResponse` | [ApimodelMemoryResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelMemoryResponse.java) |
+| `apimodel.NotificationType` | [ApimodelNotificationType](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelNotificationType.java) |
 | `apimodel.ReplicaRequest` | [ApimodelReplicaRequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelReplicaRequest.java) |
 | `apimodel.ReplicaResponse` | [ApimodelReplicaResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelReplicaResponse.java) |
 | `apimodel.SaveConfigurationV2Request` | [ApimodelSaveConfigurationV2Request](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelSaveConfigurationV2Request.java) |

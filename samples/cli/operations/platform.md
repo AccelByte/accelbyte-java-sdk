@@ -1975,11 +1975,11 @@ $ build/install/cli/bin/cli platform queryImportHistory \
 $ build/install/cli/bin/cli platform importStoreByCSV \
     --namespace <namespace value> \
     --storeId <storeId value> \
-    --category <category value> \
-    --display <display value> \
-    --item <item value> \
-    --notes <notes value> \
-    --section <section value>
+    --category <category value - optional> \
+    --display <display value - optional> \
+    --item <item value - optional> \
+    --notes <notes value - optional> \
+    --section <section value - optional>
 ```
 
 ### Operation QuerySubscriptions

@@ -117,6 +117,7 @@ import picocli.CommandLine.Command;
       UsersPresenceHandlerV2.class,
       FreeFormNotification.class,
       GetMyNotifications.class,
+      GetMyOfflineNotifications.class,
       NotificationWithTemplate.class,
       GetGameTemplate.class,
       CreateTemplate.class,

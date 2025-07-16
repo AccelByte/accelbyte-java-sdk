@@ -37,6 +37,10 @@ public class DLCItemConfigHistoryInfo extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String dlcId;
 
+  @JsonProperty("enableRevocation")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean enableRevocation;
+
   @JsonProperty("id")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String id;

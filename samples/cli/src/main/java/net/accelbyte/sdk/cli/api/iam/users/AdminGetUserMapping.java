@@ -46,6 +46,11 @@ public class AdminGetUserMapping implements Callable<Integer> {
   String userId;
 
   @Option(
+      names = {"--createIfNotFound"},
+      description = "createIfNotFound")
+  Boolean createIfNotFound;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -71,6 +76,7 @@ public class AdminGetUserMapping implements Callable<Integer> {
               .namespace(namespace)
               .targetNamespace(targetNamespace)
               .userId(userId)
+              .createIfNotFound(createIfNotFound)
               .build();
       final ModelGetUserMappingV3 response = wrapper.adminGetUserMapping(operation);
       final String responseString =

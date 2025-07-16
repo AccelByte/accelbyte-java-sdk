@@ -43,6 +43,7 @@ public class AdminGetUserMapping extends Operation {
 
   private String targetNamespace;
   private String userId;
+  private Boolean createIfNotFound;
 
   /**
    * @param namespace required
@@ -52,10 +53,12 @@ public class AdminGetUserMapping extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public AdminGetUserMapping(String namespace, String targetNamespace, String userId) {
+  public AdminGetUserMapping(
+      String namespace, String targetNamespace, String userId, Boolean createIfNotFound) {
     this.namespace = namespace;
     this.targetNamespace = targetNamespace;
     this.userId = userId;
+    this.createIfNotFound = createIfNotFound;
 
     securities.add("Bearer");
   }
@@ -73,6 +76,17 @@ public class AdminGetUserMapping extends Operation {
       pathParams.put("userId", this.userId);
     }
     return pathParams;
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "createIfNotFound",
+        this.createIfNotFound == null
+            ? null
+            : Arrays.asList(String.valueOf(this.createIfNotFound)));
+    return queryParams;
   }
 
   @Override
@@ -97,5 +111,12 @@ public class AdminGetUserMapping extends Operation {
     }
     final String json = Helper.convertInputStreamToString(payload);
     return new ModelGetUserMappingV3().createFromJson(json);
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("createIfNotFound", "None");
+    return result;
   }
 }

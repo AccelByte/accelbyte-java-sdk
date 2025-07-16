@@ -24,9 +24,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP:ALERT:SELF:SUBSCRIPTION
  * [CREATE]`
  *
- * <p>Subscribe to app down notification Request body: - notificationType : type of the app
- * notification to be subscribed - Required. - values: - "all" - "app-down" -
- * "critical-vulnerability"
+ * <p>Subscribe to app notification Request body: - notificationType : type of the app notification
+ * to be subscribed - Required. - values: - "all" - "app-down" - "critical-vulnerability"
  */
 @Getter
 @Setter

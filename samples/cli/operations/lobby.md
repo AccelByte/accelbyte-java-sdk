@@ -508,6 +508,17 @@ $ build/install/cli/bin/cli lobby getMyNotifications \
     --startTime <startTime value - optional>
 ```
 
+### Operation GetMyOfflineNotifications
+
+```sh
+$ build/install/cli/bin/cli lobby getMyOfflineNotifications \
+    --namespace <namespace value> \
+    --endTime <endTime value - optional> \
+    --limit <limit value - optional> \
+    --offset <offset value - optional> \
+    --startTime <startTime value - optional>
+```
+
 ### Operation NotificationWithTemplate
 
 ```sh

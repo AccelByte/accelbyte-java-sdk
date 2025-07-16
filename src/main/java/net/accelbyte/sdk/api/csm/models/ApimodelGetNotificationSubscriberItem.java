@@ -40,6 +40,7 @@ public class ApimodelGetNotificationSubscriberItem extends Model {
   private String subscriptionId;
 
   @JsonProperty("userId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String userId;
 
   @JsonIgnore

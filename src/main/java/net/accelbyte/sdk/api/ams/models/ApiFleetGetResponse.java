@@ -37,6 +37,10 @@ public class ApiFleetGetResponse extends Model {
   @JsonProperty("fallbackFleet")
   private String fallbackFleet;
 
+  @JsonProperty("hibernateAfterPeriod")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String hibernateAfterPeriod;
+
   @JsonProperty("id")
   private String id;
 

@@ -25,6 +25,9 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApimodelBulkSubscribeItem extends Model {
 
+  @JsonProperty("emailAddress")
+  private String emailAddress;
+
   @JsonProperty("notificationType")
   private Map<String, Boolean> notificationType;
 

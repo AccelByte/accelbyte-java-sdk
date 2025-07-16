@@ -96,8 +96,20 @@ public class ModelThirdPartyLoginPlatformCredentialResponse extends Model {
   @JsonProperty("PlatformName")
   private String platformName;
 
+  @JsonProperty("PrivateKey")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String privateKey;
+
   @JsonProperty("RedirectUri")
   private String redirectUri;
+
+  @JsonProperty("RelyingParty")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String relyingParty;
+
+  @JsonProperty("SandboxId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String sandboxId;
 
   @JsonProperty("Secret")
   private String secret;

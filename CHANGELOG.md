@@ -1,3 +1,24 @@
+<a name="v0.74.0"></a>
+## [v0.74.0]
+### ci
+- **coverity:** do not run coverity stage as root
+- **:** consolidate builder label lima
+- **:** consolidate extend-builder-batch linux-amd64
+- **github:** change label to extend-builder-ci
+- **generate:** remove cli and integration test stage
+- **nightly:** add params for cli and integration test
+- **nightly-starter:** remove redundant Jenkinsfile.nightly-starter
+### fix
+- **:** use admin create user for create user test
+### chore
+- **core:** remove unnecessary log from default token repo
+- **:** remove armada related apis
+### test
+- **integration:** iam - add missing username
+### docs
+- **:** fix url
+
+
 <a name="v0.73.0"></a>
 ## [v0.73.0]
 ### REMOVED SERVICE APIS

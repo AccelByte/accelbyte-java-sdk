@@ -158,6 +158,26 @@ public class ApimodelsCreateConfigurationTemplateRequest extends Model {
   private String type;
 
   @JsonIgnore
+  public String getJoinability() {
+    return this.joinability;
+  }
+
+  @JsonIgnore
+  public Joinability getJoinabilityAsEnum() {
+    return Joinability.valueOf(this.joinability);
+  }
+
+  @JsonIgnore
+  public void setJoinability(final String joinability) {
+    this.joinability = joinability;
+  }
+
+  @JsonIgnore
+  public void setJoinabilityFromEnum(final Joinability joinability) {
+    this.joinability = joinability.toString();
+  }
+
+  @JsonIgnore
   public String getTextChatMode() {
     return this.textChatMode;
   }
@@ -178,6 +198,26 @@ public class ApimodelsCreateConfigurationTemplateRequest extends Model {
   }
 
   @JsonIgnore
+  public String getType() {
+    return this.type;
+  }
+
+  @JsonIgnore
+  public Type getTypeAsEnum() {
+    return Type.valueOf(this.type);
+  }
+
+  @JsonIgnore
+  public void setType(final String type) {
+    this.type = type;
+  }
+
+  @JsonIgnore
+  public void setTypeFromEnum(final Type type) {
+    this.type = type.toString();
+  }
+
+  @JsonIgnore
   public ApimodelsCreateConfigurationTemplateRequest createFromJson(String json)
       throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
@@ -188,6 +228,26 @@ public class ApimodelsCreateConfigurationTemplateRequest extends Model {
       throws JsonProcessingException {
     return new ObjectMapper()
         .readValue(json, new TypeReference<List<ApimodelsCreateConfigurationTemplateRequest>>() {});
+  }
+
+  public enum Joinability {
+    CLOSED("CLOSED"),
+    FRIENDSOFFRIENDS("FRIENDS_OF_FRIENDS"),
+    FRIENDSOFLEADER("FRIENDS_OF_LEADER"),
+    FRIENDSOFMEMBERS("FRIENDS_OF_MEMBERS"),
+    INVITEONLY("INVITE_ONLY"),
+    OPEN("OPEN");
+
+    private String value;
+
+    Joinability(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
   }
 
   public enum TextChatMode {
@@ -207,8 +267,39 @@ public class ApimodelsCreateConfigurationTemplateRequest extends Model {
     }
   }
 
+  public enum Type {
+    DS("DS"),
+    NONE("NONE"),
+    P2P("P2P");
+
+    private String value;
+
+    Type(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public static class ApimodelsCreateConfigurationTemplateRequestBuilder {
+    private String joinability;
     private String textChatMode;
+    private String type;
+
+    public ApimodelsCreateConfigurationTemplateRequestBuilder joinability(
+        final String joinability) {
+      this.joinability = joinability;
+      return this;
+    }
+
+    public ApimodelsCreateConfigurationTemplateRequestBuilder joinabilityFromEnum(
+        final Joinability joinability) {
+      this.joinability = joinability.toString();
+      return this;
+    }
 
     public ApimodelsCreateConfigurationTemplateRequestBuilder textChatMode(
         final String textChatMode) {
@@ -219,6 +310,16 @@ public class ApimodelsCreateConfigurationTemplateRequest extends Model {
     public ApimodelsCreateConfigurationTemplateRequestBuilder textChatModeFromEnum(
         final TextChatMode textChatMode) {
       this.textChatMode = textChatMode.toString();
+      return this;
+    }
+
+    public ApimodelsCreateConfigurationTemplateRequestBuilder type(final String type) {
+      this.type = type;
+      return this;
+    }
+
+    public ApimodelsCreateConfigurationTemplateRequestBuilder typeFromEnum(final Type type) {
+      this.type = type.toString();
       return this;
     }
   }

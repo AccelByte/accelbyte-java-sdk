@@ -18,6 +18,7 @@ import net.accelbyte.sdk.cli.api.csm.image.*;
 import net.accelbyte.sdk.cli.api.csm.image_v2.*;
 import net.accelbyte.sdk.cli.api.csm.messages.*;
 import net.accelbyte.sdk.cli.api.csm.notification_subscription.*;
+import net.accelbyte.sdk.cli.api.csm.notification_subscription_v3.*;
 import net.accelbyte.sdk.cli.api.csm.resources_limits.*;
 import picocli.CommandLine.Command;
 
@@ -80,6 +81,8 @@ import picocli.CommandLine.Command;
       GetDeploymentV2.class,
       DeleteDeploymentV2.class,
       GetResourcesLimits.class,
+      GetNotificationSubscriberListV3.class,
+      DeleteSubscriptionAppNotificationV3.class,
     })
 public class Csm implements Runnable {
 

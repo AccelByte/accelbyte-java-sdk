@@ -180,4 +180,103 @@ public class AdminQueryGameSessions extends Operation {
     result.put("toTime", "None");
     return result;
   }
+
+  public enum Joinability {
+    CLOSED("CLOSED"),
+    FRIENDSOFFRIENDS("FRIENDS_OF_FRIENDS"),
+    FRIENDSOFLEADER("FRIENDS_OF_LEADER"),
+    FRIENDSOFMEMBERS("FRIENDS_OF_MEMBERS"),
+    INVITEONLY("INVITE_ONLY"),
+    OPEN("OPEN");
+
+    private String value;
+
+    Joinability(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public enum Status {
+    AVAILABLE("AVAILABLE"),
+    DSERROR("DS_ERROR"),
+    FAILEDTOREQUEST("FAILED_TO_REQUEST"),
+    NEEDTOREQUEST("NEED_TO_REQUEST"),
+    PREPARING("PREPARING"),
+    REQUESTED("REQUESTED");
+
+    private String value;
+
+    Status(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public enum StatusV2 {
+    AVAILABLE("AVAILABLE"),
+    DSCANCELLED("DS_CANCELLED"),
+    DSERROR("DS_ERROR"),
+    ENDED("ENDED"),
+    FAILEDTOREQUEST("FAILED_TO_REQUEST"),
+    NEEDTOREQUEST("NEED_TO_REQUEST"),
+    PREPARING("PREPARING"),
+    REQUESTED("REQUESTED"),
+    UNKNOWN("UNKNOWN");
+
+    private String value;
+
+    StatusV2(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class AdminQueryGameSessionsBuilder {
+    private String joinability;
+    private String status;
+    private String statusV2;
+
+    public AdminQueryGameSessionsBuilder joinability(final String joinability) {
+      this.joinability = joinability;
+      return this;
+    }
+
+    public AdminQueryGameSessionsBuilder joinabilityFromEnum(final Joinability joinability) {
+      this.joinability = joinability.toString();
+      return this;
+    }
+
+    public AdminQueryGameSessionsBuilder status(final String status) {
+      this.status = status;
+      return this;
+    }
+
+    public AdminQueryGameSessionsBuilder statusFromEnum(final Status status) {
+      this.status = status.toString();
+      return this;
+    }
+
+    public AdminQueryGameSessionsBuilder statusV2(final String statusV2) {
+      this.statusV2 = statusV2;
+      return this;
+    }
+
+    public AdminQueryGameSessionsBuilder statusV2FromEnum(final StatusV2 statusV2) {
+      this.statusV2 = statusV2.toString();
+      return this;
+    }
+  }
 }

@@ -30,6 +30,30 @@ import net.accelbyte.sdk.core.util.Helper;
  * specified value if it's lower than the existing value
  *
  * <p>Other detail info: + *Returns*: bulk updated result
+ *
+ * <p>### â ï¸ Important Note on Bulk Update Behavior
+ *
+ * <p>To ensure data integrity and avoid inconsistencies or race conditions, it is crucial to make
+ * each user/update pair unique per request. We strongly advise against including multiple updates
+ * for the same `userId` with the same `statCode` and/or `updateStrategy` in a single request, as
+ * bulk operations are processed concurrently.
+ *
+ * <p>Avoid including multiple entries with the same`userId` and `statCode` but different
+ * `updateStrategy` values.
+ *
+ * <p>To apply multiple operations on the same stat, please batch or sequence them in separate
+ * requests , according to your business logic.
+ *
+ * <p>â Incorrect Example:
+ *
+ * <p>[ { "userId": "315a070e48a74dae903d559974e6513d", "statCode": "exp", "updateStrategy":
+ * "OVERRIDE", "value": 10 }, { "userId": "315a070e48a74dae903d559974e6513d", "statCode": "exp",
+ * "updateStrategy": "INCREMENT", "value": 50 } ]
+ *
+ * <p>â Correct Example:
+ *
+ * <p>[ { "userId": "315a070e48a74dae903d559974e6513d", "statCode": "exp", "updateStrategy":
+ * "INCREMENT", "value": 60 } ]
  */
 @Getter
 @Setter

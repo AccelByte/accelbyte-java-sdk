@@ -36,6 +36,11 @@ public class GetNamespaceContext implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--refreshOnCacheMiss"},
+      description = "refreshOnCacheMiss")
+  Boolean refreshOnCacheMiss;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -59,6 +64,7 @@ public class GetNamespaceContext implements Callable<Integer> {
       final net.accelbyte.sdk.api.basic.operations.namespace.GetNamespaceContext operation =
           net.accelbyte.sdk.api.basic.operations.namespace.GetNamespaceContext.builder()
               .namespace(namespace)
+              .refreshOnCacheMiss(refreshOnCacheMiss)
               .build();
       final NamespaceContext response = wrapper.getNamespaceContext(operation);
       final String responseString =

@@ -37,6 +37,10 @@ public class DLCRecord extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String entitlementOriginSyncStatus;
 
+  @JsonProperty("entitlementSummaries")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<EntitlementSummary> entitlementSummaries;
+
   @JsonProperty("id")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String id;

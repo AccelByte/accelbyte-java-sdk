@@ -290,3 +290,22 @@ $ build/install/cli/bin/cli csm getResourcesLimits \
     --namespace <namespace value>
 ```
 
+### Operation GetNotificationSubscriberListV3
+
+```sh
+$ build/install/cli/bin/cli csm getNotificationSubscriberListV3 \
+    --app <app value> \
+    --namespace <namespace value> \
+    --notificationType <notificationType value>
+```
+
+### Operation DeleteSubscriptionAppNotificationV3
+
+```sh
+$ build/install/cli/bin/cli csm deleteSubscriptionAppNotificationV3 \
+    --app <app value> \
+    --namespace <namespace value> \
+    --emailAddress <emailAddress value - optional> \
+    --userId <userId value - optional>
+```
+

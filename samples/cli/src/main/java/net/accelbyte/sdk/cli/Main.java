@@ -45,6 +45,7 @@ import picocli.CommandLine;
       Reporting.class,
       Seasonpass.class,
       Session.class,
+      Sessionhistory.class,
       Social.class,
       Ugc.class
       // API

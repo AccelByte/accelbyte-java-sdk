@@ -37,6 +37,7 @@ public class AdminQueryParties extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private String configurationName;
   private String fromTime;
   private String isSoftDeleted;
   private String joinability;
@@ -60,6 +61,7 @@ public class AdminQueryParties extends Operation {
   @Deprecated
   public AdminQueryParties(
       String namespace,
+      String configurationName,
       String fromTime,
       String isSoftDeleted,
       String joinability,
@@ -75,6 +77,7 @@ public class AdminQueryParties extends Operation {
       String toTime,
       String value) {
     this.namespace = namespace;
+    this.configurationName = configurationName;
     this.fromTime = fromTime;
     this.isSoftDeleted = isSoftDeleted;
     this.joinability = joinability;
@@ -105,6 +108,9 @@ public class AdminQueryParties extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "configurationName",
+        this.configurationName == null ? null : Arrays.asList(this.configurationName));
     queryParams.put("fromTime", this.fromTime == null ? null : Arrays.asList(this.fromTime));
     queryParams.put(
         "isSoftDeleted", this.isSoftDeleted == null ? null : Arrays.asList(this.isSoftDeleted));
@@ -147,6 +153,7 @@ public class AdminQueryParties extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("configurationName", "None");
     result.put("fromTime", "None");
     result.put("isSoftDeleted", "None");
     result.put("joinability", "None");
@@ -162,5 +169,74 @@ public class AdminQueryParties extends Operation {
     result.put("toTime", "None");
     result.put("value", "None");
     return result;
+  }
+
+  public enum Joinability {
+    CLOSED("CLOSED"),
+    FRIENDSOFFRIENDS("FRIENDS_OF_FRIENDS"),
+    FRIENDSOFLEADER("FRIENDS_OF_LEADER"),
+    FRIENDSOFMEMBERS("FRIENDS_OF_MEMBERS"),
+    INVITEONLY("INVITE_ONLY"),
+    OPEN("OPEN");
+
+    private String value;
+
+    Joinability(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public enum MemberStatus {
+    CANCELLED("CANCELLED"),
+    CONNECTED("CONNECTED"),
+    DISCONNECTED("DISCONNECTED"),
+    DROPPED("DROPPED"),
+    INVITED("INVITED"),
+    JOINED("JOINED"),
+    KICKED("KICKED"),
+    LEFT("LEFT"),
+    REJECTED("REJECTED"),
+    TIMEOUT("TIMEOUT");
+
+    private String value;
+
+    MemberStatus(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class AdminQueryPartiesBuilder {
+    private String joinability;
+    private String memberStatus;
+
+    public AdminQueryPartiesBuilder joinability(final String joinability) {
+      this.joinability = joinability;
+      return this;
+    }
+
+    public AdminQueryPartiesBuilder joinabilityFromEnum(final Joinability joinability) {
+      this.joinability = joinability.toString();
+      return this;
+    }
+
+    public AdminQueryPartiesBuilder memberStatus(final String memberStatus) {
+      this.memberStatus = memberStatus;
+      return this;
+    }
+
+    public AdminQueryPartiesBuilder memberStatusFromEnum(final MemberStatus memberStatus) {
+      this.memberStatus = memberStatus.toString();
+      return this;
+    }
   }
 }
