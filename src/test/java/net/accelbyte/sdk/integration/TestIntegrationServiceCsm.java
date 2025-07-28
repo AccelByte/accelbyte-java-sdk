@@ -305,7 +305,7 @@ public class TestIntegrationServiceCsm extends TestIntegration {
     String clientId = "";
     for (ApimodelGetListOfConfigurationsV2DataItem item : getListOfSecretsV2Res.getData()) {
       final String configName = item.getConfigName().trim().toUpperCase();
-      if (configName == "AB_CLIENT_ID") {
+      if (configName.equals("AB_CLIENT_ID")) {
         clientId = item.getValue().trim();
         break;
       }
@@ -315,7 +315,7 @@ public class TestIntegrationServiceCsm extends TestIntegration {
   }
 
   private void deleteOAuthClient(String clientId) throws Exception {
-    if (clientId != "") {
+    if (!clientId.equals("")) {
       final Clients clientsWrapper = new Clients(sdk);
       clientsWrapper.adminDeleteClientV3(
           AdminDeleteClientV3.builder().namespace(namespace).clientId(clientId).build());
