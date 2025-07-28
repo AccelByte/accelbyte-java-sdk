@@ -40,38 +40,6 @@ import org.junit.jupiter.api.*;
 public class TestIntegrationServiceCsm extends TestIntegration {
   public String EXTEND_APP_NAME = "test-java-app-integration";
 
-  private String getExtendAppClientId(String appName) throws Exception {
-
-    final ConfigurationV2 wrapper = new ConfigurationV2(sdk);
-
-    final GetListOfSecretsV2 getListOfSecretsV2Op =
-        GetListOfSecretsV2.builder().app(appName).namespace(namespace).build();
-
-    final ApimodelGetListOfConfigurationsV2Response getListOfSecretsV2Res =
-        wrapper.getListOfSecretsV2(getListOfSecretsV2Op);
-
-    if (getListOfSecretsV2Res == null) throw new Exception("getListOfSecretsV2 returns NULL");
-
-    String clientId = "";
-    for (ApimodelGetListOfConfigurationsV2DataItem item : getListOfSecretsV2Res.getData()) {
-      final String configName = item.getConfigName().trim().toUpperCase();
-      if (configName == "AB_CLIENT_ID") {
-        clientId = item.getValue().trim();
-        break;
-      }
-    }
-
-    return clientId;
-  }
-
-  private void deleteOAuthClient(String clientId) throws Exception {
-    if (clientId != "") {
-      final Clients clientsWrapper = new Clients(sdk);
-      clientsWrapper.adminDeleteClientV3(
-          AdminDeleteClientV3.builder().namespace(namespace).clientId(clientId).build());
-    }
-  }
-
   @BeforeAll
   public void setup() throws Exception {
     super.setup();
@@ -319,5 +287,38 @@ public class TestIntegrationServiceCsm extends TestIntegration {
     deleteOAuthClient(appClientId);
 
     super.tear();
+  }
+
+  private String getExtendAppClientId(String appName) throws Exception {
+    final ConfigurationV2 wrapper = new ConfigurationV2(sdk);
+
+    final GetListOfSecretsV2 getListOfSecretsV2Op =
+        GetListOfSecretsV2.builder().app(appName).namespace(namespace).build();
+
+    final ApimodelGetListOfConfigurationsV2Response getListOfSecretsV2Res =
+        wrapper.getListOfSecretsV2(getListOfSecretsV2Op);
+
+    if (getListOfSecretsV2Res == null) {
+      throw new Exception("getListOfSecretsV2 returns NULL");
+    }
+
+    String clientId = "";
+    for (ApimodelGetListOfConfigurationsV2DataItem item : getListOfSecretsV2Res.getData()) {
+      final String configName = item.getConfigName().trim().toUpperCase();
+      if (configName == "AB_CLIENT_ID") {
+        clientId = item.getValue().trim();
+        break;
+      }
+    }
+
+    return clientId;
+  }
+
+  private void deleteOAuthClient(String clientId) throws Exception {
+    if (clientId != "") {
+      final Clients clientsWrapper = new Clients(sdk);
+      clientsWrapper.adminDeleteClientV3(
+          AdminDeleteClientV3.builder().namespace(namespace).clientId(clientId).build());
+    }
   }
 }
