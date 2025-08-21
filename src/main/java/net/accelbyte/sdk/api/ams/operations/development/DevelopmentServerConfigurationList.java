@@ -38,7 +38,11 @@ public class DevelopmentServerConfigurationList extends Operation {
   private String namespace;
 
   private Integer count;
+  private String imageId;
+  private String name;
   private Integer offset;
+  private String sortBy;
+  private String sortDirection;
 
   /**
    * @param namespace required
@@ -46,10 +50,21 @@ public class DevelopmentServerConfigurationList extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public DevelopmentServerConfigurationList(String namespace, Integer count, Integer offset) {
+  public DevelopmentServerConfigurationList(
+      String namespace,
+      Integer count,
+      String imageId,
+      String name,
+      Integer offset,
+      String sortBy,
+      String sortDirection) {
     this.namespace = namespace;
     this.count = count;
+    this.imageId = imageId;
+    this.name = name;
     this.offset = offset;
+    this.sortBy = sortBy;
+    this.sortDirection = sortDirection;
 
     securities.add("Bearer");
   }
@@ -67,8 +82,13 @@ public class DevelopmentServerConfigurationList extends Operation {
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
     queryParams.put("count", this.count == null ? null : Arrays.asList(String.valueOf(this.count)));
+    queryParams.put("imageId", this.imageId == null ? null : Arrays.asList(this.imageId));
+    queryParams.put("name", this.name == null ? null : Arrays.asList(this.name));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
+    queryParams.put("sortBy", this.sortBy == null ? null : Arrays.asList(this.sortBy));
+    queryParams.put(
+        "sortDirection", this.sortDirection == null ? null : Arrays.asList(this.sortDirection));
     return queryParams;
   }
 
@@ -94,7 +114,70 @@ public class DevelopmentServerConfigurationList extends Operation {
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
     result.put("count", "None");
+    result.put("imageId", "None");
+    result.put("name", "None");
     result.put("offset", "None");
+    result.put("sortBy", "None");
+    result.put("sortDirection", "None");
     return result;
+  }
+
+  public enum SortBy {
+    CreatedAt("created_at"),
+    ExpiresAt("expires_at"),
+    Name("name");
+
+    private String value;
+
+    SortBy(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public enum SortDirection {
+    Asc("asc"),
+    Desc("desc");
+
+    private String value;
+
+    SortDirection(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class DevelopmentServerConfigurationListBuilder {
+    private String sortBy;
+    private String sortDirection;
+
+    public DevelopmentServerConfigurationListBuilder sortBy(final String sortBy) {
+      this.sortBy = sortBy;
+      return this;
+    }
+
+    public DevelopmentServerConfigurationListBuilder sortByFromEnum(final SortBy sortBy) {
+      this.sortBy = sortBy.toString();
+      return this;
+    }
+
+    public DevelopmentServerConfigurationListBuilder sortDirection(final String sortDirection) {
+      this.sortDirection = sortDirection;
+      return this;
+    }
+
+    public DevelopmentServerConfigurationListBuilder sortDirectionFromEnum(
+        final SortDirection sortDirection) {
+      this.sortDirection = sortDirection.toString();
+      return this;
+    }
   }
 }

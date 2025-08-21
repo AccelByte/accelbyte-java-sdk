@@ -102,7 +102,11 @@ $ build/install/cli/bin/cli ams artifactGetURL \
 $ build/install/cli/bin/cli ams developmentServerConfigurationList \
     --namespace <namespace value> \
     --count <count value - optional> \
-    --offset <offset value - optional>
+    --imageId <imageId value - optional> \
+    --name <name value - optional> \
+    --offset <offset value - optional> \
+    --sortBy <sortBy value - optional> \
+    --sortDirection <sortDirection value - optional>
 ```
 
 ### Operation DevelopmentServerConfigurationCreate

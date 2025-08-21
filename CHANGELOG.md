@@ -1,3 +1,16 @@
+<a name="v0.75.0"></a>
+## [v0.75.0]
+### chore
+- **build.gradle:** update ossrh url
+- **:** refresh gitignore
+### test
+- **integration:** csm - move private functions to the bottom
+- **integration:** csm - fix delete extend app iam client
+### ci
+- **github:** better utilize all available build machines
+- **:** consolidate job channel
+
+
 <a name="v0.74.0"></a>
 ## [v0.74.0]
 ### ci

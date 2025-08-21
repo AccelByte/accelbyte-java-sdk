@@ -29,6 +29,9 @@ public class ModelUserPublicInfoResponseV4 extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String avatarUrl;
 
+  @JsonProperty("createdAt")
+  private String createdAt;
+
   @JsonProperty("displayName")
   private String displayName;
 

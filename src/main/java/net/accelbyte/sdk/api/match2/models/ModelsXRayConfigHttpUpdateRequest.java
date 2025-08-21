@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.ams.models;
+package net.accelbyte.sdk.api.match2.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,28 +23,21 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ApiDevelopmentServerConfigurationListResponse extends Model {
+public class ModelsXRayConfigHttpUpdateRequest extends Model {
 
-  @JsonProperty("data")
-  private List<ApiDevelopmentServerConfigurationGetResponse> data;
-
-  @JsonProperty("paging")
-  private PaginationPaginationInfo paging;
-
-  @JsonProperty("totalData")
-  private Integer totalData;
+  @JsonProperty("whitelistedUsers")
+  private List<String> whitelistedUsers;
 
   @JsonIgnore
-  public ApiDevelopmentServerConfigurationListResponse createFromJson(String json)
+  public ModelsXRayConfigHttpUpdateRequest createFromJson(String json)
       throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ApiDevelopmentServerConfigurationListResponse> createFromJsonList(String json)
+  public List<ModelsXRayConfigHttpUpdateRequest> createFromJsonList(String json)
       throws JsonProcessingException {
     return new ObjectMapper()
-        .readValue(
-            json, new TypeReference<List<ApiDevelopmentServerConfigurationListResponse>>() {});
+        .readValue(json, new TypeReference<List<ModelsXRayConfigHttpUpdateRequest>>() {});
   }
 }

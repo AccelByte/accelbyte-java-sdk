@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Subscribe the user(s) an app notification.
  *
  * <p>Request body: - notificationType : type of the app notification to be subscribed - Required. -
- * values: -"all" - "app-down" - "critical-vulnerability" - subscribers : user(s) to subscribe the
+ * values: - "all" - "app-down" - "critical-vulnerability" - subscribers : user(s) to subscribe the
  * app notification - Required.
  */
 @Getter

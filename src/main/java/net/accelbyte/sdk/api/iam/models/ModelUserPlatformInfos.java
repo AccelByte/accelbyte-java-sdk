@@ -29,6 +29,9 @@ public class ModelUserPlatformInfos extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String avatarUrl;
 
+  @JsonProperty("createdAt")
+  private String createdAt;
+
   @JsonProperty("displayName")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String displayName;

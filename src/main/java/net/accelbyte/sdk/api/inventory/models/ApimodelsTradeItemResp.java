@@ -25,6 +25,9 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApimodelsTradeItemResp extends Model {
 
+  @JsonProperty("id")
+  private String id;
+
   @JsonProperty("qty")
   private Integer qty;
 

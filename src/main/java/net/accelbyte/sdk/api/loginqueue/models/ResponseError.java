@@ -26,6 +26,7 @@ import net.accelbyte.sdk.core.Model;
 public class ResponseError extends Model {
 
   @JsonProperty("attributes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, String> attributes;
 
   @JsonProperty("errorCode")

@@ -26,12 +26,14 @@ import net.accelbyte.sdk.core.Model;
 public class ApimodelBulkSubscribeItem extends Model {
 
   @JsonProperty("emailAddress")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String emailAddress;
 
   @JsonProperty("notificationType")
   private Map<String, Boolean> notificationType;
 
   @JsonProperty("userId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String userId;
 
   @JsonIgnore

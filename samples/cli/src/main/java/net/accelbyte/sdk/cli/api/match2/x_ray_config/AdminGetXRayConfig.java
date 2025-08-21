@@ -6,13 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.ams.development;
+package net.accelbyte.sdk.cli.api.match2.x_ray_config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
-import net.accelbyte.sdk.api.ams.models.*;
-import net.accelbyte.sdk.api.ams.wrappers.Development;
+import net.accelbyte.sdk.api.match2.models.*;
+import net.accelbyte.sdk.api.match2.wrappers.XRayConfig;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,10 +25,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "developmentServerConfigurationList", mixinStandardHelpOptions = true)
-public class DevelopmentServerConfigurationList implements Callable<Integer> {
+@Command(name = "adminGetXRayConfig", mixinStandardHelpOptions = true)
+public class AdminGetXRayConfig implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(DevelopmentServerConfigurationList.class);
+  private static final Logger log = LogManager.getLogger(AdminGetXRayConfig.class);
 
   @Option(
       names = {"--namespace"},
@@ -36,42 +36,12 @@ public class DevelopmentServerConfigurationList implements Callable<Integer> {
   String namespace;
 
   @Option(
-      names = {"--count"},
-      description = "count")
-  Integer count;
-
-  @Option(
-      names = {"--imageId"},
-      description = "imageId")
-  String imageId;
-
-  @Option(
-      names = {"--name"},
-      description = "name")
-  String name;
-
-  @Option(
-      names = {"--offset"},
-      description = "offset")
-  Integer offset;
-
-  @Option(
-      names = {"--sortBy"},
-      description = "sortBy")
-  String sortBy;
-
-  @Option(
-      names = {"--sortDirection"},
-      description = "sortDirection")
-  String sortDirection;
-
-  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new DevelopmentServerConfigurationList()).execute(args);
+    int exitCode = new CommandLine(new AdminGetXRayConfig()).execute(args);
     System.exit(exitCode);
   }
 
@@ -85,21 +55,12 @@ public class DevelopmentServerConfigurationList implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final Development wrapper = new Development(sdk);
-      final net.accelbyte.sdk.api.ams.operations.development.DevelopmentServerConfigurationList
-          operation =
-              net.accelbyte.sdk.api.ams.operations.development.DevelopmentServerConfigurationList
-                  .builder()
-                  .namespace(namespace)
-                  .count(count)
-                  .imageId(imageId)
-                  .name(name)
-                  .offset(offset)
-                  .sortBy(sortBy)
-                  .sortDirection(sortDirection)
-                  .build();
-      final ApiDevelopmentServerConfigurationListResponse response =
-          wrapper.developmentServerConfigurationList(operation);
+      final XRayConfig wrapper = new XRayConfig(sdk);
+      final net.accelbyte.sdk.api.match2.operations.x_ray_config.AdminGetXRayConfig operation =
+          net.accelbyte.sdk.api.match2.operations.x_ray_config.AdminGetXRayConfig.builder()
+              .namespace(namespace)
+              .build();
+      final ModelsXRayConfigHttpResponse response = wrapper.adminGetXRayConfig(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

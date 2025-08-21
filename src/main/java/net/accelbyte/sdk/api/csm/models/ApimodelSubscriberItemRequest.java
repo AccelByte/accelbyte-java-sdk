@@ -26,9 +26,11 @@ import net.accelbyte.sdk.core.Model;
 public class ApimodelSubscriberItemRequest extends Model {
 
   @JsonProperty("emailAddress")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String emailAddress;
 
   @JsonProperty("userId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String userId;
 
   @JsonIgnore

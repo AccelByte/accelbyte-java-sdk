@@ -25,8 +25,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Gets the List of Apps for AB-Extend Customer
  *
- * <p>Available scenario: - scenario 3: `event-handler` - scenario 1: `function-override` - scenario
- * 2: `service-extension`
+ * <p>Available scenario: - scenario 1: `function-override` - scenario 2: `service-extension` -
+ * scenario 3: `event-handler`
  *
  * @deprecated
  */

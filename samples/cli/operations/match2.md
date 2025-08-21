@@ -47,6 +47,21 @@ $ build/install/cli/bin/cli match2 adminDeletePlayFeatureFlag \
     --namespace <namespace value>
 ```
 
+### Operation AdminGetXRayConfig
+
+```sh
+$ build/install/cli/bin/cli match2 adminGetXRayConfig \
+    --namespace <namespace value>
+```
+
+### Operation AdminUpdateXRayConfig
+
+```sh
+$ build/install/cli/bin/cli match2 adminUpdateXRayConfig \
+    --namespace <namespace value> \
+    --body <json string for request body>
+```
+
 ### Operation AdminGetAllConfigV1
 
 ```sh
