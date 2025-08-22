@@ -12,6 +12,7 @@ import java.time.Instant;
 import java.util.Date;
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.GetCountryLocationV3;
 import net.accelbyte.sdk.api.iam.wrappers.OAuth20Extension;
+import net.accelbyte.sdk.core.AccelByteConfig;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.client.HttpClient;
 import net.accelbyte.sdk.core.repository.ConfigRepository;
@@ -37,16 +38,17 @@ public class TestIntegrationTokenRefresh extends TestIntegration {
   @Test
   @Order(1)
   public void testUser() throws Exception {
-    final HttpClient<?> httpClient = super.sdk.getSdkConfiguration().getHttpClient();
-    final DefaultTokenRefreshRepository tokenRefreshRepository =
-        new DefaultTokenRefreshRepository();
-    final ConfigRepository configRepository = super.sdk.getSdkConfiguration().getConfigRepository();
-
-    final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRefreshRepository, configRepository);
+    final AccelByteConfig sdkConfig = super.sdk.getSdkConfiguration().getClone()
+        .useOnDemandTokenRefresh();
+    final AccelByteSDK sdk = new AccelByteSDK(sdkConfig);
 
     final OAuth20Extension wrapper = new OAuth20Extension(sdk);
 
     sdk.loginUser(this.username, this.password);
+
+    assertTrue(sdk.getSdkConfiguration().getTokenRepository() instanceof DefaultTokenRefreshRepository);
+    final DefaultTokenRefreshRepository tokenRefreshRepository =
+      (DefaultTokenRefreshRepository)sdk.getSdkConfiguration().getTokenRepository();
 
     assertTrue(
         tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
@@ -69,16 +71,17 @@ public class TestIntegrationTokenRefresh extends TestIntegration {
   @Test
   @Order(1)
   public void testClient() throws Exception {
-    final HttpClient<?> httpClient = super.sdk.getSdkConfiguration().getHttpClient();
-    final DefaultTokenRefreshRepository tokenRefreshRepository =
-        new DefaultTokenRefreshRepository();
-    final ConfigRepository configRepository = super.sdk.getSdkConfiguration().getConfigRepository();
-
-    final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRefreshRepository, configRepository);
+    final AccelByteConfig sdkConfig = super.sdk.getSdkConfiguration().getClone()
+        .useOnDemandTokenRefresh();
+    final AccelByteSDK sdk = new AccelByteSDK(sdkConfig);
 
     final OAuth20Extension wrapper = new OAuth20Extension(sdk);
 
     sdk.loginClient();
+
+    assertTrue(sdk.getSdkConfiguration().getTokenRepository() instanceof DefaultTokenRefreshRepository);
+    final DefaultTokenRefreshRepository tokenRefreshRepository =
+      (DefaultTokenRefreshRepository)sdk.getSdkConfiguration().getTokenRepository();
 
     assertTrue(
         tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));

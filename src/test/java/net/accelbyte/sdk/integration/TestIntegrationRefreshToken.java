@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
 import lombok.Data;
+import net.accelbyte.sdk.core.AccelByteConfig;
 import net.accelbyte.sdk.core.AccelByteSDK;
-import net.accelbyte.sdk.core.client.OkhttpClient;
-import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
-import net.accelbyte.sdk.core.repository.DefaultTokenRefreshRepository;
+import net.accelbyte.sdk.core.repository.OnDemandTokenRefreshOptions;
+
 import org.junit.jupiter.api.*;
 
 @Tag("test-integration")
@@ -45,20 +45,19 @@ public class TestIntegrationRefreshToken extends TestIntegration {
   @Test
   public void testRefreshUserToken() throws Exception {
 
-    DefaultConfigRepository configRepo = new DefaultConfigRepository();
-    DefaultTokenRefreshRepository refreshRepo = new DefaultTokenRefreshRepository();
+    OnDemandTokenRefreshOptions refreshOpts = OnDemandTokenRefreshOptions.getDefault();
+    refreshOpts.setRate(0.0005f);  // ~1.8 second
 
-    OkhttpClient httpClient = new OkhttpClient();
-    final AccelByteSDK sdk = new AccelByteSDK(httpClient, refreshRepo, configRepo);
-    reflectionSetRefreshRatio(sdk, 0.0005f); // ~1.8 second
+    final AccelByteConfig sdkConfig = AccelByteConfig.getDefault()
+      .useOnDemandTokenRefresh(refreshOpts);
+    final AccelByteSDK sdk = new AccelByteSDK(sdkConfig);
+
     final int expirationDuration = 2; // in second
 
     boolean loggedIn = sdk.loginOrRefreshUser(username, password);
     assertTrue(loggedIn);
 
-    // TODO: make the scheduler 'test-able' and follow SOLID
-    Thread.sleep(
-        expirationDuration * 1_000); // sleep for 2 second, since expiredAt was set 1.8 second
+    Thread.sleep(expirationDuration * 1000); // sleep for 2 second, since expiredAt was set 1.8 second
 
     CountDownLatch latch = new CountDownLatch(1); // all threads will wait on this latch
     int numWorker = 2;

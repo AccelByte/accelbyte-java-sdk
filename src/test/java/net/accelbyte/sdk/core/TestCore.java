@@ -707,13 +707,19 @@ class TestCore {
 
   @Test
   public void testTokenRefreshUser() throws Exception {
-    final DefaultTokenRefreshRepository tokenRefreshRepository =
-        new DefaultTokenRefreshRepository();
+
+    final AccelByteConfig sdkConfig = (new AccelByteConfig(httpClient, mockServerConfigRepository))
+      .useOnDemandTokenRefresh(OnDemandTokenRefreshOptions.getDefault());
+
     final AccelByteSDK sdk =
-        new AccelByteSDK(httpClient, tokenRefreshRepository, mockServerConfigRepository);
+        new AccelByteSDK(sdkConfig);
     final OAuth20Extension wrapper = new OAuth20Extension(sdk);
 
     sdk.loginUser("fakeuser", "fakepassword");
+
+    assertTrue(sdk.getSdkConfiguration().getTokenRepository() instanceof DefaultTokenRefreshRepository);
+    final DefaultTokenRefreshRepository tokenRefreshRepository =
+      (DefaultTokenRefreshRepository)sdk.getSdkConfiguration().getTokenRepository();
 
     assertTrue(
         tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
@@ -736,13 +742,18 @@ class TestCore {
 
   @Test
   public void testTokenRefreshClient() throws Exception {
-    final DefaultTokenRefreshRepository tokenRefreshRepository =
-        new DefaultTokenRefreshRepository();
+    final AccelByteConfig sdkConfig = (new AccelByteConfig(httpClient, mockServerConfigRepository))
+      .useOnDemandTokenRefresh(OnDemandTokenRefreshOptions.getDefault());
+
     final AccelByteSDK sdk =
-        new AccelByteSDK(httpClient, tokenRefreshRepository, mockServerConfigRepository);
+        new AccelByteSDK(sdkConfig);
     final OAuth20Extension wrapper = new OAuth20Extension(sdk);
 
     sdk.loginClient();
+
+    assertTrue(sdk.getSdkConfiguration().getTokenRepository() instanceof DefaultTokenRefreshRepository);
+    final DefaultTokenRefreshRepository tokenRefreshRepository =
+      (DefaultTokenRefreshRepository)sdk.getSdkConfiguration().getTokenRepository();
 
     assertTrue(
         tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));

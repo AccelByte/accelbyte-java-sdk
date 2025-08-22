@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * Copyright (c) 2022-2025 AccelByte Inc. All Rights Reserved
  * This is licensed software from AccelByte Inc, for limitations
  * and restrictions contact your company contract manager.
  */
@@ -10,10 +10,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import net.accelbyte.sdk.core.AccelByteConfig;
 import net.accelbyte.sdk.core.AccelByteSDK;
-import net.accelbyte.sdk.core.client.HttpClient;
-import net.accelbyte.sdk.core.repository.ConfigRepository;
 import net.accelbyte.sdk.core.repository.DefaultTokenRefreshRepository;
+import net.accelbyte.sdk.core.repository.TokenRepository;
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -86,18 +87,19 @@ public class TestIntegrationLoginPlatform extends TestIntegration {
     assertTrue(phAuth.getRefreshToken() != null && !phAuth.getRefreshToken().isEmpty());
     assertTrue(phAuth.getTokenType() != null && !phAuth.getTokenType().isEmpty());
 
-    final HttpClient<?> httpClient = super.sdk.getSdkConfiguration().getHttpClient();
-    final DefaultTokenRefreshRepository tokenRepository = new DefaultTokenRefreshRepository();
-    final ConfigRepository configRepository = super.sdk.getSdkConfiguration().getConfigRepository();
-
-    final AccelByteSDK sdk = new AccelByteSDK(httpClient, tokenRepository, configRepository);
+    final AccelByteConfig sdkConfig = super.sdk.getSdkConfiguration().getClone().useOnDemandTokenRefresh();
+    final AccelByteSDK sdk = new AccelByteSDK(sdkConfig);
 
     final boolean isLoginOk = sdk.loginPlatform("phantauth", phAuth.getIdToken());
 
     assertTrue(isLoginOk);
 
-    assertTrue(tokenRepository.getToken() != null && !tokenRepository.getToken().isEmpty());
-    assertTrue(tokenRepository.getRefreshToken() != null);
+    final TokenRepository tokenRepository = sdkConfig.getTokenRepository();
+    if (tokenRepository instanceof DefaultTokenRefreshRepository) {
+      DefaultTokenRefreshRepository dtrRepository = (DefaultTokenRefreshRepository)tokenRepository;
+      assertTrue(dtrRepository.getToken() != null && !dtrRepository.getToken().isEmpty());
+      assertTrue(dtrRepository.getRefreshToken() != null);
+    }
   }
 
   @AfterAll
