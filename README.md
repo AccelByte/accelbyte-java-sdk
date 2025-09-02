@@ -129,8 +129,6 @@ boolean result = sdk.loginOrRefreshClient();
 
 ```
 
-You can refer to this example of more details, [sample login or refresh](samples/login-or-refresh)
-
 #### Local Token Validation
 
 To enable local token validation, use the following when instantiating the SDK. When enabled, the SDK instance will cache JWKS and revocation list for performing token validation so that it does not have to call AccelByte Gaming Services endpoint each time. See [Validate Access Token](#validate-access-token) section on how to validate token using SDK.
