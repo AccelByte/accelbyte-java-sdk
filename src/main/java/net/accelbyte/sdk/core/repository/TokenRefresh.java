@@ -13,6 +13,8 @@ import net.accelbyte.sdk.api.iam.models.OauthmodelTokenWithDeviceCookieResponseV
 import net.accelbyte.sdk.core.AccelByteSDK;
 
 public interface TokenRefresh {
+
+  @Deprecated
   void setTokenExpiresAt(Date dateTime) throws Exception;
 
   Date getTokenExpiresAt() throws Exception;
@@ -23,6 +25,7 @@ public interface TokenRefresh {
 
   void removeRefreshToken() throws Exception;
 
+  @Deprecated
   void setRefreshTokenExpiresAt(Date dateTime) throws Exception;
 
   Date getRefreshTokenExpiresAt() throws Exception;
@@ -34,6 +37,12 @@ public interface TokenRefresh {
   void clearTokenData();
 
   boolean isTokenExpiring();
+
+  Date getTokenExpiringAt();
+
+  boolean isTokenExpired();
+
+  boolean isRefreshTokenExpired();
 
   void doTokenRefresh(AccelByteSDK sdk, boolean rethrowOnError, TokenRefreshCallbacks callbacks);
 }

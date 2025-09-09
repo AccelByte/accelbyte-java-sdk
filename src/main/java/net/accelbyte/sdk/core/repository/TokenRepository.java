@@ -13,6 +13,8 @@ public interface TokenRepository {
 
   void removeToken() throws Exception;
 
+  boolean isTokenAvailable();
+
   default boolean registerTokenRepositoryCallback(TokenRepositoryCallback callback) {
     return true;
   }

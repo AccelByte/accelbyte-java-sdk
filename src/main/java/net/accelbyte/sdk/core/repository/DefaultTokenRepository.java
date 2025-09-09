@@ -51,6 +51,13 @@ public class DefaultTokenRepository implements TokenRepository {
     }
   }
 
+  @Override
+  public boolean isTokenAvailable() {
+    if (this.accessToken != null)
+      return !this.accessToken.isEmpty();
+    return false;
+  }  
+
   protected void notifyOnAccessTokenRefreshed(String newToken) {
     for (TokenRepositoryCallback callback : callbacks) {
       executor.execute(() -> callback.onAccessTokenRefreshed(newToken));

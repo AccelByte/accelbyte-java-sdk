@@ -416,6 +416,10 @@ public class AccelByteSDK {
       selectedSecurity = operation.getSecurities().get(0);
     }
 
+    final boolean isBasicSecurity = Operation.Security.Basic.toString().equals(selectedSecurity);
+    final boolean isBearerSecurity = Operation.Security.Bearer.toString().equals(selectedSecurity);
+    final boolean IsCookieSecurity = Operation.Security.Cookie.toString().equals(selectedSecurity);
+
     final HttpHeaders headers = new HttpHeaders();
     final Map<String, String> cookies = operation.getCookieParams();
     final ConfigRepository configRepository = sdkConfiguration.getConfigRepository();
@@ -423,16 +427,16 @@ public class AccelByteSDK {
     final TokenRepository tokenRepository = sdkConfiguration.getTokenRepository();
     final String accessToken = tokenRepository.getToken();
 
-    if (Operation.Security.Basic.toString().equals(selectedSecurity)) {
+    if (isBasicSecurity) {
       final String clientId = configRepository.getClientId();
       final String clientSecret = configRepository.getClientSecret();
       headers.put(HttpHeaders.AUTHORIZATION, Credentials.basic(clientId, clientSecret));
-    } else if (Operation.Security.Bearer.toString().equals(selectedSecurity)) {
+    } else if (isBearerSecurity) {
       if (accessToken != null && !accessToken.isEmpty()) {
         headers.put(
             HttpHeaders.AUTHORIZATION, Operation.Security.Bearer.toString() + " " + accessToken);
       }
-    } else if (Operation.Security.Cookie.toString().equals(selectedSecurity)) {
+    } else if (IsCookieSecurity) {
       if (accessToken != null && !accessToken.isEmpty()) {
         cookies.put(COOKIE_KEY_ACCESS_TOKEN, accessToken);
       }
@@ -473,11 +477,15 @@ public class AccelByteSDK {
       }
       headers.put(HttpHeaders.COOKIE, String.join("; ", cookieEntries));
     }
-    
-    final TokenRefreshOptions trOpts = sdkConfiguration.getTokenRefreshOptions();
-    if (trOpts != null && trOpts.isEnabled() && trOpts.isType(OnDemandTokenRefreshOptions.REFRESH_TYPE) && tokenRepository instanceof TokenRefresh) {
-      final TokenRefresh tokenRefresh = (TokenRefresh)tokenRepository;
-      tokenRefresh.doTokenRefresh(this,true,null);
+
+    if (!isBasicSecurity) {
+      //make sure that only endpoint with non-basic security triggers token refresh
+
+      final TokenRefreshOptions trOpts = sdkConfiguration.getTokenRefreshOptions();
+      if (trOpts != null && trOpts.isEnabled() && trOpts.isType(OnDemandTokenRefreshOptions.REFRESH_TYPE) && tokenRepository instanceof TokenRefresh) {
+        final TokenRefresh tokenRefresh = (TokenRefresh)tokenRepository;
+        tokenRefresh.doTokenRefresh(this,true,null);
+      }
     }
 
     final String baseUrl = sdkConfiguration.getConfigRepository().getBaseURL();
@@ -534,16 +542,14 @@ public class AccelByteSDK {
     if (tokenRepo instanceof TokenRefresh) {
       refreshRepo = (TokenRefresh) tokenRepo;
     } else {
-      throw new IllegalArgumentException(
-          "Token repository is not a Refresh Repository"); // TODO: restructure the inheritance
+      throw new IllegalArgumentException("Token repository is not a Refresh Repository"); // TODO: restructure the inheritance
     }
 
-    if (Strings.isNullOrEmpty(tokenRepo.getToken())) {
+    if (!tokenRepo.isTokenAvailable()) {
       return loginClientInternal();
     }
 
-    boolean isAccessTokenExpired = isExpired(refreshRepo.getTokenExpiresAt());
-    if (!isAccessTokenExpired) {
+    if (!refreshRepo.isTokenExpiring()) {
       return true; // do nothing, since accessToken still valid
     }
 
@@ -563,17 +569,10 @@ public class AccelByteSDK {
 
     if (Strings.isNullOrEmpty(tokenRepo.getToken())) {
       return loginUserInternal(username, password, DEFAULT_LOGIN_USER_SCOPE);
-    }
+    }    
 
-    boolean isAccessTokenExpired = isExpired(refreshRepo.getTokenExpiresAt());
-    boolean isRefreshTokenExpired = isExpired(refreshRepo.getRefreshTokenExpiresAt());
-
-    if (!isAccessTokenExpired) {
+    if (!refreshRepo.isTokenExpiring()) {
       return true; // do nothing, since accessToken still valid
-    }
-
-    if (!isRefreshTokenExpired) {
-      return refreshToken();
     }
 
     return loginUserInternal(username, password, DEFAULT_LOGIN_USER_SCOPE);
@@ -614,15 +613,10 @@ public class AccelByteSDK {
 
       final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
       final String refreshToken = tokenRefresh.getRefreshToken();
-      final boolean isLoginUserOrLoginPlatform = refreshToken != null && !refreshToken.isEmpty();
-
-      final Date refreshTokenExpiresAt =
-          isLoginUserOrLoginPlatform ? tokenRefresh.getRefreshTokenExpiresAt() : null;
+      final boolean isLoginUserOrLoginPlatform = refreshToken != null && !refreshToken.isEmpty();      
 
       if (isLoginUserOrLoginPlatform) {
-        final boolean isRefreshTokenExpired = isExpired(refreshTokenExpiresAt);
-
-        if (isRefreshTokenExpired) {
+        if (tokenRefresh.isRefreshTokenExpired()) {
           return false; // Cannot perform token refresh
         }
 
@@ -633,9 +627,7 @@ public class AccelByteSDK {
                   .refreshToken(refreshToken)
                   .grantTypeFromEnum(TokenGrantV3.GrantType.RefreshToken)
                   .build();
-          final OauthmodelTokenWithDeviceCookieResponseV3 token =
-              oAuth20.tokenGrantV3(tokenGrantV3);
-              
+          final OauthmodelTokenWithDeviceCookieResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
           tokenRepository.storeToken(token.getAccessToken());
           tokenRefresh.storeTokenData(token);
           log.info("Access token refreshed");
@@ -887,14 +879,14 @@ public class AccelByteSDK {
 
       final TokenGrantV3 tokenGrantV3 =
           TokenGrantV3.builder()
-              .grantTypeFromEnum(TokenGrantV3.GrantType.ClientCredentials)
-              .build();
+            .grantTypeFromEnum(TokenGrantV3.GrantType.ClientCredentials)
+            .build();
       final OauthmodelTokenWithDeviceCookieResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
 
       final TokenRepository tokenRepository = this.sdkConfiguration.getTokenRepository();
       tokenRepository.storeToken(token.getAccessToken());
       if (tokenRepository instanceof TokenRefresh) {
-        final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
+        final TokenRefresh tokenRefresh = (TokenRefresh)tokenRepository;
         tokenRefresh.storeTokenData(token);
       }
 

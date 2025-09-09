@@ -2,7 +2,6 @@ package net.accelbyte.sdk.integration;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
@@ -23,18 +22,7 @@ public class TestIntegrationRefreshToken extends TestIntegration {
   public void setup() throws Exception {
     super.setup(false);
   }
-
-  private void reflectionSetRefreshRatio(AccelByteSDK sdk, float refreshRatio) {
-    Field fieldRefreshRation;
-    try {
-      fieldRefreshRation = AccelByteSDK.class.getDeclaredField("tokenRefreshRatio");
-      fieldRefreshRation.setAccessible(true);
-      fieldRefreshRation.setFloat(sdk, refreshRatio);
-    } catch (NoSuchFieldException | IllegalAccessException e) {
-      throw new RuntimeException(e);
-    }
-  }
-
+  
   @Data
   private static class RefreshedToken {
     private final boolean isSuccess;

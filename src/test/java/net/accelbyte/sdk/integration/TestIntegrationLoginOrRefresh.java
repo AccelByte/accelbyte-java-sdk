@@ -36,15 +36,14 @@ public class TestIntegrationLoginOrRefresh extends TestIntegration {
     final Date firstLoginTime = Date.from(Instant.now());
     final boolean firstLoginOk = sdk.loginOrRefreshUser(username, password);
 
+    final TokenRefresh refreshRepo = (TokenRefresh)sdk.getSdkConfiguration().getTokenRepository();
+
     assertTrue(firstLoginOk);
 
     final String firstLoginToken = sdk.getSdkConfiguration().getTokenRepository().getToken();
-    final Date firstLoginTokenExpiredTime =
-        ((TokenRefresh) sdk.getSdkConfiguration().getTokenRepository()).getTokenExpiresAt();
+    final Date firstLoginTokenExpiredTime = refreshRepo.getTokenExpiringAt();
 
-    assertTrue(
-        getTimeDifferenceInSeconds(firstLoginTime, firstLoginTokenExpiredTime)
-            <= expirationDuration);
+    assertTrue(getTimeDifferenceInSeconds(firstLoginTime, firstLoginTokenExpiredTime) <= expirationDuration);
 
     final AccessTokenPayload firstLoginTokenPayload = sdk.parseAccessToken(firstLoginToken, false);
 
@@ -60,10 +59,8 @@ public class TestIntegrationLoginOrRefresh extends TestIntegration {
     assertTrue(secondLoginOk);
 
     final String secondLoginToken = sdk.getSdkConfiguration().getTokenRepository().getToken();
-    final Date secondLoginExpiredTime =
-        ((TokenRefresh) sdk.getSdkConfiguration().getTokenRepository()).getTokenExpiresAt();
-    assertTrue(
-        getTimeDifferenceInSeconds(secondLoginTime, secondLoginExpiredTime) <= expirationDuration);
+    final Date secondLoginExpiredTime = refreshRepo.getTokenExpiringAt();
+    assertTrue(getTimeDifferenceInSeconds(secondLoginTime, secondLoginExpiredTime) <= expirationDuration);
 
     final AccessTokenPayload secondLoginTokenPayload =
         sdk.parseAccessToken(secondLoginToken, false);
@@ -90,14 +87,14 @@ public class TestIntegrationLoginOrRefresh extends TestIntegration {
     final Date firstLoginTime = Date.from(Instant.now());
     final boolean firstLoginOk = sdk.loginOrRefreshClient();
 
+    final TokenRefresh refreshRepo = (TokenRefresh)sdk.getSdkConfiguration().getTokenRepository();
+
     assertTrue(firstLoginOk);
 
     final String firstLoginToken = sdk.getSdkConfiguration().getTokenRepository().getToken();
-    final Date firstLoginTokenExpiredTime =
-        ((TokenRefresh) sdk.getSdkConfiguration().getTokenRepository()).getTokenExpiresAt();
-    assertTrue(
-        getTimeDifferenceInSeconds(firstLoginTime, firstLoginTokenExpiredTime)
-            <= expirationDuration);
+    final Date firstLoginTokenExpiredTime = refreshRepo.getTokenExpiringAt();
+
+    assertTrue(getTimeDifferenceInSeconds(firstLoginTime, firstLoginTokenExpiredTime) <= expirationDuration);
 
     final AccessTokenPayload firstLoginTokenPayload = sdk.parseAccessToken(firstLoginToken, false);
 
@@ -114,11 +111,8 @@ public class TestIntegrationLoginOrRefresh extends TestIntegration {
     assertTrue(secondLoginOk);
 
     final String secondLoginToken = sdk.getSdkConfiguration().getTokenRepository().getToken();
-    final Date secondLoginTokenExpiredTime =
-        ((TokenRefresh) sdk.getSdkConfiguration().getTokenRepository()).getTokenExpiresAt();
-    assertTrue(
-        getTimeDifferenceInSeconds(secondLoginTime, secondLoginTokenExpiredTime)
-            <= expirationDuration);
+    final Date secondLoginTokenExpiredTime = refreshRepo.getTokenExpiringAt();
+    assertTrue(getTimeDifferenceInSeconds(secondLoginTime, secondLoginTokenExpiredTime) <= expirationDuration);
 
     final AccessTokenPayload secondLoginTokenPayload =
         sdk.parseAccessToken(secondLoginToken, false);

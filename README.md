@@ -100,32 +100,49 @@ AccelByteSDK sdk = new AccelByteSDK(config);
 
 #### Automatic Token Refresh
 
-Use the following to get SDK instance with automatic token refresh functionality which is performed before each HTTP request but only if access token is almost expired.
-    
-```java
-AccelByteConfig config = new AccelByteConfig(
-      new OkhttpClient(),
-      new DefaultTokenRefreshRepository();   // Using DefaultTokenRefreshRepository which implements TokenRefresh interface to enable automatic token refresh
-      new DefaultConfigRepository());     // Using DefaultConfigRepository, make sure the required environment variables are set
+Use the following to get SDK instance with automatic token refresh which is checked and performed periodically.
 
+```java
+AccelByteConfig config =  AccelByteConfig.getDefault() //use default configuration
+   .useBackgroundTokenRefresh(); // use background token refresh.
+
+//use configuration object when creating the sdk object.
 AccelByteSDK sdk = new AccelByteSDK(config);
 ```
 
-#### On-demand Refresh Token (Preview)
+To configure background token refresh, set the following environment variables.
 
-The on-demand refresh token is intended to be used in environment where automatic refresh token cannot work properly e.g. AWS Lambda.`
+| Name                             | Required | Description                                                                                    |
+|----------------------------------|--------- |------------------------------------------------------------------------------------------------|
+| `AB_REFRESH_RATE`                | No       | Fraction of token lifetime before it is refreshed. Value between`0.0` to `1.0`. Default: `0.8` |
+| `AB_REFRESH_MAX_RETRY`           | No       | Maximum number of retries for refresh token requests before failing. Default: `2`              |
+| `AB_REFRESH_BACKGROUND_INTERVAL` | No       | Timer interval (in seconds) to check token expiry. Default: `10`                               |
+| `AB_REFRESH_BACKGROUND_ENABLED`  | No       | Enables background token refresh. Default: `true`                                              |
 
+NOTE: The `AB_REFRESH_RATE` uses a float value between `0` and `1` representing the fraction of the token's lifetime. For example, if a token is valid for 1 hour (3600 seconds), and `AB_REFRESH_RATE` is set to `0.5`, the SDK will attempt to refresh the token after it has less than 1800 seconds remaining (3600 x 0.5).
+
+Background token refresh runs on a timer at a specified interval to check for token expiry. If the token is nearing its expiration time (as determined by the `AB_REFRESH_RATE` value), it will be refreshed automatically.
+
+If a periodic background process is not preferred, use .useOnDemandTokenRefresh() instead. This method triggers automatic token refresh whenever the SDK calls any AGS endpoint.
+Please note that this type of token refresh is recommended only for OAuth client logins (using the LoginClient method), as it relies solely on the configured client ID and client secret values. It can be used for other login types, but once the refresh token expires, any subsequent calls will be unauthorized.
+    
 ```java
-DefaultConfigRepository configRepo = new DefaultConfigRepository();
-// Must use this if you want to use LoginOrRefresh
-DefaultTokenRefreshRepository refreshRepo = new DefaultTokenRefreshRepository();
-AccelByteConfig config = new AccelByteConfig(new OkhttpClient(), refreshRepo, configRepo);
+AccelByteConfig config =  AccelByteConfig.getDefault() //use default configuration
+   .useOnDemandTokenRefresh(); // use on-demand token refresh.
+
+//use configuration object when creating the sdk object.
 AccelByteSDK sdk = new AccelByteSDK(config);
-// Before making endpoint call
-// Either use this for user credentials
-boolean result = sdk.loginOrRefreshUser("username", "password");
-// Or this for client credentials
-boolean result = sdk.loginOrRefreshClient();
+```
+
+To configure on-demand token refresh, set the following environment variables.
+
+| Name                          | Required | Description                                                                                    |
+|-------------------------------|--------- |------------------------------------------------------------------------------------------------|
+| `AB_REFRESH_RATE`             | No       | Fraction of token lifetime before it is refreshed. Value between`0.0` to `1.0`. Default: `0.8` |
+| `AB_REFRESH_MAX_RETRY`        | No       | Maximum number of retries for refresh token requests before failing. Default: `2`              |
+| `AB_REFRESH_ONDEMAND_ENABLED` | No       | Enables token refresh. Default: `true`                                                         |
+
+NOTE: Avoid using both `.useOnDemandTokenRefresh()` and `.useBackgroundTokenRefresh()` together, as it introduces unnecessary overhead and may lead to unexpected behavior.
 
 ```
 
