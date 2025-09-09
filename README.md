@@ -144,6 +144,14 @@ To configure on-demand token refresh, set the following environment variables.
 
 NOTE: Avoid using both `.useOnDemandTokenRefresh()` and `.useBackgroundTokenRefresh()` together, as it introduces unnecessary overhead and may lead to unexpected behavior.
 
+Instantiating the SDK object by assigning a `DefaultTokenRefreshRepository` directly is not recommended, but it still works with the default behavior set to on-demand token refresh.
+```java
+AccelByteConfig config = new AccelByteConfig(
+   new OkhttpClient(),
+   new DefaultTokenRefreshRepository();   // Using DefaultTokenRefreshRepository which implements TokenRefresh interface to enable automatic token refresh
+   new DefaultConfigRepository());     // Using DefaultConfigRepository, make sure the required environment variables are set
+
+AccelByteSDK sdk = new AccelByteSDK(config);
 ```
 
 #### Local Token Validation

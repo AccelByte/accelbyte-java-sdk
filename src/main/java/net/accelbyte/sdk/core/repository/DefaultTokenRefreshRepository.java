@@ -26,6 +26,10 @@ public class DefaultTokenRefreshRepository extends DefaultTokenRepository implem
     this.options = options;
   }
 
+  public DefaultTokenRefreshRepository() {
+    this.options = OnDemandTokenRefreshOptions.getDefault();
+  }
+
   @Override
   @Deprecated
   public void setTokenExpiresAt(Date dateTime) {
