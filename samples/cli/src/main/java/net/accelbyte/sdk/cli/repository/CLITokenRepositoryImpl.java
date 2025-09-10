@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 AccelByte Inc. All Rights Reserved
+ * Copyright (c) 2022-2025 AccelByte Inc. All Rights Reserved
  * This is licensed software from AccelByte Inc, for limitations
  * and restrictions contact your company contract manager.
  */
@@ -75,6 +75,21 @@ public class CLITokenRepositoryImpl implements TokenRepository {
     } catch (NullPointerException e) {
       log.error("File not found with exception: {}", e.getMessage());
     }
+  }
+
+  @Override
+  public boolean isTokenAvailable() {
+    try {
+      File file = new File(getDataStorePath());
+      ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+      DataStore dataStore =
+          file.exists() ? mapper.readValue(file, DataStore.class) : new DataStore();
+      final String accessToken = dataStore.getAccessToken();
+      return (accessToken != null) && (!accessToken.isEmpty());
+    } catch (Exception e) {
+      log.error("File not found with exception: {}", e.getMessage());
+    }
+    return false;
   }
 
   private String getDataStorePath() {

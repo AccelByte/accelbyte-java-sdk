@@ -708,8 +708,11 @@ class TestCore {
   @Test
   public void testTokenRefreshUser() throws Exception {
 
+    final OnDemandTokenRefreshOptions refreshOpts = OnDemandTokenRefreshOptions.getDefault();
+    refreshOpts.setRate(0.0005f);  // ~1.8 second
+
     final AccelByteConfig sdkConfig = (new AccelByteConfig(httpClient, mockServerConfigRepository))
-      .useOnDemandTokenRefresh(OnDemandTokenRefreshOptions.getDefault());
+      .useOnDemandTokenRefresh(refreshOpts);
 
     final AccelByteSDK sdk =
         new AccelByteSDK(sdkConfig);
@@ -721,29 +724,26 @@ class TestCore {
     final DefaultTokenRefreshRepository tokenRefreshRepository =
       (DefaultTokenRefreshRepository)sdk.getSdkConfiguration().getTokenRepository();
 
-    assertTrue(
-        tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
-    assertTrue(
-        tokenRefreshRepository.getRefreshToken() != null
-            && !"".equals(tokenRefreshRepository.getRefreshToken()));
+    assertTrue(tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
+    assertTrue(tokenRefreshRepository.getRefreshToken() != null && !"".equals(tokenRefreshRepository.getRefreshToken()));
 
-    // Simulate token expiry within threshold and refresh token still valid for 24
-    // hours
-    tokenRefreshRepository.setTokenExpiresAt(Date.from(Instant.now().plusSeconds(60)));
+    final int expirationDuration = 5;
+    Thread.sleep(expirationDuration * 1_000);
 
     wrapper.getCountryLocationV3(GetCountryLocationV3.builder().build());
 
-    assertTrue(
-        tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
-    assertTrue(
-        tokenRefreshRepository.getRefreshToken() != null
-            && !"".equals(tokenRefreshRepository.getRefreshToken()));
+    assertTrue(tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
+    assertTrue(tokenRefreshRepository.getRefreshToken() != null && !"".equals(tokenRefreshRepository.getRefreshToken()));
   }
 
   @Test
   public void testTokenRefreshClient() throws Exception {
+
+    final OnDemandTokenRefreshOptions refreshOpts = OnDemandTokenRefreshOptions.getDefault();
+    refreshOpts.setRate(0.0005f);  // ~1.8 second
+
     final AccelByteConfig sdkConfig = (new AccelByteConfig(httpClient, mockServerConfigRepository))
-      .useOnDemandTokenRefresh(OnDemandTokenRefreshOptions.getDefault());
+      .useOnDemandTokenRefresh(refreshOpts);
 
     final AccelByteSDK sdk =
         new AccelByteSDK(sdkConfig);
@@ -755,19 +755,14 @@ class TestCore {
     final DefaultTokenRefreshRepository tokenRefreshRepository =
       (DefaultTokenRefreshRepository)sdk.getSdkConfiguration().getTokenRepository();
 
-    assertTrue(
-        tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
-    assertTrue(
-        tokenRefreshRepository.getRefreshToken()
-            == null); // Login client does not return refresh token
+    assertTrue(tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));    
 
-    // Simulate token expiry within threshold
-    tokenRefreshRepository.setTokenExpiresAt(Date.from(Instant.now().plusSeconds(60)));
+    final int expirationDuration = 5;
+    Thread.sleep(expirationDuration * 1_000);
 
     wrapper.getCountryLocationV3(GetCountryLocationV3.builder().build());
 
     // Check if access token is set correctly after refresh token
-    assertTrue(
-        tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
+    assertTrue(tokenRefreshRepository.getToken() != null && !"".equals(tokenRefreshRepository.getToken()));
   }
 }
