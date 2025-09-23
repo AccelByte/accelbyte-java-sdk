@@ -9,6 +9,7 @@ package net.accelbyte.sdk.core;
 import lombok.Getter;
 import lombok.Setter;
 import net.accelbyte.sdk.core.client.HttpClient;
+import net.accelbyte.sdk.core.client.OkhttpClient;
 import net.accelbyte.sdk.core.repository.BackgroundTokenRefreshOptions;
 import net.accelbyte.sdk.core.repository.BackgroundTokenRefreshRepository;
 import net.accelbyte.sdk.core.repository.ConfigRepository;
@@ -19,7 +20,6 @@ import net.accelbyte.sdk.core.repository.FlightIdRepository;
 import net.accelbyte.sdk.core.repository.OnDemandTokenRefreshOptions;
 import net.accelbyte.sdk.core.repository.TokenRefreshOptions;
 import net.accelbyte.sdk.core.repository.TokenRepository;
-import net.accelbyte.sdk.core.client.OkhttpClient;
 
 @Setter
 @Getter
@@ -37,11 +37,12 @@ public class AccelByteConfig {
     return new AccelByteConfig(httpClient, tokenRepo, configRepo);
   }
 
-  public AccelByteConfig(
-    HttpClient<?> httpClient,
-    ConfigRepository configRepository
-  ) {
-    this(httpClient, new DefaultTokenRepository(), configRepository, FlightIdRepository.getInstance());
+  public AccelByteConfig(HttpClient<?> httpClient, ConfigRepository configRepository) {
+    this(
+        httpClient,
+        new DefaultTokenRepository(),
+        configRepository,
+        FlightIdRepository.getInstance());
   }
 
   public AccelByteConfig(
@@ -97,10 +98,10 @@ public class AccelByteConfig {
 
   public AccelByteConfig getClone() {
     return new AccelByteConfig(
-      this.getHttpClient(),
-      this.getTokenRepository(),
-      this.getConfigRepository(),
-      this.getFlightIdRepository(),
-      this.getTokenRefreshOptions());
+        this.getHttpClient(),
+        this.getTokenRepository(),
+        this.getConfigRepository(),
+        this.getFlightIdRepository(),
+        this.getTokenRefreshOptions());
   }
 }

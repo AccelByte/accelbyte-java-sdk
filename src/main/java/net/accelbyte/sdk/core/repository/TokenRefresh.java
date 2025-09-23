@@ -7,7 +7,6 @@
 package net.accelbyte.sdk.core.repository;
 
 import java.util.Date;
-
 import net.accelbyte.sdk.api.iam.models.OauthmodelTokenResponse;
 import net.accelbyte.sdk.api.iam.models.OauthmodelTokenWithDeviceCookieResponseV3;
 import net.accelbyte.sdk.core.AccelByteSDK;

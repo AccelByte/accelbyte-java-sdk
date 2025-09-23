@@ -44,6 +44,9 @@ public class ConfigmodelsNamespaceConfig extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, List<String>> platformGroup;
 
+  @JsonProperty("xrayMaxWhitelistedUserCount")
+  private Integer xrayMaxWhitelistedUserCount;
+
   @JsonIgnore
   public ConfigmodelsNamespaceConfig createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

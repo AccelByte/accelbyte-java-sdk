@@ -7,9 +7,8 @@
 package net.accelbyte.sdk.core.repository;
 
 public abstract class TokenRefreshCallbacks {
-    
-    public void onUpdated() {}
 
-    public void onFailed(Exception x) {}
+  public void onUpdated() {}
 
+  public void onFailed(Exception x) {}
 }

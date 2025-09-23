@@ -10,7 +10,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import net.accelbyte.sdk.core.AccelByteConfig;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.repository.DefaultTokenRefreshRepository;
@@ -87,7 +86,8 @@ public class TestIntegrationLoginPlatform extends TestIntegration {
     assertTrue(phAuth.getRefreshToken() != null && !phAuth.getRefreshToken().isEmpty());
     assertTrue(phAuth.getTokenType() != null && !phAuth.getTokenType().isEmpty());
 
-    final AccelByteConfig sdkConfig = super.sdk.getSdkConfiguration().getClone().useOnDemandTokenRefresh();
+    final AccelByteConfig sdkConfig =
+        super.sdk.getSdkConfiguration().getClone().useOnDemandTokenRefresh();
     final AccelByteSDK sdk = new AccelByteSDK(sdkConfig);
 
     final boolean isLoginOk = sdk.loginPlatform("phantauth", phAuth.getIdToken());
@@ -96,7 +96,7 @@ public class TestIntegrationLoginPlatform extends TestIntegration {
 
     final TokenRepository tokenRepository = sdkConfig.getTokenRepository();
     if (tokenRepository instanceof DefaultTokenRefreshRepository) {
-      DefaultTokenRefreshRepository dtrRepository = (DefaultTokenRefreshRepository)tokenRepository;
+      DefaultTokenRefreshRepository dtrRepository = (DefaultTokenRefreshRepository) tokenRepository;
       assertTrue(dtrRepository.getToken() != null && !dtrRepository.getToken().isEmpty());
       assertTrue(dtrRepository.getRefreshToken() != null);
     }

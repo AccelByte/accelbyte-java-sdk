@@ -36,14 +36,17 @@ public class EvaluateMyProgress extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private List<String> challengeCode;
+
   /**
    * @param namespace required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public EvaluateMyProgress(String namespace) {
+  public EvaluateMyProgress(String namespace, List<String> challengeCode) {
     this.namespace = namespace;
+    this.challengeCode = challengeCode;
 
     securities.add("Bearer");
   }
@@ -55,6 +58,19 @@ public class EvaluateMyProgress extends Operation {
       pathParams.put("namespace", this.namespace);
     }
     return pathParams;
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "challengeCode",
+        this.challengeCode == null
+            ? null
+            : this.challengeCode.stream()
+                .map(i -> String.valueOf(i))
+                .collect(java.util.stream.Collectors.toList()));
+    return queryParams;
   }
 
   @Override
@@ -71,5 +87,12 @@ public class EvaluateMyProgress extends Operation {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("challengeCode", "csv");
+    return result;
   }
 }

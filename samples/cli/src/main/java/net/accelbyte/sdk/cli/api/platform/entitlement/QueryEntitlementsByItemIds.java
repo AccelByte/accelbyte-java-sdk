@@ -25,10 +25,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "queryEntitlements1", mixinStandardHelpOptions = true)
-public class QueryEntitlements1 implements Callable<Integer> {
+@Command(name = "queryEntitlementsByItemIds", mixinStandardHelpOptions = true)
+public class QueryEntitlementsByItemIds implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(QueryEntitlements1.class);
+  private static final Logger log = LogManager.getLogger(QueryEntitlementsByItemIds.class);
 
   @Option(
       names = {"--namespace"},
@@ -41,25 +41,10 @@ public class QueryEntitlements1 implements Callable<Integer> {
   Boolean activeOnly;
 
   @Option(
-      names = {"--appType"},
-      description = "appType")
-  String appType;
-
-  @Option(
-      names = {"--entitlementClazz"},
-      description = "entitlementClazz")
-  String entitlementClazz;
-
-  @Option(
-      names = {"--entitlementName"},
-      description = "entitlementName")
-  String entitlementName;
-
-  @Option(
-      names = {"--itemId"},
-      description = "itemId",
+      names = {"--itemIds"},
+      description = "itemIds",
       split = ",")
-  List<String> itemId;
+  List<String> itemIds;
 
   @Option(
       names = {"--limit"},
@@ -72,22 +57,12 @@ public class QueryEntitlements1 implements Callable<Integer> {
   Integer offset;
 
   @Option(
-      names = {"--origin"},
-      description = "origin")
-  String origin;
-
-  @Option(
-      names = {"--userId"},
-      description = "userId")
-  String userId;
-
-  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new QueryEntitlements1()).execute(args);
+    int exitCode = new CommandLine(new QueryEntitlementsByItemIds()).execute(args);
     System.exit(exitCode);
   }
 
@@ -102,20 +77,17 @@ public class QueryEntitlements1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Entitlement wrapper = new Entitlement(sdk);
-      final net.accelbyte.sdk.api.platform.operations.entitlement.QueryEntitlements1 operation =
-          net.accelbyte.sdk.api.platform.operations.entitlement.QueryEntitlements1.builder()
-              .namespace(namespace)
-              .activeOnly(activeOnly)
-              .appType(appType)
-              .entitlementClazz(entitlementClazz)
-              .entitlementName(entitlementName)
-              .itemId(itemId)
-              .limit(limit)
-              .offset(offset)
-              .origin(origin)
-              .userId(userId)
-              .build();
-      final EntitlementPagingSlicedResult response = wrapper.queryEntitlements1(operation);
+      final net.accelbyte.sdk.api.platform.operations.entitlement.QueryEntitlementsByItemIds
+          operation =
+              net.accelbyte.sdk.api.platform.operations.entitlement.QueryEntitlementsByItemIds
+                  .builder()
+                  .namespace(namespace)
+                  .activeOnly(activeOnly)
+                  .itemIds(itemIds)
+                  .limit(limit)
+                  .offset(offset)
+                  .build();
+      final EntitlementPagingSlicedResult response = wrapper.queryEntitlementsByItemIds(operation);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

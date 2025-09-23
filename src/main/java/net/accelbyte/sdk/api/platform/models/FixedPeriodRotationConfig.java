@@ -110,6 +110,7 @@ public class FixedPeriodRotationConfig extends Model {
   }
 
   public enum Rule {
+    LOOP("LOOP"),
     SEQUENCE("SEQUENCE");
 
     private String value;

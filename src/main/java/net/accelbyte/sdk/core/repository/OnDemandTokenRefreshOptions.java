@@ -12,37 +12,34 @@ import lombok.*;
 @Setter
 public class OnDemandTokenRefreshOptions implements TokenRefreshOptions {
 
-    public static final String REFRESH_TYPE = "ONDEMAND";
-    
-    private float rate = 0.8f;
-    
-    private int maxRetry = 2;
+  public static final String REFRESH_TYPE = "ONDEMAND";
 
-    private boolean enabled = true;
-    
-    public static OnDemandTokenRefreshOptions getDefault() {
-        return new OnDemandTokenRefreshOptions();
-    }
+  private float rate = 0.8f;
 
-    private OnDemandTokenRefreshOptions() {
-        final String sRate = System.getenv(EnvConstants.TOKEN_REFRESH_RATE);
-        if (sRate != null)
-            setRate(Float.parseFloat(sRate));
+  private int maxRetry = 2;
 
-        final String sMaxRetry = System.getenv(EnvConstants.TOKEN_REFRESH_MAX_RETRY);
-        if (sMaxRetry != null)
-            setMaxRetry(Integer.parseInt(sMaxRetry));
+  private boolean enabled = true;
 
-        final String sEnabled = System.getenv(EnvConstants.TOKEN_REFRESH_ONDEMAND_ENABLED);
-        if (sEnabled != null)
-            setEnabled(Boolean.parseBoolean(sEnabled));
-    }
+  public static OnDemandTokenRefreshOptions getDefault() {
+    return new OnDemandTokenRefreshOptions();
+  }
 
-    public String getType() {
-        return OnDemandTokenRefreshOptions.REFRESH_TYPE;
-    }
+  private OnDemandTokenRefreshOptions() {
+    final String sRate = System.getenv(EnvConstants.TOKEN_REFRESH_RATE);
+    if (sRate != null) setRate(Float.parseFloat(sRate));
 
-    public boolean isType(String test) {
-        return test.trim().toUpperCase().equals(OnDemandTokenRefreshOptions.REFRESH_TYPE);
-    }
+    final String sMaxRetry = System.getenv(EnvConstants.TOKEN_REFRESH_MAX_RETRY);
+    if (sMaxRetry != null) setMaxRetry(Integer.parseInt(sMaxRetry));
+
+    final String sEnabled = System.getenv(EnvConstants.TOKEN_REFRESH_ONDEMAND_ENABLED);
+    if (sEnabled != null) setEnabled(Boolean.parseBoolean(sEnabled));
+  }
+
+  public String getType() {
+    return OnDemandTokenRefreshOptions.REFRESH_TYPE;
+  }
+
+  public boolean isType(String test) {
+    return test.trim().toUpperCase().equals(OnDemandTokenRefreshOptions.REFRESH_TYPE);
+  }
 }

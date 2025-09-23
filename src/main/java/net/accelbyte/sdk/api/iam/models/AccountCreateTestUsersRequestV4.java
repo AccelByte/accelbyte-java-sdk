@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class AccountCreateTestUsersRequestV4 extends Model {
 
+  @JsonProperty("acceptedPolicies")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<LegalAcceptedPoliciesRequest> acceptedPolicies;
+
   @JsonProperty("count")
   private Integer count;
 

@@ -12,43 +12,39 @@ import lombok.*;
 @Setter
 public class BackgroundTokenRefreshOptions implements TokenRefreshOptions {
 
-    public static final String REFRESH_TYPE = "BACKGROUND";
+  public static final String REFRESH_TYPE = "BACKGROUND";
 
-    private float rate = 0.8f;
-    
-    private int maxRetry = 2;
+  private float rate = 0.8f;
 
-    private int interval = 10; // in seconds
+  private int maxRetry = 2;
 
-    private boolean enabled = true;
-    
-    public static BackgroundTokenRefreshOptions getDefault() {
-        return new BackgroundTokenRefreshOptions();
-    }
+  private int interval = 10; // in seconds
 
-    private BackgroundTokenRefreshOptions() {
-        final String sRate = System.getenv(EnvConstants.TOKEN_REFRESH_RATE);
-        if (sRate != null)
-            setRate(Float.parseFloat(sRate));
+  private boolean enabled = true;
 
-        final String sMaxRetry = System.getenv(EnvConstants.TOKEN_REFRESH_MAX_RETRY);
-        if (sMaxRetry != null)
-            setMaxRetry(Integer.parseInt(sMaxRetry));
+  public static BackgroundTokenRefreshOptions getDefault() {
+    return new BackgroundTokenRefreshOptions();
+  }
 
-        final String sInterval = System.getenv(EnvConstants.TOKEN_REFRESH_BACKGROUND_INTERVAL);
-        if (sInterval != null)
-            setInterval(Integer.parseInt(sInterval));
+  private BackgroundTokenRefreshOptions() {
+    final String sRate = System.getenv(EnvConstants.TOKEN_REFRESH_RATE);
+    if (sRate != null) setRate(Float.parseFloat(sRate));
 
-        final String sEnabled = System.getenv(EnvConstants.TOKEN_REFRESH_BACKGROUND_ENABLED);
-        if (sEnabled != null)
-            setEnabled(Boolean.parseBoolean(sEnabled));
-    }
+    final String sMaxRetry = System.getenv(EnvConstants.TOKEN_REFRESH_MAX_RETRY);
+    if (sMaxRetry != null) setMaxRetry(Integer.parseInt(sMaxRetry));
 
-    public String getType() {
-        return BackgroundTokenRefreshOptions.REFRESH_TYPE;
-    }
+    final String sInterval = System.getenv(EnvConstants.TOKEN_REFRESH_BACKGROUND_INTERVAL);
+    if (sInterval != null) setInterval(Integer.parseInt(sInterval));
 
-    public boolean isType(String test) {
-        return test.trim().toUpperCase().equals(BackgroundTokenRefreshOptions.REFRESH_TYPE);
-    }
+    final String sEnabled = System.getenv(EnvConstants.TOKEN_REFRESH_BACKGROUND_ENABLED);
+    if (sEnabled != null) setEnabled(Boolean.parseBoolean(sEnabled));
+  }
+
+  public String getType() {
+    return BackgroundTokenRefreshOptions.REFRESH_TYPE;
+  }
+
+  public boolean isType(String test) {
+    return test.trim().toUpperCase().equals(BackgroundTokenRefreshOptions.REFRESH_TYPE);
+  }
 }

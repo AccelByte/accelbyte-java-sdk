@@ -25,8 +25,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Get extend app by name
  *
- * <p>Available scenario: - scenario 1: `function-override` - scenario 2: `service-extension` -
- * scenario 3: `event-handler`
+ * <p>Available scenario: - scenario 2: `service-extension` - scenario 3: `event-handler` - scenario
+ * 1: `function-override`
  *
  * <p>Available app status: - `app-creating` - `app-creation-failed` - `app-creation-timeout` -
  * `app-undeployed` - `deployment-in-progress` - `deployment-failed` - `deployment-timeout` -

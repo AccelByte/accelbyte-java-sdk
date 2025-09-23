@@ -124,6 +124,10 @@ public class ApimodelsPublicConfiguration extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private ModelsNativeSessionSetting nativeSessionSetting;
 
+  @JsonProperty("partyCodeLength")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer partyCodeLength;
+
   @JsonProperty("persistent")
   private Boolean persistent;
 

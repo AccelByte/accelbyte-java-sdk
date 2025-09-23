@@ -30,8 +30,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>In the Response you will get following: - 200 OK { "secret": }
  *
- * <p>If there is error: - 400 Invalid path parameters - 401 unauthorized - 404 StatusNotFound - 500
- * Internal server error
+ * <p>If there is error: - 400 Invalid path parameters - 401 unauthorized - 403 status forbidden,
+ * The User is not active in session - 404 StatusNotFound - 500 Internal server error
  */
 @Getter
 @Setter

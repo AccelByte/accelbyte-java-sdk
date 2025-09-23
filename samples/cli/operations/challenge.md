@@ -207,6 +207,7 @@ $ build/install/cli/bin/cli challenge adminDeleteAssignmentPlugin \
 ```sh
 $ build/install/cli/bin/cli challenge adminEvaluateProgress \
     --namespace <namespace value> \
+    --challengeCode <challengeCode value - optional> \
     --body <json string for request body>
 ```
 
@@ -325,7 +326,8 @@ $ build/install/cli/bin/cli challenge publicClaimUserRewardsByGoalCode \
 
 ```sh
 $ build/install/cli/bin/cli challenge evaluateMyProgress \
-    --namespace <namespace value>
+    --namespace <namespace value> \
+    --challengeCode <challengeCode value - optional>
 ```
 
 ### Operation PublicGetUserProgression

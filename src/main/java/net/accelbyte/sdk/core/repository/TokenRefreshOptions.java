@@ -8,13 +8,13 @@ package net.accelbyte.sdk.core.repository;
 
 public interface TokenRefreshOptions {
 
-    float getRate();
+  float getRate();
 
-    int getMaxRetry();
+  int getMaxRetry();
 
-    boolean isEnabled();
+  boolean isEnabled();
 
-    String getType();
+  String getType();
 
-    boolean isType(String test);
+  boolean isType(String test);
 }

@@ -498,10 +498,10 @@ $ build/install/cli/bin/cli platform deletePlatformDLCConfig \
     --namespace <namespace value>
 ```
 
-### Operation QueryEntitlements1
+### Operation QueryEntitlements
 
 ```sh
-$ build/install/cli/bin/cli platform queryEntitlements1 \
+$ build/install/cli/bin/cli platform queryEntitlements \
     --namespace <namespace value> \
     --activeOnly <activeOnly value - optional> \
     --appType <appType value - optional> \
@@ -514,10 +514,10 @@ $ build/install/cli/bin/cli platform queryEntitlements1 \
     --userId <userId value - optional>
 ```
 
-### Operation QueryEntitlements
+### Operation QueryEntitlementsByItemIds
 
 ```sh
-$ build/install/cli/bin/cli platform queryEntitlements \
+$ build/install/cli/bin/cli platform queryEntitlementsByItemIds \
     --namespace <namespace value> \
     --activeOnly <activeOnly value - optional> \
     --itemIds <itemIds value - optional> \

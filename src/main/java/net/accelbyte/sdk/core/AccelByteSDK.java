@@ -479,12 +479,15 @@ public class AccelByteSDK {
     }
 
     if (!isBasicSecurity) {
-      //make sure that only endpoint with non-basic security triggers token refresh
+      // make sure that only endpoint with non-basic security triggers token refresh
 
       final TokenRefreshOptions trOpts = sdkConfiguration.getTokenRefreshOptions();
-      if (trOpts != null && trOpts.isEnabled() && trOpts.isType(OnDemandTokenRefreshOptions.REFRESH_TYPE) && tokenRepository instanceof TokenRefresh) {
-        final TokenRefresh tokenRefresh = (TokenRefresh)tokenRepository;
-        tokenRefresh.doTokenRefresh(this,true,null);
+      if (trOpts != null
+          && trOpts.isEnabled()
+          && trOpts.isType(OnDemandTokenRefreshOptions.REFRESH_TYPE)
+          && tokenRepository instanceof TokenRefresh) {
+        final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
+        tokenRefresh.doTokenRefresh(this, true, null);
       }
     }
 
@@ -523,8 +526,12 @@ public class AccelByteSDK {
       }
 
       final TokenRefreshOptions trOpts = this.sdkConfiguration.getTokenRefreshOptions();
-      if (trOpts != null && trOpts.isEnabled() && trOpts.isType(BackgroundTokenRefreshOptions.REFRESH_TYPE) && tokenRepository instanceof BackgroundTokenRefreshRepository) {
-        final BackgroundTokenRefreshRepository btrRepo = (BackgroundTokenRefreshRepository)tokenRepository;
+      if (trOpts != null
+          && trOpts.isEnabled()
+          && trOpts.isType(BackgroundTokenRefreshOptions.REFRESH_TYPE)
+          && tokenRepository instanceof BackgroundTokenRefreshRepository) {
+        final BackgroundTokenRefreshRepository btrRepo =
+            (BackgroundTokenRefreshRepository) tokenRepository;
         btrRepo.start(this);
       }
 
@@ -542,7 +549,8 @@ public class AccelByteSDK {
     if (tokenRepo instanceof TokenRefresh) {
       refreshRepo = (TokenRefresh) tokenRepo;
     } else {
-      throw new IllegalArgumentException("Token repository is not a Refresh Repository"); // TODO: restructure the inheritance
+      throw new IllegalArgumentException(
+          "Token repository is not a Refresh Repository"); // TODO: restructure the inheritance
     }
 
     if (!tokenRepo.isTokenAvailable()) {
@@ -569,7 +577,7 @@ public class AccelByteSDK {
 
     if (Strings.isNullOrEmpty(tokenRepo.getToken())) {
       return loginUserInternal(username, password, DEFAULT_LOGIN_USER_SCOPE);
-    }    
+    }
 
     if (!refreshRepo.isTokenExpiring()) {
       return true; // do nothing, since accessToken still valid
@@ -613,7 +621,7 @@ public class AccelByteSDK {
 
       final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
       final String refreshToken = tokenRefresh.getRefreshToken();
-      final boolean isLoginUserOrLoginPlatform = refreshToken != null && !refreshToken.isEmpty();      
+      final boolean isLoginUserOrLoginPlatform = refreshToken != null && !refreshToken.isEmpty();
 
       if (isLoginUserOrLoginPlatform) {
         if (tokenRefresh.isRefreshTokenExpired()) {
@@ -627,7 +635,8 @@ public class AccelByteSDK {
                   .refreshToken(refreshToken)
                   .grantTypeFromEnum(TokenGrantV3.GrantType.RefreshToken)
                   .build();
-          final OauthmodelTokenWithDeviceCookieResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
+          final OauthmodelTokenWithDeviceCookieResponseV3 token =
+              oAuth20.tokenGrantV3(tokenGrantV3);
           tokenRepository.storeToken(token.getAccessToken());
           tokenRefresh.storeTokenData(token);
           log.info("Access token refreshed");
@@ -709,12 +718,15 @@ public class AccelByteSDK {
       tokenRepository.removeToken();
       if (tokenRepository instanceof TokenRefresh) {
         final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
-        tokenRefresh.clearTokenData();        
+        tokenRefresh.clearTokenData();
       }
 
       final TokenRefreshOptions trOpts = this.sdkConfiguration.getTokenRefreshOptions();
-      if (trOpts != null && trOpts.isType(BackgroundTokenRefreshOptions.REFRESH_TYPE) && tokenRepository instanceof BackgroundTokenRefreshRepository) {
-        final BackgroundTokenRefreshRepository btrRepo = (BackgroundTokenRefreshRepository)tokenRepository;
+      if (trOpts != null
+          && trOpts.isType(BackgroundTokenRefreshOptions.REFRESH_TYPE)
+          && tokenRepository instanceof BackgroundTokenRefreshRepository) {
+        final BackgroundTokenRefreshRepository btrRepo =
+            (BackgroundTokenRefreshRepository) tokenRepository;
         btrRepo.stop();
       }
 
@@ -879,20 +891,24 @@ public class AccelByteSDK {
 
       final TokenGrantV3 tokenGrantV3 =
           TokenGrantV3.builder()
-            .grantTypeFromEnum(TokenGrantV3.GrantType.ClientCredentials)
-            .build();
+              .grantTypeFromEnum(TokenGrantV3.GrantType.ClientCredentials)
+              .build();
       final OauthmodelTokenWithDeviceCookieResponseV3 token = oAuth20.tokenGrantV3(tokenGrantV3);
 
       final TokenRepository tokenRepository = this.sdkConfiguration.getTokenRepository();
       tokenRepository.storeToken(token.getAccessToken());
       if (tokenRepository instanceof TokenRefresh) {
-        final TokenRefresh tokenRefresh = (TokenRefresh)tokenRepository;
+        final TokenRefresh tokenRefresh = (TokenRefresh) tokenRepository;
         tokenRefresh.storeTokenData(token);
       }
 
       final TokenRefreshOptions trOpts = this.sdkConfiguration.getTokenRefreshOptions();
-      if (trOpts != null && trOpts.isEnabled() && trOpts.isType(BackgroundTokenRefreshOptions.REFRESH_TYPE) && tokenRepository instanceof BackgroundTokenRefreshRepository) {
-        final BackgroundTokenRefreshRepository btrRepo = (BackgroundTokenRefreshRepository)tokenRepository;
+      if (trOpts != null
+          && trOpts.isEnabled()
+          && trOpts.isType(BackgroundTokenRefreshOptions.REFRESH_TYPE)
+          && tokenRepository instanceof BackgroundTokenRefreshRepository) {
+        final BackgroundTokenRefreshRepository btrRepo =
+            (BackgroundTokenRefreshRepository) tokenRepository;
         btrRepo.start(this);
       }
 
@@ -903,8 +919,7 @@ public class AccelByteSDK {
     return false;
   }
 
-  private boolean loginUserInternal(
-      String username, String password, String scope) {
+  private boolean loginUserInternal(String username, String password, String scope) {
     final String codeVerifier = Helper.generateCodeVerifier();
     final String codeChallenge = Helper.generateCodeChallenge(codeVerifier);
     final String clientId = this.sdkConfiguration.getConfigRepository().getClientId();
@@ -976,8 +991,12 @@ public class AccelByteSDK {
       }
 
       final TokenRefreshOptions trOpts = this.sdkConfiguration.getTokenRefreshOptions();
-      if (trOpts != null && trOpts.isEnabled() && trOpts.isType(BackgroundTokenRefreshOptions.REFRESH_TYPE) && tokenRepository instanceof BackgroundTokenRefreshRepository) {
-        final BackgroundTokenRefreshRepository btrRepo = (BackgroundTokenRefreshRepository)tokenRepository;
+      if (trOpts != null
+          && trOpts.isEnabled()
+          && trOpts.isType(BackgroundTokenRefreshOptions.REFRESH_TYPE)
+          && tokenRepository instanceof BackgroundTokenRefreshRepository) {
+        final BackgroundTokenRefreshRepository btrRepo =
+            (BackgroundTokenRefreshRepository) tokenRepository;
         btrRepo.start(this);
       }
 

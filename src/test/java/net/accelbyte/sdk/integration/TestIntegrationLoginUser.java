@@ -31,8 +31,8 @@ public class TestIntegrationLoginUser extends TestIntegration {
   @Test
   @Order(1)
   public void testLoginUser() throws Exception {
-    final AccelByteConfig sdkConfig = super.sdk.getSdkConfiguration().getClone()
-      .useOnDemandTokenRefresh();
+    final AccelByteConfig sdkConfig =
+        super.sdk.getSdkConfiguration().getClone().useOnDemandTokenRefresh();
     final AccelByteSDK sdk = new AccelByteSDK(sdkConfig);
 
     boolean isLoginOk = sdk.loginUser(this.username, this.password);
@@ -43,8 +43,8 @@ public class TestIntegrationLoginUser extends TestIntegration {
   @Test
   @Order(1)
   public void testLoginUserWithScope() throws Exception {
-    final AccelByteConfig sdkConfig = super.sdk.getSdkConfiguration().getClone()
-      .useOnDemandTokenRefresh();
+    final AccelByteConfig sdkConfig =
+        super.sdk.getSdkConfiguration().getClone().useOnDemandTokenRefresh();
     final AccelByteSDK sdk = new AccelByteSDK(sdkConfig);
 
     boolean isLoginOk = sdk.loginUser(this.username, this.password, "account");
@@ -59,8 +59,8 @@ public class TestIntegrationLoginUser extends TestIntegration {
       return; // SKIP
     }
 
-    final AccelByteConfig sdkConfig = super.sdk.getSdkConfiguration().getClone()
-      .useOnDemandTokenRefresh();
+    final AccelByteConfig sdkConfig =
+        super.sdk.getSdkConfiguration().getClone().useOnDemandTokenRefresh();
     final AccelByteSDK sdk = new AccelByteSDK(sdkConfig);
 
     boolean isLoginOk = sdk.loginUser(this.username, this.password, "");

@@ -1,3 +1,17 @@
+<a name="v0.76.0"></a>
+## [v0.76.0]
+### chore
+- **:** remove irrelevant sample apps
+### docs
+- **readme:** remove broken link
+### feat
+- **:** initial token refresh improvement
+- **:** integration test update due to token refresh improvement
+### fix
+- **:** update readme for improved token refresh
+- **:** adjust cli token repo for interface update
+
+
 <a name="v0.75.0"></a>
 ## [v0.75.0]
 ### chore

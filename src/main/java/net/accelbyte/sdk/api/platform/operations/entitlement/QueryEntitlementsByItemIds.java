@@ -6,53 +6,59 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.challenge.operations.challenge_progression;
+package net.accelbyte.sdk.api.platform.operations.entitlement;
 
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import net.accelbyte.sdk.api.challenge.models.*;
+import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * adminEvaluateProgress
+ * queryEntitlementsByItemIds
  *
- * <p>- Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE:PROGRESSION [UPDATE] - Limited up
- * to 10 users per request
+ * <p>Query entitlements by Item Ids.
+ *
+ * <p>Other detail info:
+ *
+ * <p>* Returns : entitlement list
  */
 @Getter
 @Setter
-public class AdminEvaluateProgress extends Operation {
+public class QueryEntitlementsByItemIds extends Operation {
   /** generated field's value */
-  private String path = "/challenge/v1/admin/namespaces/{namespace}/progress/evaluate";
+  private String path = "/platform/admin/namespaces/{namespace}/entitlements/byItemIds";
 
-  private String method = "POST";
-  private List<String> consumes = Arrays.asList("application/json");
+  private String method = "GET";
+  private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
 
   /** fields as input parameter */
   private String namespace;
 
-  private List<String> challengeCode;
-  private ModelEvaluatePlayerProgressionRequest body;
+  private Boolean activeOnly;
+  private List<String> itemIds;
+  private Integer limit;
+  private Integer offset;
 
   /**
    * @param namespace required
-   * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public AdminEvaluateProgress(
-      String namespace, List<String> challengeCode, ModelEvaluatePlayerProgressionRequest body) {
+  public QueryEntitlementsByItemIds(
+      String namespace, Boolean activeOnly, List<String> itemIds, Integer limit, Integer offset) {
     this.namespace = namespace;
-    this.challengeCode = challengeCode;
-    this.body = body;
+    this.activeOnly = activeOnly;
+    this.itemIds = itemIds;
+    this.limit = limit;
+    this.offset = offset;
 
     securities.add("Bearer");
   }
@@ -70,18 +76,19 @@ public class AdminEvaluateProgress extends Operation {
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
     queryParams.put(
-        "challengeCode",
-        this.challengeCode == null
+        "activeOnly",
+        this.activeOnly == null ? null : Arrays.asList(String.valueOf(this.activeOnly)));
+    queryParams.put(
+        "itemIds",
+        this.itemIds == null
             ? null
-            : this.challengeCode.stream()
+            : this.itemIds.stream()
                 .map(i -> String.valueOf(i))
                 .collect(java.util.stream.Collectors.toList()));
+    queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
+    queryParams.put(
+        "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
     return queryParams;
-  }
-
-  @Override
-  public ModelEvaluatePlayerProgressionRequest getBodyParams() {
-    return this.body;
   }
 
   @Override
@@ -89,24 +96,26 @@ public class AdminEvaluateProgress extends Operation {
     if (this.namespace == null) {
       return false;
     }
-    if (this.body == null) {
-      return false;
-    }
     return true;
   }
 
-  public void handleEmptyResponse(int code, String contentType, InputStream payload)
-      throws HttpResponseException, IOException {
-    if (code != 204) {
+  public EntitlementPagingSlicedResult parseResponse(
+      int code, String contentType, InputStream payload) throws HttpResponseException, IOException {
+    if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
+    final String json = Helper.convertInputStreamToString(payload);
+    return new EntitlementPagingSlicedResult().createFromJson(json);
   }
 
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
-    result.put("challengeCode", "csv");
+    result.put("activeOnly", "None");
+    result.put("itemIds", "multi");
+    result.put("limit", "None");
+    result.put("offset", "None");
     return result;
   }
 }
