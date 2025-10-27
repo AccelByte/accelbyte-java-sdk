@@ -86,6 +86,40 @@ $ build/install/cli/bin/cli csm deleteAppImagesV2 \
     --body <json string for request body>
 ```
 
+### Operation CreateNoSQLDatabaseCredentialV2
+
+```sh
+$ build/install/cli/bin/cli csm createNoSQLDatabaseCredentialV2 \
+    --app <app value> \
+    --namespace <namespace value> \
+    --body <json string for request body>
+```
+
+### Operation GetNoSQLDatabaseV2
+
+```sh
+$ build/install/cli/bin/cli csm getNoSQLDatabaseV2 \
+    --app <app value> \
+    --namespace <namespace value>
+```
+
+### Operation CreateNoSQLDatabaseV2
+
+```sh
+$ build/install/cli/bin/cli csm createNoSQLDatabaseV2 \
+    --app <app value> \
+    --namespace <namespace value> \
+    --body <json string for request body>
+```
+
+### Operation DeleteNoSQLDatabaseV2
+
+```sh
+$ build/install/cli/bin/cli csm deleteNoSQLDatabaseV2 \
+    --app <app value> \
+    --namespace <namespace value>
+```
+
 ### Operation UpdateAppResourcesV2
 
 ```sh
@@ -280,6 +314,43 @@ $ build/install/cli/bin/cli csm getDeploymentV2 \
 ```sh
 $ build/install/cli/bin/cli csm deleteDeploymentV2 \
     --deploymentId <deploymentId value> \
+    --namespace <namespace value>
+```
+
+### Operation GetNoSQLClusterV2
+
+```sh
+$ build/install/cli/bin/cli csm getNoSQLClusterV2 \
+    --namespace <namespace value>
+```
+
+### Operation UpdateNoSQLClusterV2
+
+```sh
+$ build/install/cli/bin/cli csm updateNoSQLClusterV2 \
+    --namespace <namespace value> \
+    --body <json string for request body>
+```
+
+### Operation CreateNoSQLClusterV2
+
+```sh
+$ build/install/cli/bin/cli csm createNoSQLClusterV2 \
+    --namespace <namespace value> \
+    --body <json string for request body>
+```
+
+### Operation DeleteNoSQLClusterV2
+
+```sh
+$ build/install/cli/bin/cli csm deleteNoSQLClusterV2 \
+    --namespace <namespace value>
+```
+
+### Operation GetNoSQLAccessTunnelV2
+
+```sh
+$ build/install/cli/bin/cli csm getNoSQLAccessTunnelV2 \
     --namespace <namespace value>
 ```
 

@@ -32,69 +32,69 @@ public class LocalizedPolicyVersionsWithNamespace {
   }
 
   /**
-   * @see RetrieveLocalizedPolicyVersions1
+   * @see RetrieveLocalizedPolicyVersions
    */
-  public List<RetrieveLocalizedPolicyVersionResponse> retrieveLocalizedPolicyVersions1(
-      RetrieveLocalizedPolicyVersions1 input) throws Exception {
+  public List<RetrieveLocalizedPolicyVersionResponse> retrieveLocalizedPolicyVersions(
+      RetrieveLocalizedPolicyVersions input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
-   * @see CreateLocalizedPolicyVersion1
+   * @see CreateLocalizedPolicyVersion
    */
-  public CreateLocalizedPolicyVersionResponse createLocalizedPolicyVersion1(
-      CreateLocalizedPolicyVersion1 input) throws Exception {
+  public CreateLocalizedPolicyVersionResponse createLocalizedPolicyVersion(
+      CreateLocalizedPolicyVersion input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
-   * @see RetrieveSingleLocalizedPolicyVersion1
+   * @see RetrieveSingleLocalizedPolicyVersion
    */
-  public RetrieveLocalizedPolicyVersionResponse retrieveSingleLocalizedPolicyVersion1(
-      RetrieveSingleLocalizedPolicyVersion1 input) throws Exception {
+  public RetrieveLocalizedPolicyVersionResponse retrieveSingleLocalizedPolicyVersion(
+      RetrieveSingleLocalizedPolicyVersion input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
-   * @see UpdateLocalizedPolicyVersion1
+   * @see UpdateLocalizedPolicyVersion
    */
-  public UpdateLocalizedPolicyVersionResponse updateLocalizedPolicyVersion1(
-      UpdateLocalizedPolicyVersion1 input) throws Exception {
+  public UpdateLocalizedPolicyVersionResponse updateLocalizedPolicyVersion(
+      UpdateLocalizedPolicyVersion input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
-   * @see RequestPresignedURL1
+   * @see RequestPresignedURL
    */
-  public UploadLocalizedPolicyVersionAttachmentResponse requestPresignedURL1(
-      RequestPresignedURL1 input) throws Exception {
+  public UploadLocalizedPolicyVersionAttachmentResponse requestPresignedURL(
+      RequestPresignedURL input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
-   * @see SetDefaultPolicy1
+   * @see SetDefaultLocalizedPolicy
    */
-  public void setDefaultPolicy1(SetDefaultPolicy1 input) throws Exception {
+  public void setDefaultLocalizedPolicy(SetDefaultLocalizedPolicy input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
-   * @see RetrieveSingleLocalizedPolicyVersion3
+   * @see PublicRetrieveSingleLocalizedPolicyVersion
    */
-  public RetrieveLocalizedPolicyVersionPublicResponse retrieveSingleLocalizedPolicyVersion3(
-      RetrieveSingleLocalizedPolicyVersion3 input) throws Exception {
+  public RetrieveLocalizedPolicyVersionPublicResponse publicRetrieveSingleLocalizedPolicyVersion(
+      PublicRetrieveSingleLocalizedPolicyVersion input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

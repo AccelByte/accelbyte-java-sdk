@@ -138,6 +138,10 @@ public class ApimodelsConfigurationTemplateResponse extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private ModelsNativeSessionSetting nativeSessionSetting;
 
+  @JsonProperty("partyCodeGeneratorString")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String partyCodeGeneratorString;
+
   @JsonProperty("partyCodeLength")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer partyCodeLength;

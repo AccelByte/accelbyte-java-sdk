@@ -23,11 +23,11 @@ public class PoliciesWithNamespaceV2 {
   }
 
   /**
-   * @see RetrieveLatestPoliciesByNamespaceAndCountryPublic1
+   * @see RetrieveLatestPoliciesByNamespaceAndCountryPublic
    */
   public List<RetrieveSimplePolicyPublicResponseV2>
-      retrieveLatestPoliciesByNamespaceAndCountryPublic1(
-          RetrieveLatestPoliciesByNamespaceAndCountryPublic1 input) throws Exception {
+      retrieveLatestPoliciesByNamespaceAndCountryPublic(
+          RetrieveLatestPoliciesByNamespaceAndCountryPublic input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

@@ -33,20 +33,20 @@ public class AgreementWithNamespace {
   }
 
   /**
-   * @see RetrieveAcceptedAgreements1
+   * @see RetrieveAcceptedAgreements
    */
-  public List<RetrieveAcceptedAgreementResponse> retrieveAcceptedAgreements1(
-      RetrieveAcceptedAgreements1 input) throws Exception {
+  public List<RetrieveAcceptedAgreementResponse> retrieveAcceptedAgreements(
+      RetrieveAcceptedAgreements input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
-   * @see RetrieveAllUsersByPolicyVersion1
+   * @see RetrieveAllUsersByPolicyVersion
    */
-  public PagedRetrieveUserAcceptedAgreementResponse retrieveAllUsersByPolicyVersion1(
-      RetrieveAllUsersByPolicyVersion1 input) throws Exception {
+  public PagedRetrieveUserAcceptedAgreementResponse retrieveAllUsersByPolicyVersion(
+      RetrieveAllUsersByPolicyVersion input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

@@ -49,6 +49,9 @@ public class ApiInstanceType extends Model {
   @JsonProperty("ownerAccountId")
   private String ownerAccountId;
 
+  @JsonProperty("processorArchitecture")
+  private String processorArchitecture;
+
   @JsonProperty("provider")
   private String provider;
 

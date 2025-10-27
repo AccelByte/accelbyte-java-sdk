@@ -75,6 +75,10 @@ public class ItemCreate extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private InventoryConfig inventoryConfig;
 
+  @JsonProperty("itemId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String itemId;
+
   @JsonProperty("itemIds")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> itemIds;

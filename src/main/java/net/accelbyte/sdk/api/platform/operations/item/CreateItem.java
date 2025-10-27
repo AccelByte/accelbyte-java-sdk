@@ -27,6 +27,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>{
  *
+ * <p>"itemId": "b478be9ad42f4d0f8ba49ef3ef605a83" (optional, UUID V4 without hyphen format)
+ *
  * <p>"categoryPath": "/games",
  *
  * <p>"localizations": {

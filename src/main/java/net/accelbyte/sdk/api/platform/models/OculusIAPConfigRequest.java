@@ -32,6 +32,10 @@ public class OculusIAPConfigRequest extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String appSecret;
 
+  @JsonProperty("webhookVerifyToken")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String webhookVerifyToken;
+
   @JsonIgnore
   public OculusIAPConfigRequest createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

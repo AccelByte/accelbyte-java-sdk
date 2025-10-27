@@ -32,18 +32,18 @@ public class Policies {
   }
 
   /**
-   * @see UpdatePolicy
+   * @see OldUpdatePolicy
    */
-  public void updatePolicy(UpdatePolicy input) throws Exception {
+  public void oldUpdatePolicy(OldUpdatePolicy input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
-   * @see SetDefaultPolicy2
+   * @see OldSetDefaultPolicy
    */
-  public void setDefaultPolicy2(SetDefaultPolicy2 input) throws Exception {
+  public void oldSetDefaultPolicy(OldSetDefaultPolicy input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
@@ -80,10 +80,10 @@ public class Policies {
   }
 
   /**
-   * @see RetrieveLatestPoliciesByNamespaceAndCountryPublic
+   * @see OldRetrieveLatestPoliciesByNamespaceAndCountryPublic
    */
-  public List<RetrievePolicyPublicResponse> retrieveLatestPoliciesByNamespaceAndCountryPublic(
-      RetrieveLatestPoliciesByNamespaceAndCountryPublic input) throws Exception {
+  public List<RetrievePolicyPublicResponse> oldRetrieveLatestPoliciesByNamespaceAndCountryPublic(
+      OldRetrieveLatestPoliciesByNamespaceAndCountryPublic input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

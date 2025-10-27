@@ -9,17 +9,17 @@ $ build/install/cli/bin/cli legal changePreferenceConsent \
     --body <json string for request body>
 ```
 
-### Operation RetrieveAcceptedAgreements
+### Operation OldRetrieveAcceptedAgreements
 
 ```sh
-$ build/install/cli/bin/cli legal retrieveAcceptedAgreements \
+$ build/install/cli/bin/cli legal oldRetrieveAcceptedAgreements \
     --userId <userId value>
 ```
 
-### Operation RetrieveAllUsersByPolicyVersion
+### Operation OldRetrieveAllUsersByPolicyVersion
 
 ```sh
-$ build/install/cli/bin/cli legal retrieveAllUsersByPolicyVersion \
+$ build/install/cli/bin/cli legal oldRetrieveAllUsersByPolicyVersion \
     --keyword <keyword value - optional> \
     --limit <limit value - optional> \
     --offset <offset value - optional> \
@@ -33,78 +33,78 @@ $ build/install/cli/bin/cli legal retrieveAllLegalPolicies \
     --visibleOnly <visibleOnly value - optional>
 ```
 
-### Operation CreatePolicy
+### Operation OldCreatePolicy
 
 ```sh
-$ build/install/cli/bin/cli legal createPolicy \
+$ build/install/cli/bin/cli legal oldCreatePolicy \
     --body <json string for request body>
 ```
 
-### Operation RetrieveSinglePolicy
+### Operation OldRetrieveSinglePolicy
 
 ```sh
-$ build/install/cli/bin/cli legal retrieveSinglePolicy \
+$ build/install/cli/bin/cli legal oldRetrieveSinglePolicy \
     --basePolicyId <basePolicyId value>
 ```
 
-### Operation PartialUpdatePolicy
+### Operation OldPartialUpdatePolicy
 
 ```sh
-$ build/install/cli/bin/cli legal partialUpdatePolicy \
+$ build/install/cli/bin/cli legal oldPartialUpdatePolicy \
     --basePolicyId <basePolicyId value> \
     --body <json string for request body>
 ```
 
-### Operation RetrievePolicyCountry
+### Operation OldRetrievePolicyCountry
 
 ```sh
-$ build/install/cli/bin/cli legal retrievePolicyCountry \
+$ build/install/cli/bin/cli legal oldRetrievePolicyCountry \
     --basePolicyId <basePolicyId value> \
     --countryCode <countryCode value>
 ```
 
-### Operation RetrieveLocalizedPolicyVersions
+### Operation OldRetrieveLocalizedPolicyVersions
 
 ```sh
-$ build/install/cli/bin/cli legal retrieveLocalizedPolicyVersions \
+$ build/install/cli/bin/cli legal oldRetrieveLocalizedPolicyVersions \
     --policyVersionId <policyVersionId value>
 ```
 
-### Operation CreateLocalizedPolicyVersion
+### Operation OldCreateLocalizedPolicyVersion
 
 ```sh
-$ build/install/cli/bin/cli legal createLocalizedPolicyVersion \
+$ build/install/cli/bin/cli legal oldCreateLocalizedPolicyVersion \
     --policyVersionId <policyVersionId value> \
     --body <json string for request body>
 ```
 
-### Operation RetrieveSingleLocalizedPolicyVersion
+### Operation OldRetrieveSingleLocalizedPolicyVersion
 
 ```sh
-$ build/install/cli/bin/cli legal retrieveSingleLocalizedPolicyVersion \
+$ build/install/cli/bin/cli legal oldRetrieveSingleLocalizedPolicyVersion \
     --localizedPolicyVersionId <localizedPolicyVersionId value>
 ```
 
-### Operation UpdateLocalizedPolicyVersion
+### Operation OldUpdateLocalizedPolicyVersion
 
 ```sh
-$ build/install/cli/bin/cli legal updateLocalizedPolicyVersion \
+$ build/install/cli/bin/cli legal oldUpdateLocalizedPolicyVersion \
     --localizedPolicyVersionId <localizedPolicyVersionId value> \
     --body <json string for request body>
 ```
 
-### Operation RequestPresignedURL
+### Operation OldRequestPresignedURL
 
 ```sh
-$ build/install/cli/bin/cli legal requestPresignedURL \
+$ build/install/cli/bin/cli legal oldRequestPresignedURL \
     --localizedPolicyVersionId <localizedPolicyVersionId value> \
     --body <json string for request body>
 ```
 
-### Operation SetDefaultPolicy
+### Operation OldSetDefaultLocalizedPolicy
 
 ```sh
-$ build/install/cli/bin/cli legal setDefaultPolicy \
+$ build/install/cli/bin/cli legal oldSetDefaultLocalizedPolicy \
     --localizedPolicyVersionId <localizedPolicyVersionId value>
 ```
 
@@ -116,19 +116,19 @@ $ build/install/cli/bin/cli legal retrieveAcceptedAgreementsForMultiUsers \
     --body <json string for request body>
 ```
 
-### Operation RetrieveAcceptedAgreements1
+### Operation RetrieveAcceptedAgreements
 
 ```sh
-$ build/install/cli/bin/cli legal retrieveAcceptedAgreements1 \
+$ build/install/cli/bin/cli legal retrieveAcceptedAgreements \
     --namespace <namespace value> \
     --userId <userId value> \
     --excludeOtherNamespacesPolicies <excludeOtherNamespacesPolicies value - optional>
 ```
 
-### Operation RetrieveAllUsersByPolicyVersion1
+### Operation RetrieveAllUsersByPolicyVersion
 
 ```sh
-$ build/install/cli/bin/cli legal retrieveAllUsersByPolicyVersion1 \
+$ build/install/cli/bin/cli legal retrieveAllUsersByPolicyVersion \
     --namespace <namespace value> \
     --convertGameUserId <convertGameUserId value - optional> \
     --keyword <keyword value - optional> \
@@ -163,18 +163,18 @@ $ build/install/cli/bin/cli legal retrieveAllLegalPoliciesByNamespace \
     --visibleOnly <visibleOnly value - optional>
 ```
 
-### Operation CreatePolicy1
+### Operation CreatePolicy
 
 ```sh
-$ build/install/cli/bin/cli legal createPolicy1 \
+$ build/install/cli/bin/cli legal createPolicy \
     --namespace <namespace value> \
     --body <json string for request body>
 ```
 
-### Operation RetrieveSinglePolicy1
+### Operation RetrieveSinglePolicy
 
 ```sh
-$ build/install/cli/bin/cli legal retrieveSinglePolicy1 \
+$ build/install/cli/bin/cli legal retrieveSinglePolicy \
     --basePolicyId <basePolicyId value> \
     --namespace <namespace value>
 ```
@@ -187,19 +187,19 @@ $ build/install/cli/bin/cli legal deleteBasePolicy \
     --namespace <namespace value>
 ```
 
-### Operation PartialUpdatePolicy1
+### Operation PartialUpdatePolicy
 
 ```sh
-$ build/install/cli/bin/cli legal partialUpdatePolicy1 \
+$ build/install/cli/bin/cli legal partialUpdatePolicy \
     --basePolicyId <basePolicyId value> \
     --namespace <namespace value> \
     --body <json string for request body>
 ```
 
-### Operation RetrievePolicyCountry1
+### Operation RetrievePolicyCountry
 
 ```sh
-$ build/install/cli/bin/cli legal retrievePolicyCountry1 \
+$ build/install/cli/bin/cli legal retrievePolicyCountry \
     --basePolicyId <basePolicyId value> \
     --countryCode <countryCode value> \
     --namespace <namespace value>
@@ -230,53 +230,53 @@ $ build/install/cli/bin/cli legal deleteLocalizedPolicy \
     --namespace <namespace value>
 ```
 
-### Operation RetrieveLocalizedPolicyVersions1
+### Operation RetrieveLocalizedPolicyVersions
 
 ```sh
-$ build/install/cli/bin/cli legal retrieveLocalizedPolicyVersions1 \
+$ build/install/cli/bin/cli legal retrieveLocalizedPolicyVersions \
     --namespace <namespace value> \
     --policyVersionId <policyVersionId value>
 ```
 
-### Operation CreateLocalizedPolicyVersion1
+### Operation CreateLocalizedPolicyVersion
 
 ```sh
-$ build/install/cli/bin/cli legal createLocalizedPolicyVersion1 \
+$ build/install/cli/bin/cli legal createLocalizedPolicyVersion \
     --namespace <namespace value> \
     --policyVersionId <policyVersionId value> \
     --body <json string for request body>
 ```
 
-### Operation RetrieveSingleLocalizedPolicyVersion1
+### Operation RetrieveSingleLocalizedPolicyVersion
 
 ```sh
-$ build/install/cli/bin/cli legal retrieveSingleLocalizedPolicyVersion1 \
+$ build/install/cli/bin/cli legal retrieveSingleLocalizedPolicyVersion \
     --localizedPolicyVersionId <localizedPolicyVersionId value> \
     --namespace <namespace value>
 ```
 
-### Operation UpdateLocalizedPolicyVersion1
+### Operation UpdateLocalizedPolicyVersion
 
 ```sh
-$ build/install/cli/bin/cli legal updateLocalizedPolicyVersion1 \
+$ build/install/cli/bin/cli legal updateLocalizedPolicyVersion \
     --localizedPolicyVersionId <localizedPolicyVersionId value> \
     --namespace <namespace value> \
     --body <json string for request body>
 ```
 
-### Operation RequestPresignedURL1
+### Operation RequestPresignedURL
 
 ```sh
-$ build/install/cli/bin/cli legal requestPresignedURL1 \
+$ build/install/cli/bin/cli legal requestPresignedURL \
     --localizedPolicyVersionId <localizedPolicyVersionId value> \
     --namespace <namespace value> \
     --body <json string for request body>
 ```
 
-### Operation SetDefaultPolicy1
+### Operation SetDefaultLocalizedPolicy
 
 ```sh
-$ build/install/cli/bin/cli legal setDefaultPolicy1 \
+$ build/install/cli/bin/cli legal setDefaultLocalizedPolicy \
     --localizedPolicyVersionId <localizedPolicyVersionId value> \
     --namespace <namespace value>
 ```
@@ -289,19 +289,19 @@ $ build/install/cli/bin/cli legal deletePolicyVersion \
     --policyVersionId <policyVersionId value>
 ```
 
-### Operation UpdatePolicyVersion1
+### Operation UpdatePolicyVersion
 
 ```sh
-$ build/install/cli/bin/cli legal updatePolicyVersion1 \
+$ build/install/cli/bin/cli legal updatePolicyVersion \
     --namespace <namespace value> \
     --policyVersionId <policyVersionId value> \
     --body <json string for request body>
 ```
 
-### Operation PublishPolicyVersion1
+### Operation PublishPolicyVersion
 
 ```sh
-$ build/install/cli/bin/cli legal publishPolicyVersion1 \
+$ build/install/cli/bin/cli legal publishPolicyVersion \
     --namespace <namespace value> \
     --policyVersionId <policyVersionId value> \
     --shouldNotify <shouldNotify value - optional>
@@ -323,45 +323,45 @@ $ build/install/cli/bin/cli legal deletePolicy \
     --policyId <policyId value>
 ```
 
-### Operation UpdatePolicy1
+### Operation UpdatePolicy
 
 ```sh
-$ build/install/cli/bin/cli legal updatePolicy1 \
+$ build/install/cli/bin/cli legal updatePolicy \
     --namespace <namespace value> \
     --policyId <policyId value> \
     --body <json string for request body>
 ```
 
-### Operation SetDefaultPolicy3
+### Operation SetDefaultPolicy
 
 ```sh
-$ build/install/cli/bin/cli legal setDefaultPolicy3 \
+$ build/install/cli/bin/cli legal setDefaultPolicy \
     --namespace <namespace value> \
     --policyId <policyId value>
 ```
 
-### Operation RetrieveSinglePolicyVersion1
+### Operation RetrieveSinglePolicyVersion
 
 ```sh
-$ build/install/cli/bin/cli legal retrieveSinglePolicyVersion1 \
+$ build/install/cli/bin/cli legal retrieveSinglePolicyVersion \
     --namespace <namespace value> \
     --policyId <policyId value> \
     --versionId <versionId value - optional>
 ```
 
-### Operation CreatePolicyVersion1
+### Operation CreatePolicyVersion
 
 ```sh
-$ build/install/cli/bin/cli legal createPolicyVersion1 \
+$ build/install/cli/bin/cli legal createPolicyVersion \
     --namespace <namespace value> \
     --policyId <policyId value> \
     --body <json string for request body>
 ```
 
-### Operation RetrieveAllPolicyTypes1
+### Operation RetrieveAllPolicyTypes
 
 ```sh
-$ build/install/cli/bin/cli legal retrieveAllPolicyTypes1 \
+$ build/install/cli/bin/cli legal retrieveAllPolicyTypes \
     --namespace <namespace value> \
     --offset <offset value - optional> \
     --limit <limit value>
@@ -397,57 +397,57 @@ $ build/install/cli/bin/cli legal retrievePolicies \
     --countryCode <countryCode value>
 ```
 
-### Operation UpdatePolicyVersion
+### Operation OldUpdatePolicyVersion
 
 ```sh
-$ build/install/cli/bin/cli legal updatePolicyVersion \
+$ build/install/cli/bin/cli legal oldUpdatePolicyVersion \
     --policyVersionId <policyVersionId value> \
     --body <json string for request body>
 ```
 
-### Operation PublishPolicyVersion
+### Operation OldPublishPolicyVersion
 
 ```sh
-$ build/install/cli/bin/cli legal publishPolicyVersion \
+$ build/install/cli/bin/cli legal oldPublishPolicyVersion \
     --policyVersionId <policyVersionId value> \
     --shouldNotify <shouldNotify value - optional>
 ```
 
-### Operation UpdatePolicy
+### Operation OldUpdatePolicy
 
 ```sh
-$ build/install/cli/bin/cli legal updatePolicy \
+$ build/install/cli/bin/cli legal oldUpdatePolicy \
     --policyId <policyId value> \
     --body <json string for request body>
 ```
 
-### Operation SetDefaultPolicy2
+### Operation OldSetDefaultPolicy
 
 ```sh
-$ build/install/cli/bin/cli legal setDefaultPolicy2 \
+$ build/install/cli/bin/cli legal oldSetDefaultPolicy \
     --policyId <policyId value>
 ```
 
-### Operation RetrieveSinglePolicyVersion
+### Operation OldRetrieveSinglePolicyVersion
 
 ```sh
-$ build/install/cli/bin/cli legal retrieveSinglePolicyVersion \
+$ build/install/cli/bin/cli legal oldRetrieveSinglePolicyVersion \
     --policyId <policyId value> \
     --versionId <versionId value - optional>
 ```
 
-### Operation CreatePolicyVersion
+### Operation OldCreatePolicyVersion
 
 ```sh
-$ build/install/cli/bin/cli legal createPolicyVersion \
+$ build/install/cli/bin/cli legal oldCreatePolicyVersion \
     --policyId <policyId value> \
     --body <json string for request body>
 ```
 
-### Operation RetrieveAllPolicyTypes
+### Operation OldRetrieveAllPolicyTypes
 
 ```sh
-$ build/install/cli/bin/cli legal retrieveAllPolicyTypes \
+$ build/install/cli/bin/cli legal oldRetrieveAllPolicyTypes \
     --offset <offset value - optional> \
     --limit <limit value>
 ```
@@ -466,10 +466,10 @@ $ build/install/cli/bin/cli legal anonymizeUserAgreement \
     --userId <userId value>
 ```
 
-### Operation ChangePreferenceConsent1
+### Operation PublicChangePreferenceConsent
 
 ```sh
-$ build/install/cli/bin/cli legal changePreferenceConsent1 \
+$ build/install/cli/bin/cli legal publicChangePreferenceConsent \
     --body <json string for request body>
 ```
 
@@ -510,17 +510,17 @@ $ build/install/cli/bin/cli legal retrieveEligibilitiesPublicIndirect \
     --userId <userId value>
 ```
 
-### Operation RetrieveSingleLocalizedPolicyVersion2
+### Operation OldPublicRetrieveSingleLocalizedPolicyVersion
 
 ```sh
-$ build/install/cli/bin/cli legal retrieveSingleLocalizedPolicyVersion2 \
+$ build/install/cli/bin/cli legal oldPublicRetrieveSingleLocalizedPolicyVersion \
     --localizedPolicyVersionId <localizedPolicyVersionId value>
 ```
 
-### Operation RetrieveSingleLocalizedPolicyVersion3
+### Operation PublicRetrieveSingleLocalizedPolicyVersion
 
 ```sh
-$ build/install/cli/bin/cli legal retrieveSingleLocalizedPolicyVersion3 \
+$ build/install/cli/bin/cli legal publicRetrieveSingleLocalizedPolicyVersion \
     --localizedPolicyVersionId <localizedPolicyVersionId value> \
     --namespace <namespace value>
 ```
@@ -554,10 +554,10 @@ $ build/install/cli/bin/cli legal retrieveLatestPoliciesPublic \
     --visibleOnly <visibleOnly value - optional>
 ```
 
-### Operation RetrieveLatestPoliciesByNamespaceAndCountryPublic
+### Operation OldRetrieveLatestPoliciesByNamespaceAndCountryPublic
 
 ```sh
-$ build/install/cli/bin/cli legal retrieveLatestPoliciesByNamespaceAndCountryPublic \
+$ build/install/cli/bin/cli legal oldRetrieveLatestPoliciesByNamespaceAndCountryPublic \
     --countryCode <countryCode value> \
     --namespace <namespace value> \
     --alwaysIncludeDefault <alwaysIncludeDefault value - optional> \
@@ -573,10 +573,10 @@ $ build/install/cli/bin/cli legal retrieveLatestPoliciesByNamespaceAndCountryPub
 $ build/install/cli/bin/cli legal checkReadiness
 ```
 
-### Operation RetrieveLatestPoliciesByNamespaceAndCountryPublic1
+### Operation RetrieveLatestPoliciesByNamespaceAndCountryPublic
 
 ```sh
-$ build/install/cli/bin/cli legal retrieveLatestPoliciesByNamespaceAndCountryPublic1 \
+$ build/install/cli/bin/cli legal retrieveLatestPoliciesByNamespaceAndCountryPublic \
     --countryCode <countryCode value> \
     --namespace <namespace value> \
     --clientId <clientId value>

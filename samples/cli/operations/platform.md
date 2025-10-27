@@ -732,6 +732,53 @@ $ build/install/cli/bin/cli platform deleteOculusIAPConfig \
     --namespace <namespace value>
 ```
 
+### Operation ListOculusSubscriptionGroups
+
+```sh
+$ build/install/cli/bin/cli platform listOculusSubscriptionGroups \
+    --namespace <namespace value>
+```
+
+### Operation CreateOculusSubscriptionGroup
+
+```sh
+$ build/install/cli/bin/cli platform createOculusSubscriptionGroup \
+    --namespace <namespace value> \
+    --body <json string for request body>
+```
+
+### Operation DeleteOculusSubscriptionGroup
+
+```sh
+$ build/install/cli/bin/cli platform deleteOculusSubscriptionGroup \
+    --namespace <namespace value> \
+    --sku <sku value>
+```
+
+### Operation ListOculusSubscriptionGroupTier
+
+```sh
+$ build/install/cli/bin/cli platform listOculusSubscriptionGroupTier \
+    --namespace <namespace value> \
+    --sku <sku value>
+```
+
+### Operation AddTierIntoMetaQuestSubscriptionGroup
+
+```sh
+$ build/install/cli/bin/cli platform addTierIntoMetaQuestSubscriptionGroup \
+    --namespace <namespace value> \
+    --body <json string for request body>
+```
+
+### Operation DeleteOculusSubscriptionTier
+
+```sh
+$ build/install/cli/bin/cli platform deleteOculusSubscriptionTier \
+    --namespace <namespace value> \
+    --sku <sku value>
+```
+
 ### Operation GetPlayStationIAPConfig
 
 ```sh
@@ -2538,6 +2585,15 @@ $ build/install/cli/bin/cli platform mockFulfillIAPItem \
     --body <json string for request body>
 ```
 
+### Operation AdminSyncOculusSubscriptions
+
+```sh
+$ build/install/cli/bin/cli platform adminSyncOculusSubscriptions \
+    --namespace <namespace value> \
+    --userId <userId value> \
+    --body <json string for request body>
+```
+
 ### Operation AdminGetIAPOrderLineItems
 
 ```sh
@@ -4006,6 +4062,15 @@ $ build/install/cli/bin/cli platform syncEpicGamesInventory \
 
 ```sh
 $ build/install/cli/bin/cli platform publicFulfillGoogleIAPItem \
+    --namespace <namespace value> \
+    --userId <userId value> \
+    --body <json string for request body>
+```
+
+### Operation SyncOculusSubscriptions
+
+```sh
+$ build/install/cli/bin/cli platform syncOculusSubscriptions \
     --namespace <namespace value> \
     --userId <userId value> \
     --body <json string for request body>

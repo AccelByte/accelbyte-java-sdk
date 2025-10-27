@@ -37,24 +37,14 @@ public class GetMyOfflineNotifications extends Operation {
   /** fields as input parameter */
   private String namespace;
 
-  private Integer endTime;
-  private Integer limit;
-  private Integer offset;
-  private Integer startTime;
-
   /**
    * @param namespace required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public GetMyOfflineNotifications(
-      String namespace, Integer endTime, Integer limit, Integer offset, Integer startTime) {
+  public GetMyOfflineNotifications(String namespace) {
     this.namespace = namespace;
-    this.endTime = endTime;
-    this.limit = limit;
-    this.offset = offset;
-    this.startTime = startTime;
 
     securities.add("Bearer");
   }
@@ -66,19 +56,6 @@ public class GetMyOfflineNotifications extends Operation {
       pathParams.put("namespace", this.namespace);
     }
     return pathParams;
-  }
-
-  @Override
-  public Map<String, List<String>> getQueryParams() {
-    Map<String, List<String>> queryParams = new HashMap<>();
-    queryParams.put(
-        "endTime", this.endTime == null ? null : Arrays.asList(String.valueOf(this.endTime)));
-    queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
-    queryParams.put(
-        "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
-    queryParams.put(
-        "startTime", this.startTime == null ? null : Arrays.asList(String.valueOf(this.startTime)));
-    return queryParams;
   }
 
   @Override
@@ -97,15 +74,5 @@ public class GetMyOfflineNotifications extends Operation {
     }
     final String json = Helper.convertInputStreamToString(payload);
     return new ModelNotificationsResponse().createFromJson(json);
-  }
-
-  @Override
-  protected Map<String, String> getCollectionFormatMap() {
-    Map<String, String> result = new HashMap<>();
-    result.put("endTime", "None");
-    result.put("limit", "None");
-    result.put("offset", "None");
-    result.put("startTime", "None");
-    return result;
   }
 }

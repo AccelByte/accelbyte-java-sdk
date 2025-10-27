@@ -36,26 +36,6 @@ public class GetMyOfflineNotifications implements Callable<Integer> {
   String namespace;
 
   @Option(
-      names = {"--endTime"},
-      description = "endTime")
-  Integer endTime;
-
-  @Option(
-      names = {"--limit"},
-      description = "limit")
-  Integer limit;
-
-  @Option(
-      names = {"--offset"},
-      description = "offset")
-  Integer offset;
-
-  @Option(
-      names = {"--startTime"},
-      description = "startTime")
-  Integer startTime;
-
-  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -81,10 +61,6 @@ public class GetMyOfflineNotifications implements Callable<Integer> {
               net.accelbyte.sdk.api.lobby.operations.notification.GetMyOfflineNotifications
                   .builder()
                   .namespace(namespace)
-                  .endTime(endTime)
-                  .limit(limit)
-                  .offset(offset)
-                  .startTime(startTime)
                   .build();
       final ModelNotificationsResponse response = wrapper.getMyOfflineNotifications(operation);
       final String responseString =

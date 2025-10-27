@@ -49,6 +49,7 @@ public class ImageList extends Operation {
   private String sortDirection;
   private String status;
   private String tag;
+  private String targetArchitecture;
 
   /**
    * @param namespace required
@@ -66,7 +67,8 @@ public class ImageList extends Operation {
       String sortBy,
       String sortDirection,
       String status,
-      String tag) {
+      String tag,
+      String targetArchitecture) {
     this.namespace = namespace;
     this.count = count;
     this.inUse = inUse;
@@ -77,6 +79,7 @@ public class ImageList extends Operation {
     this.sortDirection = sortDirection;
     this.status = status;
     this.tag = tag;
+    this.targetArchitecture = targetArchitecture;
 
     securities.add("Bearer");
   }
@@ -106,6 +109,9 @@ public class ImageList extends Operation {
         "sortDirection", this.sortDirection == null ? null : Arrays.asList(this.sortDirection));
     queryParams.put("status", this.status == null ? null : Arrays.asList(this.status));
     queryParams.put("tag", this.tag == null ? null : Arrays.asList(this.tag));
+    queryParams.put(
+        "targetArchitecture",
+        this.targetArchitecture == null ? null : Arrays.asList(this.targetArchitecture));
     return queryParams;
   }
 
@@ -139,6 +145,7 @@ public class ImageList extends Operation {
     result.put("sortDirection", "None");
     result.put("status", "None");
     result.put("tag", "None");
+    result.put("targetArchitecture", "None");
     return result;
   }
 }

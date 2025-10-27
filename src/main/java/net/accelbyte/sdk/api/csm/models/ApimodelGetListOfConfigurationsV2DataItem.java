@@ -46,7 +46,6 @@ public class ApimodelGetListOfConfigurationsV2DataItem extends Model {
   private String description;
 
   @JsonProperty("editable")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean editable;
 
   @JsonProperty("isHidden")

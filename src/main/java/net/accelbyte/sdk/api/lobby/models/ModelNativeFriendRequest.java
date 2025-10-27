@@ -39,6 +39,10 @@ public class ModelNativeFriendRequest extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String psnEnv;
 
+  @JsonProperty("syncDeletedFriend")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean syncDeletedFriend;
+
   @JsonIgnore
   public ModelNativeFriendRequest createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

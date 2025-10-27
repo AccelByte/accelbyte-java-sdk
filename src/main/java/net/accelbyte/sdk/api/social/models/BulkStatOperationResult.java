@@ -29,6 +29,10 @@ public class BulkStatOperationResult extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ?> details;
 
+  @JsonProperty("requestId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String requestId;
+
   @JsonProperty("statCode")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String statCode;

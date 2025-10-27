@@ -33,18 +33,18 @@ public class BaseLegalPoliciesWithNamespace {
   }
 
   /**
-   * @see CreatePolicy1
+   * @see CreatePolicy
    */
-  public CreateBasePolicyResponse createPolicy1(CreatePolicy1 input) throws Exception {
+  public CreateBasePolicyResponse createPolicy(CreatePolicy input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
-   * @see RetrieveSinglePolicy1
+   * @see RetrieveSinglePolicy
    */
-  public RetrieveBasePolicyResponse retrieveSinglePolicy1(RetrieveSinglePolicy1 input)
+  public RetrieveBasePolicyResponse retrieveSinglePolicy(RetrieveSinglePolicy input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -61,19 +61,18 @@ public class BaseLegalPoliciesWithNamespace {
   }
 
   /**
-   * @see PartialUpdatePolicy1
+   * @see PartialUpdatePolicy
    */
-  public UpdateBasePolicyResponse partialUpdatePolicy1(PartialUpdatePolicy1 input)
-      throws Exception {
+  public UpdateBasePolicyResponse partialUpdatePolicy(PartialUpdatePolicy input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
-   * @see RetrievePolicyCountry1
+   * @see RetrievePolicyCountry
    */
-  public RetrievePolicyResponse retrievePolicyCountry1(RetrievePolicyCountry1 input)
+  public RetrievePolicyResponse retrievePolicyCountry(RetrievePolicyCountry input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -101,9 +100,9 @@ public class BaseLegalPoliciesWithNamespace {
   }
 
   /**
-   * @see RetrieveAllPolicyTypes1
+   * @see RetrieveAllPolicyTypes
    */
-  public List<RetrievePolicyTypeResponse> retrieveAllPolicyTypes1(RetrieveAllPolicyTypes1 input)
+  public List<RetrievePolicyTypeResponse> retrieveAllPolicyTypes(RetrieveAllPolicyTypes input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(

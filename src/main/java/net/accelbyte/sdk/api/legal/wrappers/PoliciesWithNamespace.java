@@ -30,18 +30,18 @@ public class PoliciesWithNamespace {
   }
 
   /**
-   * @see UpdatePolicy1
+   * @see UpdatePolicy
    */
-  public void updatePolicy1(UpdatePolicy1 input) throws Exception {
+  public void updatePolicy(UpdatePolicy input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
-   * @see SetDefaultPolicy3
+   * @see SetDefaultPolicy
    */
-  public void setDefaultPolicy3(SetDefaultPolicy3 input) throws Exception {
+  public void setDefaultPolicy(SetDefaultPolicy input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

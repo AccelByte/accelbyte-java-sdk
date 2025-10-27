@@ -33,6 +33,10 @@ public class BulkUserStatItemUpdate extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String additionalKey;
 
+  @JsonProperty("requestId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String requestId;
+
   @JsonProperty("statCode")
   private String statCode;
 

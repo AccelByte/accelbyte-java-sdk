@@ -56,6 +56,9 @@ public class ApiImageDetails extends Model {
   @JsonProperty("tags")
   private List<String> tags;
 
+  @JsonProperty("targetArchitecture")
+  private String targetArchitecture;
+
   @JsonProperty("uploadedAt")
   private String uploadedAt;
 

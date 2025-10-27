@@ -129,6 +129,10 @@ public class ApimodelsCreateConfigurationTemplateRequest extends Model {
   @JsonProperty("name")
   private String name;
 
+  @JsonProperty("partyCodeGeneratorString")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String partyCodeGeneratorString;
+
   @JsonProperty("partyCodeLength")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer partyCodeLength;

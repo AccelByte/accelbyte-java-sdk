@@ -413,6 +413,16 @@ public class IAP {
   }
 
   /**
+   * @see AdminSyncOculusSubscriptions
+   */
+  public List<ThirdPartySubscriptionTransactionInfo> adminSyncOculusSubscriptions(
+      AdminSyncOculusSubscriptions input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminGetIAPOrderLineItems
    */
   public List<IAPOrderLineItemInfo> adminGetIAPOrderLineItems(AdminGetIAPOrderLineItems input)
@@ -495,6 +505,16 @@ public class IAP {
    */
   public GoogleReceiptResolveResult publicFulfillGoogleIAPItem(PublicFulfillGoogleIAPItem input)
       throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see SyncOculusSubscriptions
+   */
+  public List<ThirdPartySubscriptionTransactionInfo> syncOculusSubscriptions(
+      SyncOculusSubscriptions input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

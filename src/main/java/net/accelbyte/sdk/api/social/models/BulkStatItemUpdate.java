@@ -29,6 +29,10 @@ public class BulkStatItemUpdate extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ?> additionalData;
 
+  @JsonProperty("requestId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String requestId;
+
   @JsonProperty("statCode")
   private String statCode;
 

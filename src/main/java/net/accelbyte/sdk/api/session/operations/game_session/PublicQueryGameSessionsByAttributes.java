@@ -39,10 +39,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * they dont have available buffers, and DSMC will let the service knows when they finished spinning
  * it up. While AMS doesn't have a concept of queue. Therefore some "DSInformation.statusV2" only
  * applicable for DSMC.
- *
- * <p>query parameter "availability" to filter sessions' availability: all: return all sessions
- * regardless it's full full: only return active sessions default behavior (unset or else): return
- * only available sessions (not full)
  */
 @Getter
 @Setter

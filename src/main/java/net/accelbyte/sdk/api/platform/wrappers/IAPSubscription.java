@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.api.platform.wrappers;
 
+import java.util.*;
 import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.operations.iap_subscription.*;
 import net.accelbyte.sdk.core.AccelByteSDK;
@@ -19,6 +20,64 @@ public class IAPSubscription {
 
   public IAPSubscription(AccelByteSDK sdk) {
     this.sdk = sdk;
+  }
+
+  /**
+   * @see ListOculusSubscriptionGroups
+   */
+  public List<ThirdPartySubscriptionGroupInfo> listOculusSubscriptionGroups(
+      ListOculusSubscriptionGroups input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see CreateOculusSubscriptionGroup
+   */
+  public ThirdPartySubscriptionGroupInfo createOculusSubscriptionGroup(
+      CreateOculusSubscriptionGroup input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see DeleteOculusSubscriptionGroup
+   */
+  public void deleteOculusSubscriptionGroup(DeleteOculusSubscriptionGroup input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see ListOculusSubscriptionGroupTier
+   */
+  public List<ThirdPartySubscriptionTierInfo> listOculusSubscriptionGroupTier(
+      ListOculusSubscriptionGroupTier input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AddTierIntoMetaQuestSubscriptionGroup
+   */
+  public ThirdPartySubscriptionTierInfo addTierIntoMetaQuestSubscriptionGroup(
+      AddTierIntoMetaQuestSubscriptionGroup input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see DeleteOculusSubscriptionTier
+   */
+  public void deleteOculusSubscriptionTier(DeleteOculusSubscriptionTier input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**

@@ -33,18 +33,18 @@ public class BaseLegalPolicies {
   }
 
   /**
-   * @see CreatePolicy
+   * @see OldCreatePolicy
    */
-  public CreateBasePolicyResponse createPolicy(CreatePolicy input) throws Exception {
+  public CreateBasePolicyResponse oldCreatePolicy(OldCreatePolicy input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
-   * @see RetrieveSinglePolicy
+   * @see OldRetrieveSinglePolicy
    */
-  public RetrieveBasePolicyResponse retrieveSinglePolicy(RetrieveSinglePolicy input)
+  public RetrieveBasePolicyResponse oldRetrieveSinglePolicy(OldRetrieveSinglePolicy input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -52,18 +52,9 @@ public class BaseLegalPolicies {
   }
 
   /**
-   * @see PartialUpdatePolicy
+   * @see OldPartialUpdatePolicy
    */
-  public UpdateBasePolicyResponse partialUpdatePolicy(PartialUpdatePolicy input) throws Exception {
-    final HttpResponse httpResponse = sdk.runRequest(input);
-    return input.parseResponse(
-        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
-  }
-
-  /**
-   * @see RetrievePolicyCountry
-   */
-  public RetrievePolicyResponse retrievePolicyCountry(RetrievePolicyCountry input)
+  public UpdateBasePolicyResponse oldPartialUpdatePolicy(OldPartialUpdatePolicy input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -71,9 +62,19 @@ public class BaseLegalPolicies {
   }
 
   /**
-   * @see RetrieveAllPolicyTypes
+   * @see OldRetrievePolicyCountry
    */
-  public List<RetrievePolicyTypeResponse> retrieveAllPolicyTypes(RetrieveAllPolicyTypes input)
+  public RetrievePolicyResponse oldRetrievePolicyCountry(OldRetrievePolicyCountry input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see OldRetrieveAllPolicyTypes
+   */
+  public List<RetrievePolicyTypeResponse> oldRetrieveAllPolicyTypes(OldRetrieveAllPolicyTypes input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(

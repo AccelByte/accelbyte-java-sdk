@@ -32,29 +32,29 @@ public class Agreement {
   }
 
   /**
-   * @see RetrieveAcceptedAgreements
+   * @see OldRetrieveAcceptedAgreements
    */
-  public List<RetrieveAcceptedAgreementResponse> retrieveAcceptedAgreements(
-      RetrieveAcceptedAgreements input) throws Exception {
+  public List<RetrieveAcceptedAgreementResponse> oldRetrieveAcceptedAgreements(
+      OldRetrieveAcceptedAgreements input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
-   * @see RetrieveAllUsersByPolicyVersion
+   * @see OldRetrieveAllUsersByPolicyVersion
    */
-  public PagedRetrieveUserAcceptedAgreementResponse retrieveAllUsersByPolicyVersion(
-      RetrieveAllUsersByPolicyVersion input) throws Exception {
+  public PagedRetrieveUserAcceptedAgreementResponse oldRetrieveAllUsersByPolicyVersion(
+      OldRetrieveAllUsersByPolicyVersion input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
-   * @see ChangePreferenceConsent1
+   * @see PublicChangePreferenceConsent
    */
-  public void changePreferenceConsent1(ChangePreferenceConsent1 input) throws Exception {
+  public void publicChangePreferenceConsent(PublicChangePreferenceConsent input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
@@ -102,12 +102,12 @@ public class Agreement {
   }
 
   /**
-   * @see IndirectBulkAcceptVersionedPolicy1
+   * @see PublicIndirectBulkAcceptVersionedPolicy
    * @deprecated
    */
   @Deprecated
-  public AcceptAgreementResponse indirectBulkAcceptVersionedPolicy1(
-      IndirectBulkAcceptVersionedPolicy1 input) throws Exception {
+  public AcceptAgreementResponse publicIndirectBulkAcceptVersionedPolicy(
+      PublicIndirectBulkAcceptVersionedPolicy input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

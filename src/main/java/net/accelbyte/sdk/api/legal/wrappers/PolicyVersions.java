@@ -23,9 +23,9 @@ public class PolicyVersions {
   }
 
   /**
-   * @see UpdatePolicyVersion
+   * @see OldUpdatePolicyVersion
    */
-  public UpdatePolicyVersionResponse updatePolicyVersion(UpdatePolicyVersion input)
+  public UpdatePolicyVersionResponse oldUpdatePolicyVersion(OldUpdatePolicyVersion input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -33,28 +33,28 @@ public class PolicyVersions {
   }
 
   /**
-   * @see PublishPolicyVersion
+   * @see OldPublishPolicyVersion
    */
-  public void publishPolicyVersion(PublishPolicyVersion input) throws Exception {
+  public void oldPublishPolicyVersion(OldPublishPolicyVersion input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
-   * @see RetrieveSinglePolicyVersion
+   * @see OldRetrieveSinglePolicyVersion
    */
-  public List<RetrievePolicyVersionResponse> retrieveSinglePolicyVersion(
-      RetrieveSinglePolicyVersion input) throws Exception {
+  public List<RetrievePolicyVersionResponse> oldRetrieveSinglePolicyVersion(
+      OldRetrieveSinglePolicyVersion input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 
   /**
-   * @see CreatePolicyVersion
+   * @see OldCreatePolicyVersion
    */
-  public CreatePolicyVersionResponse createPolicyVersion(CreatePolicyVersion input)
+  public CreatePolicyVersionResponse oldCreatePolicyVersion(OldCreatePolicyVersion input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
