@@ -154,6 +154,10 @@ public class AccelByteSDK {
       final AccessTokenPayload accessTokenPayload =
           objectMapper.convertValue(jwtClaimsSet.toJSONObject(), AccessTokenPayload.class);
 
+      if (accessTokenPayload == null) {
+        return false; // Failed to convert token payload
+      }
+
       return hasValidPermission(accessTokenPayload, authContext, permission);
     } catch (Exception e) {
       log.warning(e.getMessage());
@@ -396,6 +400,12 @@ public class AccelByteSDK {
           this.jwksCache.get(DEFAULT_CACHE_KEY);
           this.revocationListCache.get(DEFAULT_CACHE_KEY);
         } catch (ExecutionException e) {
+          // Reset caches to null to ensure object is in consistent state before throwing
+          // This prevents finalizer attacks by ensuring no partially initialized state
+          this.jwksCache = null;
+          this.revocationListCache = null;
+          this.namespaceContextCache = null;
+          this.rolePermissionsCache = null;
           throw new RuntimeException(e);
         }
       }

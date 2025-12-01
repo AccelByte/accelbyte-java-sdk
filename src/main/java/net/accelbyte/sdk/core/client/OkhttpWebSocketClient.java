@@ -50,6 +50,13 @@ public class OkhttpWebSocketClient extends LobbyWebSocketClient {
     super(
         configRepository, tokenRepository, webSocketListener, reconnectDelayMs, -1, pingIntervalMs);
 
-    connect();
+    try {
+      connect();
+    } catch (Exception e) {
+      // If connect() fails, the parent class is already fully initialized.
+      // Since this class has no fields of its own, we just rethrow the exception.
+      // The parent class fields remain in a consistent initialized state.
+      throw e;
+    }
   }
 }

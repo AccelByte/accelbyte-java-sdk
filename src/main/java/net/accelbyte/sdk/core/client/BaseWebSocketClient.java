@@ -106,21 +106,33 @@ public class BaseWebSocketClient extends WebSocketListener {
     if (wsServicePathName.isEmpty())
       throw new IllegalArgumentException("Websocket service path name can't be an empty string");
 
-    this.configRepository = configRepository;
-    this.tokenRepository = tokenRepository;
-    this.webSocketListener = webSocketListener;
-    this.pingIntervalMs = pingIntervalMs;
-    this.maxNumReconnectAttempts = maxNumReconnectAttempts;
-    this.reconnectDelayMs = reconnectDelayMs;
-    this.wsUrl = configRepository.getBaseURL() + "/" + wsServicePathName + "/";
+    try {
+      this.configRepository = configRepository;
+      this.tokenRepository = tokenRepository;
+      this.webSocketListener = webSocketListener;
+      this.pingIntervalMs = pingIntervalMs;
+      this.maxNumReconnectAttempts = maxNumReconnectAttempts;
+      this.reconnectDelayMs = reconnectDelayMs;
+      this.wsUrl = configRepository.getBaseURL() + "/" + wsServicePathName + "/";
 
-    if (isReconnectEnabled()) {
-      log.info("Websocket Reconnect Interval (initial w/ exp backoff): " + reconnectDelayMs + "ms");
-    } else {
-      log.info("Websocket Reconnect is disabled");
+      if (isReconnectEnabled()) {
+        log.info("Websocket Reconnect Interval (initial w/ exp backoff): " + reconnectDelayMs + "ms");
+      } else {
+        log.info("Websocket Reconnect is disabled");
+      }
+
+      this.client = constructOkHttpClient();
+    } catch (Exception e) {
+      // Reset non-final fields to null/default values to ensure object is in consistent state
+      // This prevents finalizer attacks by ensuring no partially initialized state
+      // Note: final fields (configRepository, tokenRepository, webSocketListener) cannot be reset
+      this.wsUrl = null;
+      this.client = null;
+      this.pingIntervalMs = 0;
+      this.maxNumReconnectAttempts = 0;
+      this.reconnectDelayMs = 0;
+      throw e;
     }
-
-    this.client = constructOkHttpClient();
   }
 
   // get sleep time in ms

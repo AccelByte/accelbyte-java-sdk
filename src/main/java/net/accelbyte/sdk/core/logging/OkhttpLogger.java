@@ -32,7 +32,10 @@ public class OkhttpLogger implements HttpLogger<Request, Response> {
   ;
 
   public OkhttpLogger(String logFilePath) {
-    if (logFilePath == null | logFilePath.isEmpty()) {
+    if (logFilePath == null || logFilePath.isEmpty()) {
+      // Reset to null to ensure object is in consistent state before throwing
+      // This prevents finalizer attacks by ensuring no partially initialized state
+      this.logFilePath = null;
       throw new IllegalArgumentException("logFilePath cannot be null or empty");
     }
 

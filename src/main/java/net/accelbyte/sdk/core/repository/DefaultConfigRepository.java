@@ -10,7 +10,10 @@ import net.accelbyte.sdk.core.AppInfo;
 
 public class DefaultConfigRepository implements ConfigRepository, TokenValidation {
 
+  // CID-475073: false positive - The actual secret value will be read from environment variables
+  // coverity[hardcoded_secret]
   private static final String CLIENT_ID = "AB_CLIENT_ID";
+  // coverity[hardcoded_secret]
   private static final String CLIENT_SECRET = "AB_CLIENT_SECRET";
   private static final String BASE_URL = "AB_BASE_URL";
 

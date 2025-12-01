@@ -65,8 +65,15 @@ public class LobbyWebSocketClient extends BaseWebSocketClient {
         pingIntervalMs,
         WS_SERVICE_PATH_NAME);
 
-    this.tokenRepositoryCallbackListener =
-        new TokenRepositoryCallbackListener(tokenRepository, this);
+    try {
+      this.tokenRepositoryCallbackListener =
+          new TokenRepositoryCallbackListener(tokenRepository, this);
+    } catch (Exception e) {
+      // Reset to null to ensure object is in consistent state before throwing
+      // This prevents finalizer attacks by ensuring no partially initialized state
+      this.tokenRepositoryCallbackListener = null;
+      throw e;
+    }
   }
 
   @Override
