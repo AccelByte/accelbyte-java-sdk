@@ -10,6 +10,7 @@ package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.csm.app.*;
 import net.accelbyte.sdk.cli.api.csm.app_v2.*;
+import net.accelbyte.sdk.cli.api.csm.async_messaging.*;
 import net.accelbyte.sdk.cli.api.csm.configuration.*;
 import net.accelbyte.sdk.cli.api.csm.configuration_v2.*;
 import net.accelbyte.sdk.cli.api.csm.deployment.*;
@@ -55,6 +56,8 @@ import picocli.CommandLine.Command;
       CreateAppV2.class,
       DeleteAppV2.class,
       UpdateAppV2.class,
+      CreateSubscriptionHandler.class,
+      UnsubscribeTopicHandler.class,
       CreateDeploymentV2.class,
       GetAppImageListV2.class,
       DeleteAppImagesV2.class,
@@ -82,6 +85,9 @@ import picocli.CommandLine.Command;
       SaveVariableV2.class,
       UpdateVariableV2.class,
       DeleteVariableV2.class,
+      ListTopicsHandler.class,
+      CreateTopicHandler.class,
+      DeleteTopicHandler.class,
       GetListOfDeploymentV2.class,
       GetDeploymentV2.class,
       DeleteDeploymentV2.class,
@@ -89,6 +95,8 @@ import picocli.CommandLine.Command;
       UpdateNoSQLClusterV2.class,
       CreateNoSQLClusterV2.class,
       DeleteNoSQLClusterV2.class,
+      StartNoSQLClusterV2.class,
+      StopNoSQLClusterV2.class,
       GetNoSQLAccessTunnelV2.class,
       GetResourcesLimits.class,
       GetNotificationSubscriberListV3.class,

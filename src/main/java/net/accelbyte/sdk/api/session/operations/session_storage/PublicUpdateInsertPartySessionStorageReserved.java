@@ -23,8 +23,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * publicUpdateInsertPartySessionStorageReserved
  *
  * <p>**For Internal Use Only** Update Insert Party Session Reserved Storage User. User can only
- * update or insert user party session storage data itself. can store generic json example json can
- * store : ``` { "key": "value", "number": 123, } ``` The data will be stored on the "reserved"
+ * update or insert their own reserve storage (non-immutable). can store generic json example json
+ * can store : ``` { "key": "value", "number": 123, } ``` The data will be stored on the "reserved"
  * storage field example stored data : ``` { "reserved": { "userID1": {"key": "value"}, "userID2":
  * {"key": "value"}, ... } } ```
  */

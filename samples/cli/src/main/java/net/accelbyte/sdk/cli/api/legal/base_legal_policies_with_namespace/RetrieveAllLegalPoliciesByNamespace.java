@@ -36,6 +36,16 @@ public class RetrieveAllLegalPoliciesByNamespace implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--limit"},
+      description = "limit")
+  Integer limit;
+
+  @Option(
+      names = {"--offset"},
+      description = "offset")
+  Integer offset;
+
+  @Option(
       names = {"--visibleOnly"},
       description = "visibleOnly")
   Boolean visibleOnly;
@@ -67,6 +77,8 @@ public class RetrieveAllLegalPoliciesByNamespace implements Callable<Integer> {
               net.accelbyte.sdk.api.legal.operations.base_legal_policies_with_namespace
                   .RetrieveAllLegalPoliciesByNamespace.builder()
                   .namespace(namespace)
+                  .limit(limit)
+                  .offset(offset)
                   .visibleOnly(visibleOnly)
                   .build();
       final List<RetrieveBasePolicyResponse> response =

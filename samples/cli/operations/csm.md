@@ -59,6 +59,24 @@ $ build/install/cli/bin/cli csm updateAppV2 \
     --body <json string for request body>
 ```
 
+### Operation CreateSubscriptionHandler
+
+```sh
+$ build/install/cli/bin/cli csm createSubscriptionHandler \
+    --app <app value> \
+    --namespace <namespace value> \
+    --body <json string for request body>
+```
+
+### Operation UnsubscribeTopicHandler
+
+```sh
+$ build/install/cli/bin/cli csm unsubscribeTopicHandler \
+    --app <app value> \
+    --namespace <namespace value> \
+    --topicName <topicName value>
+```
+
 ### Operation CreateDeploymentV2
 
 ```sh
@@ -291,6 +309,34 @@ $ build/install/cli/bin/cli csm deleteVariableV2 \
     --namespace <namespace value>
 ```
 
+### Operation ListTopicsHandler
+
+```sh
+$ build/install/cli/bin/cli csm listTopicsHandler \
+    --namespace <namespace value> \
+    --fuzzyTopicName <fuzzyTopicName value - optional> \
+    --isSubscribedByAppName <isSubscribedByAppName value - optional> \
+    --isUnsubscribedByAppName <isUnsubscribedByAppName value - optional> \
+    --limit <limit value - optional> \
+    --offset <offset value - optional>
+```
+
+### Operation CreateTopicHandler
+
+```sh
+$ build/install/cli/bin/cli csm createTopicHandler \
+    --namespace <namespace value> \
+    --body <json string for request body>
+```
+
+### Operation DeleteTopicHandler
+
+```sh
+$ build/install/cli/bin/cli csm deleteTopicHandler \
+    --namespace <namespace value> \
+    --topicName <topicName value>
+```
+
 ### Operation GetListOfDeploymentV2
 
 ```sh
@@ -344,6 +390,20 @@ $ build/install/cli/bin/cli csm createNoSQLClusterV2 \
 
 ```sh
 $ build/install/cli/bin/cli csm deleteNoSQLClusterV2 \
+    --namespace <namespace value>
+```
+
+### Operation StartNoSQLClusterV2
+
+```sh
+$ build/install/cli/bin/cli csm startNoSQLClusterV2 \
+    --namespace <namespace value>
+```
+
+### Operation StopNoSQLClusterV2
+
+```sh
+$ build/install/cli/bin/cli csm stopNoSQLClusterV2 \
     --namespace <namespace value>
 ```
 

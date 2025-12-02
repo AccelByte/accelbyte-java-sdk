@@ -43,6 +43,7 @@ import picocli.CommandLine.Command;
       DevelopmentServerConfigurationPatch.class,
       FleetList.class,
       FleetCreate.class,
+      BulkFleetDelete.class,
       FleetGet.class,
       FleetUpdate.class,
       FleetDelete.class,

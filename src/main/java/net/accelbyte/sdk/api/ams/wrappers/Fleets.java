@@ -40,6 +40,15 @@ public class Fleets {
   }
 
   /**
+   * @see BulkFleetDelete
+   */
+  public ApiFleetBulkDeleteResponse bulkFleetDelete(BulkFleetDelete input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see FleetGet
    */
   public ApiFleetGetResponse fleetGet(FleetGet input) throws Exception {

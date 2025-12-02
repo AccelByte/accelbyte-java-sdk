@@ -91,6 +91,10 @@ public class ApimodelAppItem extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String message;
 
+  @JsonProperty("redeploymentInfo")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private ModelAppRedeploymentInfo redeploymentInfo;
+
   @JsonProperty("replica")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private ApimodelReplicaResponse replica;

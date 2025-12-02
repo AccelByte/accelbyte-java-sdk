@@ -70,6 +70,16 @@ public class SessionStorage {
   }
 
   /**
+   * @see PublicUpdateInsertPartySessionStorage
+   */
+  public Map<String, ?> publicUpdateInsertPartySessionStorage(
+      PublicUpdateInsertPartySessionStorage input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicUpdateInsertPartySessionStorageReserved
    */
   public Map<String, ?> publicUpdateInsertPartySessionStorageReserved(

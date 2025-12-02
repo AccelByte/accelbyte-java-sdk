@@ -101,6 +101,24 @@ public class ManagedResources {
   }
 
   /**
+   * @see StartNoSQLClusterV2
+   */
+  public void startNoSQLClusterV2(StartNoSQLClusterV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see StopNoSQLClusterV2
+   */
+  public void stopNoSQLClusterV2(StopNoSQLClusterV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetNoSQLAccessTunnelV2
    */
   public ApimodelTunnelInfoResponse getNoSQLAccessTunnelV2(GetNoSQLAccessTunnelV2 input)

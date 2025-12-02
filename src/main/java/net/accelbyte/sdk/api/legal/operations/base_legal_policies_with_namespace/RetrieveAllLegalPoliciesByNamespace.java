@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * retrieveAllLegalPoliciesByNamespace
  *
- * <p>Retrieve all base policies in the namespace.
+ * <p>Retrieve base policies in the namespace. Set `limit = -1` to retrieve all records
  */
 @Getter
 @Setter
@@ -39,6 +39,8 @@ public class RetrieveAllLegalPoliciesByNamespace extends Operation {
   /** fields as input parameter */
   private String namespace;
 
+  private Integer limit;
+  private Integer offset;
   private Boolean visibleOnly;
 
   /**
@@ -47,8 +49,11 @@ public class RetrieveAllLegalPoliciesByNamespace extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public RetrieveAllLegalPoliciesByNamespace(String namespace, Boolean visibleOnly) {
+  public RetrieveAllLegalPoliciesByNamespace(
+      String namespace, Integer limit, Integer offset, Boolean visibleOnly) {
     this.namespace = namespace;
+    this.limit = limit;
+    this.offset = offset;
     this.visibleOnly = visibleOnly;
 
     securities.add("Bearer");
@@ -66,6 +71,9 @@ public class RetrieveAllLegalPoliciesByNamespace extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
+    queryParams.put(
+        "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
     queryParams.put(
         "visibleOnly",
         this.visibleOnly == null ? null : Arrays.asList(String.valueOf(this.visibleOnly)));
@@ -94,6 +102,8 @@ public class RetrieveAllLegalPoliciesByNamespace extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("limit", "None");
+    result.put("offset", "None");
     result.put("visibleOnly", "None");
     return result;
   }

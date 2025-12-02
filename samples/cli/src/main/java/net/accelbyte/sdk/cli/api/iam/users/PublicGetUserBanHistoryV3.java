@@ -46,19 +46,14 @@ public class PublicGetUserBanHistoryV3 implements Callable<Integer> {
   Boolean activeOnly;
 
   @Option(
-      names = {"--after"},
-      description = "after")
-  String after;
-
-  @Option(
-      names = {"--before"},
-      description = "before")
-  String before;
-
-  @Option(
       names = {"--limit"},
       description = "limit")
   Integer limit;
+
+  @Option(
+      names = {"--offset"},
+      description = "offset")
+  Integer offset;
 
   @Option(
       names = {"--logging"},
@@ -86,9 +81,8 @@ public class PublicGetUserBanHistoryV3 implements Callable<Integer> {
               .namespace(namespace)
               .userId(userId)
               .activeOnly(activeOnly)
-              .after(after)
-              .before(before)
               .limit(limit)
+              .offset(offset)
               .build();
       final ModelGetUserBanV3Response response = wrapper.publicGetUserBanHistoryV3(operation);
       final String responseString =

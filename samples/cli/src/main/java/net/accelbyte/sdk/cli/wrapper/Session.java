@@ -105,6 +105,7 @@ import picocli.CommandLine.Command;
       PublicPartyInvite.class,
       PublicPromotePartyLeader.class,
       PublicReadPartySessionStorage.class,
+      PublicUpdateInsertPartySessionStorage.class,
       PublicUpdateInsertPartySessionStorageReserved.class,
       PublicPartyJoin.class,
       PublicPartyLeave.class,

@@ -164,6 +164,14 @@ $ build/install/cli/bin/cli ams fleetCreate \
     --body <json string for request body>
 ```
 
+### Operation BulkFleetDelete
+
+```sh
+$ build/install/cli/bin/cli ams bulkFleetDelete \
+    --namespace <namespace value> \
+    --body <json string for request body>
+```
+
 ### Operation FleetGet
 
 ```sh

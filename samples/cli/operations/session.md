@@ -609,6 +609,16 @@ $ build/install/cli/bin/cli session publicReadPartySessionStorage \
     --partyId <partyId value>
 ```
 
+### Operation PublicUpdateInsertPartySessionStorage
+
+```sh
+$ build/install/cli/bin/cli session publicUpdateInsertPartySessionStorage \
+    --namespace <namespace value> \
+    --partyId <partyId value> \
+    --userId <userId value> \
+    --body <json string for request body>
+```
+
 ### Operation PublicUpdateInsertPartySessionStorageReserved
 
 ```sh

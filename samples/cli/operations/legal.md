@@ -160,6 +160,8 @@ $ build/install/cli/bin/cli legal initiateExportAgreementsToCSV \
 ```sh
 $ build/install/cli/bin/cli legal retrieveAllLegalPoliciesByNamespace \
     --namespace <namespace value> \
+    --limit <limit value - optional> \
+    --offset <offset value - optional> \
     --visibleOnly <visibleOnly value - optional>
 ```
 

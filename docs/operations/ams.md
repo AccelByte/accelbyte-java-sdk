@@ -50,6 +50,7 @@
 |---|---|---|---|---|
 | `/ams/v1/admin/namespaces/{namespace}/fleets` | GET | FleetList | [FleetList](../../src/main/java/net/accelbyte/sdk/api/ams/operations/fleets/FleetList.java) | [FleetList](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/fleets/FleetList.java) |
 | `/ams/v1/admin/namespaces/{namespace}/fleets` | POST | FleetCreate | [FleetCreate](../../src/main/java/net/accelbyte/sdk/api/ams/operations/fleets/FleetCreate.java) | [FleetCreate](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/fleets/FleetCreate.java) |
+| `/ams/v1/admin/namespaces/{namespace}/fleets` | DELETE | BulkFleetDelete | [BulkFleetDelete](../../src/main/java/net/accelbyte/sdk/api/ams/operations/fleets/BulkFleetDelete.java) | [BulkFleetDelete](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/fleets/BulkFleetDelete.java) |
 | `/ams/v1/admin/namespaces/{namespace}/fleets/{fleetID}` | GET | FleetGet | [FleetGet](../../src/main/java/net/accelbyte/sdk/api/ams/operations/fleets/FleetGet.java) | [FleetGet](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/fleets/FleetGet.java) |
 | `/ams/v1/admin/namespaces/{namespace}/fleets/{fleetID}` | PUT | FleetUpdate | [FleetUpdate](../../src/main/java/net/accelbyte/sdk/api/ams/operations/fleets/FleetUpdate.java) | [FleetUpdate](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/fleets/FleetUpdate.java) |
 | `/ams/v1/admin/namespaces/{namespace}/fleets/{fleetID}` | DELETE | FleetDelete | [FleetDelete](../../src/main/java/net/accelbyte/sdk/api/ams/operations/fleets/FleetDelete.java) | [FleetDelete](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/fleets/FleetDelete.java) |
@@ -127,6 +128,9 @@
 | `api.DevelopmentServerConfigurationListResponse` | [ApiDevelopmentServerConfigurationListResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiDevelopmentServerConfigurationListResponse.java) |
 | `api.DevelopmentServerConfigurationUpdateRequest` | [ApiDevelopmentServerConfigurationUpdateRequest](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiDevelopmentServerConfigurationUpdateRequest.java) |
 | `api.FleetArtifactsSampleRules` | [ApiFleetArtifactsSampleRules](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetArtifactsSampleRules.java) |
+| `api.FleetBulkActionErrorItemResponse` | [ApiFleetBulkActionErrorItemResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetBulkActionErrorItemResponse.java) |
+| `api.FleetBulkDeleteRequest` | [ApiFleetBulkDeleteRequest](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetBulkDeleteRequest.java) |
+| `api.FleetBulkDeleteResponse` | [ApiFleetBulkDeleteResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetBulkDeleteResponse.java) |
 | `api.FleetClaimByKeysReq` | [ApiFleetClaimByKeysReq](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetClaimByKeysReq.java) |
 | `api.FleetClaimReq` | [ApiFleetClaimReq](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetClaimReq.java) |
 | `api.FleetClaimResponse` | [ApiFleetClaimResponse](../../src/main/java/net/accelbyte/sdk/api/ams/models/ApiFleetClaimResponse.java) |

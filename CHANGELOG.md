@@ -1,3 +1,10 @@
+<a name="v0.78.0"></a>
+## [v0.78.0]
+### fix
+- **deps:** update dependency com.nimbusds:nimbus-jose-jwt to v10 [security]
+- **deps:** update vulnerabilityalerts [security]
+
+
 <a name="v0.77.0"></a>
 ## [v0.77.0]
 ### chore

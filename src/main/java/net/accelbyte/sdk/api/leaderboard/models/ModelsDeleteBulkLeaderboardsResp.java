@@ -28,6 +28,9 @@ public class ModelsDeleteBulkLeaderboardsResp extends Model {
   @JsonProperty("failed")
   private List<ModelsDeleteBulkLeaderboardFailedResp> failed;
 
+  @JsonProperty("success")
+  private List<ModelsDeleteBulkLeaderboardSuccessResp> success;
+
   @JsonIgnore
   public ModelsDeleteBulkLeaderboardsResp createFromJson(String json)
       throws JsonProcessingException {

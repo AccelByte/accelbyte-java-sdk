@@ -116,6 +116,7 @@
 | `models.BulkUserRankingResponseV3` | [ModelsBulkUserRankingResponseV3](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsBulkUserRankingResponseV3.java) |
 | `models.DailyConfig` | [ModelsDailyConfig](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsDailyConfig.java) |
 | `models.DeleteBulkLeaderboardFailedResp` | [ModelsDeleteBulkLeaderboardFailedResp](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsDeleteBulkLeaderboardFailedResp.java) |
+| `models.DeleteBulkLeaderboardSuccessResp` | [ModelsDeleteBulkLeaderboardSuccessResp](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsDeleteBulkLeaderboardSuccessResp.java) |
 | `models.DeleteBulkLeaderboardsReq` | [ModelsDeleteBulkLeaderboardsReq](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsDeleteBulkLeaderboardsReq.java) |
 | `models.DeleteBulkLeaderboardsResp` | [ModelsDeleteBulkLeaderboardsResp](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsDeleteBulkLeaderboardsResp.java) |
 | `models.GetAllLeaderboardConfigsPublicResp` | [ModelsGetAllLeaderboardConfigsPublicResp](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsGetAllLeaderboardConfigsPublicResp.java) |

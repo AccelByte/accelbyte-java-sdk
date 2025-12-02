@@ -39,7 +39,7 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 ./ng ng-cp 1>&2
 
 echo "TAP version 13"
-echo "1..94"
+echo "1..95"
 
 #- 1 Login
 ./ng net.accelbyte.sdk.cli.Main loginClient \
@@ -606,133 +606,142 @@ eval_tap $? 76 'PublicPromotePartyLeader' test.out
     > test.out 2>&1
 eval_tap $? 77 'PublicReadPartySessionStorage' test.out
 
-#- 78 PublicUpdateInsertPartySessionStorageReserved
-./ng net.accelbyte.sdk.cli.Main session publicUpdateInsertPartySessionStorageReserved \
+#- 78 PublicUpdateInsertPartySessionStorage
+./ng net.accelbyte.sdk.cli.Main session publicUpdateInsertPartySessionStorage \
     --namespace "$AB_NAMESPACE" \
     --partyId '8y959anrNSleywHb' \
     --userId 'Hig6IKWVZ77KeRWd' \
     --body '{"ECaFGzfZ2hxcJ2Fn": {}, "emn7M23SzUo4hNBD": {}, "h9ZFP1OW0nXOErQP": {}}' \
     > test.out 2>&1
-eval_tap $? 78 'PublicUpdateInsertPartySessionStorageReserved' test.out
+eval_tap $? 78 'PublicUpdateInsertPartySessionStorage' test.out
 
-#- 79 PublicPartyJoin
-./ng net.accelbyte.sdk.cli.Main session publicPartyJoin \
+#- 79 PublicUpdateInsertPartySessionStorageReserved
+./ng net.accelbyte.sdk.cli.Main session publicUpdateInsertPartySessionStorageReserved \
     --namespace "$AB_NAMESPACE" \
     --partyId 'S4VsRoYIK69yg9AD' \
+    --userId 'CGiXaLs2xjHkinOD' \
+    --body '{"975nARHCmhNHSXuq": {}, "IHsxvaUoXDmwWsuk": {}, "xncuD3QxCXMd00YB": {}}' \
     > test.out 2>&1
-eval_tap $? 79 'PublicPartyJoin' test.out
+eval_tap $? 79 'PublicUpdateInsertPartySessionStorageReserved' test.out
 
-#- 80 PublicPartyLeave
-./ng net.accelbyte.sdk.cli.Main session publicPartyLeave \
-    --namespace "$AB_NAMESPACE" \
-    --partyId 'CGiXaLs2xjHkinOD' \
-    > test.out 2>&1
-eval_tap $? 80 'PublicPartyLeave' test.out
-
-#- 81 PublicPartyReject
-./ng net.accelbyte.sdk.cli.Main session publicPartyReject \
-    --namespace "$AB_NAMESPACE" \
-    --partyId '975nARHCmhNHSXuq' \
-    > test.out 2>&1
-eval_tap $? 81 'PublicPartyReject' test.out
-
-#- 82 PublicPartyCancel
-./ng net.accelbyte.sdk.cli.Main session publicPartyCancel \
-    --namespace "$AB_NAMESPACE" \
-    --partyId 'IHsxvaUoXDmwWsuk' \
-    --userId 'xncuD3QxCXMd00YB' \
-    > test.out 2>&1
-eval_tap $? 82 'PublicPartyCancel' test.out
-
-#- 83 PublicPartyKick
-./ng net.accelbyte.sdk.cli.Main session publicPartyKick \
+#- 80 PublicPartyJoin
+./ng net.accelbyte.sdk.cli.Main session publicPartyJoin \
     --namespace "$AB_NAMESPACE" \
     --partyId 'WCaVVmM45mfIZsWh' \
-    --userId 'kS476dGGJwJ00UH1' \
     > test.out 2>&1
-eval_tap $? 83 'PublicPartyKick' test.out
+eval_tap $? 80 'PublicPartyJoin' test.out
 
-#- 84 PublicCreateParty
+#- 81 PublicPartyLeave
+./ng net.accelbyte.sdk.cli.Main session publicPartyLeave \
+    --namespace "$AB_NAMESPACE" \
+    --partyId 'kS476dGGJwJ00UH1' \
+    > test.out 2>&1
+eval_tap $? 81 'PublicPartyLeave' test.out
+
+#- 82 PublicPartyReject
+./ng net.accelbyte.sdk.cli.Main session publicPartyReject \
+    --namespace "$AB_NAMESPACE" \
+    --partyId '97MJ6zU7JLMQyMWz' \
+    > test.out 2>&1
+eval_tap $? 82 'PublicPartyReject' test.out
+
+#- 83 PublicPartyCancel
+./ng net.accelbyte.sdk.cli.Main session publicPartyCancel \
+    --namespace "$AB_NAMESPACE" \
+    --partyId 'YQCAaPJgoxGJoJaS' \
+    --userId 'zUtY4ZD0Xtb0U4pH' \
+    > test.out 2>&1
+eval_tap $? 83 'PublicPartyCancel' test.out
+
+#- 84 PublicPartyKick
+./ng net.accelbyte.sdk.cli.Main session publicPartyKick \
+    --namespace "$AB_NAMESPACE" \
+    --partyId '16NUsVY21NVIs7NR' \
+    --userId 'en2Y3Ns0QJQeaWyt' \
+    > test.out 2>&1
+eval_tap $? 84 'PublicPartyKick' test.out
+
+#- 85 PublicCreateParty
 ./ng net.accelbyte.sdk.cli.Main session publicCreateParty \
     --namespace "$AB_NAMESPACE" \
-    --body '{"attributes": {"97MJ6zU7JLMQyMWz": {}, "YQCAaPJgoxGJoJaS": {}, "zUtY4ZD0Xtb0U4pH": {}}, "configurationName": "16NUsVY21NVIs7NR", "inactiveTimeout": 10, "inviteTimeout": 5, "joinability": "FRIENDS_OF_FRIENDS", "maxPlayers": 91, "members": [{"ID": "2Y3Ns0QJQeaWytPf", "PlatformID": "ds1BYx0EaURydf8Z", "PlatformUserID": "yyZeHAWGgJUbUJRM"}, {"ID": "bkcTglbU86FyOjAp", "PlatformID": "NHBVfNOURcjY3YYT", "PlatformUserID": "9oTynmfIuBWgJTNF"}, {"ID": "fM8M0IW4oe8KDgy0", "PlatformID": "xZfAcNg14Ws8TIP1", "PlatformUserID": "LKiFQoLDvumfqrgS"}], "minPlayers": 12, "textChat": true, "type": "DS"}' \
+    --body '{"attributes": {"Pfds1BYx0EaURydf": {}, "8ZyyZeHAWGgJUbUJ": {}, "RMbkcTglbU86FyOj": {}}, "configurationName": "ApNHBVfNOURcjY3Y", "inactiveTimeout": 93, "inviteTimeout": 50, "joinability": "FRIENDS_OF_FRIENDS", "maxPlayers": 93, "members": [{"ID": "L13Ornyx34luLdvt", "PlatformID": "sTKXMjiw6gYPvfn2", "PlatformUserID": "Qt9iyq3Nyk8ncu2Z"}, {"ID": "3eDHH9WaVO4iKhDc", "PlatformID": "J7TCcNIsQ3PuppUx", "PlatformUserID": "DSK8aOTGMudcxlCV"}, {"ID": "4cNbJGQ57lPdinpj", "PlatformID": "S2DRfGt9GlyZVQ4X", "PlatformUserID": "67tPZSTpPq3xjrEl"}], "minPlayers": 45, "textChat": true, "type": "NONE"}' \
     > test.out 2>&1
-eval_tap $? 84 'PublicCreateParty' test.out
+eval_tap $? 85 'PublicCreateParty' test.out
 
-#- 85 PublicGetRecentPlayer
+#- 86 PublicGetRecentPlayer
 ./ng net.accelbyte.sdk.cli.Main session publicGetRecentPlayer \
     --namespace "$AB_NAMESPACE" \
-    --limit '4' \
+    --limit '0' \
     > test.out 2>&1
-eval_tap $? 85 'PublicGetRecentPlayer' test.out
+eval_tap $? 86 'PublicGetRecentPlayer' test.out
 
-#- 86 PublicGetRecentTeamPlayer
+#- 87 PublicGetRecentTeamPlayer
 ./ng net.accelbyte.sdk.cli.Main session publicGetRecentTeamPlayer \
     --namespace "$AB_NAMESPACE" \
-    --limit '48' \
+    --limit '60' \
     > test.out 2>&1
-eval_tap $? 86 'PublicGetRecentTeamPlayer' test.out
+eval_tap $? 87 'PublicGetRecentTeamPlayer' test.out
 
-#- 87 PublicUpdateInsertSessionStorageLeader
+#- 88 PublicUpdateInsertSessionStorageLeader
 ./ng net.accelbyte.sdk.cli.Main session publicUpdateInsertSessionStorageLeader \
     --namespace "$AB_NAMESPACE" \
-    --sessionId 'J7TCcNIsQ3PuppUx' \
-    --body '{"DSK8aOTGMudcxlCV": {}, "4cNbJGQ57lPdinpj": {}, "S2DRfGt9GlyZVQ4X": {}}' \
+    --sessionId 'THf1ANTJ9Yk997Xk' \
+    --body '{"GOdC6ItxDT8p4n4X": {}, "CFkD1AJLCwszbZxu": {}, "HSgDOK8bjoF7bL26": {}}' \
     > test.out 2>&1
-eval_tap $? 87 'PublicUpdateInsertSessionStorageLeader' test.out
+eval_tap $? 88 'PublicUpdateInsertSessionStorageLeader' test.out
 
-#- 88 PublicUpdateInsertSessionStorage
+#- 89 PublicUpdateInsertSessionStorage
 ./ng net.accelbyte.sdk.cli.Main session publicUpdateInsertSessionStorage \
     --namespace "$AB_NAMESPACE" \
-    --sessionId '67tPZSTpPq3xjrEl' \
-    --userId 'vvDgw0ag7kSWE0Hi' \
-    --body '{"qm5IuLryiEXqvUWD": {}, "jU1G0EVjVZw1ToLu": {}, "PakQN1MpOs1RVFrc": {}}' \
+    --sessionId '35KbtZTGJpqgl2Iz' \
+    --userId 'NXGTuQPIDpor7t1a' \
+    --body '{"JLNNz6QIVC9Mfuc8": {}, "VOsnmnlVljdWYmEL": {}, "e74p38vumnxAnYBT": {}}' \
     > test.out 2>&1
-eval_tap $? 88 'PublicUpdateInsertSessionStorage' test.out
+eval_tap $? 89 'PublicUpdateInsertSessionStorage' test.out
 
-#- 89 PublicGetBulkPlayerCurrentPlatform
+#- 90 PublicGetBulkPlayerCurrentPlatform
 ./ng net.accelbyte.sdk.cli.Main session publicGetBulkPlayerCurrentPlatform \
     --namespace "$AB_NAMESPACE" \
-    --body '{"userIDs": ["g2CXxepx78fvsyhE", "2BKtyTDSIM7mkmvZ", "7Cmsh4US8o4jfMAN"]}' \
+    --body '{"userIDs": ["xaTIz0jcgDI8Pkz9", "6vd80msqIm5bufnB", "qrpLeqhwVhjnnjKM"]}' \
     > test.out 2>&1
-eval_tap $? 89 'PublicGetBulkPlayerCurrentPlatform' test.out
+eval_tap $? 90 'PublicGetBulkPlayerCurrentPlatform' test.out
 
-#- 90 PublicGetPlayerAttributes
+#- 91 PublicGetPlayerAttributes
 ./ng net.accelbyte.sdk.cli.Main session publicGetPlayerAttributes \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 90 'PublicGetPlayerAttributes' test.out
+eval_tap $? 91 'PublicGetPlayerAttributes' test.out
 
-#- 91 PublicStorePlayerAttributes
+#- 92 PublicStorePlayerAttributes
 ./ng net.accelbyte.sdk.cli.Main session publicStorePlayerAttributes \
     --namespace "$AB_NAMESPACE" \
-    --body '{"crossplayEnabled": false, "currentPlatform": "pmZDdMiCxmuCCVuF", "data": {"jS1GC1d2b92B4vEg": {}, "j3HOmhcWm428XejR": {}, "F94NIY9nMrBZo0lN": {}}, "platforms": [{"name": "UBDShHD32vvL28FP", "userID": "wTiXfLcxDC9Ynd02"}, {"name": "mECIQhfIhHtADUQ9", "userID": "zimQTQT95pFJUAJs"}, {"name": "yAfeKOufV4f15Noh", "userID": "Xu6opxQGRt6PqlkL"}], "roles": ["0diRhLC10ih2EQfY", "3XCv4hdOa6FdZhNM", "d1onFjGRbxtABPXD"], "simultaneousPlatform": "mgNEJBhgGq5GIDhN"}' \
+    --body '{"crossplayEnabled": true, "currentPlatform": "iXfLcxDC9Ynd02mE", "data": {"CIQhfIhHtADUQ9zi": {}, "mQTQT95pFJUAJsyA": {}, "feKOufV4f15NohXu": {}}, "platforms": [{"name": "6opxQGRt6PqlkL0d", "userID": "iRhLC10ih2EQfY3X"}, {"name": "Cv4hdOa6FdZhNMd1", "userID": "onFjGRbxtABPXDmg"}, {"name": "NEJBhgGq5GIDhNC6", "userID": "6szbCCf73IFbRkPS"}], "roles": ["SITz4TjCrJHXGXku", "2YVuOzhxHmnrrV9Z", "GWrZ05sxe6A6RpmK"], "simultaneousPlatform": "DebNkylbynkgT9va"}' \
     > test.out 2>&1
-eval_tap $? 91 'PublicStorePlayerAttributes' test.out
+eval_tap $? 92 'PublicStorePlayerAttributes' test.out
 
-#- 92 PublicDeletePlayerAttributes
+#- 93 PublicDeletePlayerAttributes
 ./ng net.accelbyte.sdk.cli.Main session publicDeletePlayerAttributes \
     --namespace "$AB_NAMESPACE" \
     > test.out 2>&1
-eval_tap $? 92 'PublicDeletePlayerAttributes' test.out
+eval_tap $? 93 'PublicDeletePlayerAttributes' test.out
 
-#- 93 PublicQueryMyGameSessions
+#- 94 PublicQueryMyGameSessions
 ./ng net.accelbyte.sdk.cli.Main session publicQueryMyGameSessions \
     --namespace "$AB_NAMESPACE" \
-    --order 'C66szbCCf73IFbRk' \
-    --orderBy 'PSSITz4TjCrJHXGX' \
-    --status 'ku2YVuOzhxHmnrrV' \
+    --order 'yLLiizac7Ge6zKJd' \
+    --orderBy 'lt7rjF5RaJwvkWVc' \
+    --status 'o2LTo5ijlvDF8qBW' \
     > test.out 2>&1
-eval_tap $? 93 'PublicQueryMyGameSessions' test.out
+eval_tap $? 94 'PublicQueryMyGameSessions' test.out
 
-#- 94 PublicQueryMyParties
+#- 95 PublicQueryMyParties
 ./ng net.accelbyte.sdk.cli.Main session publicQueryMyParties \
     --namespace "$AB_NAMESPACE" \
-    --order '9ZGWrZ05sxe6A6Rp' \
-    --orderBy 'mKDebNkylbynkgT9' \
-    --status 'vayLLiizac7Ge6zK' \
+    --order 'CQ9dLWYyS8zdhMeB' \
+    --orderBy 'XH8x6HdVfZVDAiU6' \
+    --status 'iJOF7JKZFNk2NKy5' \
     > test.out 2>&1
-eval_tap $? 94 'PublicQueryMyParties' test.out
+eval_tap $? 95 'PublicQueryMyParties' test.out
 
 
 rm -f "tmp.dat"

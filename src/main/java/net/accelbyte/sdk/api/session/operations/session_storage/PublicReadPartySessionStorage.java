@@ -22,8 +22,11 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicReadPartySessionStorage
  *
- * <p>Read Party Session Storage by partyID Party Storage example: ``` { "reserved": { "userID1":
- * {"key": "value"}, "userID2": {"key": "value"}, ... } } ```
+ * <p>Read Party Session Storage by partyID (with reserved and member). Contains "reserved" when
+ * Update Insert Party Session Reserved Storage User. Contains "member" when Update Insert Party
+ * Session Storage User. Party Storage example: ``` { "reserved": { "userID1": {"key": "value"},
+ * "userID2": {"key": "value"}, ... }, "member": { "userID1": {"key": "value"}, "userID2": {"key":
+ * "value"}, ... } } ```
  */
 @Getter
 @Setter
