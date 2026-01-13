@@ -53,13 +53,33 @@ public class StatUpdate extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean ignoreAdditionalDataOnValueRejected;
 
+  @JsonProperty("incrementOnly")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean incrementOnly;
+
   @JsonProperty("isPublic")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean isPublic;
 
+  @JsonProperty("maximum")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Float maximum;
+
+  @JsonProperty("minimum")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Float minimum;
+
   @JsonProperty("name")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String name;
+
+  @JsonProperty("setAsGlobal")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean setAsGlobal;
+
+  @JsonProperty("setBy")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String setBy;
 
   @JsonProperty("tags")
   @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -88,6 +108,26 @@ public class StatUpdate extends Model {
   public void setGlobalAggregationMethodFromEnum(
       final GlobalAggregationMethod globalAggregationMethod) {
     this.globalAggregationMethod = globalAggregationMethod.toString();
+  }
+
+  @JsonIgnore
+  public String getSetBy() {
+    return this.setBy;
+  }
+
+  @JsonIgnore
+  public SetBy getSetByAsEnum() {
+    return SetBy.valueOf(this.setBy);
+  }
+
+  @JsonIgnore
+  public void setSetBy(final String setBy) {
+    this.setBy = setBy;
+  }
+
+  @JsonIgnore
+  public void setSetByFromEnum(final SetBy setBy) {
+    this.setBy = setBy.toString();
   }
 
   @JsonIgnore
@@ -138,6 +178,22 @@ public class StatUpdate extends Model {
     }
   }
 
+  public enum SetBy {
+    CLIENT("CLIENT"),
+    SERVER("SERVER");
+
+    private String value;
+
+    SetBy(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
   public enum Visibility {
     SERVERONLY("SERVERONLY"),
     SHOWALL("SHOWALL");
@@ -156,6 +212,7 @@ public class StatUpdate extends Model {
 
   public static class StatUpdateBuilder {
     private String globalAggregationMethod;
+    private String setBy;
     private String visibility;
 
     public StatUpdateBuilder globalAggregationMethod(final String globalAggregationMethod) {
@@ -166,6 +223,16 @@ public class StatUpdate extends Model {
     public StatUpdateBuilder globalAggregationMethodFromEnum(
         final GlobalAggregationMethod globalAggregationMethod) {
       this.globalAggregationMethod = globalAggregationMethod.toString();
+      return this;
+    }
+
+    public StatUpdateBuilder setBy(final String setBy) {
+      this.setBy = setBy;
+      return this;
+    }
+
+    public StatUpdateBuilder setByFromEnum(final SetBy setBy) {
+      this.setBy = setBy.toString();
       return this;
     }
 

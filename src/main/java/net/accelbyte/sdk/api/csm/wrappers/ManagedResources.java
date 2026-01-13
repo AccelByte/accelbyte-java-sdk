@@ -127,4 +127,13 @@ public class ManagedResources {
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see GetNoSQLAppListV2
+   */
+  public ApimodelNoSQLAppListResponse getNoSQLAppListV2(GetNoSQLAppListV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }

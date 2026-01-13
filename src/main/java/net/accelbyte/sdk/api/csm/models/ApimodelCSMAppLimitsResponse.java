@@ -34,11 +34,20 @@ public class ApimodelCSMAppLimitsResponse extends Model {
   @JsonProperty("extendAppEventHandlerCPULimit")
   private Integer extendAppEventHandlerCPULimit;
 
+  @JsonProperty("extendAppEventHandlerMemoryLimit")
+  private Integer extendAppEventHandlerMemoryLimit;
+
   @JsonProperty("extendAppMemoryLimit")
   private Integer extendAppMemoryLimit;
 
   @JsonProperty("extendAppReplicaLimit")
   private Integer extendAppReplicaLimit;
+
+  @JsonProperty("extendAppServiceExtensionCPULimit")
+  private Integer extendAppServiceExtensionCPULimit;
+
+  @JsonProperty("extendAppServiceExtensionMemoryLimit")
+  private Integer extendAppServiceExtensionMemoryLimit;
 
   @JsonProperty("extendAppeEventHandlerMemoryLimit")
   private Integer extendAppeEventHandlerMemoryLimit;

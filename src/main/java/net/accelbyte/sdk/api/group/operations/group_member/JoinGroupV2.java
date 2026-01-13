@@ -25,8 +25,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>This endpoint is used to join as group member
  *
- * <p>Join to the group. This endpoint will check the the the type of the group based on the
- * groupID.
+ * <p>Join to the group. This endpoint will check the type of the group based on the groupID.
  *
  * <p>Additional Information:
  *

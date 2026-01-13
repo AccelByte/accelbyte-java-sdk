@@ -99,6 +99,7 @@ import picocli.CommandLine.Command;
       StopNoSQLClusterV2.class,
       GetNoSQLAccessTunnelV2.class,
       GetResourcesLimits.class,
+      GetNoSQLAppListV2.class,
       GetNotificationSubscriberListV3.class,
       DeleteSubscriptionAppNotificationV3.class,
     })

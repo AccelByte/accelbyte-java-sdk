@@ -151,7 +151,7 @@ public class Item {
   /**
    * @see GetEstimatedPrice
    */
-  public EstimatedPriceInfo getEstimatedPrice(GetEstimatedPrice input) throws Exception {
+  public List<EstimatedPriceInfo> getEstimatedPrice(GetEstimatedPrice input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

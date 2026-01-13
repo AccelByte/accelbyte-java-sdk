@@ -28,7 +28,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>This endpoint is used to get user group status information.
  *
  * <p>get user group status information. This endpoint will check the member and group information,
- * and also the role permission of the the user who accesses this endpoint
+ * and also the role permission of the user who accesses this endpoint
  *
  * <p>Action Code: 73409
  */

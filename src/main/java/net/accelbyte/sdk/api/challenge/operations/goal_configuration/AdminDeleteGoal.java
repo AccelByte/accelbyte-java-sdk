@@ -21,6 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * adminDeleteGoal
  *
  * <p>- Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [DELETE]
+ *
+ * <p>**Important** Delete a goal in a TIED challenge may affect/delete users' data, please do not
+ * delete a TIED goal unless it's necessary. User data will be deleted in the next evaluation
  */
 @Getter
 @Setter

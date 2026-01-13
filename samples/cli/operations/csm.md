@@ -421,6 +421,18 @@ $ build/install/cli/bin/cli csm getResourcesLimits \
     --namespace <namespace value>
 ```
 
+### Operation GetNoSQLAppListV2
+
+```sh
+$ build/install/cli/bin/cli csm getNoSQLAppListV2 \
+    --resourceId <resourceId value> \
+    --studioName <studioName value> \
+    --appName <appName value - optional> \
+    --limit <limit value - optional> \
+    --namespace <namespace value - optional> \
+    --offset <offset value - optional>
+```
+
 ### Operation GetNotificationSubscriberListV3
 
 ```sh

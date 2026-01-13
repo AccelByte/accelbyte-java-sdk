@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.session.models;
+package net.accelbyte.sdk.api.csm.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,39 +23,24 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ModelsXBLCertificateCredential extends Model {
+public class ApimodelNoSQLAppListResponse extends Model {
 
-  @JsonProperty("businessPartnerCertFileBytes")
-  private String businessPartnerCertFileBytes;
+  @JsonProperty("data")
+  private List<ApimodelNoSQLAppResponse> data;
 
-  @JsonProperty("businessPartnerCertFileName")
-  private String businessPartnerCertFileName;
-
-  @JsonProperty("createdAt")
-  private String createdAt;
-
-  @JsonProperty("createdBy")
-  private String createdBy;
-
-  @JsonProperty("description")
+  @JsonProperty("pagination")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String description;
-
-  @JsonProperty("namespace")
-  private String namespace;
-
-  @JsonProperty("updatedAt")
-  private String updatedAt;
+  private ApimodelPaginationResponse pagination;
 
   @JsonIgnore
-  public ModelsXBLCertificateCredential createFromJson(String json) throws JsonProcessingException {
+  public ApimodelNoSQLAppListResponse createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ModelsXBLCertificateCredential> createFromJsonList(String json)
+  public List<ApimodelNoSQLAppListResponse> createFromJsonList(String json)
       throws JsonProcessingException {
     return new ObjectMapper()
-        .readValue(json, new TypeReference<List<ModelsXBLCertificateCredential>>() {});
+        .readValue(json, new TypeReference<List<ApimodelNoSQLAppListResponse>>() {});
   }
 }

@@ -32,6 +32,10 @@ public class DtoServiceConfigurationDTO extends Model {
   @JsonProperty("id")
   private String id;
 
+  @JsonProperty("package")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String package_;
+
   @JsonProperty("serviceConfig")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private DtoServiceConfigDTO serviceConfig;

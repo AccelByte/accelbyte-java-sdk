@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.session.models;
+package net.accelbyte.sdk.api.csm.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,39 +23,29 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ModelsXBLCertificateCredential extends Model {
+public class ApimodelNoSQLAppResponse extends Model {
 
-  @JsonProperty("businessPartnerCertFileBytes")
-  private String businessPartnerCertFileBytes;
+  @JsonProperty("appId")
+  private String appId;
 
-  @JsonProperty("businessPartnerCertFileName")
-  private String businessPartnerCertFileName;
+  @JsonProperty("appName")
+  private String appName;
 
-  @JsonProperty("createdAt")
-  private String createdAt;
+  @JsonProperty("gameName")
+  private String gameName;
 
-  @JsonProperty("createdBy")
-  private String createdBy;
-
-  @JsonProperty("description")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String description;
-
-  @JsonProperty("namespace")
-  private String namespace;
-
-  @JsonProperty("updatedAt")
-  private String updatedAt;
+  @JsonProperty("scenario")
+  private String scenario;
 
   @JsonIgnore
-  public ModelsXBLCertificateCredential createFromJson(String json) throws JsonProcessingException {
+  public ApimodelNoSQLAppResponse createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ModelsXBLCertificateCredential> createFromJsonList(String json)
+  public List<ApimodelNoSQLAppResponse> createFromJsonList(String json)
       throws JsonProcessingException {
     return new ObjectMapper()
-        .readValue(json, new TypeReference<List<ModelsXBLCertificateCredential>>() {});
+        .readValue(json, new TypeReference<List<ApimodelNoSQLAppResponse>>() {});
   }
 }

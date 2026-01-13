@@ -306,6 +306,17 @@ $ build/install/cli/bin/cli session adminSyncPlatformCredentials \
     --platformId <platformId value>
 ```
 
+### Operation AdminUploadPlatformCredentials
+
+```sh
+$ build/install/cli/bin/cli session adminUploadPlatformCredentials \
+    --namespace <namespace value> \
+    --platformId <platformId value> \
+    --description <description value - optional> \
+    --file <file value> \
+    --password <password value>
+```
+
 ### Operation AdminGetRecentPlayer
 
 ```sh

@@ -116,7 +116,8 @@ public class BaseWebSocketClient extends WebSocketListener {
       this.wsUrl = configRepository.getBaseURL() + "/" + wsServicePathName + "/";
 
       if (isReconnectEnabled()) {
-        log.info("Websocket Reconnect Interval (initial w/ exp backoff): " + reconnectDelayMs + "ms");
+        log.info(
+            "Websocket Reconnect Interval (initial w/ exp backoff): " + reconnectDelayMs + "ms");
       } else {
         log.info("Websocket Reconnect is disabled");
       }

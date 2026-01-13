@@ -97,6 +97,7 @@
 | `/csm/v2/admin/namespaces/{namespace}/nosql/clusters/start` | PUT | StartNoSQLClusterV2 | [StartNoSQLClusterV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources/StartNoSQLClusterV2.java) | [StartNoSQLClusterV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources/StartNoSQLClusterV2.java) |
 | `/csm/v2/admin/namespaces/{namespace}/nosql/clusters/stop` | PUT | StopNoSQLClusterV2 | [StopNoSQLClusterV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources/StopNoSQLClusterV2.java) | [StopNoSQLClusterV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources/StopNoSQLClusterV2.java) |
 | `/csm/v2/admin/namespaces/{namespace}/nosql/tunnels` | GET | GetNoSQLAccessTunnelV2 | [GetNoSQLAccessTunnelV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources/GetNoSQLAccessTunnelV2.java) | [GetNoSQLAccessTunnelV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources/GetNoSQLAccessTunnelV2.java) |
+| `/csm/v2/admin/namespaces/{studioName}/nosql/{resourceId}/apps` | GET | GetNoSQLAppListV2 | [GetNoSQLAppListV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources/GetNoSQLAppListV2.java) | [GetNoSQLAppListV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources/GetNoSQLAppListV2.java) |
 
 ### Configuration V2 Wrapper:  [ConfigurationV2](../../src/main/java/net/accelbyte/sdk/api/csm/wrappers/ConfigurationV2.java)
 | Endpoint | Method | ID | Class | Example |
@@ -177,6 +178,8 @@
 | `apimodel.ListTopicsResponse` | [ApimodelListTopicsResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelListTopicsResponse.java) |
 | `apimodel.MemoryRequest` | [ApimodelMemoryRequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelMemoryRequest.java) |
 | `apimodel.MemoryResponse` | [ApimodelMemoryResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelMemoryResponse.java) |
+| `apimodel.NoSQLAppListResponse` | [ApimodelNoSQLAppListResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelNoSQLAppListResponse.java) |
+| `apimodel.NoSQLAppResponse` | [ApimodelNoSQLAppResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelNoSQLAppResponse.java) |
 | `apimodel.NoSQLDatabaseCredentialResponse` | [ApimodelNoSQLDatabaseCredentialResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelNoSQLDatabaseCredentialResponse.java) |
 | `apimodel.NoSQLDatabaseDeleteResponse` | [ApimodelNoSQLDatabaseDeleteResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelNoSQLDatabaseDeleteResponse.java) |
 | `apimodel.NoSQLDatabaseResponse` | [ApimodelNoSQLDatabaseResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelNoSQLDatabaseResponse.java) |

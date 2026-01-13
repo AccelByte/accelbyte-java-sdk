@@ -26,7 +26,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>This endpoint is used to reject group invitation.
  *
  * <p>Reject group invitation. If specific user is not invited in the specific group ID, it will
- * show the the error to show if the user is not invited yet.
+ * show the error to show if the user is not invited yet.
  *
  * <p>Action Code: 73402
  */

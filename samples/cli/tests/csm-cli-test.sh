@@ -39,7 +39,7 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 ./ng ng-cp 1>&2
 
 echo "TAP version 13"
-echo "1..74"
+echo "1..75"
 
 #- 1 Login
 ./ng net.accelbyte.sdk.cli.Main loginClient \
@@ -491,22 +491,33 @@ eval_tap $? 71 'GetNoSQLAccessTunnelV2' test.out
     > test.out 2>&1
 eval_tap $? 72 'GetResourcesLimits' test.out
 
-#- 73 GetNotificationSubscriberListV3
-./ng net.accelbyte.sdk.cli.Main csm getNotificationSubscriberListV3 \
-    --app 'rQDXuNFviMarv8mn' \
+#- 73 GetNoSQLAppListV2
+./ng net.accelbyte.sdk.cli.Main csm getNoSQLAppListV2 \
+    --resourceId 'rQDXuNFviMarv8mn' \
+    --studioName 'fHK8CCmE2lPnsbD3' \
+    --appName 'SGEdlwuUccE536ug' \
+    --limit '57' \
     --namespace "$AB_NAMESPACE" \
-    --notificationType 'fHK8CCmE2lPnsbD3' \
+    --offset '54' \
     > test.out 2>&1
-eval_tap $? 73 'GetNotificationSubscriberListV3' test.out
+eval_tap $? 73 'GetNoSQLAppListV2' test.out
 
-#- 74 DeleteSubscriptionAppNotificationV3
-./ng net.accelbyte.sdk.cli.Main csm deleteSubscriptionAppNotificationV3 \
-    --app 'SGEdlwuUccE536ug' \
+#- 74 GetNotificationSubscriberListV3
+./ng net.accelbyte.sdk.cli.Main csm getNotificationSubscriberListV3 \
+    --app 'p3HBvepnDCjgyJlX' \
     --namespace "$AB_NAMESPACE" \
-    --emailAddress 'Bp3HBvepnDCjgyJl' \
-    --userId 'Xe36mgWjLfFmteue' \
+    --notificationType 'e36mgWjLfFmteue9' \
     > test.out 2>&1
-eval_tap $? 74 'DeleteSubscriptionAppNotificationV3' test.out
+eval_tap $? 74 'GetNotificationSubscriberListV3' test.out
+
+#- 75 DeleteSubscriptionAppNotificationV3
+./ng net.accelbyte.sdk.cli.Main csm deleteSubscriptionAppNotificationV3 \
+    --app 'nzJ6fH24T805tVg8' \
+    --namespace "$AB_NAMESPACE" \
+    --emailAddress 'JqU0jZpjvsugAOS7' \
+    --userId 'u8RiWyerCSa8SRgw' \
+    > test.out 2>&1
+eval_tap $? 75 'DeleteSubscriptionAppNotificationV3' test.out
 
 
 rm -f "tmp.dat"

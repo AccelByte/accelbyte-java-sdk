@@ -28,7 +28,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>This endpoint is used to cancel invitation group member.
  *
  * <p>cancel invitation group member. This endpoint will cancel invitation to specific user, and
- * also the role permission of the the user who accesses this endpoint
+ * also the role permission of the user who accesses this endpoint
  *
  * <p>Action Code: 73409
  */

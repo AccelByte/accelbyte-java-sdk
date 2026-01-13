@@ -1,3 +1,9 @@
+<a name="v0.79.0"></a>
+## [v0.79.0]
+### fix
+- **deps:** update vulnerabilityalerts [security]
+
+
 <a name="v0.78.0"></a>
 ## [v0.78.0]
 ### fix

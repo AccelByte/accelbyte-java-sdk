@@ -128,9 +128,13 @@ public class GetChallenges extends Operation {
   }
 
   public enum SortBy {
+    Codeasc("code:asc"),
+    Codedesc("code:desc"),
     CreatedAt("createdAt"),
     CreatedAtasc("createdAt:asc"),
     CreatedAtdesc("createdAt:desc"),
+    Nameasc("name:asc"),
+    Namedesc("name:desc"),
     UpdatedAt("updatedAt"),
     UpdatedAtasc("updatedAt:asc"),
     UpdatedAtdesc("updatedAt:desc");

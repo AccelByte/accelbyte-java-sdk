@@ -58,6 +58,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * belongs to a challenge. Supported item type for ENTITLEMENT reward type: APP, BUNDLE, CODE,
  * COINS, EXTENSION, INGAMEITEM, LOOTBOX, MEDIA, OPTIONBOX. Number of goals per challenge is
  * **limited to 100 goals**.
+ *
+ * <p>**Important** Add a new goal in a TIED challenge may affect users' data, please do not do this
+ * unless it's necessary. Then new goal will take effect in the next evaluation
  */
 @Getter
 @Setter

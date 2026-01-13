@@ -68,6 +68,7 @@ import picocli.CommandLine.Command;
       AdminDeletePlatformCredentials.class,
       AdminDeletePlatformCredentialsByPlatformId.class,
       AdminSyncPlatformCredentials.class,
+      AdminUploadPlatformCredentials.class,
       AdminGetRecentPlayer.class,
       AdminGetRecentTeamPlayer.class,
       AdminReadSessionStorage.class,
