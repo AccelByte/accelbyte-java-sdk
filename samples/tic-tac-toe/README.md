@@ -16,7 +16,7 @@ A sample app to showcase a simple tic tac toe game using AB Gaming Services, Jav
       
       For example https://test.accelbyte.io
 
-    * [Create a Game Namespace](https://docs.accelbyte.io/gaming-services/services/access/reference/namespaces/manage-your-namespaces/) if you don't have one yet. Keep the `Namespace ID`
+    * [Create a Game Namespace](https://docs.accelbyte.io/gaming-services/modules/foundations/identity-access/namespaces/manage-your-namespaces/) if you don't have one yet. Keep the `Namespace ID`
         
 
     * Two users registered in AB Gaming Services as player #1 and player #2.
