@@ -6,13 +6,13 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.challenge.challenge_progression;
+package net.accelbyte.sdk.cli.api.basic.namespace;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
-import net.accelbyte.sdk.api.challenge.models.*;
-import net.accelbyte.sdk.api.challenge.wrappers.ChallengeProgression;
+import net.accelbyte.sdk.api.basic.models.*;
+import net.accelbyte.sdk.api.basic.wrappers.Namespace;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,26 +25,15 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "adminEvaluateProgress", mixinStandardHelpOptions = true)
-public class AdminEvaluateProgress implements Callable<Integer> {
+@Command(name = "updateTestingFlag", mixinStandardHelpOptions = true)
+public class UpdateTestingFlag implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(AdminEvaluateProgress.class);
+  private static final Logger log = LogManager.getLogger(UpdateTestingFlag.class);
 
   @Option(
       names = {"--namespace"},
       description = "namespace")
   String namespace;
-
-  @Option(
-      names = {"--challengeCode"},
-      description = "challengeCode",
-      split = ",")
-  List<String> challengeCode;
-
-  @Option(
-      names = {"--includeOneTimeEvent"},
-      description = "includeOneTimeEvent")
-  String includeOneTimeEvent;
 
   @Option(
       names = {"--body"},
@@ -57,7 +46,7 @@ public class AdminEvaluateProgress implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new AdminEvaluateProgress()).execute(args);
+    int exitCode = new CommandLine(new UpdateTestingFlag()).execute(args);
     System.exit(exitCode);
   }
 
@@ -71,20 +60,16 @@ public class AdminEvaluateProgress implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final ChallengeProgression wrapper = new ChallengeProgression(sdk);
-      final net.accelbyte.sdk.api.challenge.operations.challenge_progression.AdminEvaluateProgress
-          operation =
-              net.accelbyte.sdk.api.challenge.operations.challenge_progression.AdminEvaluateProgress
-                  .builder()
-                  .namespace(namespace)
-                  .challengeCode(challengeCode)
-                  .includeOneTimeEvent(includeOneTimeEvent)
-                  .body(
-                      new ObjectMapper()
-                          .readValue(body, ModelEvaluatePlayerProgressionRequest.class))
-                  .build();
-      wrapper.adminEvaluateProgress(operation);
-      log.info("Operation successful");
+      final Namespace wrapper = new Namespace(sdk);
+      final net.accelbyte.sdk.api.basic.operations.namespace.UpdateTestingFlag operation =
+          net.accelbyte.sdk.api.basic.operations.namespace.UpdateTestingFlag.builder()
+              .namespace(namespace)
+              .body(new ObjectMapper().readValue(body, NamespaceTestingFlagUpdate.class))
+              .build();
+      final NamespaceInfo response = wrapper.updateTestingFlag(operation);
+      final String responseString =
+          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
+      log.info("Operation successful\n{}", responseString);
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

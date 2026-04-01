@@ -59,6 +59,10 @@ public class ApimodelNoSQLResourceResponse extends Model {
   @JsonProperty("studioName")
   private String studioName;
 
+  @JsonProperty("tlsEnabled")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean tlsEnabled;
+
   @JsonIgnore
   public ApimodelNoSQLResourceResponse createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

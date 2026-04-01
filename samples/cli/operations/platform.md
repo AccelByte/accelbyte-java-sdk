@@ -1659,10 +1659,10 @@ $ build/install/cli/bin/cli platform deleteRevocationPluginConfig \
     --namespace <namespace value>
 ```
 
-### Operation UploadRevocationPluginConfigCert
+### Operation UploadRevocationPluginConfigCertV2
 
 ```sh
-$ build/install/cli/bin/cli platform uploadRevocationPluginConfigCert \
+$ build/install/cli/bin/cli platform uploadRevocationPluginConfigCertV2 \
     --namespace <namespace value> \
     --file <file value - optional>
 ```
@@ -4440,6 +4440,15 @@ $ build/install/cli/bin/cli platform fulfillRewardsV2 \
 
 ```sh
 $ build/install/cli/bin/cli platform v2PublicFulfillAppleIAPItem \
+    --namespace <namespace value> \
+    --userId <userId value> \
+    --body <json string for request body>
+```
+
+### Operation BulkFulfillItemsV3
+
+```sh
+$ build/install/cli/bin/cli platform bulkFulfillItemsV3 \
     --namespace <namespace value> \
     --userId <userId value> \
     --body <json string for request body>

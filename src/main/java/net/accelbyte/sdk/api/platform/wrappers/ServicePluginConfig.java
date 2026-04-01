@@ -173,8 +173,20 @@ public class ServicePluginConfig {
   }
 
   /**
-   * @see UploadRevocationPluginConfigCert
+   * @see UploadRevocationPluginConfigCertV2
    */
+  public RevocationPluginConfigInfo uploadRevocationPluginConfigCertV2(
+      UploadRevocationPluginConfigCertV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see UploadRevocationPluginConfigCert
+   * @deprecated
+   */
+  @Deprecated
   public RevocationPluginConfigInfo uploadRevocationPluginConfigCert(
       UploadRevocationPluginConfigCert input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);

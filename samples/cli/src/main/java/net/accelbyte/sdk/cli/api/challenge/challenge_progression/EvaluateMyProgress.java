@@ -41,6 +41,11 @@ public class EvaluateMyProgress implements Callable<Integer> {
   List<String> challengeCode;
 
   @Option(
+      names = {"--includeOneTimeEvent"},
+      description = "includeOneTimeEvent")
+  String includeOneTimeEvent;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -67,6 +72,7 @@ public class EvaluateMyProgress implements Callable<Integer> {
                   .builder()
                   .namespace(namespace)
                   .challengeCode(challengeCode)
+                  .includeOneTimeEvent(includeOneTimeEvent)
                   .build();
       wrapper.evaluateMyProgress(operation);
       log.info("Operation successful");

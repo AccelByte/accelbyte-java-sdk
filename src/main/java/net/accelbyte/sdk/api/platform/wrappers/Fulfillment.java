@@ -129,6 +129,15 @@ public class Fulfillment {
   }
 
   /**
+   * @see BulkFulfillItemsV3
+   */
+  public List<FulfillmentV2Result> bulkFulfillItemsV3(BulkFulfillItemsV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see FulfillItemsV3
    */
   public FulfillmentV2Result fulfillItemsV3(FulfillItemsV3 input) throws Exception {

@@ -34,6 +34,10 @@ public class ModelsGetLeaderboardConfigRespV3 extends Model {
   @JsonProperty("cycleIds")
   private List<String> cycleIds;
 
+  @JsonProperty("cycleMetadata")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Map<String, ModelsCycleInfo> cycleMetadata;
+
   @JsonProperty("deletedAt")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String deletedAt;

@@ -49,6 +49,10 @@ public class FulfillmentV2Result extends Model {
   @JsonProperty("stateInfo")
   private FulfillmentStateInfo stateInfo;
 
+  @JsonProperty("stateReason")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String stateReason;
+
   @JsonProperty("subscriptionSummaries")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<SubscriptionSummary> subscriptionSummaries;

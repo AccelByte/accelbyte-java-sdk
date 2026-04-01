@@ -39,6 +39,7 @@ public class AdminEvaluateProgress extends Operation {
   private String namespace;
 
   private List<String> challengeCode;
+  private String includeOneTimeEvent;
   private ModelEvaluatePlayerProgressionRequest body;
 
   /**
@@ -49,9 +50,13 @@ public class AdminEvaluateProgress extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public AdminEvaluateProgress(
-      String namespace, List<String> challengeCode, ModelEvaluatePlayerProgressionRequest body) {
+      String namespace,
+      List<String> challengeCode,
+      String includeOneTimeEvent,
+      ModelEvaluatePlayerProgressionRequest body) {
     this.namespace = namespace;
     this.challengeCode = challengeCode;
+    this.includeOneTimeEvent = includeOneTimeEvent;
     this.body = body;
 
     securities.add("Bearer");
@@ -76,6 +81,9 @@ public class AdminEvaluateProgress extends Operation {
             : this.challengeCode.stream()
                 .map(i -> String.valueOf(i))
                 .collect(java.util.stream.Collectors.toList()));
+    queryParams.put(
+        "includeOneTimeEvent",
+        this.includeOneTimeEvent == null ? null : Arrays.asList(this.includeOneTimeEvent));
     return queryParams;
   }
 
@@ -107,6 +115,7 @@ public class AdminEvaluateProgress extends Operation {
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
     result.put("challengeCode", "csv");
+    result.put("includeOneTimeEvent", "None");
     return result;
   }
 }

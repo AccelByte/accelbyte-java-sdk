@@ -6,13 +6,12 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.challenge.challenge_progression;
+package net.accelbyte.sdk.cli.api.social.stat_cycle_configuration;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
-import net.accelbyte.sdk.api.challenge.models.*;
-import net.accelbyte.sdk.api.challenge.wrappers.ChallengeProgression;
+import net.accelbyte.sdk.api.social.models.*;
+import net.accelbyte.sdk.api.social.wrappers.StatCycleConfiguration;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,10 +24,15 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "adminEvaluateProgress", mixinStandardHelpOptions = true)
-public class AdminEvaluateProgress implements Callable<Integer> {
+@Command(name = "resetStatCycle", mixinStandardHelpOptions = true)
+public class ResetStatCycle implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(AdminEvaluateProgress.class);
+  private static final Logger log = LogManager.getLogger(ResetStatCycle.class);
+
+  @Option(
+      names = {"--cycleId"},
+      description = "cycleId")
+  String cycleId;
 
   @Option(
       names = {"--namespace"},
@@ -36,28 +40,12 @@ public class AdminEvaluateProgress implements Callable<Integer> {
   String namespace;
 
   @Option(
-      names = {"--challengeCode"},
-      description = "challengeCode",
-      split = ",")
-  List<String> challengeCode;
-
-  @Option(
-      names = {"--includeOneTimeEvent"},
-      description = "includeOneTimeEvent")
-  String includeOneTimeEvent;
-
-  @Option(
-      names = {"--body"},
-      description = "body")
-  String body;
-
-  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new AdminEvaluateProgress()).execute(args);
+    int exitCode = new CommandLine(new ResetStatCycle()).execute(args);
     System.exit(exitCode);
   }
 
@@ -71,19 +59,15 @@ public class AdminEvaluateProgress implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final ChallengeProgression wrapper = new ChallengeProgression(sdk);
-      final net.accelbyte.sdk.api.challenge.operations.challenge_progression.AdminEvaluateProgress
+      final StatCycleConfiguration wrapper = new StatCycleConfiguration(sdk);
+      final net.accelbyte.sdk.api.social.operations.stat_cycle_configuration.ResetStatCycle
           operation =
-              net.accelbyte.sdk.api.challenge.operations.challenge_progression.AdminEvaluateProgress
+              net.accelbyte.sdk.api.social.operations.stat_cycle_configuration.ResetStatCycle
                   .builder()
+                  .cycleId(cycleId)
                   .namespace(namespace)
-                  .challengeCode(challengeCode)
-                  .includeOneTimeEvent(includeOneTimeEvent)
-                  .body(
-                      new ObjectMapper()
-                          .readValue(body, ModelEvaluatePlayerProgressionRequest.class))
                   .build();
-      wrapper.adminEvaluateProgress(operation);
+      wrapper.resetStatCycle(operation);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

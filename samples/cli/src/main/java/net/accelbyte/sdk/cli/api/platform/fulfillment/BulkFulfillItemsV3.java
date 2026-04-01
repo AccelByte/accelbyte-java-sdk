@@ -6,13 +6,14 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.challenge.challenge_progression;
+package net.accelbyte.sdk.cli.api.platform.fulfillment;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.*;
 import java.util.concurrent.Callable;
-import net.accelbyte.sdk.api.challenge.models.*;
-import net.accelbyte.sdk.api.challenge.wrappers.ChallengeProgression;
+import net.accelbyte.sdk.api.platform.models.*;
+import net.accelbyte.sdk.api.platform.wrappers.Fulfillment;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,10 +26,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "adminEvaluateProgress", mixinStandardHelpOptions = true)
-public class AdminEvaluateProgress implements Callable<Integer> {
+@Command(name = "bulkFulfillItemsV3", mixinStandardHelpOptions = true)
+public class BulkFulfillItemsV3 implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(AdminEvaluateProgress.class);
+  private static final Logger log = LogManager.getLogger(BulkFulfillItemsV3.class);
 
   @Option(
       names = {"--namespace"},
@@ -36,15 +37,9 @@ public class AdminEvaluateProgress implements Callable<Integer> {
   String namespace;
 
   @Option(
-      names = {"--challengeCode"},
-      description = "challengeCode",
-      split = ",")
-  List<String> challengeCode;
-
-  @Option(
-      names = {"--includeOneTimeEvent"},
-      description = "includeOneTimeEvent")
-  String includeOneTimeEvent;
+      names = {"--userId"},
+      description = "userId")
+  String userId;
 
   @Option(
       names = {"--body"},
@@ -57,7 +52,7 @@ public class AdminEvaluateProgress implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new AdminEvaluateProgress()).execute(args);
+    int exitCode = new CommandLine(new BulkFulfillItemsV3()).execute(args);
     System.exit(exitCode);
   }
 
@@ -71,20 +66,19 @@ public class AdminEvaluateProgress implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final ChallengeProgression wrapper = new ChallengeProgression(sdk);
-      final net.accelbyte.sdk.api.challenge.operations.challenge_progression.AdminEvaluateProgress
-          operation =
-              net.accelbyte.sdk.api.challenge.operations.challenge_progression.AdminEvaluateProgress
-                  .builder()
-                  .namespace(namespace)
-                  .challengeCode(challengeCode)
-                  .includeOneTimeEvent(includeOneTimeEvent)
-                  .body(
-                      new ObjectMapper()
-                          .readValue(body, ModelEvaluatePlayerProgressionRequest.class))
-                  .build();
-      wrapper.adminEvaluateProgress(operation);
-      log.info("Operation successful");
+      final Fulfillment wrapper = new Fulfillment(sdk);
+      final net.accelbyte.sdk.api.platform.operations.fulfillment.BulkFulfillItemsV3 operation =
+          net.accelbyte.sdk.api.platform.operations.fulfillment.BulkFulfillItemsV3.builder()
+              .namespace(namespace)
+              .userId(userId)
+              .body(
+                  new ObjectMapper()
+                      .readValue(body, new TypeReference<List<FulfillmentV3Request>>() {}))
+              .build();
+      final List<FulfillmentV2Result> response = wrapper.bulkFulfillItemsV3(operation);
+      final String responseString =
+          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
+      log.info("Operation successful\n{}", responseString);
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

@@ -88,6 +88,14 @@ $ build/install/cli/bin/cli social deleteStatCycle \
     --namespace <namespace value>
 ```
 
+### Operation ResetStatCycle
+
+```sh
+$ build/install/cli/bin/cli social resetStatCycle \
+    --cycleId <cycleId value> \
+    --namespace <namespace value>
+```
+
 ### Operation BulkAddStats
 
 ```sh

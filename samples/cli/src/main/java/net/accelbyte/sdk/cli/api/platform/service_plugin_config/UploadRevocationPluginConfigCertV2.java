@@ -6,13 +6,14 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.cli.api.challenge.challenge_progression;
+package net.accelbyte.sdk.cli.api.platform.service_plugin_config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.File;
 import java.util.*;
 import java.util.concurrent.Callable;
-import net.accelbyte.sdk.api.challenge.models.*;
-import net.accelbyte.sdk.api.challenge.wrappers.ChallengeProgression;
+import net.accelbyte.sdk.api.platform.models.*;
+import net.accelbyte.sdk.api.platform.wrappers.ServicePluginConfig;
 import net.accelbyte.sdk.cli.repository.CLITokenRepositoryImpl;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.HttpResponseException;
@@ -25,10 +26,10 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
-@Command(name = "adminEvaluateProgress", mixinStandardHelpOptions = true)
-public class AdminEvaluateProgress implements Callable<Integer> {
+@Command(name = "uploadRevocationPluginConfigCertV2", mixinStandardHelpOptions = true)
+public class UploadRevocationPluginConfigCertV2 implements Callable<Integer> {
 
-  private static final Logger log = LogManager.getLogger(AdminEvaluateProgress.class);
+  private static final Logger log = LogManager.getLogger(UploadRevocationPluginConfigCertV2.class);
 
   @Option(
       names = {"--namespace"},
@@ -36,20 +37,9 @@ public class AdminEvaluateProgress implements Callable<Integer> {
   String namespace;
 
   @Option(
-      names = {"--challengeCode"},
-      description = "challengeCode",
-      split = ",")
-  List<String> challengeCode;
-
-  @Option(
-      names = {"--includeOneTimeEvent"},
-      description = "includeOneTimeEvent")
-  String includeOneTimeEvent;
-
-  @Option(
-      names = {"--body"},
-      description = "body")
-  String body;
+      names = {"--file"},
+      description = "file")
+  File file;
 
   @Option(
       names = {"--logging"},
@@ -57,7 +47,7 @@ public class AdminEvaluateProgress implements Callable<Integer> {
   boolean logging;
 
   public static void main(String[] args) {
-    int exitCode = new CommandLine(new AdminEvaluateProgress()).execute(args);
+    int exitCode = new CommandLine(new UploadRevocationPluginConfigCertV2()).execute(args);
     System.exit(exitCode);
   }
 
@@ -71,20 +61,20 @@ public class AdminEvaluateProgress implements Callable<Integer> {
       final AccelByteSDK sdk =
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
-      final ChallengeProgression wrapper = new ChallengeProgression(sdk);
-      final net.accelbyte.sdk.api.challenge.operations.challenge_progression.AdminEvaluateProgress
+      final ServicePluginConfig wrapper = new ServicePluginConfig(sdk);
+      final net.accelbyte.sdk.api.platform.operations.service_plugin_config
+              .UploadRevocationPluginConfigCertV2
           operation =
-              net.accelbyte.sdk.api.challenge.operations.challenge_progression.AdminEvaluateProgress
-                  .builder()
+              net.accelbyte.sdk.api.platform.operations.service_plugin_config
+                  .UploadRevocationPluginConfigCertV2.builder()
                   .namespace(namespace)
-                  .challengeCode(challengeCode)
-                  .includeOneTimeEvent(includeOneTimeEvent)
-                  .body(
-                      new ObjectMapper()
-                          .readValue(body, ModelEvaluatePlayerProgressionRequest.class))
+                  .file(file != null ? file : null)
                   .build();
-      wrapper.adminEvaluateProgress(operation);
-      log.info("Operation successful");
+      final RevocationPluginConfigInfo response =
+          wrapper.uploadRevocationPluginConfigCertV2(operation);
+      final String responseString =
+          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
+      log.info("Operation successful\n{}", responseString);
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

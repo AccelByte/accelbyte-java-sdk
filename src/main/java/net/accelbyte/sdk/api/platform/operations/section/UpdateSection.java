@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateSection
  *
- * <p>This API is used to update s section.
+ * <p>This API is used to update a section.
  *
  * <p>Other detail info:
  *

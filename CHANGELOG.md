@@ -1,3 +1,9 @@
+<a name="v0.80.0"></a>
+## [v0.80.0]
+### docs
+- **:**  update doc portal links 
+
+
 <a name="v0.79.0"></a>
 ## [v0.79.0]
 ### fix

@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.basic.models;
+package net.accelbyte.sdk.api.leaderboard.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,25 +23,18 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class NamespaceCreate extends Model {
+public class ModelsCycleInfo extends Model {
 
-  @JsonProperty("displayName")
-  private String displayName;
-
-  @JsonProperty("isTesting")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Boolean isTesting;
-
-  @JsonProperty("namespace")
-  private String namespace;
+  @JsonProperty("version")
+  private Integer version;
 
   @JsonIgnore
-  public NamespaceCreate createFromJson(String json) throws JsonProcessingException {
+  public ModelsCycleInfo createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<NamespaceCreate> createFromJsonList(String json) throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<NamespaceCreate>>() {});
+  public List<ModelsCycleInfo> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<ModelsCycleInfo>>() {});
   }
 }

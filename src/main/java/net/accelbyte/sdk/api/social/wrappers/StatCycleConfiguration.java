@@ -96,6 +96,15 @@ public class StatCycleConfiguration {
   }
 
   /**
+   * @see ResetStatCycle
+   */
+  public void resetStatCycle(ResetStatCycle input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see BulkAddStats
    */
   public List<BulkStatCycleOperationResult> bulkAddStats(BulkAddStats input) throws Exception {

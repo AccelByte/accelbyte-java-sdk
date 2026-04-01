@@ -114,6 +114,7 @@
 | `models.ArchiveLeaderboardSignedURLResponse` | [ModelsArchiveLeaderboardSignedURLResponse](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsArchiveLeaderboardSignedURLResponse.java) |
 | `models.BulkUserIDsRequest` | [ModelsBulkUserIDsRequest](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsBulkUserIDsRequest.java) |
 | `models.BulkUserRankingResponseV3` | [ModelsBulkUserRankingResponseV3](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsBulkUserRankingResponseV3.java) |
+| `models.CycleInfo` | [ModelsCycleInfo](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsCycleInfo.java) |
 | `models.DailyConfig` | [ModelsDailyConfig](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsDailyConfig.java) |
 | `models.DeleteBulkLeaderboardFailedResp` | [ModelsDeleteBulkLeaderboardFailedResp](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsDeleteBulkLeaderboardFailedResp.java) |
 | `models.DeleteBulkLeaderboardSuccessResp` | [ModelsDeleteBulkLeaderboardSuccessResp](../../src/main/java/net/accelbyte/sdk/api/leaderboard/models/ModelsDeleteBulkLeaderboardSuccessResp.java) |

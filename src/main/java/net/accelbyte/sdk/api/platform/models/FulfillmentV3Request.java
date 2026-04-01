@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.basic.models;
+package net.accelbyte.sdk.api.platform.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,25 +23,23 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class NamespaceCreate extends Model {
+public class FulfillmentV3Request extends Model {
 
-  @JsonProperty("displayName")
-  private String displayName;
-
-  @JsonProperty("isTesting")
+  @JsonProperty("items")
   @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Boolean isTesting;
+  private List<FulfillmentV2RequestItem> items;
 
-  @JsonProperty("namespace")
-  private String namespace;
+  @JsonProperty("transactionId")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String transactionId;
 
   @JsonIgnore
-  public NamespaceCreate createFromJson(String json) throws JsonProcessingException {
+  public FulfillmentV3Request createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<NamespaceCreate> createFromJsonList(String json) throws JsonProcessingException {
-    return new ObjectMapper().readValue(json, new TypeReference<List<NamespaceCreate>>() {});
+  public List<FulfillmentV3Request> createFromJsonList(String json) throws JsonProcessingException {
+    return new ObjectMapper().readValue(json, new TypeReference<List<FulfillmentV3Request>>() {});
   }
 }

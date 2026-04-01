@@ -37,6 +37,7 @@ public class EvaluateMyProgress extends Operation {
   private String namespace;
 
   private List<String> challengeCode;
+  private String includeOneTimeEvent;
 
   /**
    * @param namespace required
@@ -44,9 +45,11 @@ public class EvaluateMyProgress extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public EvaluateMyProgress(String namespace, List<String> challengeCode) {
+  public EvaluateMyProgress(
+      String namespace, List<String> challengeCode, String includeOneTimeEvent) {
     this.namespace = namespace;
     this.challengeCode = challengeCode;
+    this.includeOneTimeEvent = includeOneTimeEvent;
 
     securities.add("Bearer");
   }
@@ -70,6 +73,9 @@ public class EvaluateMyProgress extends Operation {
             : this.challengeCode.stream()
                 .map(i -> String.valueOf(i))
                 .collect(java.util.stream.Collectors.toList()));
+    queryParams.put(
+        "includeOneTimeEvent",
+        this.includeOneTimeEvent == null ? null : Arrays.asList(this.includeOneTimeEvent));
     return queryParams;
   }
 
@@ -93,6 +99,7 @@ public class EvaluateMyProgress extends Operation {
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
     result.put("challengeCode", "csv");
+    result.put("includeOneTimeEvent", "None");
     return result;
   }
 }

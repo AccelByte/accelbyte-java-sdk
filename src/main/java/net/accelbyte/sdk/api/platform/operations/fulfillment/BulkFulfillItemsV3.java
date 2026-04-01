@@ -6,31 +6,33 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.social.operations.stat_cycle_configuration;
+package net.accelbyte.sdk.api.platform.operations.fulfillment;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
 import java.util.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import net.accelbyte.sdk.api.social.models.*;
+import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
 /**
- * updateStatCycle
+ * bulkFulfillItemsV3
  *
- * <p>Update stat cycle. Other detail info: * STOPPED cycles cannot be updated * If changing the
- * start time of an ACTIVE cycle to a future time, the status will be set to INIT and the related
- * user data will be removed * If changing the cycle type of an ACTIVE cycle, the related user data
- * will be removed
+ * <p>[Not supported yet in AGS Shared Cloud] Fulfill multiple transactions. Other detail info: *
+ * Request body : list of fulfillment v3 requests. storeId, region, language, and
+ * entitlementCollectionId can be ignored. * Returns : list of fulfillment v2 result
  */
 @Getter
 @Setter
-public class UpdateStatCycle extends Operation {
+public class BulkFulfillItemsV3 extends Operation {
   /** generated field's value */
-  private String path = "/social/v1/admin/namespaces/{namespace}/statCycles/{cycleId}";
+  private String path =
+      "/platform/v3/admin/namespaces/{namespace}/users/{userId}/fulfillments/bulk";
 
   private String method = "PUT";
   private List<String> consumes = Arrays.asList("application/json");
@@ -38,22 +40,22 @@ public class UpdateStatCycle extends Operation {
   private String locationQuery = null;
 
   /** fields as input parameter */
-  private String cycleId;
-
   private String namespace;
-  private StatCycleUpdate body;
+
+  private String userId;
+  private List<FulfillmentV3Request> body;
 
   /**
-   * @param cycleId required
    * @param namespace required
+   * @param userId required
    * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public UpdateStatCycle(String cycleId, String namespace, StatCycleUpdate body) {
-    this.cycleId = cycleId;
+  public BulkFulfillItemsV3(String namespace, String userId, List<FulfillmentV3Request> body) {
     this.namespace = namespace;
+    this.userId = userId;
     this.body = body;
 
     securities.add("Bearer");
@@ -62,26 +64,26 @@ public class UpdateStatCycle extends Operation {
   @Override
   public Map<String, String> getPathParams() {
     Map<String, String> pathParams = new HashMap<>();
-    if (this.cycleId != null) {
-      pathParams.put("cycleId", this.cycleId);
-    }
     if (this.namespace != null) {
       pathParams.put("namespace", this.namespace);
+    }
+    if (this.userId != null) {
+      pathParams.put("userId", this.userId);
     }
     return pathParams;
   }
 
   @Override
-  public StatCycleUpdate getBodyParams() {
+  public List<FulfillmentV3Request> getBodyParams() {
     return this.body;
   }
 
   @Override
   public boolean isValid() {
-    if (this.cycleId == null) {
+    if (this.namespace == null) {
       return false;
     }
-    if (this.namespace == null) {
+    if (this.userId == null) {
       return false;
     }
     if (this.body == null) {
@@ -90,13 +92,13 @@ public class UpdateStatCycle extends Operation {
     return true;
   }
 
-  public StatCycleInfo parseResponse(int code, String contentType, InputStream payload)
+  public List<FulfillmentV2Result> parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new StatCycleInfo().createFromJson(json);
+    return new ObjectMapper().readValue(json, new TypeReference<List<FulfillmentV2Result>>() {});
   }
 }

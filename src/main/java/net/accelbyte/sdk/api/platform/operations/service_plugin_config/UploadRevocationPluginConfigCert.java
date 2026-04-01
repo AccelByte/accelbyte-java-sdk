@@ -21,9 +21,13 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * uploadRevocationPluginConfigCert
  *
- * <p>Upload revocation plugin custom config tls cert.Other detail info: * Returns : updated service
- * plugin config
+ * <p>Upload revocation plugin custom config tls cert. This api has been deprecated, please use
+ * /admin/namespaces/{namespace}/revocation/plugins/revocation/customConfig/cert to update
+ * revocation certOther detail info: * Returns : updated service plugin config
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class UploadRevocationPluginConfigCert extends Operation {

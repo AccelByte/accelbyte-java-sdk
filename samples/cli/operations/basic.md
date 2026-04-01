@@ -4,7 +4,8 @@
 
 ```sh
 $ build/install/cli/bin/cli basic getNamespaces \
-    --activeOnly <activeOnly value - optional>
+    --activeOnly <activeOnly value - optional> \
+    --isTesting <isTesting value - optional>
 ```
 
 ### Operation CreateNamespace
@@ -185,6 +186,14 @@ $ build/install/cli/bin/cli basic getPublisherConfig \
 
 ```sh
 $ build/install/cli/bin/cli basic changeNamespaceStatus \
+    --namespace <namespace value> \
+    --body <json string for request body>
+```
+
+### Operation UpdateTestingFlag
+
+```sh
+$ build/install/cli/bin/cli basic updateTestingFlag \
     --namespace <namespace value> \
     --body <json string for request body>
 ```

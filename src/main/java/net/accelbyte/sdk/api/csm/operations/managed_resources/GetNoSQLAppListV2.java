@@ -24,15 +24,15 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:NOSQL:CLUSTERS [READ]`
  *
  * <p>Get List of Extend App using NoSQL database by given studio/publisher namespace and the NoSQL
- * cluster resourceId. - `available` : The cluster is accessible. - `creating` : The cluster or
+ * cluster resourceId. - `stopping` : The cluster is in the process of stopping and will soon become
+ * inaccessible. - `maintenance` : The cluster is undergoing maintenance operations and is not
+ * accessible. - `available` : The cluster is accessible. - `updating` : The cluster is being
+ * modified and is not yet accessible (e.g., updating min/max DCU). - `creating` : The cluster or
  * instance is being created and is not yet accessible. - `deleting` : The cluster is in the process
  * of being deleted and is not accessible. - `stopped` : The cluster is stopped and not accessible.
- * - `updating` : The cluster is being modified and is not yet accessible (e.g., updating min/max
- * DCU). - `failed` : The cluster failed to provision or is in an error state and not accessible. -
- * `stopping` : The cluster is in the process of stopping and will soon become inaccessible. -
- * `starting` : The cluster is transitioning from stopped to running, or is rebooting. -
- * `maintenance` : The cluster is undergoing maintenance operations and is not accessible. -
- * `unknown` : The cluster status is not recognized
+ * - `starting` : The cluster is transitioning from stopped to running, or is rebooting. - `unknown`
+ * : The cluster status is not recognized - `failed` : The cluster failed to provision or is in an
+ * error state and not accessible.
  */
 @Getter
 @Setter

@@ -6,7 +6,7 @@
  * Code generated. DO NOT EDIT.
  */
 
-package net.accelbyte.sdk.api.leaderboard.models;
+package net.accelbyte.sdk.api.basic.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -23,40 +23,20 @@ import net.accelbyte.sdk.core.Model;
 // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
 @AllArgsConstructor(onConstructor = @__(@Deprecated))
 @NoArgsConstructor
-public class ModelsGetLeaderboardConfigPublicRespV3 extends Model {
+public class NamespaceTestingFlagUpdate extends Model {
 
-  @JsonProperty("allTime")
-  private Boolean allTime;
-
-  @JsonProperty("cycleIds")
-  private List<String> cycleIds;
-
-  @JsonProperty("cycleMetadata")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private Map<String, ModelsCycleInfo> cycleMetadata;
-
-  @JsonProperty("iconURL")
-  private String iconURL;
-
-  @JsonProperty("leaderboardCode")
-  private String leaderboardCode;
-
-  @JsonProperty("name")
-  private String name;
-
-  @JsonProperty("statCode")
-  private String statCode;
+  @JsonProperty("isTesting")
+  private Boolean isTesting;
 
   @JsonIgnore
-  public ModelsGetLeaderboardConfigPublicRespV3 createFromJson(String json)
-      throws JsonProcessingException {
+  public NamespaceTestingFlagUpdate createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
   }
 
   @JsonIgnore
-  public List<ModelsGetLeaderboardConfigPublicRespV3> createFromJsonList(String json)
+  public List<NamespaceTestingFlagUpdate> createFromJsonList(String json)
       throws JsonProcessingException {
     return new ObjectMapper()
-        .readValue(json, new TypeReference<List<ModelsGetLeaderboardConfigPublicRespV3>>() {});
+        .readValue(json, new TypeReference<List<NamespaceTestingFlagUpdate>>() {});
   }
 }
