@@ -8,6 +8,7 @@ package net.accelbyte.sdk.integration;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 import net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenRevocationV3;
 import net.accelbyte.sdk.api.iam.wrappers.OAuth20;
@@ -223,17 +224,15 @@ public class TestIntegrationValidateToken extends TestIntegration {
     final String diffClientSecret = System.getenv("DIFFENV_AB_CLIENT_SECRET");
     final String diffNamespace = System.getenv("DIFFENV_AB_NAMESPACE");
 
-    if (diffBaseUrl == null
-        || diffClientId == null
-        || diffClientSecret == null
-        || diffNamespace == null) {
-      return; // SKIP — DIFFENV_AB_* vars not configured
-    }
+    // [HIGH feedback: use assumeTrue instead of silent return so JUnit marks test as skipped, not passed]
+    assumeTrue(
+        diffBaseUrl != null && diffClientId != null && diffClientSecret != null && diffNamespace != null,
+        "DIFFENV_AB_* vars not configured — skipping cross-studio test");
 
     // Only meaningful on AGS Shared Cloud where namespaces are cross-studio isolated
-    if (!diffBaseUrl.contains("accelbyte.io") || diffBaseUrl.contains("gamingservices.accelbyte.io")) {
-      return; // SKIP
-    }
+    assumeTrue(
+        diffBaseUrl.contains("accelbyte.io") && !diffBaseUrl.contains("gamingservices.accelbyte.io"),
+        "Not AGS Shared Cloud — skipping cross-studio test");
 
     // Build a SDK instance pointing at the different studio environment
     final DefaultConfigRepository diffConfig =
@@ -265,7 +264,9 @@ public class TestIntegrationValidateToken extends TestIntegration {
             new AccelByteConfig(new OkhttpClient(), new DefaultTokenRepository(), diffConfig));
     diffSdk.loginClient();
 
-    // Log in a user on the primary SDK
+    // [HIGH feedback: explicitly log in a user on the primary SDK to obtain a user token,
+    // not a client credential token. super.setup(true) performs a client login.]
+    sdk.loginUser(this.username, this.password);
     final String token = sdk.getSdkConfiguration().getTokenRepository().getToken();
 
     // The primary user's token should be rejected by the different-studio SDK

@@ -14,8 +14,9 @@ import net.accelbyte.sdk.api.basic.models.NamespaceContext;
 import net.accelbyte.sdk.core.AccelByteConfig;
 import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.AccessTokenPayload.Types.Permission;
+import net.accelbyte.sdk.core.AppInfo;
 import net.accelbyte.sdk.core.client.OkhttpClient;
-import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
+import net.accelbyte.sdk.core.repository.ConfigRepository;
 import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
 
 /**
@@ -29,7 +30,24 @@ public class StaticTestTokenValidator extends AccelByteSDK {
   public StaticTestTokenValidator(String publisherNamespace, String studioNamespace, String gameNamespace) {
     super(
         new AccelByteConfig(
-            new OkhttpClient(), new DefaultTokenRepository(), new DefaultConfigRepository()),
+            new OkhttpClient(),
+            new DefaultTokenRepository(),
+            // [HIGH feedback: use a no-op ConfigRepository that does NOT implement TokenValidation
+            // so rolePermissionsCache is never initialized and no outbound HTTP calls are made
+            // in this unit-test context]
+            new ConfigRepository() {
+              @Override public String getClientId() { return ""; }
+              @Override public String getClientSecret() { return ""; }
+              @Override public String getBaseURL() { return ""; }
+              @Override public boolean isAmazonTraceId() { return false; }
+              @Override public void activateAmazonTraceId(String version) {}
+              @Override public void deactivateAmazonTraceId() {}
+              @Override public String getAmazonTraceIdVersion() { return ""; }
+              @Override public boolean isClientInfoHeader() { return false; }
+              @Override public void activateClientInfoHeader(AppInfo appInfo) {}
+              @Override public void deactivateClientInfoHeader() {}
+              @Override public AppInfo getAppInfo() { return new AppInfo(); }
+            }),
         buildStaticCache(publisherNamespace, studioNamespace, gameNamespace));
   }
 

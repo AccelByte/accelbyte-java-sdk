@@ -177,12 +177,9 @@ public class AccelByteSDK {
     }
     String tokenNamespace = tokenPayload.getNamespace();
 
-    // Determine the effective namespace for resource expansion:
-    // - If authContext provides an explicit namespace, use it (caller override)
-    // - Otherwise, fall back to the SDK's configured namespace
-    String sdkNamespace = sdkConfiguration.getConfigRepository().getNamespace();
-    String effectiveNamespace =
-        Strings.isNullOrEmpty(authContext.getNamespace()) ? sdkNamespace : authContext.getNamespace();
+    // [HIGH feedback: effectiveNamespace fallback scoped to validateToken(UserAuthContext,Permission) path;
+    // here we use the namespace as-is from authContext to preserve simple validateToken(String,String,int) behavior]
+    String effectiveNamespace = authContext.getNamespace();
 
     String expandedResource =
         expandResource(
@@ -198,28 +195,34 @@ public class AccelByteSDK {
     List<Role> namespaceRoles = tokenPayload.getNamespaceRoles();
 
     if (!Strings.isNullOrEmpty(claimsUserId) && !namespaceRoles.isEmpty()) {
-      for (Role role : namespaceRoles) {
-        if (Strings.isNullOrEmpty(role.getRoleId())) {
-          continue;
-        }
-
-        String roleNamespace = role.getNamespace();
-
-        // Expand the target resource with this role's namespace
-        String roleExpandedResource =
-            expandResource(permission.getResource(), roleNamespace, authContext.getUserId());
-
-        try {
-          RoleCacheKey key = RoleCacheKey.of(role, claimsUserId);
-          List<Permission> rolePermissions = rolePermissionsCache.get(key);
-          if (validatePermission(rolePermissions, roleExpandedResource, permission.getAction())) {
-            return true;
+      // [CRITICAL feedback: null guard for rolePermissionsCache; if not initialized, skip namespace role check and fall through]
+      if (rolePermissionsCache == null) {
+        log.warning("rolePermissionsCache not initialized; skipping namespace role check");
+      } else {
+        for (Role role : namespaceRoles) {
+          if (Strings.isNullOrEmpty(role.getRoleId())) {
+            continue;
           }
-        } catch (ExecutionException e) {
-          log.warning(e.getMessage());
+
+          String roleNamespace = role.getNamespace();
+
+          // Expand the target resource with this role's namespace
+          String roleExpandedResource =
+              expandResource(permission.getResource(), roleNamespace, authContext.getUserId());
+
+          try {
+            RoleCacheKey key = RoleCacheKey.of(role, claimsUserId);
+            List<Permission> rolePermissions = rolePermissionsCache.get(key);
+            if (validatePermission(rolePermissions, roleExpandedResource, permission.getAction())) {
+              return true;
+            }
+          } catch (ExecutionException e) {
+            log.warning(e.getMessage());
+          }
         }
+        // [CRITICAL feedback: DO NOT return false here — fall through to claimRoles check
+        // so users with hybrid tokens (both namespaceRoles and roles) can still be validated via flat roles]
       }
-      return false;
     }
 
     List<String> claimRoles = tokenPayload.getRoles();
@@ -771,6 +774,18 @@ public class AccelByteSDK {
   /** Validating user token in authContext against the required permission */
   public boolean validateToken(UserAuthContext authContext, Permission permission) {
     try {
+      // [HIGH feedback: scope effectiveNamespace SDK fallback to this UserAuthContext path only;
+      // the simple validateToken(String,String,int) path must not inject the SDK namespace]
+      if (Strings.isNullOrEmpty(authContext.getNamespace())) {
+        String sdkNamespace = sdkConfiguration.getConfigRepository().getNamespace();
+        if (!Strings.isNullOrEmpty(sdkNamespace)) {
+          authContext = UserAuthContext.builder()
+              .token(authContext.getToken())
+              .namespace(sdkNamespace)
+              .userId(authContext.getUserId())
+              .build();
+        }
+      }
       final SignedJWT signedJWT = SignedJWT.parse(authContext.getToken());
       return internalValidateToken(signedJWT, authContext, permission);
     } catch (Exception e) {
