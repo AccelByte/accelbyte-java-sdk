@@ -21,6 +21,10 @@ public interface ConfigRepository {
     return true;
   }
 
+  default String getNamespace() {
+    return "";
+  }
+
   void activateAmazonTraceId(String version);
 
   void deactivateAmazonTraceId();

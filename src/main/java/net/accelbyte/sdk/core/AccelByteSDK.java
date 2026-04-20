@@ -176,9 +176,17 @@ public class AccelByteSDK {
       return false;
     }
     String tokenNamespace = tokenPayload.getNamespace();
+
+    // Determine the effective namespace for resource expansion:
+    // - If authContext provides an explicit namespace, use it (caller override)
+    // - Otherwise, fall back to the SDK's configured namespace
+    String sdkNamespace = sdkConfiguration.getConfigRepository().getNamespace();
+    String effectiveNamespace =
+        Strings.isNullOrEmpty(authContext.getNamespace()) ? sdkNamespace : authContext.getNamespace();
+
     String expandedResource =
         expandResource(
-            permission.getResource(), authContext.getNamespace(), authContext.getUserId());
+            permission.getResource(), effectiveNamespace, authContext.getUserId());
 
     List<Permission> originPermissions = tokenPayload.getPermissions();
 
@@ -190,24 +198,28 @@ public class AccelByteSDK {
     List<Role> namespaceRoles = tokenPayload.getNamespaceRoles();
 
     if (!Strings.isNullOrEmpty(claimsUserId) && !namespaceRoles.isEmpty()) {
-      List<Permission> allRoleNamespacePermissions =
-          namespaceRoles.stream()
-              .map(
-                  it -> {
-                    try {
-                      RoleCacheKey key = RoleCacheKey.of(it, claimsUserId);
-                      return rolePermissionsCache.get(key);
-                    } catch (ExecutionException e) {
-                      log.warning(e.getMessage());
-                      return null;
-                    }
-                  })
-              .filter(Objects::nonNull)
-              .flatMap(List::stream)
-              .collect(Collectors.toList());
-      return !allRoleNamespacePermissions.isEmpty()
-          && validatePermission(
-              allRoleNamespacePermissions, expandedResource, permission.getAction());
+      for (Role role : namespaceRoles) {
+        if (Strings.isNullOrEmpty(role.getRoleId())) {
+          continue;
+        }
+
+        String roleNamespace = role.getNamespace();
+
+        // Expand the target resource with this role's namespace
+        String roleExpandedResource =
+            expandResource(permission.getResource(), roleNamespace, authContext.getUserId());
+
+        try {
+          RoleCacheKey key = RoleCacheKey.of(role, claimsUserId);
+          List<Permission> rolePermissions = rolePermissionsCache.get(key);
+          if (validatePermission(rolePermissions, roleExpandedResource, permission.getAction())) {
+            return true;
+          }
+        } catch (ExecutionException e) {
+          log.warning(e.getMessage());
+        }
+      }
+      return false;
     }
 
     List<String> claimRoles = tokenPayload.getRoles();
@@ -234,7 +246,7 @@ public class AccelByteSDK {
     return false;
   }
 
-  private boolean validatePermission(
+  protected boolean validatePermission(
       List<Permission> ownedPermissions, String requestedResource, int requestedAction) {
     if (ownedPermissions == null) {
       return false;
@@ -335,21 +347,37 @@ public class AccelByteSDK {
           NamespaceContext namespaceContext = null;
           try {
             if (namespaceContextCache != null) {
+              if (Strings.isNullOrEmpty(reqElem)) {
+                log.warning(
+                    "Namespace is empty or access denied accessing namespace context for "
+                        + reqElem);
+                return false;
+              }
               namespaceContext = namespaceContextCache.get(reqElem);
             }
           } catch (ExecutionException e) {
-            throw new RuntimeException(e);
+            log.warning("Access denied due to namespace context error: " + e.getMessage());
+            return false;
           }
           if (namespaceContext != null
               && namespaceContext.getType().equals("Game")
               && reqElem.startsWith(namespaceContext.getStudioNamespace())) {
             return true;
+          } else if (namespaceContext == null && namespaceContextCache != null) {
+            log.warning("Access denied to invalid namespace context " + reqElem);
           }
         }
       }
       return false;
     }
     return true;
+  }
+
+  protected NamespaceContext getCachedNamespaceContext(String key) {
+    if (namespaceContextCache == null) {
+      return null;
+    }
+    return namespaceContextCache.getIfPresent(key);
   }
 
   private String expandResource(String resource, String namespace, String userId) {
@@ -409,6 +437,32 @@ public class AccelByteSDK {
           throw new RuntimeException(e);
         }
       }
+      this.rolePermissionsCache = buildRolePermissionLoadingCache(this);
+    }
+  }
+
+  /**
+   * Constructor for testing: accepts a pre-built namespace context cache so tests can inject
+   * static namespace context data without network calls.
+   */
+  protected AccelByteSDK(
+      AccelByteConfig sdkConfiguration,
+      com.google.common.cache.Cache<String, NamespaceContext> namespaceContextCache) {
+    this.sdkConfiguration = sdkConfiguration;
+    this.namespaceContextCache =
+        CacheBuilder.newBuilder()
+            .build(
+                new CacheLoader<String, NamespaceContext>() {
+                  @Override
+                  public NamespaceContext load(String key) throws Exception {
+                    NamespaceContext ctx = namespaceContextCache.getIfPresent(key);
+                    if (ctx == null) {
+                      throw new Exception("Namespace context not found for: " + key);
+                    }
+                    return ctx;
+                  }
+                });
+    if (this.sdkConfiguration.getConfigRepository() instanceof TokenValidation) {
       this.rolePermissionsCache = buildRolePermissionLoadingCache(this);
     }
   }

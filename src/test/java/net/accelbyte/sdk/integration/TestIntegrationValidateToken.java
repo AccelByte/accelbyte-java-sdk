@@ -216,6 +216,63 @@ public class TestIntegrationValidateToken extends TestIntegration {
     assertTrue(result);
   }
 
+  @Test
+  public void testUserTokenValidationFromDifferentStudio() throws Exception {
+    final String diffBaseUrl = System.getenv("DIFFENV_AB_BASE_URL");
+    final String diffClientId = System.getenv("DIFFENV_AB_CLIENT_ID");
+    final String diffClientSecret = System.getenv("DIFFENV_AB_CLIENT_SECRET");
+    final String diffNamespace = System.getenv("DIFFENV_AB_NAMESPACE");
+
+    if (diffBaseUrl == null
+        || diffClientId == null
+        || diffClientSecret == null
+        || diffNamespace == null) {
+      return; // SKIP — DIFFENV_AB_* vars not configured
+    }
+
+    // Only meaningful on AGS Shared Cloud where namespaces are cross-studio isolated
+    if (!diffBaseUrl.contains("accelbyte.io") || diffBaseUrl.contains("gamingservices.accelbyte.io")) {
+      return; // SKIP
+    }
+
+    // Build a SDK instance pointing at the different studio environment
+    final DefaultConfigRepository diffConfig =
+        new DefaultConfigRepository() {
+          @Override
+          public String getBaseURL() {
+            return diffBaseUrl;
+          }
+
+          @Override
+          public String getClientId() {
+            return diffClientId;
+          }
+
+          @Override
+          public String getClientSecret() {
+            return diffClientSecret;
+          }
+
+          @Override
+          public String getNamespace() {
+            return diffNamespace;
+          }
+        };
+    diffConfig.setLocalTokenValidationEnabled(true);
+
+    final AccelByteSDK diffSdk =
+        new AccelByteSDK(
+            new AccelByteConfig(new OkhttpClient(), new DefaultTokenRepository(), diffConfig));
+    diffSdk.loginClient();
+
+    // Log in a user on the primary SDK
+    final String token = sdk.getSdkConfiguration().getTokenRepository().getToken();
+
+    // The primary user's token should be rejected by the different-studio SDK
+    final boolean result = diffSdk.validateToken(token);
+    assertFalse(result, "Token from a different studio should be rejected");
+  }
+
   @AfterAll
   public void tear() throws Exception {
     super.tear();
