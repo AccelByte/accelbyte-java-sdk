@@ -617,13 +617,16 @@ public class AccelByteSDK {
       tokenBeforeRefresh = tokenRepository.getToken();
       acquiredLock = refreshTokenMethodLock.tryLock();
       if (!acquiredLock) {
-        // Another thread is currently refreshing. Wait for it to complete instead of giving up.
+        // Another thread is currently refreshing. Wait up to the supplied timeout for it to finish.
         log.info("Token refresh already in progress, waiting for it to complete");
         try {
-          refreshTokenMethodLock.lockInterruptibly();
-          acquiredLock = true;
+          acquiredLock = refreshTokenMethodLock.tryLock(timeout, unit);
         } catch (InterruptedException ie) {
           Thread.currentThread().interrupt();
+          return false;
+        }
+        if (!acquiredLock) {
+          log.warning(String.format("unable to acquire lock after (%s)%s", timeout, unit));
           return false;
         }
       }

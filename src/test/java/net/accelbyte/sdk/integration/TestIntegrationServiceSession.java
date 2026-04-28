@@ -33,7 +33,6 @@ import net.accelbyte.sdk.api.session.models.ApimodelsRequestMember;
 import net.accelbyte.sdk.api.session.models.ApimodelsUpdateConfigurationTemplateRequest;
 import net.accelbyte.sdk.api.session.models.ApimodelsUserResponse;
 import net.accelbyte.sdk.api.session.models.ApimodelsPartyQueryResponse;
-import net.accelbyte.sdk.api.session.models.ApimodelsPartySessionResponse;
 import net.accelbyte.sdk.api.session.operations.configuration_template.AdminCreateConfigurationTemplateV1;
 import net.accelbyte.sdk.api.session.operations.configuration_template.AdminDeleteConfigurationTemplateV1;
 import net.accelbyte.sdk.api.session.operations.configuration_template.AdminGetConfigurationTemplateV1;
@@ -484,6 +483,7 @@ public class TestIntegrationServiceSession extends TestIntegration {
         // ESAC
 
         assertNotNull(partyData);
+        assertFalse(partyData.getData().isEmpty(), "Expected at least one party in query result");
         final ApimodelsPartySessionResponse party = partyData.getData().get(0);
 
         assertEquals(2, party.getMembers().size());
@@ -512,6 +512,7 @@ public class TestIntegrationServiceSession extends TestIntegration {
                     .build());
 
         assertNotNull(partyData2);
+        assertFalse(partyData2.getData().isEmpty(), "Expected at least one party in query result");
         final ApimodelsPartySessionResponse party2 = partyData2.getData().get(0);
 
         assertNotNull(party2);

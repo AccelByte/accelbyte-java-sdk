@@ -57,7 +57,7 @@ public class TestIntegrationRefreshToken extends TestIntegration {
           executor.submit(
               () -> {
                 latch.await();
-                boolean success = sdk.refreshToken();
+                boolean success = sdk.refreshToken(1, TimeUnit.SECONDS);
                 return new RefreshedToken(
                     success, sdk.getSdkConfiguration().getTokenRepository().getToken());
               }));
