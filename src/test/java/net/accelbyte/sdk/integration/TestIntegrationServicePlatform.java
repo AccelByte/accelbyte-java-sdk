@@ -43,7 +43,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 public class TestIntegrationServicePlatform extends TestIntegration {
   @BeforeAll
   public void setup() throws Exception {
-    super.setup();
+    super.setup(true, IntegrationTestConfigRepository.Platform);
   }
 
   @Test

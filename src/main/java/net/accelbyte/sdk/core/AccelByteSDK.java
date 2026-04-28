@@ -611,15 +611,34 @@ public class AccelByteSDK {
 
   public boolean refreshToken(long timeout, TimeUnit unit) {
     boolean acquiredLock = false;
+    final TokenRepository tokenRepository = sdkConfiguration.getTokenRepository();
+    String tokenBeforeRefresh = null;
     try {
-      acquiredLock = refreshTokenMethodLock.tryLock(timeout, unit);
+      tokenBeforeRefresh = tokenRepository.getToken();
+      acquiredLock = refreshTokenMethodLock.tryLock();
       if (!acquiredLock) {
-        log.warning(String.format("unable to acquire lock after (%s)%s", timeout, unit));
-        return false; // Refresh token in-progress
+        // Another thread is currently refreshing. Wait for it to complete instead of giving up.
+        log.info("Token refresh already in progress, waiting for it to complete");
+        try {
+          refreshTokenMethodLock.lockInterruptibly();
+          acquiredLock = true;
+        } catch (InterruptedException ie) {
+          Thread.currentThread().interrupt();
+          return false;
+        }
       }
 
-      final TokenRepository tokenRepository = sdkConfiguration.getTokenRepository();
-      final String accessToken = tokenRepository.getToken();
+      // If another thread already refreshed the token while we waited for the lock, return success.
+      final String tokenAfterWaiting = tokenRepository.getToken();
+      if (tokenAfterWaiting != null
+          && !tokenAfterWaiting.isEmpty()
+          && tokenBeforeRefresh != null
+          && !tokenAfterWaiting.equals(tokenBeforeRefresh)) {
+        log.info("Access token already refreshed by another concurrent call");
+        return true;
+      }
+
+      final String accessToken = tokenAfterWaiting;
 
       if (accessToken == null || accessToken.isEmpty()) {
         return false; // Cannot perform token refresh

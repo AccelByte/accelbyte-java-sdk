@@ -40,7 +40,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 public class TestIntegrationServiceAchievement extends TestIntegration {
   @BeforeAll
   public void setup() throws Exception {
-    super.setup();
+    super.setup(true, IntegrationTestConfigRepository.Achievement);
   }
 
   @Test

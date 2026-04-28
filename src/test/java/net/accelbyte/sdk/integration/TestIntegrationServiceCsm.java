@@ -42,7 +42,7 @@ public class TestIntegrationServiceCsm extends TestIntegration {
 
   @BeforeAll
   public void setup() throws Exception {
-    super.setup();
+    super.setup(true, IntegrationTestConfigRepository.Admin);
 
     final AppV2 appV2Wrapper = new AppV2(sdk);
 

@@ -16,12 +16,16 @@ import org.junit.jupiter.api.*;
 public class TestIntegrationServiceAms extends TestIntegration {
   @BeforeAll
   public void setup() throws Exception {
-    super.setup();
+    super.setup(true, IntegrationTestConfigRepository.AMS);
   }
 
   @Test
   @Order(1)
   public void test() throws Exception {
+    if (isUsingAGSStarter()) {
+      return; // SKIP
+    }
+
     final AMSInfo amsInfoWrapper = new AMSInfo(sdk);
 
     // CASE Get AMS info for info region operation

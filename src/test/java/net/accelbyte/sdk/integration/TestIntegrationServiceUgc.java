@@ -32,7 +32,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 public class TestIntegrationServiceUgc extends TestIntegration {
   @BeforeAll
   public void setup() throws Exception {
-    super.setup();
+    super.setup(true, IntegrationTestConfigRepository.UGC);
   }
 
   @Test

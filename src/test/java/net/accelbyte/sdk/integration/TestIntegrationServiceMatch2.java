@@ -48,7 +48,6 @@ import net.accelbyte.sdk.api.session.operations.configuration_template.AdminDele
 import net.accelbyte.sdk.api.session.wrappers.ConfigurationTemplate;
 import net.accelbyte.sdk.api.session.wrappers.Party;
 import net.accelbyte.sdk.core.AccelByteSDK;
-import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer;
@@ -64,15 +63,12 @@ import org.junit.jupiter.api.TestMethodOrder;
 public class TestIntegrationServiceMatch2 extends TestIntegration {
   @BeforeAll
   public void setup() throws Exception {
-    super.setup();
+    super.setup(true, IntegrationTestConfigRepository.Matchmaking);
   }
 
   @Test
   @Order(1)
   public void testMatchPool() throws Exception {
-    if (isUsingAGSStarter()) {
-      return; // SKIP Temporarily disabled in AGS Starter due to issue in session service
-    }
 
     final String nameSuffix = TestHelper.generateRandomId(4);
 
@@ -166,11 +162,7 @@ public class TestIntegrationServiceMatch2 extends TestIntegration {
     ApiMatchPool matchPool = matchPoolsWrapper.matchPoolDetails(matchPoolDetails);
     assertNotNull(matchPool);
 
-    final AccelByteSDK player1Sdk =
-        new AccelByteSDK(
-            sdk.getSdkConfiguration().getHttpClient(),
-            new DefaultTokenRepository(),
-            sdk.getSdkConfiguration().getConfigRepository());
+    final RepoTestPlayer player1 = new RepoTestPlayer(IntegrationTestConfigRepository.Matchmaking);
 
     String player1UserId = null;
 
@@ -198,10 +190,10 @@ public class TestIntegrationServiceMatch2 extends TestIntegration {
 
       player1UserId = createUserResult.getUserId();
 
-      player1Sdk.loginUser(player1EmailAdd, player1Password);
+      player1.loginUser(player1EmailAdd, player1Password);
 
-      final Party player1PartyWrapper = new Party(player1Sdk);
-      final MatchTickets player1MatchTicketWrapper = new MatchTickets(player1Sdk);
+      final Party player1PartyWrapper = new Party(player1.getSdk());
+      final MatchTickets player1MatchTicketWrapper = new MatchTickets(player1.getSdk());
 
       final ApimodelsPartySessionResponse publicCreatePartyResult =
           player1PartyWrapper.publicCreateParty(
@@ -242,7 +234,7 @@ public class TestIntegrationServiceMatch2 extends TestIntegration {
 
       // ESAC
     } finally {
-      player1Sdk.logout();
+      player1.logout();
 
       if (player1UserId != null) {
         usersWrapper.adminDeleteUserInformationV3(

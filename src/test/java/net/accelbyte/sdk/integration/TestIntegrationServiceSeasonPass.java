@@ -40,7 +40,7 @@ import org.junit.jupiter.api.Order;
 class TestIntegrationServiceSeasonPass extends TestIntegration {
   @BeforeAll
   public void setup() throws Exception {
-    super.setup();
+    super.setup(true, IntegrationTestConfigRepository.SeasonPass);
   }
 
   @Test
@@ -109,9 +109,9 @@ class TestIntegrationServiceSeasonPass extends TestIntegration {
 
     final RegionDataItemDTO regionDataItem =
         RegionDataItemDTO.builder()
-            .currencyCode("USD")
+            .currencyCode("TESTING")
             .currencyNamespace(this.namespace)
-            .currencyTypeFromEnum(RegionDataItemDTO.CurrencyType.REAL)
+            .currencyTypeFromEnum(RegionDataItemDTO.CurrencyType.VIRTUAL)
             .price(10)
             .build();
     final Map<String, List<RegionDataItemDTO>> mapRegions = new HashMap<>();

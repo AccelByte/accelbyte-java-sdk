@@ -25,7 +25,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 public class TestIntegrationLoginUser extends TestIntegration {
   @BeforeAll
   public void setup() throws Exception {
-    super.setup(false);
+    super.setup(false, IntegrationTestConfigRepository.Admin);
   }
 
   @Test

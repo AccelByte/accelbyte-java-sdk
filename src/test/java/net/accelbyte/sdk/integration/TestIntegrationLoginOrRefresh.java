@@ -18,7 +18,7 @@ public class TestIntegrationLoginOrRefresh extends TestIntegration {
 
   @BeforeAll
   public void setup() throws Exception {
-    super.setup(false);
+    super.setup(false, IntegrationTestConfigRepository.Achievement);
   }
 
   @Order(1)

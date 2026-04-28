@@ -22,7 +22,7 @@ import org.junit.jupiter.api.*;
 public class TestIntegrationServiceLoginQueue extends TestIntegration {
   @BeforeAll
   public void setup() throws Exception {
-    super.setup();
+    super.setup(true, IntegrationTestConfigRepository.Admin);
   }
 
   @Test

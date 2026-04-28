@@ -19,7 +19,7 @@ public class TestIntegrationRefreshToken extends TestIntegration {
 
   @BeforeAll
   public void setup() throws Exception {
-    super.setup(false);
+    super.setup(false, IntegrationTestConfigRepository.Achievement);
   }
 
   @Data
@@ -67,7 +67,7 @@ public class TestIntegrationRefreshToken extends TestIntegration {
 
     List<String> newTokens =
         result.stream()
-            .map(it -> assertDoesNotThrow(() -> it.get(1, TimeUnit.SECONDS)))
+            .map(it -> assertDoesNotThrow(() -> it.get(2, TimeUnit.SECONDS)))
             .filter(it -> it.isSuccess)
             .map(RefreshedToken::getNewToken)
             .collect(Collectors.toList());

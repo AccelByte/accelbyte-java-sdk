@@ -29,21 +29,15 @@ class TestIntegrationServiceInventory extends TestIntegration {
 
   @BeforeAll
   public void setup() throws Exception {
-    super.setup();
+    super.setup(false, IntegrationTestConfigRepository.Inventory);
   }
 
   @Test
   @Order(1)
   public void test() throws Exception {
 
-    final Users usersWrapper = new Users(sdk);
-
-    final ModelUserResponseV3 getUserResult =
-        usersWrapper.adminGetMyUserV3(AdminGetMyUserV3.builder().build());
-
-    assertNotNull(getUserResult);
-
-    final String userId = getUserResult.getUserId();
+    System.out.printf("ClientID: " + sdk.getSdkConfiguration().getConfigRepository().getClientId());
+    System.out.printf("Namespace: " + this.namespace);
 
     final String codeInventoryConfig =
         "java-sdk-code-" + java.util.UUID.randomUUID().toString().substring(0, 4);
@@ -71,6 +65,9 @@ class TestIntegrationServiceInventory extends TestIntegration {
     // ESAC
 
     assertNotNull(createInventoryConfigResult);
+
+    final TestPlayer player = new NewTestPlayer(sdk, this.namespace, true);
+    final String userId = player.getUserId();
 
     // CASE Create inventory
 
@@ -147,6 +144,8 @@ class TestIntegrationServiceInventory extends TestIntegration {
                 .inventoryConfigurationId(createInventoryConfigResult.getId())
                 .namespace(this.namespace)
                 .build());
+
+    player.logout();
   }
 
   @AfterAll

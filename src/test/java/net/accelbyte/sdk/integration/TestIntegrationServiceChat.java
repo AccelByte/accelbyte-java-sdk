@@ -28,7 +28,7 @@ import org.junit.jupiter.api.*;
 public class TestIntegrationServiceChat extends TestIntegration {
   @BeforeAll
   public void setup() throws Exception {
-    super.setup();
+    super.setup(true, IntegrationTestConfigRepository.Chat);
   }
 
   @Test

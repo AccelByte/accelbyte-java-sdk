@@ -25,7 +25,7 @@ public class TestIntegrationParseAccessToken extends TestIntegration {
 
   @BeforeAll
   public void setup() throws Exception {
-    super.setup(false);
+    super.setup(false, IntegrationTestConfigRepository.Admin);
   }
 
   @ParameterizedTest

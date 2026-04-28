@@ -24,13 +24,18 @@ public class TestIntegration {
   protected String password;
 
   protected void setup() throws Exception {
-    setup(true);
+    final ConfigRepository configRepo = new DefaultConfigRepository();
+    setup(true, configRepo);
   }
 
   protected void setup(boolean loginUser) throws Exception {
-    final HttpClient<?> httpClient = new OkhttpClient();
-    final TokenRepository tokenRepo = DefaultTokenRepository.getInstance();
     final ConfigRepository configRepo = new DefaultConfigRepository();
+    setup(loginUser, configRepo);
+  }
+
+  protected void setup(boolean loginUser, ConfigRepository configRepo) throws Exception {
+    final HttpClient<?> httpClient = new OkhttpClient();
+    final TokenRepository tokenRepo = DefaultTokenRepository.getInstance();    
     final AccelByteConfig sdkConfig = new AccelByteConfig(httpClient, tokenRepo, configRepo);
 
     final String baseUrl = configRepo.getBaseURL();
@@ -58,6 +63,12 @@ public class TestIntegration {
 
       assertTrue(isLoginUserOk);
       assertTrue(token != null && !token.isEmpty());
+    } else {
+      final boolean isLoginClientOk = sdk.loginClient();
+      final String token = tokenRepo.getToken();
+
+      assertTrue(isLoginClientOk);
+      assertTrue(token != null && !token.isEmpty());
     }
   }
 
@@ -70,7 +81,11 @@ public class TestIntegration {
   }
 
   protected boolean isUsingAGSStarter() {
-    final String baseUrl = sdk.getSdkConfiguration().getConfigRepository().getBaseURL();
+    return isUsingAGSStarter(sdk.getSdkConfiguration().getConfigRepository());
+  }
+
+  protected boolean isUsingAGSStarter(ConfigRepository configRepo) {
+    final String baseUrl = configRepo.getBaseURL();
     return baseUrl.contains("gamingservices.accelbyte.io");
   }
 }

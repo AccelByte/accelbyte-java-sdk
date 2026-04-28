@@ -19,7 +19,7 @@ public class TestIntegrationLoginClient extends TestIntegration {
 
   @BeforeAll
   public void setup() throws Exception {
-    super.setup(false);
+    super.setup(false, IntegrationTestConfigRepository.Admin);
   }
 
   @Order(1)

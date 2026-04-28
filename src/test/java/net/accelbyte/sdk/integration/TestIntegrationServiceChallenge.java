@@ -37,7 +37,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 public class TestIntegrationServiceChallenge extends TestIntegration {
   @BeforeAll
   public void setup() throws Exception {
-    super.setup();
+    super.setup(false, IntegrationTestConfigRepository.Challenge);
   }
 
   @Test

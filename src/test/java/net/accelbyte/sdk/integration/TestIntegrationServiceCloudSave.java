@@ -46,7 +46,7 @@ import org.junit.jupiter.api.*;
 public class TestIntegrationServiceCloudSave extends TestIntegration {
   @BeforeAll
   public void setup() throws Exception {
-    super.setup();
+    super.setup(true, IntegrationTestConfigRepository.CloudSave);
   }
 
   @Test

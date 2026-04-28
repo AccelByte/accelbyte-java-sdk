@@ -62,7 +62,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 public class TestIntegrationServiceIam extends TestIntegration {
   @BeforeAll
   public void setup() throws Exception {
-    super.setup();
+    super.setup(true, IntegrationTestConfigRepository.IAM);
   }
 
   @Test
@@ -244,6 +244,10 @@ public class TestIntegrationServiceIam extends TestIntegration {
   @Test
   @Order(3)
   public void roleOverrideTest() throws Exception {
+    if (isUsingAGSStarter()) {
+      //AGS Shared Cloud has different default action value than AGS Private Cloud for `NAMESPACE:{namespace}:PROFILE` permission string. 
+      return; // SKIP
+    }
 
     final String roleIdentityToUpdate = "USER";
     final String resourceToCheck = "NAMESPACE:{namespace}:PROFILE";

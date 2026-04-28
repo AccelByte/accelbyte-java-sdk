@@ -32,6 +32,8 @@ import net.accelbyte.sdk.api.session.models.ApimodelsPartySessionResponse;
 import net.accelbyte.sdk.api.session.models.ApimodelsRequestMember;
 import net.accelbyte.sdk.api.session.models.ApimodelsUpdateConfigurationTemplateRequest;
 import net.accelbyte.sdk.api.session.models.ApimodelsUserResponse;
+import net.accelbyte.sdk.api.session.models.ApimodelsPartyQueryResponse;
+import net.accelbyte.sdk.api.session.models.ApimodelsPartySessionResponse;
 import net.accelbyte.sdk.api.session.operations.configuration_template.AdminCreateConfigurationTemplateV1;
 import net.accelbyte.sdk.api.session.operations.configuration_template.AdminDeleteConfigurationTemplateV1;
 import net.accelbyte.sdk.api.session.operations.configuration_template.AdminGetConfigurationTemplateV1;
@@ -39,6 +41,7 @@ import net.accelbyte.sdk.api.session.operations.configuration_template.AdminUpda
 import net.accelbyte.sdk.api.session.operations.game_session.*;
 import net.accelbyte.sdk.api.session.operations.party.PublicGetParty;
 import net.accelbyte.sdk.api.session.operations.party.PublicPartyJoinCode;
+import net.accelbyte.sdk.api.session.operations.party.AdminQueryParties;
 import net.accelbyte.sdk.api.session.wrappers.ConfigurationTemplate;
 import net.accelbyte.sdk.api.session.wrappers.GameSession;
 import net.accelbyte.sdk.api.session.wrappers.Party;
@@ -59,7 +62,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 public class TestIntegrationServiceSession extends TestIntegration {
   @BeforeAll
   public void setup() throws Exception {
-    super.setup(false);
+    super.setup(false, IntegrationTestConfigRepository.Session);
 
     sdk.loginClient();
   }
@@ -67,9 +70,6 @@ public class TestIntegrationServiceSession extends TestIntegration {
   @Test
   @Order(1)
   public void testConfigurationTemplate() throws Exception {
-    if (isUsingAGSStarter()) {
-      return; // SKIP Temporarily disabled in AGS Starter due to issue in session service
-    }
 
     final String cfgTemplateName = "java_sdk_template_" + TestHelper.generateRandomId(4);
 
@@ -147,9 +147,6 @@ public class TestIntegrationServiceSession extends TestIntegration {
   @Test
   @Order(1)
   public void testGameSession() throws Exception {
-    if (isUsingAGSStarter()) {
-      return; // SKIP Temporarily disabled in AGS Starter due to issue in session service
-    }
 
     final String cfgTemplateName = "java_sdk_template_" + TestHelper.generateRandomId(4);
 
@@ -349,9 +346,6 @@ public class TestIntegrationServiceSession extends TestIntegration {
   @Test
   @Order(1)
   public void testParty() throws Exception {
-    if (isUsingAGSStarter()) {
-      return; // SKIP Temporarily disabled in AGS Starter due to issue in session service
-    }
 
     final String cfgTemplateName = "java_sdk_template_" + TestHelper.generateRandomId(4);
 
@@ -392,151 +386,163 @@ public class TestIntegrationServiceSession extends TestIntegration {
     String player2UserId = null;
 
     try {
-      final String player1Username = ("javasdk_" + TestHelper.generateRandomId(8));
-      final String player1Password = TestHelper.generateRandomPassword(10);
-      final String player2Username = ("javasdk_" + TestHelper.generateRandomId(8));
-      final String player2Password = TestHelper.generateRandomPassword(10);
-      final String player1EmailAdd = player1Username + "@test.com";
-      final String player2EmailAdd = player2Username + "@test.com";
+        final String player1Username = ("javasdk_" + TestHelper.generateRandomId(8));
+        final String player1Password = TestHelper.generateRandomPassword(10);
+        final String player2Username = ("javasdk_" + TestHelper.generateRandomId(8));
+        final String player2Password = TestHelper.generateRandomPassword(10);
+        final String player1EmailAdd = player1Username + "@test.com";
+        final String player2EmailAdd = player2Username + "@test.com";
 
-      final AccountCreateUserResponseV4 createUserResult1 =
-          usersV4Wrapper.publicCreateTestUserV4(
-              PublicCreateTestUserV4.builder()
-                  .namespace(namespace)
-                  .body(
-                      AccountCreateTestUserRequestV4.builder()
-                          .authTypeFromEnum(AuthType.EMAILPASSWD)
-                          .emailAddress(player1EmailAdd)
-                          .password(player1Password)
-                          .displayName("Java Server SDK Test")
-                          .username(player1Username)
-                          .country("ID")
-                          .dateOfBirth("1995-01-10")
-                          .uniqueDisplayName(player1Username)
-                          .build())
-                  .build());
+        final AccountCreateUserResponseV4 createUserResult1 =
+            usersV4Wrapper.publicCreateTestUserV4(
+                PublicCreateTestUserV4.builder()
+                    .namespace(namespace)
+                    .body(
+                        AccountCreateTestUserRequestV4.builder()
+                            .authTypeFromEnum(AuthType.EMAILPASSWD)
+                            .emailAddress(player1EmailAdd)
+                            .password(player1Password)
+                            .displayName("Java Server SDK Test")
+                            .username(player1Username)
+                            .country("ID")
+                            .dateOfBirth("1995-01-10")
+                            .uniqueDisplayName(player1Username)
+                            .build())
+                    .build());
 
-      player1UserId = createUserResult1.getUserId();
+        player1UserId = createUserResult1.getUserId();
 
-      final AccountCreateUserResponseV4 createUserResult2 =
-          usersV4Wrapper.publicCreateTestUserV4(
-              PublicCreateTestUserV4.builder()
-                  .namespace(namespace)
-                  .body(
-                      AccountCreateTestUserRequestV4.builder()
-                          .authTypeFromEnum(AuthType.EMAILPASSWD)
-                          .emailAddress(player2EmailAdd)
-                          .password(player2Password)
-                          .displayName("Java Server SDK Test")
-                          .username(player2Username)
-                          .country("ID")
-                          .dateOfBirth("1995-01-10")
-                          .uniqueDisplayName(player2Username)
-                          .build())
-                  .build());
+        final AccountCreateUserResponseV4 createUserResult2 =
+            usersV4Wrapper.publicCreateTestUserV4(
+                PublicCreateTestUserV4.builder()
+                    .namespace(namespace)
+                    .body(
+                        AccountCreateTestUserRequestV4.builder()
+                            .authTypeFromEnum(AuthType.EMAILPASSWD)
+                            .emailAddress(player2EmailAdd)
+                            .password(player2Password)
+                            .displayName("Java Server SDK Test")
+                            .username(player2Username)
+                            .country("ID")
+                            .dateOfBirth("1995-01-10")
+                            .uniqueDisplayName(player2Username)
+                            .build())
+                    .build());
 
-      player2UserId = createUserResult2.getUserId();
+        player2UserId = createUserResult2.getUserId();
 
-      player1Sdk.loginUser(player1EmailAdd, player1Password);
-      player2Sdk.loginUser(player2EmailAdd, player2Password);
+        player1Sdk.loginUser(player1EmailAdd, player1Password);
+        player2Sdk.loginUser(player2EmailAdd, player2Password);
 
-      final Party player1PartyWrapper = new Party(player1Sdk);
-      final Party player2PartyWrapper = new Party(player2Sdk);
+        final Party player1PartyWrapper = new Party(player1Sdk);
+        final Party player2PartyWrapper = new Party(player2Sdk);
 
-      // CASE User create a party
+        // CASE User create a party
 
-      final ApimodelsPartySessionResponse publicCreatePartyResult =
-          player1PartyWrapper.publicCreateParty(
-              net.accelbyte.sdk.api.session.operations.party.PublicCreateParty.builder()
-                  .namespace(namespace)
-                  .body(
-                      ApimodelsCreatePartyRequest.builder()
-                          .configurationName(cfgTemplateName)
-                          .members(
-                              Collections.singletonList(
-                                  ApimodelsRequestMember.builder().id(player1UserId).build()))
-                          .build())
-                  .build());
+        final ApimodelsPartySessionResponse publicCreatePartyResult =
+            player1PartyWrapper.publicCreateParty(
+                net.accelbyte.sdk.api.session.operations.party.PublicCreateParty.builder()
+                    .namespace(namespace)
+                    .body(
+                        ApimodelsCreatePartyRequest.builder()
+                            .configurationName(cfgTemplateName)
+                            .members(
+                                Collections.singletonList(
+                                    ApimodelsRequestMember.builder().id(player1UserId).build()))
+                            .build())
+                    .build());
 
-      // ESAC
+        // ESAC
 
-      assertNotNull(publicCreatePartyResult);
+        assertNotNull(publicCreatePartyResult);
 
-      final String partyId = publicCreatePartyResult.getId();
-      final String joinCode = publicCreatePartyResult.getCode();
+        final String partyId = publicCreatePartyResult.getId();
+        final String joinCode = publicCreatePartyResult.getCode();
 
-      // CASE User join a party with code
+        // CASE User join a party with code
 
-      final ApimodelsPartySessionResponse publicPartyJoinCodeResult =
-          player2PartyWrapper.publicPartyJoinCode(
-              PublicPartyJoinCode.builder()
-                  .namespace(namespace)
-                  .body(ApimodelsJoinByCodeRequest.builder().code(joinCode).build())
-                  .build());
+        final ApimodelsPartySessionResponse publicPartyJoinCodeResult =
+            player2PartyWrapper.publicPartyJoinCode(
+                PublicPartyJoinCode.builder()
+                    .namespace(namespace)
+                    .body(ApimodelsJoinByCodeRequest.builder().code(joinCode).build())
+                    .build());
 
-      // ESAC
+        // ESAC
 
-      assertNotNull(publicPartyJoinCodeResult);
+        assertNotNull(publicPartyJoinCodeResult);
 
-      // CASE Get party detail
+        // CASE Get party detail
 
-      final ApimodelsPartySessionResponse publicGetPartyResult1 =
-          partyWrapper.publicGetParty(
-              PublicGetParty.builder().namespace(namespace).partyId(partyId).build());
+        final ApimodelsPartyQueryResponse partyData =
+            partyWrapper.adminQueryParties(
+                AdminQueryParties.builder()
+                    .partyID(partyId)
+                    .namespace(namespace)
+                    .build());
 
-      // ESAC
+        // ESAC
 
-      assertNotNull(publicGetPartyResult1);
-      assertEquals(2, publicGetPartyResult1.getMembers().size());
-      final List<String> userIds1 =
-          publicGetPartyResult1.getMembers().stream()
-              .map(ApimodelsUserResponse::getId)
-              .collect(Collectors.toList());
-      assertTrue(userIds1.contains(player1UserId));
-      assertTrue(userIds1.contains(player2UserId));
+        assertNotNull(partyData);
+        final ApimodelsPartySessionResponse party = partyData.getData().get(0);
 
-      // CASE User leave a party
+        assertEquals(2, party.getMembers().size());
+        final List<String> userIds1 =
+            party.getMembers().stream()
+                .map(ApimodelsUserResponse::getId)
+                .collect(Collectors.toList());
+        assertTrue(userIds1.contains(player1UserId));
+        assertTrue(userIds1.contains(player2UserId));
 
-      player2PartyWrapper.publicPartyLeave(
-          net.accelbyte.sdk.api.session.operations.party.PublicPartyLeave.builder()
-              .namespace(namespace)
-              .partyId(partyId)
-              .build());
+        // CASE User leave a party
 
-      // ESAC
+        player2PartyWrapper.publicPartyLeave(
+            net.accelbyte.sdk.api.session.operations.party.PublicPartyLeave.builder()
+                .namespace(namespace)
+                .partyId(partyId)
+                .build());
 
-      final ApimodelsPartySessionResponse publicGetPartyResult2 =
-          partyWrapper.publicGetParty(
-              PublicGetParty.builder().namespace(namespace).partyId(partyId).build());
+        // ESAC
 
-      assertNotNull(publicGetPartyResult2);
-      assertEquals(2, publicGetPartyResult2.getMembers().size());
-      final List<String> userIds2 =
-          publicGetPartyResult2.getMembers().stream()
-              .filter(m -> !m.getStatus().equals("LEFT"))
-              .map(ApimodelsUserResponse::getId)
-              .collect(Collectors.toList());
-      assertTrue(userIds2.contains(player1UserId));
-      assertFalse(userIds2.contains(player2UserId));
+        final ApimodelsPartyQueryResponse partyData2 =
+            partyWrapper.adminQueryParties(
+                AdminQueryParties.builder()
+                    .partyID(partyId)
+                    .namespace(namespace)
+                    .build());
+
+        assertNotNull(partyData2);
+        final ApimodelsPartySessionResponse party2 = partyData2.getData().get(0);
+
+        assertNotNull(party2);
+        assertEquals(2, party2.getMembers().size());
+        final List<String> userIds2 =
+            party2.getMembers().stream()
+                .filter(m -> !m.getStatus().equals("LEFT"))
+                .map(ApimodelsUserResponse::getId)
+                .collect(Collectors.toList());
+        assertTrue(userIds2.contains(player1UserId));
+        assertFalse(userIds2.contains(player2UserId));
+        
     } finally {
-      player1Sdk.logout();
-      player2Sdk.logout();
+        player1Sdk.logout();
+        player2Sdk.logout();
 
-      if (player1UserId != null) {
-        usersWrapper.adminDeleteUserInformationV3(
-            AdminDeleteUserInformationV3.builder()
-                .namespace(namespace)
-                .userId(player1UserId)
-                .build());
-      }
+        if (player1UserId != null) {
+            usersWrapper.adminDeleteUserInformationV3(
+                AdminDeleteUserInformationV3.builder()
+                    .namespace(namespace)
+                    .userId(player1UserId)
+                    .build());
+        }
 
-      if (player2UserId != null) {
-        usersWrapper.adminDeleteUserInformationV3(
-            AdminDeleteUserInformationV3.builder()
-                .namespace(namespace)
-                .userId(player2UserId)
-                .build());
-      }
+        if (player2UserId != null) {
+            usersWrapper.adminDeleteUserInformationV3(
+                AdminDeleteUserInformationV3.builder()
+                    .namespace(namespace)
+                    .userId(player2UserId)
+                    .build());
+        }
     }
 
     configurationTemplateWrapper.adminDeleteConfigurationTemplateV1(

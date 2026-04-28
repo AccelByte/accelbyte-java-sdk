@@ -30,7 +30,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 public class TestIntegrationTokenRefresh extends TestIntegration {
   @BeforeAll
   public void setup() throws Exception {
-    super.setup(false);
+    super.setup(false, IntegrationTestConfigRepository.Achievement);
   }
 
   @Test
