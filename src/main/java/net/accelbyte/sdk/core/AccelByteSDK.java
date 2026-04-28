@@ -141,6 +141,25 @@ public class AccelByteSDK {
             return false;
           }
         }
+
+        // Cross-studio isolation: reject tokens whose namespace doesn't match the SDK's namespace
+        final String sdkNamespace = sdkConfiguration.getConfigRepository().getNamespace();
+        if (!Strings.isNullOrEmpty(sdkNamespace)) {
+          final String tokenNamespace = (String) jwtClaimsSet.getClaim("namespace");
+          final String tokenParentNamespace = (String) jwtClaimsSet.getClaim("parent_namespace");
+          // Accept if:
+          // 1. Exact match (e.g., token namespace == SDK namespace)
+          // 2. Token is studio-level: tokenNamespace is "studio" and sdkNamespace is "studio-game"
+          // 3. SDK is studio-level validating a game-level token (sdkNamespace == tokenParentNamespace)
+          final boolean namespaceMatch =
+              sdkNamespace.equals(tokenNamespace)
+                  || (!Strings.isNullOrEmpty(tokenNamespace)
+                      && sdkNamespace.startsWith(tokenNamespace + "-"))
+                  || sdkNamespace.equals(tokenParentNamespace);
+          if (!namespaceMatch) {
+            return false; // Token belongs to a different studio/namespace
+          }
+        }
       } else {
         final OAuth20 oAuth20 = new OAuth20(this);
 

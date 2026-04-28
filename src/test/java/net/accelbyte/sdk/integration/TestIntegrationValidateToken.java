@@ -17,6 +17,7 @@ import net.accelbyte.sdk.core.AccelByteSDK;
 import net.accelbyte.sdk.core.AccessTokenPayload;
 import net.accelbyte.sdk.core.client.HttpClient;
 import net.accelbyte.sdk.core.client.OkhttpClient;
+import net.accelbyte.sdk.core.repository.DefaultConfigRepository;
 import net.accelbyte.sdk.core.repository.DefaultTokenRepository;
 import net.accelbyte.sdk.core.validator.UserAuthContext;
 import org.junit.jupiter.api.AfterAll;
@@ -229,11 +230,6 @@ public class TestIntegrationValidateToken extends TestIntegration {
         diffBaseUrl != null && diffClientId != null && diffClientSecret != null && diffNamespace != null,
         "DIFFENV_AB_* vars not configured — skipping cross-studio test");
 
-    // Only meaningful on AGS Shared Cloud where namespaces are cross-studio isolated
-    assumeTrue(
-        diffBaseUrl.contains("accelbyte.io") && !diffBaseUrl.contains("gamingservices.accelbyte.io"),
-        "Not AGS Shared Cloud — skipping cross-studio test");
-
     // Build a SDK instance pointing at the different studio environment
     final DefaultConfigRepository diffConfig =
         new DefaultConfigRepository() {
@@ -268,6 +264,10 @@ public class TestIntegrationValidateToken extends TestIntegration {
     // not a client credential token. super.setup(true) performs a client login.]
     sdk.loginUser(this.username, this.password);
     final String token = sdk.getSdkConfiguration().getTokenRepository().getToken();
+    // System.out.println("Token from primary SDK: " + token);
+
+    final String diffToken = diffSdk.getSdkConfiguration().getTokenRepository().getToken();
+    // System.out.println("Token from different-studio SDK: " + diffToken);
 
     // The primary user's token should be rejected by the different-studio SDK
     final boolean result = diffSdk.validateToken(token);
