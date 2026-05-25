@@ -20,8 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicPlatformLinkV2
  *
- * <p>## The endpoint is going to be deprecated **Endpoint migration guide** - **Substitute
- * endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId} [POST]_**
+ * <p>**This endpoint is deprecated.** **Endpoint migration guide** - **Substitute endpoint:
+ * _/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId} [POST]_**
  *
  * <p>**Prerequisite:** Platform client configuration need to be added to database for specific
  * platformId. Namespace service URL need to be specified (refer to required environment variables).

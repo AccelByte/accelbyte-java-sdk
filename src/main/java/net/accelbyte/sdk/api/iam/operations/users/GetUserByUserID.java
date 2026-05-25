@@ -21,10 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetUserByUserID
  *
- * <p>## The endpoint is going to be deprecated ### Endpoint migration guide - **Substitute
- * endpoint(Public): _/iam/v3/public/namespaces/{namespace}/users/{userId} [GET]_** - **Substitute
- * endpoint(Admin): _/iam/v3/admin/namespaces/{namespace}/users/{userId} [GET]_** - **Note:** format
- * difference in response: Pascal case => Camel case
+ * <p>**This endpoint is deprecated.** ### Endpoint migration guide - **Substitute endpoint(Public):
+ * _/iam/v3/public/namespaces/{namespace}/users/{userId} [GET]_** - **Substitute endpoint(Admin):
+ * _/iam/v3/admin/namespaces/{namespace}/users/{userId} [GET]_** - **Note:** format difference in
+ * response: Pascal case => Camel case
  *
  * @deprecated
  */

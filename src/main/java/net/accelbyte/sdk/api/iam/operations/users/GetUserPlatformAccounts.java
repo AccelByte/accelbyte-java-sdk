@@ -23,9 +23,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetUserPlatformAccounts
  *
- * <p>## The endpoint is going to be deprecated ### Endpoint migration guide - **Substitute
- * endpoint: _/iam/v3/public/namespaces/{namespace}/users/{userId}/platforms [GET]_** - **Substitute
- * endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/platforms [GET]_**
+ * <p>**This endpoint is deprecated.** ### Endpoint migration guide - **Substitute endpoint:
+ * _/iam/v3/public/namespaces/{namespace}/users/{userId}/platforms [GET]_** - **Substitute endpoint:
+ * _/iam/v3/admin/namespaces/{namespace}/users/{userId}/platforms [GET]_**
  *
  * <p>## Justice Platform Account The permission
  * âADMIN:NAMESPACE:{namespace}:JUSTICE:USER:{userId}â [READ] is required in order to read the

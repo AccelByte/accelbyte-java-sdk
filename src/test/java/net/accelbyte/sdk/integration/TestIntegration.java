@@ -35,7 +35,7 @@ public class TestIntegration {
 
   protected void setup(boolean loginUser, ConfigRepository configRepo) throws Exception {
     final HttpClient<?> httpClient = new OkhttpClient();
-    final TokenRepository tokenRepo = DefaultTokenRepository.getInstance();    
+    final TokenRepository tokenRepo = DefaultTokenRepository.getInstance();
     final AccelByteConfig sdkConfig = new AccelByteConfig(httpClient, tokenRepo, configRepo);
 
     final String baseUrl = configRepo.getBaseURL();

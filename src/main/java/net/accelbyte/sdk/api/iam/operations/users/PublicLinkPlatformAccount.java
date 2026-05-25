@@ -21,14 +21,20 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicLinkPlatformAccount
  *
- * <p>It is going to be **DEPRECATED**. Update Platform Account relation to current User Account.
+ * <p>## This API has been deprecated **Endpoint migration guide** - **Substitute endpoint:
+ * _/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}/force [POST]_**
+ *
+ * <p>Update Platform Account relation to current User Account.
  *
  * <p>Note: Game progression data (statistics, reward, etc) associated with previous User Account
  * will not be transferred. If the data is tight to game user ID, the user will have the game
  * progression data.
  *
  * <p>**Authentication:** The _**userId**_ parameter should match the one in the access token.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class PublicLinkPlatformAccount extends Operation {

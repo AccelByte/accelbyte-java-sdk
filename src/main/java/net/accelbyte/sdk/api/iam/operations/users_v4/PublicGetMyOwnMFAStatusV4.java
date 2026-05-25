@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicGetMyOwnMFAStatusV4
  *
- * <p>This endpoint will get user's' MFA status.
+ * <p>Retrieves the user's MFA status.
  */
 @Getter
 @Setter

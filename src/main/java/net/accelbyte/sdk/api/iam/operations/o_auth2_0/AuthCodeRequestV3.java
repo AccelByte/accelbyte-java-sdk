@@ -21,29 +21,25 @@ import net.accelbyte.sdk.core.util.Helper;
  * AuthCodeRequestV3
  *
  * <p>Generate url to request auth code from third party platform ## Supported platforms: -
- * **steamopenid**This endpoint redirects to steam login page, then redirect back to platform
- * authenticate endpoint after successfully authenticating user steam. - **xblweb**This endpoint
- * redirects to xbox login page, then redirect back to platform authenticate endpoint after
- * successfully authenticating xbox user. - **ps4web**This endpoint redirects to psn login page,
- * then redirect back to platform authenticate endpoint after successfully authenticating psn user.
- * - **epicgames**This endpoint redirects to Epicgames OAuth login page. then redirect to platform
- * authenticate endpoint after successfully authenticating an Epicgames credential - **twitch**This
- * endpoint redirects to twitch login page, then redirect back to platform authenticate endpoint
- * after successfully authenticating twitch user. - **azure**This endpoint redirects to azure login
- * page, then redirect back to platform authenticate(saml) endpoint after successfully
- * authenticating azure user. - **facebook**This endpoint redirects to facebook login page, then
- * redirect back to platform authenticate endpoint after successfully authenticating facebook user.
- * - **google**This endpoint redirects to google login page, then redirect back to platform
- * authenticate endpoint after successfully authenticating google user. - **snapchat**This endpoint
- * redirects to snapchat login page, then redirect back to platform authenticate endpoint after
- * successfully authenticating snapchat user. - **discord**This endpoint redirects to discord login
- * page, then redirect back to platform authenticate endpoint after successfully authenticating
- * discord user. - **amazon**This endpoint redirects to amazon login page, then redirect back to
- * platform authenticate endpoint after successfully authenticating amazon user. - **oculusweb**This
- * endpoint redirects to oculus login page, then redirect back to Login Website page after
- * successfully authenticating oculus user.
- *
- * <p>action code : 10702'
+ * **steamopenid** Redirects to steam login page, then redirects back to the platform authenticate
+ * API after successfully authenticating user steam. - **xblweb** Redirects to xbox login page, then
+ * redirects back to the platform authenticate API after successfully authenticating xbox user. -
+ * **ps4web** Redirects to psn login page, then redirects back to the platform authenticate API
+ * after successfully authenticating psn user. - **epicgames** Redirects to Epicgames OAuth login
+ * page, then redirects to the platform authenticate API after successfully authenticating an
+ * Epicgames credential. - **twitch** Redirects to twitch login page, then redirects back to the
+ * platform authenticate API after successfully authenticating twitch user. - **azure** Redirects to
+ * azure login page, then redirects back to the platform authenticate(saml) API after successfully
+ * authenticating azure user. - **facebook** Redirects to facebook login page, then redirects back
+ * to the platform authenticate API after successfully authenticating facebook user. - **google**
+ * Redirects to google login page, then redirects back to the platform authenticate API after
+ * successfully authenticating google user. - **snapchat** Redirects to snapchat login page, then
+ * redirects back to the platform authenticate API after successfully authenticating snapchat user.
+ * - **discord** Redirects to discord login page, then redirects back to the platform authenticate
+ * API after successfully authenticating discord user. - **amazon** Redirects to amazon login page,
+ * then redirects back to the platform authenticate API after successfully authenticating amazon
+ * user. - **oculusweb** Redirects to oculus login page, then redirects back to Login Website page
+ * after successfully authenticating oculus user.
  */
 @Getter
 @Setter
@@ -52,7 +48,7 @@ public class AuthCodeRequestV3 extends Operation {
   private String path = "/iam/v3/oauth/platforms/{platformId}/authorize";
 
   private String method = "GET";
-  private List<String> consumes = Arrays.asList("application/x-www-form-urlencoded");
+  private List<String> consumes = Arrays.asList("*/*");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = "code";
 

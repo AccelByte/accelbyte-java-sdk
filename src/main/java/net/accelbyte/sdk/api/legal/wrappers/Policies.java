@@ -24,7 +24,9 @@ public class Policies {
 
   /**
    * @see RetrievePolicies
+   * @deprecated
    */
+  @Deprecated
   public List<RetrievePolicyResponse> retrievePolicies(RetrievePolicies input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -33,7 +35,9 @@ public class Policies {
 
   /**
    * @see OldUpdatePolicy
+   * @deprecated
    */
+  @Deprecated
   public void oldUpdatePolicy(OldUpdatePolicy input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
@@ -42,7 +46,9 @@ public class Policies {
 
   /**
    * @see OldSetDefaultPolicy
+   * @deprecated
    */
+  @Deprecated
   public void oldSetDefaultPolicy(OldSetDefaultPolicy input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(

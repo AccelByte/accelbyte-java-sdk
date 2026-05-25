@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * RetrieveAllThirdPartyLoginPlatformCredentialV3
  *
- * <p>This is the API to Get All Active 3rd Platform Credential.
+ * <p>Retrieves all third-party platform credentials.
  */
 @Getter
 @Setter

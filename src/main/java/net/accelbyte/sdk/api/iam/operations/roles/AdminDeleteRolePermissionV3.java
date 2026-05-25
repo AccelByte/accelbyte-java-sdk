@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDeleteRolePermissionV3
  *
- * <p>action code: 10406
+ * <p>Deletes a specific permission from a role.
  */
 @Getter
 @Setter

@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicMakeFactorMyDefaultV4
  *
- * <p>This endpoint is used to make 2FA factor default.
+ * <p>Makes 2FA factor default.
  */
 @Getter
 @Setter

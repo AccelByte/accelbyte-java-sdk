@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetBannedUsersV3
  *
- * <p>Ban type is the code available for ban assignment. It is applicable globally for any
- * namespace. action code : 10201
+ * <p>Retrieves a paginated list of users who have active or history bans, filtered by ban type.
  */
 @Getter
 @Setter

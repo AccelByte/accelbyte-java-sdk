@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetUserBanSummaryV3
  *
- * <p>This endpoint get user's bans summary'
+ * <p>Retrieves a summary of the user's ban history, including active and expired bans.
  */
 @Getter
 @Setter

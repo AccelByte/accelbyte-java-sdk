@@ -196,14 +196,15 @@ eval_tap $? 17 'AdminListSchedules' test.out
 ./ng net.accelbyte.sdk.cli.Main challenge adminDeleteTiedChallenge \
     --challengeCode 'Do5sYadCCFrHHC3D' \
     --namespace "$AB_NAMESPACE" \
+    --safeDelete 'pZxkrQDXuNFviMar' \
     > test.out 2>&1
 eval_tap $? 18 'AdminDeleteTiedChallenge' test.out
 
 #- 19 AdminUpdateTiedChallengeSchedule
 ./ng net.accelbyte.sdk.cli.Main challenge adminUpdateTiedChallengeSchedule \
-    --challengeCode 'pZxkrQDXuNFviMar' \
+    --challengeCode 'v8mnfHK8CCmE2lPn' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"action": "STOP", "endDate": "1987-10-25T00:00:00Z"}' \
+    --body '{"action": "STOP", "endDate": "1988-01-09T00:00:00Z"}' \
     > test.out 2>&1
 eval_tap $? 19 'AdminUpdateTiedChallengeSchedule' test.out
 
@@ -216,14 +217,14 @@ eval_tap $? 20 'AdminGetAssignmentPlugin' test.out
 #- 21 AdminUpdateAssignmentPlugin
 ./ng net.accelbyte.sdk.cli.Main challenge adminUpdateAssignmentPlugin \
     --namespace "$AB_NAMESPACE" \
-    --body '{"appName": "mnfHK8CCmE2lPnsb", "extendType": "CUSTOM", "grpcServerAddress": "omM8sm1MiaI1mX2t"}' \
+    --body '{"appName": "pomM8sm1MiaI1mX2", "extendType": "CUSTOM", "grpcServerAddress": "ugBp3HBvepnDCjgy"}' \
     > test.out 2>&1
 eval_tap $? 21 'AdminUpdateAssignmentPlugin' test.out
 
 #- 22 AdminCreateAssignmentPlugin
 ./ng net.accelbyte.sdk.cli.Main challenge adminCreateAssignmentPlugin \
     --namespace "$AB_NAMESPACE" \
-    --body '{"appName": "JoARtdbBe7udsMro", "extendType": "APP", "grpcServerAddress": "lXe36mgWjLfFmteu"}' \
+    --body '{"appName": "JlXe36mgWjLfFmte", "extendType": "CUSTOM", "grpcServerAddress": "nGezKsDwG2omOR2n"}' \
     > test.out 2>&1
 eval_tap $? 22 'AdminCreateAssignmentPlugin' test.out
 
@@ -236,152 +237,152 @@ eval_tap $? 23 'AdminDeleteAssignmentPlugin' test.out
 #- 24 AdminEvaluateProgress
 ./ng net.accelbyte.sdk.cli.Main challenge adminEvaluateProgress \
     --namespace "$AB_NAMESPACE" \
-    --challengeCode 'e9nzJ6fH24T805tV,g8JqU0jZpjvsugAO,S7u8RiWyerCSa8SR' \
-    --includeOneTimeEvent 'gwsAj1ik1jglaDXT' \
-    --body '{"userIds": ["vKCWwNTAhd2wrS0u", "Pdjhdinpng5BLy8w", "bhMssAHjapIkY9Rf"]}' \
+    --challengeCode 'vYI9TVqJdvzcWbfU,paXp5JMl5LL4bTxB,mZjdrrIxsB0NRsB1' \
+    --includeOneTimeEvent 'fPqqRRulpqpymDkQ' \
+    --body '{"userIds": ["htrHWwRVnwVBOqOH", "i8pWGd1juYhiqjRJ", "OqB5F93zFQbJndUD"]}' \
     > test.out 2>&1
 eval_tap $? 24 'AdminEvaluateProgress' test.out
 
 #- 25 AdminClaimUsersRewards
 ./ng net.accelbyte.sdk.cli.Main challenge adminClaimUsersRewards \
     --namespace "$AB_NAMESPACE" \
-    --body '[{"rewardIds": ["4wP57dBZNR88YbCt", "mKy8M9zVrjfGXZnq", "AQUoY1GjlIIk0iKo"], "userId": "TTS1j02o7JjTXAQN"}, {"rewardIds": ["0qdskdQV0TqI8EFn", "mDbxIxi4YKlONk2Q", "5Y4JvaizwiilatuU"], "userId": "jjt9lIMGql5ElEa9"}, {"rewardIds": ["EIIlGcHB3CfR3ncD", "lwi3v3MFFJ1KesKo", "ELCpobBEG8X645xp"], "userId": "dXpai0rYaT5hOPja"}]' \
+    --body '[{"rewardIds": ["pdONneAczbBdHb2s", "lt71B1SmZp2JZp50", "CnPb71ORYcmQbTU5"], "userId": "JX8ccLjMXJRk0eaK"}, {"rewardIds": ["QDOJvrTefglSs6g4", "iY9u02aCNYIWekp1", "8lOC3mNqF7Bl0Lcg"], "userId": "hVHfPEspxwhRON0b"}, {"rewardIds": ["c1eMbEIjowLqc3ec", "jXJbZDKKoxLE1Y3D", "ymtj3giPg4x4yiPX"], "userId": "6ues1Hhhkg1yLVbL"}]' \
     > test.out 2>&1
 eval_tap $? 25 'AdminClaimUsersRewards' test.out
 
 #- 26 AdminClaimUserRewardsByGoalCode
 ./ng net.accelbyte.sdk.cli.Main challenge adminClaimUserRewardsByGoalCode \
-    --challengeCode 'f3H0tYighU0VUfcY' \
+    --challengeCode 'FzHEP8cM4NTwr0KH' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'HJbBfAKSiPW3VgsZ' \
-    --body '{"goalCode": "XiR1DJ7HVWqMkNSa"}' \
+    --userId 'aAsmTej52WKi6tAr' \
+    --body '{"goalCode": "AURt9plCSVq8PdH6"}' \
     > test.out 2>&1
 eval_tap $? 26 'AdminClaimUserRewardsByGoalCode' test.out
 
 #- 27 AdminGetUserProgression
 ./ng net.accelbyte.sdk.cli.Main challenge adminGetUserProgression \
-    --challengeCode 'wQUWDFJvJBWic7Uk' \
+    --challengeCode 'hJPUAc0RVwXgAgnt' \
     --namespace "$AB_NAMESPACE" \
-    --userId 'BeIXuqDuAXI66bQ7' \
-    --dateTime '1998-11-11T00:00:00Z' \
-    --goalCode 'w0deoV9Lx5RDA1l2' \
-    --limit '4' \
-    --offset '22' \
-    --tags 'rciYNEzvSZIPkhSg,ORcz5S5BvmgBLxh4,ijFnE3Tam69qSZ7P' \
+    --userId 'LMCuaXBWQi6BqPg4' \
+    --dateTime '1983-05-23T00:00:00Z' \
+    --goalCode 'XcrciYNEzvSZIPkh' \
+    --limit '91' \
+    --offset '12' \
+    --tags 'gORcz5S5BvmgBLxh,4ijFnE3Tam69qSZ7,PC6f6QkmZXElW9Yf' \
     > test.out 2>&1
 eval_tap $? 27 'AdminGetUserProgression' test.out
 
 #- 28 AdminGetUserRewards
 ./ng net.accelbyte.sdk.cli.Main challenge adminGetUserRewards \
     --namespace "$AB_NAMESPACE" \
-    --userId 'C6f6QkmZXElW9YfR' \
-    --challengeCode 'Sse6AAz3S4czz0QK' \
-    --goalProgressionId 'FlAVmVLu4AOec0z8' \
-    --limit '8' \
-    --offset '53' \
-    --sortBy 'updatedAt' \
-    --status 'CLAIMED' \
+    --userId 'RSse6AAz3S4czz0Q' \
+    --challengeCode 'KFlAVmVLu4AOec0z' \
+    --goalProgressionId '8eBeeoip68J1nsv4' \
+    --limit '100' \
+    --offset '12' \
+    --sortBy 'updatedAt:desc' \
+    --status 'UNCLAIMED' \
     > test.out 2>&1
 eval_tap $? 28 'AdminGetUserRewards' test.out
 
 #- 29 AdminClaimUserRewards
 ./ng net.accelbyte.sdk.cli.Main challenge adminClaimUserRewards \
     --namespace "$AB_NAMESPACE" \
-    --userId 'eeoip68J1nsv4W2O' \
-    --body '{"rewardIDs": ["JhtafxMSJlHeb34s", "ZKHcl5LLLOexL4fZ", "vWtND2tcBFpX8lNt"]}' \
+    --userId 'JhtafxMSJlHeb34s' \
+    --body '{"rewardIDs": ["ZKHcl5LLLOexL4fZ", "vWtND2tcBFpX8lNt", "FEJ7tnkY6Mca5afj"]}' \
     > test.out 2>&1
 eval_tap $? 29 'AdminClaimUserRewards' test.out
 
 #- 30 GetChallenges
 ./ng net.accelbyte.sdk.cli.Main challenge getChallenges \
     --namespace "$AB_NAMESPACE" \
-    --keyword 'FEJ7tnkY6Mca5afj' \
-    --limit '15' \
-    --offset '77' \
+    --keyword '12K2IzrBvvWm4udE' \
+    --limit '57' \
+    --offset '83' \
     --sortBy 'updatedAt:desc' \
     --status 'RETIRED' \
-    --tags 'IzrBvvWm4udE0OXu,dXgNne8kJATwlc6e,sUp6Sw1I98jeZQ7h' \
+    --tags '0TdlNBJYOmpu1VCa,rzBsV6xnZ5Jrzzjr,caug6CWVG8SWP3gl' \
     > test.out 2>&1
 eval_tap $? 30 'GetChallenges' test.out
 
 #- 31 PublicGetScheduledGoals
 ./ng net.accelbyte.sdk.cli.Main challenge publicGetScheduledGoals \
-    --challengeCode 'fxnhLd3Knaknoed9' \
+    --challengeCode 'U6muswVJnNnN7kAa' \
     --namespace "$AB_NAMESPACE" \
-    --limit '60' \
-    --offset '68' \
-    --sortBy 'createdAt:asc' \
-    --tags 'hLOqQGhCUr6iTrjy,EgarAdNJOIG36I6t,RbRcrEveMdAdiPKD' \
+    --limit '19' \
+    --offset '18' \
+    --sortBy 'updatedAt' \
+    --tags '0riFc5HTHQIoVsGo,7dwV9DBqFKHQkETJ,yTlUrwDTnoujQD4I' \
     > test.out 2>&1
 eval_tap $? 31 'PublicGetScheduledGoals' test.out
 
 #- 32 PublicListSchedulesByGoal
 ./ng net.accelbyte.sdk.cli.Main challenge publicListSchedulesByGoal \
-    --challengeCode 'UVSC00PYeDcaggin' \
-    --code 'xnFIna3yddcbsPhe' \
+    --challengeCode 'EiH9Z5qXn3aoRtlq' \
+    --code 'OECohViHA5CzgFSy' \
     --namespace "$AB_NAMESPACE" \
-    --limit '94' \
-    --offset '63' \
+    --limit '1' \
+    --offset '69' \
     > test.out 2>&1
 eval_tap $? 32 'PublicListSchedulesByGoal' test.out
 
 #- 33 PublicListSchedules
 ./ng net.accelbyte.sdk.cli.Main challenge publicListSchedules \
-    --challengeCode 'H26IUJNvYuGRUvpZ' \
+    --challengeCode 'A3PrIfapq5AAeMe4' \
     --namespace "$AB_NAMESPACE" \
-    --dateTime '1971-10-05T00:00:00Z' \
-    --limit '54' \
-    --offset '57' \
+    --dateTime '1990-04-11T00:00:00Z' \
+    --limit '39' \
+    --offset '26' \
     > test.out 2>&1
 eval_tap $? 33 'PublicListSchedules' test.out
 
 #- 34 PublicClaimUserRewardsByGoalCode
 ./ng net.accelbyte.sdk.cli.Main challenge publicClaimUserRewardsByGoalCode \
-    --challengeCode '3PrIfapq5AAeMe4L' \
+    --challengeCode 'gWgU4pCAKxeE70Ca' \
     --namespace "$AB_NAMESPACE" \
-    --body '{"goalCode": "3mDWORBVXTIIJM9X"}' \
+    --body '{"goalCode": "unQNxot371W9G4Av"}' \
     > test.out 2>&1
 eval_tap $? 34 'PublicClaimUserRewardsByGoalCode' test.out
 
 #- 35 EvaluateMyProgress
 ./ng net.accelbyte.sdk.cli.Main challenge evaluateMyProgress \
     --namespace "$AB_NAMESPACE" \
-    --challengeCode 'sYIIZxiXNMR9BgaW,cFX3SUBhyoTsMWPA,xUMkawaGpAyrIwMi' \
-    --includeOneTimeEvent 'f3BOdkocVTd4BxqG' \
+    --challengeCode 'QkqsGnmyo5JJTUVm,b8GEXFTlEMEsFzYq,wgK1Np5nodqpLm7F' \
+    --includeOneTimeEvent 'hJBNXzAFdO0Khqf6' \
     > test.out 2>&1
 eval_tap $? 35 'EvaluateMyProgress' test.out
 
 #- 36 PublicGetUserProgression
 ./ng net.accelbyte.sdk.cli.Main challenge publicGetUserProgression \
-    --challengeCode 'WV6mTJ0sQs6XNbjv' \
+    --challengeCode 'kiTdSGv2LFjAKY7C' \
     --namespace "$AB_NAMESPACE" \
-    --dateTime '1979-03-02T00:00:00Z' \
-    --goalCode 'kiTdSGv2LFjAKY7C' \
-    --limit '2' \
-    --offset '90' \
-    --tags 'gsWqFWZX7kPBom8F,9GLLTG8phc3n4iLo,IllKlpO2pqiXJF3W' \
+    --dateTime '1971-12-28T00:00:00Z' \
+    --goalCode 'gsWqFWZX7kPBom8F' \
+    --limit '6' \
+    --offset '66' \
+    --tags 'YT7DROCjtuzFMbAG,9YI89hmguB8FOTjM,Lo4b9rIzqYkEpsty' \
     > test.out 2>&1
 eval_tap $? 36 'PublicGetUserProgression' test.out
 
 #- 37 PublicGetPastUserProgression
 ./ng net.accelbyte.sdk.cli.Main challenge publicGetPastUserProgression \
-    --challengeCode 'GRaoQomSJC4DdrKF' \
-    --index '49' \
+    --challengeCode 'VTBcrM8rG0rH0zcs' \
+    --index '46' \
     --namespace "$AB_NAMESPACE" \
-    --goalCode 'SUQPLG59e0k5ZtX6' \
-    --limit '46' \
-    --offset '46' \
-    --tags 'K7PpUlcIW32iK7MG,t1ixY5rA1WoVeJIe,PF8ZrQzP4zvtdxdb' \
+    --goalCode 'K7PpUlcIW32iK7MG' \
+    --limit '39' \
+    --offset '45' \
+    --tags '1ixY5rA1WoVeJIeP,F8ZrQzP4zvtdxdbZ,Upd6FJtHJ1pyVwyK' \
     > test.out 2>&1
 eval_tap $? 37 'PublicGetPastUserProgression' test.out
 
 #- 38 PublicGetUserRewards
 ./ng net.accelbyte.sdk.cli.Main challenge publicGetUserRewards \
     --namespace "$AB_NAMESPACE" \
-    --challengeCode 'ZUpd6FJtHJ1pyVwy' \
-    --goalProgressionId 'KQLY6FEO65Rb3z7C' \
-    --limit '51' \
-    --offset '78' \
+    --challengeCode 'QLY6FEO65Rb3z7CY' \
+    --goalProgressionId 'LM8IlsHqffnrfsGl' \
+    --limit '11' \
+    --offset '85' \
     --sortBy 'updatedAt:asc' \
     --status 'CLAIMED' \
     > test.out 2>&1
@@ -390,7 +391,7 @@ eval_tap $? 38 'PublicGetUserRewards' test.out
 #- 39 PublicClaimUserRewards
 ./ng net.accelbyte.sdk.cli.Main challenge publicClaimUserRewards \
     --namespace "$AB_NAMESPACE" \
-    --body '{"rewardIDs": ["IlsHqffnrfsGlfPa", "ZKBwa3Ddb60ufPpz", "wj1QGIFmlVf4jvap"]}' \
+    --body '{"rewardIDs": ["ZgKg4uKxaCgcGLuC", "3brWdTYCfHkIySok", "5DiXZtLW87rGysry"]}' \
     > test.out 2>&1
 eval_tap $? 39 'PublicClaimUserRewards' test.out
 

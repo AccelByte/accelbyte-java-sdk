@@ -34,6 +34,7 @@ import picocli.CommandLine.Command;
       BulkCreatePSNEvent.class,
       AdminListTags.class,
       AdminListUserAchievements.class,
+      AdminBatchQueryUserAchievements.class,
       AdminBulkUnlockAchievement.class,
       AdminResetAchievement.class,
       AdminUnlockAchievement.class,

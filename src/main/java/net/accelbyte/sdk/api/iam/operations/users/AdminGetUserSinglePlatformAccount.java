@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetUserSinglePlatformAccount
  *
- * <p>This endpoint gets user single platform account metadata.
+ * <p>Gets user single platform account metadata.
  *
  * <p>**Supported Platforms:** - Steam group (steamnetwork): - steam - steamopenid - PSN group
  * (psn): - ps4web - ps4 - ps5 - XBOX group(xbox): - live - xblweb - Oculus group (oculusgroup): -

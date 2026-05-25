@@ -21,8 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetPublisherUser
  *
- * <p>## The endpoint is going to be deprecated ### Endpoint migration guide - **Substitute
- * endpoint: _/iam/v3/public/namespaces/{namespace}/users/{userId}/publisher [GET]_**
+ * <p>**This endpoint is deprecated.** ### Endpoint migration guide - **Substitute endpoint:
+ * _/iam/v3/public/namespaces/{namespace}/users/{userId}/publisher [GET]_**
  *
  * <p>**Restriction:** Path Parameter *namespace* can be provided only with game namespace
  *

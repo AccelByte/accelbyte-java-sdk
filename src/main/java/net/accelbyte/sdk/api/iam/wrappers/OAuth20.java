@@ -22,6 +22,16 @@ public class OAuth20 {
   }
 
   /**
+   * @see GetAuthorizationServerMetadataWithNamespace
+   */
+  public OauthcommonASMetadataResponse getAuthorizationServerMetadataWithNamespace(
+      GetAuthorizationServerMetadataWithNamespace input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminRetrieveUserThirdPartyPlatformTokenV3
    */
   public OauthmodelTokenThirdPartyResponse adminRetrieveUserThirdPartyPlatformTokenV3(
@@ -99,6 +109,16 @@ public class OAuth20 {
    * @see Verify2faCodeForward
    */
   public String verify2faCodeForward(Verify2faCodeForward input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see OAuthDynamicClientRegisterWithNamespaceV3
+   */
+  public OauthmodelClientRegisterResponse oAuthDynamicClientRegisterWithNamespaceV3(
+      OAuthDynamicClientRegisterWithNamespaceV3 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

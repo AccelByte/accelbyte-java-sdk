@@ -20,8 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminSendMyMFAEmailCodeV4
  *
- * <p>This endpoint is used to send email code. -------------- Supported actions: * ChangePassword *
- * DisableMFAEmail
+ * <p>Sends an MFA email code. -------------- Supported actions: * ChangePassword * DisableMFAEmail
  */
 @Getter
 @Setter

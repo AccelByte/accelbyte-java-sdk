@@ -20,10 +20,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * platformAuthenticateSAMLV3Handler
  *
- * <p>This endpoint authenticates user platform for SAML protocol. It validates user to its
- * respective platforms. Deactivated or login-banned users are unable to login. ## Supported
- * platforms: - **azure** Microsoft login page will redirects to this endpoint after login success
- * as previously defined on authentication request SAML
+ * <p>Authenticates user platform for SAML protocol. Validates user to its respective platforms.
+ * Deactivated or login-banned users are unable to login. ## Supported platforms: - **azure**
+ * Microsoft login page will redirect to this API after login success as previously defined on
+ * authentication request SAML
  */
 @Getter
 @Setter

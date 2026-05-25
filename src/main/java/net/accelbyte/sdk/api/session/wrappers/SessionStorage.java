@@ -108,4 +108,44 @@ public class SessionStorage {
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see PublicReplaceSessionStorageLeaderV2
+   */
+  public Map<String, ?> publicReplaceSessionStorageLeaderV2(
+      PublicReplaceSessionStorageLeaderV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicUpdateInsertSessionStorageLeaderV2
+   */
+  public Map<String, ?> publicUpdateInsertSessionStorageLeaderV2(
+      PublicUpdateInsertSessionStorageLeaderV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicReplaceSessionStorageUserV2
+   */
+  public Map<String, ?> publicReplaceSessionStorageUserV2(PublicReplaceSessionStorageUserV2 input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicUpdateInsertSessionStorageUserV2
+   */
+  public Map<String, ?> publicUpdateInsertSessionStorageUserV2(
+      PublicUpdateInsertSessionStorageUserV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }

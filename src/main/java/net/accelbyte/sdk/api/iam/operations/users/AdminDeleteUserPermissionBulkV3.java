@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDeleteUserPermissionBulkV3
  *
- * <p>Delete User Permission
+ * <p>Removes multiple permissions from a user in bulk.
  */
 @Getter
 @Setter

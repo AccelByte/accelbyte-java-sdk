@@ -21,14 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicInviteUserV4
  *
- * <p>This endpoint is used to invite a game studio admin user with new namespace in multi tenant
- * mode. It will return error if the service multi tenant mode is set to false.
- *
- * <p>Request body details: - emailAddress: email address of the user to be invited - namespace: new
- * namespace of the user to be created - namespaceDisplayName: display name of the new namespace -
- * additionalData(optional): for utm parameter data
- *
- * <p>The invited users will also be assigned with "User" role by default.
+ * <p>Invites a game studio admin user with a new namespace in multi tenant mode. Returns an error
+ * if the service multi tenant mode is set to false. The invited users will also be assigned with
+ * "User" role by default. See request body field descriptions for per-field details.
  */
 @Getter
 @Setter

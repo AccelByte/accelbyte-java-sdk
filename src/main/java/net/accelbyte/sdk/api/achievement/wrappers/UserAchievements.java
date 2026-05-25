@@ -33,6 +33,16 @@ public class UserAchievements {
   }
 
   /**
+   * @see AdminBatchQueryUserAchievements
+   */
+  public List<ModelsUserAchievementResponse> adminBatchQueryUserAchievements(
+      AdminBatchQueryUserAchievements input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminBulkUnlockAchievement
    */
   public List<ModelsBulkUnlockAchievementResponse> adminBulkUnlockAchievement(

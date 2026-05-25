@@ -24,7 +24,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * oldRetrieveAllPolicyTypes
  *
  * <p>Retrieve all supported policy types.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class OldRetrieveAllPolicyTypes extends Operation {

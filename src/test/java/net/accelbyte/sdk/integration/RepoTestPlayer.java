@@ -19,8 +19,7 @@ public class RepoTestPlayer implements TestPlayer {
 
   public RepoTestPlayer(ConfigRepository config) {
     this.tokenRepo = new DefaultTokenRepository();
-    this.sdk =
-        new AccelByteSDK(new AccelByteConfig(new OkhttpClient(), this.tokenRepo, config));
+    this.sdk = new AccelByteSDK(new AccelByteConfig(new OkhttpClient(), this.tokenRepo, config));
   }
 
   public boolean loginUser(String username, String password) throws Exception {

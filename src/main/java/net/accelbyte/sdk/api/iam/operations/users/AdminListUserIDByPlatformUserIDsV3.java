@@ -21,9 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminListUserIDByPlatformUserIDsV3
  *
- * <p>Admin List User ID By Platform User ID This endpoint intended to list game user ID from the
- * given namespace This endpoint return list of user ID by given platform ID and list of platform
- * user ID
+ * <p>Admin List User ID By Platform User ID Lists game user IDs from the given namespace by given
+ * platform ID and list of platform user ID.
  *
  * <p>Supported platform: - steam - steamopenid - ps4web - ps4 - ps5 - live - xblweb - oculus -
  * oculusweb - facebook - google - googleplaygames - twitch - discord - android - ios - apple -

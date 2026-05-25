@@ -150,7 +150,8 @@ public class AccelByteSDK {
           // Accept if:
           // 1. Exact match (e.g., token namespace == SDK namespace)
           // 2. Token is studio-level: tokenNamespace is "studio" and sdkNamespace is "studio-game"
-          // 3. SDK is studio-level validating a game-level token (sdkNamespace == tokenParentNamespace)
+          // 3. SDK is studio-level validating a game-level token (sdkNamespace ==
+          // tokenParentNamespace)
           final boolean namespaceMatch =
               sdkNamespace.equals(tokenNamespace)
                   || (!Strings.isNullOrEmpty(tokenNamespace)
@@ -196,13 +197,14 @@ public class AccelByteSDK {
     }
     String tokenNamespace = tokenPayload.getNamespace();
 
-    // [HIGH feedback: effectiveNamespace fallback scoped to validateToken(UserAuthContext,Permission) path;
-    // here we use the namespace as-is from authContext to preserve simple validateToken(String,String,int) behavior]
+    // [HIGH feedback: effectiveNamespace fallback scoped to
+    // validateToken(UserAuthContext,Permission) path;
+    // here we use the namespace as-is from authContext to preserve simple
+    // validateToken(String,String,int) behavior]
     String effectiveNamespace = authContext.getNamespace();
 
     String expandedResource =
-        expandResource(
-            permission.getResource(), effectiveNamespace, authContext.getUserId());
+        expandResource(permission.getResource(), effectiveNamespace, authContext.getUserId());
 
     List<Permission> originPermissions = tokenPayload.getPermissions();
 
@@ -214,7 +216,8 @@ public class AccelByteSDK {
     List<Role> namespaceRoles = tokenPayload.getNamespaceRoles();
 
     if (!Strings.isNullOrEmpty(claimsUserId) && !namespaceRoles.isEmpty()) {
-      // [CRITICAL feedback: null guard for rolePermissionsCache; if not initialized, skip namespace role check and fall through]
+      // [CRITICAL feedback: null guard for rolePermissionsCache; if not initialized, skip namespace
+      // role check and fall through]
       if (rolePermissionsCache == null) {
         log.warning("rolePermissionsCache not initialized; skipping namespace role check");
       } else {
@@ -240,7 +243,8 @@ public class AccelByteSDK {
           }
         }
         // [CRITICAL feedback: DO NOT return false here — fall through to claimRoles check
-        // so users with hybrid tokens (both namespaceRoles and roles) can still be validated via flat roles]
+        // so users with hybrid tokens (both namespaceRoles and roles) can still be validated via
+        // flat roles]
       }
     }
 
@@ -464,8 +468,8 @@ public class AccelByteSDK {
   }
 
   /**
-   * Constructor for testing: accepts a pre-built namespace context cache so tests can inject
-   * static namespace context data without network calls.
+   * Constructor for testing: accepts a pre-built namespace context cache so tests can inject static
+   * namespace context data without network calls.
    */
   protected AccelByteSDK(
       AccelByteConfig sdkConfiguration,
@@ -798,11 +802,12 @@ public class AccelByteSDK {
       if (Strings.isNullOrEmpty(authContext.getNamespace())) {
         String sdkNamespace = sdkConfiguration.getConfigRepository().getNamespace();
         if (!Strings.isNullOrEmpty(sdkNamespace)) {
-          authContext = UserAuthContext.builder()
-              .token(authContext.getToken())
-              .namespace(sdkNamespace)
-              .userId(authContext.getUserId())
-              .build();
+          authContext =
+              UserAuthContext.builder()
+                  .token(authContext.getToken())
+                  .namespace(sdkNamespace)
+                  .userId(authContext.getUserId())
+                  .build();
         }
       }
       final SignedJWT signedJWT = SignedJWT.parse(authContext.getToken());

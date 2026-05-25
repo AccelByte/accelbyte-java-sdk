@@ -24,7 +24,9 @@ public class BaseLegalPolicies {
 
   /**
    * @see RetrieveAllLegalPolicies
+   * @deprecated
    */
+  @Deprecated
   public List<RetrieveBasePolicyResponse> retrieveAllLegalPolicies(RetrieveAllLegalPolicies input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -34,7 +36,9 @@ public class BaseLegalPolicies {
 
   /**
    * @see OldCreatePolicy
+   * @deprecated
    */
+  @Deprecated
   public CreateBasePolicyResponse oldCreatePolicy(OldCreatePolicy input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
@@ -43,7 +47,9 @@ public class BaseLegalPolicies {
 
   /**
    * @see OldRetrieveSinglePolicy
+   * @deprecated
    */
+  @Deprecated
   public RetrieveBasePolicyResponse oldRetrieveSinglePolicy(OldRetrieveSinglePolicy input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -53,7 +59,9 @@ public class BaseLegalPolicies {
 
   /**
    * @see OldPartialUpdatePolicy
+   * @deprecated
    */
+  @Deprecated
   public UpdateBasePolicyResponse oldPartialUpdatePolicy(OldPartialUpdatePolicy input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -63,7 +71,9 @@ public class BaseLegalPolicies {
 
   /**
    * @see OldRetrievePolicyCountry
+   * @deprecated
    */
+  @Deprecated
   public RetrievePolicyResponse oldRetrievePolicyCountry(OldRetrievePolicyCountry input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -73,7 +83,9 @@ public class BaseLegalPolicies {
 
   /**
    * @see OldRetrieveAllPolicyTypes
+   * @deprecated
    */
+  @Deprecated
   public List<RetrievePolicyTypeResponse> oldRetrieveAllPolicyTypes(OldRetrieveAllPolicyTypes input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);

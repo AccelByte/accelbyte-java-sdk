@@ -25,6 +25,9 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApimodelNoSQLDatabaseResponse extends Model {
 
+  @JsonProperty("acceptNosqlSecureCredentialHandling")
+  private Boolean acceptNosqlSecureCredentialHandling;
+
   @JsonProperty("appId")
   private String appId;
 

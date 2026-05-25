@@ -21,8 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetRole
  *
- * <p>## The endpoint is going to be deprecated ### Endpoint migration guide - **Substitute
- * endpoint: _/iam/v3/admin/roles/{roleId} [GET]_**
+ * <p>**This endpoint is deprecated.** ### Endpoint migration guide - **Substitute endpoint:
+ * _/iam/v3/admin/roles/{roleId} [GET]_**
  *
  * @deprecated
  */

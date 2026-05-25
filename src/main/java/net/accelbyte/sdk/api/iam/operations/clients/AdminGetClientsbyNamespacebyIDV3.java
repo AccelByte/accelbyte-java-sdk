@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetClientsbyNamespacebyIDV3
  *
- * <p>action code: 10309
+ * <p>Retrieves an OAuth client by namespace and client ID. In multi-tenant mode, the admin portal
+ * client is accessible regardless of the namespace path.
  */
 @Getter
 @Setter

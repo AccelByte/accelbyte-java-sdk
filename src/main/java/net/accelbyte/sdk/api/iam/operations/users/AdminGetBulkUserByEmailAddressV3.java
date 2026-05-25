@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetBulkUserByEmailAddressV3
  *
- * <p>This endpoint search user by the list of email addresses action code : 10132
+ * <p>Searches users by the list of email addresses.
  */
 @Getter
 @Setter

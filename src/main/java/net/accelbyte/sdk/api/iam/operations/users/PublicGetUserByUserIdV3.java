@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicGetUserByUserIdV3
  *
- * <p>This endpoint retrieve user attributes. action code: 10129 **Substitute endpoint:**
+ * <p>Retrieves user attributes. **Substitute endpoint:**
  * /v4/public/namespaces/{namespace}/users/{userId} [GET]
  *
  * @deprecated

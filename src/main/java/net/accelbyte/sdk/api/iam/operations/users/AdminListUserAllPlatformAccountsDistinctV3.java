@@ -21,8 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminListUserAllPlatformAccountsDistinctV3
  *
- * <p>This endpoint retrieves platform accounts linked to user. It will query all linked platform
- * accounts and result will be distinct & grouped, same platform we will pick oldest linked one.
+ * <p>Retrieves platform accounts linked to user. It will query all linked platform accounts and
+ * result will be distinct & grouped, same platform we will pick oldest linked one.
  */
 @Getter
 @Setter

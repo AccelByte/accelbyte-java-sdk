@@ -49,6 +49,10 @@ public class ApimodelsCreatePartyRequest extends Model {
   @JsonProperty("minPlayers")
   private Integer minPlayers;
 
+  @JsonProperty("password")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String password;
+
   @JsonProperty("textChat")
   private Boolean textChat;
 

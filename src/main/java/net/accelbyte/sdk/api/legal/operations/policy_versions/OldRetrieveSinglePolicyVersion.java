@@ -25,7 +25,10 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Retrieve a version of a particular country specific policy. If version is not provided, the
  * Legal Service will assume caller requesting all versions from country-specific policy.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class OldRetrieveSinglePolicyVersion extends Operation {

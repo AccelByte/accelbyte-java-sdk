@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicGetRoleV3
  *
- * <p>This endpoint is used to get non-admin role based on specify roleId. action code : 10417
+ * <p>Returns a non-admin role based on the specified roleId.
  */
 @Getter
 @Setter

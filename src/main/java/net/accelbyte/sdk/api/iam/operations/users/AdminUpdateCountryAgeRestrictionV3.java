@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateCountryAgeRestrictionV3
  *
- * <p>action code: 10123
+ * <p>Updates the age restriction setting for the specified country.
  */
 @Getter
 @Setter

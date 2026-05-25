@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicGetMyRedirectionAfterLinkV3
  *
- * <p>Get my redirect uri after link, this endpoint will return NotFound(404) if redirect uri is not
- * found
+ * <p>Returns the redirect URI after link. Returns NotFound(404) if redirect URI is not found.
  */
 @Getter
 @Setter

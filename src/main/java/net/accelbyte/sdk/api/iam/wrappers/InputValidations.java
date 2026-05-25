@@ -23,7 +23,9 @@ public class InputValidations {
 
   /**
    * @see AdminGetInputValidations
+   * @deprecated
    */
+  @Deprecated
   public ModelInputValidationsResponse adminGetInputValidations(AdminGetInputValidations input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -33,7 +35,9 @@ public class InputValidations {
 
   /**
    * @see AdminUpdateInputValidations
+   * @deprecated
    */
+  @Deprecated
   public void adminUpdateInputValidations(AdminUpdateInputValidations input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
@@ -42,7 +46,9 @@ public class InputValidations {
 
   /**
    * @see AdminResetInputValidations
+   * @deprecated
    */
+  @Deprecated
   public void adminResetInputValidations(AdminResetInputValidations input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
@@ -50,8 +56,40 @@ public class InputValidations {
   }
 
   /**
-   * @see PublicGetInputValidations
+   * @see AdminGetNamespaceScopedInputValidations
    */
+  public ModelInputValidationsResponse adminGetNamespaceScopedInputValidations(
+      AdminGetNamespaceScopedInputValidations input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminUpdateNamespaceScopedInputValidations
+   */
+  public void adminUpdateNamespaceScopedInputValidations(
+      AdminUpdateNamespaceScopedInputValidations input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminResetNamespaceScopedInputValidations
+   */
+  public void adminResetNamespaceScopedInputValidations(
+      AdminResetNamespaceScopedInputValidations input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicGetInputValidations
+   * @deprecated
+   */
+  @Deprecated
   public ModelInputValidationsPublicResponse publicGetInputValidations(
       PublicGetInputValidations input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -61,9 +99,31 @@ public class InputValidations {
 
   /**
    * @see PublicGetInputValidationByField
+   * @deprecated
    */
+  @Deprecated
   public ModelInputValidationConfigVersion publicGetInputValidationByField(
       PublicGetInputValidationByField input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicGetNamespaceScopedInputValidations
+   */
+  public ModelInputValidationsPublicResponse publicGetNamespaceScopedInputValidations(
+      PublicGetNamespaceScopedInputValidations input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicGetNamespaceScopedInputValidationByField
+   */
+  public ModelInputValidationConfigVersion publicGetNamespaceScopedInputValidationByField(
+      PublicGetNamespaceScopedInputValidationByField input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

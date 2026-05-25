@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>New role will be appended to user's current roles. An admin user can only assign role with
  * **assignedNamespaces** if the admin user has required permission which is same as the required
- * permission of this endpoint.
+ * permission of this API.
  */
 @Getter
 @Setter

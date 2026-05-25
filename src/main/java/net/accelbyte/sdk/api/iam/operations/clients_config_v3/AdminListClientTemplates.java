@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminListClientTemplates
  *
- * <p>List client templates
+ * <p>Lists all available client templates.
  */
 @Getter
 @Setter

@@ -1,5 +1,12 @@
 ## Java Extend SDK CLI Sample App Operation Index for Iam service
 
+### Operation GetAuthorizationServerMetadataWithNamespace
+
+```sh
+$ build/install/cli/bin/cli iam getAuthorizationServerMetadataWithNamespace \
+    --namespace <namespace value>
+```
+
 ### Operation AdminGetBansTypeV3
 
 ```sh
@@ -35,30 +42,17 @@ $ build/install/cli/bin/cli iam adminDeleteConfigPermissionsByGroup \
     --body <json string for request body>
 ```
 
+### Operation AdminUpdateModulePackage
+
+```sh
+$ build/install/cli/bin/cli iam adminUpdateModulePackage \
+    --body <json string for request body>
+```
+
 ### Operation AdminListClientTemplates
 
 ```sh
 $ build/install/cli/bin/cli iam adminListClientTemplates
-```
-
-### Operation AdminGetInputValidations
-
-```sh
-$ build/install/cli/bin/cli iam adminGetInputValidations
-```
-
-### Operation AdminUpdateInputValidations
-
-```sh
-$ build/install/cli/bin/cli iam adminUpdateInputValidations \
-    --body <json string for request body>
-```
-
-### Operation AdminResetInputValidations
-
-```sh
-$ build/install/cli/bin/cli iam adminResetInputValidations \
-    --field <field value>
 ```
 
 ### Operation ListAdminsV3
@@ -251,6 +245,29 @@ $ build/install/cli/bin/cli iam adminGetCountryBlacklistV3 \
 $ build/install/cli/bin/cli iam adminAddCountryBlacklistV3 \
     --namespace <namespace value> \
     --body <json string for request body>
+```
+
+### Operation AdminGetNamespaceScopedInputValidations
+
+```sh
+$ build/install/cli/bin/cli iam adminGetNamespaceScopedInputValidations \
+    --namespace <namespace value>
+```
+
+### Operation AdminUpdateNamespaceScopedInputValidations
+
+```sh
+$ build/install/cli/bin/cli iam adminUpdateNamespaceScopedInputValidations \
+    --namespace <namespace value> \
+    --body <json string for request body>
+```
+
+### Operation AdminResetNamespaceScopedInputValidations
+
+```sh
+$ build/install/cli/bin/cli iam adminResetNamespaceScopedInputValidations \
+    --field <field value> \
+    --namespace <namespace value>
 ```
 
 ### Operation AdminGetLoginAllowlistV3
@@ -916,15 +933,6 @@ $ build/install/cli/bin/cli iam adminGetUserSinglePlatformAccount \
     --crossNamespace <crossNamespace value - optional>
 ```
 
-### Operation AdminDeleteUserRolesV3
-
-```sh
-$ build/install/cli/bin/cli iam adminDeleteUserRolesV3 \
-    --namespace <namespace value> \
-    --userId <userId value> \
-    --body <json string for request body>
-```
-
 ### Operation AdminSaveUserRoleV3
 
 ```sh
@@ -932,24 +940,6 @@ $ build/install/cli/bin/cli iam adminSaveUserRoleV3 \
     --namespace <namespace value> \
     --userId <userId value> \
     --body <json string for request body>
-```
-
-### Operation AdminAddUserRoleV3
-
-```sh
-$ build/install/cli/bin/cli iam adminAddUserRoleV3 \
-    --namespace <namespace value> \
-    --roleId <roleId value> \
-    --userId <userId value>
-```
-
-### Operation AdminDeleteUserRoleV3
-
-```sh
-$ build/install/cli/bin/cli iam adminDeleteUserRoleV3 \
-    --namespace <namespace value> \
-    --roleId <roleId value> \
-    --userId <userId value>
 ```
 
 ### Operation AdminGetUserStateByUserIdV3
@@ -999,6 +989,13 @@ $ build/install/cli/bin/cli iam adminUpdateClientSecretV3 \
 
 ```sh
 $ build/install/cli/bin/cli iam adminCheckThirdPartyLoginPlatformAvailabilityV3 \
+    --platformId <platformId value>
+```
+
+### Operation GetThirdPartyLoginPlatformDefaultsV3
+
+```sh
+$ build/install/cli/bin/cli iam getThirdPartyLoginPlatformDefaultsV3 \
     --platformId <platformId value>
 ```
 
@@ -1334,6 +1331,14 @@ $ build/install/cli/bin/cli iam verify2faCodeForward \
     --mfaToken <mfaToken value>
 ```
 
+### Operation OAuthDynamicClientRegisterWithNamespaceV3
+
+```sh
+$ build/install/cli/bin/cli iam oAuthDynamicClientRegisterWithNamespaceV3 \
+    --namespace <namespace value> \
+    --body <json string for request body>
+```
+
 ### Operation RetrieveUserThirdPartyPlatformTokenV3
 
 ```sh
@@ -1445,21 +1450,6 @@ $ build/install/cli/bin/cli iam platformTokenRefreshV3 \
     --platformToken <platform_token value>
 ```
 
-### Operation PublicGetInputValidations
-
-```sh
-$ build/install/cli/bin/cli iam publicGetInputValidations \
-    --defaultOnEmpty <defaultOnEmpty value - optional> \
-    --languageCode <languageCode value - optional>
-```
-
-### Operation PublicGetInputValidationByField
-
-```sh
-$ build/install/cli/bin/cli iam publicGetInputValidationByField \
-    --field <field value>
-```
-
 ### Operation PublicGetCountryAgeRestrictionV3
 
 ```sh
@@ -1480,6 +1470,23 @@ $ build/install/cli/bin/cli iam publicGetConfigValueV3 \
 
 ```sh
 $ build/install/cli/bin/cli iam publicGetCountryListV3 \
+    --namespace <namespace value>
+```
+
+### Operation PublicGetNamespaceScopedInputValidations
+
+```sh
+$ build/install/cli/bin/cli iam publicGetNamespaceScopedInputValidations \
+    --namespace <namespace value> \
+    --defaultOnEmpty <defaultOnEmpty value - optional> \
+    --languageCode <languageCode value - optional>
+```
+
+### Operation PublicGetNamespaceScopedInputValidationByField
+
+```sh
+$ build/install/cli/bin/cli iam publicGetNamespaceScopedInputValidationByField \
+    --field <field value> \
     --namespace <namespace value>
 ```
 
@@ -1787,15 +1794,6 @@ $ build/install/cli/bin/cli iam publicGetUserPlatformAccountsV3 \
 $ build/install/cli/bin/cli iam publicListJusticePlatformAccountsV3 \
     --namespace <namespace value> \
     --userId <userId value>
-```
-
-### Operation PublicLinkPlatformAccount
-
-```sh
-$ build/install/cli/bin/cli iam publicLinkPlatformAccount \
-    --namespace <namespace value> \
-    --userId <userId value> \
-    --body <json string for request body>
 ```
 
 ### Operation PublicForceLinkPlatformWithProgression

@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetMyEnabledFactorsV4
  *
- * <p>This endpoint is used to get user enabled factors.
+ * <p>Returns all enabled 2FA factors for the user.
  */
 @Getter
 @Setter

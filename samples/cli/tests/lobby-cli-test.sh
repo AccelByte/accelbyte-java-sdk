@@ -198,7 +198,7 @@ eval_tap $? 21 'AdminGetConfigV1' test.out
 #- 22 AdminUpdateConfigV1
 ./ng net.accelbyte.sdk.cli.Main lobby adminUpdateConfigV1 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"allowInviteNonConnectedUser": false, "allowJoinPartyDuringMatchmaking": true, "autoKickOnDisconnect": false, "autoKickOnDisconnectDelay": 59, "cancelTicketOnDisconnect": true, "chatRateLimitBurst": 54, "chatRateLimitDuration": 82, "concurrentUsersLimit": 22, "disableInvitationOnJoinParty": false, "enableChat": true, "entitlementCheck": false, "entitlementItemID": "uZAAiE0mit9RGCCH", "generalRateLimitBurst": 29, "generalRateLimitDuration": 52, "keepPresenceActivityOnDisconnect": true, "maxDSWaitTime": 96, "maxFriendsLimit": 45, "maxPartyMember": 83, "profanityFilter": false, "readyConsentTimeout": 49, "requestMetadataMaxSize": 62, "unregisterDelay": 52}' \
+    --body '{"allowInviteNonConnectedUser": false, "allowJoinPartyDuringMatchmaking": true, "autoKickOnDisconnect": false, "autoKickOnDisconnectDelay": 59, "cancelTicketOnDisconnect": true, "chatRateLimitBurst": 54, "chatRateLimitDuration": 82, "concurrentUsersLimit": 22, "disableInvitationOnJoinParty": false, "enableChat": true, "entitlementCheck": false, "entitlementItemID": "uZAAiE0mit9RGCCH", "generalRateLimitBurst": 29, "generalRateLimitDuration": 52, "keepPresenceActivityOnDisconnect": true, "maxDSWaitTime": 96, "maxFriendsLimit": 45, "maxPartyMember": 83, "profanityFilter": false, "readyConsentTimeout": 49, "requestMetadataMaxSize": 62, "unregisterDelay": 52, "wsReadTimeout": 6}' \
     > test.out 2>&1
 eval_tap $? 22 'AdminUpdateConfigV1' test.out
 
@@ -218,19 +218,19 @@ eval_tap $? 24 'AdminImportConfigV1' test.out
 #- 25 GetListOfFriends
 ./ng net.accelbyte.sdk.cli.Main lobby getListOfFriends \
     --namespace "$AB_NAMESPACE" \
-    --userId 'dscKHPEqgA8yu7Vk' \
-    --friendId '6Jt4Ymos9Jcdos4f' \
-    --friendIds 'YcTVU6RBt0zYoMcH,yCUEXlAvxJMdalwS,yliWMNW5NyLu0M3V' \
-    --limit '68' \
-    --offset '19' \
+    --userId 'zWi9gwQYv7t1o7TT' \
+    --friendId 'r1DmrhZv15T7quIO' \
+    --friendIds 'vBMcaYmvCkGZ5dAg,qxpBFmaLoxozr6wf,NPX2bOItRMvqtlB2' \
+    --limit '19' \
+    --offset '16' \
     > test.out 2>&1
 eval_tap $? 25 'GetListOfFriends' test.out
 
 #- 26 GetIncomingFriendRequests
 ./ng net.accelbyte.sdk.cli.Main lobby getIncomingFriendRequests \
     --namespace "$AB_NAMESPACE" \
-    --userId 'h2EI8JlDbPWbQ6Q9' \
-    --friendId 'lNmqRBaAkLnvxkT1' \
+    --userId 'JCSQT279ZZPYGu0r' \
+    --friendId 'dlgdWyOtXi3choQr' \
     --limit '31' \
     --offset '84' \
     > test.out 2>&1

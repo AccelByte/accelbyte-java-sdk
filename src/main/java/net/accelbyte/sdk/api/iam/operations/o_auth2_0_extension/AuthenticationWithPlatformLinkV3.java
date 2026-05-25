@@ -21,17 +21,18 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AuthenticationWithPlatformLinkV3
  *
- * <p>This endpoint is being used to authenticate a user account and perform platform link. It
- * validates user's email / username and password. If user already enable 2FA, then invoke
- * _/mfa/verify_ using **mfa_token** from this endpoint response.
+ * <p>Authenticates a user account and performs platform linking. Validates user's email / username
+ * and password. If user already enabled 2FA, invoke _/mfa/verify_ using **mfa_token** from the
+ * response.
  *
- * <p>## Device Cookie Validation
+ * <p>## Device Cookie Validation Device Cookie is used to protect the user account from brute force
+ * login attack, [more detail from
+ * OWASP](https://owasp.org/www-community/Slow_Down_Online_Guessing_Attacks_with_Device_Cookies). It
+ * will read the device cookie from cookie **auth-trust-id**. If device cookie not found, it will
+ * generate a new one and sets it into the cookie on successful authentication.
  *
- * <p>Device Cookie is used to protect the user account from brute force login attack, [more detail
- * from
- * OWASP](https://owasp.org/www-community/Slow_Down_Online_Guessing_Attacks_with_Device_Cookies).
- * This endpoint will read device cookie from cookie **auth-trust-id**. If device cookie not found,
- * it will generate a new one and set it into cookie when successfully authenticate.
+ * <p>## Login Queue When the Login Queue is enabled and at capacity, this API returns a 401
+ * Unauthorized response, with the queue ticket included in the response body.
  */
 @Getter
 @Setter

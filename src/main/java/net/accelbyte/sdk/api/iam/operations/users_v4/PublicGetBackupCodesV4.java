@@ -20,8 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicGetBackupCodesV4
  *
- * <p>This endpoint is used to get existing 8-digits backup codes. Each codes is a one-time code and
- * will be deleted once used. The codes will be sent through linked email.
+ * <p>Returns existing 8-digit backup codes. Each code is a one-time code and will be deleted once
+ * used. The codes will be sent through linked email.
  */
 @Getter
 @Setter

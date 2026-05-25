@@ -20,9 +20,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminEnableMyAuthenticatorV4
  *
- * <p>This endpoint is used to enable 2FA authenticator. ---------- Prerequisites: - Generate the
- * secret key/QR code uri by **_/iam/v4/admin/users/me/mfa/authenticator/key_** - Consume the secret
- * key/QR code by an authenticator app - Get the code from the authenticator app
+ * <p>Enables 2FA authenticator. ---------- Prerequisites: - Generate the secret key/QR code uri by
+ * **_/iam/v4/admin/users/me/mfa/authenticator/key_** - Consume the secret key/QR code by an
+ * authenticator app - Get the code from the authenticator app
  */
 @Getter
 @Setter

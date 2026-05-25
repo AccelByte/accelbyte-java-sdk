@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * TokenGrant
  *
- * <p>## The endpoint is going to be deprecated
+ * <p>**This endpoint is deprecated.**
  *
  * <p>### Endpoint migration guide
  *
@@ -29,18 +29,18 @@ import net.accelbyte.sdk.core.util.Helper;
  * format differenceï¼Pascal case => Camel case): permissions field from Action => action, Resource
  * => resource
  *
- * <p>This endpoint requires all requests to have `Authorization` header set with `Basic` access
- * authentication constructed from client id and client secret.
+ * <p>Requires all requests to have `Authorization` header set with `Basic` access authentication
+ * constructed from client id and client secret.
  *
- * <p>This endpoint supports different **grant types**:
+ * <p>Supports different **grant types**:
  *
- * <p>1. Grant Type == `client_credentials`: This endpoint will check the client credentials
- * provided through Authorization header. 2. Grant Type == `password`: The grant type to use for
- * authenticating a user, whether it's by email / username and password combination or through
- * platform. 3. Grant Type == `refresh_token`: Used to get a new access token for a valid refresh
- * token. 4. Grant Type == `authorization_code`: It generates the user token by given the
- * authorization code which generated in "/authorize" API response. It should also pass in the
- * redirect_uri, which should be the same as generating the authorization code request.
+ * <p>1. Grant Type == `client_credentials`: Checks the client credentials provided through
+ * Authorization header. 2. Grant Type == `password`: The grant type to use for authenticating a
+ * user, whether it's by email / username and password combination or through platform. 3. Grant
+ * Type == `refresh_token`: Used to get a new access token for a valid refresh token. 4. Grant Type
+ * == `authorization_code`: It generates the user token by given the authorization code which
+ * generated in "/authorize" API response. It should also pass in the redirect_uri, which should be
+ * the same as generating the authorization code request.
  *
  * <p>For platform authentication, use grant type `password`. The `username` field would be in form
  * of `platform:`, for example `platform:steam` for Steam. For the `password` field, set it to the
@@ -82,10 +82,9 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>## Track Login History
  *
- * <p>This endpoint will track login history to detect suspicious login activity, please provide
- * "device_id" (alphanumeric) in request header parameter otherwise we will set to "unknown". Align
- * with General Data Protection Regulation in Europe, user login history will be kept within 28 days
- * by default"
+ * <p>Tracks login history to detect suspicious login activity, please provide "device_id"
+ * (alphanumeric) in request header parameter otherwise we will set to "unknown". Align with General
+ * Data Protection Regulation in Europe, user login history will be kept within 28 days by default"
  *
  * @deprecated
  */

@@ -93,6 +93,8 @@ import picocli.CommandLine.Command;
       PublicPromoteGameSessionLeader.class,
       LeaveGameSession.class,
       PublicKickGameSessionMember.class,
+      PublicGetGameSessionPassword.class,
+      PublicUpdateGameSessionPassword.class,
       PublicGameSessionReject.class,
       GetSessionServerSecret.class,
       AppendTeamGameSession.class,
@@ -105,6 +107,8 @@ import picocli.CommandLine.Command;
       PublicRevokePartyCode.class,
       PublicPartyInvite.class,
       PublicPromotePartyLeader.class,
+      PublicGetPartyPassword.class,
+      PublicUpdatePartyPassword.class,
       PublicReadPartySessionStorage.class,
       PublicUpdateInsertPartySessionStorage.class,
       PublicUpdateInsertPartySessionStorageReserved.class,
@@ -124,6 +128,10 @@ import picocli.CommandLine.Command;
       PublicDeletePlayerAttributes.class,
       PublicQueryMyGameSessions.class,
       PublicQueryMyParties.class,
+      PublicReplaceSessionStorageLeaderV2.class,
+      PublicUpdateInsertSessionStorageLeaderV2.class,
+      PublicReplaceSessionStorageUserV2.class,
+      PublicUpdateInsertSessionStorageUserV2.class,
     })
 public class Session implements Runnable {
 

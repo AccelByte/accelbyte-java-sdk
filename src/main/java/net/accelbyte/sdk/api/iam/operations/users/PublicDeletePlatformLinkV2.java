@@ -20,10 +20,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicDeletePlatformLinkV2
  *
- * <p>## The endpoint is going to be deprecated **Endpoint migration guide** - **Substitute
- * endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId} [DELETE]_** -
- * **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}/all
- * [DELETE]_**
+ * <p>**This endpoint is deprecated.** **Endpoint migration guide** - **Substitute endpoint:
+ * _/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId} [DELETE]_** - **Substitute
+ * endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}/all [DELETE]_**
  *
  * <p>## Supported platforms: - **steam** - **steamopenid** - **facebook** - **google** - **oculus**
  * - **twitch** - **android** - **ios** - **device** - **discord**

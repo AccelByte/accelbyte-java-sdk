@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * oldUpdatePolicy
  *
  * <p>Update country-specific and country-group policy.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class OldUpdatePolicy extends Operation {

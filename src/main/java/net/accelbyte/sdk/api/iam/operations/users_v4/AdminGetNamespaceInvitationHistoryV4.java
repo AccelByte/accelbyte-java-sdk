@@ -21,8 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetNamespaceInvitationHistoryV4
  *
- * <p>This endpoint is to Invitation Historiy for specific new studio namespace in multi tenant
- * mode. It will return error if the service multi tenant mode is set to false.
+ * <p>Retrieves the invitation history for a specific studio namespace in multi-tenant mode.
+ *
+ * <p>Returns an error if the service multi-tenant mode is set to false.
  */
 @Getter
 @Setter

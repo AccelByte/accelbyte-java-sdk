@@ -24,7 +24,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * oldRetrieveAcceptedAgreements
  *
  * <p>This API will return all accepted Legal Agreements for specified user
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class OldRetrieveAcceptedAgreements extends Operation {

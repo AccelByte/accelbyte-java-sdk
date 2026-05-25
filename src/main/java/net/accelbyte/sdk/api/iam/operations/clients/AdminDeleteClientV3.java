@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDeleteClientV3
  *
- * <p>action code : 10310
+ * <p>Deletes the specified OAuth client.
  */
 @Getter
 @Setter

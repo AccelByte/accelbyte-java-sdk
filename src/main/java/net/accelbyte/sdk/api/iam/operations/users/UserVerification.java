@@ -21,8 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UserVerification
  *
- * <p>## The endpoint is going to be deprecated ### Endpoint migration guide - **Substitute
- * endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/code/verify [POST]_**
+ * <p>**This endpoint is deprecated.** ### Endpoint migration guide - **Substitute endpoint:
+ * _/iam/v3/public/namespaces/{namespace}/users/me/code/verify [POST]_**
  *
  * <p>Redeems a verification code sent to a user to verify the user's contact address is correct
  * Available ContactType : *email* or *phone*

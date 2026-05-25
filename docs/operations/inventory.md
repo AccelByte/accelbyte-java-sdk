@@ -7,7 +7,7 @@
 ### Admin Chaining Operations Wrapper:  [AdminChainingOperations](../../src/main/java/net/accelbyte/sdk/api/inventory/wrappers/AdminChainingOperations.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
-| `/inventory/v1/admin/namespaces/{namespace}/chainingOperations` | POST | AdminCreateChainingOperations | [AdminCreateChainingOperations](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/admin_chaining_operations/AdminCreateChainingOperations.java) | [AdminCreateChainingOperations](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/admin_chaining_operations/AdminCreateChainingOperations.java) |
+| [DEPRECATED] `/inventory/v1/admin/namespaces/{namespace}/chainingOperations` | POST | AdminCreateChainingOperations | [AdminCreateChainingOperations](../../src/main/java/net/accelbyte/sdk/api/inventory/operations/admin_chaining_operations/AdminCreateChainingOperations.java) | [AdminCreateChainingOperations](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/inventory/admin_chaining_operations/AdminCreateChainingOperations.java) |
 
 ### Admin Integration Configurations Wrapper:  [AdminIntegrationConfigurations](../../src/main/java/net/accelbyte/sdk/api/inventory/wrappers/AdminIntegrationConfigurations.java)
 | Endpoint | Method | ID | Class | Example |

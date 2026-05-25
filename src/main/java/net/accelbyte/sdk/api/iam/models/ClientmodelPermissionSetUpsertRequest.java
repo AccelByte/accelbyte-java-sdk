@@ -37,6 +37,9 @@ public class ClientmodelPermissionSetUpsertRequest extends Model {
   @JsonProperty("moduleId")
   private String moduleId;
 
+  @JsonProperty("package")
+  private String package_;
+
   @JsonIgnore
   public ClientmodelPermissionSetUpsertRequest createFromJson(String json)
       throws JsonProcessingException {

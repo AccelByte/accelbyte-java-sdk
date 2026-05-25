@@ -21,9 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * RequestTargetTokenResponseV3
  *
- * <p>This endpoint is being used to generate target token. It requires basic header with ClientID
- * and Secret, it should match the ClientID when call `/iam/v3/namespace/{namespace}/token/request`
- * The code should be generated from `/iam/v3/namespace/{namespace}/token/request`.
+ * <p>Generates the target token. It requires basic header with ClientID and Secret, it should match
+ * the ClientID when call `/iam/v3/namespace/{namespace}/token/request [POST]` The code should be
+ * generated from `/iam/v3/namespace/{namespace}/token/request [POST]`.
  */
 @Getter
 @Setter

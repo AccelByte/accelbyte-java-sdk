@@ -21,11 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicSearchUserV3
  *
- * <p>This endpoint search all users on the specified namespace that match the query on these
- * fields: display name, unique display name, username or by 3rd party display name. The query
- * length must be between 3 and 30 characters. For email address queries (i.e. contains '@'), the
- * allowed length is 3 to 40 characters. Otherwise, the database will not be queried. The default
- * limit value is 20.
+ * <p>Searches all users on the specified namespace that match the query on these fields: display
+ * name, unique display name, username or by 3rd party display name. The query length must be
+ * between 3 and 30 characters. For email address queries (i.e. contains '@'), the allowed length is
+ * 3 to 40 characters. Otherwise, the database will not be queried. The default limit value is 20.
  *
  * <p>## Searching by 3rd party platform
  *

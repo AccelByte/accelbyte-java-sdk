@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminResetPasswordV3
  *
- * <p>Update User Password
+ * <p>Updates the password for the specified user. This is an admin operation that does not require
+ * the user's current password.
  */
 @Getter
 @Setter

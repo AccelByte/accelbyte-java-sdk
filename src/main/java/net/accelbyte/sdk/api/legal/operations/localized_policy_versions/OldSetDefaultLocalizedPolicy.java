@@ -21,7 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * oldSetDefaultLocalizedPolicy
  *
  * <p>Update a localized version policy to be the default.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class OldSetDefaultLocalizedPolicy extends Operation {

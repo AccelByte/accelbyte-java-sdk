@@ -28,6 +28,9 @@ public class ModelInputValidationsResponse extends Model {
   @JsonProperty("data")
   private List<ModelInputValidationData> data;
 
+  @JsonProperty("fromDefault")
+  private Boolean fromDefault;
+
   @JsonProperty("version")
   private Integer version;
 

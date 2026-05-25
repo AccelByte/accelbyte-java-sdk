@@ -21,9 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetNamespaceUserInvitationHistoryV4
  *
- * <p>This endpoint is to Get list of users Invitation History for specific new studio namespace in
- * multi tenant mode. It will return error if the service multi tenant mode is set to false.
- * Accepted Query: - offset - limit
+ * <p>Retrieves the list of user invitation history for a specific studio namespace in multi-tenant
+ * mode.
+ *
+ * <p>Returns an error if the service multi-tenant mode is set to false.
  */
 @Getter
 @Setter

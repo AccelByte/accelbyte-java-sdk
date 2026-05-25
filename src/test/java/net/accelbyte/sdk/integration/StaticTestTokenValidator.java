@@ -27,7 +27,8 @@ public class StaticTestTokenValidator extends AccelByteSDK {
 
   private static final int ALL_ACTIONS = 15;
 
-  public StaticTestTokenValidator(String publisherNamespace, String studioNamespace, String gameNamespace) {
+  public StaticTestTokenValidator(
+      String publisherNamespace, String studioNamespace, String gameNamespace) {
     super(
         new AccelByteConfig(
             new OkhttpClient(),
@@ -36,17 +37,52 @@ public class StaticTestTokenValidator extends AccelByteSDK {
             // so rolePermissionsCache is never initialized and no outbound HTTP calls are made
             // in this unit-test context]
             new ConfigRepository() {
-              @Override public String getClientId() { return ""; }
-              @Override public String getClientSecret() { return ""; }
-              @Override public String getBaseURL() { return ""; }
-              @Override public boolean isAmazonTraceId() { return false; }
-              @Override public void activateAmazonTraceId(String version) {}
-              @Override public void deactivateAmazonTraceId() {}
-              @Override public String getAmazonTraceIdVersion() { return ""; }
-              @Override public boolean isClientInfoHeader() { return false; }
-              @Override public void activateClientInfoHeader(AppInfo appInfo) {}
-              @Override public void deactivateClientInfoHeader() {}
-              @Override public AppInfo getAppInfo() { return new AppInfo(); }
+              @Override
+              public String getClientId() {
+                return "";
+              }
+
+              @Override
+              public String getClientSecret() {
+                return "";
+              }
+
+              @Override
+              public String getBaseURL() {
+                return "";
+              }
+
+              @Override
+              public boolean isAmazonTraceId() {
+                return false;
+              }
+
+              @Override
+              public void activateAmazonTraceId(String version) {}
+
+              @Override
+              public void deactivateAmazonTraceId() {}
+
+              @Override
+              public String getAmazonTraceIdVersion() {
+                return "";
+              }
+
+              @Override
+              public boolean isClientInfoHeader() {
+                return false;
+              }
+
+              @Override
+              public void activateClientInfoHeader(AppInfo appInfo) {}
+
+              @Override
+              public void deactivateClientInfoHeader() {}
+
+              @Override
+              public AppInfo getAppInfo() {
+                return new AppInfo();
+              }
             }),
         buildStaticCache(publisherNamespace, studioNamespace, gameNamespace));
   }
@@ -84,17 +120,17 @@ public class StaticTestTokenValidator extends AccelByteSDK {
   }
 
   /**
-   * Tests whether any permission in {@code availablePermissions} allows access to
-   * {@code targetPermission} when the role is scoped to {@code roleNamespace}.
+   * Tests whether any permission in {@code availablePermissions} allows access to {@code
+   * targetPermission} when the role is scoped to {@code roleNamespace}.
    *
    * <p>The method trims a trailing {@code -} from {@code roleNamespace} before looking up the
-   * namespace context. If no context is found for the trimmed namespace, access is denied.
-   * The {@code {namespace}} placeholder in each permission's resource is replaced with
-   * {@code roleNamespace} before the check.
+   * namespace context. If no context is found for the trimmed namespace, access is denied. The
+   * {@code {namespace}} placeholder in each permission's resource is replaced with {@code
+   * roleNamespace} before the check.
    *
    * @param availablePermissions the permissions granted to the role
-   * @param roleNamespace        the namespace the role is scoped to (may end with {@code -})
-   * @param targetPermission     the resource string to check access for
+   * @param roleNamespace the namespace the role is scoped to (may end with {@code -})
+   * @param targetPermission the resource string to check access for
    * @return {@code true} if any resolved permission grants access to {@code targetPermission}
    */
   public boolean testValidateResource(

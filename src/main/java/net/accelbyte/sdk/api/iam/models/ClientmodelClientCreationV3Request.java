@@ -77,10 +77,6 @@ public class ClientmodelClientCreationV3Request extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String oauthRefreshTokenExpirationTimeUnit;
 
-  @JsonProperty("parentNamespace")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private String parentNamespace;
-
   @JsonProperty("redirectUri")
   private String redirectUri;
 

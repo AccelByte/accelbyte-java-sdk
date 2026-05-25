@@ -1456,9 +1456,12 @@ final ApimodelsPartySessionResponse publicPartyJoinCodeResult =
 ### Get party detail
 
 ```java
-final ApimodelsPartySessionResponse publicGetPartyResult1 =
-    partyWrapper.publicGetParty(
-        PublicGetParty.builder().namespace(namespace).partyId(partyId).build());
+final ApimodelsPartyQueryResponse partyData =
+    partyWrapper.adminQueryParties(
+        AdminQueryParties.builder()
+            .partyID(partyId)
+            .namespace(namespace)
+            .build());
 ```
 
 ### User leave a party

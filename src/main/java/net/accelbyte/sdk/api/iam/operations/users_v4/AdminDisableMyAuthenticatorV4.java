@@ -21,10 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDisableMyAuthenticatorV4
  *
- * <p>This endpoint is used to disable 2FA authenticator. ------ **Note**: **mfaToken** is required
- * when all the following are enabled: - The environment variable **SENSITIVE_MFA_AUTH_ENABLED** is
- * true - The **Two-Factor Authentication** is enabled in the IAM client where user logs in - Users
- * already enabled the MFA
+ * <p>Disables 2FA authenticator. ------ **Note**: **mfaToken** is required when all the following
+ * are enabled: - The environment variable **SENSITIVE_MFA_AUTH_ENABLED** is true - The **Two-Factor
+ * Authentication** is enabled in the IAM client where user logs in - Users already enabled the MFA
  */
 @Getter
 @Setter

@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicGetRolesV3
  *
- * <p>This endpoint is used to get all non-admin role. action code: 10418
+ * <p>Returns all non-admin roles.
  */
 @Getter
 @Setter

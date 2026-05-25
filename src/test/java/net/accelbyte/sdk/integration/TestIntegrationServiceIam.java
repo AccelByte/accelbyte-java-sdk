@@ -245,7 +245,8 @@ public class TestIntegrationServiceIam extends TestIntegration {
   @Order(3)
   public void roleOverrideTest() throws Exception {
     if (isUsingAGSStarter()) {
-      //AGS Shared Cloud has different default action value than AGS Private Cloud for `NAMESPACE:{namespace}:PROFILE` permission string. 
+      // AGS Shared Cloud has different default action value than AGS Private Cloud for
+      // `NAMESPACE:{namespace}:PROFILE` permission string.
       return; // SKIP
     }
 

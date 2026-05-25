@@ -21,8 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * SendVerificationCode
  *
- * <p>## The endpoint is going to be deprecated ### Endpoint migration guide - **Substitute
- * endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/code/request [POST]_**
+ * <p>**This endpoint is deprecated.** ### Endpoint migration guide - **Substitute endpoint:
+ * _/iam/v3/public/namespaces/{namespace}/users/me/code/request [POST]_**
  *
  * <p>The verification code is sent to either the phone number or email address. It depends on the
  * LoginID's value. Available contexts for use : 1. **UserAccountRegistration** a context type used

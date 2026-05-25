@@ -9,15 +9,19 @@
 package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.csm.app.*;
+import net.accelbyte.sdk.cli.api.csm.app_ui.*;
 import net.accelbyte.sdk.cli.api.csm.app_v2.*;
 import net.accelbyte.sdk.cli.api.csm.async_messaging.*;
 import net.accelbyte.sdk.cli.api.csm.configuration.*;
 import net.accelbyte.sdk.cli.api.csm.configuration_v2.*;
 import net.accelbyte.sdk.cli.api.csm.deployment.*;
 import net.accelbyte.sdk.cli.api.csm.deployment_v2.*;
+import net.accelbyte.sdk.cli.api.csm.extend_files.*;
 import net.accelbyte.sdk.cli.api.csm.image.*;
 import net.accelbyte.sdk.cli.api.csm.image_v2.*;
 import net.accelbyte.sdk.cli.api.csm.managed_resources.*;
+import net.accelbyte.sdk.cli.api.csm.managed_resources_key_value.*;
+import net.accelbyte.sdk.cli.api.csm.managed_resources_sql.*;
 import net.accelbyte.sdk.cli.api.csm.messages.*;
 import net.accelbyte.sdk.cli.api.csm.notification_subscription.*;
 import net.accelbyte.sdk.cli.api.csm.notification_subscription_v3.*;
@@ -28,6 +32,10 @@ import picocli.CommandLine.Command;
     name = "csm",
     mixinStandardHelpOptions = true,
     subcommands = {
+      ListAppUI.class,
+      CreateAppUI.class,
+      DeleteAppUI.class,
+      UploadAppUIFile.class,
       GetAppListV1.class,
       GetAppV1.class,
       CreateAppV1.class,
@@ -50,17 +58,24 @@ import picocli.CommandLine.Command;
       GetListOfDeploymentV1.class,
       GetDeploymentV1.class,
       DeleteDeploymentV1.class,
+      GetExtendFile.class,
       PublicGetMessages.class,
       GetAppListV2.class,
       GetAppV2.class,
       CreateAppV2.class,
       DeleteAppV2.class,
       UpdateAppV2.class,
+      ApplyAppConfigV2.class,
       CreateSubscriptionHandler.class,
       UnsubscribeTopicHandler.class,
       CreateDeploymentV2.class,
       GetAppImageListV2.class,
       DeleteAppImagesV2.class,
+      CreateKeyValueCredentialV2.class,
+      GetIntegrationAppKeyValueClusterV2.class,
+      IntegrateAppKeyValueClusterV2.class,
+      RemoveIntegrationAppKeyValueClusterV2.class,
+      CreateNewNoSQLDatabaseCredentialV2.class,
       CreateNoSQLDatabaseCredentialV2.class,
       GetNoSQLDatabaseV2.class,
       CreateNoSQLDatabaseV2.class,
@@ -71,6 +86,10 @@ import picocli.CommandLine.Command;
       SaveSecretV2.class,
       UpdateSecretV2.class,
       DeleteSecretV2.class,
+      CreateSQLDatabaseCredentialV2.class,
+      GetSQLDatabaseV2.class,
+      CreateSQLDatabaseV2.class,
+      DeleteSQLDatabaseV2.class,
       StartAppV2.class,
       StopAppV2.class,
       GetNotificationSubscriberListV2.class,
@@ -91,6 +110,13 @@ import picocli.CommandLine.Command;
       GetListOfDeploymentV2.class,
       GetDeploymentV2.class,
       DeleteDeploymentV2.class,
+      GetKeyValueClusterV2.class,
+      ListKeyValueClusterV2.class,
+      CreateKeyValueClusterV2.class,
+      GetKeyValueClusterLimitConfigV2.class,
+      UpdateKeyValueClusterV2.class,
+      DeleteKeyValueClusterV2.class,
+      GetListIntegratedAppKeyValueClusterV2.class,
       GetNoSQLClusterV2.class,
       UpdateNoSQLClusterV2.class,
       CreateNoSQLClusterV2.class,
@@ -99,6 +125,13 @@ import picocli.CommandLine.Command;
       StopNoSQLClusterV2.class,
       GetNoSQLAccessTunnelV2.class,
       GetResourcesLimits.class,
+      GetSQLClusterV2.class,
+      UpdateSQLClusterV2.class,
+      CreateSQLClusterV2.class,
+      DeleteSQLClusterV2.class,
+      StartSQLClusterV2.class,
+      StopSQLClusterV2.class,
+      GetSQLAppListV2.class,
       GetNoSQLAppListV2.class,
       GetNotificationSubscriberListV3.class,
       DeleteSubscriptionAppNotificationV3.class,

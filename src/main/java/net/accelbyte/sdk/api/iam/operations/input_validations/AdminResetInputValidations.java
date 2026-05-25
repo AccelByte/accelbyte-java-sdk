@@ -20,8 +20,12 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminResetInputValidations
  *
- * <p>This endpoint is used to reset input validation to the default input validation configurations
+ * <p>Resets input validation to the default input validation configurations. **Substitute
+ * endpoint:** /iam/v3/admin/namespaces/{namespace}/inputValidations/{field}[DELETE]
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminResetInputValidations extends Operation {

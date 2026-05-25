@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetDeviceBanV4
  *
- * <p>This is the endpoint for an admin to get device ban config
+ * <p>Retrieves a specific device ban configuration by its ban ID.
  */
 @Getter
 @Setter

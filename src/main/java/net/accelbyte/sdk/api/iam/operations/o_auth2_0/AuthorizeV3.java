@@ -20,13 +20,13 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AuthorizeV3
  *
- * <p>Initializes OAuth2.0 authorization code flow The endpoint stores authorization request and
- * redirects to login page with the authorization request id. The user can then do the
- * authentication on the login page. The user will be redirected back to the requesting client with
- * authorization code if successfully authenticated.
+ * <p>Initializes OAuth2.0 authorization code flow. Stores the authorization request and redirects
+ * to the login page with the authorization request id. The user can then do the authentication on
+ * the login page. The user will be redirected back to the requesting client with authorization code
+ * if successfully authenticated.
  *
- * <p>Only authorization code flow supported by this endpoint, implicit flow is not supported. -
- * **Authorize success**: redirects to login page with the following information:
+ * <p>Only authorization code flow is supported; implicit flow is not supported. - **Authorize
+ * success**: redirects to login page with the following information:
  * ?request_id={authorization_request_id} - **Authorize failure**: redirects to the given redirect
  * uri with the following information: ?error={error_code}&error;_description={error description}
  *
@@ -44,7 +44,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * support obtaining a token using this method. - temporarily_unavailable: The authorization server
  * is currently unable to handle the request due to a temporary overloading or maintenance of the
  * server. Please refer to the RFC for more information about authorization code flow:
- * https://tools.ietf.org/html/rfc6749#section-4.1 action code: 10701
+ * https://tools.ietf.org/html/rfc6749#section-4.1
  */
 @Getter
 @Setter
@@ -53,7 +53,7 @@ public class AuthorizeV3 extends Operation {
   private String path = "/iam/v3/oauth/authorize";
 
   private String method = "GET";
-  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> consumes = Arrays.asList("*/*");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = "request_id";
 

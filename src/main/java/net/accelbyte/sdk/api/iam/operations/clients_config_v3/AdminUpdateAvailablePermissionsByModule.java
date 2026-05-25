@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateAvailablePermissionsByModule
  *
- * <p>Update Client available permissions, if module or group not exists, it will auto create.
+ * <p>Updates client available permissions. If the specified module or group does not exist, it will
+ * be automatically created.
  */
 @Getter
 @Setter

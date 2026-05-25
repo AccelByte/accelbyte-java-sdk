@@ -63,7 +63,9 @@ public class TestIntegrationValidateToken extends TestIntegration {
     final AccelByteSDK sdk2 =
         new AccelByteSDK(
             new AccelByteConfig(
-                new OkhttpClient(), new DefaultTokenRepository(), IntegrationTestConfigRepository.Admin));
+                new OkhttpClient(),
+                new DefaultTokenRepository(),
+                IntegrationTestConfigRepository.Admin));
 
     sdk1.loginClient();
 
@@ -115,7 +117,9 @@ public class TestIntegrationValidateToken extends TestIntegration {
     final AccelByteSDK sdk2 =
         new AccelByteSDK(
             new AccelByteConfig(
-                new OkhttpClient(), new DefaultTokenRepository(), IntegrationTestConfigRepository.Admin));
+                new OkhttpClient(),
+                new DefaultTokenRepository(),
+                IntegrationTestConfigRepository.Admin));
 
     sdk1.loginClient();
 
@@ -154,7 +158,8 @@ public class TestIntegrationValidateToken extends TestIntegration {
     final HttpClient<?> httpClient = super.sdk.getSdkConfiguration().getHttpClient();
 
     final DefaultTokenRepository tokenRepository1 = new DefaultTokenRepository();
-    final AccelByteSDK sdk1 = new AccelByteSDK(httpClient, tokenRepository1, IntegrationTestConfigRepository.Basic);
+    final AccelByteSDK sdk1 =
+        new AccelByteSDK(httpClient, tokenRepository1, IntegrationTestConfigRepository.Basic);
 
     sdk1.loginClient();
 
@@ -196,9 +201,7 @@ public class TestIntegrationValidateToken extends TestIntegration {
 
     final String token = customSdk.getSdkConfiguration().getTokenRepository().getToken();
 
-    assertTrue(
-        customSdk.validateToken(
-            token, "CUSTOM:ADMIN:NAMESPACE:" + namespace + ":GUILD", 2));
+    assertTrue(customSdk.validateToken(token, "CUSTOM:ADMIN:NAMESPACE:" + namespace + ":GUILD", 2));
   }
 
   @Test
@@ -225,9 +228,13 @@ public class TestIntegrationValidateToken extends TestIntegration {
     final String diffClientSecret = System.getenv("DIFFENV_AB_CLIENT_SECRET");
     final String diffNamespace = System.getenv("DIFFENV_AB_NAMESPACE");
 
-    // [HIGH feedback: use assumeTrue instead of silent return so JUnit marks test as skipped, not passed]
+    // [HIGH feedback: use assumeTrue instead of silent return so JUnit marks test as skipped, not
+    // passed]
     assumeTrue(
-        diffBaseUrl != null && diffClientId != null && diffClientSecret != null && diffNamespace != null,
+        diffBaseUrl != null
+            && diffClientId != null
+            && diffClientSecret != null
+            && diffNamespace != null,
         "DIFFENV_AB_* vars not configured — skipping cross-studio test");
 
     // Build a SDK instance pointing at the different studio environment

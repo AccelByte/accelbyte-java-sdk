@@ -21,8 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicGetAsyncStatus
  *
- * <p>This endpoint is used to get linking status. This API need logged user and user can only
- * request its own linking status.
+ * <p>Retrieves the linking status. The user must be logged in and can only request their own
+ * linking status.
  */
 @Getter
 @Setter

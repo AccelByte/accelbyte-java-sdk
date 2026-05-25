@@ -1,3 +1,13 @@
+<a name="v0.81.0"></a>
+## [v0.81.0]
+### fix
+- **:**  update integration tests for shared cloud 
+- **:**  fix refresh token implementation and tests 
+- **:**  implement fe token validation 
+- **:**  address feedback related to compatibility 
+- **:**  update token validation mechanism 
+
+
 <a name="v0.80.0"></a>
 ## [v0.80.0]
 ### docs

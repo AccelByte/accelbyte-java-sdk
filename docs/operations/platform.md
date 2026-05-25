@@ -321,6 +321,7 @@
 | `/platform/admin/namespaces/{namespace}/users/{userId}/iap/orders/{iapOrderNo}/line_items` | GET | AdminGetIAPOrderLineItems | [AdminGetIAPOrderLineItems](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/AdminGetIAPOrderLineItems.java) | [AdminGetIAPOrderLineItems](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/AdminGetIAPOrderLineItems.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/iap/steam/syncAbnormalTransaction` | PUT | AdminSyncSteamAbnormalTransaction | [AdminSyncSteamAbnormalTransaction](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/AdminSyncSteamAbnormalTransaction.java) | [AdminSyncSteamAbnormalTransaction](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/AdminSyncSteamAbnormalTransaction.java) |
 | `/platform/admin/namespaces/{namespace}/users/{userId}/iap/steam/syncByTransaction` | PUT | AdminSyncSteamIAPByTransaction | [AdminSyncSteamIAPByTransaction](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/AdminSyncSteamIAPByTransaction.java) | [AdminSyncSteamIAPByTransaction](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/AdminSyncSteamIAPByTransaction.java) |
+| `/platform/admin/namespaces/{namespace}/users/{userId}/iap/twitch/sync` | PUT | AdminSyncTwitchDropsEntitlement | [AdminSyncTwitchDropsEntitlement](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/AdminSyncTwitchDropsEntitlement.java) | [AdminSyncTwitchDropsEntitlement](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/AdminSyncTwitchDropsEntitlement.java) |
 | `/platform/public/namespaces/{namespace}/iap/apple/config/version` | GET | GetAppleConfigVersion | [GetAppleConfigVersion](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/GetAppleConfigVersion.java) | [GetAppleConfigVersion](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/GetAppleConfigVersion.java) |
 | `/platform/public/namespaces/{namespace}/iap/item/mapping` | GET | GetIAPItemMapping | [GetIAPItemMapping](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/GetIAPItemMapping.java) | [GetIAPItemMapping](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/GetIAPItemMapping.java) |
 | `/platform/public/namespaces/{namespace}/users/me/iap/twitch/sync` | PUT | SyncTwitchDropsEntitlement | [SyncTwitchDropsEntitlement](../../src/main/java/net/accelbyte/sdk/api/platform/operations/iap/SyncTwitchDropsEntitlement.java) | [SyncTwitchDropsEntitlement](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/platform/iap/SyncTwitchDropsEntitlement.java) |
@@ -702,7 +703,6 @@
 | `BillingAccount` | [BillingAccount](../../src/main/java/net/accelbyte/sdk/api/platform/models/BillingAccount.java) |
 | `BillingHistoryInfo` | [BillingHistoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/BillingHistoryInfo.java) |
 | `BillingHistoryPagingSlicedResult` | [BillingHistoryPagingSlicedResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/BillingHistoryPagingSlicedResult.java) |
-| `BinarySchema` | [BinarySchema](../../src/main/java/net/accelbyte/sdk/api/platform/models/BinarySchema.java) |
 | `BoxItem` | [BoxItem](../../src/main/java/net/accelbyte/sdk/api/platform/models/BoxItem.java) |
 | `BulkCreditRequest` | [BulkCreditRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/BulkCreditRequest.java) |
 | `BulkCreditResult` | [BulkCreditResult](../../src/main/java/net/accelbyte/sdk/api/platform/models/BulkCreditResult.java) |
@@ -733,6 +733,7 @@
 | `CategoryInfo` | [CategoryInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/CategoryInfo.java) |
 | `CategoryUpdate` | [CategoryUpdate](../../src/main/java/net/accelbyte/sdk/api/platform/models/CategoryUpdate.java) |
 | `ChangeStatusItemRequest` | [ChangeStatusItemRequest](../../src/main/java/net/accelbyte/sdk/api/platform/models/ChangeStatusItemRequest.java) |
+| `CheckBalanceResponse` | [CheckBalanceResponse](../../src/main/java/net/accelbyte/sdk/api/platform/models/CheckBalanceResponse.java) |
 | `CheckoutConfig` | [CheckoutConfig](../../src/main/java/net/accelbyte/sdk/api/platform/models/CheckoutConfig.java) |
 | `ClawbackInfo` | [ClawbackInfo](../../src/main/java/net/accelbyte/sdk/api/platform/models/ClawbackInfo.java) |
 | `ClientRequestParameter` | [ClientRequestParameter](../../src/main/java/net/accelbyte/sdk/api/platform/models/ClientRequestParameter.java) |

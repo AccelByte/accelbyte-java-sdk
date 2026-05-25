@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetListCountryAgeRestrictionV3
  *
- * <p>action code : 10139
+ * <p>Retrieves the list of age restriction settings for all countries.
  */
 @Getter
 @Setter

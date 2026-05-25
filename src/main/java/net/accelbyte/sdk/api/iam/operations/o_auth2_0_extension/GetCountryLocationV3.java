@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetCountryLocationV3
  *
- * <p>This endpoint get country location based on the request.
+ * <p>Returns the country location based on the request.
  */
 @Getter
 @Setter
@@ -30,7 +30,7 @@ public class GetCountryLocationV3 extends Operation {
   private String path = "/iam/v3/location/country";
 
   private String method = "GET";
-  private List<String> consumes = Arrays.asList("");
+  private List<String> consumes = Arrays.asList("*/*");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
 

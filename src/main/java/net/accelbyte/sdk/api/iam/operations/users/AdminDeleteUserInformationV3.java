@@ -20,7 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDeleteUserInformationV3
  *
- * <p>[WARNING] This endpoint is deleting user data from database directly by skipping GDPR flow
+ * <p>**WARNING:** Deletes user data directly from the database, bypassing the GDPR flow. Use with
+ * caution as this action is irreversible.
  */
 @Getter
 @Setter

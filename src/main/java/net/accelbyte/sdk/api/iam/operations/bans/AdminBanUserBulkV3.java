@@ -22,7 +22,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * AdminBanUserBulkV3
  *
  * <p>Bulk ban user with specific type of ban. Ban types and reason can be queried. The maximum
- * limit value is 100 userIDs action code : 10141
+ * limit value is 100 userIDs
  */
 @Getter
 @Setter

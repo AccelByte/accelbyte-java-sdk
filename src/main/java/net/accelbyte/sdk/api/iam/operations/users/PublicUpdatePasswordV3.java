@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicUpdatePasswordV3
  *
- * <p>action code: 10107
+ * <p>Updates the authenticated user's password. Requires the current password and a new password to
+ * be provided.
  */
 @Getter
 @Setter

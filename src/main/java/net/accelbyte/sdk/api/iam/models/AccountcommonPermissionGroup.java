@@ -31,6 +31,10 @@ public class AccountcommonPermissionGroup extends Model {
   @JsonProperty("groupId")
   private String groupId;
 
+  @JsonProperty("package")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String package_;
+
   @JsonProperty("permissions")
   private List<AccountcommonAllowedPermission> permissions;
 

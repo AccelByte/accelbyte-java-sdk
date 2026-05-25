@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetUserMFAStatusV4
  *
- * <p>**This endpoint is used to get user's 2FA status.**
+ * <p>Retrieves the 2FA status for the specified user.
  */
 @Getter
 @Setter

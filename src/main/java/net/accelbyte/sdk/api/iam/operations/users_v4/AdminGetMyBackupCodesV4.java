@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetMyBackupCodesV4
  *
- * <p>This endpoint is used to get 8-digits backup codes. Each code is a one-time code and will be
- * deleted once used.
+ * <p>Returns 8-digit backup codes. Each code is a one-time code and will be deleted once used.
  *
  * @deprecated
  */

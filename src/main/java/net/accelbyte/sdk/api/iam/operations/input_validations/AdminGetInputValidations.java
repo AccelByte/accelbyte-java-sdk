@@ -21,9 +21,13 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetInputValidations
  *
- * <p>This endpoint is to get list of input validation configuration. `regex` parameter will be
- * returned if `isCustomRegex` is true. Otherwise, it will be empty.
+ * <p>Returns the list of input validation configuration. `regex` parameter will be returned if
+ * `isCustomRegex` is true. Otherwise, it will be empty. **Substitute endpoint:**
+ * /iam/v3/admin/namespaces/{namespace}/inputValidations[GET]
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminGetInputValidations extends Operation {

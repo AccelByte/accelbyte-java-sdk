@@ -23,8 +23,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Admin get the link status of the third party platform token with user id.
  *
- * <p>This endpoint is used for checking whether the third party user represented by third party
- * token is linked with the corresponding user id.
+ * <p>Checks whether the third party user represented by third party token is linked with the
+ * corresponding user id.
  *
  * <p>## Supported platforms: - **steam**: The platform_tokenâs value is the authentication code
  * returned by Steam. - **steamopenid**: Steam's user authentication method using OpenID 2.0. The

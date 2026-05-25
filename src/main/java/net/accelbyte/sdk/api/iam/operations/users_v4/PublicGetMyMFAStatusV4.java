@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicGetMyMFAStatusV4
  *
- * <p>This endpoint will get user's' MFA status. --------- **Substitute endpoint**:
+ * <p>Retrieves the user's MFA status. --------- **Substitute endpoint**:
  * /iam/v4/public/namespaces/{namespace}/users/me/mfa/status [GET]
  *
  * @deprecated

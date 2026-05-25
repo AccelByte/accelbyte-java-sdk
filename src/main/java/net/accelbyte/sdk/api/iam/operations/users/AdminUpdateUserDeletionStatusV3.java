@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateUserDeletionStatusV3
  *
- * <p>action code : 10144
+ * <p>Updates the deletion status of the specified user account.
  */
 @Getter
 @Setter

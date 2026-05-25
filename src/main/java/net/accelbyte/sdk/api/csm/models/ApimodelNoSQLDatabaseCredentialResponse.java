@@ -31,6 +31,9 @@ public class ApimodelNoSQLDatabaseCredentialResponse extends Model {
   @JsonProperty("owner")
   private String owner;
 
+  @JsonProperty("recommendedMaxAgeDays")
+  private Integer recommendedMaxAgeDays;
+
   @JsonProperty("username")
   private String username;
 

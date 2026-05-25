@@ -113,6 +113,10 @@ public class ModelsConfigReq extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Long unregisterDelay;
 
+  @JsonProperty("wsReadTimeout")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Long wsReadTimeout;
+
   @JsonIgnore
   public ModelsConfigReq createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

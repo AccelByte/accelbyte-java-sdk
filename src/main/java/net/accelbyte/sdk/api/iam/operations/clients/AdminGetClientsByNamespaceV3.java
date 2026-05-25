@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetClientsByNamespaceV3
  *
- * <p>action code: 10308
+ * <p>Retrieves all OAuth clients in the namespace.
  */
 @Getter
 @Setter

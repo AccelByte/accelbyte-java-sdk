@@ -22,7 +22,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * AdminRemoveRoleMembersV3
  *
  * <p>Admin roles has its members listed in the role. Role can only be assigned to other users by
- * the role's manager. action code: 10411 Deprecate: Suggest to use this: AdminRevokeUserFromRoleV4
+ * the role's manager. Deprecate: Suggest to use this: AdminRevokeUserFromRoleV4
  *
  * @deprecated
  */

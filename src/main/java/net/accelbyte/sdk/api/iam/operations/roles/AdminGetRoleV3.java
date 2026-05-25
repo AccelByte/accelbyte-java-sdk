@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetRoleV3
  *
- * <p>action code: 10419
+ * <p>Retrieves a role by its ID.
  */
 @Getter
 @Setter

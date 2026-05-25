@@ -47,7 +47,6 @@ import net.accelbyte.sdk.api.session.operations.configuration_template.AdminCrea
 import net.accelbyte.sdk.api.session.operations.configuration_template.AdminDeleteConfigurationTemplateV1;
 import net.accelbyte.sdk.api.session.wrappers.ConfigurationTemplate;
 import net.accelbyte.sdk.api.session.wrappers.Party;
-import net.accelbyte.sdk.core.AccelByteSDK;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer;

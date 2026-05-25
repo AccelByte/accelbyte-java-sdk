@@ -127,6 +127,25 @@ public class Party {
   }
 
   /**
+   * @see PublicGetPartyPassword
+   */
+  public ApimodelsGetPasswordResponse publicGetPartyPassword(PublicGetPartyPassword input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicUpdatePartyPassword
+   */
+  public void publicUpdatePartyPassword(PublicUpdatePartyPassword input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicPartyJoin
    */
   public ApimodelsPartySessionResponse publicPartyJoin(PublicPartyJoin input) throws Exception {

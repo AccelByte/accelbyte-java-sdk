@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * RetrieveActiveOIDCClientsPublicV3
  *
- * <p>This is the Public API to Get All Active OIDC Platform Credential By Client ID
+ * <p>Retrieves all active OIDC platform credentials filtered by client ID.
  */
 @Getter
 @Setter

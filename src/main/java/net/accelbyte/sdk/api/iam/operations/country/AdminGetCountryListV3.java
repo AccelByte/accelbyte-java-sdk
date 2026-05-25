@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetCountryListV3
  *
- * <p>Admin get country list
+ * <p>Retrieves the list of countries for the namespace.
  */
 @Getter
 @Setter

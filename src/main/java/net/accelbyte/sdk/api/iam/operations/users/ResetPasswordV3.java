@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * ResetPasswordV3
  *
- * <p>action code: 10105
+ * <p>Resets a user's password using a valid password reset code sent to their email address.
  */
 @Getter
 @Setter

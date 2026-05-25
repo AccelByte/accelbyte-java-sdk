@@ -25,6 +25,9 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApimodelCreateNoSQLAppDatabaseRequest extends Model {
 
+  @JsonProperty("acknowledgements")
+  private ApimodelNoSQLDatabaseAcknowledgements acknowledgements;
+
   @JsonProperty("dbName")
   private String dbName;
 

@@ -21,10 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PlatformTokenRefreshV3
  *
- * <p>This endpoint will validate the third party platform token, for some platforms will also
- * refresh the token stored in IAM, it will not generate any event or AB access/refresh token. This
- * endpoint can be used by game client to refresh third party token if game client got platform
- * token not found error, for example got 404 platform token not found from IAP/DLC.
+ * <p>Validates the third party platform token. For some platforms, also refreshes the token stored
+ * in IAM. Does not generate any event or AB access/refresh token. Can be used by game clients to
+ * refresh the third party token if a platform token not found error is received (e.g., HTTP 404
+ * from IAP/DLC).
  *
  * <p>## Platforms will refresh stored token: - **twitch**: The platform_tokenâs value is the
  * authorization code returned by Twitch OAuth. - **epicgames**: The platform_tokenâs value is an

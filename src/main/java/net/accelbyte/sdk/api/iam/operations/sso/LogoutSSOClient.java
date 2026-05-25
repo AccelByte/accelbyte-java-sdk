@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * LogoutSSOClient
  *
- * <p>Logout user's session on platform that logged in using SSO.
+ * <p>Logs out the user's session on a platform that was authenticated using SSO.
  *
  * <p>Supported platforms: - discourse
  */

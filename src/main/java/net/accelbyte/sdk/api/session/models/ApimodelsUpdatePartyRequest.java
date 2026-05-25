@@ -43,6 +43,10 @@ public class ApimodelsUpdatePartyRequest extends Model {
   @JsonProperty("minPlayers")
   private Integer minPlayers;
 
+  @JsonProperty("password")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String password;
+
   @JsonProperty("type")
   private String type;
 
@@ -107,7 +111,8 @@ public class ApimodelsUpdatePartyRequest extends Model {
     FRIENDSOFLEADER("FRIENDS_OF_LEADER"),
     FRIENDSOFMEMBERS("FRIENDS_OF_MEMBERS"),
     INVITEONLY("INVITE_ONLY"),
-    OPEN("OPEN");
+    OPEN("OPEN"),
+    PASSWORDPROTECTED("PASSWORD_PROTECTED");
 
     private String value;
 

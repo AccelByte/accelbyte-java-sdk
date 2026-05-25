@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminBanUserV3
  *
- * <p>Bans a user with specific type of ban. Ban types and reason can be queried. action code :
- * 10141
+ * <p>Bans a user with specific type of ban. Ban types and reason can be queried.
  */
 @Getter
 @Setter

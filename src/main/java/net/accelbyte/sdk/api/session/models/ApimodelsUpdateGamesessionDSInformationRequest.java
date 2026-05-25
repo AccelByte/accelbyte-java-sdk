@@ -53,6 +53,26 @@ public class ApimodelsUpdateGamesessionDSInformationRequest extends Model {
   private String status;
 
   @JsonIgnore
+  public String getStatus() {
+    return this.status;
+  }
+
+  @JsonIgnore
+  public Status getStatusAsEnum() {
+    return Status.valueOf(this.status);
+  }
+
+  @JsonIgnore
+  public void setStatus(final String status) {
+    this.status = status;
+  }
+
+  @JsonIgnore
+  public void setStatusFromEnum(final Status status) {
+    this.status = status.toString();
+  }
+
+  @JsonIgnore
   public ApimodelsUpdateGamesessionDSInformationRequest createFromJson(String json)
       throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());
@@ -64,5 +84,38 @@ public class ApimodelsUpdateGamesessionDSInformationRequest extends Model {
     return new ObjectMapper()
         .readValue(
             json, new TypeReference<List<ApimodelsUpdateGamesessionDSInformationRequest>>() {});
+  }
+
+  public enum Status {
+    AVAILABLE("AVAILABLE"),
+    DSERROR("DS_ERROR"),
+    ENDED("ENDED"),
+    FAILEDTOREQUEST("FAILED_TO_REQUEST");
+
+    private String value;
+
+    Status(String value) {
+      this.value = value;
+    }
+
+    @Override
+    public String toString() {
+      return this.value;
+    }
+  }
+
+  public static class ApimodelsUpdateGamesessionDSInformationRequestBuilder {
+    private String status;
+
+    public ApimodelsUpdateGamesessionDSInformationRequestBuilder status(final String status) {
+      this.status = status;
+      return this;
+    }
+
+    public ApimodelsUpdateGamesessionDSInformationRequestBuilder statusFromEnum(
+        final Status status) {
+      this.status = status.toString();
+      return this;
+    }
   }
 }

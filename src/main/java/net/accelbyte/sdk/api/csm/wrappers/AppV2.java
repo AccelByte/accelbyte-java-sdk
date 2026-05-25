@@ -67,6 +67,15 @@ public class AppV2 {
   }
 
   /**
+   * @see ApplyAppConfigV2
+   */
+  public ApimodelAppItem applyAppConfigV2(ApplyAppConfigV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see UpdateAppResourcesV2
    */
   public ApimodelAppItem updateAppResourcesV2(UpdateAppResourcesV2 input) throws Exception {

@@ -21,7 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * oldPublishPolicyVersion
  *
  * <p>Manually publish a version of a particular country-specific policy.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class OldPublishPolicyVersion extends Operation {

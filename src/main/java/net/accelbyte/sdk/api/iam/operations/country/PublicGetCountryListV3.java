@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicGetCountryListV3
  *
- * <p>Public get country list, will filter out countries in black list
+ * <p>Retrieves the list of countries, excluding those on the blacklist.
  */
 @Getter
 @Setter

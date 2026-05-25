@@ -13,7 +13,8 @@ import net.accelbyte.sdk.core.repository.TokenValidation;
 public class IntegrationTestConfigRepository implements ConfigRepository, TokenValidation {
 
   public static final IntegrationTestConfigRepository Client =
-      new IntegrationTestConfigRepository("AB_CLIENT_ID", "AB_CLIENT_SECRET", "AB_CLIENT_NAMESPACE");
+      new IntegrationTestConfigRepository(
+          "AB_CLIENT_ID", "AB_CLIENT_SECRET", "AB_CLIENT_NAMESPACE");
 
   public static final IntegrationTestConfigRepository Server =
       new IntegrationTestConfigRepository(
@@ -257,7 +258,8 @@ public class IntegrationTestConfigRepository implements ConfigRepository, TokenV
 
   @Override
   public void deactivateClientInfoHeader() {
-    // Client info header enable/disable is controlled via the AB_ENABLE_USERAGENT environment variable
+    // Client info header enable/disable is controlled via the AB_ENABLE_USERAGENT environment
+    // variable
   }
 
   @Override

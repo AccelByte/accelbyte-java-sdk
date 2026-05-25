@@ -24,7 +24,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * retrievePolicies
  *
  * <p>Retrieve all active policies based on a country.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class RetrievePolicies extends Operation {

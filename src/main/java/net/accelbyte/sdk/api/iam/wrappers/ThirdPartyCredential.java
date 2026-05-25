@@ -125,6 +125,16 @@ public class ThirdPartyCredential {
   }
 
   /**
+   * @see GetThirdPartyLoginPlatformDefaultsV3
+   */
+  public ModelPlatformDefaultsResponse getThirdPartyLoginPlatformDefaultsV3(
+      GetThirdPartyLoginPlatformDefaultsV3 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3
    */
   public List<ModelPublicThirdPartyPlatformInfo>

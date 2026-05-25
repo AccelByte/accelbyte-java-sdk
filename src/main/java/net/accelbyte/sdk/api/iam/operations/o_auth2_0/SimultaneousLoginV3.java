@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * SimultaneousLoginV3
  *
- * <p># This endpoint is in ALPHA, avoid using this endpoint fow now, reach out to AB support for
- * inquiries
+ * <p># This API is in ALPHA, avoid using this API for now, reach out to AB support for inquiries
  *
  * <p>Simultaneous login flow.
  *

@@ -38,6 +38,7 @@ public class ModelSSOPlatformCredentialRequest extends Model {
   private String federationMetadataUrl;
 
   @JsonProperty("isActive")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean isActive;
 
   @JsonProperty("redirectUri")

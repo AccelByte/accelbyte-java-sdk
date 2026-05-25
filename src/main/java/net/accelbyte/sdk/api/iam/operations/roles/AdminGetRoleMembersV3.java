@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetRoleMembersV3
  *
- * <p>Admin roles has its members listed in the role. action code: 10416
+ * <p>Admin roles has its members listed in the role.
  */
 @Getter
 @Setter

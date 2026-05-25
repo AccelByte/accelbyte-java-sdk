@@ -22,7 +22,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * PublicUpgradeHeadlessAccountV4
  *
  * <p>Upgrade headless account to full account without verifying email address. Client does not need
- * to provide verification code which sent to email address. action code : 10124
+ * to provide verification code which sent to email address.
  */
 @Getter
 @Setter

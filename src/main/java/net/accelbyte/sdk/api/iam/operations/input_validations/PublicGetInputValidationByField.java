@@ -21,8 +21,12 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicGetInputValidationByField
  *
- * <p>This endpoint is to get input validation configuration by field.
+ * <p>Returns input validation configuration by field. **Substitute endpoint:**
+ * /iam/v3/public/namespaces/{namespace}/inputValidations/{field}[GET]
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class PublicGetInputValidationByField extends Operation {

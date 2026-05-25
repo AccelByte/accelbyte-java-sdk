@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicForgotPasswordWithoutNamespaceV3
  *
- * <p>This endpoint does not need a namespace in the path, we will find the namespace based on:
+ * <p>Does not need a namespace in the path, we will find the namespace based on:
  *
  * <p>- If this is premium environment, the namespace will be the publisher namespace. - If this is
  * shared cloud: - If this is from Admin Portal, we will find the user by the email. - If this is

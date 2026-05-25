@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>User's roles will be replaced with roles from request body. An admin user can only assign role
  * with **assignedNamespaces** if the admin user has required permission which is same as the
- * required permission of this endpoint.
+ * required permission of this API.
  */
 @Getter
 @Setter

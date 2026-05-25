@@ -8,9 +8,6 @@ package net.accelbyte.sdk.integration;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import net.accelbyte.sdk.api.iam.models.ModelUserResponseV3;
-import net.accelbyte.sdk.api.iam.operations.users.AdminGetMyUserV3;
-import net.accelbyte.sdk.api.iam.wrappers.Users;
 import net.accelbyte.sdk.api.inventory.models.*;
 import net.accelbyte.sdk.api.inventory.operations.admin_inventories.AdminCreateInventory;
 import net.accelbyte.sdk.api.inventory.operations.admin_inventories.AdminGetInventory;

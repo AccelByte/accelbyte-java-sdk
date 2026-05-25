@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminAddRoleManagersV3
  *
- * <p>Role can only be assigned to other users by the role's manager. action code: 10408
+ * <p>Role can only be assigned to other users by the role's manager.
  */
 @Getter
 @Setter

@@ -45,7 +45,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * Token) returned by Netflix backend. - **snapchat**: The ticketâs value is authorization code
  * returned by Snapchat OAuth. - **for specific generic oauth (OIDC)**: The platform_tokenâs value
  * should be the same type as created OIDC auth type whether it is auth code, idToken or
- * bearerToken. action code : 10144
+ * bearerToken.
  */
 @Getter
 @Setter

@@ -21,7 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * oldSetDefaultPolicy
  *
  * <p>Update a policy to be the default.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class OldSetDefaultPolicy extends Operation {

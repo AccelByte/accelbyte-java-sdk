@@ -24,7 +24,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * retrieveAllLegalPolicies
  *
  * <p>Retrieve all base policies.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class RetrieveAllLegalPolicies extends Operation {

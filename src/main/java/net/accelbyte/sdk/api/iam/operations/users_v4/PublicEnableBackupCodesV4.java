@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicEnableBackupCodesV4
  *
- * <p>This endpoint is used to enable 2FA backup codes.
+ * <p>Enables 2FA backup codes.
  */
 @Getter
 @Setter

@@ -20,8 +20,13 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDeleteUserRoleV3
  *
- * <p>This endpoint removes role from user action code: 10110
+ * <p>**Deprecated.** Only removes roles from the legacy roles entity.
+ *
+ * <p>**Substitute endpoint:** /iam/v4/admin/namespaces/{namespace}/users/{userId}/roles [DELETE]
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminDeleteUserRoleV3 extends Operation {

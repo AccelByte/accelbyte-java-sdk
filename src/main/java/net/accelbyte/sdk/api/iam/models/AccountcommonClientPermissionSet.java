@@ -37,6 +37,10 @@ public class AccountcommonClientPermissionSet extends Model {
   @JsonProperty("moduleId")
   private String moduleId;
 
+  @JsonProperty("package")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String package_;
+
   @JsonIgnore
   public AccountcommonClientPermissionSet createFromJson(String json)
       throws JsonProcessingException {

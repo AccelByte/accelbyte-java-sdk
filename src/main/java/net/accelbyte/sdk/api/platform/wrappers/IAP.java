@@ -453,6 +453,16 @@ public class IAP {
   }
 
   /**
+   * @see AdminSyncTwitchDropsEntitlement
+   */
+  public void adminSyncTwitchDropsEntitlement(AdminSyncTwitchDropsEntitlement input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see GetAppleConfigVersion
    */
   public AppleIAPConfigVersionInfo getAppleConfigVersion(GetAppleConfigVersion input)

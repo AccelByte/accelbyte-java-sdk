@@ -22,7 +22,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * AdminGetBansTypeWithNamespaceV3
  *
  * <p>Ban type is the code available for ban assignment. It is applicable globally for any
- * namespace. action code : 10201
+ * namespace.
  */
 @Getter
 @Setter

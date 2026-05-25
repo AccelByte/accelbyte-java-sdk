@@ -58,6 +58,10 @@ public class ModelsNativeSessionSetting extends Model {
   @JsonProperty("XboxTitleID")
   private String xboxTitleID;
 
+  @JsonProperty("activePlatforms")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<String> activePlatforms;
+
   @JsonProperty("localizedSessionName")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Map<String, ?> localizedSessionName;

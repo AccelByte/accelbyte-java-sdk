@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetUserByPlatformUserID
  *
- * <p>## The endpoint is going to be deprecated ### Endpoint migration guide - **Substitute
- * endpoint(Public):
+ * <p>**This endpoint is deprecated.** ### Endpoint migration guide - **Substitute endpoint(Public):
  * _/iam/v3/public/namespaces/{namespace}/platforms/{platformId}/users/{platformUserId} [GET]_** -
  * **Substitute endpoint(Admin):
  * _/iam/v3/admin/namespaces/{namespace}/platforms/{platformId}/users/{platformUserId} [GET]_** -

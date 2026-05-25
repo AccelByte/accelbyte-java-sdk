@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicEnableMyEmailV4
  *
- * <p>This endpoint is used to enable 2FA email.
+ * <p>Enables 2FA email.
  */
 @Getter
 @Setter

@@ -22,12 +22,12 @@ import net.accelbyte.sdk.core.util.Helper;
  * AdminBulkUpdateClientsV3
  *
  * <p>Updates multiple OAuth 2.0 clients. Specify only the fields you want to update in the request
- * payload, e.g. {"ClientName":"E-commerce", "BaseUri":"https://example.net"}
+ * payload, e.g. {"clientName":"E-commerce", "baseUri":"https://example.net"}
  *
- * <p>**Note for Multi Tenant Mode (Confidential Client):** Only Super admin can set permission with
- * resource & action. Studio admin & game admin need set permission with permission module.
- *
- * <p>action code: 10302
+ * <p>**Note for Multi Tenant Mode (Confidential Client):** Only Super Admins can set permission
+ * with resource and action. Studio admin & game admin can only set permission through the
+ * permission module. If Studio admin & game admin need to set custom permission string, they must
+ * use the non-bulk API.
  *
  * <p>**Fields Description:** - **clientName** : The client name. It should not be empty if the
  * field exists in the body. e.g E-commerce - **namespace** : The namespace where the client lives.

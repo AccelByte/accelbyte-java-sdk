@@ -20,8 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * Change2FAMethod
  *
- * <p>Change 2FA method This endpoint is used for change 2FA method. Only enabled methods are
- * accepted. Supported methods: - authenticator - backupCode - email
+ * <p>Change 2FA method Changes the 2FA method. Only enabled methods are accepted. Supported
+ * methods: - authenticator - backupCode - email
  */
 @Getter
 @Setter

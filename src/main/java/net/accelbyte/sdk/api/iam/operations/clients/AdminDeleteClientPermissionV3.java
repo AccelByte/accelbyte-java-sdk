@@ -20,7 +20,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDeleteClientPermissionV3
  *
- * <p>**Note for Multi Tenant Mode:** This is for super admin only. action code : 10304
+ * <p>**Note for Multi Tenant Mode:** Studio admin & game admin are only allowed to delete custom
+ * permissions: * The allowed prefix are: 1. ***CUSTOM:ADMIN:NAMESPACE:{namespace}*** 2.
+ * ***CUSTOM:NAMESPACE:{namespace}***
  */
 @Getter
 @Setter

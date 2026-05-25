@@ -23,8 +23,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetClients
  *
- * <p>## The endpoint is going to be deprecated **Endpoint migration guide** - **Substitute
- * endpoint: _/iam/v3/admin/namespaces/{namespace}/clients [GET]_**
+ * <p>**This endpoint is deprecated.** **Endpoint migration guide** - **Substitute endpoint:
+ * _/iam/v3/admin/namespaces/{namespace}/clients [GET]_**
  *
  * @deprecated
  */

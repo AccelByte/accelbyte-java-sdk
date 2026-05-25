@@ -21,8 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicGetConfigValueV3
  *
- * <p>This endpoint return the value of config key. The namespace should be publisher namespace or
- * studio namespace. Note: this endpoint does not need any authorization.
+ * <p>Returns the value of the specified config key. The namespace should be publisher namespace or
+ * studio namespace. Note: does not require any authorization.
  *
  * <p>**Supported config key:** * uniqueDisplayNameEnabled * usernameDisabled *
  * mandatoryEmailVerificationEnabled * verificationCodeType

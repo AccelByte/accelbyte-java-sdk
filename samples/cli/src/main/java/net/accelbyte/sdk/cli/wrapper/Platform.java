@@ -359,6 +359,7 @@ import picocli.CommandLine.Command;
       SyncSubscriptionTransaction.class,
       GetThirdPartyUserSubscriptionDetails.class,
       SyncSubscription.class,
+      AdminSyncTwitchDropsEntitlement.class,
       QueryUserOrders.class,
       AdminCreateUserOrder.class,
       CountOfPurchasedItem.class,

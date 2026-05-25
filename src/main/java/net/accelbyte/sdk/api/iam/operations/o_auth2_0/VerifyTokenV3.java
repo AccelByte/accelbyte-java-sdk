@@ -21,8 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * VerifyTokenV3
  *
- * <p>This endpoint requires all requests to have Authorization header set with Basic access
- * authentication constructed from client id and client secret.
+ * <p>Requires Basic authentication (Base64-encoded ClientID:ClientSecret) in the Authorization
+ * header.
  */
 @Getter
 @Setter

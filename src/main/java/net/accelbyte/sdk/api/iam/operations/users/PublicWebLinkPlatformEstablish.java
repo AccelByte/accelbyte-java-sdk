@@ -20,9 +20,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicWebLinkPlatformEstablish
  *
- * <p>This endpoint is used by third party to redirect the code for the purpose of linking the
- * account third party to IAM account. Supported platforms: - ps4web - xblweb - steamopenid -
- * epicgames - facebook - twitch - google - apple - snapchat - discord - amazon - oculusweb
+ * <p>Used by a third party to redirect the code for the purpose of linking the third party account
+ * to an IAM account. Supported platforms: - ps4web - xblweb - steamopenid - epicgames - facebook -
+ * twitch - google - apple - snapchat - discord - amazon - oculusweb
  */
 @Getter
 @Setter

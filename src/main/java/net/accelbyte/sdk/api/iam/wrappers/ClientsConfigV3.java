@@ -52,6 +52,15 @@ public class ClientsConfigV3 {
   }
 
   /**
+   * @see AdminUpdateModulePackage
+   */
+  public void adminUpdateModulePackage(AdminUpdateModulePackage input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see AdminListClientTemplates
    */
   public ClientmodelListTemplatesResponse adminListClientTemplates(AdminListClientTemplates input)

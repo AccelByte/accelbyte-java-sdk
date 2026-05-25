@@ -22,8 +22,20 @@ public class ManagedResources {
   }
 
   /**
-   * @see CreateNoSQLDatabaseCredentialV2
+   * @see CreateNewNoSQLDatabaseCredentialV2
    */
+  public ApimodelNoSQLDatabaseCredentialResponse createNewNoSQLDatabaseCredentialV2(
+      CreateNewNoSQLDatabaseCredentialV2 input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see CreateNoSQLDatabaseCredentialV2
+   * @deprecated
+   */
+  @Deprecated
   public ApimodelNoSQLDatabaseCredentialResponse createNoSQLDatabaseCredentialV2(
       CreateNoSQLDatabaseCredentialV2 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);

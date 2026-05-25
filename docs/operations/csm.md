@@ -4,6 +4,14 @@
 
 ## Operations
 
+### App UI Wrapper:  [AppUI](../../src/main/java/net/accelbyte/sdk/api/csm/wrappers/AppUI.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/csm/v1/admin/namespaces/{namespace}/app-ui` | GET | ListAppUI | [ListAppUI](../../src/main/java/net/accelbyte/sdk/api/csm/operations/app_ui/ListAppUI.java) | [ListAppUI](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/app_ui/ListAppUI.java) |
+| `/csm/v1/admin/namespaces/{namespace}/app-ui` | POST | CreateAppUI | [CreateAppUI](../../src/main/java/net/accelbyte/sdk/api/csm/operations/app_ui/CreateAppUI.java) | [CreateAppUI](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/app_ui/CreateAppUI.java) |
+| `/csm/v1/admin/namespaces/{namespace}/app-ui/{appUiName}` | DELETE | DeleteAppUI | [DeleteAppUI](../../src/main/java/net/accelbyte/sdk/api/csm/operations/app_ui/DeleteAppUI.java) | [DeleteAppUI](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/app_ui/DeleteAppUI.java) |
+| `/csm/v1/admin/namespaces/{namespace}/app-ui/{appUiName}/files/upload` | POST | UploadAppUIFile | [UploadAppUIFile](../../src/main/java/net/accelbyte/sdk/api/csm/operations/app_ui/UploadAppUIFile.java) | [UploadAppUIFile](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/app_ui/UploadAppUIFile.java) |
+
 ### App Wrapper:  [App](../../src/main/java/net/accelbyte/sdk/api/csm/wrappers/App.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -42,6 +50,11 @@
 | [DEPRECATED] `/csm/v1/admin/namespaces/{namespace}/apps/{app}/variables/{configId}` | PUT | UpdateVariableV1 | [UpdateVariableV1](../../src/main/java/net/accelbyte/sdk/api/csm/operations/configuration/UpdateVariableV1.java) | [UpdateVariableV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/configuration/UpdateVariableV1.java) |
 | [DEPRECATED] `/csm/v1/admin/namespaces/{namespace}/apps/{app}/variables/{configId}` | DELETE | DeleteVariableV1 | [DeleteVariableV1](../../src/main/java/net/accelbyte/sdk/api/csm/operations/configuration/DeleteVariableV1.java) | [DeleteVariableV1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/configuration/DeleteVariableV1.java) |
 
+### Extend Files Wrapper:  [ExtendFiles](../../src/main/java/net/accelbyte/sdk/api/csm/wrappers/ExtendFiles.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/csm/v1/admin/namespaces/{namespace}/files/{filePath}` | GET | GetExtendFile | [GetExtendFile](../../src/main/java/net/accelbyte/sdk/api/csm/operations/extend_files/GetExtendFile.java) | [GetExtendFile](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/extend_files/GetExtendFile.java) |
+
 ### Messages Wrapper:  [Messages](../../src/main/java/net/accelbyte/sdk/api/csm/wrappers/Messages.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
@@ -55,6 +68,7 @@
 | `/csm/v2/admin/namespaces/{namespace}/apps/{app}` | POST | CreateAppV2 | [CreateAppV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/app_v2/CreateAppV2.java) | [CreateAppV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/app_v2/CreateAppV2.java) |
 | `/csm/v2/admin/namespaces/{namespace}/apps/{app}` | DELETE | DeleteAppV2 | [DeleteAppV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/app_v2/DeleteAppV2.java) | [DeleteAppV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/app_v2/DeleteAppV2.java) |
 | `/csm/v2/admin/namespaces/{namespace}/apps/{app}` | PATCH | UpdateAppV2 | [UpdateAppV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/app_v2/UpdateAppV2.java) | [UpdateAppV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/app_v2/UpdateAppV2.java) |
+| `/csm/v2/admin/namespaces/{namespace}/apps/{app}/apply` | POST | ApplyAppConfigV2 | [ApplyAppConfigV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/app_v2/ApplyAppConfigV2.java) | [ApplyAppConfigV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/app_v2/ApplyAppConfigV2.java) |
 | `/csm/v2/admin/namespaces/{namespace}/apps/{app}/resources` | PATCH | UpdateAppResourcesV2 | [UpdateAppResourcesV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/app_v2/UpdateAppResourcesV2.java) | [UpdateAppResourcesV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/app_v2/UpdateAppResourcesV2.java) |
 | `/csm/v2/admin/namespaces/{namespace}/apps/{app}/resources/form` | POST | UpdateAppResourcesResourceLimitFormV2 | [UpdateAppResourcesResourceLimitFormV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/app_v2/UpdateAppResourcesResourceLimitFormV2.java) | [UpdateAppResourcesResourceLimitFormV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/app_v2/UpdateAppResourcesResourceLimitFormV2.java) |
 | `/csm/v2/admin/namespaces/{namespace}/apps/{app}/start` | PUT | StartAppV2 | [StartAppV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/app_v2/StartAppV2.java) | [StartAppV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/app_v2/StartAppV2.java) |
@@ -83,10 +97,26 @@
 | `/csm/v2/admin/namespaces/{namespace}/apps/{app}/images` | GET | GetAppImageListV2 | [GetAppImageListV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/image_v2/GetAppImageListV2.java) | [GetAppImageListV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/image_v2/GetAppImageListV2.java) |
 | `/csm/v2/admin/namespaces/{namespace}/apps/{app}/images` | DELETE | DeleteAppImagesV2 | [DeleteAppImagesV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/image_v2/DeleteAppImagesV2.java) | [DeleteAppImagesV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/image_v2/DeleteAppImagesV2.java) |
 
+### Managed Resources - KeyValue Wrapper:  [ManagedResourcesKeyValue](../../src/main/java/net/accelbyte/sdk/api/csm/wrappers/ManagedResourcesKeyValue.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/csm/v2/admin/namespaces/{namespace}/apps/{app}/keyvalue/credentials` | POST | CreateKeyValueCredentialV2 | [CreateKeyValueCredentialV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources_key_value/CreateKeyValueCredentialV2.java) | [CreateKeyValueCredentialV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources_key_value/CreateKeyValueCredentialV2.java) |
+| `/csm/v2/admin/namespaces/{namespace}/apps/{app}/keyvalue/integrations` | GET | GetIntegrationAppKeyValueClusterV2 | [GetIntegrationAppKeyValueClusterV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources_key_value/GetIntegrationAppKeyValueClusterV2.java) | [GetIntegrationAppKeyValueClusterV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources_key_value/GetIntegrationAppKeyValueClusterV2.java) |
+| `/csm/v2/admin/namespaces/{namespace}/apps/{app}/keyvalue/integrations` | POST | IntegrateAppKeyValueClusterV2 | [IntegrateAppKeyValueClusterV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources_key_value/IntegrateAppKeyValueClusterV2.java) | [IntegrateAppKeyValueClusterV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources_key_value/IntegrateAppKeyValueClusterV2.java) |
+| `/csm/v2/admin/namespaces/{namespace}/apps/{app}/keyvalue/integrations` | DELETE | RemoveIntegrationAppKeyValueClusterV2 | [RemoveIntegrationAppKeyValueClusterV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources_key_value/RemoveIntegrationAppKeyValueClusterV2.java) | [RemoveIntegrationAppKeyValueClusterV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources_key_value/RemoveIntegrationAppKeyValueClusterV2.java) |
+| `/csm/v2/admin/namespaces/{namespace}/keyvalue/cluster/{resourceId}` | GET | GetKeyValueClusterV2 | [GetKeyValueClusterV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources_key_value/GetKeyValueClusterV2.java) | [GetKeyValueClusterV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources_key_value/GetKeyValueClusterV2.java) |
+| `/csm/v2/admin/namespaces/{namespace}/keyvalue/clusters` | GET | ListKeyValueClusterV2 | [ListKeyValueClusterV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources_key_value/ListKeyValueClusterV2.java) | [ListKeyValueClusterV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources_key_value/ListKeyValueClusterV2.java) |
+| `/csm/v2/admin/namespaces/{namespace}/keyvalue/clusters` | POST | CreateKeyValueClusterV2 | [CreateKeyValueClusterV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources_key_value/CreateKeyValueClusterV2.java) | [CreateKeyValueClusterV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources_key_value/CreateKeyValueClusterV2.java) |
+| `/csm/v2/admin/namespaces/{namespace}/keyvalue/clusters/limitconfig` | GET | GetKeyValueClusterLimitConfigV2 | [GetKeyValueClusterLimitConfigV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources_key_value/GetKeyValueClusterLimitConfigV2.java) | [GetKeyValueClusterLimitConfigV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources_key_value/GetKeyValueClusterLimitConfigV2.java) |
+| `/csm/v2/admin/namespaces/{namespace}/keyvalue/clusters/{resourceId}` | PUT | UpdateKeyValueClusterV2 | [UpdateKeyValueClusterV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources_key_value/UpdateKeyValueClusterV2.java) | [UpdateKeyValueClusterV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources_key_value/UpdateKeyValueClusterV2.java) |
+| `/csm/v2/admin/namespaces/{namespace}/keyvalue/clusters/{resourceId}` | DELETE | DeleteKeyValueClusterV2 | [DeleteKeyValueClusterV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources_key_value/DeleteKeyValueClusterV2.java) | [DeleteKeyValueClusterV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources_key_value/DeleteKeyValueClusterV2.java) |
+| `/csm/v2/admin/namespaces/{namespace}/keyvalue/{resourceId}/integrations` | GET | GetListIntegratedAppKeyValueClusterV2 | [GetListIntegratedAppKeyValueClusterV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources_key_value/GetListIntegratedAppKeyValueClusterV2.java) | [GetListIntegratedAppKeyValueClusterV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources_key_value/GetListIntegratedAppKeyValueClusterV2.java) |
+
 ### Managed Resources Wrapper:  [ManagedResources](../../src/main/java/net/accelbyte/sdk/api/csm/wrappers/ManagedResources.java)
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
-| `/csm/v2/admin/namespaces/{namespace}/apps/{app}/nosql/crendentials` | POST | CreateNoSQLDatabaseCredentialV2 | [CreateNoSQLDatabaseCredentialV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources/CreateNoSQLDatabaseCredentialV2.java) | [CreateNoSQLDatabaseCredentialV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources/CreateNoSQLDatabaseCredentialV2.java) |
+| `/csm/v2/admin/namespaces/{namespace}/apps/{app}/nosql/credentials` | POST | CreateNewNoSQLDatabaseCredentialV2 | [CreateNewNoSQLDatabaseCredentialV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources/CreateNewNoSQLDatabaseCredentialV2.java) | [CreateNewNoSQLDatabaseCredentialV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources/CreateNewNoSQLDatabaseCredentialV2.java) |
+| [DEPRECATED] `/csm/v2/admin/namespaces/{namespace}/apps/{app}/nosql/crendentials` | POST | CreateNoSQLDatabaseCredentialV2 | [CreateNoSQLDatabaseCredentialV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources/CreateNoSQLDatabaseCredentialV2.java) | [CreateNoSQLDatabaseCredentialV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources/CreateNoSQLDatabaseCredentialV2.java) |
 | `/csm/v2/admin/namespaces/{namespace}/apps/{app}/nosql/databases` | GET | GetNoSQLDatabaseV2 | [GetNoSQLDatabaseV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources/GetNoSQLDatabaseV2.java) | [GetNoSQLDatabaseV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources/GetNoSQLDatabaseV2.java) |
 | `/csm/v2/admin/namespaces/{namespace}/apps/{app}/nosql/databases` | POST | CreateNoSQLDatabaseV2 | [CreateNoSQLDatabaseV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources/CreateNoSQLDatabaseV2.java) | [CreateNoSQLDatabaseV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources/CreateNoSQLDatabaseV2.java) |
 | `/csm/v2/admin/namespaces/{namespace}/apps/{app}/nosql/databases` | DELETE | DeleteNoSQLDatabaseV2 | [DeleteNoSQLDatabaseV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources/DeleteNoSQLDatabaseV2.java) | [DeleteNoSQLDatabaseV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources/DeleteNoSQLDatabaseV2.java) |
@@ -110,6 +140,21 @@
 | `/csm/v2/admin/namespaces/{namespace}/apps/{app}/variables` | POST | SaveVariableV2 | [SaveVariableV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/configuration_v2/SaveVariableV2.java) | [SaveVariableV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/configuration_v2/SaveVariableV2.java) |
 | `/csm/v2/admin/namespaces/{namespace}/apps/{app}/variables/{configId}` | PUT | UpdateVariableV2 | [UpdateVariableV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/configuration_v2/UpdateVariableV2.java) | [UpdateVariableV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/configuration_v2/UpdateVariableV2.java) |
 | `/csm/v2/admin/namespaces/{namespace}/apps/{app}/variables/{configId}` | DELETE | DeleteVariableV2 | [DeleteVariableV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/configuration_v2/DeleteVariableV2.java) | [DeleteVariableV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/configuration_v2/DeleteVariableV2.java) |
+
+### Managed Resources - SQL Wrapper:  [ManagedResourcesSQL](../../src/main/java/net/accelbyte/sdk/api/csm/wrappers/ManagedResourcesSQL.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/csm/v2/admin/namespaces/{namespace}/apps/{app}/sql/credentials` | POST | CreateSQLDatabaseCredentialV2 | [CreateSQLDatabaseCredentialV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources_sql/CreateSQLDatabaseCredentialV2.java) | [CreateSQLDatabaseCredentialV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources_sql/CreateSQLDatabaseCredentialV2.java) |
+| `/csm/v2/admin/namespaces/{namespace}/apps/{app}/sql/databases` | GET | GetSQLDatabaseV2 | [GetSQLDatabaseV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources_sql/GetSQLDatabaseV2.java) | [GetSQLDatabaseV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources_sql/GetSQLDatabaseV2.java) |
+| `/csm/v2/admin/namespaces/{namespace}/apps/{app}/sql/databases` | POST | CreateSQLDatabaseV2 | [CreateSQLDatabaseV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources_sql/CreateSQLDatabaseV2.java) | [CreateSQLDatabaseV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources_sql/CreateSQLDatabaseV2.java) |
+| `/csm/v2/admin/namespaces/{namespace}/apps/{app}/sql/databases` | DELETE | DeleteSQLDatabaseV2 | [DeleteSQLDatabaseV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources_sql/DeleteSQLDatabaseV2.java) | [DeleteSQLDatabaseV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources_sql/DeleteSQLDatabaseV2.java) |
+| `/csm/v2/admin/namespaces/{namespace}/sql/clusters` | GET | GetSQLClusterV2 | [GetSQLClusterV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources_sql/GetSQLClusterV2.java) | [GetSQLClusterV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources_sql/GetSQLClusterV2.java) |
+| `/csm/v2/admin/namespaces/{namespace}/sql/clusters` | PUT | UpdateSQLClusterV2 | [UpdateSQLClusterV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources_sql/UpdateSQLClusterV2.java) | [UpdateSQLClusterV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources_sql/UpdateSQLClusterV2.java) |
+| `/csm/v2/admin/namespaces/{namespace}/sql/clusters` | POST | CreateSQLClusterV2 | [CreateSQLClusterV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources_sql/CreateSQLClusterV2.java) | [CreateSQLClusterV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources_sql/CreateSQLClusterV2.java) |
+| `/csm/v2/admin/namespaces/{namespace}/sql/clusters` | DELETE | DeleteSQLClusterV2 | [DeleteSQLClusterV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources_sql/DeleteSQLClusterV2.java) | [DeleteSQLClusterV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources_sql/DeleteSQLClusterV2.java) |
+| `/csm/v2/admin/namespaces/{namespace}/sql/clusters/start` | PUT | StartSQLClusterV2 | [StartSQLClusterV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources_sql/StartSQLClusterV2.java) | [StartSQLClusterV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources_sql/StartSQLClusterV2.java) |
+| `/csm/v2/admin/namespaces/{namespace}/sql/clusters/stop` | PUT | StopSQLClusterV2 | [StopSQLClusterV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources_sql/StopSQLClusterV2.java) | [StopSQLClusterV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources_sql/StopSQLClusterV2.java) |
+| `/csm/v2/admin/namespaces/{namespace}/sql/{resourceId}/apps` | GET | GetSQLAppListV2 | [GetSQLAppListV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/managed_resources_sql/GetSQLAppListV2.java) | [GetSQLAppListV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/managed_resources_sql/GetSQLAppListV2.java) |
 
 ### Notification Subscription Wrapper:  [NotificationSubscription](../../src/main/java/net/accelbyte/sdk/api/csm/wrappers/NotificationSubscription.java)
 | Endpoint | Method | ID | Class | Example |
@@ -142,6 +187,10 @@
 | Model | Class |
 |---|---|
 | `apimodel.AppItem` | [ApimodelAppItem](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelAppItem.java) |
+| `apimodel.AppUIResponse` | [ApimodelAppUIResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelAppUIResponse.java) |
+| `apimodel.ApplyAppConfigRequest` | [ApimodelApplyAppConfigRequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelApplyAppConfigRequest.java) |
+| `apimodel.ApplyConfigItem` | [ApimodelApplyConfigItem](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelApplyConfigItem.java) |
+| `apimodel.ApplyPermissionItem` | [ApimodelApplyPermissionItem](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelApplyPermissionItem.java) |
 | `apimodel.AutoscalingRequest` | [ApimodelAutoscalingRequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelAutoscalingRequest.java) |
 | `apimodel.AutoscalingResponse` | [ApimodelAutoscalingResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelAutoscalingResponse.java) |
 | `apimodel.BulkSubscribeItem` | [ApimodelBulkSubscribeItem](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelBulkSubscribeItem.java) |
@@ -149,15 +198,21 @@
 | `apimodel.CPURequest` | [ApimodelCPURequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelCPURequest.java) |
 | `apimodel.CPUResponse` | [ApimodelCPUResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelCPUResponse.java) |
 | `apimodel.CSMAppLimitsResponse` | [ApimodelCSMAppLimitsResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelCSMAppLimitsResponse.java) |
+| `apimodel.CreateAppUIRequest` | [ApimodelCreateAppUIRequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelCreateAppUIRequest.java) |
 | `apimodel.CreateAppV2Request` | [ApimodelCreateAppV2Request](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelCreateAppV2Request.java) |
 | `apimodel.CreateDeploymentV2Request` | [ApimodelCreateDeploymentV2Request](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelCreateDeploymentV2Request.java) |
 | `apimodel.CreateDeploymentV2Response` | [ApimodelCreateDeploymentV2Response](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelCreateDeploymentV2Response.java) |
+| `apimodel.CreateKeyValueCredentialRequest` | [ApimodelCreateKeyValueCredentialRequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelCreateKeyValueCredentialRequest.java) |
+| `apimodel.CreateKeyValueCredentialResponse` | [ApimodelCreateKeyValueCredentialResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelCreateKeyValueCredentialResponse.java) |
 | `apimodel.CreateNoSQLAppDatabaseRequest` | [ApimodelCreateNoSQLAppDatabaseRequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelCreateNoSQLAppDatabaseRequest.java) |
 | `apimodel.CreateNoSQLDatabaseCredentialRequest` | [ApimodelCreateNoSQLDatabaseCredentialRequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelCreateNoSQLDatabaseCredentialRequest.java) |
+| `apimodel.CreateSQLAppDatabaseRequest` | [ApimodelCreateSQLAppDatabaseRequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelCreateSQLAppDatabaseRequest.java) |
+| `apimodel.CreateSQLDatabaseCredentialRequest` | [ApimodelCreateSQLDatabaseCredentialRequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelCreateSQLDatabaseCredentialRequest.java) |
 | `apimodel.CreateSubscriptionRequest` | [ApimodelCreateSubscriptionRequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelCreateSubscriptionRequest.java) |
 | `apimodel.CreateSubscriptionResponse` | [ApimodelCreateSubscriptionResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelCreateSubscriptionResponse.java) |
 | `apimodel.CreateTopicRequest` | [ApimodelCreateTopicRequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelCreateTopicRequest.java) |
 | `apimodel.DeleteNoSQLResourceResponse` | [ApimodelDeleteNoSQLResourceResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelDeleteNoSQLResourceResponse.java) |
+| `apimodel.DeleteSQLResourceResponse` | [ApimodelDeleteSQLResourceResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelDeleteSQLResourceResponse.java) |
 | `apimodel.GetAppImageListV2DataItem` | [ApimodelGetAppImageListV2DataItem](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelGetAppImageListV2DataItem.java) |
 | `apimodel.GetAppImageListV2DataItemImageScanResult` | [ApimodelGetAppImageListV2DataItemImageScanResult](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelGetAppImageListV2DataItemImageScanResult.java) |
 | `apimodel.GetAppImageListV2DataItemImageScanStatus` | [ApimodelGetAppImageListV2DataItemImageScanStatus](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelGetAppImageListV2DataItemImageScanStatus.java) |
@@ -167,6 +222,7 @@
 | `apimodel.GetDeploymentListV2DataItem` | [ApimodelGetDeploymentListV2DataItem](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelGetDeploymentListV2DataItem.java) |
 | `apimodel.GetDeploymentListV2Request` | [ApimodelGetDeploymentListV2Request](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelGetDeploymentListV2Request.java) |
 | `apimodel.GetDeploymentListV2Response` | [ApimodelGetDeploymentListV2Response](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelGetDeploymentListV2Response.java) |
+| `apimodel.GetIntegrationAppKeyValueResponse` | [ApimodelGetIntegrationAppKeyValueResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelGetIntegrationAppKeyValueResponse.java) |
 | `apimodel.GetListOfConfigurationsV2DataItem` | [ApimodelGetListOfConfigurationsV2DataItem](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelGetListOfConfigurationsV2DataItem.java) |
 | `apimodel.GetListOfConfigurationsV2Response` | [ApimodelGetListOfConfigurationsV2Response](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelGetListOfConfigurationsV2Response.java) |
 | `apimodel.GetNotificationSubscriberItem` | [ApimodelGetNotificationSubscriberItem](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelGetNotificationSubscriberItem.java) |
@@ -175,19 +231,37 @@
 | `apimodel.GetNotificationSubscriberListResponseV2` | [ApimodelGetNotificationSubscriberListResponseV2](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelGetNotificationSubscriberListResponseV2.java) |
 | `apimodel.GetNotificationSubscriberStatusResponse` | [ApimodelGetNotificationSubscriberStatusResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelGetNotificationSubscriberStatusResponse.java) |
 | `apimodel.IncreaseLimitFormRequest` | [ApimodelIncreaseLimitFormRequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelIncreaseLimitFormRequest.java) |
+| `apimodel.IntegrateAppKeyValueRequest` | [ApimodelIntegrateAppKeyValueRequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelIntegrateAppKeyValueRequest.java) |
+| `apimodel.IntegrateAppKeyValueResponse` | [ApimodelIntegrateAppKeyValueResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelIntegrateAppKeyValueResponse.java) |
+| `apimodel.IntegrationCredentialInfo` | [ApimodelIntegrationCredentialInfo](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelIntegrationCredentialInfo.java) |
+| `apimodel.IntegrationListItem` | [ApimodelIntegrationListItem](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelIntegrationListItem.java) |
+| `apimodel.KeyValueCredentialAcknowledgements` | [ApimodelKeyValueCredentialAcknowledgements](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelKeyValueCredentialAcknowledgements.java) |
+| `apimodel.KeyValueResourceListResponse` | [ApimodelKeyValueResourceListResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelKeyValueResourceListResponse.java) |
+| `apimodel.KeyValueResourceResponse` | [ApimodelKeyValueResourceResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelKeyValueResourceResponse.java) |
+| `apimodel.ListAppUIResponse` | [ApimodelListAppUIResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelListAppUIResponse.java) |
+| `apimodel.ListIntegratedAppsKeyValueResponse` | [ApimodelListIntegratedAppsKeyValueResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelListIntegratedAppsKeyValueResponse.java) |
 | `apimodel.ListTopicsResponse` | [ApimodelListTopicsResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelListTopicsResponse.java) |
 | `apimodel.MemoryRequest` | [ApimodelMemoryRequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelMemoryRequest.java) |
 | `apimodel.MemoryResponse` | [ApimodelMemoryResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelMemoryResponse.java) |
 | `apimodel.NoSQLAppListResponse` | [ApimodelNoSQLAppListResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelNoSQLAppListResponse.java) |
 | `apimodel.NoSQLAppResponse` | [ApimodelNoSQLAppResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelNoSQLAppResponse.java) |
+| `apimodel.NoSQLDatabaseAcknowledgements` | [ApimodelNoSQLDatabaseAcknowledgements](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelNoSQLDatabaseAcknowledgements.java) |
 | `apimodel.NoSQLDatabaseCredentialResponse` | [ApimodelNoSQLDatabaseCredentialResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelNoSQLDatabaseCredentialResponse.java) |
 | `apimodel.NoSQLDatabaseDeleteResponse` | [ApimodelNoSQLDatabaseDeleteResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelNoSQLDatabaseDeleteResponse.java) |
 | `apimodel.NoSQLDatabaseResponse` | [ApimodelNoSQLDatabaseResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelNoSQLDatabaseResponse.java) |
 | `apimodel.NoSQLResourceResponse` | [ApimodelNoSQLResourceResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelNoSQLResourceResponse.java) |
 | `apimodel.NotificationType` | [ApimodelNotificationType](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelNotificationType.java) |
 | `apimodel.PaginationResponse` | [ApimodelPaginationResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelPaginationResponse.java) |
+| `apimodel.PublicIAMClientResponse` | [ApimodelPublicIAMClientResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelPublicIAMClientResponse.java) |
 | `apimodel.ReplicaRequest` | [ApimodelReplicaRequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelReplicaRequest.java) |
 | `apimodel.ReplicaResponse` | [ApimodelReplicaResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelReplicaResponse.java) |
+| `apimodel.SQLAppListResponse` | [ApimodelSQLAppListResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelSQLAppListResponse.java) |
+| `apimodel.SQLAppResponse` | [ApimodelSQLAppResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelSQLAppResponse.java) |
+| `apimodel.SQLDatabaseAcknowledgements` | [ApimodelSQLDatabaseAcknowledgements](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelSQLDatabaseAcknowledgements.java) |
+| `apimodel.SQLDatabaseCredentialResponse` | [ApimodelSQLDatabaseCredentialResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelSQLDatabaseCredentialResponse.java) |
+| `apimodel.SQLDatabaseDeleteResponse` | [ApimodelSQLDatabaseDeleteResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelSQLDatabaseDeleteResponse.java) |
+| `apimodel.SQLDatabaseResponse` | [ApimodelSQLDatabaseResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelSQLDatabaseResponse.java) |
+| `apimodel.SQLResourceResponse` | [ApimodelSQLResourceResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelSQLResourceResponse.java) |
 | `apimodel.SaveConfigurationV2Request` | [ApimodelSaveConfigurationV2Request](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelSaveConfigurationV2Request.java) |
 | `apimodel.SaveConfigurationV2Response` | [ApimodelSaveConfigurationV2Response](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelSaveConfigurationV2Response.java) |
 | `apimodel.SaveSecretConfigurationV2Request` | [ApimodelSaveSecretConfigurationV2Request](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelSaveSecretConfigurationV2Request.java) |
@@ -205,6 +279,10 @@
 | `apimodel.UpdateConfigurationV2Request` | [ApimodelUpdateConfigurationV2Request](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelUpdateConfigurationV2Request.java) |
 | `apimodel.UpdateConfigurationV2Response` | [ApimodelUpdateConfigurationV2Response](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelUpdateConfigurationV2Response.java) |
 | `apimodel.UpdateSecretConfigurationV2Request` | [ApimodelUpdateSecretConfigurationV2Request](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelUpdateSecretConfigurationV2Request.java) |
+| `apimodel.UploadFileResponse` | [ApimodelUploadFileResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelUploadFileResponse.java) |
+| `domain.KeyValueClusterConfig` | [DomainKeyValueClusterConfig](../../src/main/java/net/accelbyte/sdk/api/csm/models/DomainKeyValueClusterConfig.java) |
+| `domain.KeyValueResourceConfiguration` | [DomainKeyValueResourceConfiguration](../../src/main/java/net/accelbyte/sdk/api/csm/models/DomainKeyValueResourceConfiguration.java) |
+| `domain.KeyValueUpdateConfiguration` | [DomainKeyValueUpdateConfiguration](../../src/main/java/net/accelbyte/sdk/api/csm/models/DomainKeyValueUpdateConfiguration.java) |
 | `generated.CreateAppV1Request` | [GeneratedCreateAppV1Request](../../src/main/java/net/accelbyte/sdk/api/csm/models/GeneratedCreateAppV1Request.java) |
 | `generated.CreateAppV1Response` | [GeneratedCreateAppV1Response](../../src/main/java/net/accelbyte/sdk/api/csm/models/GeneratedCreateAppV1Response.java) |
 | `generated.CreateDeploymentV1Request` | [GeneratedCreateDeploymentV1Request](../../src/main/java/net/accelbyte/sdk/api/csm/models/GeneratedCreateDeploymentV1Request.java) |
@@ -243,3 +321,4 @@
 | `nosqlresource.NoSQLResourceConfiguration` | [NosqlresourceNoSQLResourceConfiguration](../../src/main/java/net/accelbyte/sdk/api/csm/models/NosqlresourceNoSQLResourceConfiguration.java) |
 | `resourceaccesstunnel.TunnelInfo` | [ResourceaccesstunnelTunnelInfo](../../src/main/java/net/accelbyte/sdk/api/csm/models/ResourceaccesstunnelTunnelInfo.java) |
 | `response.ErrorResponse` | [ResponseErrorResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ResponseErrorResponse.java) |
+| `sqlresource.SQLResourceConfiguration` | [SqlresourceSQLResourceConfiguration](../../src/main/java/net/accelbyte/sdk/api/csm/models/SqlresourceSQLResourceConfiguration.java) |

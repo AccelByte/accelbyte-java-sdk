@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * oldRequestPresignedURL
  *
  * <p>Request presigned URL for upload attachment for a particular localized version of base policy.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class OldRequestPresignedURL extends Operation {

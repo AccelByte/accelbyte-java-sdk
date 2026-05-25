@@ -21,8 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicValidateUserInput
  *
- * <p>Validate user's input. -------- **note:** - this endpoint will check the input validation and
- * profanity filter service(if this is enabled) - the namespace should be publisher namespace
+ * <p>Validate user's input. -------- **note:** - checks the input validation and profanity filter
+ * service (if this is enabled) - the namespace should be publisher namespace
  */
 @Getter
 @Setter

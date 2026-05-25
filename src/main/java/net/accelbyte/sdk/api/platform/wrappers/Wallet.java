@@ -85,9 +85,9 @@ public class Wallet {
   /**
    * @see CheckBalance
    */
-  public void checkBalance(CheckBalance input) throws Exception {
+  public CheckBalanceResponse checkBalance(CheckBalance input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
-    input.handleEmptyResponse(
+    return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
 

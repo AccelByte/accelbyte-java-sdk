@@ -23,6 +23,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>This is the API to patch update 3rd Platform domain. This API is a create or partial-update
  * behavior. If it is update, it is a partial update behavior.
+ *
+ * <p>**Request body:** Partial domain configuration update. Only provided fields will be updated.
  */
 @Getter
 @Setter

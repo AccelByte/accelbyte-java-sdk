@@ -78,6 +78,10 @@ public class ApimodelsCreateGameSessionRequest extends Model {
   @JsonProperty("minPlayers")
   private Integer minPlayers;
 
+  @JsonProperty("password")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String password;
+
   @JsonProperty("preferredClaimKeys")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> preferredClaimKeys;
@@ -207,6 +211,7 @@ public class ApimodelsCreateGameSessionRequest extends Model {
 
   public enum TextChatMode {
     GAME("GAME"),
+    GAMEANDTEAM("GAME_AND_TEAM"),
     NONE("NONE"),
     TEAM("TEAM");
 

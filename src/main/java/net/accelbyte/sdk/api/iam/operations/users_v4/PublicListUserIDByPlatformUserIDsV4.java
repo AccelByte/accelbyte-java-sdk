@@ -21,9 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicListUserIDByPlatformUserIDsV4
  *
- * <p>List User ID By Platform User ID This endpoint intended to list game user ID from the given
- * namespace This endpoint return list of user ID by given platform ID and list of platform user ID,
- * the max count is 100.
+ * <p>List User ID By Platform User ID Returns game user IDs from the given namespace. Returns a
+ * list of user IDs by given platform ID and list of platform user IDs. The max count is 100.
  *
  * <p>Supported platform: - steam - steamopenid - ps4web - ps4 - ps5 - live - xblweb - oculus - if
  * query by app user id, please set the param **pidType** to **OCULUS_APP_USER_ID** - oculusweb -

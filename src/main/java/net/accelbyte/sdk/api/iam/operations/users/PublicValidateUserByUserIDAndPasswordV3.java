@@ -20,8 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicValidateUserByUserIDAndPasswordV3
  *
- * <p>This endpoint is used to validate the user password. This endpoint validate the user password
- * by specifying the userId and password.
+ * <p>Validates the user password by specifying the userId and password.
  *
  * <p>**Authentication:** The _**userId**_ parameter should match the one in the access token.
  */

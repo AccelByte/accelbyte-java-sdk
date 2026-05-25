@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateClientSecretV3
  *
- * <p>Update Client Secret
+ * <p>Updates the client secret for the specified OAuth client.
  */
 @Getter
 @Setter

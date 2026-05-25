@@ -21,10 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetUserByPlatformUserIDV3
  *
- * <p>Get User By Platform User ID This endpoint return user information by given platform ID and
- * platform user ID. Several platforms are grouped under account groups, you can use either platform
- * ID or platform group as platformId path parameter. example: for steam network platform, you can
- * use steamnetwork / steam / steamopenid as platformId path parameter.
+ * <p>Get User By Platform User ID Returns user information by given platform ID and platform user
+ * ID. Several platforms are grouped under account groups, you can use either platform ID or
+ * platform group as platformId path parameter. example: for steam network platform, you can use
+ * steamnetwork / steam / steamopenid as platformId path parameter.
  *
  * <p>**Supported Platforms:** - Steam group (steamnetwork): - steam - steamopenid - PSN group
  * (psn): - ps4web - ps4 - ps5 - XBOX group(xbox): - live - xblweb - Oculus group (oculusgroup): -

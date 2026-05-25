@@ -25,6 +25,9 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class ApimodelCreateNoSQLDatabaseCredentialRequest extends Model {
 
+  @JsonProperty("acknowledgements")
+  private ApimodelNoSQLDatabaseAcknowledgements acknowledgements;
+
   @JsonProperty("password")
   private String password;
 

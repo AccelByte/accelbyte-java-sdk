@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDeleteUserPermissionV3
  *
- * <p>Delete User Permission
+ * <p>Removes a specific permission (identified by resource and action) from the specified user.
  */
 @Getter
 @Setter

@@ -260,6 +260,7 @@ public class ApimodelsCreateConfigurationTemplateRequest extends Model {
 
   public enum TextChatMode {
     GAME("GAME"),
+    GAMEANDTEAM("GAME_AND_TEAM"),
     NONE("NONE"),
     TEAM("TEAM");
 

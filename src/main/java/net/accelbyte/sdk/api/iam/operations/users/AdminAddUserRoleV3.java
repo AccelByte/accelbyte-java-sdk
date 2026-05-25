@@ -20,8 +20,13 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminAddUserRoleV3
  *
- * <p>action code: 10109
+ * <p>**Deprecated.** Only assigns roles in the legacy roles entity.
+ *
+ * <p>**Substitute endpoint:** /iam/v4/admin/namespaces/{namespace}/users/{userId}/roles [POST]
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminAddUserRoleV3 extends Operation {

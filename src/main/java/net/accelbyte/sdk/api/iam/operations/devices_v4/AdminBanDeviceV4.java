@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminBanDeviceV4
  *
- * <p>This is the endpoint for an admin to ban a device
+ * <p>Bans a device (admin operation).
  */
 @Getter
 @Setter

@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicGetUserPublicInfoByUserIdV4
  *
- * <p>This endpoint only returns user's public information. action code: 10129
+ * <p>Returns only user's public information.
  */
 @Getter
 @Setter

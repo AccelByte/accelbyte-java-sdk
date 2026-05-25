@@ -22,10 +22,22 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicUpdateInsertSessionStorageLeader
  *
- * <p>Update Insert Session Storage Leader. only Leader can update or insert user session storage
- * data Leader. can store generic json example json can store : { "leader": { "leader": 1 }, "data":
- * 123 } game Admin can update or insert session storage Session Storage feature only available for
- * Gamesession
+ * <p>Update Insert Session Storage Leader. Performs selective merge with existing leader storage
+ * data.
+ *
+ * <p>Leader (regular token): Only the session leader can update leader storage. Merges patch with
+ * existing data, nil values delete keys. Game Admin (client token): Can update leader storage.
+ * Merges patch with existing data, nil values delete keys.
+ *
+ * <p>Deep merge: Nested objects are recursively merged, not replaced. Absent keys in patch are
+ * preserved in storage. Leader storage is separate from per-user storage and identified by session
+ * context, not userID. Example patch: { "gameState": {"round": "2"}, "difficulty": null }
+ *
+ * <p>Session Storage feature only available for Gamesession.
+ *
+ * <p>Alternative v2 endpoints available with explicit semantics: - PATCH /v2/.../storage/leader -
+ * Selective merge with partial updates - PUT /v2/.../storage/leader - Complete replacement of
+ * entire storage
  */
 @Getter
 @Setter

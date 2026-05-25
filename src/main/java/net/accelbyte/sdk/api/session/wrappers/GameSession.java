@@ -240,6 +240,26 @@ public class GameSession {
   }
 
   /**
+   * @see PublicGetGameSessionPassword
+   */
+  public ApimodelsGetPasswordResponse publicGetGameSessionPassword(
+      PublicGetGameSessionPassword input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicUpdateGameSessionPassword
+   */
+  public void publicUpdateGameSessionPassword(PublicUpdateGameSessionPassword input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
    * @see PublicGameSessionReject
    */
   public void publicGameSessionReject(PublicGameSessionReject input) throws Exception {

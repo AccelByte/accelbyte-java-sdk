@@ -20,8 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGenerateBackupCodesV4
  *
- * <p>This endpoint is used to generate 8-digits backup codes. Each code is a one-time code and will
- * be deleted once used.
+ * <p>Generates 8-digit backup codes. Each code is a one-time code and will be deleted once used.
  */
 @Getter
 @Setter

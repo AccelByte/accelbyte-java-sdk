@@ -21,8 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateUser
  *
- * <p>## The endpoint is going to be deprecated ### Endpoint migration guide - **Substitute
- * endpoint: _/iam/v3/public/namespaces/{namespace}/users [POST]_** - **Substitute endpoint:
+ * <p>**This endpoint is deprecated.** ### Endpoint migration guide - **Substitute endpoint:
+ * _/iam/v3/public/namespaces/{namespace}/users [POST]_** - **Substitute endpoint:
  * _/iam/v4/public/namespaces/{namespace}/users [POST]_** - **Note:** 1. v3 & v4 introduce optional
  * verification code 2. format differenceï¼Pascal case => Camel case)
  *

@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * oldCreateLocalizedPolicyVersion
  *
  * <p>Create a version of a particular country-specific policy.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class OldCreateLocalizedPolicyVersion extends Operation {

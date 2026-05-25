@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * oldRetrieveSinglePolicy
  *
  * <p>Retrieve a base policy.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class OldRetrieveSinglePolicy extends Operation {

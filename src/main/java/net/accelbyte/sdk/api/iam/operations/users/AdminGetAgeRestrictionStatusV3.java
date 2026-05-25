@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetAgeRestrictionStatusV3
  *
- * <p>action code: 10138
+ * <p>Retrieves the age restriction status for the namespace.
  */
 @Getter
 @Setter

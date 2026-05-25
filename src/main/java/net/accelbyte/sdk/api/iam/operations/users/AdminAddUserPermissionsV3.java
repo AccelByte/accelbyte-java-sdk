@@ -21,14 +21,14 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminAddUserPermissionsV3
  *
- * <p>This endpoint will APPEND user's permissions with the ones defined in body Schedule contains
- * cron string or date range (both are UTC, also in cron syntax) to indicate when a permission and
- * action are in effect. Both schedule types accepts quartz compatible cron syntax e.g. * * * * * *
- * *. In ranged schedule, first element will be start date, and second one will be end date If
- * schedule is set, the scheduled action must be valid too, that is between 1 to 15, inclusive
- * Syntax reference Fields: 1. Seconds: 0-59 * / , - 1. Minutes: 0-59 * / , - 1. Hours: 0-23 * / , -
- * 1. Day of month: 1-31 * / , - L W 1. Month: 1-12 JAN-DEC * / , - 1. Day of week: 0-6 SUN-SAT * /
- * , - L # 1. Year: 1970-2099 * / , -
+ * <p>Appends user's permissions with the ones defined in body. Schedule contains cron string or
+ * date range (both are UTC, also in cron syntax) to indicate when a permission and action are in
+ * effect. Both schedule types accepts quartz compatible cron syntax e.g. * * * * * * *. In ranged
+ * schedule, first element will be start date, and second one will be end date If schedule is set,
+ * the scheduled action must be valid too, that is between 1 to 15, inclusive Syntax reference
+ * Fields: 1. Seconds: 0-59 * / , - 1. Minutes: 0-59 * / , - 1. Hours: 0-23 * / , - 1. Day of month:
+ * 1-31 * / , - L W 1. Month: 1-12 JAN-DEC * / , - 1. Day of week: 0-6 SUN-SAT * / , - L # 1. Year:
+ * 1970-2099 * / , -
  *
  * <p>Special characters: 1. *: all values in the fields, e.g. * in seconds fields indicates every
  * second 1. /: increments of ranges, e.g. 3-59/15 in the minute field indicate the third minute of

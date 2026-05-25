@@ -23,7 +23,9 @@ public class AdminChainingOperations {
 
   /**
    * @see AdminCreateChainingOperations
+   * @deprecated
    */
+  @Deprecated
   public ApimodelsChainingOperationResp adminCreateChainingOperations(
       AdminCreateChainingOperations input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);

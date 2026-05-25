@@ -21,10 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateUserFromInvitationV3
  *
- * <p>This endpoint create user from saved roles when creating invitation and submitted data. User
- * will be able to login after completing submitting the data through this endpoint. Available
- * Authentication Types: EMAILPASSWD: an authentication type used for new user registration through
- * email.
+ * <p>Creates a user from saved roles when creating invitation and submitted data. User will be able
+ * to login after submitting data. Available Authentication Types: EMAILPASSWD: an authentication
+ * type used for new user registration through email.
  *
  * <p>**Note**: * **uniqueDisplayName**: this is required when
  * uniqueDisplayNameEnabled/UNIQUE_DISPLAY_NAME_ENABLED is true.

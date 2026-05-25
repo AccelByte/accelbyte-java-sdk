@@ -21,9 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminListAllDistinctPlatformAccountsV3
  *
- * <p>This endpoint only retrieves 3rd party platform accounts linked to user. It will query
- * platform accounts and result will be distinct & grouped, same platform we will pick oldest linked
- * one. ------ Supported status: - LINKED - RESTRICTIVELY_UNLINKED - UNLINKED - ALL
+ * <p>Retrieves only 3rd party platform accounts linked to user. It will query platform accounts and
+ * result will be distinct & grouped, same platform we will pick oldest linked one. ------ Supported
+ * status: - LINKED - RESTRICTIVELY_UNLINKED - UNLINKED - ALL
  */
 @Getter
 @Setter

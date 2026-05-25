@@ -21,8 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateLoginAllowlistV3
  *
- * <p>This endpoint update login allowlist configuration from specific game namespace. roleIds: are
- * list of role that allowed to login Note: only accept game namespace
+ * <p>Updates the login allowlist configuration for a specific game namespace.
+ *
+ * <p>**Note:** Only accepts game namespaces.
  */
 @Getter
 @Setter

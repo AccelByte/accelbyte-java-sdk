@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminListUserIDByUserIDsV3
  *
- * <p>List User By User ID This endpoint intended to list user information from the given list of
- * userID and namespace
+ * <p>List User By User ID Lists user information from the given list of userID and namespace.
  */
 @Getter
 @Setter

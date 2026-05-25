@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetAdminInvitationV3
  *
- * <p>Endpoint to validate user invitation. When not found, it could also means the invitation has
- * expired.
+ * <p>Validates a user invitation. When not found, it could also mean the invitation has expired.
  */
 @Getter
 @Setter

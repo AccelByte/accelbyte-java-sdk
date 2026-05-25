@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateProfileUpdateStrategyV3
  *
- * <p>This API includes upsert behavior. Note: 1. field 'config'' in request body will only work
- * when type is limited
+ * <p>Uses upsert behavior.
  */
 @Getter
 @Setter

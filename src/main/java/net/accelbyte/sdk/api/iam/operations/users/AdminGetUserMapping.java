@@ -21,10 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetUserMapping
  *
- * <p>This endpoint will support publisher access to game and game access to publisher If
- * targetNamespace filled with publisher namespace then this endpoint will return its publisher user
- * id and publisher namespace. If targetNamespace filled with game namespace then this endpoint will
- * return its game user id and game namespace.
+ * <p>Supports publisher access to game and game access to publisher. If targetNamespace filled with
+ * publisher namespace then returns its publisher user id and publisher namespace. If
+ * targetNamespace filled with game namespace then returns its game user id and game namespace.
  */
 @Getter
 @Setter

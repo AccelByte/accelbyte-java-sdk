@@ -21,12 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateUserStatusV3
  *
- * <p>This endpoint disable or enable user account. Set the enable status on the request body to
- * true to enable user account or set to false to disable it. Disable user for **Account Disable**
- * purpose fill the reason with: - **AdminDeactivateAccount** : if your disable account request
- * comes from admin
- *
- * <p>Enable user ignore field 'reason' in the request body. action code : 10143
+ * <p>Disables or enables a user account.
  */
 @Getter
 @Setter

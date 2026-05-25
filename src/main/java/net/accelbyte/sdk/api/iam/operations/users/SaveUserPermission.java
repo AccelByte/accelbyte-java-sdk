@@ -21,15 +21,14 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * SaveUserPermission
  *
- * <p>## The endpoint is going to be deprecated ### Endpoint migration guide - **Substitute
- * endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/permissions [POST]_**
+ * <p>**This endpoint is deprecated.** ### Endpoint migration guide - **Substitute endpoint:
+ * _/iam/v3/admin/namespaces/{namespace}/users/{userId}/permissions [POST]_**
  *
- * <p>This endpoint will REPLACE user's permissions with the ones defined in body Schedule contains
- * cron string or date range (both are UTC, also in cron syntax) to indicate when a permission and
- * action are in effect. Both schedule types accepts quartz compatible cron syntax e.g. * * * * * *
- * *. In ranged schedule, first element will be start date, and second one will be end date If
- * schedule is set, the scheduled action must be valid too, that is between 1 to 15, inclusive
- * Syntax reference
+ * <p>Replaces user's permissions with the ones defined in body Schedule contains cron string or
+ * date range (both are UTC, also in cron syntax) to indicate when a permission and action are in
+ * effect. Both schedule types accepts quartz compatible cron syntax e.g. * * * * * * *. In ranged
+ * schedule, first element will be start date, and second one will be end date If schedule is set,
+ * the scheduled action must be valid too, that is between 1 to 15, inclusive Syntax reference
  *
  * <p>Fields: 1. Seconds: 0-59 * / , - 2. Minutes: 0-59 * / , - 3. Hours: 0-23 * / , - 4. Day of
  * month: 1-31 * / , - L W 5. Month: 1-12 JAN-DEC * / , - 6. Day of week: 0-6 SUN-SAT * / , - L # 7.

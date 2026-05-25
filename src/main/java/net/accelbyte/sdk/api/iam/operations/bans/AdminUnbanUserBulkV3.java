@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUnbanUserBulkV3
  *
- * <p>disable bulk ban user. The maximum limit value is 100 action code : 10142
+ * <p>disable bulk ban user. The maximum limit value is 100
  */
 @Getter
 @Setter

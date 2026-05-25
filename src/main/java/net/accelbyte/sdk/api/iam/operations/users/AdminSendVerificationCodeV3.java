@@ -33,8 +33,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * wanted to be automatically verified on upgrading a headless account. If this context used, IAM
  * rejects the request if the email address is already used by others by returning HTTP Status Code
  * 409.
- *
- * <p>action code: 10116
  */
 @Getter
 @Setter

@@ -20,8 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PlatformLink
  *
- * <p>## The endpoint is going to be deprecated ### Endpoint migration guide - **Substitute
- * endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId} [POST]_**
+ * <p>**This endpoint is deprecated.** ### Endpoint migration guide - **Substitute endpoint:
+ * _/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId} [POST]_**
  *
  * <p>**Prerequisite:** Platform client configuration need to be added to database for specific
  * platformId. Namespace service URL need to be specified (refer to required environment variables).
@@ -35,7 +35,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * value is the authorization code returned by Twitch OAuth. - **android**: The ticket's value is
  * the Androidâs device ID - **ios**: The ticket's value is the iOSâs device ID. - **apple**:
  * The ticketâs value is the authorization code returned by Apple OAuth. - **device**: Every
- * device that doesânt run Android and iOS is categorized as a device platform. The ticket's value
+ * device that doesnât run Android and iOS is categorized as a device platform. The ticket's value
  * is the deviceâs ID. - **discord**: The ticketâs value is the authorization code returned by
  * Discord OAuth.
  *

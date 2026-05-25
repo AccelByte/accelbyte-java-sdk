@@ -21,25 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateUserFromInvitationV4
  *
- * <p>This endpoint create user from saved roles when creating invitation and submitted data. User
- * will be able to login after completing submitting the data through this endpoint. Available
- * Authentication Types:
- *
- * <p>EMAILPASSWD: an authentication type used for new user registration through email.
- *
- * <p>**Note**: * **uniqueDisplayName**: this is required when
- * uniqueDisplayNameEnabled/UNIQUE_DISPLAY_NAME_ENABLED is true.
- *
- * <p>Country use ISO3166-1 alpha-2 two letter, e.g. US.
- *
- * <p>Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
- *
- * <p>Required attributes: - authType: possible value is EMAILPASSWD (see above) - country:
- * ISO3166-1 alpha-2 two letter, e.g. US. - dateOfBirth: YYYY-MM-DD, e.g. 1990-01-01. valid values
- * are between 1905-01-01 until current date. - displayName: Please refer to the rule from
- * /v3/public/inputValidations API. - password: Please refer to the rule from
- * /v3/public/inputValidations API. - username: Please refer to the rule from
- * /v3/public/inputValidations API.
+ * <p>Creates a user from a saved invitation, completing the registration with the submitted data.
+ * The user will be able to login after completing this step. See request body field descriptions
+ * for per-field details.
  */
 @Getter
 @Setter

@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicChallengeMyMFAV4
  *
- * <p>This endpoint will verify user's' MFA code and generate a MFA token for the action.
+ * <p>Verifies the user's MFA code and generates an MFA token for the action.
  */
 @Getter
 @Setter

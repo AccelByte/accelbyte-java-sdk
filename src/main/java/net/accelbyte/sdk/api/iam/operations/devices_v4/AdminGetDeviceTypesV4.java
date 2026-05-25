@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetDeviceTypesV4
  *
- * <p>This is the endpoint for an admin to get device types
+ * <p>Returns all supported device types (admin operation).
  */
 @Getter
 @Setter

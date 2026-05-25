@@ -2715,6 +2715,15 @@ $ build/install/cli/bin/cli platform syncSubscription \
     --userId <userId value>
 ```
 
+### Operation AdminSyncTwitchDropsEntitlement
+
+```sh
+$ build/install/cli/bin/cli platform adminSyncTwitchDropsEntitlement \
+    --namespace <namespace value> \
+    --userId <userId value> \
+    --body <json string for request body>
+```
+
 ### Operation QueryUserOrders
 
 ```sh

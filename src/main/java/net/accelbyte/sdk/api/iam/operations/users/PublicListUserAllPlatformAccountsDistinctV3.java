@@ -21,9 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicListUserAllPlatformAccountsDistinctV3
  *
- * <p>This endpoint retrieves platform accounts linked to user. It will query all linked platform
- * accounts. The results will be distinct and grouped by platform, and for each platform, we will
- * select the oldest linked one.
+ * <p>Retrieves platform accounts linked to user. It will query all linked platform accounts. The
+ * results will be distinct and grouped by platform, and for each platform, we will select the
+ * oldest linked one.
  *
  * <p>**Authentication:** The _**userId**_ parameter should match the one in the access token.
  */

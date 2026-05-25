@@ -21,8 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetRoleManagers
  *
- * <p>## The endpoint is going to be deprecated Role can only be assigned to other users by the
- * role's manager.
+ * <p>**This endpoint is deprecated.** Role can only be assigned to other users by the role's
+ * manager.
  *
  * <p>### Endpoint migration guide - **Substitute endpoint: _/iam/v3/admin/roles/{roleId}/managers
  * [GET]_**

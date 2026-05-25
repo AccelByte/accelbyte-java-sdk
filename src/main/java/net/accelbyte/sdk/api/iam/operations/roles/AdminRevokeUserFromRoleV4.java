@@ -21,11 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminRevokeUserFromRoleV4
  *
- * <p>Current implementation will revoke user from role in all assigned namespaces.
- *
- * <p>Parameters: - userId: string (required) - namespace: string (userâs namespace) (required)
- *
- * <p>action code: 10411
+ * <p>Current implementation will revoke user from role in all assigned namespaces. See request body
+ * field descriptions for per-field details.
  */
 @Getter
 @Setter

@@ -21,8 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminBulkUpdateUserAccountTypeV4
  *
- * <p>This endpoint is used to change users account type - set **testAccount** to `true` to mark
- * user as test account type - set **testAccount** to `false` to mark user as default account type
+ * <p>Changes users account type. - set **testAccount** to `true` to mark user as test account type
+ * - set **testAccount** to `false` to mark user as default account type
  */
 @Getter
 @Setter

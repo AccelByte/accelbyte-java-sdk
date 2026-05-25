@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * Logout
  *
- * <p>This endpoint is used to remove **access_token**, **refresh_token** from cookie.
+ * <p>Removes **access_token** and **refresh_token** from the cookie.
  */
 @Getter
 @Setter

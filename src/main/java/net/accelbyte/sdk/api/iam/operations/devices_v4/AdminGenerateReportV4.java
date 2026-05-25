@@ -20,7 +20,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGenerateReportV4
  *
- * <p>This is the endpoint for an admin to generate device report
+ * <p>Generates a device report for the specified namespace.
+ *
+ * <p>**Namespace restriction:** The {namespace} path parameter must be a **game namespace**.
+ * Passing a publisher namespace returns HTTP 400.
  */
 @Getter
 @Setter

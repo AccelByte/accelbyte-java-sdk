@@ -29,6 +29,10 @@ public class ApimodelNoSQLResourceResponse extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private NosqlresourceNoSQLResourceConfiguration configuration;
 
+  @JsonProperty("engineVersion")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String engineVersion;
+
   @JsonProperty("hostnames")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String hostnames;

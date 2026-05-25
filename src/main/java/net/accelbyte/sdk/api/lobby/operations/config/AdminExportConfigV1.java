@@ -44,7 +44,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * "maxPartyMember": { "type": "integer", "format": "int32" }, "namespace": { "type": "string" },
  * "profanityFilter": { "type": "boolean" }, "readyConsentTimeout": { "type": "integer", "format":
  * "int64" }, "requestMetadataMaxSize": { "type": "integer", "format": "int32" }, "unregisterDelay":
- * { "type": "integer", "format": "int64" } } }
+ * { "type": "integer", "format": "int64" }, "wsReadTimeout": { "type": "integer", "format": "int64"
+ * } } }
  */
 @Getter
 @Setter

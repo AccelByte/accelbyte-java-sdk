@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * upgradeHeadlessAccount
  *
- * <p>## The endpoint is going to be deprecated
+ * <p>**This endpoint is deprecated.**
  *
  * <p>### Endpoint migration guide - **Substitute endpoint:
  * _/iam/v3/public/namespaces/{namespace}/users/me/headless/verify [POST]_**

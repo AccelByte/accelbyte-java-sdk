@@ -21,17 +21,15 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetUserJusticePlatformAccount
  *
- * <p>## The endpoint is going to be deprecated ### Endpoint migration guide - **Substitute
- * endpoint:
+ * <p>**This endpoint is deprecated.** ### Endpoint migration guide - **Substitute endpoint:
  * _/iam/v3/admin/namespaces/{namespace}/users/{userId}/platforms/justice/{targetNamespace} [GET]_**
  *
- * <p>This endpoint requires the client access token as the bearer token
+ * <p>Requires the client access token as the bearer token
  *
- * <p>The endpoint returns user Justice platform account linked with the given user. If the user
- * Justice platform account doesn't exist in the designated namespace, the endpoint is going to
- * *create and return the new Justice platform account.* The newly user Justice platform account is
- * going to be forced to perform token grant through the given user and can't perform password
- * update
+ * <p>Returns user Justice platform account linked with the given user. If the user Justice platform
+ * account doesn't exist in the designated namespace, automatically *creates and returns the new
+ * Justice platform account.* The newly user Justice platform account is going to be forced to
+ * perform token grant through the given user and can't perform password update
  *
  * <p>### Read Justice Platform Account UserID Without permission the UserID is going to be censored
  * and replaced with âRedactedâ text.

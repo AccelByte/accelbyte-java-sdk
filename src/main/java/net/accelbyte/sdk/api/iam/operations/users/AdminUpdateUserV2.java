@@ -21,12 +21,12 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateUserV2
  *
- * <p>## The endpoint is going to be deprecated **Endpoint migration guide** - **Substitute
- * endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId} [PATCH]_**
+ * <p>**This endpoint is deprecated.** **Endpoint migration guide** - **Substitute endpoint:
+ * _/iam/v3/admin/namespaces/{namespace}/users/{userId} [PATCH]_**
  *
- * <p>This Endpoint support update user based on given data. **Single request can update single
- * field or multi fields.** Supported field {Country, DisplayName, LanguageTag} Country use
- * ISO3166-1 alpha-2 two letter, e.g. US.
+ * <p>Supports updating user based on given data. **Single request can update single field or multi
+ * fields.** Supported field {Country, DisplayName, LanguageTag} Country use ISO3166-1 alpha-2 two
+ * letter, e.g. US.
  *
  * <p>**Several case of updating email address** - User want to update email address of which have
  * been verified, NewEmailAddress response field will be filled with new email address. - User want

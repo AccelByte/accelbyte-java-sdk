@@ -21,17 +21,17 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicUpgradeHeadlessWithCodeV4Forward
  *
- * <p>This is a forward version for code verify. The endpoint upgrades a headless account by linking
- * the headless account with the email address, username, and password. By upgrading the headless
- * account into a full account, the user could use the email address, username, and password for
- * using Justice IAM.
+ * <p>This is a forward version for code verify. Upgrades a headless account by linking it with an
+ * email address, username, and password, and immediately verifies the email address afterward.
  *
- * <p>The endpoint is a shortcut for upgrading a headless account and verifying the email address in
- * one call. In order to get a verification code for the endpoint, please check the [send
- * verification code endpoint](#operations-Users-PublicSendCodeForwardV3).
+ * <p>By upgrading the headless account into a full account, the user could use the email address,
+ * username, and password for using Justice IAM.
  *
- * <p>This endpoint also have an ability to update user data (if the user data field is specified)
- * right after the upgrade account process is done.
+ * <p>To obtain a verification code, use the [send verification code
+ * API](#operations-Users-PublicSendCodeForwardV3).
+ *
+ * <p>Also has the ability to update user data (if the user data field is specified) right after the
+ * upgrade account process is done.
  */
 @Getter
 @Setter

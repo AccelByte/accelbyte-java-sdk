@@ -37,6 +37,9 @@ public class ClientmodelClientTemplate extends Model {
   @JsonProperty("id")
   private String id;
 
+  @JsonProperty("package")
+  private String package_;
+
   @JsonProperty("requiredFields")
   private List<String> requiredFields;
 

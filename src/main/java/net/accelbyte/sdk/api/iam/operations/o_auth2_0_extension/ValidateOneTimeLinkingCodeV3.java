@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * ValidateOneTimeLinkingCodeV3
  *
- * <p>This endpoint is being used to validate one time link code.
+ * <p>Validates a one-time link code.
  */
 @Getter
 @Setter

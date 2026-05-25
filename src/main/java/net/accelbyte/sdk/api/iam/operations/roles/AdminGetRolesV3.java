@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetRolesV3
  *
- * <p>action code: 10414
+ * <p>Retrieves a paginated list of roles.
  */
 @Getter
 @Setter

@@ -21,9 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminCreateChainingOperations
  *
- * <p>Create chaining Operations. This process will run sequentially 1. remove item process 2.
- * consume item process 3. update item process 4. create item process if toSpecificInventory set as
- * true, then inventoryId field will be mandatory, vice versa
+ * <p>## The endpoint is going to be deprecated Create chaining Operations. This process will run
+ * sequentially 1. remove item process 2. consume item process 3. update item process 4. create item
+ * process if toSpecificInventory set as true, then inventoryId field will be mandatory, vice versa
  *
  * <p>The behavior of each process is same with current admin level endpoint
  *
@@ -33,7 +33,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * included in response if client have not pass request id.
  *
  * <p>Permission: ADMIN:NAMESPACE:{namespace}:USER:{userId}:INVENTORY:ITEM [CREATE]
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class AdminCreateChainingOperations extends Operation {

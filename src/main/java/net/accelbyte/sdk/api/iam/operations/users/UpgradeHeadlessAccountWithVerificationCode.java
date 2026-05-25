@@ -21,14 +21,16 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UpgradeHeadlessAccountWithVerificationCode
  *
- * <p>## The endpoint is going to be deprecated ### Endpoint migration guide - **Substitute
- * endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/headless/code/verify [POST]_**
+ * <p>**This endpoint is deprecated.** ### Endpoint migration guide - **Substitute endpoint:
+ * _/iam/v3/public/namespaces/{namespace}/users/me/headless/code/verify [POST]_**
  *
- * <p>The endpoint upgrades a headless account by linking the headless account with the email
- * address and the password. By upgrading the headless account into a full account, the user could
- * use the email address and password for using Justice IAM. The endpoint is a shortcut for
- * upgrading a headless account and verifying the email address in one call. In order to get a
- * verification code for the endpoint, please check the send verification code endpoint.
+ * <p>Upgrades a headless account by linking it with an email address, username, and password, and
+ * immediately verifies the email address afterward.
+ *
+ * <p>By upgrading the headless account into a full account, the user could use the email address
+ * and password for using Justice IAM.
+ *
+ * <p>In order to get a verification code, please check the send verification code API.
  *
  * @deprecated
  */

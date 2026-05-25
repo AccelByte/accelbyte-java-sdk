@@ -24,7 +24,9 @@ public class PolicyVersions {
 
   /**
    * @see OldUpdatePolicyVersion
+   * @deprecated
    */
+  @Deprecated
   public UpdatePolicyVersionResponse oldUpdatePolicyVersion(OldUpdatePolicyVersion input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -34,7 +36,9 @@ public class PolicyVersions {
 
   /**
    * @see OldPublishPolicyVersion
+   * @deprecated
    */
+  @Deprecated
   public void oldPublishPolicyVersion(OldPublishPolicyVersion input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
@@ -43,7 +47,9 @@ public class PolicyVersions {
 
   /**
    * @see OldRetrieveSinglePolicyVersion
+   * @deprecated
    */
+  @Deprecated
   public List<RetrievePolicyVersionResponse> oldRetrieveSinglePolicyVersion(
       OldRetrieveSinglePolicyVersion input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -53,7 +59,9 @@ public class PolicyVersions {
 
   /**
    * @see OldCreatePolicyVersion
+   * @deprecated
    */
+  @Deprecated
   public CreatePolicyVersionResponse oldCreatePolicyVersion(OldCreatePolicyVersion input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);

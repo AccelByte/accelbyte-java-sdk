@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * oldRetrievePolicyCountry
  *
  * <p>Retrieve a Base Legal Policy based on a Particular Country.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class OldRetrievePolicyCountry extends Operation {

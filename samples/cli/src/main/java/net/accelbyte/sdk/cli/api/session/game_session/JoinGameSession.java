@@ -41,6 +41,11 @@ public class JoinGameSession implements Callable<Integer> {
   String sessionId;
 
   @Option(
+      names = {"--body"},
+      description = "body")
+  String body;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -65,6 +70,7 @@ public class JoinGameSession implements Callable<Integer> {
           net.accelbyte.sdk.api.session.operations.game_session.JoinGameSession.builder()
               .namespace(namespace)
               .sessionId(sessionId)
+              .body(new ObjectMapper().readValue(body, ApimodelsJoinSessionRequest.class))
               .build();
       final ApimodelsGameSessionResponse response = wrapper.joinGameSession(operation);
       final String responseString =

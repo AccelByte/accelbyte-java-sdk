@@ -24,7 +24,9 @@ public class UserInfo {
 
   /**
    * @see GetUserInfoStatus
+   * @deprecated
    */
+  @Deprecated
   public List<RetrieveUserInfoCacheStatusResponse> getUserInfoStatus(GetUserInfoStatus input)
       throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);

@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicUpdateUserEmailAddressV4
  *
- * <p>The endpoint to update my email address. It requires a verification code from
+ * <p>Updates the authenticated user's email address. Requires a verification code from
  * `/users/me/code/request` with **UpdateEmailAddress** context.
  */
 @Getter

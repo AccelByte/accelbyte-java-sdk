@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminRemoveRoleAdminV3
  *
- * <p>code: 10413
+ * <p>Removes admin status from a role.
  */
 @Getter
 @Setter

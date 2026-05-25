@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicGetUserPlatformAccountsV3
  *
- * <p>This endpoint retrieves platform accounts linked to user.
+ * <p>Retrieves platform accounts linked to user.
  *
  * <p>**Supported Platforms:** - Steam group (steamnetwork): - steam - steamopenid - PSN group
  * (psn): - ps4web - ps4 - ps5 - XBOX group(xbox): - live - xblweb - Oculus group (oculusgroup): -
@@ -34,8 +34,6 @@ import net.accelbyte.sdk.core.util.Helper;
  * separator. e.g kmzwa8awaa:dd1
  *
  * <p>**Authentication:** The _**userId**_ parameter should match the one in the access token.
- *
- * <p>action code: 10128
  */
 @Getter
 @Setter

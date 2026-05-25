@@ -21,8 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDisableUserMFAV4
  *
- * <p>This endpoint is used to disable user 2FA. ----------- **Note**: if the factor is not
- * specified, will disable all 2FA methods.
+ * <p>Disables user 2FA. ----------- **Note**: if the factor is not specified, will disable all 2FA
+ * methods.
  */
 @Getter
 @Setter

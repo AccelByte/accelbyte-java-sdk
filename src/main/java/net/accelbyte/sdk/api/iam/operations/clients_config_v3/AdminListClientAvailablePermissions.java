@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminListClientAvailablePermissions
  *
- * <p>List Client available permissions
+ * <p>Lists all available client permissions.
  */
 @Getter
 @Setter

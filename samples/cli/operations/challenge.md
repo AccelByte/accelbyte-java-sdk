@@ -160,7 +160,8 @@ $ build/install/cli/bin/cli challenge adminListSchedules \
 ```sh
 $ build/install/cli/bin/cli challenge adminDeleteTiedChallenge \
     --challengeCode <challengeCode value> \
-    --namespace <namespace value>
+    --namespace <namespace value> \
+    --safeDelete <safeDelete value - optional>
 ```
 
 ### Operation AdminUpdateTiedChallengeSchedule

@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetUserByUserIdV3
  *
- * <p>Admin Get User By User Id
+ * <p>Retrieves the full user profile including email verification status, ban status, deletion
+ * status, and linked platform accounts.
  */
 @Getter
 @Setter

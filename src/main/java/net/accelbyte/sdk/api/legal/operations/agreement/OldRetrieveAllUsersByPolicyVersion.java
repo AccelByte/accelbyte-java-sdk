@@ -22,7 +22,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * oldRetrieveAllUsersByPolicyVersion
  *
  * <p>This API will return users who has accepted a specific policy version.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class OldRetrieveAllUsersByPolicyVersion extends Operation {

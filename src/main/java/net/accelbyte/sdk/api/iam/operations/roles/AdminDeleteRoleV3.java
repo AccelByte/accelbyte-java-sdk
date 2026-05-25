@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDeleteRoleV3
  *
- * <p>action code: 10403
+ * <p>Deletes a role by its ID. Removes the role from all assigned users first.
  */
 @Getter
 @Setter

@@ -21,8 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateAgeRestrictionConfigV2
  *
- * <p>## The endpoint is going to be deprecated **Endpoint migration guide** - **Substitute
- * endpoint: _/iam/v3/admin/namespaces/{namespace}/agerestrictions [PATCH]_**
+ * <p>**This endpoint is deprecated.** **Endpoint migration guide** - **Substitute endpoint:
+ * _/iam/v3/admin/namespaces/{namespace}/agerestrictions [PATCH]_**
  *
  * @deprecated
  */

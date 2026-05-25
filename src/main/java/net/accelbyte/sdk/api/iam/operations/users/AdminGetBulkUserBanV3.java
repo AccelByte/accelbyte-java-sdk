@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetBulkUserBanV3
  *
- * <p>This endpoint returns user bans of userIDs specified in the payload action code : 10127
+ * <p>Returns user bans of userIDs specified in the payload.
  */
 @Getter
 @Setter

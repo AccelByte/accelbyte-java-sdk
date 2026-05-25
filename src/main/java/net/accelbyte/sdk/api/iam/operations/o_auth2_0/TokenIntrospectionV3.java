@@ -21,9 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * TokenIntrospectionV3
  *
- * <p>This endpoint returns information about an access token intended to be used by resource
- * servers or other internal servers. This endpoint requires authorized requests header with valid
- * basic or bearer token. action code : 10705
+ * <p>Returns information about an access token intended to be used by resource servers or other
+ * internal servers. Requires authorized requests header with valid basic or bearer token.
  */
 @Getter
 @Setter

@@ -24,7 +24,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>Note: 1. My account should be full account 2. My account not linked to request headless
  * account's third platform.
  *
- * <p>After client resolving the conflict, it will call endpoint
+ * <p>After client resolving the conflict, it will call
  * `/iam/v3/public/users/me/headless/linkWithProgression [POST]`
  */
 @Getter

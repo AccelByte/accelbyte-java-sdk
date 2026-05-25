@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminBulkUpdateUsersV3
  *
- * <p>This endpoint support to bulk update users based on given data. ------ Supported fields: *
- * skipLoginQueue
+ * <p>Bulk updates users based on given data. ------ Supported fields: * skipLoginQueue
  */
 @Getter
 @Setter

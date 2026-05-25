@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetLoginAllowlistV3
  *
- * <p>This endpoint return login allowlist configuration from specific namespace.
+ * <p>Returns the login allowlist configuration from the specific namespace.
  */
 @Getter
 @Setter

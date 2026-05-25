@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminBulkCheckValidUserIDV4
  *
- * <p>Use this endpoint to check if userID exists or not Maximum number of userID to be checked is
- * 50
+ * <p>Checks if userIDs exist or not. Maximum number of userID to be checked is 50
  */
 @Getter
 @Setter

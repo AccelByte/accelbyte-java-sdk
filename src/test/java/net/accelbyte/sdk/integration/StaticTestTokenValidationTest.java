@@ -19,9 +19,8 @@ import org.junit.jupiter.api.Test;
  * Unit tests for namespace placeholder replacement and cross-namespace permission matching in
  * {@link StaticTestTokenValidator#testValidateResource}.
  *
- * <p>Setup: publisher="foundations", studio="studio1", game="studio1-game1"
- * Permission: NAMESPACE:{namespace}:PROFILE (action=15)
- * Target: NAMESPACE:studio1-game1:PROFILE
+ * <p>Setup: publisher="foundations", studio="studio1", game="studio1-game1" Permission:
+ * NAMESPACE:{namespace}:PROFILE (action=15) Target: NAMESPACE:studio1-game1:PROFILE
  */
 public class StaticTestTokenValidationTest {
 
@@ -39,7 +38,9 @@ public class StaticTestTokenValidationTest {
   @BeforeEach
   public void setup() {
     validator = new StaticTestTokenValidator(PUBLISHER, STUDIO, GAME);
-    permissions = Collections.singletonList(Permission.builder().resource(PERMISSION_RESOURCE).action(ALL_ACTIONS).build());
+    permissions =
+        Collections.singletonList(
+            Permission.builder().resource(PERMISSION_RESOURCE).action(ALL_ACTIONS).build());
   }
 
   @Test

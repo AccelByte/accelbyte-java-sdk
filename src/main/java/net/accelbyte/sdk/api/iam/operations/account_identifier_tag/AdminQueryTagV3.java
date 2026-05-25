@@ -21,9 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminQueryTagV3
  *
- * <p>Retrieve Account Identifier Tags. This endpoint allows administrators to retrieve tags that
- * are used to identify and categorize user accounts. Tag Name can be used for partial content
- * search.
+ * <p>Retrieves Account Identifier Tags used to identify and categorize user accounts. Tag Name can
+ * be used for partial content search.
  */
 @Getter
 @Setter

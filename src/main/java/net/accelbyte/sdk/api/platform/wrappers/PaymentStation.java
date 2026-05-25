@@ -8,6 +8,7 @@
 
 package net.accelbyte.sdk.api.platform.wrappers;
 
+import java.io.*;
 import java.util.*;
 import net.accelbyte.sdk.api.platform.models.*;
 import net.accelbyte.sdk.api.platform.operations.payment_station.*;
@@ -93,7 +94,7 @@ public class PaymentStation {
   /**
    * @see PublicGetQRCode
    */
-  public BinarySchema publicGetQRCode(PublicGetQRCode input) throws Exception {
+  public InputStream publicGetQRCode(PublicGetQRCode input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

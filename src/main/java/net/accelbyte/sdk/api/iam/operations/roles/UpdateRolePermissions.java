@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UpdateRolePermissions
  *
- * <p>## The endpoint is going to be deprecated This endpoint will REPLACE role's permissions with
- * the ones defined in body
+ * <p>**This endpoint is deprecated.** Replaces role's permissions with the ones defined in body
  *
  * <p>Schedule contains cron string or date range (both are UTC, also in cron syntax) to indicate
  * when a permission and action are in effect. Both schedule types accepts quartz compatible cron

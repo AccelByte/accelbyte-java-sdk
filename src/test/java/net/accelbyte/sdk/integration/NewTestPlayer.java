@@ -54,8 +54,7 @@ public class NewTestPlayer implements TestPlayer {
                         .authTypeFromEnum(AuthType.EMAILPASSWD)
                         .emailAddress(this.userEmail)
                         .password(userPassword)
-                        .displayName(
-                            "Java SDK Test Player " + TestHelper.generateRandomId(3))
+                        .displayName("Java SDK Test Player " + TestHelper.generateRandomId(3))
                         .username(userName)
                         .country("ID")
                         .dateOfBirth("1995-01-10")
@@ -104,10 +103,7 @@ public class NewTestPlayer implements TestPlayer {
     if (deleteOnLogout && !userId.isEmpty()) {
       final Users usersWrapper = new Users(sdkClient);
       usersWrapper.adminDeleteUserInformationV3(
-          AdminDeleteUserInformationV3.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .build());
+          AdminDeleteUserInformationV3.builder().namespace(namespace).userId(userId).build());
     }
   }
 

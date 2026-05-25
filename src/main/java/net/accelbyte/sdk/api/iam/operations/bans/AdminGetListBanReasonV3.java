@@ -22,7 +22,7 @@ import net.accelbyte.sdk.core.util.Helper;
  * AdminGetListBanReasonV3
  *
  * <p>Ban reasons is the code available to justify ban assignment. It is applicable globally for any
- * namespace. action code : 10202
+ * namespace.
  */
 @Getter
 @Setter

@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicDownloadMyBackupCodesV4
  *
- * <p>This endpoint is used to download backup codes.
+ * <p>Downloads backup codes as a file.
  *
  * @deprecated
  */

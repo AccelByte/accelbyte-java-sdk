@@ -25,7 +25,14 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Creates a new database credential for the customer. This will soft-delete the old credential
  * and create a new one.
+ *
+ * <p>`acknowledgements.acceptNosqlSecureCredentialHandling` is optional when previously accepted
+ * during database creation. Otherwise, it MUST be set to true to proceed with credential creation,
+ * indicating the customer accepts the secure credential handling mechanism.
+ *
+ * @deprecated
  */
+@Deprecated
 @Getter
 @Setter
 public class CreateNoSQLDatabaseCredentialV2 extends Operation {

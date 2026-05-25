@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetUserStateByUserIdV3
  *
- * <p>Admin Get User State By User Id
+ * <p>Retrieves the current account state (enabled/disabled, email verification, deletion status)
+ * for the specified user.
  */
 @Getter
 @Setter

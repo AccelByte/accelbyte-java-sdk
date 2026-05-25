@@ -69,6 +69,7 @@ public class ModelThirdPartyLoginPlatformCredentialRequest extends Model {
   private Boolean includePUID;
 
   @JsonProperty("IsActive")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean isActive;
 
   @JsonProperty("Issuer")
@@ -138,6 +139,7 @@ public class ModelThirdPartyLoginPlatformCredentialRequest extends Model {
   private String googleAdminConsoleKey;
 
   @JsonProperty("scopes")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> scopes;
 
   @JsonIgnore

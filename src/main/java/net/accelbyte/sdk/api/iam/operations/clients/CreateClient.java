@@ -21,8 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateClient
  *
- * <p>## The endpoint is going to be deprecated **Endpoint migration guide** - **Substitute
- * endpoint: _/iam/v3/admin/namespaces/{namespace}/clients [POST]_**
+ * <p>**This endpoint is deprecated.** **Endpoint migration guide** - **Substitute endpoint:
+ * _/iam/v3/admin/namespaces/{namespace}/clients [POST]_**
  *
  * <p>**Note for Multi Tenant Mode (Confidential Client):** Only Super admin can set permission with
  * resource & action. Studio admin & game admin need set permission with permission module in

@@ -31,7 +31,7 @@ public class PublicPartyJoin extends Operation {
   private String path = "/session/v1/public/namespaces/{namespace}/parties/{partyId}/users/me/join";
 
   private String method = "POST";
-  private List<String> consumes = Arrays.asList();
+  private List<String> consumes = Arrays.asList("application/json");
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
 
@@ -39,17 +39,20 @@ public class PublicPartyJoin extends Operation {
   private String namespace;
 
   private String partyId;
+  private ApimodelsJoinSessionRequest body;
 
   /**
    * @param namespace required
    * @param partyId required
+   * @param body required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public PublicPartyJoin(String namespace, String partyId) {
+  public PublicPartyJoin(String namespace, String partyId, ApimodelsJoinSessionRequest body) {
     this.namespace = namespace;
     this.partyId = partyId;
+    this.body = body;
 
     securities.add("Bearer");
   }
@@ -67,11 +70,19 @@ public class PublicPartyJoin extends Operation {
   }
 
   @Override
+  public ApimodelsJoinSessionRequest getBodyParams() {
+    return this.body;
+  }
+
+  @Override
   public boolean isValid() {
     if (this.namespace == null) {
       return false;
     }
     if (this.partyId == null) {
+      return false;
+    }
+    if (this.body == null) {
       return false;
     }
     return true;

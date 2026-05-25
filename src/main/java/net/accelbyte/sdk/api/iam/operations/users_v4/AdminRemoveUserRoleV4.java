@@ -21,7 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminRemoveUserRoleV4
  *
- * <p>Remove a role from user's roles.
+ * <p>Removes a role from the user's assigned roles.
+ *
+ * <p>**Request body:** Specify the role ID and the allowed namespaces to remove from the user.
  */
 @Getter
 @Setter

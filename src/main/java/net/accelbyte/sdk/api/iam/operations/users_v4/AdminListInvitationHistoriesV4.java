@@ -21,9 +21,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminListInvitationHistoriesV4
  *
- * <p>This endpoint is to list all Invitation Histories for new studio namespace in multi tenant
- * mode. It will return error if the service multi tenant mode is set to false. Accepted Query: -
- * namespace - offset - limit
+ * <p>Lists all invitation histories for studio namespaces in multi-tenant mode.
+ *
+ * <p>Returns an error if the service multi-tenant mode is set to false.
  */
 @Getter
 @Setter

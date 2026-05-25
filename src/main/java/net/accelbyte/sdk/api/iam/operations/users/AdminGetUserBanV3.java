@@ -21,8 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGetUserBanV3
  *
- * <p>This endpoint retrieve the first page of the data if after and before parameters is empty
- * action code : 10126
+ * <p>Returns the first page of the data if after and before parameters is empty.
  */
 @Getter
 @Setter

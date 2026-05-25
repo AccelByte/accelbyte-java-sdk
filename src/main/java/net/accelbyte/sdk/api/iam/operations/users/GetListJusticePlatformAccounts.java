@@ -23,11 +23,13 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetListJusticePlatformAccounts
  *
- * <p>## The endpoint is going to be deprecated **Endpoint migration guide** - **Substitute
- * endpoint: _/iam/v3/public/namespaces/{namespace}/users/{userId}/platforms/justice [GET]_**
+ * <p>**This endpoint is deprecated.** **Endpoint migration guide** - **Substitute endpoint:
+ * _/iam/v3/public/namespaces/{namespace}/users/{userId}/platforms/justice [GET]_**
  *
- * <p>This endpoint gets list justice platform account by providing publisher namespace and
- * publisher userID.
+ * <p>Retrieves the list of Justice platform accounts linked to the given user.
+ *
+ * <p>**Namespace restriction:** The {namespace} path parameter must be a **publisher namespace**.
+ * Passing a game namespace returns HTTP 400.
  *
  * @deprecated
  */

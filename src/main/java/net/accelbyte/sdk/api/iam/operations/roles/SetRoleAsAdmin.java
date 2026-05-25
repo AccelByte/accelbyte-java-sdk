@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * SetRoleAsAdmin
  *
- * <p>## The endpoint is going to be deprecated Admin roles has its members listed in the role.
+ * <p>**This endpoint is deprecated.** Admin roles has its members listed in the role.
  *
  * <p>Role can be set as admin role only when it has at least 1 manager.
  *

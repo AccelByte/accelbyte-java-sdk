@@ -33,6 +33,10 @@ import net.accelbyte.sdk.core.util.Helper;
  * maxPlayers - inviteTimeout - inactiveTimeout - type - joinability - configurationName -
  * attributes
  *
+ * <p>maxPlayers override rules: - maxPlayers can be set to a value lower than or equal to the
+ * template's maxPlayers. Values above the template ceiling are ignored and the template value is
+ * used instead.
+ *
  * <p>Supported platforms: 1. STEAM 2. PSN 3. XBOX
  *
  * <p>Reserved attributes key: 1. preference: used to store preference of the leader and it is

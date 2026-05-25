@@ -135,6 +135,15 @@ $ build/install/cli/bin/cli achievement adminListUserAchievements \
     --tags <tags value - optional>
 ```
 
+### Operation AdminBatchQueryUserAchievements
+
+```sh
+$ build/install/cli/bin/cli achievement adminBatchQueryUserAchievements \
+    --namespace <namespace value> \
+    --userId <userId value> \
+    --body <json string for request body>
+```
+
 ### Operation AdminBulkUnlockAchievement
 
 ```sh

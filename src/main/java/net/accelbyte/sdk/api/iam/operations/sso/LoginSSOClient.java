@@ -17,7 +17,12 @@ import net.accelbyte.sdk.core.HttpResponseException;
 import net.accelbyte.sdk.core.Operation;
 import net.accelbyte.sdk.core.util.Helper;
 
-/** LoginSSOClient */
+/**
+ * LoginSSOClient
+ *
+ * <p>Redirects the user to the SSO client's login page for the specified platform. An optional
+ * 'payload' query parameter can be passed with key-value data from the SSO client.
+ */
 @Getter
 @Setter
 public class LoginSSOClient extends Operation {

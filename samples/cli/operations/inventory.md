@@ -1,13 +1,5 @@
 ## Java Extend SDK CLI Sample App Operation Index for Inventory service
 
-### Operation AdminCreateChainingOperations
-
-```sh
-$ build/install/cli/bin/cli inventory adminCreateChainingOperations \
-    --namespace <namespace value> \
-    --body <json string for request body>
-```
-
 ### Operation AdminListIntegrationConfigurations
 
 ```sh

@@ -20,8 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminDeleteTagV3
  *
- * <p>Delete an Account Identifier Tag. This endpoint allows administrators to delete a tag that is
- * used to identify and categorize user accounts.
+ * <p>Deletes an Account Identifier Tag used to identify and categorize user accounts.
  */
 @Getter
 @Setter

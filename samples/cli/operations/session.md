@@ -490,7 +490,8 @@ $ build/install/cli/bin/cli session publicGameSessionInvite \
 ```sh
 $ build/install/cli/bin/cli session joinGameSession \
     --namespace <namespace value> \
-    --sessionId <sessionId value>
+    --sessionId <sessionId value> \
+    --body <json string for request body>
 ```
 
 ### Operation PublicPromoteGameSessionLeader
@@ -517,6 +518,23 @@ $ build/install/cli/bin/cli session publicKickGameSessionMember \
     --memberId <memberId value> \
     --namespace <namespace value> \
     --sessionId <sessionId value>
+```
+
+### Operation PublicGetGameSessionPassword
+
+```sh
+$ build/install/cli/bin/cli session publicGetGameSessionPassword \
+    --namespace <namespace value> \
+    --sessionId <sessionId value>
+```
+
+### Operation PublicUpdateGameSessionPassword
+
+```sh
+$ build/install/cli/bin/cli session publicUpdateGameSessionPassword \
+    --namespace <namespace value> \
+    --sessionId <sessionId value> \
+    --body <json string for request body>
 ```
 
 ### Operation PublicGameSessionReject
@@ -612,6 +630,23 @@ $ build/install/cli/bin/cli session publicPromotePartyLeader \
     --body <json string for request body>
 ```
 
+### Operation PublicGetPartyPassword
+
+```sh
+$ build/install/cli/bin/cli session publicGetPartyPassword \
+    --namespace <namespace value> \
+    --partyId <partyId value>
+```
+
+### Operation PublicUpdatePartyPassword
+
+```sh
+$ build/install/cli/bin/cli session publicUpdatePartyPassword \
+    --namespace <namespace value> \
+    --partyId <partyId value> \
+    --body <json string for request body>
+```
+
 ### Operation PublicReadPartySessionStorage
 
 ```sh
@@ -645,7 +680,8 @@ $ build/install/cli/bin/cli session publicUpdateInsertPartySessionStorageReserve
 ```sh
 $ build/install/cli/bin/cli session publicPartyJoin \
     --namespace <namespace value> \
-    --partyId <partyId value>
+    --partyId <partyId value> \
+    --body <json string for request body>
 ```
 
 ### Operation PublicPartyLeave
@@ -773,5 +809,43 @@ $ build/install/cli/bin/cli session publicQueryMyParties \
     --order <order value - optional> \
     --orderBy <orderBy value - optional> \
     --status <status value - optional>
+```
+
+### Operation PublicReplaceSessionStorageLeaderV2
+
+```sh
+$ build/install/cli/bin/cli session publicReplaceSessionStorageLeaderV2 \
+    --namespace <namespace value> \
+    --sessionId <sessionId value> \
+    --body <json string for request body>
+```
+
+### Operation PublicUpdateInsertSessionStorageLeaderV2
+
+```sh
+$ build/install/cli/bin/cli session publicUpdateInsertSessionStorageLeaderV2 \
+    --namespace <namespace value> \
+    --sessionId <sessionId value> \
+    --body <json string for request body>
+```
+
+### Operation PublicReplaceSessionStorageUserV2
+
+```sh
+$ build/install/cli/bin/cli session publicReplaceSessionStorageUserV2 \
+    --namespace <namespace value> \
+    --sessionId <sessionId value> \
+    --userId <userId value> \
+    --body <json string for request body>
+```
+
+### Operation PublicUpdateInsertSessionStorageUserV2
+
+```sh
+$ build/install/cli/bin/cli session publicUpdateInsertSessionStorageUserV2 \
+    --namespace <namespace value> \
+    --sessionId <sessionId value> \
+    --userId <userId value> \
+    --body <json string for request body>
 ```
 

@@ -21,11 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminAssignUserToRoleV4
  *
- * <p>Parameters: - **userId**: string (required) - **namespace**: string (userâs namespace)
- * (required) - **assignedNamespaces**: array of string (namespaces to be assigned on role)
- * (required)
- *
- * <p>action code: 10410
+ * <p>Assigns a user to a role with specified namespaces. See request body field descriptions for
+ * per-field details.
  */
 @Getter
 @Setter

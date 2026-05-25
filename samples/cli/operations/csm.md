@@ -1,10 +1,54 @@
 ## Java Extend SDK CLI Sample App Operation Index for Csm service
 
+### Operation ListAppUI
+
+```sh
+$ build/install/cli/bin/cli csm listAppUI \
+    --namespace <namespace value> \
+    --limit <limit value - optional> \
+    --name <name value - optional> \
+    --offset <offset value - optional>
+```
+
+### Operation CreateAppUI
+
+```sh
+$ build/install/cli/bin/cli csm createAppUI \
+    --namespace <namespace value> \
+    --body <json string for request body>
+```
+
+### Operation DeleteAppUI
+
+```sh
+$ build/install/cli/bin/cli csm deleteAppUI \
+    --appUiName <appUiName value> \
+    --namespace <namespace value>
+```
+
+### Operation UploadAppUIFile
+
+```sh
+$ build/install/cli/bin/cli csm uploadAppUIFile \
+    --appUiName <appUiName value> \
+    --namespace <namespace value> \
+    --version <version value - optional> \
+    --file <file value>
+```
+
 ### Operation GetAppReleaseV1
 
 ```sh
 $ build/install/cli/bin/cli csm getAppReleaseV1 \
     --app <app value> \
+    --namespace <namespace value>
+```
+
+### Operation GetExtendFile
+
+```sh
+$ build/install/cli/bin/cli csm getExtendFile \
+    --filePath <filePath value> \
     --namespace <namespace value>
 ```
 
@@ -59,6 +103,15 @@ $ build/install/cli/bin/cli csm updateAppV2 \
     --body <json string for request body>
 ```
 
+### Operation ApplyAppConfigV2
+
+```sh
+$ build/install/cli/bin/cli csm applyAppConfigV2 \
+    --app <app value> \
+    --namespace <namespace value> \
+    --body <json string for request body>
+```
+
 ### Operation CreateSubscriptionHandler
 
 ```sh
@@ -104,10 +157,44 @@ $ build/install/cli/bin/cli csm deleteAppImagesV2 \
     --body <json string for request body>
 ```
 
-### Operation CreateNoSQLDatabaseCredentialV2
+### Operation CreateKeyValueCredentialV2
 
 ```sh
-$ build/install/cli/bin/cli csm createNoSQLDatabaseCredentialV2 \
+$ build/install/cli/bin/cli csm createKeyValueCredentialV2 \
+    --app <app value> \
+    --namespace <namespace value> \
+    --body <json string for request body>
+```
+
+### Operation GetIntegrationAppKeyValueClusterV2
+
+```sh
+$ build/install/cli/bin/cli csm getIntegrationAppKeyValueClusterV2 \
+    --app <app value> \
+    --namespace <namespace value>
+```
+
+### Operation IntegrateAppKeyValueClusterV2
+
+```sh
+$ build/install/cli/bin/cli csm integrateAppKeyValueClusterV2 \
+    --app <app value> \
+    --namespace <namespace value> \
+    --body <json string for request body>
+```
+
+### Operation RemoveIntegrationAppKeyValueClusterV2
+
+```sh
+$ build/install/cli/bin/cli csm removeIntegrationAppKeyValueClusterV2 \
+    --app <app value> \
+    --namespace <namespace value>
+```
+
+### Operation CreateNewNoSQLDatabaseCredentialV2
+
+```sh
+$ build/install/cli/bin/cli csm createNewNoSQLDatabaseCredentialV2 \
     --app <app value> \
     --namespace <namespace value> \
     --body <json string for request body>
@@ -191,6 +278,40 @@ $ build/install/cli/bin/cli csm updateSecretV2 \
 $ build/install/cli/bin/cli csm deleteSecretV2 \
     --app <app value> \
     --configId <configId value> \
+    --namespace <namespace value>
+```
+
+### Operation CreateSQLDatabaseCredentialV2
+
+```sh
+$ build/install/cli/bin/cli csm createSQLDatabaseCredentialV2 \
+    --app <app value> \
+    --namespace <namespace value> \
+    --body <json string for request body>
+```
+
+### Operation GetSQLDatabaseV2
+
+```sh
+$ build/install/cli/bin/cli csm getSQLDatabaseV2 \
+    --app <app value> \
+    --namespace <namespace value>
+```
+
+### Operation CreateSQLDatabaseV2
+
+```sh
+$ build/install/cli/bin/cli csm createSQLDatabaseV2 \
+    --app <app value> \
+    --namespace <namespace value> \
+    --body <json string for request body>
+```
+
+### Operation DeleteSQLDatabaseV2
+
+```sh
+$ build/install/cli/bin/cli csm deleteSQLDatabaseV2 \
+    --app <app value> \
     --namespace <namespace value>
 ```
 
@@ -363,6 +484,62 @@ $ build/install/cli/bin/cli csm deleteDeploymentV2 \
     --namespace <namespace value>
 ```
 
+### Operation GetKeyValueClusterV2
+
+```sh
+$ build/install/cli/bin/cli csm getKeyValueClusterV2 \
+    --namespace <namespace value> \
+    --resourceId <resourceId value>
+```
+
+### Operation ListKeyValueClusterV2
+
+```sh
+$ build/install/cli/bin/cli csm listKeyValueClusterV2 \
+    --namespace <namespace value> \
+    --refresh <refresh value - optional>
+```
+
+### Operation CreateKeyValueClusterV2
+
+```sh
+$ build/install/cli/bin/cli csm createKeyValueClusterV2 \
+    --namespace <namespace value> \
+    --body <json string for request body>
+```
+
+### Operation GetKeyValueClusterLimitConfigV2
+
+```sh
+$ build/install/cli/bin/cli csm getKeyValueClusterLimitConfigV2 \
+    --namespace <namespace value>
+```
+
+### Operation UpdateKeyValueClusterV2
+
+```sh
+$ build/install/cli/bin/cli csm updateKeyValueClusterV2 \
+    --namespace <namespace value> \
+    --resourceId <resourceId value> \
+    --body <json string for request body>
+```
+
+### Operation DeleteKeyValueClusterV2
+
+```sh
+$ build/install/cli/bin/cli csm deleteKeyValueClusterV2 \
+    --namespace <namespace value> \
+    --resourceId <resourceId value>
+```
+
+### Operation GetListIntegratedAppKeyValueClusterV2
+
+```sh
+$ build/install/cli/bin/cli csm getListIntegratedAppKeyValueClusterV2 \
+    --namespace <namespace value> \
+    --resourceId <resourceId value>
+```
+
 ### Operation GetNoSQLClusterV2
 
 ```sh
@@ -419,6 +596,62 @@ $ build/install/cli/bin/cli csm getNoSQLAccessTunnelV2 \
 ```sh
 $ build/install/cli/bin/cli csm getResourcesLimits \
     --namespace <namespace value>
+```
+
+### Operation GetSQLClusterV2
+
+```sh
+$ build/install/cli/bin/cli csm getSQLClusterV2 \
+    --namespace <namespace value>
+```
+
+### Operation UpdateSQLClusterV2
+
+```sh
+$ build/install/cli/bin/cli csm updateSQLClusterV2 \
+    --namespace <namespace value> \
+    --body <json string for request body>
+```
+
+### Operation CreateSQLClusterV2
+
+```sh
+$ build/install/cli/bin/cli csm createSQLClusterV2 \
+    --namespace <namespace value> \
+    --body <json string for request body>
+```
+
+### Operation DeleteSQLClusterV2
+
+```sh
+$ build/install/cli/bin/cli csm deleteSQLClusterV2 \
+    --namespace <namespace value>
+```
+
+### Operation StartSQLClusterV2
+
+```sh
+$ build/install/cli/bin/cli csm startSQLClusterV2 \
+    --namespace <namespace value>
+```
+
+### Operation StopSQLClusterV2
+
+```sh
+$ build/install/cli/bin/cli csm stopSQLClusterV2 \
+    --namespace <namespace value>
+```
+
+### Operation GetSQLAppListV2
+
+```sh
+$ build/install/cli/bin/cli csm getSQLAppListV2 \
+    --namespace <namespace value> \
+    --resourceId <resourceId value> \
+    --appName <appName value - optional> \
+    --gameNamespace <gameNamespace value - optional> \
+    --limit <limit value - optional> \
+    --offset <offset value - optional>
 ```
 
 ### Operation GetNoSQLAppListV2

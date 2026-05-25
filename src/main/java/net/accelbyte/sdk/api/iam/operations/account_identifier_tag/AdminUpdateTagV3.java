@@ -21,8 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateTagV3
  *
- * <p>Update an existing Account Identifier Tag. This endpoint allows administrators to update the
- * details of a tag that is used to identify and categorize user accounts.
+ * <p>Updates the details of an existing Account Identifier Tag used to identify and categorize user
+ * accounts.
  */
 @Getter
 @Setter

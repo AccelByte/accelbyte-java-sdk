@@ -22,7 +22,8 @@ import net.accelbyte.sdk.core.util.Helper;
  * AdminUpdateRoleOverrideConfigV3
  *
  * <p>This API is for updating role override config. Note: This API has upsert behavior, if there is
- * no config yet, it will create a new one first.
+ * no config yet, it will create a new one first. **Note for Multi Tenant Mode:** Studio/game admin:
+ * * only allow to add custom permission to additions.
  */
 @Getter
 @Setter

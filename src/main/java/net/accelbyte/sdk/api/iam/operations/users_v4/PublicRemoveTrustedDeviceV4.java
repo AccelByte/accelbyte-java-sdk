@@ -20,8 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicRemoveTrustedDeviceV4
  *
- * <p>(Only for test)This endpoint is used to remove trusted device. This endpoint Requires
- * device_token in cookie
+ * <p>**(Test only)** Removes a trusted device. Requires a device_token cookie.
  */
 @Getter
 @Setter

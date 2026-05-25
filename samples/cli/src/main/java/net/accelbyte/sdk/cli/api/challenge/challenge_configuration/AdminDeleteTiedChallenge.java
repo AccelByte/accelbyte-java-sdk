@@ -40,6 +40,11 @@ public class AdminDeleteTiedChallenge implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--safeDelete"},
+      description = "safeDelete")
+  String safeDelete;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -67,6 +72,7 @@ public class AdminDeleteTiedChallenge implements Callable<Integer> {
                   .AdminDeleteTiedChallenge.builder()
                   .challengeCode(challengeCode)
                   .namespace(namespace)
+                  .safeDelete(safeDelete)
                   .build();
       wrapper.adminDeleteTiedChallenge(operation);
       log.info("Operation successful");

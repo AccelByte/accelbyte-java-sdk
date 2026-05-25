@@ -24,7 +24,9 @@ public class LocalizedPolicyVersions {
 
   /**
    * @see OldRetrieveLocalizedPolicyVersions
+   * @deprecated
    */
+  @Deprecated
   public List<RetrieveLocalizedPolicyVersionResponse> oldRetrieveLocalizedPolicyVersions(
       OldRetrieveLocalizedPolicyVersions input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -34,7 +36,9 @@ public class LocalizedPolicyVersions {
 
   /**
    * @see OldCreateLocalizedPolicyVersion
+   * @deprecated
    */
+  @Deprecated
   public CreateLocalizedPolicyVersionResponse oldCreateLocalizedPolicyVersion(
       OldCreateLocalizedPolicyVersion input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -44,7 +48,9 @@ public class LocalizedPolicyVersions {
 
   /**
    * @see OldRetrieveSingleLocalizedPolicyVersion
+   * @deprecated
    */
+  @Deprecated
   public RetrieveLocalizedPolicyVersionResponse oldRetrieveSingleLocalizedPolicyVersion(
       OldRetrieveSingleLocalizedPolicyVersion input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -54,7 +60,9 @@ public class LocalizedPolicyVersions {
 
   /**
    * @see OldUpdateLocalizedPolicyVersion
+   * @deprecated
    */
+  @Deprecated
   public UpdateLocalizedPolicyVersionResponse oldUpdateLocalizedPolicyVersion(
       OldUpdateLocalizedPolicyVersion input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -64,7 +72,9 @@ public class LocalizedPolicyVersions {
 
   /**
    * @see OldRequestPresignedURL
+   * @deprecated
    */
+  @Deprecated
   public UploadLocalizedPolicyVersionAttachmentResponse oldRequestPresignedURL(
       OldRequestPresignedURL input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -74,7 +84,9 @@ public class LocalizedPolicyVersions {
 
   /**
    * @see OldSetDefaultLocalizedPolicy
+   * @deprecated
    */
+  @Deprecated
   public void oldSetDefaultLocalizedPolicy(OldSetDefaultLocalizedPolicy input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(

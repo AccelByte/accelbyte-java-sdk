@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateAgeRestrictionConfigV3
  *
- * <p>action code: 10122
+ * <p>Updates the age restriction configuration for the namespace.
  */
 @Getter
 @Setter

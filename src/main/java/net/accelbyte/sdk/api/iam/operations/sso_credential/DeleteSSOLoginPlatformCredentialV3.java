@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteSSOLoginPlatformCredentialV3
  *
- * <p>This is the API to Delete SSO Platform Credential.
+ * <p>Deletes the SSO platform credential for the specified platform.
  */
 @Getter
 @Setter

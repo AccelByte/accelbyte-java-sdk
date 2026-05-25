@@ -20,9 +20,9 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * RevokeToken
  *
- * <p>## The endpoint is going to be deprecated Revokes a token. This endpoint requires all requests
- * to have Authorization header set with Basic access authentication constructed from client id and
- * client secret or Bearer access authentication with valid access token.
+ * <p>**This endpoint is deprecated.** Revokes a token. Requires all requests to have Authorization
+ * header set with Basic access authentication constructed from client id and client secret or
+ * Bearer access authentication with valid access token.
  *
  * <p>### Endpoint migration guide - **Substitute endpoint: _/v3/oauth/revoke [POST]_**
  *

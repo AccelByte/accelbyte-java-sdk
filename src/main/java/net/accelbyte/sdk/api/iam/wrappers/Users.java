@@ -1255,7 +1255,9 @@ public class Users {
 
   /**
    * @see AdminDeleteUserRolesV3
+   * @deprecated
    */
+  @Deprecated
   public void adminDeleteUserRolesV3(AdminDeleteUserRolesV3 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
@@ -1273,7 +1275,9 @@ public class Users {
 
   /**
    * @see AdminAddUserRoleV3
+   * @deprecated
    */
+  @Deprecated
   public void adminAddUserRoleV3(AdminAddUserRoleV3 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
@@ -1282,7 +1286,9 @@ public class Users {
 
   /**
    * @see AdminDeleteUserRoleV3
+   * @deprecated
    */
+  @Deprecated
   public void adminDeleteUserRoleV3(AdminDeleteUserRoleV3 input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
@@ -1712,7 +1718,9 @@ public class Users {
 
   /**
    * @see PublicLinkPlatformAccount
+   * @deprecated
    */
+  @Deprecated
   public void publicLinkPlatformAccount(PublicLinkPlatformAccount input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(

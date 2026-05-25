@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminAddCountryBlacklistV3
  *
- * <p>Admin update country blacklist
+ * <p>Updates the country blacklist for the namespace.
  */
 @Getter
 @Setter

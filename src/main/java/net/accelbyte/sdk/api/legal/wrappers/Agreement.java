@@ -33,7 +33,9 @@ public class Agreement {
 
   /**
    * @see OldRetrieveAcceptedAgreements
+   * @deprecated
    */
+  @Deprecated
   public List<RetrieveAcceptedAgreementResponse> oldRetrieveAcceptedAgreements(
       OldRetrieveAcceptedAgreements input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
@@ -43,7 +45,9 @@ public class Agreement {
 
   /**
    * @see OldRetrieveAllUsersByPolicyVersion
+   * @deprecated
    */
+  @Deprecated
   public PagedRetrieveUserAcceptedAgreementResponse oldRetrieveAllUsersByPolicyVersion(
       OldRetrieveAllUsersByPolicyVersion input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
