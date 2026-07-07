@@ -40,7 +40,9 @@ public class NewTestPlayer implements TestPlayer {
     this.sdkClient = sdkClient;
     this.namespace = namespace;
 
-    final String userName = "javasdk_" + TestHelper.generateRandomId(8);
+    final String randomId = TestHelper.generateRandomId(8);
+    final String userName = "javasdk_" + randomId;
+    final String userUniqueDisplayName = "javasdk" + randomId;
     final String userPassword = TestHelper.generateRandomPassword(10);
     this.userEmail = userName + "@dummy.com";
 
@@ -58,7 +60,7 @@ public class NewTestPlayer implements TestPlayer {
                         .username(userName)
                         .country("ID")
                         .dateOfBirth("1995-01-10")
-                        .uniqueDisplayName(userName)
+                        .uniqueDisplayName(userUniqueDisplayName)
                         .build())
                 .build());
 

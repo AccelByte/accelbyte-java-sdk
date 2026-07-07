@@ -185,9 +185,13 @@ public class TestIntegrationServiceSession extends TestIntegration {
     String player2UserId = null;
 
     try {
-      final String player1Username = ("javasdk_" + TestHelper.generateRandomId(8));
+      final String player1RandomId = TestHelper.generateRandomId(8);
+      final String player1Username = ("javasdk_" + player1RandomId);
+      final String player1UniqueDisplayName = ("javasdk" + player1RandomId);
       final String player1Password = TestHelper.generateRandomPassword(10);
-      final String player2Username = ("javasdk_" + TestHelper.generateRandomId(8));
+      final String player2RandomId = TestHelper.generateRandomId(8);
+      final String player2Username = ("javasdk_" + player2RandomId);
+      final String player2UniqueDisplayName = ("javasdk" + player2RandomId);
       final String player2Password = TestHelper.generateRandomPassword(10);
       final String player1EmailAdd = player1Username + "@test.com";
       final String player2EmailAdd = player2Username + "@test.com";
@@ -205,7 +209,7 @@ public class TestIntegrationServiceSession extends TestIntegration {
                           .username(player1Username)
                           .country("ID")
                           .dateOfBirth("1995-01-10")
-                          .uniqueDisplayName(player1Username)
+                          .uniqueDisplayName(player1UniqueDisplayName)
                           .build())
                   .build());
 
@@ -224,7 +228,7 @@ public class TestIntegrationServiceSession extends TestIntegration {
                           .username(player2Username)
                           .country("ID")
                           .dateOfBirth("1995-01-10")
-                          .uniqueDisplayName(player2Username)
+                          .uniqueDisplayName(player2UniqueDisplayName)
                           .build())
                   .build());
 
@@ -384,9 +388,13 @@ public class TestIntegrationServiceSession extends TestIntegration {
     String player2UserId = null;
 
     try {
-      final String player1Username = ("javasdk_" + TestHelper.generateRandomId(8));
+      final String player1RandomId = TestHelper.generateRandomId(8);
+      final String player1Username = ("javasdk_" + player1RandomId);
+      final String player1UniqueDisplayName = ("javasdk" + player1RandomId);
       final String player1Password = TestHelper.generateRandomPassword(10);
-      final String player2Username = ("javasdk_" + TestHelper.generateRandomId(8));
+      final String player2RandomId = TestHelper.generateRandomId(8);
+      final String player2Username = ("javasdk_" + player2RandomId);
+      final String player2UniqueDisplayName = ("javasdk" + player2RandomId);
       final String player2Password = TestHelper.generateRandomPassword(10);
       final String player1EmailAdd = player1Username + "@test.com";
       final String player2EmailAdd = player2Username + "@test.com";
@@ -404,7 +412,7 @@ public class TestIntegrationServiceSession extends TestIntegration {
                           .username(player1Username)
                           .country("ID")
                           .dateOfBirth("1995-01-10")
-                          .uniqueDisplayName(player1Username)
+                          .uniqueDisplayName(player1UniqueDisplayName)
                           .build())
                   .build());
 
@@ -423,7 +431,7 @@ public class TestIntegrationServiceSession extends TestIntegration {
                           .username(player2Username)
                           .country("ID")
                           .dateOfBirth("1995-01-10")
-                          .uniqueDisplayName(player2Username)
+                          .uniqueDisplayName(player2UniqueDisplayName)
                           .build())
                   .build());
 

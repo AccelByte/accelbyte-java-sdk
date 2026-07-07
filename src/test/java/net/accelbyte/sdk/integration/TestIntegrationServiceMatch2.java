@@ -166,7 +166,9 @@ public class TestIntegrationServiceMatch2 extends TestIntegration {
     String player1UserId = null;
 
     try {
-      final String player1Username = ("javasdk_" + TestHelper.generateRandomId(8));
+      final String player1RandomId = TestHelper.generateRandomId(8);
+      final String player1Username = ("javasdk_" + player1RandomId);
+      final String player1UniqueDisplayName = ("javasdk" + player1RandomId);
       final String player1Password = TestHelper.generateRandomPassword(10);
       final String player1EmailAdd = player1Username + "@test.com";
 
@@ -183,7 +185,7 @@ public class TestIntegrationServiceMatch2 extends TestIntegration {
                           .username(player1Username)
                           .country("ID")
                           .dateOfBirth("1995-01-10")
-                          .uniqueDisplayName(player1Username)
+                          .uniqueDisplayName(player1UniqueDisplayName)
                           .build())
                   .build());
 

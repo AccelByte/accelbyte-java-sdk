@@ -68,9 +68,11 @@ public class TestIntegrationServiceIam extends TestIntegration {
   @Test
   @Order(1)
   public void createUserV4() throws Exception {
-    final String userName = ("javasdk_" + TestHelper.generateRandomId(8));
+    final String randomId = TestHelper.generateRandomId(8);
+    final String userName = ("javasdk_" + randomId);
     final String userPassword = TestHelper.generateRandomPassword(10);
     final String userEmail = (userName + "@test.com");
+    final String userUniqueDisplayName = ("javasdk" + randomId);
     final String userDisplayName = "Java Extend SDK Test";
     final String userDateOfBirth = "1995-01-10";
     final String userCountry = "ID";
@@ -88,7 +90,7 @@ public class TestIntegrationServiceIam extends TestIntegration {
             .displayName(userDisplayName)
             .country(userCountry)
             .dateOfBirth(userDateOfBirth)
-            .uniqueDisplayName(userName)
+            .uniqueDisplayName(userUniqueDisplayName)
             .username(userName)
             .build();
 
@@ -122,9 +124,11 @@ public class TestIntegrationServiceIam extends TestIntegration {
   @Test
   @Order(2)
   public void testV4() throws Exception {
-    final String userName = ("javasdk_" + TestHelper.generateRandomId(8));
+    final String randomId = TestHelper.generateRandomId(8);
+    final String userName = ("javasdk_" + randomId);
     final String userPassword = TestHelper.generateRandomPassword(10);
     final String userEmail = (userName + "@test.com");
+    final String userUniqueDisplayName = ("javasdk" + randomId);
     final String userDisplayName = "Java Server SDK Test";
     final String userDateOfBirth = "1995-01-10";
     final String userDateOfBirthUpdate = "1996-01-10";
@@ -144,7 +148,7 @@ public class TestIntegrationServiceIam extends TestIntegration {
             .username(userName)
             .country(userCountry)
             .dateOfBirth(userDateOfBirth)
-            .uniqueDisplayName(userName)
+            .uniqueDisplayName(userUniqueDisplayName)
             .build();
 
     final AccountCreateUserResponseV4 createUserResult =
