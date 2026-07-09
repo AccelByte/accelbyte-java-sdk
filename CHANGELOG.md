@@ -3,6 +3,9 @@
 ### fix
 - **:**  breaking change in iam validation requires uniqueDisplayName to omit underscore 
 
+### BREAKING CHANGE
+- **:**  generated API surface renamed to match the updated spec: `PlatformTokenRequestHandler` → `NamespaceScopedPlatformTokenGrant`, `OAuth.platformTokenRequestHandler(...)` → `OAuth.namespaceScopedPlatformTokenGrant(...)`, and `ModelLinkRequest` → `ModelReAuthRequest` (with `Users.publicGetAsyncStatus`/`Users.publicProcessWebLinkPlatformV3` return types changing accordingly). Consumers referencing the deprecated `OAuth.platformTokenRequestHandler` method or the `ModelLinkRequest` type directly will fail to compile against this release.
+
 
 <a name="v0.81.0"></a>
 ## [v0.81.0]
