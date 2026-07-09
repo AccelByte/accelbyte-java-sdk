@@ -62,13 +62,13 @@ public class AddDownloadCount implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicDownloadCountLegacy wrapper = new PublicDownloadCountLegacy(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_download_count_legacy.AddDownloadCount
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.public_download_count_legacy.AddDownloadCount
                   .builder()
                   .contentId(contentId)
                   .namespace(namespace)
                   .build();
-      final ModelsAddDownloadCountResponse response = wrapper.addDownloadCount(operation);
+      final ModelsAddDownloadCountResponse response = wrapper.addDownloadCount(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

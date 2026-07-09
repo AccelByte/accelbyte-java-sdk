@@ -65,13 +65,13 @@ public class DeleteView implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final View wrapper = new View(sdk);
-      final net.accelbyte.sdk.api.platform.operations.view.DeleteView operation =
+      final net.accelbyte.sdk.api.platform.operations.view.DeleteView operationRequest =
           net.accelbyte.sdk.api.platform.operations.view.DeleteView.builder()
               .namespace(namespace)
               .viewId(viewId)
               .storeId(storeId)
               .build();
-      wrapper.deleteView(operation);
+      wrapper.deleteView(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

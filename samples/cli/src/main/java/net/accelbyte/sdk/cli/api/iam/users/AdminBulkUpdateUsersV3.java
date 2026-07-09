@@ -61,12 +61,12 @@ public class AdminBulkUpdateUsersV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.AdminBulkUpdateUsersV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.users.AdminBulkUpdateUsersV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.AdminBulkUpdateUsersV3.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelUsersUpdateRequestV3.class))
               .build();
-      wrapper.adminBulkUpdateUsersV3(operation);
+      wrapper.adminBulkUpdateUsersV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

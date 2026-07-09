@@ -68,14 +68,15 @@ public class GetUserVisibilityStatusV3 implements Callable<Integer> {
       final UserVisibilityV3 wrapper = new UserVisibilityV3(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.user_visibility_v3
               .GetUserVisibilityStatusV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.leaderboard.operations.user_visibility_v3
                   .GetUserVisibilityStatusV3.builder()
                   .leaderboardCode(leaderboardCode)
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      final ModelsGetUserVisibilityResponse response = wrapper.getUserVisibilityStatusV3(operation);
+      final ModelsGetUserVisibilityResponse response =
+          wrapper.getUserVisibilityStatusV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

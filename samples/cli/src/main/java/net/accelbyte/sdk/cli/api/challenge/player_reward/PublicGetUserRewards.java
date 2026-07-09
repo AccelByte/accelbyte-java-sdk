@@ -87,7 +87,7 @@ public class PublicGetUserRewards implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PlayerReward wrapper = new PlayerReward(sdk);
       final net.accelbyte.sdk.api.challenge.operations.player_reward.PublicGetUserRewards
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.challenge.operations.player_reward.PublicGetUserRewards
                   .builder()
                   .namespace(namespace)
@@ -98,7 +98,7 @@ public class PublicGetUserRewards implements Callable<Integer> {
                   .sortBy(sortBy)
                   .status(status)
                   .build();
-      final ModelListUserRewardsResponse response = wrapper.publicGetUserRewards(operation);
+      final ModelListUserRewardsResponse response = wrapper.publicGetUserRewards(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

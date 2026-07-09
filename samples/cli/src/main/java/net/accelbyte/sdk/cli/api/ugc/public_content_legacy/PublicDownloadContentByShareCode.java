@@ -63,14 +63,14 @@ public class PublicDownloadContentByShareCode implements Callable<Integer> {
       final PublicContentLegacy wrapper = new PublicContentLegacy(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_content_legacy
               .PublicDownloadContentByShareCode
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.public_content_legacy
                   .PublicDownloadContentByShareCode.builder()
                   .namespace(namespace)
                   .shareCode(shareCode)
                   .build();
       final ModelsContentDownloadResponse response =
-          wrapper.publicDownloadContentByShareCode(operation);
+          wrapper.publicDownloadContentByShareCode(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

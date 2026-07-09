@@ -51,9 +51,9 @@ public class AdminGetMyMFAStatusV4 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UsersV4 wrapper = new UsersV4(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users_v4.AdminGetMyMFAStatusV4 operation =
+      final net.accelbyte.sdk.api.iam.operations.users_v4.AdminGetMyMFAStatusV4 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users_v4.AdminGetMyMFAStatusV4.builder().build();
-      final ModelUserMFAStatusResponseV4 response = wrapper.adminGetMyMFAStatusV4(operation);
+      final ModelUserMFAStatusResponseV4 response = wrapper.adminGetMyMFAStatusV4(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

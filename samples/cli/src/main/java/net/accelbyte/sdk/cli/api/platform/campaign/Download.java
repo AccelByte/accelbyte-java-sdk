@@ -78,7 +78,7 @@ public class Download implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Campaign wrapper = new Campaign(sdk);
-      final net.accelbyte.sdk.api.platform.operations.campaign.Download operation =
+      final net.accelbyte.sdk.api.platform.operations.campaign.Download operationRequest =
           net.accelbyte.sdk.api.platform.operations.campaign.Download.builder()
               .campaignId(campaignId)
               .namespace(namespace)
@@ -86,7 +86,7 @@ public class Download implements Callable<Integer> {
               .batchNo(batchNo)
               .withBatchName(withBatchName)
               .build();
-      final InputStream response = wrapper.download(operation);
+      final InputStream response = wrapper.download(operationRequest);
       final File outputFile = new File("response.out");
       java.nio.file.Files.copy(
           response, outputFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);

@@ -66,14 +66,14 @@ public class DeleteGroupPredefinedRulePublicV1 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Group wrapper = new Group(sdk);
       final net.accelbyte.sdk.api.group.operations.group.DeleteGroupPredefinedRulePublicV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.group.operations.group.DeleteGroupPredefinedRulePublicV1
                   .builder()
                   .allowedAction(allowedAction)
                   .groupId(groupId)
                   .namespace(namespace)
                   .build();
-      wrapper.deleteGroupPredefinedRulePublicV1(operation);
+      wrapper.deleteGroupPredefinedRulePublicV1(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

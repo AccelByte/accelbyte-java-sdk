@@ -61,12 +61,12 @@ public class CreateRuleSet implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final RuleSets wrapper = new RuleSets(sdk);
-      final net.accelbyte.sdk.api.match2.operations.rule_sets.CreateRuleSet operation =
+      final net.accelbyte.sdk.api.match2.operations.rule_sets.CreateRuleSet operationRequest =
           net.accelbyte.sdk.api.match2.operations.rule_sets.CreateRuleSet.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ApiRuleSetPayload.class))
               .build();
-      wrapper.createRuleSet(operation);
+      wrapper.createRuleSet(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

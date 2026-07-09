@@ -57,12 +57,12 @@ public class UpdatePaymentTaxConfig implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PaymentConfig wrapper = new PaymentConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_config.UpdatePaymentTaxConfig
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.payment_config.UpdatePaymentTaxConfig
                   .builder()
                   .body(new ObjectMapper().readValue(body, PaymentTaxConfigEdit.class))
                   .build();
-      final PaymentTaxConfigInfo response = wrapper.updatePaymentTaxConfig(operation);
+      final PaymentTaxConfigInfo response = wrapper.updatePaymentTaxConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

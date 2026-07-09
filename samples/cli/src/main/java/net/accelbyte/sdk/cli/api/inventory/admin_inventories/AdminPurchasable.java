@@ -67,14 +67,14 @@ public class AdminPurchasable implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminInventories wrapper = new AdminInventories(sdk);
       final net.accelbyte.sdk.api.inventory.operations.admin_inventories.AdminPurchasable
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.inventory.operations.admin_inventories.AdminPurchasable
                   .builder()
                   .namespace(namespace)
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, ApimodelsPurchaseValidationReq.class))
                   .build();
-      wrapper.adminPurchasable(operation);
+      wrapper.adminPurchasable(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

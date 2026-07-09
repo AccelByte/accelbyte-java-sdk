@@ -51,9 +51,9 @@ public class GetRevocationList implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth wrapper = new OAuth(sdk);
-      final net.accelbyte.sdk.api.iam.operations.o_auth.GetRevocationList operation =
+      final net.accelbyte.sdk.api.iam.operations.o_auth.GetRevocationList operationRequest =
           net.accelbyte.sdk.api.iam.operations.o_auth.GetRevocationList.builder().build();
-      final OauthapiRevocationList response = wrapper.getRevocationList(operation);
+      final OauthapiRevocationList response = wrapper.getRevocationList(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

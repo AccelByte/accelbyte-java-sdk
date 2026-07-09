@@ -55,11 +55,12 @@ public class InvalidateUserInfoCache implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserInfo wrapper = new UserInfo(sdk);
-      final net.accelbyte.sdk.api.legal.operations.user_info.InvalidateUserInfoCache operation =
-          net.accelbyte.sdk.api.legal.operations.user_info.InvalidateUserInfoCache.builder()
-              .namespace(namespace)
-              .build();
-      wrapper.invalidateUserInfoCache(operation);
+      final net.accelbyte.sdk.api.legal.operations.user_info.InvalidateUserInfoCache
+          operationRequest =
+              net.accelbyte.sdk.api.legal.operations.user_info.InvalidateUserInfoCache.builder()
+                  .namespace(namespace)
+                  .build();
+      wrapper.invalidateUserInfoCache(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

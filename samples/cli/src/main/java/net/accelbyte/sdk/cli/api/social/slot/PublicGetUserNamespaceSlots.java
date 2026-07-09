@@ -61,12 +61,13 @@ public class PublicGetUserNamespaceSlots implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Slot wrapper = new Slot(sdk);
-      final net.accelbyte.sdk.api.social.operations.slot.PublicGetUserNamespaceSlots operation =
-          net.accelbyte.sdk.api.social.operations.slot.PublicGetUserNamespaceSlots.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .build();
-      final List<SlotInfo> response = wrapper.publicGetUserNamespaceSlots(operation);
+      final net.accelbyte.sdk.api.social.operations.slot.PublicGetUserNamespaceSlots
+          operationRequest =
+              net.accelbyte.sdk.api.social.operations.slot.PublicGetUserNamespaceSlots.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .build();
+      final List<SlotInfo> response = wrapper.publicGetUserNamespaceSlots(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

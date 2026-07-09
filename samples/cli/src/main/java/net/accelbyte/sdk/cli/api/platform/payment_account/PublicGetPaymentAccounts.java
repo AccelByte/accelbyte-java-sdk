@@ -62,14 +62,14 @@ public class PublicGetPaymentAccounts implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PaymentAccount wrapper = new PaymentAccount(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_account.PublicGetPaymentAccounts
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.payment_account.PublicGetPaymentAccounts
                   .builder()
                   .namespace(namespace)
                   .userId(userId)
                   .build();
       final List<net.accelbyte.sdk.api.platform.models.PaymentAccount> response =
-          wrapper.publicGetPaymentAccounts(operation);
+          wrapper.publicGetPaymentAccounts(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

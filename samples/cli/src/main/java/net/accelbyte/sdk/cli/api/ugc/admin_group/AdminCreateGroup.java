@@ -61,12 +61,12 @@ public class AdminCreateGroup implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminGroup wrapper = new AdminGroup(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.admin_group.AdminCreateGroup operation =
+      final net.accelbyte.sdk.api.ugc.operations.admin_group.AdminCreateGroup operationRequest =
           net.accelbyte.sdk.api.ugc.operations.admin_group.AdminCreateGroup.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelsCreateGroupRequest.class))
               .build();
-      final ModelsCreateGroupResponse response = wrapper.adminCreateGroup(operation);
+      final ModelsCreateGroupResponse response = wrapper.adminCreateGroup(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

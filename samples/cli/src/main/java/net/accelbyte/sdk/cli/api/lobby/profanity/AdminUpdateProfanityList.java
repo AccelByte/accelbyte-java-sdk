@@ -66,13 +66,14 @@ public class AdminUpdateProfanityList implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Profanity wrapper = new Profanity(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.profanity.AdminUpdateProfanityList operation =
-          net.accelbyte.sdk.api.lobby.operations.profanity.AdminUpdateProfanityList.builder()
-              .list(list)
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ModelsAdminUpdateProfanityList.class))
-              .build();
-      wrapper.adminUpdateProfanityList(operation);
+      final net.accelbyte.sdk.api.lobby.operations.profanity.AdminUpdateProfanityList
+          operationRequest =
+              net.accelbyte.sdk.api.lobby.operations.profanity.AdminUpdateProfanityList.builder()
+                  .list(list)
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, ModelsAdminUpdateProfanityList.class))
+                  .build();
+      wrapper.adminUpdateProfanityList(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

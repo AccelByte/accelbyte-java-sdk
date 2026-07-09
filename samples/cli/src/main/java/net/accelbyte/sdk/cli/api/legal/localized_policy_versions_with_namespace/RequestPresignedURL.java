@@ -69,7 +69,7 @@ public class RequestPresignedURL implements Callable<Integer> {
           new LocalizedPolicyVersionsWithNamespace(sdk);
       final net.accelbyte.sdk.api.legal.operations.localized_policy_versions_with_namespace
               .RequestPresignedURL
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.localized_policy_versions_with_namespace
                   .RequestPresignedURL.builder()
                   .localizedPolicyVersionId(localizedPolicyVersionId)
@@ -79,7 +79,7 @@ public class RequestPresignedURL implements Callable<Integer> {
                           .readValue(body, UploadPolicyVersionAttachmentRequest.class))
                   .build();
       final UploadLocalizedPolicyVersionAttachmentResponse response =
-          wrapper.requestPresignedURL(operation);
+          wrapper.requestPresignedURL(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

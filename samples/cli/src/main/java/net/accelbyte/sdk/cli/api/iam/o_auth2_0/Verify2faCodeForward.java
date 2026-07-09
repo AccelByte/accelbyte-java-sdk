@@ -85,7 +85,7 @@ public class Verify2faCodeForward implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth20 wrapper = new OAuth20(sdk);
-      final net.accelbyte.sdk.api.iam.operations.o_auth2_0.Verify2faCodeForward operation =
+      final net.accelbyte.sdk.api.iam.operations.o_auth2_0.Verify2faCodeForward operationRequest =
           net.accelbyte.sdk.api.iam.operations.o_auth2_0.Verify2faCodeForward.builder()
               .defaultFactor(defaultFactor != null ? defaultFactor : null)
               .factors(factors != null ? factors : null)
@@ -95,7 +95,7 @@ public class Verify2faCodeForward implements Callable<Integer> {
               .factor(factor != null ? factor : null)
               .mfaToken(mfaToken != null ? mfaToken : null)
               .build();
-      wrapper.verify2faCodeForward(operation);
+      wrapper.verify2faCodeForward(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

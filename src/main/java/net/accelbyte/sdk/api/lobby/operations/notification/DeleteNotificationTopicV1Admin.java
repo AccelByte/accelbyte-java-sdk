@@ -20,12 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteNotificationTopicV1Admin
  *
- * <p>Delete topic information by topic name.
- *
- * <p>topic should be alphabets, no special char except underscore, uppercase and no spacing. for
- * example: TOPIC_TEST. Already existing topic can not be created
- *
- * <p>Action Code: 50217
+ * <p>Delete a notification topic by topic name.
  */
 @Getter
 @Setter

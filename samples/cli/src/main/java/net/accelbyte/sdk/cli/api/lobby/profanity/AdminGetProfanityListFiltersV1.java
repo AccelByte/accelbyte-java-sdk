@@ -62,14 +62,14 @@ public class AdminGetProfanityListFiltersV1 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Profanity wrapper = new Profanity(sdk);
       final net.accelbyte.sdk.api.lobby.operations.profanity.AdminGetProfanityListFiltersV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.profanity.AdminGetProfanityListFiltersV1
                   .builder()
                   .list(list)
                   .namespace(namespace)
                   .build();
       final ModelsAdminGetProfanityListFiltersV1Response response =
-          wrapper.adminGetProfanityListFiltersV1(operation);
+          wrapper.adminGetProfanityListFiltersV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -87,7 +87,7 @@ public class ImportStoreByCSV implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Store wrapper = new Store(sdk);
-      final net.accelbyte.sdk.api.platform.operations.store.ImportStoreByCSV operation =
+      final net.accelbyte.sdk.api.platform.operations.store.ImportStoreByCSV operationRequest =
           net.accelbyte.sdk.api.platform.operations.store.ImportStoreByCSV.builder()
               .namespace(namespace)
               .storeId(storeId)
@@ -97,7 +97,7 @@ public class ImportStoreByCSV implements Callable<Integer> {
               .notes(notes != null ? notes : null)
               .section(section != null ? section : null)
               .build();
-      final ImportStoreResult response = wrapper.importStoreByCSV(operation);
+      final ImportStoreResult response = wrapper.importStoreByCSV(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

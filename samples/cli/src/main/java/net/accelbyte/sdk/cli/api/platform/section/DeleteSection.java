@@ -65,13 +65,13 @@ public class DeleteSection implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Section wrapper = new Section(sdk);
-      final net.accelbyte.sdk.api.platform.operations.section.DeleteSection operation =
+      final net.accelbyte.sdk.api.platform.operations.section.DeleteSection operationRequest =
           net.accelbyte.sdk.api.platform.operations.section.DeleteSection.builder()
               .namespace(namespace)
               .sectionId(sectionId)
               .storeId(storeId)
               .build();
-      wrapper.deleteSection(operation);
+      wrapper.deleteSection(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

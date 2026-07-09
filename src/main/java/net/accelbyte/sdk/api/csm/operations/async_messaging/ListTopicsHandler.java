@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * ListTopicsHandler
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:ASYNCMESSAGING:TOPICS [READ]`
- *
  * <p>List all Async Messaging Topics inside a game namespace.
  */
 @Getter

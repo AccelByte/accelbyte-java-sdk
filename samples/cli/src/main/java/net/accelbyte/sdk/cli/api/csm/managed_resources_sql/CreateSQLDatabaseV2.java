@@ -67,7 +67,7 @@ public class CreateSQLDatabaseV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ManagedResourcesSQL wrapper = new ManagedResourcesSQL(sdk);
       final net.accelbyte.sdk.api.csm.operations.managed_resources_sql.CreateSQLDatabaseV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.csm.operations.managed_resources_sql.CreateSQLDatabaseV2
                   .builder()
                   .app(app)
@@ -75,7 +75,7 @@ public class CreateSQLDatabaseV2 implements Callable<Integer> {
                   .body(
                       new ObjectMapper().readValue(body, ApimodelCreateSQLAppDatabaseRequest.class))
                   .build();
-      final ApimodelSQLDatabaseResponse response = wrapper.createSQLDatabaseV2(operation);
+      final ApimodelSQLDatabaseResponse response = wrapper.createSQLDatabaseV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

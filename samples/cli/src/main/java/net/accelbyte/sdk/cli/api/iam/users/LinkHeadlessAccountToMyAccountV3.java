@@ -56,11 +56,12 @@ public class LinkHeadlessAccountToMyAccountV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.LinkHeadlessAccountToMyAccountV3 operation =
-          net.accelbyte.sdk.api.iam.operations.users.LinkHeadlessAccountToMyAccountV3.builder()
-              .body(new ObjectMapper().readValue(body, ModelLinkHeadlessAccountRequest.class))
-              .build();
-      wrapper.linkHeadlessAccountToMyAccountV3(operation);
+      final net.accelbyte.sdk.api.iam.operations.users.LinkHeadlessAccountToMyAccountV3
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.users.LinkHeadlessAccountToMyAccountV3.builder()
+                  .body(new ObjectMapper().readValue(body, ModelLinkHeadlessAccountRequest.class))
+                  .build();
+      wrapper.linkHeadlessAccountToMyAccountV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -65,13 +65,13 @@ public class DeleteSecretV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ConfigurationV2 wrapper = new ConfigurationV2(sdk);
-      final net.accelbyte.sdk.api.csm.operations.configuration_v2.DeleteSecretV2 operation =
+      final net.accelbyte.sdk.api.csm.operations.configuration_v2.DeleteSecretV2 operationRequest =
           net.accelbyte.sdk.api.csm.operations.configuration_v2.DeleteSecretV2.builder()
               .app(app)
               .configId(configId)
               .namespace(namespace)
               .build();
-      wrapper.deleteSecretV2(operation);
+      wrapper.deleteSecretV2(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

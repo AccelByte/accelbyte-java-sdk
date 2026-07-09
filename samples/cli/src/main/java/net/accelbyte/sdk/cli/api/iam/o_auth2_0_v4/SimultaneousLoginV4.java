@@ -81,7 +81,7 @@ public class SimultaneousLoginV4 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth20V4 wrapper = new OAuth20V4(sdk);
-      final net.accelbyte.sdk.api.iam.operations.o_auth2_0_v4.SimultaneousLoginV4 operation =
+      final net.accelbyte.sdk.api.iam.operations.o_auth2_0_v4.SimultaneousLoginV4 operationRequest =
           net.accelbyte.sdk.api.iam.operations.o_auth2_0_v4.SimultaneousLoginV4.builder()
               .codeChallenge(codeChallenge)
               .codeChallengeMethod(codeChallengeMethod)
@@ -90,7 +90,7 @@ public class SimultaneousLoginV4 implements Callable<Integer> {
               .nativePlatform(nativePlatform != null ? nativePlatform : null)
               .nativePlatformTicket(nativePlatformTicket != null ? nativePlatformTicket : null)
               .build();
-      final OauthmodelTokenResponseV3 response = wrapper.simultaneousLoginV4(operation);
+      final OauthmodelTokenResponseV3 response = wrapper.simultaneousLoginV4(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

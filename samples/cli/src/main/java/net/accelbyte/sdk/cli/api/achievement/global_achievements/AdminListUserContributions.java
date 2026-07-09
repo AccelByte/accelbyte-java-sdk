@@ -89,7 +89,7 @@ public class AdminListUserContributions implements Callable<Integer> {
       final GlobalAchievements wrapper = new GlobalAchievements(sdk);
       final net.accelbyte.sdk.api.achievement.operations.global_achievements
               .AdminListUserContributions
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.achievement.operations.global_achievements
                   .AdminListUserContributions.builder()
                   .namespace(namespace)
@@ -101,7 +101,7 @@ public class AdminListUserContributions implements Callable<Integer> {
                   .tags(tags)
                   .build();
       final ModelsPaginatedUserContributionResponse response =
-          wrapper.adminListUserContributions(operation);
+          wrapper.adminListUserContributions(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

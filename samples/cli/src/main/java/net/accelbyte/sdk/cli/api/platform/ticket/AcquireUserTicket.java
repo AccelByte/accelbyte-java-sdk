@@ -71,14 +71,14 @@ public class AcquireUserTicket implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Ticket wrapper = new Ticket(sdk);
-      final net.accelbyte.sdk.api.platform.operations.ticket.AcquireUserTicket operation =
+      final net.accelbyte.sdk.api.platform.operations.ticket.AcquireUserTicket operationRequest =
           net.accelbyte.sdk.api.platform.operations.ticket.AcquireUserTicket.builder()
               .boothName(boothName)
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, TicketAcquireRequest.class))
               .build();
-      final TicketAcquireResult response = wrapper.acquireUserTicket(operation);
+      final TicketAcquireResult response = wrapper.acquireUserTicket(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

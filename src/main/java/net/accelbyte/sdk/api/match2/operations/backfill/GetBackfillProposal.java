@@ -21,7 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetBackfillProposal
  *
- * <p>Get backfill proposal
+ * <p>Get backfill proposal for the given session.
+ *
+ * <p>Returns the current pending backfill proposal associated with the session ID. Returns 404 if
+ * no proposal exists for the session.
  */
 @Getter
 @Setter

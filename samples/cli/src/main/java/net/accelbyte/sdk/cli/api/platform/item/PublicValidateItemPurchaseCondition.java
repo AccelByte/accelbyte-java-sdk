@@ -62,7 +62,7 @@ public class PublicValidateItemPurchaseCondition implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Item wrapper = new Item(sdk);
       final net.accelbyte.sdk.api.platform.operations.item.PublicValidateItemPurchaseCondition
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.item.PublicValidateItemPurchaseCondition
                   .builder()
                   .namespace(namespace)
@@ -71,7 +71,7 @@ public class PublicValidateItemPurchaseCondition implements Callable<Integer> {
                           .readValue(body, ItemPurchaseConditionValidateRequest.class))
                   .build();
       final List<ItemPurchaseConditionValidateResult> response =
-          wrapper.publicValidateItemPurchaseCondition(operation);
+          wrapper.publicValidateItemPurchaseCondition(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

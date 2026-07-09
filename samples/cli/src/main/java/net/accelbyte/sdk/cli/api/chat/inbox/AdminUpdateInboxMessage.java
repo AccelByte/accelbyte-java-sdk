@@ -66,13 +66,13 @@ public class AdminUpdateInboxMessage implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Inbox wrapper = new Inbox(sdk);
-      final net.accelbyte.sdk.api.chat.operations.inbox.AdminUpdateInboxMessage operation =
+      final net.accelbyte.sdk.api.chat.operations.inbox.AdminUpdateInboxMessage operationRequest =
           net.accelbyte.sdk.api.chat.operations.inbox.AdminUpdateInboxMessage.builder()
               .messageId(messageId)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelsUpdateInboxMessageRequest.class))
               .build();
-      wrapper.adminUpdateInboxMessage(operation);
+      wrapper.adminUpdateInboxMessage(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

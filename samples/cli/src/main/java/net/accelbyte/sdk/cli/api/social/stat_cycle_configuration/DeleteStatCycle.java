@@ -61,13 +61,13 @@ public class DeleteStatCycle implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final StatCycleConfiguration wrapper = new StatCycleConfiguration(sdk);
       final net.accelbyte.sdk.api.social.operations.stat_cycle_configuration.DeleteStatCycle
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.social.operations.stat_cycle_configuration.DeleteStatCycle
                   .builder()
                   .cycleId(cycleId)
                   .namespace(namespace)
                   .build();
-      wrapper.deleteStatCycle(operation);
+      wrapper.deleteStatCycle(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -82,7 +82,7 @@ public class PublicGetContentByChannelIDV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicContentV2 wrapper = new PublicContentV2(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_content_v2.PublicGetContentByChannelIDV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.public_content_v2.PublicGetContentByChannelIDV2
                   .builder()
                   .channelId(channelId)
@@ -93,7 +93,7 @@ public class PublicGetContentByChannelIDV2 implements Callable<Integer> {
                   .sortBy(sortBy)
                   .build();
       final ModelsPaginatedContentDownloadResponseV2 response =
-          wrapper.publicGetContentByChannelIDV2(operation);
+          wrapper.publicGetContentByChannelIDV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

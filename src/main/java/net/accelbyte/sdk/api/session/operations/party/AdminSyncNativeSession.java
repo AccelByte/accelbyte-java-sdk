@@ -20,7 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminSyncNativeSession
  *
- * <p>Trigger user's active party session to native platform.
+ * <p>Triggers synchronization of the user's active party session to the native platform (PSN,
+ * Xbox). Useful when native session state is out of sync with the AccelByte session state.
  */
 @Getter
 @Setter

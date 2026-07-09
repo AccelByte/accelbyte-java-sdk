@@ -60,12 +60,12 @@ public class StopAppV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AppV2 wrapper = new AppV2(sdk);
-      final net.accelbyte.sdk.api.csm.operations.app_v2.StopAppV2 operation =
+      final net.accelbyte.sdk.api.csm.operations.app_v2.StopAppV2 operationRequest =
           net.accelbyte.sdk.api.csm.operations.app_v2.StopAppV2.builder()
               .app(app)
               .namespace(namespace)
               .build();
-      wrapper.stopAppV2(operation);
+      wrapper.stopAppV2(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

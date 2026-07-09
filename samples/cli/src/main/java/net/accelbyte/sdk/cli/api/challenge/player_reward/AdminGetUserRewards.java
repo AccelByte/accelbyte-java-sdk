@@ -91,18 +91,19 @@ public class AdminGetUserRewards implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PlayerReward wrapper = new PlayerReward(sdk);
-      final net.accelbyte.sdk.api.challenge.operations.player_reward.AdminGetUserRewards operation =
-          net.accelbyte.sdk.api.challenge.operations.player_reward.AdminGetUserRewards.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .challengeCode(challengeCode)
-              .goalProgressionId(goalProgressionId)
-              .limit(limit)
-              .offset(offset)
-              .sortBy(sortBy)
-              .status(status)
-              .build();
-      final ModelListUserRewardsResponse response = wrapper.adminGetUserRewards(operation);
+      final net.accelbyte.sdk.api.challenge.operations.player_reward.AdminGetUserRewards
+          operationRequest =
+              net.accelbyte.sdk.api.challenge.operations.player_reward.AdminGetUserRewards.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .challengeCode(challengeCode)
+                  .goalProgressionId(goalProgressionId)
+                  .limit(limit)
+                  .offset(offset)
+                  .sortBy(sortBy)
+                  .status(status)
+                  .build();
+      final ModelListUserRewardsResponse response = wrapper.adminGetUserRewards(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

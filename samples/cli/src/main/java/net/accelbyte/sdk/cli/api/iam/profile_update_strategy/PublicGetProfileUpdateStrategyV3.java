@@ -63,14 +63,14 @@ public class PublicGetProfileUpdateStrategyV3 implements Callable<Integer> {
       final ProfileUpdateStrategy wrapper = new ProfileUpdateStrategy(sdk);
       final net.accelbyte.sdk.api.iam.operations.profile_update_strategy
               .PublicGetProfileUpdateStrategyV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.profile_update_strategy
                   .PublicGetProfileUpdateStrategyV3.builder()
                   .namespace(namespace)
                   .field(field)
                   .build();
       final ModelGetProfileUpdateStrategyConfigResponse response =
-          wrapper.publicGetProfileUpdateStrategyV3(operation);
+          wrapper.publicGetProfileUpdateStrategyV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

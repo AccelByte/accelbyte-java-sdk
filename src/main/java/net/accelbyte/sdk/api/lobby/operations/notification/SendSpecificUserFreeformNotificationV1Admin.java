@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * sendSpecificUserFreeformNotificationV1Admin
  *
- * <p>Sends notification to a user. Action Code: 50211
+ * <p>Sends notification to a user.
  */
 @Getter
 @Setter

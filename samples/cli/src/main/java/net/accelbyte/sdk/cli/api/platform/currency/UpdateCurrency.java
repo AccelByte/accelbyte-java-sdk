@@ -66,13 +66,13 @@ public class UpdateCurrency implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Currency wrapper = new Currency(sdk);
-      final net.accelbyte.sdk.api.platform.operations.currency.UpdateCurrency operation =
+      final net.accelbyte.sdk.api.platform.operations.currency.UpdateCurrency operationRequest =
           net.accelbyte.sdk.api.platform.operations.currency.UpdateCurrency.builder()
               .currencyCode(currencyCode)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, CurrencyUpdate.class))
               .build();
-      final CurrencyInfo response = wrapper.updateCurrency(operation);
+      final CurrencyInfo response = wrapper.updateCurrency(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

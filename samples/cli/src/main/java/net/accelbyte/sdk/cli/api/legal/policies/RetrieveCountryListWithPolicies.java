@@ -52,11 +52,11 @@ public class RetrieveCountryListWithPolicies implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Policies wrapper = new Policies(sdk);
       final net.accelbyte.sdk.api.legal.operations.policies.RetrieveCountryListWithPolicies
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.policies.RetrieveCountryListWithPolicies
                   .builder()
                   .build();
-      final List<String> response = wrapper.retrieveCountryListWithPolicies(operation);
+      final List<String> response = wrapper.retrieveCountryListWithPolicies(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

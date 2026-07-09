@@ -71,7 +71,7 @@ public class GetListOfDeploymentV1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Deployment wrapper = new Deployment(sdk);
-      final net.accelbyte.sdk.api.csm.operations.deployment.GetListOfDeploymentV1 operation =
+      final net.accelbyte.sdk.api.csm.operations.deployment.GetListOfDeploymentV1 operationRequest =
           net.accelbyte.sdk.api.csm.operations.deployment.GetListOfDeploymentV1.builder()
               .namespace(namespace)
               .limit(limit)
@@ -79,7 +79,7 @@ public class GetListOfDeploymentV1 implements Callable<Integer> {
               .body(new ObjectMapper().readValue(body, GeneratedGetDeploymentListV1Request.class))
               .build();
       final GeneratedGetDeploymentListV1Response response =
-          wrapper.getListOfDeploymentV1(operation);
+          wrapper.getListOfDeploymentV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

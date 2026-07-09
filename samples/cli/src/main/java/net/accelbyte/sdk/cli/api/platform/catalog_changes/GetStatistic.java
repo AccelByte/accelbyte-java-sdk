@@ -91,18 +91,19 @@ public class GetStatistic implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final CatalogChanges wrapper = new CatalogChanges(sdk);
-      final net.accelbyte.sdk.api.platform.operations.catalog_changes.GetStatistic operation =
-          net.accelbyte.sdk.api.platform.operations.catalog_changes.GetStatistic.builder()
-              .namespace(namespace)
-              .storeId(storeId)
-              .action(action)
-              .itemSku(itemSku)
-              .itemType(itemType)
-              .type(type)
-              .updatedAtEnd(updatedAtEnd)
-              .updatedAtStart(updatedAtStart)
-              .build();
-      final CatalogChangeStatistics response = wrapper.getStatistic(operation);
+      final net.accelbyte.sdk.api.platform.operations.catalog_changes.GetStatistic
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.catalog_changes.GetStatistic.builder()
+                  .namespace(namespace)
+                  .storeId(storeId)
+                  .action(action)
+                  .itemSku(itemSku)
+                  .itemType(itemType)
+                  .type(type)
+                  .updatedAtEnd(updatedAtEnd)
+                  .updatedAtStart(updatedAtStart)
+                  .build();
+      final CatalogChangeStatistics response = wrapper.getStatistic(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

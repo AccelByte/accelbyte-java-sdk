@@ -67,14 +67,14 @@ public class AdminUpdateAchievement implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Achievements wrapper = new Achievements(sdk);
       final net.accelbyte.sdk.api.achievement.operations.achievements.AdminUpdateAchievement
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.achievement.operations.achievements.AdminUpdateAchievement
                   .builder()
                   .achievementCode(achievementCode)
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelsAchievementUpdateRequest.class))
                   .build();
-      final ModelsAchievementResponse response = wrapper.adminUpdateAchievement(operation);
+      final ModelsAchievementResponse response = wrapper.adminUpdateAchievement(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

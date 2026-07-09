@@ -97,7 +97,7 @@ public class AdminQueryTopicLog implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Topic wrapper = new Topic(sdk);
-      final net.accelbyte.sdk.api.chat.operations.topic.AdminQueryTopicLog operation =
+      final net.accelbyte.sdk.api.chat.operations.topic.AdminQueryTopicLog operationRequest =
           net.accelbyte.sdk.api.chat.operations.topic.AdminQueryTopicLog.builder()
               .namespace(namespace)
               .endCreatedAt(endCreatedAt)
@@ -109,7 +109,8 @@ public class AdminQueryTopicLog implements Callable<Integer> {
               .topicIds(topicIds)
               .userId(userId)
               .build();
-      final ModelsTopicLogWithPaginationResponse response = wrapper.adminQueryTopicLog(operation);
+      final ModelsTopicLogWithPaginationResponse response =
+          wrapper.adminQueryTopicLog(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

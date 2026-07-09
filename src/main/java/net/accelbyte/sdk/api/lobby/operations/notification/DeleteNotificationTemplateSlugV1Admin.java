@@ -20,9 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * deleteNotificationTemplateSlugV1Admin
  *
- * <p>Delete template slug in notification template
- *
- * <p>Action Code: 50206
+ * <p>Delete all localizations for the given notification template slug.
  */
 @Getter
 @Setter

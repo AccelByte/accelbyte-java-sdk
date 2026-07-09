@@ -61,12 +61,13 @@ public class AdminAddCountryBlacklistV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Country wrapper = new Country(sdk);
-      final net.accelbyte.sdk.api.iam.operations.country.AdminAddCountryBlacklistV3 operation =
-          net.accelbyte.sdk.api.iam.operations.country.AdminAddCountryBlacklistV3.builder()
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ModelCountryBlacklistRequest.class))
-              .build();
-      wrapper.adminAddCountryBlacklistV3(operation);
+      final net.accelbyte.sdk.api.iam.operations.country.AdminAddCountryBlacklistV3
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.country.AdminAddCountryBlacklistV3.builder()
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, ModelCountryBlacklistRequest.class))
+                  .build();
+      wrapper.adminAddCountryBlacklistV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

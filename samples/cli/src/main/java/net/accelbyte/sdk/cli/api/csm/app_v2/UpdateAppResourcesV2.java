@@ -66,13 +66,13 @@ public class UpdateAppResourcesV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AppV2 wrapper = new AppV2(sdk);
-      final net.accelbyte.sdk.api.csm.operations.app_v2.UpdateAppResourcesV2 operation =
+      final net.accelbyte.sdk.api.csm.operations.app_v2.UpdateAppResourcesV2 operationRequest =
           net.accelbyte.sdk.api.csm.operations.app_v2.UpdateAppResourcesV2.builder()
               .app(app)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ApimodelUpdateAppResourceRequest.class))
               .build();
-      final ApimodelAppItem response = wrapper.updateAppResourcesV2(operation);
+      final ApimodelAppItem response = wrapper.updateAppResourcesV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

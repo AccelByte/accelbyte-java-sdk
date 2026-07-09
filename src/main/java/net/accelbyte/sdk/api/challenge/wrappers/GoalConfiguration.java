@@ -65,4 +65,23 @@ public class GoalConfiguration {
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
   }
+
+  /**
+   * @see AdminMoveGoalToSlot
+   */
+  public void adminMoveGoalToSlot(AdminMoveGoalToSlot input) throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    input.handleEmptyResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see AdminGetChallengeSlots
+   */
+  public ModelGetSlotsResponse adminGetChallengeSlots(AdminGetChallengeSlots input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
 }

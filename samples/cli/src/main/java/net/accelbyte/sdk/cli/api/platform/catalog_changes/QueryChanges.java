@@ -122,24 +122,25 @@ public class QueryChanges implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final CatalogChanges wrapper = new CatalogChanges(sdk);
-      final net.accelbyte.sdk.api.platform.operations.catalog_changes.QueryChanges operation =
-          net.accelbyte.sdk.api.platform.operations.catalog_changes.QueryChanges.builder()
-              .namespace(namespace)
-              .storeId(storeId)
-              .action(action)
-              .itemSku(itemSku)
-              .itemType(itemType)
-              .limit(limit)
-              .offset(offset)
-              .selected(selected)
-              .sortBy(sortBy)
-              .status(status)
-              .type(type)
-              .updatedAtEnd(updatedAtEnd)
-              .updatedAtStart(updatedAtStart)
-              .withTotal(withTotal)
-              .build();
-      final CatalogChangePagingResult response = wrapper.queryChanges(operation);
+      final net.accelbyte.sdk.api.platform.operations.catalog_changes.QueryChanges
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.catalog_changes.QueryChanges.builder()
+                  .namespace(namespace)
+                  .storeId(storeId)
+                  .action(action)
+                  .itemSku(itemSku)
+                  .itemType(itemType)
+                  .limit(limit)
+                  .offset(offset)
+                  .selected(selected)
+                  .sortBy(sortBy)
+                  .status(status)
+                  .type(type)
+                  .updatedAtEnd(updatedAtEnd)
+                  .updatedAtStart(updatedAtStart)
+                  .withTotal(withTotal)
+                  .build();
+      final CatalogChangePagingResult response = wrapper.queryChanges(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

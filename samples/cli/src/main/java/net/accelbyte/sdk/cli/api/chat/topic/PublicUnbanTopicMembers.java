@@ -66,14 +66,14 @@ public class PublicUnbanTopicMembers implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Topic wrapper = new Topic(sdk);
-      final net.accelbyte.sdk.api.chat.operations.topic.PublicUnbanTopicMembers operation =
+      final net.accelbyte.sdk.api.chat.operations.topic.PublicUnbanTopicMembers operationRequest =
           net.accelbyte.sdk.api.chat.operations.topic.PublicUnbanTopicMembers.builder()
               .namespace(namespace)
               .topic(topic)
               .body(new ObjectMapper().readValue(body, ModelsPublicUnbanTopicMembersRequest.class))
               .build();
       final ModelsPublicUnbanTopicMembersResponse response =
-          wrapper.publicUnbanTopicMembers(operation);
+          wrapper.publicUnbanTopicMembers(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

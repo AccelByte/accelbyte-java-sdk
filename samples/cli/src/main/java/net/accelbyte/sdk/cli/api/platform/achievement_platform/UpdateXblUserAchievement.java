@@ -67,14 +67,14 @@ public class UpdateXblUserAchievement implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AchievementPlatform wrapper = new AchievementPlatform(sdk);
       final net.accelbyte.sdk.api.platform.operations.achievement_platform.UpdateXblUserAchievement
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.achievement_platform
                   .UpdateXblUserAchievement.builder()
                   .namespace(namespace)
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, XblAchievementUpdateRequest.class))
                   .build();
-      wrapper.updateXblUserAchievement(operation);
+      wrapper.updateXblUserAchievement(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

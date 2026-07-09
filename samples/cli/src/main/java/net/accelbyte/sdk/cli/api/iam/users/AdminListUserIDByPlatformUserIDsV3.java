@@ -77,7 +77,7 @@ public class AdminListUserIDByPlatformUserIDsV3 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
       final net.accelbyte.sdk.api.iam.operations.users.AdminListUserIDByPlatformUserIDsV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.users.AdminListUserIDByPlatformUserIDsV3
                   .builder()
                   .namespace(namespace)
@@ -87,7 +87,7 @@ public class AdminListUserIDByPlatformUserIDsV3 implements Callable<Integer> {
                   .body(new ObjectMapper().readValue(body, ModelPlatformUserIDRequest.class))
                   .build();
       final AccountcommonUserPlatforms response =
-          wrapper.adminListUserIDByPlatformUserIDsV3(operation);
+          wrapper.adminListUserIDByPlatformUserIDsV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

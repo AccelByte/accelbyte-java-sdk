@@ -67,14 +67,14 @@ public class AdminSyncTwitchDropsEntitlement implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
       final net.accelbyte.sdk.api.platform.operations.iap.AdminSyncTwitchDropsEntitlement
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.iap.AdminSyncTwitchDropsEntitlement
                   .builder()
                   .namespace(namespace)
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, TwitchSyncRequest.class))
                   .build();
-      wrapper.adminSyncTwitchDropsEntitlement(operation);
+      wrapper.adminSyncTwitchDropsEntitlement(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

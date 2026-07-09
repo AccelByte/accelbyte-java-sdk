@@ -62,13 +62,14 @@ public class AdminUpdateConfiguration implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminV1 wrapper = new AdminV1(sdk);
       final net.accelbyte.sdk.api.loginqueue.operations.admin_v1.AdminUpdateConfiguration
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.loginqueue.operations.admin_v1.AdminUpdateConfiguration
                   .builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ApimodelsConfigurationRequest.class))
                   .build();
-      final ApimodelsConfigurationResponse response = wrapper.adminUpdateConfiguration(operation);
+      final ApimodelsConfigurationResponse response =
+          wrapper.adminUpdateConfiguration(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -66,13 +66,14 @@ public class GetAppImageListV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ImageV2 wrapper = new ImageV2(sdk);
-      final net.accelbyte.sdk.api.csm.operations.image_v2.GetAppImageListV2 operation =
+      final net.accelbyte.sdk.api.csm.operations.image_v2.GetAppImageListV2 operationRequest =
           net.accelbyte.sdk.api.csm.operations.image_v2.GetAppImageListV2.builder()
               .app(app)
               .namespace(namespace)
               .cached(cached)
               .build();
-      final ApimodelGetAppImageListV2Response response = wrapper.getAppImageListV2(operation);
+      final ApimodelGetAppImageListV2Response response =
+          wrapper.getAppImageListV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

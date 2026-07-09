@@ -82,7 +82,7 @@ public class ListUserStagingContents implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicStagingContent wrapper = new PublicStagingContent(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_staging_content.ListUserStagingContents
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.public_staging_content.ListUserStagingContents
                   .builder()
                   .namespace(namespace)
@@ -93,7 +93,7 @@ public class ListUserStagingContents implements Callable<Integer> {
                   .status(status)
                   .build();
       final ModelsPaginatedListStagingContentResponse response =
-          wrapper.listUserStagingContents(operation);
+          wrapper.listUserStagingContents(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

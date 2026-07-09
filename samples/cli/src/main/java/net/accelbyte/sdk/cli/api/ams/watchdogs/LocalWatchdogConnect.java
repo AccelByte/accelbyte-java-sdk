@@ -60,12 +60,12 @@ public class LocalWatchdogConnect implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Watchdogs wrapper = new Watchdogs(sdk);
-      final net.accelbyte.sdk.api.ams.operations.watchdogs.LocalWatchdogConnect operation =
+      final net.accelbyte.sdk.api.ams.operations.watchdogs.LocalWatchdogConnect operationRequest =
           net.accelbyte.sdk.api.ams.operations.watchdogs.LocalWatchdogConnect.builder()
               .namespace(namespace)
               .watchdogID(watchdogID)
               .build();
-      wrapper.localWatchdogConnect(operation);
+      wrapper.localWatchdogConnect(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

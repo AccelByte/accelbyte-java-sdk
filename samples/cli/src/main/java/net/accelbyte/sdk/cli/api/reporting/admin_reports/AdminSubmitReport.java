@@ -61,12 +61,13 @@ public class AdminSubmitReport implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminReports wrapper = new AdminReports(sdk);
-      final net.accelbyte.sdk.api.reporting.operations.admin_reports.AdminSubmitReport operation =
-          net.accelbyte.sdk.api.reporting.operations.admin_reports.AdminSubmitReport.builder()
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, RestapiSubmitReportRequest.class))
-              .build();
-      final RestapiSubmitReportResponse response = wrapper.adminSubmitReport(operation);
+      final net.accelbyte.sdk.api.reporting.operations.admin_reports.AdminSubmitReport
+          operationRequest =
+              net.accelbyte.sdk.api.reporting.operations.admin_reports.AdminSubmitReport.builder()
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, RestapiSubmitReportRequest.class))
+                  .build();
+      final RestapiSubmitReportResponse response = wrapper.adminSubmitReport(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

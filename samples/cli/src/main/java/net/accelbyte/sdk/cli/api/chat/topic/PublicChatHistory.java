@@ -76,7 +76,7 @@ public class PublicChatHistory implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Topic wrapper = new Topic(sdk);
-      final net.accelbyte.sdk.api.chat.operations.topic.PublicChatHistory operation =
+      final net.accelbyte.sdk.api.chat.operations.topic.PublicChatHistory operationRequest =
           net.accelbyte.sdk.api.chat.operations.topic.PublicChatHistory.builder()
               .namespace(namespace)
               .topic(topic)
@@ -84,7 +84,7 @@ public class PublicChatHistory implements Callable<Integer> {
               .order(order)
               .startCreatedAt(startCreatedAt)
               .build();
-      final List<ModelsChatMessageResponse> response = wrapper.publicChatHistory(operation);
+      final List<ModelsChatMessageResponse> response = wrapper.publicChatHistory(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

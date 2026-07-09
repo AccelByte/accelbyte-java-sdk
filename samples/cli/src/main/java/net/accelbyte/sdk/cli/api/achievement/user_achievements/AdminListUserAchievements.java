@@ -88,7 +88,7 @@ public class AdminListUserAchievements implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserAchievements wrapper = new UserAchievements(sdk);
       final net.accelbyte.sdk.api.achievement.operations.user_achievements.AdminListUserAchievements
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.achievement.operations.user_achievements
                   .AdminListUserAchievements.builder()
                   .namespace(namespace)
@@ -100,7 +100,7 @@ public class AdminListUserAchievements implements Callable<Integer> {
                   .tags(tags)
                   .build();
       final ModelsPaginatedUserAchievementResponse response =
-          wrapper.adminListUserAchievements(operation);
+          wrapper.adminListUserAchievements(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

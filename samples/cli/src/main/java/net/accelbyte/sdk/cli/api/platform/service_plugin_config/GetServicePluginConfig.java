@@ -57,12 +57,12 @@ public class GetServicePluginConfig implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ServicePluginConfig wrapper = new ServicePluginConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.service_plugin_config.GetServicePluginConfig
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.service_plugin_config.GetServicePluginConfig
                   .builder()
                   .namespace(namespace)
                   .build();
-      final ServicePluginConfigInfo response = wrapper.getServicePluginConfig(operation);
+      final ServicePluginConfigInfo response = wrapper.getServicePluginConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -72,14 +72,14 @@ public class AdminProfanityImport implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Profanity wrapper = new Profanity(sdk);
-      final net.accelbyte.sdk.api.chat.operations.profanity.AdminProfanityImport operation =
+      final net.accelbyte.sdk.api.chat.operations.profanity.AdminProfanityImport operationRequest =
           net.accelbyte.sdk.api.chat.operations.profanity.AdminProfanityImport.builder()
               .namespace(namespace)
               .action(action)
               .showResult(showResult)
               .file(file != null ? file : null)
               .build();
-      final ModelsDictionaryImportResult response = wrapper.adminProfanityImport(operation);
+      final ModelsDictionaryImportResult response = wrapper.adminProfanityImport(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

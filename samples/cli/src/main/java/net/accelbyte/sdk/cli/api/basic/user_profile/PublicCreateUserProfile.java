@@ -66,13 +66,14 @@ public class PublicCreateUserProfile implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserProfile wrapper = new UserProfile(sdk);
-      final net.accelbyte.sdk.api.basic.operations.user_profile.PublicCreateUserProfile operation =
-          net.accelbyte.sdk.api.basic.operations.user_profile.PublicCreateUserProfile.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .body(new ObjectMapper().readValue(body, UserProfileCreate.class))
-              .build();
-      final UserProfileInfo response = wrapper.publicCreateUserProfile(operation);
+      final net.accelbyte.sdk.api.basic.operations.user_profile.PublicCreateUserProfile
+          operationRequest =
+              net.accelbyte.sdk.api.basic.operations.user_profile.PublicCreateUserProfile.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .body(new ObjectMapper().readValue(body, UserProfileCreate.class))
+                  .build();
+      final UserProfileInfo response = wrapper.publicCreateUserProfile(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

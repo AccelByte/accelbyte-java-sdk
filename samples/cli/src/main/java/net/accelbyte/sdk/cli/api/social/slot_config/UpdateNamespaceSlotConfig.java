@@ -62,13 +62,13 @@ public class UpdateNamespaceSlotConfig implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final SlotConfig wrapper = new SlotConfig(sdk);
       final net.accelbyte.sdk.api.social.operations.slot_config.UpdateNamespaceSlotConfig
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.social.operations.slot_config.UpdateNamespaceSlotConfig
                   .builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, SlotConfigUpdate.class))
                   .build();
-      final NamespaceSlotConfigInfo response = wrapper.updateNamespaceSlotConfig(operation);
+      final NamespaceSlotConfigInfo response = wrapper.updateNamespaceSlotConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

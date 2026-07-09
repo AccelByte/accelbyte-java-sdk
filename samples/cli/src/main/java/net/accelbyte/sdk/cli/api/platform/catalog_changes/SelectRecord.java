@@ -65,13 +65,14 @@ public class SelectRecord implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final CatalogChanges wrapper = new CatalogChanges(sdk);
-      final net.accelbyte.sdk.api.platform.operations.catalog_changes.SelectRecord operation =
-          net.accelbyte.sdk.api.platform.operations.catalog_changes.SelectRecord.builder()
-              .changeId(changeId)
-              .namespace(namespace)
-              .storeId(storeId)
-              .build();
-      wrapper.selectRecord(operation);
+      final net.accelbyte.sdk.api.platform.operations.catalog_changes.SelectRecord
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.catalog_changes.SelectRecord.builder()
+                  .changeId(changeId)
+                  .namespace(namespace)
+                  .storeId(storeId)
+                  .build();
+      wrapper.selectRecord(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

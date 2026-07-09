@@ -69,7 +69,7 @@ public class SendSpecificUserFreeformNotificationV1Admin implements Callable<Int
       final Notification wrapper = new Notification(sdk);
       final net.accelbyte.sdk.api.lobby.operations.notification
               .SendSpecificUserFreeformNotificationV1Admin
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.notification
                   .SendSpecificUserFreeformNotificationV1Admin.builder()
                   .namespace(namespace)
@@ -77,7 +77,7 @@ public class SendSpecificUserFreeformNotificationV1Admin implements Callable<Int
                   .body(
                       new ObjectMapper().readValue(body, ModelFreeFormNotificationRequestV1.class))
                   .build();
-      wrapper.sendSpecificUserFreeformNotificationV1Admin(operation);
+      wrapper.sendSpecificUserFreeformNotificationV1Admin(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

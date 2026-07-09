@@ -69,7 +69,7 @@ public class PublicGetNamespaceScopedInputValidations implements Callable<Intege
       final InputValidations wrapper = new InputValidations(sdk);
       final net.accelbyte.sdk.api.iam.operations.input_validations
               .PublicGetNamespaceScopedInputValidations
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.input_validations
                   .PublicGetNamespaceScopedInputValidations.builder()
                   .namespace(namespace)
@@ -77,7 +77,7 @@ public class PublicGetNamespaceScopedInputValidations implements Callable<Intege
                   .languageCode(languageCode)
                   .build();
       final ModelInputValidationsPublicResponse response =
-          wrapper.publicGetNamespaceScopedInputValidations(operation);
+          wrapper.publicGetNamespaceScopedInputValidations(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

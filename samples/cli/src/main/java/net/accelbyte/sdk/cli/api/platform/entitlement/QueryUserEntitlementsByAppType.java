@@ -82,7 +82,7 @@ public class QueryUserEntitlementsByAppType implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement.QueryUserEntitlementsByAppType
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.entitlement.QueryUserEntitlementsByAppType
                   .builder()
                   .namespace(namespace)
@@ -93,7 +93,7 @@ public class QueryUserEntitlementsByAppType implements Callable<Integer> {
                   .appType(appType)
                   .build();
       final AppEntitlementPagingSlicedResult response =
-          wrapper.queryUserEntitlementsByAppType(operation);
+          wrapper.queryUserEntitlementsByAppType(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

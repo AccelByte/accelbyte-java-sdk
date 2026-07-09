@@ -76,7 +76,7 @@ public class PublicUpdateInsertPartySessionStorageReserved implements Callable<I
       final SessionStorage wrapper = new SessionStorage(sdk);
       final net.accelbyte.sdk.api.session.operations.session_storage
               .PublicUpdateInsertPartySessionStorageReserved
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.session_storage
                   .PublicUpdateInsertPartySessionStorageReserved.builder()
                   .namespace(namespace)
@@ -85,7 +85,7 @@ public class PublicUpdateInsertPartySessionStorageReserved implements Callable<I
                   .body(new ObjectMapper().readValue(body, new TypeReference<Map<String, ?>>() {}))
                   .build();
       final Map<String, ?> response =
-          wrapper.publicUpdateInsertPartySessionStorageReserved(operation);
+          wrapper.publicUpdateInsertPartySessionStorageReserved(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

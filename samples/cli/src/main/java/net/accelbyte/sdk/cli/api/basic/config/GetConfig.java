@@ -61,12 +61,12 @@ public class GetConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Config wrapper = new Config(sdk);
-      final net.accelbyte.sdk.api.basic.operations.config.GetConfig operation =
+      final net.accelbyte.sdk.api.basic.operations.config.GetConfig operationRequest =
           net.accelbyte.sdk.api.basic.operations.config.GetConfig.builder()
               .configKey(configKey)
               .namespace(namespace)
               .build();
-      final ConfigInfo response = wrapper.getConfig(operation);
+      final ConfigInfo response = wrapper.getConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

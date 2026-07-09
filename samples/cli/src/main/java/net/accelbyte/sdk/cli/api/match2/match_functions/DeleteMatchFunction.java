@@ -60,12 +60,13 @@ public class DeleteMatchFunction implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final MatchFunctions wrapper = new MatchFunctions(sdk);
-      final net.accelbyte.sdk.api.match2.operations.match_functions.DeleteMatchFunction operation =
-          net.accelbyte.sdk.api.match2.operations.match_functions.DeleteMatchFunction.builder()
-              .name(name)
-              .namespace(namespace)
-              .build();
-      wrapper.deleteMatchFunction(operation);
+      final net.accelbyte.sdk.api.match2.operations.match_functions.DeleteMatchFunction
+          operationRequest =
+              net.accelbyte.sdk.api.match2.operations.match_functions.DeleteMatchFunction.builder()
+                  .name(name)
+                  .namespace(namespace)
+                  .build();
+      wrapper.deleteMatchFunction(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

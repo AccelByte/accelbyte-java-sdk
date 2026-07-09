@@ -412,6 +412,7 @@ $ build/install/cli/bin/cli leaderboard deleteLeaderboardConfigurationAdminV3 \
 $ build/install/cli/bin/cli leaderboard getAllTimeLeaderboardRankingAdminV3 \
     --leaderboardCode <leaderboardCode value> \
     --namespace <namespace value> \
+    --includeHiddenUsers <includeHiddenUsers value - optional> \
     --limit <limit value - optional> \
     --offset <offset value - optional>
 ```
@@ -423,6 +424,7 @@ $ build/install/cli/bin/cli leaderboard getCurrentCycleLeaderboardRankingAdminV3
     --cycleId <cycleId value> \
     --leaderboardCode <leaderboardCode value> \
     --namespace <namespace value> \
+    --includeHiddenUsers <includeHiddenUsers value - optional> \
     --limit <limit value - optional> \
     --offset <offset value - optional> \
     --previousVersion <previousVersion value - optional>

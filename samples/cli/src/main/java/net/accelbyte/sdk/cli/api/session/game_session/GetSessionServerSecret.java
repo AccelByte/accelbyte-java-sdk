@@ -61,12 +61,13 @@ public class GetSessionServerSecret implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameSession wrapper = new GameSession(sdk);
-      final net.accelbyte.sdk.api.session.operations.game_session.GetSessionServerSecret operation =
-          net.accelbyte.sdk.api.session.operations.game_session.GetSessionServerSecret.builder()
-              .namespace(namespace)
-              .sessionId(sessionId)
-              .build();
-      final ApimodelsServerSecret response = wrapper.getSessionServerSecret(operation);
+      final net.accelbyte.sdk.api.session.operations.game_session.GetSessionServerSecret
+          operationRequest =
+              net.accelbyte.sdk.api.session.operations.game_session.GetSessionServerSecret.builder()
+                  .namespace(namespace)
+                  .sessionId(sessionId)
+                  .build();
+      final ApimodelsServerSecret response = wrapper.getSessionServerSecret(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

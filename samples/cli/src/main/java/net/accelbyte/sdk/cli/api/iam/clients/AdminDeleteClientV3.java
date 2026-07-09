@@ -60,12 +60,12 @@ public class AdminDeleteClientV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Clients wrapper = new Clients(sdk);
-      final net.accelbyte.sdk.api.iam.operations.clients.AdminDeleteClientV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.clients.AdminDeleteClientV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.clients.AdminDeleteClientV3.builder()
               .clientId(clientId)
               .namespace(namespace)
               .build();
-      wrapper.adminDeleteClientV3(operation);
+      wrapper.adminDeleteClientV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -60,12 +60,13 @@ public class AnonymizeUserProfile implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Anonymization wrapper = new Anonymization(sdk);
-      final net.accelbyte.sdk.api.basic.operations.anonymization.AnonymizeUserProfile operation =
-          net.accelbyte.sdk.api.basic.operations.anonymization.AnonymizeUserProfile.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .build();
-      wrapper.anonymizeUserProfile(operation);
+      final net.accelbyte.sdk.api.basic.operations.anonymization.AnonymizeUserProfile
+          operationRequest =
+              net.accelbyte.sdk.api.basic.operations.anonymization.AnonymizeUserProfile.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .build();
+      wrapper.anonymizeUserProfile(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

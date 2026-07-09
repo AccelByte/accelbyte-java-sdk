@@ -66,13 +66,13 @@ public class UpdateCountryGroup implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Misc wrapper = new Misc(sdk);
-      final net.accelbyte.sdk.api.basic.operations.misc.UpdateCountryGroup operation =
+      final net.accelbyte.sdk.api.basic.operations.misc.UpdateCountryGroup operationRequest =
           net.accelbyte.sdk.api.basic.operations.misc.UpdateCountryGroup.builder()
               .countryGroupCode(countryGroupCode)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, UpdateCountryGroupRequest.class))
               .build();
-      final CountryGroupObject response = wrapper.updateCountryGroup(operation);
+      final CountryGroupObject response = wrapper.updateCountryGroup(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

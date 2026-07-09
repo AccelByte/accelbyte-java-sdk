@@ -72,7 +72,7 @@ public class AdminUpdateGameSessionMember implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameSession wrapper = new GameSession(sdk);
       final net.accelbyte.sdk.api.session.operations.game_session.AdminUpdateGameSessionMember
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.game_session.AdminUpdateGameSessionMember
                   .builder()
                   .memberId(memberId)
@@ -81,7 +81,7 @@ public class AdminUpdateGameSessionMember implements Callable<Integer> {
                   .statusType(statusType)
                   .build();
       final ApimodelsUpdateGameSessionMemberStatusResponse response =
-          wrapper.adminUpdateGameSessionMember(operation);
+          wrapper.adminUpdateGameSessionMember(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

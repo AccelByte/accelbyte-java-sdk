@@ -58,12 +58,13 @@ public class GetRevocationPluginConfig implements Callable<Integer> {
       final ServicePluginConfig wrapper = new ServicePluginConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.service_plugin_config
               .GetRevocationPluginConfig
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.service_plugin_config
                   .GetRevocationPluginConfig.builder()
                   .namespace(namespace)
                   .build();
-      final RevocationPluginConfigInfo response = wrapper.getRevocationPluginConfig(operation);
+      final RevocationPluginConfigInfo response =
+          wrapper.getRevocationPluginConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

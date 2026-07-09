@@ -66,13 +66,13 @@ public class SyncSteamDLC implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final DLC wrapper = new DLC(sdk);
-      final net.accelbyte.sdk.api.platform.operations.dlc.SyncSteamDLC operation =
+      final net.accelbyte.sdk.api.platform.operations.dlc.SyncSteamDLC operationRequest =
           net.accelbyte.sdk.api.platform.operations.dlc.SyncSteamDLC.builder()
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, SteamDLCSyncRequest.class))
               .build();
-      wrapper.syncSteamDLC(operation);
+      wrapper.syncSteamDLC(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

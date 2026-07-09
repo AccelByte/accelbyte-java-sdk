@@ -62,13 +62,13 @@ public class TestStripeConfigById implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PaymentConfig wrapper = new PaymentConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_config.TestStripeConfigById
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.payment_config.TestStripeConfigById
                   .builder()
                   .id(id)
                   .sandbox(sandbox)
                   .build();
-      final TestResult response = wrapper.testStripeConfigById(operation);
+      final TestResult response = wrapper.testStripeConfigById(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

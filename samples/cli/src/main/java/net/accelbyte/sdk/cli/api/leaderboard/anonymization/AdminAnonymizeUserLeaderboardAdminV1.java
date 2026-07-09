@@ -63,13 +63,13 @@ public class AdminAnonymizeUserLeaderboardAdminV1 implements Callable<Integer> {
       final Anonymization wrapper = new Anonymization(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.anonymization
               .AdminAnonymizeUserLeaderboardAdminV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.leaderboard.operations.anonymization
                   .AdminAnonymizeUserLeaderboardAdminV1.builder()
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      wrapper.adminAnonymizeUserLeaderboardAdminV1(operation);
+      wrapper.adminAnonymizeUserLeaderboardAdminV1(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

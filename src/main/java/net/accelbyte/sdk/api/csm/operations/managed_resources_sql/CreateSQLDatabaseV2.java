@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateSQLDatabaseV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:SQL:DATABASES [CREATE]`
- *
  * <p>Creates a SQL database along with its credentials associated with given extend app. The
  * database will be created in the provisioned SQL cluster.
  */

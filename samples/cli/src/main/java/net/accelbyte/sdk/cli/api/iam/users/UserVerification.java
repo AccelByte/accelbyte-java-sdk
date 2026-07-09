@@ -66,13 +66,13 @@ public class UserVerification implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.UserVerification operation =
+      final net.accelbyte.sdk.api.iam.operations.users.UserVerification operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.UserVerification.builder()
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, ModelUserVerificationRequest.class))
               .build();
-      wrapper.userVerification(operation);
+      wrapper.userVerification(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

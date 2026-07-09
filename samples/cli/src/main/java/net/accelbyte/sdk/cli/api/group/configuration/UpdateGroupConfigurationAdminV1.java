@@ -67,7 +67,7 @@ public class UpdateGroupConfigurationAdminV1 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Configuration wrapper = new Configuration(sdk);
       final net.accelbyte.sdk.api.group.operations.configuration.UpdateGroupConfigurationAdminV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.group.operations.configuration.UpdateGroupConfigurationAdminV1
                   .builder()
                   .configurationCode(configurationCode)
@@ -77,7 +77,7 @@ public class UpdateGroupConfigurationAdminV1 implements Callable<Integer> {
                           .readValue(body, ModelsUpdateGroupConfigurationRequestV1.class))
                   .build();
       final ModelsUpdateGroupConfigurationResponseV1 response =
-          wrapper.updateGroupConfigurationAdminV1(operation);
+          wrapper.updateGroupConfigurationAdminV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

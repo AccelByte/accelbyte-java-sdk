@@ -81,16 +81,17 @@ public class AdminListSchedules implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Schedules wrapper = new Schedules(sdk);
-      final net.accelbyte.sdk.api.challenge.operations.schedules.AdminListSchedules operation =
-          net.accelbyte.sdk.api.challenge.operations.schedules.AdminListSchedules.builder()
-              .challengeCode(challengeCode)
-              .namespace(namespace)
-              .dateTime(dateTime)
-              .limit(limit)
-              .offset(offset)
-              .userId(userId)
-              .build();
-      final ModelListSchedulesResponse response = wrapper.adminListSchedules(operation);
+      final net.accelbyte.sdk.api.challenge.operations.schedules.AdminListSchedules
+          operationRequest =
+              net.accelbyte.sdk.api.challenge.operations.schedules.AdminListSchedules.builder()
+                  .challengeCode(challengeCode)
+                  .namespace(namespace)
+                  .dateTime(dateTime)
+                  .limit(limit)
+                  .offset(offset)
+                  .userId(userId)
+                  .build();
+      final ModelListSchedulesResponse response = wrapper.adminListSchedules(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

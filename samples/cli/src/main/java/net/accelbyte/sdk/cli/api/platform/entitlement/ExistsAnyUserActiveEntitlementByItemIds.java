@@ -75,7 +75,7 @@ public class ExistsAnyUserActiveEntitlementByItemIds implements Callable<Integer
       final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement
               .ExistsAnyUserActiveEntitlementByItemIds
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.entitlement
                   .ExistsAnyUserActiveEntitlementByItemIds.builder()
                   .namespace(namespace)
@@ -83,7 +83,7 @@ public class ExistsAnyUserActiveEntitlementByItemIds implements Callable<Integer
                   .platform(platform)
                   .itemIds(itemIds)
                   .build();
-      final Ownership response = wrapper.existsAnyUserActiveEntitlementByItemIds(operation);
+      final Ownership response = wrapper.existsAnyUserActiveEntitlementByItemIds(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

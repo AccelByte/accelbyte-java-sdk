@@ -57,13 +57,13 @@ public class RetrieveEligibilitiesPublic implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Eligibilities wrapper = new Eligibilities(sdk);
       final net.accelbyte.sdk.api.legal.operations.eligibilities.RetrieveEligibilitiesPublic
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.eligibilities.RetrieveEligibilitiesPublic
                   .builder()
                   .namespace(namespace)
                   .build();
       final List<RetrieveUserEligibilitiesResponse> response =
-          wrapper.retrieveEligibilitiesPublic(operation);
+          wrapper.retrieveEligibilitiesPublic(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

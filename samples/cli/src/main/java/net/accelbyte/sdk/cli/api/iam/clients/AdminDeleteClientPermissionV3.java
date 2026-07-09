@@ -70,14 +70,15 @@ public class AdminDeleteClientPermissionV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Clients wrapper = new Clients(sdk);
-      final net.accelbyte.sdk.api.iam.operations.clients.AdminDeleteClientPermissionV3 operation =
-          net.accelbyte.sdk.api.iam.operations.clients.AdminDeleteClientPermissionV3.builder()
-              .action(action)
-              .clientId(clientId)
-              .namespace(namespace)
-              .resource(resource)
-              .build();
-      wrapper.adminDeleteClientPermissionV3(operation);
+      final net.accelbyte.sdk.api.iam.operations.clients.AdminDeleteClientPermissionV3
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.clients.AdminDeleteClientPermissionV3.builder()
+                  .action(action)
+                  .clientId(clientId)
+                  .namespace(namespace)
+                  .resource(resource)
+                  .build();
+      wrapper.adminDeleteClientPermissionV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

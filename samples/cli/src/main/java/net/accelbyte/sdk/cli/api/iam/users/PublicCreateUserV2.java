@@ -61,12 +61,12 @@ public class PublicCreateUserV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.PublicCreateUserV2 operation =
+      final net.accelbyte.sdk.api.iam.operations.users.PublicCreateUserV2 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.PublicCreateUserV2.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelUserCreateRequest.class))
               .build();
-      final ModelUserCreateResponse response = wrapper.publicCreateUserV2(operation);
+      final ModelUserCreateResponse response = wrapper.publicCreateUserV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -52,12 +52,12 @@ public class EnvironmentVariableList implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final EnvironmentVariables wrapper = new EnvironmentVariables(sdk);
       final net.accelbyte.sdk.api.match2.operations.environment_variables.EnvironmentVariableList
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.match2.operations.environment_variables.EnvironmentVariableList
                   .builder()
                   .build();
       final ApiListEnvironmentVariablesResponse response =
-          wrapper.environmentVariableList(operation);
+          wrapper.environmentVariableList(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

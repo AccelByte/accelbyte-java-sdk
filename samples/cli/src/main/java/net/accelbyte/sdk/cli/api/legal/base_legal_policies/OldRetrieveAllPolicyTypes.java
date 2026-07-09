@@ -62,14 +62,14 @@ public class OldRetrieveAllPolicyTypes implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final BaseLegalPolicies wrapper = new BaseLegalPolicies(sdk);
       final net.accelbyte.sdk.api.legal.operations.base_legal_policies.OldRetrieveAllPolicyTypes
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.base_legal_policies.OldRetrieveAllPolicyTypes
                   .builder()
                   .offset(offset)
                   .limit(limit)
                   .build();
       final List<RetrievePolicyTypeResponse> response =
-          wrapper.oldRetrieveAllPolicyTypes(operation);
+          wrapper.oldRetrieveAllPolicyTypes(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

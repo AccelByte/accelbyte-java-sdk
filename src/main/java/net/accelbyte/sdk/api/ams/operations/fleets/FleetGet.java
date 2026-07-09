@@ -38,6 +38,7 @@ public class FleetGet extends Operation {
   private String fleetID;
 
   private String namespace;
+  private Boolean includeInactiveRegions;
 
   /**
    * @param fleetID required
@@ -46,9 +47,10 @@ public class FleetGet extends Operation {
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
-  public FleetGet(String fleetID, String namespace) {
+  public FleetGet(String fleetID, String namespace, Boolean includeInactiveRegions) {
     this.fleetID = fleetID;
     this.namespace = namespace;
+    this.includeInactiveRegions = includeInactiveRegions;
 
     securities.add("Bearer");
   }
@@ -63,6 +65,17 @@ public class FleetGet extends Operation {
       pathParams.put("namespace", this.namespace);
     }
     return pathParams;
+  }
+
+  @Override
+  public Map<String, List<String>> getQueryParams() {
+    Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "includeInactiveRegions",
+        this.includeInactiveRegions == null
+            ? null
+            : Arrays.asList(String.valueOf(this.includeInactiveRegions)));
+    return queryParams;
   }
 
   @Override
@@ -84,5 +97,12 @@ public class FleetGet extends Operation {
     }
     final String json = Helper.convertInputStreamToString(payload);
     return new ApiFleetGetResponse().createFromJson(json);
+  }
+
+  @Override
+  protected Map<String, String> getCollectionFormatMap() {
+    Map<String, String> result = new HashMap<>();
+    result.put("includeInactiveRegions", "None");
+    return result;
   }
 }

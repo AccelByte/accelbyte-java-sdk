@@ -83,7 +83,7 @@ public class AdminGetAllConfigurationTemplatesV1 implements Callable<Integer> {
       final ConfigurationTemplate wrapper = new ConfigurationTemplate(sdk);
       final net.accelbyte.sdk.api.session.operations.configuration_template
               .AdminGetAllConfigurationTemplatesV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.configuration_template
                   .AdminGetAllConfigurationTemplatesV1.builder()
                   .namespace(namespace)
@@ -94,7 +94,7 @@ public class AdminGetAllConfigurationTemplatesV1 implements Callable<Integer> {
                   .orderBy(orderBy)
                   .build();
       final ApimodelsConfigurationTemplatesResponse response =
-          wrapper.adminGetAllConfigurationTemplatesV1(operation);
+          wrapper.adminGetAllConfigurationTemplatesV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -61,12 +61,12 @@ public class GetBackfill implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Backfill wrapper = new Backfill(sdk);
-      final net.accelbyte.sdk.api.match2.operations.backfill.GetBackfill operation =
+      final net.accelbyte.sdk.api.match2.operations.backfill.GetBackfill operationRequest =
           net.accelbyte.sdk.api.match2.operations.backfill.GetBackfill.builder()
               .backfillID(backfillID)
               .namespace(namespace)
               .build();
-      final ApiBackfillGetResponse response = wrapper.getBackfill(operation);
+      final ApiBackfillGetResponse response = wrapper.getBackfill(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

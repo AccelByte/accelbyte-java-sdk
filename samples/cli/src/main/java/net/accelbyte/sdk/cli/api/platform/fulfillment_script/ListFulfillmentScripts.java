@@ -52,11 +52,11 @@ public class ListFulfillmentScripts implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final FulfillmentScript wrapper = new FulfillmentScript(sdk);
       final net.accelbyte.sdk.api.platform.operations.fulfillment_script.ListFulfillmentScripts
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.fulfillment_script.ListFulfillmentScripts
                   .builder()
                   .build();
-      final List<FulfillmentScriptInfo> response = wrapper.listFulfillmentScripts(operation);
+      final List<FulfillmentScriptInfo> response = wrapper.listFulfillmentScripts(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -64,14 +64,14 @@ public class RetrieveThirdPartyLoginPlatformCredentialV3 implements Callable<Int
       final ThirdPartyCredential wrapper = new ThirdPartyCredential(sdk);
       final net.accelbyte.sdk.api.iam.operations.third_party_credential
               .RetrieveThirdPartyLoginPlatformCredentialV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.third_party_credential
                   .RetrieveThirdPartyLoginPlatformCredentialV3.builder()
                   .namespace(namespace)
                   .platformId(platformId)
                   .build();
       final ModelThirdPartyLoginPlatformCredentialResponse response =
-          wrapper.retrieveThirdPartyLoginPlatformCredentialV3(operation);
+          wrapper.retrieveThirdPartyLoginPlatformCredentialV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

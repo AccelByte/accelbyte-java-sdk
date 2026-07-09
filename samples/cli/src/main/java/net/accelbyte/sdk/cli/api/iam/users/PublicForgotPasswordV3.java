@@ -61,12 +61,12 @@ public class PublicForgotPasswordV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.PublicForgotPasswordV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.users.PublicForgotPasswordV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.PublicForgotPasswordV3.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelForgotPasswordRequestV3.class))
               .build();
-      wrapper.publicForgotPasswordV3(operation);
+      wrapper.publicForgotPasswordV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

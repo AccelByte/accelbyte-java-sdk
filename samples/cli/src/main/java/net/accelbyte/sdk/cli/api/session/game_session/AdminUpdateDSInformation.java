@@ -67,7 +67,7 @@ public class AdminUpdateDSInformation implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameSession wrapper = new GameSession(sdk);
       final net.accelbyte.sdk.api.session.operations.game_session.AdminUpdateDSInformation
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.game_session.AdminUpdateDSInformation
                   .builder()
                   .namespace(namespace)
@@ -76,7 +76,7 @@ public class AdminUpdateDSInformation implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, ApimodelsUpdateGamesessionDSInformationRequest.class))
                   .build();
-      wrapper.adminUpdateDSInformation(operation);
+      wrapper.adminUpdateDSInformation(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

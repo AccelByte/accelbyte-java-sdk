@@ -68,7 +68,7 @@ public class AdminUpdateTiedChallengeSchedule implements Callable<Integer> {
       final ChallengeConfiguration wrapper = new ChallengeConfiguration(sdk);
       final net.accelbyte.sdk.api.challenge.operations.challenge_configuration
               .AdminUpdateTiedChallengeSchedule
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.challenge.operations.challenge_configuration
                   .AdminUpdateTiedChallengeSchedule.builder()
                   .challengeCode(challengeCode)
@@ -76,7 +76,8 @@ public class AdminUpdateTiedChallengeSchedule implements Callable<Integer> {
                   .body(
                       new ObjectMapper().readValue(body, ModelUpdateChallengeScheduleRequest.class))
                   .build();
-      final ModelChallengeResponse response = wrapper.adminUpdateTiedChallengeSchedule(operation);
+      final ModelChallengeResponse response =
+          wrapper.adminUpdateTiedChallengeSchedule(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

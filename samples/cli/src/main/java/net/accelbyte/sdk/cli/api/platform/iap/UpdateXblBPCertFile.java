@@ -67,13 +67,13 @@ public class UpdateXblBPCertFile implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.UpdateXblBPCertFile operation =
+      final net.accelbyte.sdk.api.platform.operations.iap.UpdateXblBPCertFile operationRequest =
           net.accelbyte.sdk.api.platform.operations.iap.UpdateXblBPCertFile.builder()
               .namespace(namespace)
               .file(file != null ? file : null)
               .password(password != null ? password : null)
               .build();
-      final XblIAPConfigInfo response = wrapper.updateXblBPCertFile(operation);
+      final XblIAPConfigInfo response = wrapper.updateXblBPCertFile(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

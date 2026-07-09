@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getSingleTemplateLocalizationV1Admin
  *
- * <p>Get a template localization
- *
- * <p>Action Code: 50207
+ * <p>Get a single notification template localization by slug and language.
  */
 @Getter
 @Setter

@@ -62,14 +62,14 @@ public class CreateOculusSubscriptionGroup implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAPSubscription wrapper = new IAPSubscription(sdk);
       final net.accelbyte.sdk.api.platform.operations.iap_subscription.CreateOculusSubscriptionGroup
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.iap_subscription
                   .CreateOculusSubscriptionGroup.builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ThirdPartySubscriptionGroupCreate.class))
                   .build();
       final ThirdPartySubscriptionGroupInfo response =
-          wrapper.createOculusSubscriptionGroup(operation);
+          wrapper.createOculusSubscriptionGroup(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

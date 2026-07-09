@@ -58,12 +58,12 @@ public class GetPaymentCallbackConfig implements Callable<Integer> {
       final PaymentCallbackConfig wrapper = new PaymentCallbackConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_callback_config
               .GetPaymentCallbackConfig
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.payment_callback_config
                   .GetPaymentCallbackConfig.builder()
                   .namespace(namespace)
                   .build();
-      final PaymentCallbackConfigInfo response = wrapper.getPaymentCallbackConfig(operation);
+      final PaymentCallbackConfigInfo response = wrapper.getPaymentCallbackConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

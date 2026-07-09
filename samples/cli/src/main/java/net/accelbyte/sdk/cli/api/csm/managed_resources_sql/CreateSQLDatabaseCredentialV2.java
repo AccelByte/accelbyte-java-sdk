@@ -67,7 +67,7 @@ public class CreateSQLDatabaseCredentialV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ManagedResourcesSQL wrapper = new ManagedResourcesSQL(sdk);
       final net.accelbyte.sdk.api.csm.operations.managed_resources_sql.CreateSQLDatabaseCredentialV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.csm.operations.managed_resources_sql
                   .CreateSQLDatabaseCredentialV2.builder()
                   .app(app)
@@ -77,7 +77,7 @@ public class CreateSQLDatabaseCredentialV2 implements Callable<Integer> {
                           .readValue(body, ApimodelCreateSQLDatabaseCredentialRequest.class))
                   .build();
       final ApimodelSQLDatabaseCredentialResponse response =
-          wrapper.createSQLDatabaseCredentialV2(operation);
+          wrapper.createSQLDatabaseCredentialV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

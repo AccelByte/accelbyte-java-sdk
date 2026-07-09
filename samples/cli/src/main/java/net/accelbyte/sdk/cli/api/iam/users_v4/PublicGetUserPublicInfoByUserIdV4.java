@@ -62,14 +62,14 @@ public class PublicGetUserPublicInfoByUserIdV4 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UsersV4 wrapper = new UsersV4(sdk);
       final net.accelbyte.sdk.api.iam.operations.users_v4.PublicGetUserPublicInfoByUserIdV4
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.users_v4.PublicGetUserPublicInfoByUserIdV4
                   .builder()
                   .namespace(namespace)
                   .userId(userId)
                   .build();
       final ModelUserPublicInfoResponseV4 response =
-          wrapper.publicGetUserPublicInfoByUserIdV4(operation);
+          wrapper.publicGetUserPublicInfoByUserIdV4(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

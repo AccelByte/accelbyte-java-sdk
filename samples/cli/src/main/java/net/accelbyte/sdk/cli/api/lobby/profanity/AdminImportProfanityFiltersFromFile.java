@@ -68,14 +68,14 @@ public class AdminImportProfanityFiltersFromFile implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Profanity wrapper = new Profanity(sdk);
       final net.accelbyte.sdk.api.lobby.operations.profanity.AdminImportProfanityFiltersFromFile
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.profanity.AdminImportProfanityFiltersFromFile
                   .builder()
                   .list(list)
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, new TypeReference<List<Integer>>() {}))
                   .build();
-      wrapper.adminImportProfanityFiltersFromFile(operation);
+      wrapper.adminImportProfanityFiltersFromFile(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

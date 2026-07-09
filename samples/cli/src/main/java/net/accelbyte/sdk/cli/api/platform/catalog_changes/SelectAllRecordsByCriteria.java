@@ -96,7 +96,7 @@ public class SelectAllRecordsByCriteria implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final CatalogChanges wrapper = new CatalogChanges(sdk);
       final net.accelbyte.sdk.api.platform.operations.catalog_changes.SelectAllRecordsByCriteria
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.catalog_changes.SelectAllRecordsByCriteria
                   .builder()
                   .namespace(namespace)
@@ -109,7 +109,7 @@ public class SelectAllRecordsByCriteria implements Callable<Integer> {
                   .updatedAtEnd(updatedAtEnd)
                   .updatedAtStart(updatedAtStart)
                   .build();
-      wrapper.selectAllRecordsByCriteria(operation);
+      wrapper.selectAllRecordsByCriteria(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

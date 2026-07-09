@@ -71,14 +71,16 @@ public class DebitByWalletPlatform implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Wallet wrapper = new Wallet(sdk);
-      final net.accelbyte.sdk.api.platform.operations.wallet.DebitByWalletPlatform operation =
-          net.accelbyte.sdk.api.platform.operations.wallet.DebitByWalletPlatform.builder()
-              .currencyCode(currencyCode)
-              .namespace(namespace)
-              .userId(userId)
-              .request(new ObjectMapper().readValue(request, DebitByWalletPlatformRequest.class))
-              .build();
-      final PlatformWallet response = wrapper.debitByWalletPlatform(operation);
+      final net.accelbyte.sdk.api.platform.operations.wallet.DebitByWalletPlatform
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.wallet.DebitByWalletPlatform.builder()
+                  .currencyCode(currencyCode)
+                  .namespace(namespace)
+                  .userId(userId)
+                  .request(
+                      new ObjectMapper().readValue(request, DebitByWalletPlatformRequest.class))
+                  .build();
+      final PlatformWallet response = wrapper.debitByWalletPlatform(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

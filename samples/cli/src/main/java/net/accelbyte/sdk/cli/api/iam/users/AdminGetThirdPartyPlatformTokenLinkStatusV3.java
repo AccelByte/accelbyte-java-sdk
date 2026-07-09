@@ -73,7 +73,7 @@ public class AdminGetThirdPartyPlatformTokenLinkStatusV3 implements Callable<Int
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
       final net.accelbyte.sdk.api.iam.operations.users.AdminGetThirdPartyPlatformTokenLinkStatusV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.users.AdminGetThirdPartyPlatformTokenLinkStatusV3
                   .builder()
                   .namespace(namespace)
@@ -82,7 +82,7 @@ public class AdminGetThirdPartyPlatformTokenLinkStatusV3 implements Callable<Int
                   .platformToken(platformToken != null ? platformToken : null)
                   .build();
       final ModelTokenThirdPartyLinkStatusResponse response =
-          wrapper.adminGetThirdPartyPlatformTokenLinkStatusV3(operation);
+          wrapper.adminGetThirdPartyPlatformTokenLinkStatusV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

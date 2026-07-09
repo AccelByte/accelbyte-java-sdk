@@ -58,12 +58,12 @@ public class AdminSyncDSMCConfiguration implements Callable<Integer> {
       final ConfigurationTemplate wrapper = new ConfigurationTemplate(sdk);
       final net.accelbyte.sdk.api.session.operations.configuration_template
               .AdminSyncDSMCConfiguration
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.configuration_template
                   .AdminSyncDSMCConfiguration.builder()
                   .namespace(namespace)
                   .build();
-      final ModelsDSMConfigRecord response = wrapper.adminSyncDSMCConfiguration(operation);
+      final ModelsDSMConfigRecord response = wrapper.adminSyncDSMCConfiguration(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

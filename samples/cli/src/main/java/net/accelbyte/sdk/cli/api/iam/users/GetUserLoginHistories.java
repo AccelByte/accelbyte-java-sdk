@@ -76,7 +76,7 @@ public class GetUserLoginHistories implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.GetUserLoginHistories operation =
+      final net.accelbyte.sdk.api.iam.operations.users.GetUserLoginHistories operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.GetUserLoginHistories.builder()
               .namespace(namespace)
               .userId(userId)
@@ -84,7 +84,7 @@ public class GetUserLoginHistories implements Callable<Integer> {
               .before(before)
               .limit(limit)
               .build();
-      final ModelLoginHistoriesResponse response = wrapper.getUserLoginHistories(operation);
+      final ModelLoginHistoriesResponse response = wrapper.getUserLoginHistories(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

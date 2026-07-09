@@ -67,7 +67,7 @@ public class AdminAddProfanityFilterIntoList implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Profanity wrapper = new Profanity(sdk);
       final net.accelbyte.sdk.api.lobby.operations.profanity.AdminAddProfanityFilterIntoList
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.profanity.AdminAddProfanityFilterIntoList
                   .builder()
                   .list(list)
@@ -76,7 +76,7 @@ public class AdminAddProfanityFilterIntoList implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, ModelsAdminAddProfanityFilterIntoListRequest.class))
                   .build();
-      wrapper.adminAddProfanityFilterIntoList(operation);
+      wrapper.adminAddProfanityFilterIntoList(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

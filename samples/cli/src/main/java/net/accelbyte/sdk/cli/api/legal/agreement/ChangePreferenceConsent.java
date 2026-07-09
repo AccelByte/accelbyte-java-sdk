@@ -67,15 +67,16 @@ public class ChangePreferenceConsent implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Agreement wrapper = new Agreement(sdk);
-      final net.accelbyte.sdk.api.legal.operations.agreement.ChangePreferenceConsent operation =
-          net.accelbyte.sdk.api.legal.operations.agreement.ChangePreferenceConsent.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .body(
-                  new ObjectMapper()
-                      .readValue(body, new TypeReference<List<AcceptAgreementRequest>>() {}))
-              .build();
-      wrapper.changePreferenceConsent(operation);
+      final net.accelbyte.sdk.api.legal.operations.agreement.ChangePreferenceConsent
+          operationRequest =
+              net.accelbyte.sdk.api.legal.operations.agreement.ChangePreferenceConsent.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .body(
+                      new ObjectMapper()
+                          .readValue(body, new TypeReference<List<AcceptAgreementRequest>>() {}))
+                  .build();
+      wrapper.changePreferenceConsent(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

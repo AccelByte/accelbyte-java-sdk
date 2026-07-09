@@ -56,11 +56,11 @@ public class GetGoogleIAPConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.GetGoogleIAPConfig operation =
+      final net.accelbyte.sdk.api.platform.operations.iap.GetGoogleIAPConfig operationRequest =
           net.accelbyte.sdk.api.platform.operations.iap.GetGoogleIAPConfig.builder()
               .namespace(namespace)
               .build();
-      final GoogleIAPConfigInfo response = wrapper.getGoogleIAPConfig(operation);
+      final GoogleIAPConfigInfo response = wrapper.getGoogleIAPConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

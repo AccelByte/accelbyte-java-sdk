@@ -66,13 +66,13 @@ public class AdminProfanityUpdate implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Profanity wrapper = new Profanity(sdk);
-      final net.accelbyte.sdk.api.chat.operations.profanity.AdminProfanityUpdate operation =
+      final net.accelbyte.sdk.api.chat.operations.profanity.AdminProfanityUpdate operationRequest =
           net.accelbyte.sdk.api.chat.operations.profanity.AdminProfanityUpdate.builder()
               .id(id)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelsDictionaryUpdateRequest.class))
               .build();
-      final ModelsDictionary response = wrapper.adminProfanityUpdate(operation);
+      final ModelsDictionary response = wrapper.adminProfanityUpdate(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

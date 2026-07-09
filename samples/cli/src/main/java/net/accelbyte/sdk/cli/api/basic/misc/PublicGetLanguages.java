@@ -56,11 +56,11 @@ public class PublicGetLanguages implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Misc wrapper = new Misc(sdk);
-      final net.accelbyte.sdk.api.basic.operations.misc.PublicGetLanguages operation =
+      final net.accelbyte.sdk.api.basic.operations.misc.PublicGetLanguages operationRequest =
           net.accelbyte.sdk.api.basic.operations.misc.PublicGetLanguages.builder()
               .namespace(namespace)
               .build();
-      final Map<String, ?> response = wrapper.publicGetLanguages(operation);
+      final Map<String, ?> response = wrapper.publicGetLanguages(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

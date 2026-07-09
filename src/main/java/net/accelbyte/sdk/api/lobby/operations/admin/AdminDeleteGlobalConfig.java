@@ -20,7 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminDeleteGlobalConfig
  *
- * <p>Delete of global configuration data.
+ * <p>Remove the global configuration record. This operation is permanent.
  *
  * @deprecated
  */

@@ -63,13 +63,13 @@ public class DeleteLocalizedPolicy implements Callable<Integer> {
           new LocalizedPolicyVersionsWithNamespace(sdk);
       final net.accelbyte.sdk.api.legal.operations.localized_policy_versions_with_namespace
               .DeleteLocalizedPolicy
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.localized_policy_versions_with_namespace
                   .DeleteLocalizedPolicy.builder()
                   .localizedPolicyVersionId(localizedPolicyVersionId)
                   .namespace(namespace)
                   .build();
-      wrapper.deleteLocalizedPolicy(operation);
+      wrapper.deleteLocalizedPolicy(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

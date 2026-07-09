@@ -60,12 +60,12 @@ public class RevokeUser implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth wrapper = new OAuth(sdk);
-      final net.accelbyte.sdk.api.iam.operations.o_auth.RevokeUser operation =
+      final net.accelbyte.sdk.api.iam.operations.o_auth.RevokeUser operationRequest =
           net.accelbyte.sdk.api.iam.operations.o_auth.RevokeUser.builder()
               .namespace(namespace)
               .userId(userId)
               .build();
-      wrapper.revokeUser(operation);
+      wrapper.revokeUser(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -56,12 +56,12 @@ public class AdminDeleteThirdPartyConfig implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ThirdParty wrapper = new ThirdParty(sdk);
       final net.accelbyte.sdk.api.lobby.operations.third_party.AdminDeleteThirdPartyConfig
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.third_party.AdminDeleteThirdPartyConfig
                   .builder()
                   .namespace(namespace)
                   .build();
-      wrapper.adminDeleteThirdPartyConfig(operation);
+      wrapper.adminDeleteThirdPartyConfig(operationRequest);
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

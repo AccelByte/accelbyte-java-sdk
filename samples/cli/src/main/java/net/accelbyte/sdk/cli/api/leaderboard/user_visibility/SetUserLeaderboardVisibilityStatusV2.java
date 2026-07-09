@@ -74,7 +74,7 @@ public class SetUserLeaderboardVisibilityStatusV2 implements Callable<Integer> {
       final UserVisibility wrapper = new UserVisibility(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.user_visibility
               .SetUserLeaderboardVisibilityStatusV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.leaderboard.operations.user_visibility
                   .SetUserLeaderboardVisibilityStatusV2.builder()
                   .leaderboardCode(leaderboardCode)
@@ -83,7 +83,7 @@ public class SetUserLeaderboardVisibilityStatusV2 implements Callable<Integer> {
                   .body(new ObjectMapper().readValue(body, ModelsSetUserVisibilityRequest.class))
                   .build();
       final ModelsGetUserVisibilityResponse response =
-          wrapper.setUserLeaderboardVisibilityStatusV2(operation);
+          wrapper.setUserLeaderboardVisibilityStatusV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

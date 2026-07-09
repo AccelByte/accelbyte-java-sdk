@@ -71,14 +71,14 @@ public class DisableItem implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Item wrapper = new Item(sdk);
-      final net.accelbyte.sdk.api.platform.operations.item.DisableItem operation =
+      final net.accelbyte.sdk.api.platform.operations.item.DisableItem operationRequest =
           net.accelbyte.sdk.api.platform.operations.item.DisableItem.builder()
               .itemId(itemId)
               .namespace(namespace)
               .storeId(storeId)
               .body(new ObjectMapper().readValue(body, ChangeStatusItemRequest.class))
               .build();
-      final FullItemInfo response = wrapper.disableItem(operation);
+      final FullItemInfo response = wrapper.disableItem(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

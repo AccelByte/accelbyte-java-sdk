@@ -126,7 +126,7 @@ public class ArtifactGet implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Artifacts wrapper = new Artifacts(sdk);
-      final net.accelbyte.sdk.api.ams.operations.artifacts.ArtifactGet operation =
+      final net.accelbyte.sdk.api.ams.operations.artifacts.ArtifactGet operationRequest =
           net.accelbyte.sdk.api.ams.operations.artifacts.ArtifactGet.builder()
               .namespace(namespace)
               .artifactType(artifactType)
@@ -144,7 +144,7 @@ public class ArtifactGet implements Callable<Integer> {
               .startDate(startDate)
               .status(status)
               .build();
-      final ApiArtifactListResponse response = wrapper.artifactGet(operation);
+      final ApiArtifactListResponse response = wrapper.artifactGet(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -67,7 +67,7 @@ public class GenerateTokenByNewHeadlessAccountV4 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth20V4 wrapper = new OAuth20V4(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth2_0_v4.GenerateTokenByNewHeadlessAccountV4
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.o_auth2_0_v4.GenerateTokenByNewHeadlessAccountV4
                   .builder()
                   .additionalData(additionalData != null ? additionalData : null)
@@ -75,7 +75,7 @@ public class GenerateTokenByNewHeadlessAccountV4 implements Callable<Integer> {
                   .linkingToken(linkingToken != null ? linkingToken : null)
                   .build();
       final OauthmodelTokenResponseV3 response =
-          wrapper.generateTokenByNewHeadlessAccountV4(operation);
+          wrapper.generateTokenByNewHeadlessAccountV4(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

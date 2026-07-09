@@ -63,13 +63,13 @@ public class UpdateLootBoxPluginConfig implements Callable<Integer> {
       final ServicePluginConfig wrapper = new ServicePluginConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.service_plugin_config
               .UpdateLootBoxPluginConfig
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.service_plugin_config
                   .UpdateLootBoxPluginConfig.builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, LootBoxPluginConfigUpdate.class))
                   .build();
-      final LootBoxPluginConfigInfo response = wrapper.updateLootBoxPluginConfig(operation);
+      final LootBoxPluginConfigInfo response = wrapper.updateLootBoxPluginConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

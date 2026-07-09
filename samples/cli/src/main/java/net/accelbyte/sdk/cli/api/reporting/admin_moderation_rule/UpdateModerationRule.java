@@ -67,14 +67,14 @@ public class UpdateModerationRule implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminModerationRule wrapper = new AdminModerationRule(sdk);
       final net.accelbyte.sdk.api.reporting.operations.admin_moderation_rule.UpdateModerationRule
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.reporting.operations.admin_moderation_rule.UpdateModerationRule
                   .builder()
                   .namespace(namespace)
                   .ruleId(ruleId)
                   .body(new ObjectMapper().readValue(body, RestapiModerationRuleRequest.class))
                   .build();
-      final RestapiModerationRuleResponse response = wrapper.updateModerationRule(operation);
+      final RestapiModerationRuleResponse response = wrapper.updateModerationRule(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

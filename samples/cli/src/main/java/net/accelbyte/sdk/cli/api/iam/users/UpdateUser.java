@@ -66,13 +66,13 @@ public class UpdateUser implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.UpdateUser operation =
+      final net.accelbyte.sdk.api.iam.operations.users.UpdateUser operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.UpdateUser.builder()
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, ModelUserUpdateRequest.class))
               .build();
-      final ModelUserResponse response = wrapper.updateUser(operation);
+      final ModelUserResponse response = wrapper.updateUser(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -56,11 +56,12 @@ public class GetNamespaceSlotConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final SlotConfig wrapper = new SlotConfig(sdk);
-      final net.accelbyte.sdk.api.social.operations.slot_config.GetNamespaceSlotConfig operation =
-          net.accelbyte.sdk.api.social.operations.slot_config.GetNamespaceSlotConfig.builder()
-              .namespace(namespace)
-              .build();
-      final NamespaceSlotConfigInfo response = wrapper.getNamespaceSlotConfig(operation);
+      final net.accelbyte.sdk.api.social.operations.slot_config.GetNamespaceSlotConfig
+          operationRequest =
+              net.accelbyte.sdk.api.social.operations.slot_config.GetNamespaceSlotConfig.builder()
+                  .namespace(namespace)
+                  .build();
+      final NamespaceSlotConfigInfo response = wrapper.getNamespaceSlotConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

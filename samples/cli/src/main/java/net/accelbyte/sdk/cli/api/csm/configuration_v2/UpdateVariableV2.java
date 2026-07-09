@@ -71,14 +71,18 @@ public class UpdateVariableV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ConfigurationV2 wrapper = new ConfigurationV2(sdk);
-      final net.accelbyte.sdk.api.csm.operations.configuration_v2.UpdateVariableV2 operation =
-          net.accelbyte.sdk.api.csm.operations.configuration_v2.UpdateVariableV2.builder()
-              .app(app)
-              .configId(configId)
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ApimodelUpdateConfigurationV2Request.class))
-              .build();
-      final ApimodelUpdateConfigurationV2Response response = wrapper.updateVariableV2(operation);
+      final net.accelbyte.sdk.api.csm.operations.configuration_v2.UpdateVariableV2
+          operationRequest =
+              net.accelbyte.sdk.api.csm.operations.configuration_v2.UpdateVariableV2.builder()
+                  .app(app)
+                  .configId(configId)
+                  .namespace(namespace)
+                  .body(
+                      new ObjectMapper()
+                          .readValue(body, ApimodelUpdateConfigurationV2Request.class))
+                  .build();
+      final ApimodelUpdateConfigurationV2Response response =
+          wrapper.updateVariableV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

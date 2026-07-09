@@ -76,7 +76,7 @@ public class AdminGetBannedUsersV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Bans wrapper = new Bans(sdk);
-      final net.accelbyte.sdk.api.iam.operations.bans.AdminGetBannedUsersV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.bans.AdminGetBannedUsersV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.bans.AdminGetBannedUsersV3.builder()
               .namespace(namespace)
               .activeOnly(activeOnly)
@@ -84,7 +84,7 @@ public class AdminGetBannedUsersV3 implements Callable<Integer> {
               .limit(limit)
               .offset(offset)
               .build();
-      final ModelGetUserBanV3Response response = wrapper.adminGetBannedUsersV3(operation);
+      final ModelGetUserBanV3Response response = wrapper.adminGetBannedUsersV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

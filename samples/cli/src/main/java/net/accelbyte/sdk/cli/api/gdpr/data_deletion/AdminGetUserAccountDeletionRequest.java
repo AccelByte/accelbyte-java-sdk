@@ -62,13 +62,14 @@ public class AdminGetUserAccountDeletionRequest implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final DataDeletion wrapper = new DataDeletion(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.data_deletion.AdminGetUserAccountDeletionRequest
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.data_deletion.AdminGetUserAccountDeletionRequest
                   .builder()
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      final ModelsDeletionData response = wrapper.adminGetUserAccountDeletionRequest(operation);
+      final ModelsDeletionData response =
+          wrapper.adminGetUserAccountDeletionRequest(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

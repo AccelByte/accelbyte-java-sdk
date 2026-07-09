@@ -72,7 +72,7 @@ public class UploadContentScreenshot implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicContentLegacy wrapper = new PublicContentLegacy(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_content_legacy.UploadContentScreenshot
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.public_content_legacy.UploadContentScreenshot
                   .builder()
                   .contentId(contentId)
@@ -80,7 +80,8 @@ public class UploadContentScreenshot implements Callable<Integer> {
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, ModelsCreateScreenshotRequest.class))
                   .build();
-      final ModelsCreateScreenshotResponse response = wrapper.uploadContentScreenshot(operation);
+      final ModelsCreateScreenshotResponse response =
+          wrapper.uploadContentScreenshot(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

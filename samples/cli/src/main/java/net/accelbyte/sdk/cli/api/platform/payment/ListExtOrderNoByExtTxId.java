@@ -61,12 +61,13 @@ public class ListExtOrderNoByExtTxId implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Payment wrapper = new Payment(sdk);
-      final net.accelbyte.sdk.api.platform.operations.payment.ListExtOrderNoByExtTxId operation =
-          net.accelbyte.sdk.api.platform.operations.payment.ListExtOrderNoByExtTxId.builder()
-              .namespace(namespace)
-              .extTxId(extTxId)
-              .build();
-      final List<String> response = wrapper.listExtOrderNoByExtTxId(operation);
+      final net.accelbyte.sdk.api.platform.operations.payment.ListExtOrderNoByExtTxId
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.payment.ListExtOrderNoByExtTxId.builder()
+                  .namespace(namespace)
+                  .extTxId(extTxId)
+                  .build();
+      final List<String> response = wrapper.listExtOrderNoByExtTxId(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

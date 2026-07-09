@@ -66,13 +66,14 @@ public class GetUserFriendsUpdated implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Friends wrapper = new Friends(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.friends.GetUserFriendsUpdated operation =
+      final net.accelbyte.sdk.api.lobby.operations.friends.GetUserFriendsUpdated operationRequest =
           net.accelbyte.sdk.api.lobby.operations.friends.GetUserFriendsUpdated.builder()
               .namespace(namespace)
               .limit(limit)
               .offset(offset)
               .build();
-      final List<ModelGetUserFriendsResponse> response = wrapper.getUserFriendsUpdated(operation);
+      final List<ModelGetUserFriendsResponse> response =
+          wrapper.getUserFriendsUpdated(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

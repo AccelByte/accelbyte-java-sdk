@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteKeyValueClusterV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:KEYVALUE:CLUSTERS [DELETE]`
- *
  * <p>Delete Key-Value cluster. Only allowed when cluster status is AVAILABLE or CREATE-FAILED.
  * Force-deletes all active integrations. Returns resource with status DELETING.
  */

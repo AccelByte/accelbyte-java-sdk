@@ -62,13 +62,13 @@ public class PublicGetPaymentUrl implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PaymentStation wrapper = new PaymentStation(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_station.PublicGetPaymentUrl
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.payment_station.PublicGetPaymentUrl
                   .builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, PaymentUrlCreate.class))
                   .build();
-      final PaymentUrl response = wrapper.publicGetPaymentUrl(operation);
+      final PaymentUrl response = wrapper.publicGetPaymentUrl(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

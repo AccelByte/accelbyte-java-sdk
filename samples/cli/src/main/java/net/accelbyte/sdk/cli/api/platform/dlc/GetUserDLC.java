@@ -76,7 +76,7 @@ public class GetUserDLC implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final DLC wrapper = new DLC(sdk);
-      final net.accelbyte.sdk.api.platform.operations.dlc.GetUserDLC operation =
+      final net.accelbyte.sdk.api.platform.operations.dlc.GetUserDLC operationRequest =
           net.accelbyte.sdk.api.platform.operations.dlc.GetUserDLC.builder()
               .namespace(namespace)
               .userId(userId)
@@ -84,7 +84,7 @@ public class GetUserDLC implements Callable<Integer> {
               .status(status)
               .type(type)
               .build();
-      final List<UserDLCRecord> response = wrapper.getUserDLC(operation);
+      final List<UserDLCRecord> response = wrapper.getUserDLC(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

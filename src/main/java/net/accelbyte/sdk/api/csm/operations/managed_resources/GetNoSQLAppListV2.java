@@ -21,17 +21,15 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetNoSQLAppListV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:NOSQL:CLUSTERS [READ]`
- *
  * <p>Get List of Extend App using NoSQL database by given studio/publisher namespace and the NoSQL
  * cluster resourceId. - `starting` : The cluster is transitioning from stopped to running, or is
  * rebooting. - `unknown` : The cluster status is not recognized - `available` : The cluster is
- * accessible. - `creating` : The cluster or instance is being created and is not yet accessible. -
- * `failed` : The cluster failed to provision or is in an error state and not accessible. -
+ * accessible. - `maintenance` : The cluster is undergoing maintenance operations and is not
+ * accessible. - `updating` : The cluster is being modified and is not yet accessible (e.g.,
+ * updating min/max DCU). - `creating` : The cluster or instance is being created and is not yet
+ * accessible. - `deleting` : The cluster is in the process of being deleted and is not accessible.
+ * - `failed` : The cluster failed to provision or is in an error state and not accessible. -
  * `stopping` : The cluster is in the process of stopping and will soon become inaccessible. -
- * `maintenance` : The cluster is undergoing maintenance operations and is not accessible. -
- * `updating` : The cluster is being modified and is not yet accessible (e.g., updating min/max
- * DCU). - `deleting` : The cluster is in the process of being deleted and is not accessible. -
  * `stopped` : The cluster is stopped and not accessible.
  */
 @Getter
@@ -50,8 +48,8 @@ public class GetNoSQLAppListV2 extends Operation {
 
   private String studioName;
   private String appName;
+  private String gameNamespace;
   private Integer limit;
-  private String namespace;
   private Integer offset;
 
   /**
@@ -65,14 +63,14 @@ public class GetNoSQLAppListV2 extends Operation {
       String resourceId,
       String studioName,
       String appName,
+      String gameNamespace,
       Integer limit,
-      String namespace,
       Integer offset) {
     this.resourceId = resourceId;
     this.studioName = studioName;
     this.appName = appName;
+    this.gameNamespace = gameNamespace;
     this.limit = limit;
-    this.namespace = namespace;
     this.offset = offset;
 
     securities.add("Bearer");
@@ -94,8 +92,9 @@ public class GetNoSQLAppListV2 extends Operation {
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
     queryParams.put("appName", this.appName == null ? null : Arrays.asList(this.appName));
+    queryParams.put(
+        "gameNamespace", this.gameNamespace == null ? null : Arrays.asList(this.gameNamespace));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
-    queryParams.put("namespace", this.namespace == null ? null : Arrays.asList(this.namespace));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
     return queryParams;
@@ -126,8 +125,8 @@ public class GetNoSQLAppListV2 extends Operation {
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
     result.put("appName", "None");
+    result.put("gameNamespace", "None");
     result.put("limit", "None");
-    result.put("namespace", "None");
     result.put("offset", "None");
     return result;
   }

@@ -56,11 +56,11 @@ public class PublicGetConfigV1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Config wrapper = new Config(sdk);
-      final net.accelbyte.sdk.api.chat.operations.config.PublicGetConfigV1 operation =
+      final net.accelbyte.sdk.api.chat.operations.config.PublicGetConfigV1 operationRequest =
           net.accelbyte.sdk.api.chat.operations.config.PublicGetConfigV1.builder()
               .namespace(namespace)
               .build();
-      final ModelsPublicConfigResponse response = wrapper.publicGetConfigV1(operation);
+      final ModelsPublicConfigResponse response = wrapper.publicGetConfigV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

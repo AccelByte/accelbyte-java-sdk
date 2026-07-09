@@ -62,7 +62,7 @@ public class OldRequestPresignedURL implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final LocalizedPolicyVersions wrapper = new LocalizedPolicyVersions(sdk);
       final net.accelbyte.sdk.api.legal.operations.localized_policy_versions.OldRequestPresignedURL
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.localized_policy_versions
                   .OldRequestPresignedURL.builder()
                   .localizedPolicyVersionId(localizedPolicyVersionId)
@@ -71,7 +71,7 @@ public class OldRequestPresignedURL implements Callable<Integer> {
                           .readValue(body, UploadPolicyVersionAttachmentRequest.class))
                   .build();
       final UploadLocalizedPolicyVersionAttachmentResponse response =
-          wrapper.oldRequestPresignedURL(operation);
+          wrapper.oldRequestPresignedURL(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

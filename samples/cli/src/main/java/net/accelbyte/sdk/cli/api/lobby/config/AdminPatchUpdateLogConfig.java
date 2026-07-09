@@ -56,11 +56,12 @@ public class AdminPatchUpdateLogConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Config wrapper = new Config(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.config.AdminPatchUpdateLogConfig operation =
-          net.accelbyte.sdk.api.lobby.operations.config.AdminPatchUpdateLogConfig.builder()
-              .body(new ObjectMapper().readValue(body, LogconfigConfiguration.class))
-              .build();
-      final LogconfigConfiguration response = wrapper.adminPatchUpdateLogConfig(operation);
+      final net.accelbyte.sdk.api.lobby.operations.config.AdminPatchUpdateLogConfig
+          operationRequest =
+              net.accelbyte.sdk.api.lobby.operations.config.AdminPatchUpdateLogConfig.builder()
+                  .body(new ObjectMapper().readValue(body, LogconfigConfiguration.class))
+                  .build();
+      final LogconfigConfiguration response = wrapper.adminPatchUpdateLogConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

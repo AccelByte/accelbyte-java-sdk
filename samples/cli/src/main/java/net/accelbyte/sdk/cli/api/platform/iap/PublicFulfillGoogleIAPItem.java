@@ -66,13 +66,15 @@ public class PublicFulfillGoogleIAPItem implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.PublicFulfillGoogleIAPItem operation =
-          net.accelbyte.sdk.api.platform.operations.iap.PublicFulfillGoogleIAPItem.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .body(new ObjectMapper().readValue(body, GoogleIAPReceipt.class))
-              .build();
-      final GoogleReceiptResolveResult response = wrapper.publicFulfillGoogleIAPItem(operation);
+      final net.accelbyte.sdk.api.platform.operations.iap.PublicFulfillGoogleIAPItem
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.iap.PublicFulfillGoogleIAPItem.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .body(new ObjectMapper().readValue(body, GoogleIAPReceipt.class))
+                  .build();
+      final GoogleReceiptResolveResult response =
+          wrapper.publicFulfillGoogleIAPItem(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

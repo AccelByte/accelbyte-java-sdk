@@ -72,7 +72,7 @@ public class SingleAdminUpdateContentS3 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminContent wrapper = new AdminContent(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_content.SingleAdminUpdateContentS3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.admin_content.SingleAdminUpdateContentS3
                   .builder()
                   .channelId(channelId)
@@ -80,7 +80,8 @@ public class SingleAdminUpdateContentS3 implements Callable<Integer> {
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelsAdminUpdateContentRequest.class))
                   .build();
-      final ModelsCreateContentResponse response = wrapper.singleAdminUpdateContentS3(operation);
+      final ModelsCreateContentResponse response =
+          wrapper.singleAdminUpdateContentS3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

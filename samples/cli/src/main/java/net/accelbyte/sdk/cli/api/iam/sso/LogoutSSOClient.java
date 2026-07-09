@@ -55,11 +55,11 @@ public class LogoutSSOClient implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final SSO wrapper = new SSO(sdk);
-      final net.accelbyte.sdk.api.iam.operations.sso.LogoutSSOClient operation =
+      final net.accelbyte.sdk.api.iam.operations.sso.LogoutSSOClient operationRequest =
           net.accelbyte.sdk.api.iam.operations.sso.LogoutSSOClient.builder()
               .platformId(platformId)
               .build();
-      wrapper.logoutSSOClient(operation);
+      wrapper.logoutSSOClient(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

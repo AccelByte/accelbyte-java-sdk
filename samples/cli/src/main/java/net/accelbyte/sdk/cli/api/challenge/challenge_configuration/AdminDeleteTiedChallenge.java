@@ -67,14 +67,14 @@ public class AdminDeleteTiedChallenge implements Callable<Integer> {
       final ChallengeConfiguration wrapper = new ChallengeConfiguration(sdk);
       final net.accelbyte.sdk.api.challenge.operations.challenge_configuration
               .AdminDeleteTiedChallenge
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.challenge.operations.challenge_configuration
                   .AdminDeleteTiedChallenge.builder()
                   .challengeCode(challengeCode)
                   .namespace(namespace)
                   .safeDelete(safeDelete)
                   .build();
-      wrapper.adminDeleteTiedChallenge(operation);
+      wrapper.adminDeleteTiedChallenge(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

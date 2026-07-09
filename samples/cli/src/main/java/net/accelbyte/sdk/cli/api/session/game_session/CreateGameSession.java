@@ -66,13 +66,14 @@ public class CreateGameSession implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameSession wrapper = new GameSession(sdk);
-      final net.accelbyte.sdk.api.session.operations.game_session.CreateGameSession operation =
-          net.accelbyte.sdk.api.session.operations.game_session.CreateGameSession.builder()
-              .namespace(namespace)
-              .resolveMaxActiveSession(resolveMaxActiveSession)
-              .body(new ObjectMapper().readValue(body, ApimodelsCreateGameSessionRequest.class))
-              .build();
-      final ApimodelsGameSessionResponse response = wrapper.createGameSession(operation);
+      final net.accelbyte.sdk.api.session.operations.game_session.CreateGameSession
+          operationRequest =
+              net.accelbyte.sdk.api.session.operations.game_session.CreateGameSession.builder()
+                  .namespace(namespace)
+                  .resolveMaxActiveSession(resolveMaxActiveSession)
+                  .body(new ObjectMapper().readValue(body, ApimodelsCreateGameSessionRequest.class))
+                  .build();
+      final ApimodelsGameSessionResponse response = wrapper.createGameSession(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

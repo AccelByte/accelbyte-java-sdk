@@ -71,14 +71,15 @@ public class UpdateUserEntitlement implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Entitlement wrapper = new Entitlement(sdk);
-      final net.accelbyte.sdk.api.platform.operations.entitlement.UpdateUserEntitlement operation =
-          net.accelbyte.sdk.api.platform.operations.entitlement.UpdateUserEntitlement.builder()
-              .entitlementId(entitlementId)
-              .namespace(namespace)
-              .userId(userId)
-              .body(new ObjectMapper().readValue(body, EntitlementUpdate.class))
-              .build();
-      final EntitlementInfo response = wrapper.updateUserEntitlement(operation);
+      final net.accelbyte.sdk.api.platform.operations.entitlement.UpdateUserEntitlement
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.entitlement.UpdateUserEntitlement.builder()
+                  .entitlementId(entitlementId)
+                  .namespace(namespace)
+                  .userId(userId)
+                  .body(new ObjectMapper().readValue(body, EntitlementUpdate.class))
+                  .build();
+      final EntitlementInfo response = wrapper.updateUserEntitlement(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

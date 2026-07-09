@@ -65,13 +65,13 @@ public class AddUserRole implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.AddUserRole operation =
+      final net.accelbyte.sdk.api.iam.operations.users.AddUserRole operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.AddUserRole.builder()
               .namespace(namespace)
               .roleId(roleId)
               .userId(userId)
               .build();
-      wrapper.addUserRole(operation);
+      wrapper.addUserRole(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

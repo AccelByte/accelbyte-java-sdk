@@ -66,13 +66,14 @@ public class AdminFilterChatMessage implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Topic wrapper = new Topic(sdk);
-      final net.accelbyte.sdk.api.chat.operations.topic.AdminFilterChatMessage operation =
+      final net.accelbyte.sdk.api.chat.operations.topic.AdminFilterChatMessage operationRequest =
           net.accelbyte.sdk.api.chat.operations.topic.AdminFilterChatMessage.builder()
               .namespace(namespace)
               .detail(detail)
               .body(new ObjectMapper().readValue(body, ModelsMessageRequest.class))
               .build();
-      final ModelsMessageResultWithAttributes response = wrapper.adminFilterChatMessage(operation);
+      final ModelsMessageResultWithAttributes response =
+          wrapper.adminFilterChatMessage(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

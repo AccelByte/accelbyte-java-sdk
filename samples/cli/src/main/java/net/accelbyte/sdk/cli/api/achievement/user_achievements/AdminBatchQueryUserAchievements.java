@@ -68,7 +68,7 @@ public class AdminBatchQueryUserAchievements implements Callable<Integer> {
       final UserAchievements wrapper = new UserAchievements(sdk);
       final net.accelbyte.sdk.api.achievement.operations.user_achievements
               .AdminBatchQueryUserAchievements
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.achievement.operations.user_achievements
                   .AdminBatchQueryUserAchievements.builder()
                   .namespace(namespace)
@@ -78,7 +78,7 @@ public class AdminBatchQueryUserAchievements implements Callable<Integer> {
                           .readValue(body, ModelsBatchQueryUserAchievementRequest.class))
                   .build();
       final List<ModelsUserAchievementResponse> response =
-          wrapper.adminBatchQueryUserAchievements(operation);
+          wrapper.adminBatchQueryUserAchievements(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

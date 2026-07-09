@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetAppReleaseV1
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [READ]`
- *
  * <p>Gets the Latest Release Version info of this App
  */
 @Getter

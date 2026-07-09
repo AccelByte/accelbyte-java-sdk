@@ -74,7 +74,7 @@ public class PublicGetUserEntitlementOwnershipBySku implements Callable<Integer>
       final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement
               .PublicGetUserEntitlementOwnershipBySku
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.entitlement
                   .PublicGetUserEntitlementOwnershipBySku.builder()
                   .namespace(namespace)
@@ -82,7 +82,8 @@ public class PublicGetUserEntitlementOwnershipBySku implements Callable<Integer>
                   .entitlementClazz(entitlementClazz)
                   .sku(sku)
                   .build();
-      final TimedOwnership response = wrapper.publicGetUserEntitlementOwnershipBySku(operation);
+      final TimedOwnership response =
+          wrapper.publicGetUserEntitlementOwnershipBySku(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

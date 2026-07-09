@@ -61,13 +61,13 @@ public class AdminDeleteItemType implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminItemTypes wrapper = new AdminItemTypes(sdk);
       final net.accelbyte.sdk.api.inventory.operations.admin_item_types.AdminDeleteItemType
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.inventory.operations.admin_item_types.AdminDeleteItemType
                   .builder()
                   .itemTypeName(itemTypeName)
                   .namespace(namespace)
                   .build();
-      wrapper.adminDeleteItemType(operation);
+      wrapper.adminDeleteItemType(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

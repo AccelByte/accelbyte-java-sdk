@@ -61,12 +61,13 @@ public class SyncTwitchDropsEntitlement implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.SyncTwitchDropsEntitlement operation =
-          net.accelbyte.sdk.api.platform.operations.iap.SyncTwitchDropsEntitlement.builder()
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, TwitchSyncRequest.class))
-              .build();
-      final List<TwitchSyncResult> response = wrapper.syncTwitchDropsEntitlement(operation);
+      final net.accelbyte.sdk.api.platform.operations.iap.SyncTwitchDropsEntitlement
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.iap.SyncTwitchDropsEntitlement.builder()
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, TwitchSyncRequest.class))
+                  .build();
+      final List<TwitchSyncResult> response = wrapper.syncTwitchDropsEntitlement(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

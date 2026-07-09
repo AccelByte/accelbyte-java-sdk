@@ -67,7 +67,7 @@ public class AdminReconcileMaxActiveSession implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final MaxActive wrapper = new MaxActive(sdk);
       final net.accelbyte.sdk.api.session.operations.max_active.AdminReconcileMaxActiveSession
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.max_active.AdminReconcileMaxActiveSession
                   .builder()
                   .name(name)
@@ -76,7 +76,7 @@ public class AdminReconcileMaxActiveSession implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, ModelsRequestReconcileMaxActiveSession.class))
                   .build();
-      wrapper.adminReconcileMaxActiveSession(operation);
+      wrapper.adminReconcileMaxActiveSession(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

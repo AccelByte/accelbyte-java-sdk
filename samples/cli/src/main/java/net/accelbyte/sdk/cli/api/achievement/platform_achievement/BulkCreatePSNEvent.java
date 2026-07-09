@@ -62,13 +62,14 @@ public class BulkCreatePSNEvent implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PlatformAchievement wrapper = new PlatformAchievement(sdk);
       final net.accelbyte.sdk.api.achievement.operations.platform_achievement.BulkCreatePSNEvent
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.achievement.operations.platform_achievement.BulkCreatePSNEvent
                   .builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelsBulkCreatePSNEvents.class))
                   .build();
-      final ModelsBulkCreatePSNEventResponse response = wrapper.bulkCreatePSNEvent(operation);
+      final ModelsBulkCreatePSNEventResponse response =
+          wrapper.bulkCreatePSNEvent(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

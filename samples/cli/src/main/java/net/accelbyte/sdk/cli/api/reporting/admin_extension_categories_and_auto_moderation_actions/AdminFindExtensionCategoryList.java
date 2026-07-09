@@ -64,7 +64,7 @@ public class AdminFindExtensionCategoryList implements Callable<Integer> {
           new AdminExtensionCategoriesAndAutoModerationActions(sdk);
       final net.accelbyte.sdk.api.reporting.operations
               .admin_extension_categories_and_auto_moderation_actions.AdminFindExtensionCategoryList
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.reporting.operations
                   .admin_extension_categories_and_auto_moderation_actions
                   .AdminFindExtensionCategoryList.builder()
@@ -72,7 +72,7 @@ public class AdminFindExtensionCategoryList implements Callable<Integer> {
                   .sortBy(sortBy)
                   .build();
       final RestapiExtensionCategoryListApiResponse response =
-          wrapper.adminFindExtensionCategoryList(operation);
+          wrapper.adminFindExtensionCategoryList(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

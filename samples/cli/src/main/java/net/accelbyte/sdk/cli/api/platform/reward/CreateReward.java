@@ -61,12 +61,12 @@ public class CreateReward implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Reward wrapper = new Reward(sdk);
-      final net.accelbyte.sdk.api.platform.operations.reward.CreateReward operation =
+      final net.accelbyte.sdk.api.platform.operations.reward.CreateReward operationRequest =
           net.accelbyte.sdk.api.platform.operations.reward.CreateReward.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, RewardCreate.class))
               .build();
-      final RewardInfo response = wrapper.createReward(operation);
+      final RewardInfo response = wrapper.createReward(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

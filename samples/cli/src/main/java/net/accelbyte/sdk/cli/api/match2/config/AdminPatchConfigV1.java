@@ -61,12 +61,12 @@ public class AdminPatchConfigV1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Config wrapper = new Config(sdk);
-      final net.accelbyte.sdk.api.match2.operations.config.AdminPatchConfigV1 operation =
+      final net.accelbyte.sdk.api.match2.operations.config.AdminPatchConfigV1 operationRequest =
           net.accelbyte.sdk.api.match2.operations.config.AdminPatchConfigV1.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ApiPatchNamespaceConfigRequest.class))
               .build();
-      final ConfigmodelsNamespaceConfig response = wrapper.adminPatchConfigV1(operation);
+      final ConfigmodelsNamespaceConfig response = wrapper.adminPatchConfigV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

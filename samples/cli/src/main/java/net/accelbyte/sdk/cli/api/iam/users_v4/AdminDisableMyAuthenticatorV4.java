@@ -56,11 +56,12 @@ public class AdminDisableMyAuthenticatorV4 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UsersV4 wrapper = new UsersV4(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users_v4.AdminDisableMyAuthenticatorV4 operation =
-          net.accelbyte.sdk.api.iam.operations.users_v4.AdminDisableMyAuthenticatorV4.builder()
-              .body(new ObjectMapper().readValue(body, ModelDisableMFARequest.class))
-              .build();
-      wrapper.adminDisableMyAuthenticatorV4(operation);
+      final net.accelbyte.sdk.api.iam.operations.users_v4.AdminDisableMyAuthenticatorV4
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.users_v4.AdminDisableMyAuthenticatorV4.builder()
+                  .body(new ObjectMapper().readValue(body, ModelDisableMFARequest.class))
+                  .build();
+      wrapper.adminDisableMyAuthenticatorV4(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

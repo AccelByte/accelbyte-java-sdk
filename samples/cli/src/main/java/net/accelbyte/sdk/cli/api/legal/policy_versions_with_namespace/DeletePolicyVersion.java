@@ -62,13 +62,13 @@ public class DeletePolicyVersion implements Callable<Integer> {
       final PolicyVersionsWithNamespace wrapper = new PolicyVersionsWithNamespace(sdk);
       final net.accelbyte.sdk.api.legal.operations.policy_versions_with_namespace
               .DeletePolicyVersion
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.policy_versions_with_namespace
                   .DeletePolicyVersion.builder()
                   .namespace(namespace)
                   .policyVersionId(policyVersionId)
                   .build();
-      wrapper.deletePolicyVersion(operation);
+      wrapper.deletePolicyVersion(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

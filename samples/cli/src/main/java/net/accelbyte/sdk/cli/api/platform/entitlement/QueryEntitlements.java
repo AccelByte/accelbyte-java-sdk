@@ -102,20 +102,21 @@ public class QueryEntitlements implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Entitlement wrapper = new Entitlement(sdk);
-      final net.accelbyte.sdk.api.platform.operations.entitlement.QueryEntitlements operation =
-          net.accelbyte.sdk.api.platform.operations.entitlement.QueryEntitlements.builder()
-              .namespace(namespace)
-              .activeOnly(activeOnly)
-              .appType(appType)
-              .entitlementClazz(entitlementClazz)
-              .entitlementName(entitlementName)
-              .itemId(itemId)
-              .limit(limit)
-              .offset(offset)
-              .origin(origin)
-              .userId(userId)
-              .build();
-      final EntitlementPagingSlicedResult response = wrapper.queryEntitlements(operation);
+      final net.accelbyte.sdk.api.platform.operations.entitlement.QueryEntitlements
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.entitlement.QueryEntitlements.builder()
+                  .namespace(namespace)
+                  .activeOnly(activeOnly)
+                  .appType(appType)
+                  .entitlementClazz(entitlementClazz)
+                  .entitlementName(entitlementName)
+                  .itemId(itemId)
+                  .limit(limit)
+                  .offset(offset)
+                  .origin(origin)
+                  .userId(userId)
+                  .build();
+      final EntitlementPagingSlicedResult response = wrapper.queryEntitlements(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

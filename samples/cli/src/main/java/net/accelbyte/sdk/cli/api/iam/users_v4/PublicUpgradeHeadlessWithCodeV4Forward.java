@@ -58,7 +58,7 @@ public class PublicUpgradeHeadlessWithCodeV4Forward implements Callable<Integer>
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UsersV4 wrapper = new UsersV4(sdk);
       final net.accelbyte.sdk.api.iam.operations.users_v4.PublicUpgradeHeadlessWithCodeV4Forward
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.users_v4.PublicUpgradeHeadlessWithCodeV4Forward
                   .builder()
                   .body(
@@ -68,7 +68,7 @@ public class PublicUpgradeHeadlessWithCodeV4Forward implements Callable<Integer>
                               AccountUpgradeHeadlessAccountWithVerificationCodeForwardRequestV4
                                   .class))
                   .build();
-      wrapper.publicUpgradeHeadlessWithCodeV4Forward(operation);
+      wrapper.publicUpgradeHeadlessWithCodeV4Forward(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

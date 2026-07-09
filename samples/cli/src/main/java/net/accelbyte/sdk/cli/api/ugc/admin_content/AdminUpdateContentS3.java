@@ -76,15 +76,16 @@ public class AdminUpdateContentS3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminContent wrapper = new AdminContent(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.admin_content.AdminUpdateContentS3 operation =
-          net.accelbyte.sdk.api.ugc.operations.admin_content.AdminUpdateContentS3.builder()
-              .channelId(channelId)
-              .contentId(contentId)
-              .namespace(namespace)
-              .userId(userId)
-              .body(new ObjectMapper().readValue(body, ModelsAdminUpdateContentRequest.class))
-              .build();
-      final ModelsCreateContentResponse response = wrapper.adminUpdateContentS3(operation);
+      final net.accelbyte.sdk.api.ugc.operations.admin_content.AdminUpdateContentS3
+          operationRequest =
+              net.accelbyte.sdk.api.ugc.operations.admin_content.AdminUpdateContentS3.builder()
+                  .channelId(channelId)
+                  .contentId(contentId)
+                  .namespace(namespace)
+                  .userId(userId)
+                  .body(new ObjectMapper().readValue(body, ModelsAdminUpdateContentRequest.class))
+                  .build();
+      final ModelsCreateContentResponse response = wrapper.adminUpdateContentS3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

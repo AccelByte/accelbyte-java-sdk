@@ -62,13 +62,14 @@ public class GameSessionGenerateCode implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameSession wrapper = new GameSession(sdk);
       final net.accelbyte.sdk.api.session.operations.game_session.GameSessionGenerateCode
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.game_session.GameSessionGenerateCode
                   .builder()
                   .namespace(namespace)
                   .sessionId(sessionId)
                   .build();
-      final ApimodelsGameSessionResponse response = wrapper.gameSessionGenerateCode(operation);
+      final ApimodelsGameSessionResponse response =
+          wrapper.gameSessionGenerateCode(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -62,13 +62,13 @@ public class OldCreatePolicyVersion implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PolicyVersions wrapper = new PolicyVersions(sdk);
       final net.accelbyte.sdk.api.legal.operations.policy_versions.OldCreatePolicyVersion
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.policy_versions.OldCreatePolicyVersion
                   .builder()
                   .policyId(policyId)
                   .body(new ObjectMapper().readValue(body, CreatePolicyVersionRequest.class))
                   .build();
-      final CreatePolicyVersionResponse response = wrapper.oldCreatePolicyVersion(operation);
+      final CreatePolicyVersionResponse response = wrapper.oldCreatePolicyVersion(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

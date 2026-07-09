@@ -66,13 +66,13 @@ public class AcquireItem implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Item wrapper = new Item(sdk);
-      final net.accelbyte.sdk.api.platform.operations.item.AcquireItem operation =
+      final net.accelbyte.sdk.api.platform.operations.item.AcquireItem operationRequest =
           net.accelbyte.sdk.api.platform.operations.item.AcquireItem.builder()
               .itemId(itemId)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ItemAcquireRequest.class))
               .build();
-      final ItemAcquireResult response = wrapper.acquireItem(operation);
+      final ItemAcquireResult response = wrapper.acquireItem(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -76,16 +76,17 @@ public class GetIncomingFriendRequests implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Friends wrapper = new Friends(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.friends.GetIncomingFriendRequests operation =
-          net.accelbyte.sdk.api.lobby.operations.friends.GetIncomingFriendRequests.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .friendId(friendId)
-              .limit(limit)
-              .offset(offset)
-              .build();
+      final net.accelbyte.sdk.api.lobby.operations.friends.GetIncomingFriendRequests
+          operationRequest =
+              net.accelbyte.sdk.api.lobby.operations.friends.GetIncomingFriendRequests.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .friendId(friendId)
+                  .limit(limit)
+                  .offset(offset)
+                  .build();
       final ModelLoadIncomingFriendsWithTimeResponse response =
-          wrapper.getIncomingFriendRequests(operation);
+          wrapper.getIncomingFriendRequests(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

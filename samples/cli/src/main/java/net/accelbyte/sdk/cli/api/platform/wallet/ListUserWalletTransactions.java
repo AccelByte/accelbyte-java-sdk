@@ -76,16 +76,17 @@ public class ListUserWalletTransactions implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Wallet wrapper = new Wallet(sdk);
-      final net.accelbyte.sdk.api.platform.operations.wallet.ListUserWalletTransactions operation =
-          net.accelbyte.sdk.api.platform.operations.wallet.ListUserWalletTransactions.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .walletId(walletId)
-              .limit(limit)
-              .offset(offset)
-              .build();
+      final net.accelbyte.sdk.api.platform.operations.wallet.ListUserWalletTransactions
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.wallet.ListUserWalletTransactions.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .walletId(walletId)
+                  .limit(limit)
+                  .offset(offset)
+                  .build();
       final DetailedWalletTransactionPagingSlicedResult response =
-          wrapper.listUserWalletTransactions(operation);
+          wrapper.listUserWalletTransactions(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

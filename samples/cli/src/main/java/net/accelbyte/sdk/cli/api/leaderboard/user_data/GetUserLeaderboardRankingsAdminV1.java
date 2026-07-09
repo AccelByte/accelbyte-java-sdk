@@ -77,7 +77,7 @@ public class GetUserLeaderboardRankingsAdminV1 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserData wrapper = new UserData(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.user_data.GetUserLeaderboardRankingsAdminV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.leaderboard.operations.user_data
                   .GetUserLeaderboardRankingsAdminV1.builder()
                   .namespace(namespace)
@@ -87,7 +87,7 @@ public class GetUserLeaderboardRankingsAdminV1 implements Callable<Integer> {
                   .previousVersion(previousVersion)
                   .build();
       final ModelsGetAllUserLeaderboardsResp response =
-          wrapper.getUserLeaderboardRankingsAdminV1(operation);
+          wrapper.getUserLeaderboardRankingsAdminV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

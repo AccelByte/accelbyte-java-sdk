@@ -21,10 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminGeneratePersonalDataURL
  *
- * <p>Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER:{userId} [READ]` and scope
- * `account`
- *
- * <p>If admin request data for themselves, password is need to be set
+ * <p>Generate personal data download url. If admin request data for themselves, password is need to
+ * be set. Scope: account
  */
 @Getter
 @Setter

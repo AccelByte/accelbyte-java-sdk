@@ -53,12 +53,12 @@ public class AdminListGlobalConfiguration implements Callable<Integer> {
       final GlobalConfiguration wrapper = new GlobalConfiguration(sdk);
       final net.accelbyte.sdk.api.session.operations.global_configuration
               .AdminListGlobalConfiguration
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.global_configuration
                   .AdminListGlobalConfiguration.builder()
                   .build();
       final ApimodelsGlobalConfigurationResponse response =
-          wrapper.adminListGlobalConfiguration(operation);
+          wrapper.adminListGlobalConfiguration(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

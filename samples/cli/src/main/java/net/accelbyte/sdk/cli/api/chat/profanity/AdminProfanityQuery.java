@@ -91,7 +91,7 @@ public class AdminProfanityQuery implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Profanity wrapper = new Profanity(sdk);
-      final net.accelbyte.sdk.api.chat.operations.profanity.AdminProfanityQuery operation =
+      final net.accelbyte.sdk.api.chat.operations.profanity.AdminProfanityQuery operationRequest =
           net.accelbyte.sdk.api.chat.operations.profanity.AdminProfanityQuery.builder()
               .namespace(namespace)
               .filterMask(filterMask)
@@ -102,7 +102,7 @@ public class AdminProfanityQuery implements Callable<Integer> {
               .startWith(startWith)
               .wordType(wordType)
               .build();
-      final ModelsDictionaryQueryResult response = wrapper.adminProfanityQuery(operation);
+      final ModelsDictionaryQueryResult response = wrapper.adminProfanityQuery(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

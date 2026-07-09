@@ -69,14 +69,15 @@ public class PublicChangeSubscriptionBillingAccount implements Callable<Integer>
       final Subscription wrapper = new Subscription(sdk);
       final net.accelbyte.sdk.api.platform.operations.subscription
               .PublicChangeSubscriptionBillingAccount
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.subscription
                   .PublicChangeSubscriptionBillingAccount.builder()
                   .namespace(namespace)
                   .subscriptionId(subscriptionId)
                   .userId(userId)
                   .build();
-      final SubscriptionInfo response = wrapper.publicChangeSubscriptionBillingAccount(operation);
+      final SubscriptionInfo response =
+          wrapper.publicChangeSubscriptionBillingAccount(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

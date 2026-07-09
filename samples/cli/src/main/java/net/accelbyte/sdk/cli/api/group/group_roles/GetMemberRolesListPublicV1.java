@@ -67,7 +67,7 @@ public class GetMemberRolesListPublicV1 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GroupRoles wrapper = new GroupRoles(sdk);
       final net.accelbyte.sdk.api.group.operations.group_roles.GetMemberRolesListPublicV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.group.operations.group_roles.GetMemberRolesListPublicV1
                   .builder()
                   .namespace(namespace)
@@ -75,7 +75,7 @@ public class GetMemberRolesListPublicV1 implements Callable<Integer> {
                   .offset(offset)
                   .build();
       final ModelsGetMemberRolesListResponseV1 response =
-          wrapper.getMemberRolesListPublicV1(operation);
+          wrapper.getMemberRolesListPublicV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

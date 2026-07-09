@@ -61,13 +61,13 @@ public class AdminDeleteUserSessionStorage implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final SessionStorage wrapper = new SessionStorage(sdk);
       final net.accelbyte.sdk.api.session.operations.session_storage.AdminDeleteUserSessionStorage
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.session_storage.AdminDeleteUserSessionStorage
                   .builder()
                   .namespace(namespace)
                   .sessionId(sessionId)
                   .build();
-      wrapper.adminDeleteUserSessionStorage(operation);
+      wrapper.adminDeleteUserSessionStorage(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

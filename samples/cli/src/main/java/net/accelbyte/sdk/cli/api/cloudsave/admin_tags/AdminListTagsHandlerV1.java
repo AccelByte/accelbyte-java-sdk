@@ -66,13 +66,14 @@ public class AdminListTagsHandlerV1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminTags wrapper = new AdminTags(sdk);
-      final net.accelbyte.sdk.api.cloudsave.operations.admin_tags.AdminListTagsHandlerV1 operation =
-          net.accelbyte.sdk.api.cloudsave.operations.admin_tags.AdminListTagsHandlerV1.builder()
-              .namespace(namespace)
-              .limit(limit)
-              .offset(offset)
-              .build();
-      final ModelsListTagsResponse response = wrapper.adminListTagsHandlerV1(operation);
+      final net.accelbyte.sdk.api.cloudsave.operations.admin_tags.AdminListTagsHandlerV1
+          operationRequest =
+              net.accelbyte.sdk.api.cloudsave.operations.admin_tags.AdminListTagsHandlerV1.builder()
+                  .namespace(namespace)
+                  .limit(limit)
+                  .offset(offset)
+                  .build();
+      final ModelsListTagsResponse response = wrapper.adminListTagsHandlerV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -86,17 +86,18 @@ public class PublicListItems implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicItems wrapper = new PublicItems(sdk);
-      final net.accelbyte.sdk.api.inventory.operations.public_items.PublicListItems operation =
-          net.accelbyte.sdk.api.inventory.operations.public_items.PublicListItems.builder()
-              .inventoryId(inventoryId)
-              .namespace(namespace)
-              .limit(limit)
-              .offset(offset)
-              .sortBy(sortBy)
-              .sourceItemId(sourceItemId)
-              .tags(tags)
-              .build();
-      final ApimodelsListItemResp response = wrapper.publicListItems(operation);
+      final net.accelbyte.sdk.api.inventory.operations.public_items.PublicListItems
+          operationRequest =
+              net.accelbyte.sdk.api.inventory.operations.public_items.PublicListItems.builder()
+                  .inventoryId(inventoryId)
+                  .namespace(namespace)
+                  .limit(limit)
+                  .offset(offset)
+                  .sortBy(sortBy)
+                  .sourceItemId(sourceItemId)
+                  .tags(tags)
+                  .build();
+      final ApimodelsListItemResp response = wrapper.publicListItems(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -61,12 +61,13 @@ public class CreateMatchTicket implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final MatchTickets wrapper = new MatchTickets(sdk);
-      final net.accelbyte.sdk.api.match2.operations.match_tickets.CreateMatchTicket operation =
-          net.accelbyte.sdk.api.match2.operations.match_tickets.CreateMatchTicket.builder()
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ApiMatchTicketRequest.class))
-              .build();
-      final ApiMatchTicketResponse response = wrapper.createMatchTicket(operation);
+      final net.accelbyte.sdk.api.match2.operations.match_tickets.CreateMatchTicket
+          operationRequest =
+              net.accelbyte.sdk.api.match2.operations.match_tickets.CreateMatchTicket.builder()
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, ApiMatchTicketRequest.class))
+                  .build();
+      final ApiMatchTicketResponse response = wrapper.createMatchTicket(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -65,13 +65,14 @@ public class PublicSendMyMFAEmailCodeV4 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UsersV4 wrapper = new UsersV4(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users_v4.PublicSendMyMFAEmailCodeV4 operation =
-          net.accelbyte.sdk.api.iam.operations.users_v4.PublicSendMyMFAEmailCodeV4.builder()
-              .namespace(namespace)
-              .action(action != null ? action : null)
-              .languageTag(languageTag != null ? languageTag : null)
-              .build();
-      wrapper.publicSendMyMFAEmailCodeV4(operation);
+      final net.accelbyte.sdk.api.iam.operations.users_v4.PublicSendMyMFAEmailCodeV4
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.users_v4.PublicSendMyMFAEmailCodeV4.builder()
+                  .namespace(namespace)
+                  .action(action != null ? action : null)
+                  .languageTag(languageTag != null ? languageTag : null)
+                  .build();
+      wrapper.publicSendMyMFAEmailCodeV4(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

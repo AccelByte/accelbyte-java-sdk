@@ -61,13 +61,14 @@ public class AdminGetUserDeletionStatusV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.AdminGetUserDeletionStatusV3 operation =
-          net.accelbyte.sdk.api.iam.operations.users.AdminGetUserDeletionStatusV3.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .build();
+      final net.accelbyte.sdk.api.iam.operations.users.AdminGetUserDeletionStatusV3
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.users.AdminGetUserDeletionStatusV3.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .build();
       final ModelUserDeletionStatusResponse response =
-          wrapper.adminGetUserDeletionStatusV3(operation);
+          wrapper.adminGetUserDeletionStatusV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -55,12 +55,12 @@ public class GetNamespacesGameTelemetryV1AdminNamespacesGet implements Callable<
       final Telemetry wrapper = new Telemetry(sdk);
       final net.accelbyte.sdk.api.gametelemetry.operations.telemetry
               .GetNamespacesGameTelemetryV1AdminNamespacesGet
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gametelemetry.operations.telemetry
                   .GetNamespacesGameTelemetryV1AdminNamespacesGet.builder()
                   .build();
       final ListBaseResponseStr response =
-          wrapper.getNamespacesGameTelemetryV1AdminNamespacesGet(operation);
+          wrapper.getNamespacesGameTelemetryV1AdminNamespacesGet(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

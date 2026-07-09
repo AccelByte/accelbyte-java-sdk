@@ -62,13 +62,13 @@ public class GetEntitlementConfigInfo implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement.GetEntitlementConfigInfo
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.entitlement.GetEntitlementConfigInfo
                   .builder()
                   .namespace(namespace)
                   .withoutCache(withoutCache)
                   .build();
-      final EntitlementConfigInfo response = wrapper.getEntitlementConfigInfo(operation);
+      final EntitlementConfigInfo response = wrapper.getEntitlementConfigInfo(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

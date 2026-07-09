@@ -66,13 +66,13 @@ public class GetUserOrderGrant implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Order wrapper = new Order(sdk);
-      final net.accelbyte.sdk.api.platform.operations.order.GetUserOrderGrant operation =
+      final net.accelbyte.sdk.api.platform.operations.order.GetUserOrderGrant operationRequest =
           net.accelbyte.sdk.api.platform.operations.order.GetUserOrderGrant.builder()
               .namespace(namespace)
               .orderNo(orderNo)
               .userId(userId)
               .build();
-      final OrderGrantInfo response = wrapper.getUserOrderGrant(operation);
+      final OrderGrantInfo response = wrapper.getUserOrderGrant(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

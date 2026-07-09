@@ -71,7 +71,7 @@ public class PlatformAuthenticateSAMLV3Handler implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final SSOSAML20 wrapper = new SSOSAML20(sdk);
       final net.accelbyte.sdk.api.iam.operations.sso_saml_2_0.PlatformAuthenticateSAMLV3Handler
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.sso_saml_2_0.PlatformAuthenticateSAMLV3Handler
                   .builder()
                   .platformId(platformId)
@@ -79,7 +79,7 @@ public class PlatformAuthenticateSAMLV3Handler implements Callable<Integer> {
                   .error(error)
                   .state(state)
                   .build();
-      wrapper.platformAuthenticateSAMLV3Handler(operation);
+      wrapper.platformAuthenticateSAMLV3Handler(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

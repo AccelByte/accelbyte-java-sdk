@@ -64,14 +64,14 @@ public class AdminSubmitUserAccountDeletionRequest implements Callable<Integer> 
       final DataDeletion wrapper = new DataDeletion(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.data_deletion
               .AdminSubmitUserAccountDeletionRequest
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.data_deletion
                   .AdminSubmitUserAccountDeletionRequest.builder()
                   .namespace(namespace)
                   .userId(userId)
                   .build();
       final ModelsRequestDeleteResponse response =
-          wrapper.adminSubmitUserAccountDeletionRequest(operation);
+          wrapper.adminSubmitUserAccountDeletionRequest(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

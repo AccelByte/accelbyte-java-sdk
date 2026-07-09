@@ -20,8 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * StopAppV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [UPDATE]`
- *
  * <p>Stops the Application
  */
 @Getter

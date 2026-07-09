@@ -20,8 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * StartSQLClusterV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:SQL:CLUSTERS [UPDATE]`
- *
  * <p>Start SQL cluster. You can only start the cluster when its status is "stopped".
  *
  * <p>Cluster starting process may take some time to complete.

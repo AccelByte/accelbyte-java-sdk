@@ -65,13 +65,13 @@ public class AdminDeleteGroup implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminGroup wrapper = new AdminGroup(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.admin_group.AdminDeleteGroup operation =
+      final net.accelbyte.sdk.api.ugc.operations.admin_group.AdminDeleteGroup operationRequest =
           net.accelbyte.sdk.api.ugc.operations.admin_group.AdminDeleteGroup.builder()
               .groupId(groupId)
               .namespace(namespace)
               .userId(userId)
               .build();
-      wrapper.adminDeleteGroup(operation);
+      wrapper.adminDeleteGroup(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -66,13 +66,13 @@ public class SyncSteamInventory implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.SyncSteamInventory operation =
+      final net.accelbyte.sdk.api.platform.operations.iap.SyncSteamInventory operationRequest =
           net.accelbyte.sdk.api.platform.operations.iap.SyncSteamInventory.builder()
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, SteamSyncRequest.class))
               .build();
-      wrapper.syncSteamInventory(operation);
+      wrapper.syncSteamInventory(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

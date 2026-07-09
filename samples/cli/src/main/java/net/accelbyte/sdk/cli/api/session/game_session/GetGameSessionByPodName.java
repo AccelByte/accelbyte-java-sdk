@@ -62,13 +62,14 @@ public class GetGameSessionByPodName implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameSession wrapper = new GameSession(sdk);
       final net.accelbyte.sdk.api.session.operations.game_session.GetGameSessionByPodName
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.game_session.GetGameSessionByPodName
                   .builder()
                   .namespace(namespace)
                   .podName(podName)
                   .build();
-      final ApimodelsGameSessionResponse response = wrapper.getGameSessionByPodName(operation);
+      final ApimodelsGameSessionResponse response =
+          wrapper.getGameSessionByPodName(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

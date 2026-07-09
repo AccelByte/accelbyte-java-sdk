@@ -64,14 +64,14 @@ public class AdminUpdateAvailablePermissionsByModule implements Callable<Integer
       final ClientsConfigV3 wrapper = new ClientsConfigV3(sdk);
       final net.accelbyte.sdk.api.iam.operations.clients_config_v3
               .AdminUpdateAvailablePermissionsByModule
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.clients_config_v3
                   .AdminUpdateAvailablePermissionsByModule.builder()
                   .forceDelete(forceDelete)
                   .body(
                       new ObjectMapper().readValue(body, ClientmodelListUpsertModulesRequest.class))
                   .build();
-      wrapper.adminUpdateAvailablePermissionsByModule(operation);
+      wrapper.adminUpdateAvailablePermissionsByModule(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

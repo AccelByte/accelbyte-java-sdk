@@ -73,7 +73,7 @@ public class RetrieveAllLegalPoliciesByNamespace implements Callable<Integer> {
       final BaseLegalPoliciesWithNamespace wrapper = new BaseLegalPoliciesWithNamespace(sdk);
       final net.accelbyte.sdk.api.legal.operations.base_legal_policies_with_namespace
               .RetrieveAllLegalPoliciesByNamespace
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.base_legal_policies_with_namespace
                   .RetrieveAllLegalPoliciesByNamespace.builder()
                   .namespace(namespace)
@@ -82,7 +82,7 @@ public class RetrieveAllLegalPoliciesByNamespace implements Callable<Integer> {
                   .visibleOnly(visibleOnly)
                   .build();
       final List<RetrieveBasePolicyResponse> response =
-          wrapper.retrieveAllLegalPoliciesByNamespace(operation);
+          wrapper.retrieveAllLegalPoliciesByNamespace(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

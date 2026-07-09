@@ -67,14 +67,15 @@ public class AdminRequestDataRetrieval implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final DataRetrieval wrapper = new DataRetrieval(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.data_retrieval.AdminRequestDataRetrieval
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.data_retrieval.AdminRequestDataRetrieval
                   .builder()
                   .namespace(namespace)
                   .userId(userId)
                   .password(password != null ? password : null)
                   .build();
-      final ModelsDataRetrievalResponse response = wrapper.adminRequestDataRetrieval(operation);
+      final ModelsDataRetrievalResponse response =
+          wrapper.adminRequestDataRetrieval(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

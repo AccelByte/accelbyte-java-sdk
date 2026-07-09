@@ -61,12 +61,13 @@ public class GetCountryGroups implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Misc wrapper = new Misc(sdk);
-      final net.accelbyte.sdk.api.basic.operations.misc.GetCountryGroups operation =
+      final net.accelbyte.sdk.api.basic.operations.misc.GetCountryGroups operationRequest =
           net.accelbyte.sdk.api.basic.operations.misc.GetCountryGroups.builder()
               .namespace(namespace)
               .groupCode(groupCode)
               .build();
-      final List<RetrieveCountryGroupResponse> response = wrapper.getCountryGroups(operation);
+      final List<RetrieveCountryGroupResponse> response =
+          wrapper.getCountryGroups(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

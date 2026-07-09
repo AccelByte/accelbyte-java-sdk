@@ -97,7 +97,7 @@ public class QueryThirdPartyNotifications implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAPNotification wrapper = new IAPNotification(sdk);
       final net.accelbyte.sdk.api.platform.operations.iap_notification.QueryThirdPartyNotifications
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.iap_notification
                   .QueryThirdPartyNotifications.builder()
                   .namespace(namespace)
@@ -111,7 +111,7 @@ public class QueryThirdPartyNotifications implements Callable<Integer> {
                   .type(type)
                   .build();
       final NotificationPagingSlicedResult response =
-          wrapper.queryThirdPartyNotifications(operation);
+          wrapper.queryThirdPartyNotifications(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

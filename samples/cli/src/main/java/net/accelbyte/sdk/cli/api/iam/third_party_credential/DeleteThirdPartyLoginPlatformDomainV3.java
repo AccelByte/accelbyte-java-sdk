@@ -69,14 +69,14 @@ public class DeleteThirdPartyLoginPlatformDomainV3 implements Callable<Integer> 
       final ThirdPartyCredential wrapper = new ThirdPartyCredential(sdk);
       final net.accelbyte.sdk.api.iam.operations.third_party_credential
               .DeleteThirdPartyLoginPlatformDomainV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.third_party_credential
                   .DeleteThirdPartyLoginPlatformDomainV3.builder()
                   .namespace(namespace)
                   .platformId(platformId)
                   .body(new ObjectMapper().readValue(body, ModelPlatformDomainDeleteRequest.class))
                   .build();
-      wrapper.deleteThirdPartyLoginPlatformDomainV3(operation);
+      wrapper.deleteThirdPartyLoginPlatformDomainV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -68,7 +68,7 @@ public class AdminUpdateInventoryConfiguration implements Callable<Integer> {
       final AdminInventoryConfigurations wrapper = new AdminInventoryConfigurations(sdk);
       final net.accelbyte.sdk.api.inventory.operations.admin_inventory_configurations
               .AdminUpdateInventoryConfiguration
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.inventory.operations.admin_inventory_configurations
                   .AdminUpdateInventoryConfiguration.builder()
                   .inventoryConfigurationId(inventoryConfigurationId)
@@ -77,7 +77,7 @@ public class AdminUpdateInventoryConfiguration implements Callable<Integer> {
                       new ObjectMapper().readValue(body, ApimodelsInventoryConfigurationReq.class))
                   .build();
       final ApimodelsInventoryConfigurationResp response =
-          wrapper.adminUpdateInventoryConfiguration(operation);
+          wrapper.adminUpdateInventoryConfiguration(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

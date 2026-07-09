@@ -71,14 +71,16 @@ public class DeleteMemberRolePublicV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GroupRoles wrapper = new GroupRoles(sdk);
-      final net.accelbyte.sdk.api.group.operations.group_roles.DeleteMemberRolePublicV2 operation =
-          net.accelbyte.sdk.api.group.operations.group_roles.DeleteMemberRolePublicV2.builder()
-              .groupId(groupId)
-              .memberRoleId(memberRoleId)
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ModelsRemoveRoleFromMemberRequestV1.class))
-              .build();
-      wrapper.deleteMemberRolePublicV2(operation);
+      final net.accelbyte.sdk.api.group.operations.group_roles.DeleteMemberRolePublicV2
+          operationRequest =
+              net.accelbyte.sdk.api.group.operations.group_roles.DeleteMemberRolePublicV2.builder()
+                  .groupId(groupId)
+                  .memberRoleId(memberRoleId)
+                  .namespace(namespace)
+                  .body(
+                      new ObjectMapper().readValue(body, ModelsRemoveRoleFromMemberRequestV1.class))
+                  .build();
+      wrapper.deleteMemberRolePublicV2(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

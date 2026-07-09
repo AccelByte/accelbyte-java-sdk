@@ -62,13 +62,14 @@ public class DeleteSQLDatabaseV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ManagedResourcesSQL wrapper = new ManagedResourcesSQL(sdk);
       final net.accelbyte.sdk.api.csm.operations.managed_resources_sql.DeleteSQLDatabaseV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.csm.operations.managed_resources_sql.DeleteSQLDatabaseV2
                   .builder()
                   .app(app)
                   .namespace(namespace)
                   .build();
-      final ApimodelSQLDatabaseDeleteResponse response = wrapper.deleteSQLDatabaseV2(operation);
+      final ApimodelSQLDatabaseDeleteResponse response =
+          wrapper.deleteSQLDatabaseV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

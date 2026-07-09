@@ -57,13 +57,13 @@ public class InitiateGroupConfigurationAdminV1 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Configuration wrapper = new Configuration(sdk);
       final net.accelbyte.sdk.api.group.operations.configuration.InitiateGroupConfigurationAdminV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.group.operations.configuration.InitiateGroupConfigurationAdminV1
                   .builder()
                   .namespace(namespace)
                   .build();
       final ModelsCreateGroupConfigurationResponseV1 response =
-          wrapper.initiateGroupConfigurationAdminV1(operation);
+          wrapper.initiateGroupConfigurationAdminV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -35,7 +35,7 @@ public class AdminBulkUpdateMyItems extends Operation {
       "/inventory/v1/admin/namespaces/{namespace}/users/{userId}/inventories/{inventoryId}/items";
 
   private String method = "PUT";
-  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
 

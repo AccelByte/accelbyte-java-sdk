@@ -70,14 +70,15 @@ public class PublicUpdateCustomAttributesPartially implements Callable<Integer> 
       final UserProfile wrapper = new UserProfile(sdk);
       final net.accelbyte.sdk.api.basic.operations.user_profile
               .PublicUpdateCustomAttributesPartially
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.basic.operations.user_profile
                   .PublicUpdateCustomAttributesPartially.builder()
                   .namespace(namespace)
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, new TypeReference<Map<String, ?>>() {}))
                   .build();
-      final Map<String, ?> response = wrapper.publicUpdateCustomAttributesPartially(operation);
+      final Map<String, ?> response =
+          wrapper.publicUpdateCustomAttributesPartially(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -81,17 +81,18 @@ public class QuerySteamReportHistories implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.QuerySteamReportHistories operation =
-          net.accelbyte.sdk.api.platform.operations.iap.QuerySteamReportHistories.builder()
-              .namespace(namespace)
-              .limit(limit)
-              .offset(offset)
-              .orderId(orderId)
-              .processStatus(processStatus)
-              .steamId(steamId)
-              .build();
+      final net.accelbyte.sdk.api.platform.operations.iap.QuerySteamReportHistories
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.iap.QuerySteamReportHistories.builder()
+                  .namespace(namespace)
+                  .limit(limit)
+                  .offset(offset)
+                  .orderId(orderId)
+                  .processStatus(processStatus)
+                  .steamId(steamId)
+                  .build();
       final SteamReportInfoPagingSlicedResult response =
-          wrapper.querySteamReportHistories(operation);
+          wrapper.querySteamReportHistories(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

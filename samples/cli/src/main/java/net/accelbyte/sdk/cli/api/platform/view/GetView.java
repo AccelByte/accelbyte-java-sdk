@@ -66,13 +66,13 @@ public class GetView implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final View wrapper = new View(sdk);
-      final net.accelbyte.sdk.api.platform.operations.view.GetView operation =
+      final net.accelbyte.sdk.api.platform.operations.view.GetView operationRequest =
           net.accelbyte.sdk.api.platform.operations.view.GetView.builder()
               .namespace(namespace)
               .viewId(viewId)
               .storeId(storeId)
               .build();
-      final FullViewInfo response = wrapper.getView(operation);
+      final FullViewInfo response = wrapper.getView(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

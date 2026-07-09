@@ -74,7 +74,7 @@ public class RequestTokenByOneTimeLinkCodeResponseV3 implements Callable<Integer
       final OAuth20Extension wrapper = new OAuth20Extension(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension
               .RequestTokenByOneTimeLinkCodeResponseV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension
                   .RequestTokenByOneTimeLinkCodeResponseV3.builder()
                   .additionalData(additionalData != null ? additionalData : null)
@@ -83,7 +83,7 @@ public class RequestTokenByOneTimeLinkCodeResponseV3 implements Callable<Integer
                   .oneTimeLinkCode(oneTimeLinkCode != null ? oneTimeLinkCode : null)
                   .build();
       final OauthmodelTokenResponseV3 response =
-          wrapper.requestTokenByOneTimeLinkCodeResponseV3(operation);
+          wrapper.requestTokenByOneTimeLinkCodeResponseV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

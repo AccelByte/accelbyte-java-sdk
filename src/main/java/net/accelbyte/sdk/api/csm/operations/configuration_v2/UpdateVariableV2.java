@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UpdateVariableV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:VARIABLE [UPDATE]`
- *
  * <p>Update an environment variable. Request body: - value : configuration value - Required. -
  * description : description of the configuration - Optional. - applyMask : mask the value in the
  * Helm manifest for sensitive information (true or false) - Optional.

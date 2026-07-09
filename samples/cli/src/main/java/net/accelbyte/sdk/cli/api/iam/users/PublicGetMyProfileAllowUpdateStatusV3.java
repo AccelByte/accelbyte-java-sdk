@@ -53,12 +53,12 @@ public class PublicGetMyProfileAllowUpdateStatusV3 implements Callable<Integer> 
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
       final net.accelbyte.sdk.api.iam.operations.users.PublicGetMyProfileAllowUpdateStatusV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.users.PublicGetMyProfileAllowUpdateStatusV3
                   .builder()
                   .build();
       final ModelUserProfileUpdateAllowStatus response =
-          wrapper.publicGetMyProfileAllowUpdateStatusV3(operation);
+          wrapper.publicGetMyProfileAllowUpdateStatusV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

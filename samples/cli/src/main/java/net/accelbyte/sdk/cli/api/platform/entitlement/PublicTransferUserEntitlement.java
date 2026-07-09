@@ -72,7 +72,7 @@ public class PublicTransferUserEntitlement implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement.PublicTransferUserEntitlement
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.entitlement.PublicTransferUserEntitlement
                   .builder()
                   .entitlementId(entitlementId)
@@ -80,7 +80,8 @@ public class PublicTransferUserEntitlement implements Callable<Integer> {
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, EntitlementTransferRequest.class))
                   .build();
-      final EntitlementTransferResult response = wrapper.publicTransferUserEntitlement(operation);
+      final EntitlementTransferResult response =
+          wrapper.publicTransferUserEntitlement(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

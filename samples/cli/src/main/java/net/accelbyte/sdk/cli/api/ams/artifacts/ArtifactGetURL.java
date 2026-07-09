@@ -61,12 +61,12 @@ public class ArtifactGetURL implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Artifacts wrapper = new Artifacts(sdk);
-      final net.accelbyte.sdk.api.ams.operations.artifacts.ArtifactGetURL operation =
+      final net.accelbyte.sdk.api.ams.operations.artifacts.ArtifactGetURL operationRequest =
           net.accelbyte.sdk.api.ams.operations.artifacts.ArtifactGetURL.builder()
               .artifactID(artifactID)
               .namespace(namespace)
               .build();
-      final ApiArtifactURLResponse response = wrapper.artifactGetURL(operation);
+      final ApiArtifactURLResponse response = wrapper.artifactGetURL(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

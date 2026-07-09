@@ -71,14 +71,15 @@ public class PublicProcessWebLinkPlatformV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.PublicProcessWebLinkPlatformV3 operation =
-          net.accelbyte.sdk.api.iam.operations.users.PublicProcessWebLinkPlatformV3.builder()
-              .namespace(namespace)
-              .platformId(platformId)
-              .code(code != null ? code : null)
-              .state(state != null ? state : null)
-              .build();
-      final ModelLinkRequest response = wrapper.publicProcessWebLinkPlatformV3(operation);
+      final net.accelbyte.sdk.api.iam.operations.users.PublicProcessWebLinkPlatformV3
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.users.PublicProcessWebLinkPlatformV3.builder()
+                  .namespace(namespace)
+                  .platformId(platformId)
+                  .code(code != null ? code : null)
+                  .state(state != null ? state : null)
+                  .build();
+      final ModelReAuthRequest response = wrapper.publicProcessWebLinkPlatformV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

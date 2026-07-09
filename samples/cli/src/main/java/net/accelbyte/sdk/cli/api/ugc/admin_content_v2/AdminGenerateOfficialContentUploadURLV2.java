@@ -74,7 +74,7 @@ public class AdminGenerateOfficialContentUploadURLV2 implements Callable<Integer
       final AdminContentV2 wrapper = new AdminContentV2(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_content_v2
               .AdminGenerateOfficialContentUploadURLV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.admin_content_v2
                   .AdminGenerateOfficialContentUploadURLV2.builder()
                   .channelId(channelId)
@@ -85,7 +85,7 @@ public class AdminGenerateOfficialContentUploadURLV2 implements Callable<Integer
                           .readValue(body, ModelsGenerateContentUploadURLRequest.class))
                   .build();
       final ModelsGenerateContentUploadURLResponse response =
-          wrapper.adminGenerateOfficialContentUploadURLV2(operation);
+          wrapper.adminGenerateOfficialContentUploadURLV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

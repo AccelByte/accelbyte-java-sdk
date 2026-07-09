@@ -56,11 +56,12 @@ public class GetResourcesLimits implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ResourcesLimits wrapper = new ResourcesLimits(sdk);
-      final net.accelbyte.sdk.api.csm.operations.resources_limits.GetResourcesLimits operation =
-          net.accelbyte.sdk.api.csm.operations.resources_limits.GetResourcesLimits.builder()
-              .namespace(namespace)
-              .build();
-      final ApimodelCSMAppLimitsResponse response = wrapper.getResourcesLimits(operation);
+      final net.accelbyte.sdk.api.csm.operations.resources_limits.GetResourcesLimits
+          operationRequest =
+              net.accelbyte.sdk.api.csm.operations.resources_limits.GetResourcesLimits.builder()
+                  .namespace(namespace)
+                  .build();
+      final ApimodelCSMAppLimitsResponse response = wrapper.getResourcesLimits(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

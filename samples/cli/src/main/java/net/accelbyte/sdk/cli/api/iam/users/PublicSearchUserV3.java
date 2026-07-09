@@ -86,7 +86,7 @@ public class PublicSearchUserV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.PublicSearchUserV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.users.PublicSearchUserV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.PublicSearchUserV3.builder()
               .namespace(namespace)
               .by(by)
@@ -96,7 +96,8 @@ public class PublicSearchUserV3 implements Callable<Integer> {
               .platformId(platformId)
               .query(query)
               .build();
-      final ModelPublicUserInformationResponseV3 response = wrapper.publicSearchUserV3(operation);
+      final ModelPublicUserInformationResponseV3 response =
+          wrapper.publicSearchUserV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

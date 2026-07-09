@@ -66,13 +66,13 @@ public class DeleteAppImagesV1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Image wrapper = new Image(sdk);
-      final net.accelbyte.sdk.api.csm.operations.image.DeleteAppImagesV1 operation =
+      final net.accelbyte.sdk.api.csm.operations.image.DeleteAppImagesV1 operationRequest =
           net.accelbyte.sdk.api.csm.operations.image.DeleteAppImagesV1.builder()
               .app(app)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, GeneratedDeleteAppImagesV1Request.class))
               .build();
-      wrapper.deleteAppImagesV1(operation);
+      wrapper.deleteAppImagesV1(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -57,13 +57,13 @@ public class OldRetrieveAcceptedAgreements implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Agreement wrapper = new Agreement(sdk);
       final net.accelbyte.sdk.api.legal.operations.agreement.OldRetrieveAcceptedAgreements
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.agreement.OldRetrieveAcceptedAgreements
                   .builder()
                   .userId(userId)
                   .build();
       final List<RetrieveAcceptedAgreementResponse> response =
-          wrapper.oldRetrieveAcceptedAgreements(operation);
+          wrapper.oldRetrieveAcceptedAgreements(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

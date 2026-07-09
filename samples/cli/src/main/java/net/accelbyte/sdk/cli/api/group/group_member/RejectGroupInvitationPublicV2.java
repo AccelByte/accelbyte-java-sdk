@@ -62,14 +62,14 @@ public class RejectGroupInvitationPublicV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GroupMember wrapper = new GroupMember(sdk);
       final net.accelbyte.sdk.api.group.operations.group_member.RejectGroupInvitationPublicV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.group.operations.group_member.RejectGroupInvitationPublicV2
                   .builder()
                   .groupId(groupId)
                   .namespace(namespace)
                   .build();
       final ModelsMemberRequestGroupResponseV1 response =
-          wrapper.rejectGroupInvitationPublicV2(operation);
+          wrapper.rejectGroupInvitationPublicV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

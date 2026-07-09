@@ -72,7 +72,7 @@ public class GetGroupInviteRequestPublicV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final MemberRequest wrapper = new MemberRequest(sdk);
       final net.accelbyte.sdk.api.group.operations.member_request.GetGroupInviteRequestPublicV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.group.operations.member_request.GetGroupInviteRequestPublicV2
                   .builder()
                   .groupId(groupId)
@@ -81,7 +81,7 @@ public class GetGroupInviteRequestPublicV2 implements Callable<Integer> {
                   .offset(offset)
                   .build();
       final ModelsGetMemberRequestsListResponseV1 response =
-          wrapper.getGroupInviteRequestPublicV2(operation);
+          wrapper.getGroupInviteRequestPublicV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

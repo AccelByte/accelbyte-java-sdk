@@ -21,9 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateSubscriptionHandler
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:ASYNCMESSAGING:SUBSCRIPTIONS
- * [CREATE]`
- *
  * <p>Subscribe App queue to given Topic name list inside a game namespace.
  */
 @Getter

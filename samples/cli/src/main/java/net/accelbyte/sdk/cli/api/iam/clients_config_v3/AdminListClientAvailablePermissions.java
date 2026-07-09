@@ -58,13 +58,13 @@ public class AdminListClientAvailablePermissions implements Callable<Integer> {
       final ClientsConfigV3 wrapper = new ClientsConfigV3(sdk);
       final net.accelbyte.sdk.api.iam.operations.clients_config_v3
               .AdminListClientAvailablePermissions
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.clients_config_v3
                   .AdminListClientAvailablePermissions.builder()
                   .excludePermissions(excludePermissions)
                   .build();
       final ClientmodelListClientPermissionSet response =
-          wrapper.adminListClientAvailablePermissions(operation);
+          wrapper.adminListClientAvailablePermissions(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

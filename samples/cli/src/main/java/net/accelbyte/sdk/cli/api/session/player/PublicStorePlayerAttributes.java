@@ -61,13 +61,16 @@ public class PublicStorePlayerAttributes implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Player wrapper = new Player(sdk);
-      final net.accelbyte.sdk.api.session.operations.player.PublicStorePlayerAttributes operation =
-          net.accelbyte.sdk.api.session.operations.player.PublicStorePlayerAttributes.builder()
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ApimodelsPlayerAttributesRequestBody.class))
-              .build();
+      final net.accelbyte.sdk.api.session.operations.player.PublicStorePlayerAttributes
+          operationRequest =
+              net.accelbyte.sdk.api.session.operations.player.PublicStorePlayerAttributes.builder()
+                  .namespace(namespace)
+                  .body(
+                      new ObjectMapper()
+                          .readValue(body, ApimodelsPlayerAttributesRequestBody.class))
+                  .build();
       final ApimodelsPlayerAttributesResponseBody response =
-          wrapper.publicStorePlayerAttributes(operation);
+          wrapper.publicStorePlayerAttributes(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

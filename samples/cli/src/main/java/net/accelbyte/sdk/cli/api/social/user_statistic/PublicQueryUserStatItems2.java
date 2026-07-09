@@ -79,7 +79,7 @@ public class PublicQueryUserStatItems2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserStatistic wrapper = new UserStatistic(sdk);
       final net.accelbyte.sdk.api.social.operations.user_statistic.PublicQueryUserStatItems2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.social.operations.user_statistic.PublicQueryUserStatItems2
                   .builder()
                   .namespace(namespace)
@@ -89,7 +89,7 @@ public class PublicQueryUserStatItems2 implements Callable<Integer> {
                   .tags(tags)
                   .build();
       final List<ADTOObjectForUserStatItemValue> response =
-          wrapper.publicQueryUserStatItems2(operation);
+          wrapper.publicQueryUserStatItems2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

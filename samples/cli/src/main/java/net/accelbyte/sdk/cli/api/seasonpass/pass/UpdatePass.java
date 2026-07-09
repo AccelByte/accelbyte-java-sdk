@@ -71,14 +71,14 @@ public class UpdatePass implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Pass wrapper = new Pass(sdk);
-      final net.accelbyte.sdk.api.seasonpass.operations.pass.UpdatePass operation =
+      final net.accelbyte.sdk.api.seasonpass.operations.pass.UpdatePass operationRequest =
           net.accelbyte.sdk.api.seasonpass.operations.pass.UpdatePass.builder()
               .code(code)
               .namespace(namespace)
               .seasonId(seasonId)
               .body(new ObjectMapper().readValue(body, PassUpdate.class))
               .build();
-      final PassInfo response = wrapper.updatePass(operation);
+      final PassInfo response = wrapper.updatePass(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

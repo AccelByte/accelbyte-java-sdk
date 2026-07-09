@@ -87,7 +87,7 @@ public class DevelopmentServerConfigurationList implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Development wrapper = new Development(sdk);
       final net.accelbyte.sdk.api.ams.operations.development.DevelopmentServerConfigurationList
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ams.operations.development.DevelopmentServerConfigurationList
                   .builder()
                   .namespace(namespace)
@@ -99,7 +99,7 @@ public class DevelopmentServerConfigurationList implements Callable<Integer> {
                   .sortDirection(sortDirection)
                   .build();
       final ApiDevelopmentServerConfigurationListResponse response =
-          wrapper.developmentServerConfigurationList(operation);
+          wrapper.developmentServerConfigurationList(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

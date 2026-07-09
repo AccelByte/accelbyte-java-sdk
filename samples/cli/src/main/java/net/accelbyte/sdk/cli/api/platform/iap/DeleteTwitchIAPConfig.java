@@ -55,11 +55,11 @@ public class DeleteTwitchIAPConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.DeleteTwitchIAPConfig operation =
+      final net.accelbyte.sdk.api.platform.operations.iap.DeleteTwitchIAPConfig operationRequest =
           net.accelbyte.sdk.api.platform.operations.iap.DeleteTwitchIAPConfig.builder()
               .namespace(namespace)
               .build();
-      wrapper.deleteTwitchIAPConfig(operation);
+      wrapper.deleteTwitchIAPConfig(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

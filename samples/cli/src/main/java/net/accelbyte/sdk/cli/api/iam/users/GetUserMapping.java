@@ -66,13 +66,13 @@ public class GetUserMapping implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.GetUserMapping operation =
+      final net.accelbyte.sdk.api.iam.operations.users.GetUserMapping operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.GetUserMapping.builder()
               .namespace(namespace)
               .targetNamespace(targetNamespace)
               .userId(userId)
               .build();
-      final ModelGetUserMapping response = wrapper.getUserMapping(operation);
+      final ModelGetUserMapping response = wrapper.getUserMapping(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

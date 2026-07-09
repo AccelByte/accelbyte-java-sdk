@@ -67,7 +67,7 @@ public class AdminUpdateCountryAgeRestrictionV3 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
       final net.accelbyte.sdk.api.iam.operations.users.AdminUpdateCountryAgeRestrictionV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.users.AdminUpdateCountryAgeRestrictionV3
                   .builder()
                   .countryCode(countryCode)
@@ -75,7 +75,8 @@ public class AdminUpdateCountryAgeRestrictionV3 implements Callable<Integer> {
                   .body(
                       new ObjectMapper().readValue(body, ModelCountryAgeRestrictionV3Request.class))
                   .build();
-      final ModelCountryV3Response response = wrapper.adminUpdateCountryAgeRestrictionV3(operation);
+      final ModelCountryV3Response response =
+          wrapper.adminUpdateCountryAgeRestrictionV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

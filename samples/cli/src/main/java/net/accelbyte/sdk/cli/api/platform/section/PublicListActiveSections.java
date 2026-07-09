@@ -86,17 +86,18 @@ public class PublicListActiveSections implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Section wrapper = new Section(sdk);
-      final net.accelbyte.sdk.api.platform.operations.section.PublicListActiveSections operation =
-          net.accelbyte.sdk.api.platform.operations.section.PublicListActiveSections.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .autoCalcEstimatedPrice(autoCalcEstimatedPrice)
-              .language(language)
-              .region(region)
-              .storeId(storeId)
-              .viewId(viewId)
-              .build();
-      final List<SectionInfo> response = wrapper.publicListActiveSections(operation);
+      final net.accelbyte.sdk.api.platform.operations.section.PublicListActiveSections
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.section.PublicListActiveSections.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .autoCalcEstimatedPrice(autoCalcEstimatedPrice)
+                  .language(language)
+                  .region(region)
+                  .storeId(storeId)
+                  .viewId(viewId)
+                  .build();
+      final List<SectionInfo> response = wrapper.publicListActiveSections(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

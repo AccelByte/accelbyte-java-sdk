@@ -79,7 +79,7 @@ public class PublicQueryUserEntitlementsByAppType implements Callable<Integer> {
       final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement
               .PublicQueryUserEntitlementsByAppType
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.entitlement
                   .PublicQueryUserEntitlementsByAppType.builder()
                   .namespace(namespace)
@@ -89,7 +89,7 @@ public class PublicQueryUserEntitlementsByAppType implements Callable<Integer> {
                   .appType(appType)
                   .build();
       final AppEntitlementPagingSlicedResult response =
-          wrapper.publicQueryUserEntitlementsByAppType(operation);
+          wrapper.publicQueryUserEntitlementsByAppType(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

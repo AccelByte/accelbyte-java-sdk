@@ -61,13 +61,13 @@ public class DeleteOculusSubscriptionTier implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAPSubscription wrapper = new IAPSubscription(sdk);
       final net.accelbyte.sdk.api.platform.operations.iap_subscription.DeleteOculusSubscriptionTier
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.iap_subscription
                   .DeleteOculusSubscriptionTier.builder()
                   .namespace(namespace)
                   .sku(sku)
                   .build();
-      wrapper.deleteOculusSubscriptionTier(operation);
+      wrapper.deleteOculusSubscriptionTier(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

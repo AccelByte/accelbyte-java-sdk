@@ -52,11 +52,12 @@ public class AdminGetInputValidations implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final InputValidations wrapper = new InputValidations(sdk);
       final net.accelbyte.sdk.api.iam.operations.input_validations.AdminGetInputValidations
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.input_validations.AdminGetInputValidations
                   .builder()
                   .build();
-      final ModelInputValidationsResponse response = wrapper.adminGetInputValidations(operation);
+      final ModelInputValidationsResponse response =
+          wrapper.adminGetInputValidations(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

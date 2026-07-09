@@ -107,7 +107,7 @@ public class AdminGetInboxMessages implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Inbox wrapper = new Inbox(sdk);
-      final net.accelbyte.sdk.api.chat.operations.inbox.AdminGetInboxMessages operation =
+      final net.accelbyte.sdk.api.chat.operations.inbox.AdminGetInboxMessages operationRequest =
           net.accelbyte.sdk.api.chat.operations.inbox.AdminGetInboxMessages.builder()
               .namespace(namespace)
               .activeOnly(activeOnly)
@@ -121,7 +121,8 @@ public class AdminGetInboxMessages implements Callable<Integer> {
               .status(status)
               .transient_(transient_)
               .build();
-      final ModelsGetInboxMessagesResponse response = wrapper.adminGetInboxMessages(operation);
+      final ModelsGetInboxMessagesResponse response =
+          wrapper.adminGetInboxMessages(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

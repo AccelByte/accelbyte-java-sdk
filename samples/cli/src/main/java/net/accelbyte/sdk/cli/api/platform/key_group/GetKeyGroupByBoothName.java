@@ -61,12 +61,13 @@ public class GetKeyGroupByBoothName implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final KeyGroup wrapper = new KeyGroup(sdk);
-      final net.accelbyte.sdk.api.platform.operations.key_group.GetKeyGroupByBoothName operation =
-          net.accelbyte.sdk.api.platform.operations.key_group.GetKeyGroupByBoothName.builder()
-              .namespace(namespace)
-              .boothName(boothName)
-              .build();
-      final KeyGroupInfo response = wrapper.getKeyGroupByBoothName(operation);
+      final net.accelbyte.sdk.api.platform.operations.key_group.GetKeyGroupByBoothName
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.key_group.GetKeyGroupByBoothName.builder()
+                  .namespace(namespace)
+                  .boothName(boothName)
+                  .build();
+      final KeyGroupInfo response = wrapper.getKeyGroupByBoothName(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

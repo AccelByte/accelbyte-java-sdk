@@ -64,14 +64,14 @@ public class PublicQueryGameSessionsByAttributes implements Callable<Integer> {
       final GameSession wrapper = new GameSession(sdk);
       final net.accelbyte.sdk.api.session.operations.game_session
               .PublicQueryGameSessionsByAttributes
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.game_session
                   .PublicQueryGameSessionsByAttributes.builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, new TypeReference<Map<String, ?>>() {}))
                   .build();
       final ApimodelsGameSessionQueryResponse response =
-          wrapper.publicQueryGameSessionsByAttributes(operation);
+          wrapper.publicQueryGameSessionsByAttributes(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

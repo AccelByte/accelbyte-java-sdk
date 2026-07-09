@@ -61,12 +61,12 @@ public class AdminDeleteTopic implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Topic wrapper = new Topic(sdk);
-      final net.accelbyte.sdk.api.chat.operations.topic.AdminDeleteTopic operation =
+      final net.accelbyte.sdk.api.chat.operations.topic.AdminDeleteTopic operationRequest =
           net.accelbyte.sdk.api.chat.operations.topic.AdminDeleteTopic.builder()
               .namespace(namespace)
               .topic(topic)
               .build();
-      final MessageActionDeleteTopicResult response = wrapper.adminDeleteTopic(operation);
+      final MessageActionDeleteTopicResult response = wrapper.adminDeleteTopic(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

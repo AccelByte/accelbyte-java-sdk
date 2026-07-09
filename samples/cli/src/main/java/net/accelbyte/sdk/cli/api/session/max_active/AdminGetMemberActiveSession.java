@@ -67,14 +67,15 @@ public class AdminGetMemberActiveSession implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final MaxActive wrapper = new MaxActive(sdk);
       final net.accelbyte.sdk.api.session.operations.max_active.AdminGetMemberActiveSession
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.max_active.AdminGetMemberActiveSession
                   .builder()
                   .name(name)
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      final ModelsMemberActiveSession response = wrapper.adminGetMemberActiveSession(operation);
+      final ModelsMemberActiveSession response =
+          wrapper.adminGetMemberActiveSession(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

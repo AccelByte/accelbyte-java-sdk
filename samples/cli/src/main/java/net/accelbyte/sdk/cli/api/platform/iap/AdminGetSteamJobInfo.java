@@ -56,11 +56,11 @@ public class AdminGetSteamJobInfo implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.AdminGetSteamJobInfo operation =
+      final net.accelbyte.sdk.api.platform.operations.iap.AdminGetSteamJobInfo operationRequest =
           net.accelbyte.sdk.api.platform.operations.iap.AdminGetSteamJobInfo.builder()
               .namespace(namespace)
               .build();
-      final List<SteamReportJobInfo> response = wrapper.adminGetSteamJobInfo(operation);
+      final List<SteamReportJobInfo> response = wrapper.adminGetSteamJobInfo(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

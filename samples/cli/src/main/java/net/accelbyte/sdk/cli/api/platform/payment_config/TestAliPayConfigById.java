@@ -62,13 +62,13 @@ public class TestAliPayConfigById implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PaymentConfig wrapper = new PaymentConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_config.TestAliPayConfigById
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.payment_config.TestAliPayConfigById
                   .builder()
                   .id(id)
                   .sandbox(sandbox)
                   .build();
-      final TestResult response = wrapper.testAliPayConfigById(operation);
+      final TestResult response = wrapper.testAliPayConfigById(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -91,19 +91,20 @@ public class QueryUserIAPConsumeHistory implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.QueryUserIAPConsumeHistory operation =
-          net.accelbyte.sdk.api.platform.operations.iap.QueryUserIAPConsumeHistory.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .endTime(endTime)
-              .limit(limit)
-              .offset(offset)
-              .startTime(startTime)
-              .status(status)
-              .type(type)
-              .build();
+      final net.accelbyte.sdk.api.platform.operations.iap.QueryUserIAPConsumeHistory
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.iap.QueryUserIAPConsumeHistory.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .endTime(endTime)
+                  .limit(limit)
+                  .offset(offset)
+                  .startTime(startTime)
+                  .status(status)
+                  .type(type)
+                  .build();
       final IAPConsumeHistoryPagingSlicedResult response =
-          wrapper.queryUserIAPConsumeHistory(operation);
+          wrapper.queryUserIAPConsumeHistory(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

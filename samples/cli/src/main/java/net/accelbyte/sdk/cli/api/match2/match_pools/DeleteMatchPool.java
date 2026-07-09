@@ -60,12 +60,12 @@ public class DeleteMatchPool implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final MatchPools wrapper = new MatchPools(sdk);
-      final net.accelbyte.sdk.api.match2.operations.match_pools.DeleteMatchPool operation =
+      final net.accelbyte.sdk.api.match2.operations.match_pools.DeleteMatchPool operationRequest =
           net.accelbyte.sdk.api.match2.operations.match_pools.DeleteMatchPool.builder()
               .namespace(namespace)
               .pool(pool)
               .build();
-      wrapper.deleteMatchPool(operation);
+      wrapper.deleteMatchPool(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

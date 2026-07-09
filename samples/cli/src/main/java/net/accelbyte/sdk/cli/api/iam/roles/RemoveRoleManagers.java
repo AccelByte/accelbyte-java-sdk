@@ -61,12 +61,12 @@ public class RemoveRoleManagers implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Roles wrapper = new Roles(sdk);
-      final net.accelbyte.sdk.api.iam.operations.roles.RemoveRoleManagers operation =
+      final net.accelbyte.sdk.api.iam.operations.roles.RemoveRoleManagers operationRequest =
           net.accelbyte.sdk.api.iam.operations.roles.RemoveRoleManagers.builder()
               .roleId(roleId)
               .body(new ObjectMapper().readValue(body, ModelRoleManagersRequest.class))
               .build();
-      wrapper.removeRoleManagers(operation);
+      wrapper.removeRoleManagers(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

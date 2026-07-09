@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * MatchTicketDetails
  *
- * <p>Get details for a specific match ticket
+ * <p>Get details for a specific match ticket, including its current matching status and the session
+ * ID if a match has been found.
  */
 @Getter
 @Setter

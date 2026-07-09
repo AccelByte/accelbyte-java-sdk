@@ -68,7 +68,7 @@ public class AdminGetNamespaceUserInvitationHistoryV4 implements Callable<Intege
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UsersV4 wrapper = new UsersV4(sdk);
       final net.accelbyte.sdk.api.iam.operations.users_v4.AdminGetNamespaceUserInvitationHistoryV4
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.users_v4.AdminGetNamespaceUserInvitationHistoryV4
                   .builder()
                   .namespace(namespace)
@@ -76,7 +76,7 @@ public class AdminGetNamespaceUserInvitationHistoryV4 implements Callable<Intege
                   .offset(offset)
                   .build();
       final ModelNamespaceInvitationHistoryUserV4Response response =
-          wrapper.adminGetNamespaceUserInvitationHistoryV4(operation);
+          wrapper.adminGetNamespaceUserInvitationHistoryV4(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

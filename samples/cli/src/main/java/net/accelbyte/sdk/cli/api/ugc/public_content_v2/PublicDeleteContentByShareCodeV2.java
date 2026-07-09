@@ -71,7 +71,7 @@ public class PublicDeleteContentByShareCodeV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicContentV2 wrapper = new PublicContentV2(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_content_v2.PublicDeleteContentByShareCodeV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.public_content_v2
                   .PublicDeleteContentByShareCodeV2.builder()
                   .channelId(channelId)
@@ -79,7 +79,7 @@ public class PublicDeleteContentByShareCodeV2 implements Callable<Integer> {
                   .shareCode(shareCode)
                   .userId(userId)
                   .build();
-      wrapper.publicDeleteContentByShareCodeV2(operation);
+      wrapper.publicDeleteContentByShareCodeV2(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -66,13 +66,14 @@ public class DeleteRewardConditionRecord implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Reward wrapper = new Reward(sdk);
-      final net.accelbyte.sdk.api.platform.operations.reward.DeleteRewardConditionRecord operation =
-          net.accelbyte.sdk.api.platform.operations.reward.DeleteRewardConditionRecord.builder()
-              .namespace(namespace)
-              .rewardId(rewardId)
-              .body(new ObjectMapper().readValue(body, DeleteRewardConditionRequest.class))
-              .build();
-      wrapper.deleteRewardConditionRecord(operation);
+      final net.accelbyte.sdk.api.platform.operations.reward.DeleteRewardConditionRecord
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.reward.DeleteRewardConditionRecord.builder()
+                  .namespace(namespace)
+                  .rewardId(rewardId)
+                  .body(new ObjectMapper().readValue(body, DeleteRewardConditionRequest.class))
+                  .build();
+      wrapper.deleteRewardConditionRecord(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

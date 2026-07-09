@@ -72,7 +72,7 @@ public class GetUserParticipatedSeasons implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Season wrapper = new Season(sdk);
       final net.accelbyte.sdk.api.seasonpass.operations.season.GetUserParticipatedSeasons
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.seasonpass.operations.season.GetUserParticipatedSeasons
                   .builder()
                   .namespace(namespace)
@@ -81,7 +81,7 @@ public class GetUserParticipatedSeasons implements Callable<Integer> {
                   .offset(offset)
                   .build();
       final ListUserSeasonInfoPagingSlicedResult response =
-          wrapper.getUserParticipatedSeasons(operation);
+          wrapper.getUserParticipatedSeasons(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -20,8 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteVariableV1
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:VARIABLE [DELETE]`
- *
  * <p>Delete an environment variable.
  *
  * @deprecated

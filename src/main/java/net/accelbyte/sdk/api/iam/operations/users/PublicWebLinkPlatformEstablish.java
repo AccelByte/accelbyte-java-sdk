@@ -20,9 +20,18 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicWebLinkPlatformEstablish
  *
- * <p>Used by a third party to redirect the code for the purpose of linking the third party account
- * to an IAM account. Supported platforms: - ps4web - xblweb - steamopenid - epicgames - facebook -
- * twitch - google - apple - snapchat - discord - amazon - oculusweb
+ * <p>Callback endpoint for the third party to redirect to after authentication to complete the
+ * linking process for the IAM account. After successfully perform the account linking, it will
+ * redirect to the **redirectUri** defined when calling the `GET
+ * /users/me/platforms/{platformId}/web/link` endpoint.
+ *
+ * <p>Supported platforms: - ps4web - xblweb - steamopenid - epicgames - facebook - twitch - google
+ * - apple - snapchat - discord - amazon - oculusweb
+ *
+ * <p>## New API version
+ *
+ * <p>This API remains fully functional, but `GET
+ * /users/me/platforms/{platformId}/web/reauth/establish` is recommended for new integrations.
  */
 @Getter
 @Setter

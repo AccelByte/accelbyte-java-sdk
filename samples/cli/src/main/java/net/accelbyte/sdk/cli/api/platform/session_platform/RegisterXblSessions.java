@@ -67,14 +67,14 @@ public class RegisterXblSessions implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final SessionPlatform wrapper = new SessionPlatform(sdk);
       final net.accelbyte.sdk.api.platform.operations.session_platform.RegisterXblSessions
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.session_platform.RegisterXblSessions
                   .builder()
                   .namespace(namespace)
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, XblUserSessionRequest.class))
                   .build();
-      final Map<String, ?> response = wrapper.registerXblSessions(operation);
+      final Map<String, ?> response = wrapper.registerXblSessions(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

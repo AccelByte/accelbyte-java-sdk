@@ -61,12 +61,12 @@ public class AdminCreateTopic implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Topic wrapper = new Topic(sdk);
-      final net.accelbyte.sdk.api.chat.operations.topic.AdminCreateTopic operation =
+      final net.accelbyte.sdk.api.chat.operations.topic.AdminCreateTopic operationRequest =
           net.accelbyte.sdk.api.chat.operations.topic.AdminCreateTopic.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ApiCreateTopicParams.class))
               .build();
-      final ApiCreateTopicResponse response = wrapper.adminCreateTopic(operation);
+      final ApiCreateTopicResponse response = wrapper.adminCreateTopic(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -65,13 +65,13 @@ public class EnableUserWallet implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Wallet wrapper = new Wallet(sdk);
-      final net.accelbyte.sdk.api.platform.operations.wallet.EnableUserWallet operation =
+      final net.accelbyte.sdk.api.platform.operations.wallet.EnableUserWallet operationRequest =
           net.accelbyte.sdk.api.platform.operations.wallet.EnableUserWallet.builder()
               .namespace(namespace)
               .userId(userId)
               .walletId(walletId)
               .build();
-      wrapper.enableUserWallet(operation);
+      wrapper.enableUserWallet(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

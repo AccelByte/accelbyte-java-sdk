@@ -63,13 +63,13 @@ public class UpdateServicePluginConfig implements Callable<Integer> {
       final ServicePluginConfig wrapper = new ServicePluginConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.service_plugin_config
               .UpdateServicePluginConfig
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.service_plugin_config
                   .UpdateServicePluginConfig.builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ServicePluginConfigUpdate.class))
                   .build();
-      final ServicePluginConfigInfo response = wrapper.updateServicePluginConfig(operation);
+      final ServicePluginConfigInfo response = wrapper.updateServicePluginConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

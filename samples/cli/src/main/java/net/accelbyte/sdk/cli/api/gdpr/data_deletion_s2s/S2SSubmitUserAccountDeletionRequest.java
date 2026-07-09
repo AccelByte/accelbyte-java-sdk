@@ -63,14 +63,14 @@ public class S2SSubmitUserAccountDeletionRequest implements Callable<Integer> {
       final DataDeletionS2S wrapper = new DataDeletionS2S(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.data_deletion_s2s
               .S2SSubmitUserAccountDeletionRequest
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.data_deletion_s2s
                   .S2SSubmitUserAccountDeletionRequest.builder()
                   .namespace(namespace)
                   .userId(userId)
                   .build();
       final ModelsS2SRequestDeleteResponse response =
-          wrapper.s2sSubmitUserAccountDeletionRequest(operation);
+          wrapper.s2sSubmitUserAccountDeletionRequest(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

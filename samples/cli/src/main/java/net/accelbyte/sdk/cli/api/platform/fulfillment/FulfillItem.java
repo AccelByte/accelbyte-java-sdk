@@ -66,13 +66,13 @@ public class FulfillItem implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Fulfillment wrapper = new Fulfillment(sdk);
-      final net.accelbyte.sdk.api.platform.operations.fulfillment.FulfillItem operation =
+      final net.accelbyte.sdk.api.platform.operations.fulfillment.FulfillItem operationRequest =
           net.accelbyte.sdk.api.platform.operations.fulfillment.FulfillItem.builder()
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, FulfillmentRequest.class))
               .build();
-      final FulfillmentResult response = wrapper.fulfillItem(operation);
+      final FulfillmentResult response = wrapper.fulfillItem(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

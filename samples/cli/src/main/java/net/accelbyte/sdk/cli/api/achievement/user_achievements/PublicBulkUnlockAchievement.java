@@ -68,7 +68,7 @@ public class PublicBulkUnlockAchievement implements Callable<Integer> {
       final UserAchievements wrapper = new UserAchievements(sdk);
       final net.accelbyte.sdk.api.achievement.operations.user_achievements
               .PublicBulkUnlockAchievement
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.achievement.operations.user_achievements
                   .PublicBulkUnlockAchievement.builder()
                   .namespace(namespace)
@@ -77,7 +77,7 @@ public class PublicBulkUnlockAchievement implements Callable<Integer> {
                       new ObjectMapper().readValue(body, ModelsBulkUnlockAchievementRequest.class))
                   .build();
       final List<ModelsBulkUnlockAchievementResponse> response =
-          wrapper.publicBulkUnlockAchievement(operation);
+          wrapper.publicBulkUnlockAchievement(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

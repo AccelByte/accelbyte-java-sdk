@@ -66,13 +66,13 @@ public class RenameBatch implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Campaign wrapper = new Campaign(sdk);
-      final net.accelbyte.sdk.api.platform.operations.campaign.RenameBatch operation =
+      final net.accelbyte.sdk.api.platform.operations.campaign.RenameBatch operationRequest =
           net.accelbyte.sdk.api.platform.operations.campaign.RenameBatch.builder()
               .campaignId(campaignId)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, CampaignBatchNameChange.class))
               .build();
-      wrapper.renameBatch(operation);
+      wrapper.renameBatch(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

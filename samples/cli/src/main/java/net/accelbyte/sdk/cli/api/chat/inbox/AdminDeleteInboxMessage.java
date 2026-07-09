@@ -65,13 +65,13 @@ public class AdminDeleteInboxMessage implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Inbox wrapper = new Inbox(sdk);
-      final net.accelbyte.sdk.api.chat.operations.inbox.AdminDeleteInboxMessage operation =
+      final net.accelbyte.sdk.api.chat.operations.inbox.AdminDeleteInboxMessage operationRequest =
           net.accelbyte.sdk.api.chat.operations.inbox.AdminDeleteInboxMessage.builder()
               .messageId(messageId)
               .namespace(namespace)
               .force(force)
               .build();
-      wrapper.adminDeleteInboxMessage(operation);
+      wrapper.adminDeleteInboxMessage(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -79,7 +79,7 @@ public class GetCurrentMonthLeaderboardRankingAdminV1 implements Callable<Intege
       final LeaderboardData wrapper = new LeaderboardData(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data
               .GetCurrentMonthLeaderboardRankingAdminV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data
                   .GetCurrentMonthLeaderboardRankingAdminV1.builder()
                   .leaderboardCode(leaderboardCode)
@@ -89,7 +89,7 @@ public class GetCurrentMonthLeaderboardRankingAdminV1 implements Callable<Intege
                   .previousVersion(previousVersion)
                   .build();
       final ModelsGetLeaderboardRankingResp response =
-          wrapper.getCurrentMonthLeaderboardRankingAdminV1(operation);
+          wrapper.getCurrentMonthLeaderboardRankingAdminV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

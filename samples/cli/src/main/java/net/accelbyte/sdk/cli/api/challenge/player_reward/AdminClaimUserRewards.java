@@ -67,14 +67,14 @@ public class AdminClaimUserRewards implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PlayerReward wrapper = new PlayerReward(sdk);
       final net.accelbyte.sdk.api.challenge.operations.player_reward.AdminClaimUserRewards
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.challenge.operations.player_reward.AdminClaimUserRewards
                   .builder()
                   .namespace(namespace)
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, ModelClaimUserRewardsReq.class))
                   .build();
-      final List<ModelUserReward> response = wrapper.adminClaimUserRewards(operation);
+      final List<ModelUserReward> response = wrapper.adminClaimUserRewards(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

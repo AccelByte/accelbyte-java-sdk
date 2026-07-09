@@ -67,14 +67,14 @@ public class DeletePlayerBinaryRecordV1 implements Callable<Integer> {
       final PublicPlayerBinaryRecord wrapper = new PublicPlayerBinaryRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.public_player_binary_record
               .DeletePlayerBinaryRecordV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.public_player_binary_record
                   .DeletePlayerBinaryRecordV1.builder()
                   .key(key)
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      wrapper.deletePlayerBinaryRecordV1(operation);
+      wrapper.deletePlayerBinaryRecordV1(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -61,12 +61,13 @@ public class AdminCreateTestUsersV4 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UsersV4 wrapper = new UsersV4(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users_v4.AdminCreateTestUsersV4 operation =
+      final net.accelbyte.sdk.api.iam.operations.users_v4.AdminCreateTestUsersV4 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users_v4.AdminCreateTestUsersV4.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, AccountCreateTestUsersRequestV4.class))
               .build();
-      final AccountCreateTestUsersResponseV4 response = wrapper.adminCreateTestUsersV4(operation);
+      final AccountCreateTestUsersResponseV4 response =
+          wrapper.adminCreateTestUsersV4(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

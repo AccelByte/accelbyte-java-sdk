@@ -78,7 +78,7 @@ public class AdminRetrieveEligibilities implements Callable<Integer> {
       final AdminUserEligibilities wrapper = new AdminUserEligibilities(sdk);
       final net.accelbyte.sdk.api.legal.operations.admin_user_eligibilities
               .AdminRetrieveEligibilities
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.admin_user_eligibilities
                   .AdminRetrieveEligibilities.builder()
                   .namespace(namespace)
@@ -88,7 +88,7 @@ public class AdminRetrieveEligibilities implements Callable<Integer> {
                   .countryCode(countryCode)
                   .build();
       final RetrieveUserEligibilitiesIndirectResponse response =
-          wrapper.adminRetrieveEligibilities(operation);
+          wrapper.adminRetrieveEligibilities(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

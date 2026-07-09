@@ -22,9 +22,10 @@ public class ChallengeList {
   }
 
   /**
-   * @see GetChallenges
+   * @see PublicGetChallenges
    */
-  public ModelListChallengeResponse getChallenges(GetChallenges input) throws Exception {
+  public ModelListChallengeResponse publicGetChallenges(PublicGetChallenges input)
+      throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

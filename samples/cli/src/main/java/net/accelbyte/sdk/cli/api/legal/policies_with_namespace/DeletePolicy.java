@@ -60,12 +60,13 @@ public class DeletePolicy implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PoliciesWithNamespace wrapper = new PoliciesWithNamespace(sdk);
-      final net.accelbyte.sdk.api.legal.operations.policies_with_namespace.DeletePolicy operation =
-          net.accelbyte.sdk.api.legal.operations.policies_with_namespace.DeletePolicy.builder()
-              .namespace(namespace)
-              .policyId(policyId)
-              .build();
-      wrapper.deletePolicy(operation);
+      final net.accelbyte.sdk.api.legal.operations.policies_with_namespace.DeletePolicy
+          operationRequest =
+              net.accelbyte.sdk.api.legal.operations.policies_with_namespace.DeletePolicy.builder()
+                  .namespace(namespace)
+                  .policyId(policyId)
+                  .build();
+      wrapper.deletePolicy(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

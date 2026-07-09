@@ -66,13 +66,15 @@ public class KickGroupMemberPublicV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GroupMember wrapper = new GroupMember(sdk);
-      final net.accelbyte.sdk.api.group.operations.group_member.KickGroupMemberPublicV2 operation =
-          net.accelbyte.sdk.api.group.operations.group_member.KickGroupMemberPublicV2.builder()
-              .groupId(groupId)
-              .namespace(namespace)
-              .userId(userId)
-              .build();
-      final ModelsKickGroupMemberResponseV1 response = wrapper.kickGroupMemberPublicV2(operation);
+      final net.accelbyte.sdk.api.group.operations.group_member.KickGroupMemberPublicV2
+          operationRequest =
+              net.accelbyte.sdk.api.group.operations.group_member.KickGroupMemberPublicV2.builder()
+                  .groupId(groupId)
+                  .namespace(namespace)
+                  .userId(userId)
+                  .build();
+      final ModelsKickGroupMemberResponseV1 response =
+          wrapper.kickGroupMemberPublicV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

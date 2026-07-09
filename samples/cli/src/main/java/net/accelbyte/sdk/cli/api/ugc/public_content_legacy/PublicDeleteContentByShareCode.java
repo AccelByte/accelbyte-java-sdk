@@ -72,7 +72,7 @@ public class PublicDeleteContentByShareCode implements Callable<Integer> {
       final PublicContentLegacy wrapper = new PublicContentLegacy(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_content_legacy
               .PublicDeleteContentByShareCode
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.public_content_legacy
                   .PublicDeleteContentByShareCode.builder()
                   .channelId(channelId)
@@ -80,7 +80,7 @@ public class PublicDeleteContentByShareCode implements Callable<Integer> {
                   .shareCode(shareCode)
                   .userId(userId)
                   .build();
-      wrapper.publicDeleteContentByShareCode(operation);
+      wrapper.publicDeleteContentByShareCode(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

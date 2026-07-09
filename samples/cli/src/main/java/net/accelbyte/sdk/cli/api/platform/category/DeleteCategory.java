@@ -66,13 +66,13 @@ public class DeleteCategory implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Category wrapper = new Category(sdk);
-      final net.accelbyte.sdk.api.platform.operations.category.DeleteCategory operation =
+      final net.accelbyte.sdk.api.platform.operations.category.DeleteCategory operationRequest =
           net.accelbyte.sdk.api.platform.operations.category.DeleteCategory.builder()
               .categoryPath(categoryPath)
               .namespace(namespace)
               .storeId(storeId)
               .build();
-      final FullCategoryInfo response = wrapper.deleteCategory(operation);
+      final FullCategoryInfo response = wrapper.deleteCategory(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -62,13 +62,13 @@ public class PublicGetUnpaidPaymentOrder implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PaymentStation wrapper = new PaymentStation(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_station.PublicGetUnpaidPaymentOrder
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.payment_station.PublicGetUnpaidPaymentOrder
                   .builder()
                   .namespace(namespace)
                   .paymentOrderNo(paymentOrderNo)
                   .build();
-      final PaymentOrderDetails response = wrapper.publicGetUnpaidPaymentOrder(operation);
+      final PaymentOrderDetails response = wrapper.publicGetUnpaidPaymentOrder(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

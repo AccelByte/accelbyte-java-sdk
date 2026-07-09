@@ -46,14 +46,14 @@ public class GetNoSQLAppListV2 implements Callable<Integer> {
   String appName;
 
   @Option(
+      names = {"--gameNamespace"},
+      description = "gameNamespace")
+  String gameNamespace;
+
+  @Option(
       names = {"--limit"},
       description = "limit")
   Integer limit;
-
-  @Option(
-      names = {"--namespace"},
-      description = "namespace")
-  String namespace;
 
   @Option(
       names = {"--offset"},
@@ -81,16 +81,17 @@ public class GetNoSQLAppListV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ManagedResources wrapper = new ManagedResources(sdk);
-      final net.accelbyte.sdk.api.csm.operations.managed_resources.GetNoSQLAppListV2 operation =
-          net.accelbyte.sdk.api.csm.operations.managed_resources.GetNoSQLAppListV2.builder()
-              .resourceId(resourceId)
-              .studioName(studioName)
-              .appName(appName)
-              .limit(limit)
-              .namespace(namespace)
-              .offset(offset)
-              .build();
-      final ApimodelNoSQLAppListResponse response = wrapper.getNoSQLAppListV2(operation);
+      final net.accelbyte.sdk.api.csm.operations.managed_resources.GetNoSQLAppListV2
+          operationRequest =
+              net.accelbyte.sdk.api.csm.operations.managed_resources.GetNoSQLAppListV2.builder()
+                  .resourceId(resourceId)
+                  .studioName(studioName)
+                  .appName(appName)
+                  .gameNamespace(gameNamespace)
+                  .limit(limit)
+                  .offset(offset)
+                  .build();
+      final ApimodelNoSQLAppListResponse response = wrapper.getNoSQLAppListV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

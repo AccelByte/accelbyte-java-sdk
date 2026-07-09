@@ -72,7 +72,7 @@ public class OldRetrieveAllUsersByPolicyVersion implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Agreement wrapper = new Agreement(sdk);
       final net.accelbyte.sdk.api.legal.operations.agreement.OldRetrieveAllUsersByPolicyVersion
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.agreement.OldRetrieveAllUsersByPolicyVersion
                   .builder()
                   .keyword(keyword)
@@ -81,7 +81,7 @@ public class OldRetrieveAllUsersByPolicyVersion implements Callable<Integer> {
                   .policyVersionId(policyVersionId)
                   .build();
       final PagedRetrieveUserAcceptedAgreementResponse response =
-          wrapper.oldRetrieveAllUsersByPolicyVersion(operation);
+          wrapper.oldRetrieveAllUsersByPolicyVersion(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

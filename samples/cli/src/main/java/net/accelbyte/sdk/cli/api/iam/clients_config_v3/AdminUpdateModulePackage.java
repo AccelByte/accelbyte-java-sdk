@@ -57,14 +57,14 @@ public class AdminUpdateModulePackage implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ClientsConfigV3 wrapper = new ClientsConfigV3(sdk);
       final net.accelbyte.sdk.api.iam.operations.clients_config_v3.AdminUpdateModulePackage
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.clients_config_v3.AdminUpdateModulePackage
                   .builder()
                   .body(
                       new ObjectMapper()
                           .readValue(body, ClientmodelUpsertPermissionModulePackageRequest.class))
                   .build();
-      wrapper.adminUpdateModulePackage(operation);
+      wrapper.adminUpdateModulePackage(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

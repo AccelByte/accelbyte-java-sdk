@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * ApplyAppConfigV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP []`
- *
  * <p>Idempotent endpoint that creates or updates an Extend app from a declarative spec. Uses
  * three-way merge semantics (kubectl apply) for variables, secrets, and permissions.
  *

@@ -51,9 +51,9 @@ public class AdminGetGlobalConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Admin wrapper = new Admin(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.admin.AdminGetGlobalConfig operation =
+      final net.accelbyte.sdk.api.lobby.operations.admin.AdminGetGlobalConfig operationRequest =
           net.accelbyte.sdk.api.lobby.operations.admin.AdminGetGlobalConfig.builder().build();
-      final ModelGlobalConfiguration response = wrapper.adminGetGlobalConfig(operation);
+      final ModelGlobalConfiguration response = wrapper.adminGetGlobalConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

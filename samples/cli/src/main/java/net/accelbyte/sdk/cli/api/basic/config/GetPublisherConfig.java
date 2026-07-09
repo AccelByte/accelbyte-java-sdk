@@ -61,12 +61,12 @@ public class GetPublisherConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Config wrapper = new Config(sdk);
-      final net.accelbyte.sdk.api.basic.operations.config.GetPublisherConfig operation =
+      final net.accelbyte.sdk.api.basic.operations.config.GetPublisherConfig operationRequest =
           net.accelbyte.sdk.api.basic.operations.config.GetPublisherConfig.builder()
               .configKey(configKey)
               .namespace(namespace)
               .build();
-      final ConfigInfo response = wrapper.getPublisherConfig(operation);
+      final ConfigInfo response = wrapper.getPublisherConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

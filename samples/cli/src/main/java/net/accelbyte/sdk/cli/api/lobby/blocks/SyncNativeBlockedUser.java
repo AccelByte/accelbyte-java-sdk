@@ -62,14 +62,15 @@ public class SyncNativeBlockedUser implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Blocks wrapper = new Blocks(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.blocks.SyncNativeBlockedUser operation =
+      final net.accelbyte.sdk.api.lobby.operations.blocks.SyncNativeBlockedUser operationRequest =
           net.accelbyte.sdk.api.lobby.operations.blocks.SyncNativeBlockedUser.builder()
               .namespace(namespace)
               .body(
                   new ObjectMapper()
                       .readValue(body, new TypeReference<List<ModelNativeUserBlockRequest>>() {}))
               .build();
-      final List<ModelNativeUserBlockResponse> response = wrapper.syncNativeBlockedUser(operation);
+      final List<ModelNativeUserBlockResponse> response =
+          wrapper.syncNativeBlockedUser(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -84,7 +84,7 @@ public class GetCurrentCycleLeaderboardRankingPublicV3 implements Callable<Integ
       final LeaderboardDataV3 wrapper = new LeaderboardDataV3(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data_v3
               .GetCurrentCycleLeaderboardRankingPublicV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data_v3
                   .GetCurrentCycleLeaderboardRankingPublicV3.builder()
                   .cycleId(cycleId)
@@ -95,7 +95,7 @@ public class GetCurrentCycleLeaderboardRankingPublicV3 implements Callable<Integ
                   .previousVersion(previousVersion)
                   .build();
       final ModelsGetLeaderboardRankingResp response =
-          wrapper.getCurrentCycleLeaderboardRankingPublicV3(operation);
+          wrapper.getCurrentCycleLeaderboardRankingPublicV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

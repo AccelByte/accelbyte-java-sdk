@@ -60,12 +60,12 @@ public class DeleteStat implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final StatConfiguration wrapper = new StatConfiguration(sdk);
-      final net.accelbyte.sdk.api.social.operations.stat_configuration.DeleteStat operation =
+      final net.accelbyte.sdk.api.social.operations.stat_configuration.DeleteStat operationRequest =
           net.accelbyte.sdk.api.social.operations.stat_configuration.DeleteStat.builder()
               .namespace(namespace)
               .statCode(statCode)
               .build();
-      wrapper.deleteStat(operation);
+      wrapper.deleteStat(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

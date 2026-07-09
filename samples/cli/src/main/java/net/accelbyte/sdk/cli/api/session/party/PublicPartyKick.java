@@ -66,13 +66,13 @@ public class PublicPartyKick implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Party wrapper = new Party(sdk);
-      final net.accelbyte.sdk.api.session.operations.party.PublicPartyKick operation =
+      final net.accelbyte.sdk.api.session.operations.party.PublicPartyKick operationRequest =
           net.accelbyte.sdk.api.session.operations.party.PublicPartyKick.builder()
               .namespace(namespace)
               .partyId(partyId)
               .userId(userId)
               .build();
-      final ApimodelsKickResponse response = wrapper.publicPartyKick(operation);
+      final ApimodelsKickResponse response = wrapper.publicPartyKick(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

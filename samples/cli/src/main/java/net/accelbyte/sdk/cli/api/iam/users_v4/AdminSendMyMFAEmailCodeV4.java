@@ -60,12 +60,13 @@ public class AdminSendMyMFAEmailCodeV4 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UsersV4 wrapper = new UsersV4(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users_v4.AdminSendMyMFAEmailCodeV4 operation =
-          net.accelbyte.sdk.api.iam.operations.users_v4.AdminSendMyMFAEmailCodeV4.builder()
-              .action(action != null ? action : null)
-              .languageTag(languageTag != null ? languageTag : null)
-              .build();
-      wrapper.adminSendMyMFAEmailCodeV4(operation);
+      final net.accelbyte.sdk.api.iam.operations.users_v4.AdminSendMyMFAEmailCodeV4
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.users_v4.AdminSendMyMFAEmailCodeV4.builder()
+                  .action(action != null ? action : null)
+                  .languageTag(languageTag != null ? languageTag : null)
+                  .build();
+      wrapper.adminSendMyMFAEmailCodeV4(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

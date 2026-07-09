@@ -68,7 +68,7 @@ public class AdminGetPlayerPublicRecordHandlerV1 implements Callable<Integer> {
       final AdminPlayerRecord wrapper = new AdminPlayerRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.admin_player_record
               .AdminGetPlayerPublicRecordHandlerV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.admin_player_record
                   .AdminGetPlayerPublicRecordHandlerV1.builder()
                   .key(key)
@@ -76,7 +76,7 @@ public class AdminGetPlayerPublicRecordHandlerV1 implements Callable<Integer> {
                   .userId(userId)
                   .build();
       final ModelsPlayerRecordResponse response =
-          wrapper.adminGetPlayerPublicRecordHandlerV1(operation);
+          wrapper.adminGetPlayerPublicRecordHandlerV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

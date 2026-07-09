@@ -71,14 +71,15 @@ public class AdminAddTopicMember implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Topic wrapper = new Topic(sdk);
-      final net.accelbyte.sdk.api.chat.operations.topic.AdminAddTopicMember operation =
+      final net.accelbyte.sdk.api.chat.operations.topic.AdminAddTopicMember operationRequest =
           net.accelbyte.sdk.api.chat.operations.topic.AdminAddTopicMember.builder()
               .namespace(namespace)
               .topic(topic)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, ApiAddMemberParams.class))
               .build();
-      final MessageActionAddUserToTopicResult response = wrapper.adminAddTopicMember(operation);
+      final MessageActionAddUserToTopicResult response =
+          wrapper.adminAddTopicMember(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

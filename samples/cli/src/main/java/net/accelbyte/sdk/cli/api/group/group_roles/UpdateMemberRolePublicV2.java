@@ -71,15 +71,16 @@ public class UpdateMemberRolePublicV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GroupRoles wrapper = new GroupRoles(sdk);
-      final net.accelbyte.sdk.api.group.operations.group_roles.UpdateMemberRolePublicV2 operation =
-          net.accelbyte.sdk.api.group.operations.group_roles.UpdateMemberRolePublicV2.builder()
-              .groupId(groupId)
-              .memberRoleId(memberRoleId)
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ModelsAssignRoleToMemberRequestV1.class))
-              .build();
+      final net.accelbyte.sdk.api.group.operations.group_roles.UpdateMemberRolePublicV2
+          operationRequest =
+              net.accelbyte.sdk.api.group.operations.group_roles.UpdateMemberRolePublicV2.builder()
+                  .groupId(groupId)
+                  .memberRoleId(memberRoleId)
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, ModelsAssignRoleToMemberRequestV1.class))
+                  .build();
       final ModelsGetUserGroupInformationResponseV1 response =
-          wrapper.updateMemberRolePublicV2(operation);
+          wrapper.updateMemberRolePublicV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

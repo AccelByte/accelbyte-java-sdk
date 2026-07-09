@@ -61,12 +61,13 @@ public class PublicSessionJoinCode implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameSession wrapper = new GameSession(sdk);
-      final net.accelbyte.sdk.api.session.operations.game_session.PublicSessionJoinCode operation =
-          net.accelbyte.sdk.api.session.operations.game_session.PublicSessionJoinCode.builder()
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ApimodelsJoinByCodeRequest.class))
-              .build();
-      final ApimodelsGameSessionResponse response = wrapper.publicSessionJoinCode(operation);
+      final net.accelbyte.sdk.api.session.operations.game_session.PublicSessionJoinCode
+          operationRequest =
+              net.accelbyte.sdk.api.session.operations.game_session.PublicSessionJoinCode.builder()
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, ApimodelsJoinByCodeRequest.class))
+                  .build();
+      final ApimodelsGameSessionResponse response = wrapper.publicSessionJoinCode(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -62,13 +62,13 @@ public class DevelopmentServerConfigurationDelete implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Development wrapper = new Development(sdk);
       final net.accelbyte.sdk.api.ams.operations.development.DevelopmentServerConfigurationDelete
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ams.operations.development.DevelopmentServerConfigurationDelete
                   .builder()
                   .developmentServerConfigID(developmentServerConfigID)
                   .namespace(namespace)
                   .build();
-      wrapper.developmentServerConfigurationDelete(operation);
+      wrapper.developmentServerConfigurationDelete(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

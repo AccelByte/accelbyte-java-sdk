@@ -61,12 +61,12 @@ public class AdminAccountCreate implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Account wrapper = new Account(sdk);
-      final net.accelbyte.sdk.api.ams.operations.account.AdminAccountCreate operation =
+      final net.accelbyte.sdk.api.ams.operations.account.AdminAccountCreate operationRequest =
           net.accelbyte.sdk.api.ams.operations.account.AdminAccountCreate.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ApiAccountCreateRequest.class))
               .build();
-      final ApiAccountCreateResponse response = wrapper.adminAccountCreate(operation);
+      final ApiAccountCreateResponse response = wrapper.adminAccountCreate(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

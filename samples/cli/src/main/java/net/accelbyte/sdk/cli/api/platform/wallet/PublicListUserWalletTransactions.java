@@ -77,7 +77,7 @@ public class PublicListUserWalletTransactions implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Wallet wrapper = new Wallet(sdk);
       final net.accelbyte.sdk.api.platform.operations.wallet.PublicListUserWalletTransactions
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.wallet.PublicListUserWalletTransactions
                   .builder()
                   .currencyCode(currencyCode)
@@ -87,7 +87,7 @@ public class PublicListUserWalletTransactions implements Callable<Integer> {
                   .offset(offset)
                   .build();
       final WalletTransactionPagingSlicedResult response =
-          wrapper.publicListUserWalletTransactions(operation);
+          wrapper.publicListUserWalletTransactions(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

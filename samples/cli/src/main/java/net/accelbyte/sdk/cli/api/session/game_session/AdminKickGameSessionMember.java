@@ -66,14 +66,14 @@ public class AdminKickGameSessionMember implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameSession wrapper = new GameSession(sdk);
       final net.accelbyte.sdk.api.session.operations.game_session.AdminKickGameSessionMember
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.game_session.AdminKickGameSessionMember
                   .builder()
                   .memberId(memberId)
                   .namespace(namespace)
                   .sessionId(sessionId)
                   .build();
-      wrapper.adminKickGameSessionMember(operation);
+      wrapper.adminKickGameSessionMember(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -91,7 +91,7 @@ public class ListAdminsV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.ListAdminsV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.users.ListAdminsV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.ListAdminsV3.builder()
               .namespace(namespace)
               .after(after)
@@ -102,7 +102,7 @@ public class ListAdminsV3 implements Callable<Integer> {
               .roleId(roleId)
               .startDate(startDate)
               .build();
-      final ModelGetUsersResponseWithPaginationV3 response = wrapper.listAdminsV3(operation);
+      final ModelGetUsersResponseWithPaginationV3 response = wrapper.listAdminsV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

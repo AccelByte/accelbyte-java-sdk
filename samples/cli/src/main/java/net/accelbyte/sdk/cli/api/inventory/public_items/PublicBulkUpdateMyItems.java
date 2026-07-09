@@ -68,7 +68,7 @@ public class PublicBulkUpdateMyItems implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicItems wrapper = new PublicItems(sdk);
       final net.accelbyte.sdk.api.inventory.operations.public_items.PublicBulkUpdateMyItems
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.inventory.operations.public_items.PublicBulkUpdateMyItems
                   .builder()
                   .inventoryId(inventoryId)
@@ -77,7 +77,8 @@ public class PublicBulkUpdateMyItems implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, new TypeReference<List<ApimodelsUpdateItemReq>>() {}))
                   .build();
-      final List<ApimodelsUpdateItemResp> response = wrapper.publicBulkUpdateMyItems(operation);
+      final List<ApimodelsUpdateItemResp> response =
+          wrapper.publicBulkUpdateMyItems(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

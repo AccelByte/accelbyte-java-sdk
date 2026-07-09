@@ -68,7 +68,7 @@ public class PublicForceLinkPlatformWithProgression implements Callable<Integer>
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
       final net.accelbyte.sdk.api.iam.operations.users.PublicForceLinkPlatformWithProgression
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.users.PublicForceLinkPlatformWithProgression
                   .builder()
                   .namespace(namespace)
@@ -77,7 +77,7 @@ public class PublicForceLinkPlatformWithProgression implements Callable<Integer>
                       new ObjectMapper()
                           .readValue(body, ModelLinkPlatformAccountWithProgressionRequest.class))
                   .build();
-      wrapper.publicForceLinkPlatformWithProgression(operation);
+      wrapper.publicForceLinkPlatformWithProgression(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -73,7 +73,7 @@ public class PutPlayerBinaryRecorMetadataV1 implements Callable<Integer> {
       final PublicPlayerBinaryRecord wrapper = new PublicPlayerBinaryRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.public_player_binary_record
               .PutPlayerBinaryRecorMetadataV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.public_player_binary_record
                   .PutPlayerBinaryRecorMetadataV1.builder()
                   .key(key)
@@ -84,7 +84,7 @@ public class PutPlayerBinaryRecorMetadataV1 implements Callable<Integer> {
                           .readValue(body, ModelsPlayerBinaryRecordMetadataPublicRequest.class))
                   .build();
       final ModelsPlayerBinaryRecordResponse response =
-          wrapper.putPlayerBinaryRecorMetadataV1(operation);
+          wrapper.putPlayerBinaryRecorMetadataV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

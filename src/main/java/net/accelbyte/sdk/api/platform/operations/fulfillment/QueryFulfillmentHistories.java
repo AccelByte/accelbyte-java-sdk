@@ -46,6 +46,7 @@ public class QueryFulfillmentHistories extends Operation {
 
   /**
    * @param namespace required
+   * @param userId required
    */
   @Builder
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
@@ -84,6 +85,9 @@ public class QueryFulfillmentHistories extends Operation {
   @Override
   public boolean isValid() {
     if (this.namespace == null) {
+      return false;
+    }
+    if (this.userId == null) {
       return false;
     }
     return true;

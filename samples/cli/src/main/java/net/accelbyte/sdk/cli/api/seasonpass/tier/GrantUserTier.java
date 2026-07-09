@@ -66,13 +66,13 @@ public class GrantUserTier implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Tier wrapper = new Tier(sdk);
-      final net.accelbyte.sdk.api.seasonpass.operations.tier.GrantUserTier operation =
+      final net.accelbyte.sdk.api.seasonpass.operations.tier.GrantUserTier operationRequest =
           net.accelbyte.sdk.api.seasonpass.operations.tier.GrantUserTier.builder()
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, UserTierGrant.class))
               .build();
-      final UserSeasonSummary response = wrapper.grantUserTier(operation);
+      final UserSeasonSummary response = wrapper.grantUserTier(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

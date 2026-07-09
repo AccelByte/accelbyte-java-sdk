@@ -39,7 +39,7 @@ for JAR in build/install/cli/lib/*.jar; do ./ng ng-cp $JAR 1>&2; done
 ./ng ng-cp 1>&2
 
 echo "TAP version 13"
-echo "1..43"
+echo "1..49"
 
 #- 1 Login
 ./ng net.accelbyte.sdk.cli.Main loginClient \
@@ -321,50 +321,88 @@ eval_tap $? 36 'PublicCancelMyAccountDeletionRequest' test.out
     > test.out 2>&1
 eval_tap $? 37 'PublicGetMyAccountDeletionStatus' test.out
 
-#- 38 S2SGetListFinishedAccountDeletionRequest
+#- 38 PublicSubmitMyHeadlessDeletionRequest
+./ng net.accelbyte.sdk.cli.Main gdpr publicSubmitMyHeadlessDeletionRequest \
+    > test.out 2>&1
+eval_tap $? 38 'PublicSubmitMyHeadlessDeletionRequest' test.out
+
+#- 39 PublicSubmitMyHeadlessPersonalDataRequest
+./ng net.accelbyte.sdk.cli.Main gdpr publicSubmitMyHeadlessPersonalDataRequest \
+    --email 'cf80zfFyabWAgIUX' \
+    --languageTag 'iI07A68eaqC2J9jy' \
+    > test.out 2>&1
+eval_tap $? 39 'PublicSubmitMyHeadlessPersonalDataRequest' test.out
+
+#- 40 PublicGenerateMyHeadlessPersonalDataURL
+./ng net.accelbyte.sdk.cli.Main gdpr publicGenerateMyHeadlessPersonalDataURL \
+    --requestDate 'EW6GLbc0NaKDUL3s' \
+    > test.out 2>&1
+eval_tap $? 40 'PublicGenerateMyHeadlessPersonalDataURL' test.out
+
+#- 41 PublicGetMyPersonalDataRequests
+./ng net.accelbyte.sdk.cli.Main gdpr publicGetMyPersonalDataRequests \
+    > test.out 2>&1
+eval_tap $? 41 'PublicGetMyPersonalDataRequests' test.out
+
+#- 42 PublicSubmitMyPersonalDataRequest
+./ng net.accelbyte.sdk.cli.Main gdpr publicSubmitMyPersonalDataRequest \
+    --email 'a13lk1dQBHO86IlB' \
+    --languageTag 'hnetU4RwTqUXlTDB' \
+    --platformId 'zOuYsaZA2yyd4mbq' \
+    --platformToken 'oOfADMMAXFaY9eKa' \
+    > test.out 2>&1
+eval_tap $? 42 'PublicSubmitMyPersonalDataRequest' test.out
+
+#- 43 PublicCancelMyPersonalDataRequest
+./ng net.accelbyte.sdk.cli.Main gdpr publicCancelMyPersonalDataRequest \
+    --requestDate '699bRVhyaKwwrAP2' \
+    > test.out 2>&1
+eval_tap $? 43 'PublicCancelMyPersonalDataRequest' test.out
+
+#- 44 S2SGetListFinishedAccountDeletionRequest
 ./ng net.accelbyte.sdk.cli.Main gdpr s2sGetListFinishedAccountDeletionRequest \
     --namespace "$AB_NAMESPACE" \
-    --end 'cf80zfFyabWAgIUX' \
-    --start 'iI07A68eaqC2J9jy' \
+    --end 'aMlu7WtjCtoYetOO' \
+    --start '847g8OudOfjnCuHZ' \
     > test.out 2>&1
-eval_tap $? 38 'S2SGetListFinishedAccountDeletionRequest' test.out
+eval_tap $? 44 'S2SGetListFinishedAccountDeletionRequest' test.out
 
-#- 39 S2SGetListFinishedPersonalDataRequest
+#- 45 S2SGetListFinishedPersonalDataRequest
 ./ng net.accelbyte.sdk.cli.Main gdpr s2sGetListFinishedPersonalDataRequest \
     --namespace "$AB_NAMESPACE" \
-    --end 'EW6GLbc0NaKDUL3s' \
-    --start 'a13lk1dQBHO86IlB' \
+    --end '3c46IjGa23YvYmmD' \
+    --start 'g7VYPXIuvUYTZBRu' \
     > test.out 2>&1
-eval_tap $? 39 'S2SGetListFinishedPersonalDataRequest' test.out
+eval_tap $? 45 'S2SGetListFinishedPersonalDataRequest' test.out
 
-#- 40 S2SGetDataRequestByRequestID
+#- 46 S2SGetDataRequestByRequestID
 ./ng net.accelbyte.sdk.cli.Main gdpr s2sGetDataRequestByRequestID \
     --namespace "$AB_NAMESPACE" \
-    --requestId 'hnetU4RwTqUXlTDB' \
+    --requestId 'jIUE1Tq5jyAZvkRC' \
     > test.out 2>&1
-eval_tap $? 40 'S2SGetDataRequestByRequestID' test.out
+eval_tap $? 46 'S2SGetDataRequestByRequestID' test.out
 
-#- 41 S2SSubmitUserAccountDeletionRequest
+#- 47 S2SSubmitUserAccountDeletionRequest
 ./ng net.accelbyte.sdk.cli.Main gdpr s2sSubmitUserAccountDeletionRequest \
     --namespace "$AB_NAMESPACE" \
-    --userId 'zOuYsaZA2yyd4mbq' \
+    --userId 'MNFIurjh2imdb4rb' \
     > test.out 2>&1
-eval_tap $? 41 'S2SSubmitUserAccountDeletionRequest' test.out
+eval_tap $? 47 'S2SSubmitUserAccountDeletionRequest' test.out
 
-#- 42 S2SRequestDataRetrieval
+#- 48 S2SRequestDataRetrieval
 ./ng net.accelbyte.sdk.cli.Main gdpr s2sRequestDataRetrieval \
     --namespace "$AB_NAMESPACE" \
-    --userId 'oOfADMMAXFaY9eKa' \
+    --userId 'kXj0ZwsVC0gL97ZV' \
     > test.out 2>&1
-eval_tap $? 42 'S2SRequestDataRetrieval' test.out
+eval_tap $? 48 'S2SRequestDataRetrieval' test.out
 
-#- 43 S2SGeneratePersonalDataURL
+#- 49 S2SGeneratePersonalDataURL
 ./ng net.accelbyte.sdk.cli.Main gdpr s2sGeneratePersonalDataURL \
     --namespace "$AB_NAMESPACE" \
-    --requestDate '699bRVhyaKwwrAP2' \
-    --userId 'aMlu7WtjCtoYetOO' \
+    --requestDate 'JSPqJiwv1qlYB1RS' \
+    --userId 'Ks6gQxC3Gb7S0o4z' \
     > test.out 2>&1
-eval_tap $? 43 'S2SGeneratePersonalDataURL' test.out
+eval_tap $? 49 'S2SGeneratePersonalDataURL' test.out
 
 
 rm -f "tmp.dat"

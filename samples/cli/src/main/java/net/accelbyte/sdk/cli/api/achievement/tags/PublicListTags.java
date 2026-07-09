@@ -76,7 +76,7 @@ public class PublicListTags implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Tags wrapper = new Tags(sdk);
-      final net.accelbyte.sdk.api.achievement.operations.tags.PublicListTags operation =
+      final net.accelbyte.sdk.api.achievement.operations.tags.PublicListTags operationRequest =
           net.accelbyte.sdk.api.achievement.operations.tags.PublicListTags.builder()
               .namespace(namespace)
               .limit(limit)
@@ -84,7 +84,7 @@ public class PublicListTags implements Callable<Integer> {
               .offset(offset)
               .sortBy(sortBy)
               .build();
-      final ModelsPaginatedTagResponse response = wrapper.publicListTags(operation);
+      final ModelsPaginatedTagResponse response = wrapper.publicListTags(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

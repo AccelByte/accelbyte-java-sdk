@@ -21,12 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetAppV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [READ]`
- *
  * <p>Get extend app by name
  *
- * <p>Available scenario: - scenario 3: `event-handler` - scenario 1: `function-override` - scenario
- * 2: `service-extension`
+ * <p>Available scenario: - scenario 1: `function-override` - scenario 2: `service-extension` -
+ * scenario 3: `event-handler`
  *
  * <p>Available app status: - `app-creating` - `app-creation-failed` - `app-creation-timeout` -
  * `app-undeployed` - `deployment-in-progress` - `deployment-failed` - `deployment-timeout` -

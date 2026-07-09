@@ -60,12 +60,12 @@ public class GetExtendFile implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ExtendFiles wrapper = new ExtendFiles(sdk);
-      final net.accelbyte.sdk.api.csm.operations.extend_files.GetExtendFile operation =
+      final net.accelbyte.sdk.api.csm.operations.extend_files.GetExtendFile operationRequest =
           net.accelbyte.sdk.api.csm.operations.extend_files.GetExtendFile.builder()
               .filePath(filePath)
               .namespace(namespace)
               .build();
-      wrapper.getExtendFile(operation);
+      wrapper.getExtendFile(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

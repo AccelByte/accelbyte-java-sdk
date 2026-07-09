@@ -56,11 +56,11 @@ public class AdminDisableMyEmailV4 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UsersV4 wrapper = new UsersV4(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users_v4.AdminDisableMyEmailV4 operation =
+      final net.accelbyte.sdk.api.iam.operations.users_v4.AdminDisableMyEmailV4 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users_v4.AdminDisableMyEmailV4.builder()
               .body(new ObjectMapper().readValue(body, ModelDisableMFARequest.class))
               .build();
-      wrapper.adminDisableMyEmailV4(operation);
+      wrapper.adminDisableMyEmailV4(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

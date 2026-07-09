@@ -69,14 +69,14 @@ public class AdminDeleteUserLinkingRestrictionByPlatformIDV3 implements Callable
       final Users wrapper = new Users(sdk);
       final net.accelbyte.sdk.api.iam.operations.users
               .AdminDeleteUserLinkingRestrictionByPlatformIDV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.users
                   .AdminDeleteUserLinkingRestrictionByPlatformIDV3.builder()
                   .namespace(namespace)
                   .platformId(platformId)
                   .userId(userId)
                   .build();
-      wrapper.adminDeleteUserLinkingRestrictionByPlatformIDV3(operation);
+      wrapper.adminDeleteUserLinkingRestrictionByPlatformIDV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -60,12 +60,13 @@ public class AnonymizeRevocation implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Anonymization wrapper = new Anonymization(sdk);
-      final net.accelbyte.sdk.api.platform.operations.anonymization.AnonymizeRevocation operation =
-          net.accelbyte.sdk.api.platform.operations.anonymization.AnonymizeRevocation.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .build();
-      wrapper.anonymizeRevocation(operation);
+      final net.accelbyte.sdk.api.platform.operations.anonymization.AnonymizeRevocation
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.anonymization.AnonymizeRevocation.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .build();
+      wrapper.anonymizeRevocation(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

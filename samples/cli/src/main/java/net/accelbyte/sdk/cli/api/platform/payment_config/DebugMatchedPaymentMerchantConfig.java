@@ -63,14 +63,14 @@ public class DebugMatchedPaymentMerchantConfig implements Callable<Integer> {
       final PaymentConfig wrapper = new PaymentConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_config
               .DebugMatchedPaymentMerchantConfig
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.payment_config
                   .DebugMatchedPaymentMerchantConfig.builder()
                   .namespace(namespace)
                   .region(region)
                   .build();
       final PaymentMerchantConfigInfo response =
-          wrapper.debugMatchedPaymentMerchantConfig(operation);
+          wrapper.debugMatchedPaymentMerchantConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -61,12 +61,12 @@ public class QoSRegionsGet implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AMSQoS wrapper = new AMSQoS(sdk);
-      final net.accelbyte.sdk.api.ams.operations.ams_qo_s.QoSRegionsGet operation =
+      final net.accelbyte.sdk.api.ams.operations.ams_qo_s.QoSRegionsGet operationRequest =
           net.accelbyte.sdk.api.ams.operations.ams_qo_s.QoSRegionsGet.builder()
               .namespace(namespace)
               .status(status)
               .build();
-      final ApiQoSEndpointResponse response = wrapper.qoSRegionsGet(operation);
+      final ApiQoSEndpointResponse response = wrapper.qoSRegionsGet(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

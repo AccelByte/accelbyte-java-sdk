@@ -67,14 +67,15 @@ public class AdminPutGameRecordHandlerV1 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminGameRecord wrapper = new AdminGameRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.admin_game_record.AdminPutGameRecordHandlerV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.admin_game_record
                   .AdminPutGameRecordHandlerV1.builder()
                   .key(key)
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelsGameRecordRequest.class))
                   .build();
-      final ModelsGameRecordAdminResponse response = wrapper.adminPutGameRecordHandlerV1(operation);
+      final ModelsGameRecordAdminResponse response =
+          wrapper.adminPutGameRecordHandlerV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -74,7 +74,7 @@ public class AdminRetrieveUserThirdPartyPlatformTokenV3 implements Callable<Inte
       final OAuth20 wrapper = new OAuth20(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth2_0
               .AdminRetrieveUserThirdPartyPlatformTokenV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.o_auth2_0
                   .AdminRetrieveUserThirdPartyPlatformTokenV3.builder()
                   .namespace(namespace)
@@ -83,7 +83,7 @@ public class AdminRetrieveUserThirdPartyPlatformTokenV3 implements Callable<Inte
                   .platformUserId(platformUserId)
                   .build();
       final OauthmodelTokenThirdPartyResponse response =
-          wrapper.adminRetrieveUserThirdPartyPlatformTokenV3(operation);
+          wrapper.adminRetrieveUserThirdPartyPlatformTokenV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

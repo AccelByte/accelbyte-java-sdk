@@ -72,7 +72,7 @@ public class PublicConsumeUserEntitlement implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement.PublicConsumeUserEntitlement
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.entitlement.PublicConsumeUserEntitlement
                   .builder()
                   .entitlementId(entitlementId)
@@ -80,7 +80,8 @@ public class PublicConsumeUserEntitlement implements Callable<Integer> {
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, PublicEntitlementDecrement.class))
                   .build();
-      final EntitlementDecrementResult response = wrapper.publicConsumeUserEntitlement(operation);
+      final EntitlementDecrementResult response =
+          wrapper.publicConsumeUserEntitlement(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

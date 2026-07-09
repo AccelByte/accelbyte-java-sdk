@@ -62,7 +62,7 @@ public class AdminUpdateServicesConfiguration implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Configuration wrapper = new Configuration(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.configuration.AdminUpdateServicesConfiguration
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.configuration.AdminUpdateServicesConfiguration
                   .builder()
                   .namespace(namespace)
@@ -71,7 +71,7 @@ public class AdminUpdateServicesConfiguration implements Callable<Integer> {
                           .readValue(body, DtoServiceConfigurationUpdateRequest.class))
                   .build();
       final DtoServiceConfigurationUpdateRequest response =
-          wrapper.adminUpdateServicesConfiguration(operation);
+          wrapper.adminUpdateServicesConfiguration(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

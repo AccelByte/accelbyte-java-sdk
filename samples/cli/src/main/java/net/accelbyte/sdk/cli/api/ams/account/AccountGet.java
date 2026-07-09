@@ -56,11 +56,11 @@ public class AccountGet implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Account wrapper = new Account(sdk);
-      final net.accelbyte.sdk.api.ams.operations.account.AccountGet operation =
+      final net.accelbyte.sdk.api.ams.operations.account.AccountGet operationRequest =
           net.accelbyte.sdk.api.ams.operations.account.AccountGet.builder()
               .namespace(namespace)
               .build();
-      final ApiAccountResponse response = wrapper.accountGet(operation);
+      final ApiAccountResponse response = wrapper.accountGet(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

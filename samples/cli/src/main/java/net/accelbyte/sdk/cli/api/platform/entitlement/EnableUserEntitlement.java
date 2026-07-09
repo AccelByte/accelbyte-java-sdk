@@ -66,13 +66,14 @@ public class EnableUserEntitlement implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Entitlement wrapper = new Entitlement(sdk);
-      final net.accelbyte.sdk.api.platform.operations.entitlement.EnableUserEntitlement operation =
-          net.accelbyte.sdk.api.platform.operations.entitlement.EnableUserEntitlement.builder()
-              .entitlementId(entitlementId)
-              .namespace(namespace)
-              .userId(userId)
-              .build();
-      final EntitlementInfo response = wrapper.enableUserEntitlement(operation);
+      final net.accelbyte.sdk.api.platform.operations.entitlement.EnableUserEntitlement
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.entitlement.EnableUserEntitlement.builder()
+                  .entitlementId(entitlementId)
+                  .namespace(namespace)
+                  .userId(userId)
+                  .build();
+      final EntitlementInfo response = wrapper.enableUserEntitlement(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

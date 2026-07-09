@@ -62,14 +62,14 @@ public class SyncOculusConsumableEntitlements implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
       final net.accelbyte.sdk.api.platform.operations.iap.SyncOculusConsumableEntitlements
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.iap.SyncOculusConsumableEntitlements
                   .builder()
                   .namespace(namespace)
                   .userId(userId)
                   .build();
       final List<OculusReconcileResult> response =
-          wrapper.syncOculusConsumableEntitlements(operation);
+          wrapper.syncOculusConsumableEntitlements(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

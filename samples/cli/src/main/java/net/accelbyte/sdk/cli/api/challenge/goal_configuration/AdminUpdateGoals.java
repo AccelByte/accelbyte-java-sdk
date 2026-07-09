@@ -72,7 +72,7 @@ public class AdminUpdateGoals implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GoalConfiguration wrapper = new GoalConfiguration(sdk);
       final net.accelbyte.sdk.api.challenge.operations.goal_configuration.AdminUpdateGoals
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.challenge.operations.goal_configuration.AdminUpdateGoals
                   .builder()
                   .challengeCode(challengeCode)
@@ -80,7 +80,7 @@ public class AdminUpdateGoals implements Callable<Integer> {
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelUpdateGoalRequest.class))
                   .build();
-      final ModelGoalResponse response = wrapper.adminUpdateGoals(operation);
+      final ModelGoalResponse response = wrapper.adminUpdateGoals(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

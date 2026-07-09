@@ -52,12 +52,12 @@ public class AdminGenerateMyAuthenticatorKeyV4 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UsersV4 wrapper = new UsersV4(sdk);
       final net.accelbyte.sdk.api.iam.operations.users_v4.AdminGenerateMyAuthenticatorKeyV4
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.users_v4.AdminGenerateMyAuthenticatorKeyV4
                   .builder()
                   .build();
       final ModelAuthenticatorKeyResponseV4 response =
-          wrapper.adminGenerateMyAuthenticatorKeyV4(operation);
+          wrapper.adminGenerateMyAuthenticatorKeyV4(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

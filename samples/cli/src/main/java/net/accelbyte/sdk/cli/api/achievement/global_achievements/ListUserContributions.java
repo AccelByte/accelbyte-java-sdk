@@ -88,7 +88,7 @@ public class ListUserContributions implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GlobalAchievements wrapper = new GlobalAchievements(sdk);
       final net.accelbyte.sdk.api.achievement.operations.global_achievements.ListUserContributions
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.achievement.operations.global_achievements.ListUserContributions
                   .builder()
                   .namespace(namespace)
@@ -100,7 +100,7 @@ public class ListUserContributions implements Callable<Integer> {
                   .tags(tags)
                   .build();
       final ModelsPaginatedUserContributionResponse response =
-          wrapper.listUserContributions(operation);
+          wrapper.listUserContributions(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

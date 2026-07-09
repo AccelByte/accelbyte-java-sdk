@@ -66,13 +66,13 @@ public class SyncEpicGameDLC implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final DLC wrapper = new DLC(sdk);
-      final net.accelbyte.sdk.api.platform.operations.dlc.SyncEpicGameDLC operation =
+      final net.accelbyte.sdk.api.platform.operations.dlc.SyncEpicGameDLC operationRequest =
           net.accelbyte.sdk.api.platform.operations.dlc.SyncEpicGameDLC.builder()
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, EpicGamesDLCSyncRequest.class))
               .build();
-      wrapper.syncEpicGameDLC(operation);
+      wrapper.syncEpicGameDLC(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

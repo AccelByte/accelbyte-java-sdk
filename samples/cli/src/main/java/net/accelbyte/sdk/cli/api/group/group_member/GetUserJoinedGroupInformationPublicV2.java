@@ -74,7 +74,7 @@ public class GetUserJoinedGroupInformationPublicV2 implements Callable<Integer> 
       final GroupMember wrapper = new GroupMember(sdk);
       final net.accelbyte.sdk.api.group.operations.group_member
               .GetUserJoinedGroupInformationPublicV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.group.operations.group_member
                   .GetUserJoinedGroupInformationPublicV2.builder()
                   .namespace(namespace)
@@ -83,7 +83,7 @@ public class GetUserJoinedGroupInformationPublicV2 implements Callable<Integer> 
                   .offset(offset)
                   .build();
       final ModelsGetGroupMemberListResponseV1 response =
-          wrapper.getUserJoinedGroupInformationPublicV2(operation);
+          wrapper.getUserJoinedGroupInformationPublicV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

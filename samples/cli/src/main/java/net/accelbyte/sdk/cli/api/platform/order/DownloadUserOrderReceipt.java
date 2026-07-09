@@ -67,13 +67,14 @@ public class DownloadUserOrderReceipt implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Order wrapper = new Order(sdk);
-      final net.accelbyte.sdk.api.platform.operations.order.DownloadUserOrderReceipt operation =
-          net.accelbyte.sdk.api.platform.operations.order.DownloadUserOrderReceipt.builder()
-              .namespace(namespace)
-              .orderNo(orderNo)
-              .userId(userId)
-              .build();
-      final InputStream response = wrapper.downloadUserOrderReceipt(operation);
+      final net.accelbyte.sdk.api.platform.operations.order.DownloadUserOrderReceipt
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.order.DownloadUserOrderReceipt.builder()
+                  .namespace(namespace)
+                  .orderNo(orderNo)
+                  .userId(userId)
+                  .build();
+      final InputStream response = wrapper.downloadUserOrderReceipt(operationRequest);
       final File outputFile = new File("response.out");
       java.nio.file.Files.copy(
           response, outputFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);

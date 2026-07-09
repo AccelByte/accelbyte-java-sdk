@@ -71,15 +71,16 @@ public class GetListOfVariablesV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ConfigurationV2 wrapper = new ConfigurationV2(sdk);
-      final net.accelbyte.sdk.api.csm.operations.configuration_v2.GetListOfVariablesV2 operation =
-          net.accelbyte.sdk.api.csm.operations.configuration_v2.GetListOfVariablesV2.builder()
-              .app(app)
-              .namespace(namespace)
-              .limit(limit)
-              .offset(offset)
-              .build();
+      final net.accelbyte.sdk.api.csm.operations.configuration_v2.GetListOfVariablesV2
+          operationRequest =
+              net.accelbyte.sdk.api.csm.operations.configuration_v2.GetListOfVariablesV2.builder()
+                  .app(app)
+                  .namespace(namespace)
+                  .limit(limit)
+                  .offset(offset)
+                  .build();
       final ApimodelGetListOfConfigurationsV2Response response =
-          wrapper.getListOfVariablesV2(operation);
+          wrapper.getListOfVariablesV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

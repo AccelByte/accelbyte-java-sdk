@@ -61,12 +61,13 @@ public class PublicGetMyDLCContent implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final DLC wrapper = new DLC(sdk);
-      final net.accelbyte.sdk.api.platform.operations.dlc.PublicGetMyDLCContent operation =
+      final net.accelbyte.sdk.api.platform.operations.dlc.PublicGetMyDLCContent operationRequest =
           net.accelbyte.sdk.api.platform.operations.dlc.PublicGetMyDLCContent.builder()
               .includeAllNamespaces(includeAllNamespaces)
               .type(type)
               .build();
-      final SimpleUserDLCRewardContentsResponse response = wrapper.publicGetMyDLCContent(operation);
+      final SimpleUserDLCRewardContentsResponse response =
+          wrapper.publicGetMyDLCContent(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

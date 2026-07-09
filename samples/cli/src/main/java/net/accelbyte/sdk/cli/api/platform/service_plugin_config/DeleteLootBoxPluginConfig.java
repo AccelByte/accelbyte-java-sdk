@@ -57,12 +57,12 @@ public class DeleteLootBoxPluginConfig implements Callable<Integer> {
       final ServicePluginConfig wrapper = new ServicePluginConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.service_plugin_config
               .DeleteLootBoxPluginConfig
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.service_plugin_config
                   .DeleteLootBoxPluginConfig.builder()
                   .namespace(namespace)
                   .build();
-      wrapper.deleteLootBoxPluginConfig(operation);
+      wrapper.deleteLootBoxPluginConfig(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

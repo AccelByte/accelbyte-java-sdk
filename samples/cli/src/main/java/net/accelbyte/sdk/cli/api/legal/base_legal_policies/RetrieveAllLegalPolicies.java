@@ -57,12 +57,13 @@ public class RetrieveAllLegalPolicies implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final BaseLegalPolicies wrapper = new BaseLegalPolicies(sdk);
       final net.accelbyte.sdk.api.legal.operations.base_legal_policies.RetrieveAllLegalPolicies
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.base_legal_policies.RetrieveAllLegalPolicies
                   .builder()
                   .visibleOnly(visibleOnly)
                   .build();
-      final List<RetrieveBasePolicyResponse> response = wrapper.retrieveAllLegalPolicies(operation);
+      final List<RetrieveBasePolicyResponse> response =
+          wrapper.retrieveAllLegalPolicies(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -77,7 +77,7 @@ public class GetGroupMembersListAdminV1 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GroupMember wrapper = new GroupMember(sdk);
       final net.accelbyte.sdk.api.group.operations.group_member.GetGroupMembersListAdminV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.group.operations.group_member.GetGroupMembersListAdminV1
                   .builder()
                   .groupId(groupId)
@@ -87,7 +87,7 @@ public class GetGroupMembersListAdminV1 implements Callable<Integer> {
                   .order(order)
                   .build();
       final ModelsGetGroupMemberListResponseV1 response =
-          wrapper.getGroupMembersListAdminV1(operation);
+          wrapper.getGroupMembersListAdminV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

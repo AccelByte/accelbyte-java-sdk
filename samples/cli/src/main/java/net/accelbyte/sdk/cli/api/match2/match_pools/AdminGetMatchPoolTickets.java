@@ -71,14 +71,16 @@ public class AdminGetMatchPoolTickets implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final MatchPools wrapper = new MatchPools(sdk);
-      final net.accelbyte.sdk.api.match2.operations.match_pools.AdminGetMatchPoolTickets operation =
-          net.accelbyte.sdk.api.match2.operations.match_pools.AdminGetMatchPoolTickets.builder()
-              .namespace(namespace)
-              .pool(pool)
-              .limit(limit)
-              .offset(offset)
-              .build();
-      final ApiListMatchPoolTicketsResponse response = wrapper.adminGetMatchPoolTickets(operation);
+      final net.accelbyte.sdk.api.match2.operations.match_pools.AdminGetMatchPoolTickets
+          operationRequest =
+              net.accelbyte.sdk.api.match2.operations.match_pools.AdminGetMatchPoolTickets.builder()
+                  .namespace(namespace)
+                  .pool(pool)
+                  .limit(limit)
+                  .offset(offset)
+                  .build();
+      final ApiListMatchPoolTicketsResponse response =
+          wrapper.adminGetMatchPoolTickets(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

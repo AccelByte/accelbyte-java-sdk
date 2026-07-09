@@ -56,11 +56,11 @@ public class PublicGetTimeZones implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Misc wrapper = new Misc(sdk);
-      final net.accelbyte.sdk.api.basic.operations.misc.PublicGetTimeZones operation =
+      final net.accelbyte.sdk.api.basic.operations.misc.PublicGetTimeZones operationRequest =
           net.accelbyte.sdk.api.basic.operations.misc.PublicGetTimeZones.builder()
               .namespace(namespace)
               .build();
-      final List<String> response = wrapper.publicGetTimeZones(operation);
+      final List<String> response = wrapper.publicGetTimeZones(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

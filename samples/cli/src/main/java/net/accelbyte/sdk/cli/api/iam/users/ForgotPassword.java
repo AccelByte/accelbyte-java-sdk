@@ -61,12 +61,12 @@ public class ForgotPassword implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.ForgotPassword operation =
+      final net.accelbyte.sdk.api.iam.operations.users.ForgotPassword operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.ForgotPassword.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelSendVerificationCodeRequest.class))
               .build();
-      wrapper.forgotPassword(operation);
+      wrapper.forgotPassword(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

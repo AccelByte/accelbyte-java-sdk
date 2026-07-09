@@ -72,7 +72,7 @@ public class GeneratedUserUploadContentUrl implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final FileUpload wrapper = new FileUpload(sdk);
       final net.accelbyte.sdk.api.basic.operations.file_upload.GeneratedUserUploadContentUrl
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.basic.operations.file_upload.GeneratedUserUploadContentUrl
                   .builder()
                   .namespace(namespace)
@@ -80,7 +80,7 @@ public class GeneratedUserUploadContentUrl implements Callable<Integer> {
                   .category(category)
                   .fileType(fileType)
                   .build();
-      final FileUploadUrlInfo response = wrapper.generatedUserUploadContentUrl(operation);
+      final FileUploadUrlInfo response = wrapper.generatedUserUploadContentUrl(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

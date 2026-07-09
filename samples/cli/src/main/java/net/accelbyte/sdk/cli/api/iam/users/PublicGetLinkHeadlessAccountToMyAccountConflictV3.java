@@ -62,13 +62,13 @@ public class PublicGetLinkHeadlessAccountToMyAccountConflictV3 implements Callab
       final Users wrapper = new Users(sdk);
       final net.accelbyte.sdk.api.iam.operations.users
               .PublicGetLinkHeadlessAccountToMyAccountConflictV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.users
                   .PublicGetLinkHeadlessAccountToMyAccountConflictV3.builder()
                   .oneTimeLinkCode(oneTimeLinkCode)
                   .build();
       final ModelGetLinkHeadlessAccountConflictResponse response =
-          wrapper.publicGetLinkHeadlessAccountToMyAccountConflictV3(operation);
+          wrapper.publicGetLinkHeadlessAccountToMyAccountConflictV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

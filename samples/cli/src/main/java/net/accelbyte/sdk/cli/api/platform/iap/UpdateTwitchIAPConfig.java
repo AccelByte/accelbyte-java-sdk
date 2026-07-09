@@ -61,12 +61,12 @@ public class UpdateTwitchIAPConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.UpdateTwitchIAPConfig operation =
+      final net.accelbyte.sdk.api.platform.operations.iap.UpdateTwitchIAPConfig operationRequest =
           net.accelbyte.sdk.api.platform.operations.iap.UpdateTwitchIAPConfig.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, TwitchIAPConfigRequest.class))
               .build();
-      final TwitchIAPConfigInfo response = wrapper.updateTwitchIAPConfig(operation);
+      final TwitchIAPConfigInfo response = wrapper.updateTwitchIAPConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

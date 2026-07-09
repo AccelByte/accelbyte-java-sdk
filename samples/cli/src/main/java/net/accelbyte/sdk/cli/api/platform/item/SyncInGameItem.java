@@ -66,13 +66,13 @@ public class SyncInGameItem implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Item wrapper = new Item(sdk);
-      final net.accelbyte.sdk.api.platform.operations.item.SyncInGameItem operation =
+      final net.accelbyte.sdk.api.platform.operations.item.SyncInGameItem operationRequest =
           net.accelbyte.sdk.api.platform.operations.item.SyncInGameItem.builder()
               .namespace(namespace)
               .storeId(storeId)
               .body(new ObjectMapper().readValue(body, InGameItemSync.class))
               .build();
-      final FullItemInfo response = wrapper.syncInGameItem(operation);
+      final FullItemInfo response = wrapper.syncInGameItem(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

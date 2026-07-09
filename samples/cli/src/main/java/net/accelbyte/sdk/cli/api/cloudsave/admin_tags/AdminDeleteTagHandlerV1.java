@@ -61,13 +61,13 @@ public class AdminDeleteTagHandlerV1 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminTags wrapper = new AdminTags(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.admin_tags.AdminDeleteTagHandlerV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.admin_tags.AdminDeleteTagHandlerV1
                   .builder()
                   .namespace(namespace)
                   .tag(tag)
                   .build();
-      wrapper.adminDeleteTagHandlerV1(operation);
+      wrapper.adminDeleteTagHandlerV1(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -72,7 +72,7 @@ public class PublicGetUserContent implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicContentLegacy wrapper = new PublicContentLegacy(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_content_legacy.PublicGetUserContent
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.public_content_legacy.PublicGetUserContent
                   .builder()
                   .namespace(namespace)
@@ -81,7 +81,7 @@ public class PublicGetUserContent implements Callable<Integer> {
                   .offset(offset)
                   .build();
       final ModelsPaginatedContentDownloadResponse response =
-          wrapper.publicGetUserContent(operation);
+          wrapper.publicGetUserContent(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

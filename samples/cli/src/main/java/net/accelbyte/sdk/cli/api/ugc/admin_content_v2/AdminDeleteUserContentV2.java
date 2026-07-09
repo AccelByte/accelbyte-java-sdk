@@ -71,7 +71,7 @@ public class AdminDeleteUserContentV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminContentV2 wrapper = new AdminContentV2(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminDeleteUserContentV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminDeleteUserContentV2
                   .builder()
                   .channelId(channelId)
@@ -79,7 +79,7 @@ public class AdminDeleteUserContentV2 implements Callable<Integer> {
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      wrapper.adminDeleteUserContentV2(operation);
+      wrapper.adminDeleteUserContentV2(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

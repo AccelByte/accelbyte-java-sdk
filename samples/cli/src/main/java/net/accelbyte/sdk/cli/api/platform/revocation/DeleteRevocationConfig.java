@@ -55,11 +55,12 @@ public class DeleteRevocationConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Revocation wrapper = new Revocation(sdk);
-      final net.accelbyte.sdk.api.platform.operations.revocation.DeleteRevocationConfig operation =
-          net.accelbyte.sdk.api.platform.operations.revocation.DeleteRevocationConfig.builder()
-              .namespace(namespace)
-              .build();
-      wrapper.deleteRevocationConfig(operation);
+      final net.accelbyte.sdk.api.platform.operations.revocation.DeleteRevocationConfig
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.revocation.DeleteRevocationConfig.builder()
+                  .namespace(namespace)
+                  .build();
+      wrapper.deleteRevocationConfig(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

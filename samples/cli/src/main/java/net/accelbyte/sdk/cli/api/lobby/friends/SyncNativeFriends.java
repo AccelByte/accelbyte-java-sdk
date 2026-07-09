@@ -62,14 +62,15 @@ public class SyncNativeFriends implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Friends wrapper = new Friends(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.friends.SyncNativeFriends operation =
+      final net.accelbyte.sdk.api.lobby.operations.friends.SyncNativeFriends operationRequest =
           net.accelbyte.sdk.api.lobby.operations.friends.SyncNativeFriends.builder()
               .namespace(namespace)
               .body(
                   new ObjectMapper()
                       .readValue(body, new TypeReference<List<ModelNativeFriendRequest>>() {}))
               .build();
-      final List<ModelNativeFriendSyncResponse> response = wrapper.syncNativeFriends(operation);
+      final List<ModelNativeFriendSyncResponse> response =
+          wrapper.syncNativeFriends(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

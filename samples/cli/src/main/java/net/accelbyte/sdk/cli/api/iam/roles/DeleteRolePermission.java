@@ -65,13 +65,13 @@ public class DeleteRolePermission implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Roles wrapper = new Roles(sdk);
-      final net.accelbyte.sdk.api.iam.operations.roles.DeleteRolePermission operation =
+      final net.accelbyte.sdk.api.iam.operations.roles.DeleteRolePermission operationRequest =
           net.accelbyte.sdk.api.iam.operations.roles.DeleteRolePermission.builder()
               .action(action)
               .resource(resource)
               .roleId(roleId)
               .build();
-      wrapper.deleteRolePermission(operation);
+      wrapper.deleteRolePermission(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -61,12 +61,12 @@ public class PublicGetCreator implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicCreator wrapper = new PublicCreator(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.public_creator.PublicGetCreator operation =
+      final net.accelbyte.sdk.api.ugc.operations.public_creator.PublicGetCreator operationRequest =
           net.accelbyte.sdk.api.ugc.operations.public_creator.PublicGetCreator.builder()
               .namespace(namespace)
               .userId(userId)
               .build();
-      final ModelsCreatorResponse response = wrapper.publicGetCreator(operation);
+      final ModelsCreatorResponse response = wrapper.publicGetCreator(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -63,13 +63,13 @@ public class AdminDeletePlatformCredentialsByPlatformId implements Callable<Inte
       final PlatformCredential wrapper = new PlatformCredential(sdk);
       final net.accelbyte.sdk.api.session.operations.platform_credential
               .AdminDeletePlatformCredentialsByPlatformId
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.platform_credential
                   .AdminDeletePlatformCredentialsByPlatformId.builder()
                   .namespace(namespace)
                   .platformId(platformId)
                   .build();
-      wrapper.adminDeletePlatformCredentialsByPlatformId(operation);
+      wrapper.adminDeletePlatformCredentialsByPlatformId(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

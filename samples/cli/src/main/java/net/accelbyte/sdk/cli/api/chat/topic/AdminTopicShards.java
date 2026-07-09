@@ -61,12 +61,12 @@ public class AdminTopicShards implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Topic wrapper = new Topic(sdk);
-      final net.accelbyte.sdk.api.chat.operations.topic.AdminTopicShards operation =
+      final net.accelbyte.sdk.api.chat.operations.topic.AdminTopicShards operationRequest =
           net.accelbyte.sdk.api.chat.operations.topic.AdminTopicShards.builder()
               .namespace(namespace)
               .topic(topic)
               .build();
-      final List<String> response = wrapper.adminTopicShards(operation);
+      final List<String> response = wrapper.adminTopicShards(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

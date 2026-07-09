@@ -51,9 +51,9 @@ public class PublicGetTime implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Misc wrapper = new Misc(sdk);
-      final net.accelbyte.sdk.api.basic.operations.misc.PublicGetTime operation =
+      final net.accelbyte.sdk.api.basic.operations.misc.PublicGetTime operationRequest =
           net.accelbyte.sdk.api.basic.operations.misc.PublicGetTime.builder().build();
-      final RetrieveTimeResponse response = wrapper.publicGetTime(operation);
+      final RetrieveTimeResponse response = wrapper.publicGetTime(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -71,14 +71,14 @@ public class UpdateCategory implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Category wrapper = new Category(sdk);
-      final net.accelbyte.sdk.api.platform.operations.category.UpdateCategory operation =
+      final net.accelbyte.sdk.api.platform.operations.category.UpdateCategory operationRequest =
           net.accelbyte.sdk.api.platform.operations.category.UpdateCategory.builder()
               .categoryPath(categoryPath)
               .namespace(namespace)
               .storeId(storeId)
               .body(new ObjectMapper().readValue(body, CategoryUpdate.class))
               .build();
-      final FullCategoryInfo response = wrapper.updateCategory(operation);
+      final FullCategoryInfo response = wrapper.updateCategory(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -66,13 +66,13 @@ public class AdminBanUserV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.AdminBanUserV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.users.AdminBanUserV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.AdminBanUserV3.builder()
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, ModelBanCreateRequest.class))
               .build();
-      final ModelUserBanResponseV3 response = wrapper.adminBanUserV3(operation);
+      final ModelUserBanResponseV3 response = wrapper.adminBanUserV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -60,12 +60,12 @@ public class DeleteAppUI implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AppUI wrapper = new AppUI(sdk);
-      final net.accelbyte.sdk.api.csm.operations.app_ui.DeleteAppUI operation =
+      final net.accelbyte.sdk.api.csm.operations.app_ui.DeleteAppUI operationRequest =
           net.accelbyte.sdk.api.csm.operations.app_ui.DeleteAppUI.builder()
               .appUiName(appUiName)
               .namespace(namespace)
               .build();
-      wrapper.deleteAppUI(operation);
+      wrapper.deleteAppUI(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -56,11 +56,11 @@ public class AdminInviteUserV4 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UsersV4 wrapper = new UsersV4(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users_v4.AdminInviteUserV4 operation =
+      final net.accelbyte.sdk.api.iam.operations.users_v4.AdminInviteUserV4 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users_v4.AdminInviteUserV4.builder()
               .body(new ObjectMapper().readValue(body, ModelInviteUserRequestV4.class))
               .build();
-      final ModelInviteUserResponseV3 response = wrapper.adminInviteUserV4(operation);
+      final ModelInviteUserResponseV3 response = wrapper.adminInviteUserV4(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

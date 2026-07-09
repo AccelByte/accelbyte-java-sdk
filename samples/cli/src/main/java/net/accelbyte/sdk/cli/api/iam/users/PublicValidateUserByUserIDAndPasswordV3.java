@@ -67,14 +67,14 @@ public class PublicValidateUserByUserIDAndPasswordV3 implements Callable<Integer
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
       final net.accelbyte.sdk.api.iam.operations.users.PublicValidateUserByUserIDAndPasswordV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.users.PublicValidateUserByUserIDAndPasswordV3
                   .builder()
                   .namespace(namespace)
                   .userId(userId)
                   .password(password != null ? password : null)
                   .build();
-      wrapper.publicValidateUserByUserIDAndPasswordV3(operation);
+      wrapper.publicValidateUserByUserIDAndPasswordV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

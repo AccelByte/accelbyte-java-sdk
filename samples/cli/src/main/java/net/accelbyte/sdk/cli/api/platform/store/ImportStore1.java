@@ -72,14 +72,14 @@ public class ImportStore1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Store wrapper = new Store(sdk);
-      final net.accelbyte.sdk.api.platform.operations.store.ImportStore1 operation =
+      final net.accelbyte.sdk.api.platform.operations.store.ImportStore1 operationRequest =
           net.accelbyte.sdk.api.platform.operations.store.ImportStore1.builder()
               .namespace(namespace)
               .storeId(storeId)
               .strictMode(strictMode)
               .file(file != null ? file : null)
               .build();
-      final ImportStoreResult response = wrapper.importStore1(operation);
+      final ImportStoreResult response = wrapper.importStore1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

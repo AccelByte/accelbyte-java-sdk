@@ -71,14 +71,15 @@ public class UpdateAliPayConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PaymentConfig wrapper = new PaymentConfig(sdk);
-      final net.accelbyte.sdk.api.platform.operations.payment_config.UpdateAliPayConfig operation =
-          net.accelbyte.sdk.api.platform.operations.payment_config.UpdateAliPayConfig.builder()
-              .id(id)
-              .sandbox(sandbox)
-              .validate(validate)
-              .body(new ObjectMapper().readValue(body, AliPayConfig.class))
-              .build();
-      final PaymentMerchantConfigInfo response = wrapper.updateAliPayConfig(operation);
+      final net.accelbyte.sdk.api.platform.operations.payment_config.UpdateAliPayConfig
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.payment_config.UpdateAliPayConfig.builder()
+                  .id(id)
+                  .sandbox(sandbox)
+                  .validate(validate)
+                  .body(new ObjectMapper().readValue(body, AliPayConfig.class))
+                  .build();
+      final PaymentMerchantConfigInfo response = wrapper.updateAliPayConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

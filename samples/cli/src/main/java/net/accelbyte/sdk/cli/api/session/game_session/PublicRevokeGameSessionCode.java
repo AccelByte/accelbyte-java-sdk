@@ -61,13 +61,13 @@ public class PublicRevokeGameSessionCode implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameSession wrapper = new GameSession(sdk);
       final net.accelbyte.sdk.api.session.operations.game_session.PublicRevokeGameSessionCode
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.game_session.PublicRevokeGameSessionCode
                   .builder()
                   .namespace(namespace)
                   .sessionId(sessionId)
                   .build();
-      wrapper.publicRevokeGameSessionCode(operation);
+      wrapper.publicRevokeGameSessionCode(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

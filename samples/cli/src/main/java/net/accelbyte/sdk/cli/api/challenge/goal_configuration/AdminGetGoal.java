@@ -66,13 +66,14 @@ public class AdminGetGoal implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GoalConfiguration wrapper = new GoalConfiguration(sdk);
-      final net.accelbyte.sdk.api.challenge.operations.goal_configuration.AdminGetGoal operation =
-          net.accelbyte.sdk.api.challenge.operations.goal_configuration.AdminGetGoal.builder()
-              .challengeCode(challengeCode)
-              .code(code)
-              .namespace(namespace)
-              .build();
-      final ModelGoalResponse response = wrapper.adminGetGoal(operation);
+      final net.accelbyte.sdk.api.challenge.operations.goal_configuration.AdminGetGoal
+          operationRequest =
+              net.accelbyte.sdk.api.challenge.operations.goal_configuration.AdminGetGoal.builder()
+                  .challengeCode(challengeCode)
+                  .code(code)
+                  .namespace(namespace)
+                  .build();
+      final ModelGoalResponse response = wrapper.adminGetGoal(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

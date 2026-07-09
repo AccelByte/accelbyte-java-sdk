@@ -61,12 +61,12 @@ public class CreateStat implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final StatConfiguration wrapper = new StatConfiguration(sdk);
-      final net.accelbyte.sdk.api.social.operations.stat_configuration.CreateStat operation =
+      final net.accelbyte.sdk.api.social.operations.stat_configuration.CreateStat operationRequest =
           net.accelbyte.sdk.api.social.operations.stat_configuration.CreateStat.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, StatCreate.class))
               .build();
-      final StatInfo response = wrapper.createStat(operation);
+      final StatInfo response = wrapper.createStat(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

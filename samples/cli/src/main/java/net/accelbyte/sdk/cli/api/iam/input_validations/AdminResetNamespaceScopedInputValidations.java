@@ -63,13 +63,13 @@ public class AdminResetNamespaceScopedInputValidations implements Callable<Integ
       final InputValidations wrapper = new InputValidations(sdk);
       final net.accelbyte.sdk.api.iam.operations.input_validations
               .AdminResetNamespaceScopedInputValidations
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.input_validations
                   .AdminResetNamespaceScopedInputValidations.builder()
                   .field(field)
                   .namespace(namespace)
                   .build();
-      wrapper.adminResetNamespaceScopedInputValidations(operation);
+      wrapper.adminResetNamespaceScopedInputValidations(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

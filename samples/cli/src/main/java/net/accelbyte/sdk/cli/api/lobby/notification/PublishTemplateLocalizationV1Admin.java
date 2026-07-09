@@ -66,14 +66,14 @@ public class PublishTemplateLocalizationV1Admin implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Notification wrapper = new Notification(sdk);
       final net.accelbyte.sdk.api.lobby.operations.notification.PublishTemplateLocalizationV1Admin
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.notification.PublishTemplateLocalizationV1Admin
                   .builder()
                   .namespace(namespace)
                   .templateLanguage(templateLanguage)
                   .templateSlug(templateSlug)
                   .build();
-      wrapper.publishTemplateLocalizationV1Admin(operation);
+      wrapper.publishTemplateLocalizationV1Admin(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

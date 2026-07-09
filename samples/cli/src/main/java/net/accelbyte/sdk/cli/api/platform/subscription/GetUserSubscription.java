@@ -66,13 +66,14 @@ public class GetUserSubscription implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Subscription wrapper = new Subscription(sdk);
-      final net.accelbyte.sdk.api.platform.operations.subscription.GetUserSubscription operation =
-          net.accelbyte.sdk.api.platform.operations.subscription.GetUserSubscription.builder()
-              .namespace(namespace)
-              .subscriptionId(subscriptionId)
-              .userId(userId)
-              .build();
-      final SubscriptionInfo response = wrapper.getUserSubscription(operation);
+      final net.accelbyte.sdk.api.platform.operations.subscription.GetUserSubscription
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.subscription.GetUserSubscription.builder()
+                  .namespace(namespace)
+                  .subscriptionId(subscriptionId)
+                  .userId(userId)
+                  .build();
+      final SubscriptionInfo response = wrapper.getUserSubscription(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

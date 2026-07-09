@@ -71,14 +71,14 @@ public class AdminLinkPlatformAccount implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.AdminLinkPlatformAccount operation =
+      final net.accelbyte.sdk.api.iam.operations.users.AdminLinkPlatformAccount operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.AdminLinkPlatformAccount.builder()
               .namespace(namespace)
               .userId(userId)
               .skipConflict(skipConflict)
               .body(new ObjectMapper().readValue(body, ModelLinkPlatformAccountRequest.class))
               .build();
-      wrapper.adminLinkPlatformAccount(operation);
+      wrapper.adminLinkPlatformAccount(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

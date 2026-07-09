@@ -66,13 +66,14 @@ public class AdminUpdateDeviceBanV4 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final DevicesV4 wrapper = new DevicesV4(sdk);
-      final net.accelbyte.sdk.api.iam.operations.devices_v4.AdminUpdateDeviceBanV4 operation =
-          net.accelbyte.sdk.api.iam.operations.devices_v4.AdminUpdateDeviceBanV4.builder()
-              .banId(banId)
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ModelDeviceBanUpdateRequestV4.class))
-              .build();
-      wrapper.adminUpdateDeviceBanV4(operation);
+      final net.accelbyte.sdk.api.iam.operations.devices_v4.AdminUpdateDeviceBanV4
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.devices_v4.AdminUpdateDeviceBanV4.builder()
+                  .banId(banId)
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, ModelDeviceBanUpdateRequestV4.class))
+                  .build();
+      wrapper.adminUpdateDeviceBanV4(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

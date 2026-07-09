@@ -49,6 +49,9 @@ public class ModelsGetLeaderboardConfigRespV3 extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String description;
 
+  @JsonProperty("enableServerHiddenFilter")
+  private Boolean enableServerHiddenFilter;
+
   @JsonProperty("iconURL")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String iconURL;

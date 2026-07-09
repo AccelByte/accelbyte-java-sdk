@@ -73,7 +73,7 @@ public class ProcessUserSubscriptionNotification implements Callable<Integer> {
       final Subscription wrapper = new Subscription(sdk);
       final net.accelbyte.sdk.api.platform.operations.subscription
               .ProcessUserSubscriptionNotification
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.subscription
                   .ProcessUserSubscriptionNotification.builder()
                   .namespace(namespace)
@@ -81,7 +81,7 @@ public class ProcessUserSubscriptionNotification implements Callable<Integer> {
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, TradeNotification.class))
                   .build();
-      wrapper.processUserSubscriptionNotification(operation);
+      wrapper.processUserSubscriptionNotification(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -66,13 +66,13 @@ public class GetPass implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Pass wrapper = new Pass(sdk);
-      final net.accelbyte.sdk.api.seasonpass.operations.pass.GetPass operation =
+      final net.accelbyte.sdk.api.seasonpass.operations.pass.GetPass operationRequest =
           net.accelbyte.sdk.api.seasonpass.operations.pass.GetPass.builder()
               .code(code)
               .namespace(namespace)
               .seasonId(seasonId)
               .build();
-      final PassInfo response = wrapper.getPass(operation);
+      final PassInfo response = wrapper.getPass(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

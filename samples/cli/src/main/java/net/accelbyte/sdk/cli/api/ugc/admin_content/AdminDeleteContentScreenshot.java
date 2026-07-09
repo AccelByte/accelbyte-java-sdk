@@ -66,14 +66,14 @@ public class AdminDeleteContentScreenshot implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminContent wrapper = new AdminContent(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_content.AdminDeleteContentScreenshot
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.admin_content.AdminDeleteContentScreenshot
                   .builder()
                   .contentId(contentId)
                   .namespace(namespace)
                   .screenshotId(screenshotId)
                   .build();
-      wrapper.adminDeleteContentScreenshot(operation);
+      wrapper.adminDeleteContentScreenshot(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

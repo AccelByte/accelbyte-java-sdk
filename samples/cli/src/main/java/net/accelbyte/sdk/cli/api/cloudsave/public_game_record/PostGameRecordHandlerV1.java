@@ -67,14 +67,14 @@ public class PostGameRecordHandlerV1 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicGameRecord wrapper = new PublicGameRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.public_game_record.PostGameRecordHandlerV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.public_game_record.PostGameRecordHandlerV1
                   .builder()
                   .key(key)
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelsGameRecordRequest.class))
                   .build();
-      final ModelsGameRecordResponse response = wrapper.postGameRecordHandlerV1(operation);
+      final ModelsGameRecordResponse response = wrapper.postGameRecordHandlerV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

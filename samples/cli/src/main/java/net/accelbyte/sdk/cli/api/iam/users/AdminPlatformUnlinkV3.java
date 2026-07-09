@@ -71,14 +71,14 @@ public class AdminPlatformUnlinkV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.AdminPlatformUnlinkV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.users.AdminPlatformUnlinkV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.AdminPlatformUnlinkV3.builder()
               .namespace(namespace)
               .platformId(platformId)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, ModelUnlinkUserPlatformRequest.class))
               .build();
-      wrapper.adminPlatformUnlinkV3(operation);
+      wrapper.adminPlatformUnlinkV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -66,13 +66,13 @@ public class GetSection implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Section wrapper = new Section(sdk);
-      final net.accelbyte.sdk.api.platform.operations.section.GetSection operation =
+      final net.accelbyte.sdk.api.platform.operations.section.GetSection operationRequest =
           net.accelbyte.sdk.api.platform.operations.section.GetSection.builder()
               .namespace(namespace)
               .sectionId(sectionId)
               .storeId(storeId)
               .build();
-      final FullSectionInfo response = wrapper.getSection(operation);
+      final FullSectionInfo response = wrapper.getSection(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

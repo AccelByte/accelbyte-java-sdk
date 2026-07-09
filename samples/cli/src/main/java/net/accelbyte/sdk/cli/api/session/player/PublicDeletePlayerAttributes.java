@@ -55,11 +55,12 @@ public class PublicDeletePlayerAttributes implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Player wrapper = new Player(sdk);
-      final net.accelbyte.sdk.api.session.operations.player.PublicDeletePlayerAttributes operation =
-          net.accelbyte.sdk.api.session.operations.player.PublicDeletePlayerAttributes.builder()
-              .namespace(namespace)
-              .build();
-      wrapper.publicDeletePlayerAttributes(operation);
+      final net.accelbyte.sdk.api.session.operations.player.PublicDeletePlayerAttributes
+          operationRequest =
+              net.accelbyte.sdk.api.session.operations.player.PublicDeletePlayerAttributes.builder()
+                  .namespace(namespace)
+                  .build();
+      wrapper.publicDeletePlayerAttributes(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

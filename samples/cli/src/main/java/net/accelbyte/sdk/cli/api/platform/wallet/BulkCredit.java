@@ -62,14 +62,14 @@ public class BulkCredit implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Wallet wrapper = new Wallet(sdk);
-      final net.accelbyte.sdk.api.platform.operations.wallet.BulkCredit operation =
+      final net.accelbyte.sdk.api.platform.operations.wallet.BulkCredit operationRequest =
           net.accelbyte.sdk.api.platform.operations.wallet.BulkCredit.builder()
               .namespace(namespace)
               .body(
                   new ObjectMapper()
                       .readValue(body, new TypeReference<List<BulkCreditRequest>>() {}))
               .build();
-      final BulkCreditResult response = wrapper.bulkCredit(operation);
+      final BulkCreditResult response = wrapper.bulkCredit(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

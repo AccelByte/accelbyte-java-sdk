@@ -71,14 +71,15 @@ public class SellUserEntitlement implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Entitlement wrapper = new Entitlement(sdk);
-      final net.accelbyte.sdk.api.platform.operations.entitlement.SellUserEntitlement operation =
-          net.accelbyte.sdk.api.platform.operations.entitlement.SellUserEntitlement.builder()
-              .entitlementId(entitlementId)
-              .namespace(namespace)
-              .userId(userId)
-              .body(new ObjectMapper().readValue(body, AdminEntitlementSoldRequest.class))
-              .build();
-      final EntitlementSoldResult response = wrapper.sellUserEntitlement(operation);
+      final net.accelbyte.sdk.api.platform.operations.entitlement.SellUserEntitlement
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.entitlement.SellUserEntitlement.builder()
+                  .entitlementId(entitlementId)
+                  .namespace(namespace)
+                  .userId(userId)
+                  .body(new ObjectMapper().readValue(body, AdminEntitlementSoldRequest.class))
+                  .build();
+      final EntitlementSoldResult response = wrapper.sellUserEntitlement(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

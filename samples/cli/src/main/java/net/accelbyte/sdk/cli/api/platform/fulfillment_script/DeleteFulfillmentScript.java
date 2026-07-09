@@ -56,12 +56,12 @@ public class DeleteFulfillmentScript implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final FulfillmentScript wrapper = new FulfillmentScript(sdk);
       final net.accelbyte.sdk.api.platform.operations.fulfillment_script.DeleteFulfillmentScript
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.fulfillment_script.DeleteFulfillmentScript
                   .builder()
                   .id(id)
                   .build();
-      wrapper.deleteFulfillmentScript(operation);
+      wrapper.deleteFulfillmentScript(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

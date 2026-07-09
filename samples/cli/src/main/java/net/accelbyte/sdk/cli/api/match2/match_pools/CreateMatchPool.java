@@ -61,12 +61,12 @@ public class CreateMatchPool implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final MatchPools wrapper = new MatchPools(sdk);
-      final net.accelbyte.sdk.api.match2.operations.match_pools.CreateMatchPool operation =
+      final net.accelbyte.sdk.api.match2.operations.match_pools.CreateMatchPool operationRequest =
           net.accelbyte.sdk.api.match2.operations.match_pools.CreateMatchPool.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ApiMatchPool.class))
               .build();
-      wrapper.createMatchPool(operation);
+      wrapper.createMatchPool(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

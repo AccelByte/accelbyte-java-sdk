@@ -61,12 +61,12 @@ public class ListCurrencies implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Currency wrapper = new Currency(sdk);
-      final net.accelbyte.sdk.api.platform.operations.currency.ListCurrencies operation =
+      final net.accelbyte.sdk.api.platform.operations.currency.ListCurrencies operationRequest =
           net.accelbyte.sdk.api.platform.operations.currency.ListCurrencies.builder()
               .namespace(namespace)
               .currencyType(currencyType)
               .build();
-      final List<CurrencyInfo> response = wrapper.listCurrencies(operation);
+      final List<CurrencyInfo> response = wrapper.listCurrencies(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

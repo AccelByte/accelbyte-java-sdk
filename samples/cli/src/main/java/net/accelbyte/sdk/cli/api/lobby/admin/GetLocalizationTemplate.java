@@ -66,13 +66,13 @@ public class GetLocalizationTemplate implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Admin wrapper = new Admin(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.admin.GetLocalizationTemplate operation =
+      final net.accelbyte.sdk.api.lobby.operations.admin.GetLocalizationTemplate operationRequest =
           net.accelbyte.sdk.api.lobby.operations.admin.GetLocalizationTemplate.builder()
               .namespace(namespace)
               .templateLanguage(templateLanguage)
               .templateSlug(templateSlug)
               .build();
-      final ModelTemplateLocalization response = wrapper.getLocalizationTemplate(operation);
+      final ModelTemplateLocalization response = wrapper.getLocalizationTemplate(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

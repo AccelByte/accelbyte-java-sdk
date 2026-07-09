@@ -61,12 +61,12 @@ public class AdminGetCategorySchema implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Inbox wrapper = new Inbox(sdk);
-      final net.accelbyte.sdk.api.chat.operations.inbox.AdminGetCategorySchema operation =
+      final net.accelbyte.sdk.api.chat.operations.inbox.AdminGetCategorySchema operationRequest =
           net.accelbyte.sdk.api.chat.operations.inbox.AdminGetCategorySchema.builder()
               .category(category)
               .namespace(namespace)
               .build();
-      final ModelsJSONSchemaType response = wrapper.adminGetCategorySchema(operation);
+      final ModelsJSONSchemaType response = wrapper.adminGetCategorySchema(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

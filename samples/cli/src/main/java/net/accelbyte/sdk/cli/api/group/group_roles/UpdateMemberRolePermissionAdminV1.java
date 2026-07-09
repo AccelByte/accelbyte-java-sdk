@@ -67,7 +67,7 @@ public class UpdateMemberRolePermissionAdminV1 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GroupRoles wrapper = new GroupRoles(sdk);
       final net.accelbyte.sdk.api.group.operations.group_roles.UpdateMemberRolePermissionAdminV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.group.operations.group_roles.UpdateMemberRolePermissionAdminV1
                   .builder()
                   .memberRoleId(memberRoleId)
@@ -77,7 +77,7 @@ public class UpdateMemberRolePermissionAdminV1 implements Callable<Integer> {
                           .readValue(body, ModelsUpdateMemberRolePermissionsRequestV1.class))
                   .build();
       final ModelsMemberRoleResponseV1 response =
-          wrapper.updateMemberRolePermissionAdminV1(operation);
+          wrapper.updateMemberRolePermissionAdminV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

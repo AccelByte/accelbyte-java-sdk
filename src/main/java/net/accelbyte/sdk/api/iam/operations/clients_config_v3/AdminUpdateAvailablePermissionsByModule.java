@@ -21,8 +21,16 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminUpdateAvailablePermissionsByModule
  *
- * <p>Updates client available permissions. If the specified module or group does not exist, it will
- * be automatically created.
+ * <p>Upserts client available permissions at the module level. Only the modules listed in the
+ * request are processed - any other existing module is left untouched, so *callers do not need to
+ * include unchanged modules*.
+ *
+ * <p>## Groups update behavior
+ *
+ * <p>For each module in the request, the 'groups' array is the *full desired state* of that
+ * module's groups - any existing group whose 'groupId' is omitted is treated as ***removed***. If a
+ * removed group is currently used by any client, the request will fails with 400 and nothing is
+ * saved, unless 'forceDelete=true' query param is passed.
  */
 @Getter
 @Setter

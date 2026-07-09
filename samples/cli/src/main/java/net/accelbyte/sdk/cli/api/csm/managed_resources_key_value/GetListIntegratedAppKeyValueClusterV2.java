@@ -64,14 +64,14 @@ public class GetListIntegratedAppKeyValueClusterV2 implements Callable<Integer> 
       final ManagedResourcesKeyValue wrapper = new ManagedResourcesKeyValue(sdk);
       final net.accelbyte.sdk.api.csm.operations.managed_resources_key_value
               .GetListIntegratedAppKeyValueClusterV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.csm.operations.managed_resources_key_value
                   .GetListIntegratedAppKeyValueClusterV2.builder()
                   .namespace(namespace)
                   .resourceId(resourceId)
                   .build();
       final ApimodelListIntegratedAppsKeyValueResponse response =
-          wrapper.getListIntegratedAppKeyValueClusterV2(operation);
+          wrapper.getListIntegratedAppKeyValueClusterV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

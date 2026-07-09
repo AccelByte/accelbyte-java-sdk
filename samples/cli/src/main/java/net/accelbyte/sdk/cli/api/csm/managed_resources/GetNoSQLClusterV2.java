@@ -56,11 +56,12 @@ public class GetNoSQLClusterV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ManagedResources wrapper = new ManagedResources(sdk);
-      final net.accelbyte.sdk.api.csm.operations.managed_resources.GetNoSQLClusterV2 operation =
-          net.accelbyte.sdk.api.csm.operations.managed_resources.GetNoSQLClusterV2.builder()
-              .namespace(namespace)
-              .build();
-      final ApimodelNoSQLResourceResponse response = wrapper.getNoSQLClusterV2(operation);
+      final net.accelbyte.sdk.api.csm.operations.managed_resources.GetNoSQLClusterV2
+          operationRequest =
+              net.accelbyte.sdk.api.csm.operations.managed_resources.GetNoSQLClusterV2.builder()
+                  .namespace(namespace)
+                  .build();
+      final ApimodelNoSQLResourceResponse response = wrapper.getNoSQLClusterV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

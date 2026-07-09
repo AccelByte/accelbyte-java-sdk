@@ -66,13 +66,13 @@ public class PublicSetPartyLimitV1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Party wrapper = new Party(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.party.PublicSetPartyLimitV1 operation =
+      final net.accelbyte.sdk.api.lobby.operations.party.PublicSetPartyLimitV1 operationRequest =
           net.accelbyte.sdk.api.lobby.operations.party.PublicSetPartyLimitV1.builder()
               .namespace(namespace)
               .partyId(partyId)
               .body(new ObjectMapper().readValue(body, ModelsPartyPUTLimitSizeRequest.class))
               .build();
-      wrapper.publicSetPartyLimitV1(operation);
+      wrapper.publicSetPartyLimitV1(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

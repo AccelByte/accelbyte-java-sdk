@@ -61,13 +61,13 @@ public class DeleteNotificationTopicV1Admin implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Notification wrapper = new Notification(sdk);
       final net.accelbyte.sdk.api.lobby.operations.notification.DeleteNotificationTopicV1Admin
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.notification.DeleteNotificationTopicV1Admin
                   .builder()
                   .namespace(namespace)
                   .topicName(topicName)
                   .build();
-      wrapper.deleteNotificationTopicV1Admin(operation);
+      wrapper.deleteNotificationTopicV1Admin(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

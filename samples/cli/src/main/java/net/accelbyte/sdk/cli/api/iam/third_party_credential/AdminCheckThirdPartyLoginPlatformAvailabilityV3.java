@@ -60,13 +60,13 @@ public class AdminCheckThirdPartyLoginPlatformAvailabilityV3 implements Callable
       final ThirdPartyCredential wrapper = new ThirdPartyCredential(sdk);
       final net.accelbyte.sdk.api.iam.operations.third_party_credential
               .AdminCheckThirdPartyLoginPlatformAvailabilityV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.third_party_credential
                   .AdminCheckThirdPartyLoginPlatformAvailabilityV3.builder()
                   .platformId(platformId)
                   .build();
       final ModelCheckAvailabilityResponse response =
-          wrapper.adminCheckThirdPartyLoginPlatformAvailabilityV3(operation);
+          wrapper.adminCheckThirdPartyLoginPlatformAvailabilityV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

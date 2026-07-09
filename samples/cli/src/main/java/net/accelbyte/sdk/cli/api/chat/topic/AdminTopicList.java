@@ -71,14 +71,14 @@ public class AdminTopicList implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Topic wrapper = new Topic(sdk);
-      final net.accelbyte.sdk.api.chat.operations.topic.AdminTopicList operation =
+      final net.accelbyte.sdk.api.chat.operations.topic.AdminTopicList operationRequest =
           net.accelbyte.sdk.api.chat.operations.topic.AdminTopicList.builder()
               .namespace(namespace)
               .limit(limit)
               .offset(offset)
               .topicType(topicType)
               .build();
-      final List<ModelsTopicResponse> response = wrapper.adminTopicList(operation);
+      final List<ModelsTopicResponse> response = wrapper.adminTopicList(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

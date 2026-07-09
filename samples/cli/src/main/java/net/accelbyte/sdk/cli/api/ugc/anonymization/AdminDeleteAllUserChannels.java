@@ -61,13 +61,13 @@ public class AdminDeleteAllUserChannels implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Anonymization wrapper = new Anonymization(sdk);
       final net.accelbyte.sdk.api.ugc.operations.anonymization.AdminDeleteAllUserChannels
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.anonymization.AdminDeleteAllUserChannels
                   .builder()
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      wrapper.adminDeleteAllUserChannels(operation);
+      wrapper.adminDeleteAllUserChannels(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

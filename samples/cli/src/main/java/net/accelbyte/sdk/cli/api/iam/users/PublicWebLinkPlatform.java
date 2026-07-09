@@ -71,14 +71,14 @@ public class PublicWebLinkPlatform implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.PublicWebLinkPlatform operation =
+      final net.accelbyte.sdk.api.iam.operations.users.PublicWebLinkPlatform operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.PublicWebLinkPlatform.builder()
               .namespace(namespace)
               .platformId(platformId)
               .clientId(clientId)
               .redirectUri(redirectUri)
               .build();
-      final ModelWebLinkingResponse response = wrapper.publicWebLinkPlatform(operation);
+      final ModelWebLinkingResponse response = wrapper.publicWebLinkPlatform(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

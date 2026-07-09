@@ -84,7 +84,7 @@ public class IndirectBulkAcceptVersionedPolicy implements Callable<Integer> {
       final AdminUserAgreement wrapper = new AdminUserAgreement(sdk);
       final net.accelbyte.sdk.api.legal.operations.admin_user_agreement
               .IndirectBulkAcceptVersionedPolicy
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.admin_user_agreement
                   .IndirectBulkAcceptVersionedPolicy.builder()
                   .namespace(namespace)
@@ -96,7 +96,8 @@ public class IndirectBulkAcceptVersionedPolicy implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, new TypeReference<List<AcceptAgreementRequest>>() {}))
                   .build();
-      final AcceptAgreementResponse response = wrapper.indirectBulkAcceptVersionedPolicy(operation);
+      final AcceptAgreementResponse response =
+          wrapper.indirectBulkAcceptVersionedPolicy(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

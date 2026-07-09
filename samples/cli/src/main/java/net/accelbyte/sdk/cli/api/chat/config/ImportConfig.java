@@ -62,12 +62,12 @@ public class ImportConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Config wrapper = new Config(sdk);
-      final net.accelbyte.sdk.api.chat.operations.config.ImportConfig operation =
+      final net.accelbyte.sdk.api.chat.operations.config.ImportConfig operationRequest =
           net.accelbyte.sdk.api.chat.operations.config.ImportConfig.builder()
               .namespace(namespace)
               .file(file != null ? file : null)
               .build();
-      final ModelsImportConfigResponse response = wrapper.importConfig(operation);
+      final ModelsImportConfigResponse response = wrapper.importConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

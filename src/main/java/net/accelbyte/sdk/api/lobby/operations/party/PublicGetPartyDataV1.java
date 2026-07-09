@@ -21,11 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicGetPartyDataV1
  *
- * <p>Required valid user authorization
- *
- * <p>load personal party data in a namespace based on Party ID
- *
- * <p>Action Code: 50101
+ * <p>Load party data in a namespace by Party ID.
  *
  * @deprecated
  */

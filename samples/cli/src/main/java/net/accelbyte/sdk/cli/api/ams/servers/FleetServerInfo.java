@@ -61,12 +61,12 @@ public class FleetServerInfo implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Servers wrapper = new Servers(sdk);
-      final net.accelbyte.sdk.api.ams.operations.servers.FleetServerInfo operation =
+      final net.accelbyte.sdk.api.ams.operations.servers.FleetServerInfo operationRequest =
           net.accelbyte.sdk.api.ams.operations.servers.FleetServerInfo.builder()
               .namespace(namespace)
               .serverID(serverID)
               .build();
-      final ApiFleetServerInfoResponse response = wrapper.fleetServerInfo(operation);
+      final ApiFleetServerInfoResponse response = wrapper.fleetServerInfo(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

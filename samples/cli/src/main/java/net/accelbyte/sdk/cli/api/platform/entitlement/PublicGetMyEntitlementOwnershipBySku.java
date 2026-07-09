@@ -69,14 +69,15 @@ public class PublicGetMyEntitlementOwnershipBySku implements Callable<Integer> {
       final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement
               .PublicGetMyEntitlementOwnershipBySku
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.entitlement
                   .PublicGetMyEntitlementOwnershipBySku.builder()
                   .namespace(namespace)
                   .entitlementClazz(entitlementClazz)
                   .sku(sku)
                   .build();
-      final TimedOwnership response = wrapper.publicGetMyEntitlementOwnershipBySku(operation);
+      final TimedOwnership response =
+          wrapper.publicGetMyEntitlementOwnershipBySku(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

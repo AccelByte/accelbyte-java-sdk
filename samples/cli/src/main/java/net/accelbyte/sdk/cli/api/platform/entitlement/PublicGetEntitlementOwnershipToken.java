@@ -75,7 +75,7 @@ public class PublicGetEntitlementOwnershipToken implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement.PublicGetEntitlementOwnershipToken
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.entitlement
                   .PublicGetEntitlementOwnershipToken.builder()
                   .namespace(namespace)
@@ -83,7 +83,7 @@ public class PublicGetEntitlementOwnershipToken implements Callable<Integer> {
                   .itemIds(itemIds)
                   .skus(skus)
                   .build();
-      final OwnershipToken response = wrapper.publicGetEntitlementOwnershipToken(operation);
+      final OwnershipToken response = wrapper.publicGetEntitlementOwnershipToken(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

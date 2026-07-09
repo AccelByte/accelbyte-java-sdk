@@ -60,12 +60,12 @@ public class DeleteBackfill implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Backfill wrapper = new Backfill(sdk);
-      final net.accelbyte.sdk.api.match2.operations.backfill.DeleteBackfill operation =
+      final net.accelbyte.sdk.api.match2.operations.backfill.DeleteBackfill operationRequest =
           net.accelbyte.sdk.api.match2.operations.backfill.DeleteBackfill.builder()
               .backfillID(backfillID)
               .namespace(namespace)
               .build();
-      wrapper.deleteBackfill(operation);
+      wrapper.deleteBackfill(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

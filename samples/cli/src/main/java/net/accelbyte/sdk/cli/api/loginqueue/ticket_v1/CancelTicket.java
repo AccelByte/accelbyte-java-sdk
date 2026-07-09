@@ -55,11 +55,11 @@ public class CancelTicket implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final TicketV1 wrapper = new TicketV1(sdk);
-      final net.accelbyte.sdk.api.loginqueue.operations.ticket_v1.CancelTicket operation =
+      final net.accelbyte.sdk.api.loginqueue.operations.ticket_v1.CancelTicket operationRequest =
           net.accelbyte.sdk.api.loginqueue.operations.ticket_v1.CancelTicket.builder()
               .namespace(namespace)
               .build();
-      wrapper.cancelTicket(operation);
+      wrapper.cancelTicket(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

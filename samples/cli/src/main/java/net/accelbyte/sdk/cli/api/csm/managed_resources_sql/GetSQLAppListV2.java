@@ -81,16 +81,17 @@ public class GetSQLAppListV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ManagedResourcesSQL wrapper = new ManagedResourcesSQL(sdk);
-      final net.accelbyte.sdk.api.csm.operations.managed_resources_sql.GetSQLAppListV2 operation =
-          net.accelbyte.sdk.api.csm.operations.managed_resources_sql.GetSQLAppListV2.builder()
-              .namespace(namespace)
-              .resourceId(resourceId)
-              .appName(appName)
-              .gameNamespace(gameNamespace)
-              .limit(limit)
-              .offset(offset)
-              .build();
-      final ApimodelSQLAppListResponse response = wrapper.getSQLAppListV2(operation);
+      final net.accelbyte.sdk.api.csm.operations.managed_resources_sql.GetSQLAppListV2
+          operationRequest =
+              net.accelbyte.sdk.api.csm.operations.managed_resources_sql.GetSQLAppListV2.builder()
+                  .namespace(namespace)
+                  .resourceId(resourceId)
+                  .appName(appName)
+                  .gameNamespace(gameNamespace)
+                  .limit(limit)
+                  .offset(offset)
+                  .build();
+      final ApimodelSQLAppListResponse response = wrapper.getSQLAppListV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

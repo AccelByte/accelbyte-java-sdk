@@ -68,14 +68,14 @@ public class CreatePolicyUnderBasePolicy implements Callable<Integer> {
       final BaseLegalPoliciesWithNamespace wrapper = new BaseLegalPoliciesWithNamespace(sdk);
       final net.accelbyte.sdk.api.legal.operations.base_legal_policies_with_namespace
               .CreatePolicyUnderBasePolicy
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.base_legal_policies_with_namespace
                   .CreatePolicyUnderBasePolicy.builder()
                   .basePolicyId(basePolicyId)
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, CreatePolicyRequest.class))
                   .build();
-      final CreatePolicyResponse response = wrapper.createPolicyUnderBasePolicy(operation);
+      final CreatePolicyResponse response = wrapper.createPolicyUnderBasePolicy(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

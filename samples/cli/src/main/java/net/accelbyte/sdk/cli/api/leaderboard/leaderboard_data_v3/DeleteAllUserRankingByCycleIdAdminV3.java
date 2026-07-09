@@ -68,14 +68,14 @@ public class DeleteAllUserRankingByCycleIdAdminV3 implements Callable<Integer> {
       final LeaderboardDataV3 wrapper = new LeaderboardDataV3(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data_v3
               .DeleteAllUserRankingByCycleIdAdminV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data_v3
                   .DeleteAllUserRankingByCycleIdAdminV3.builder()
                   .cycleId(cycleId)
                   .leaderboardCode(leaderboardCode)
                   .namespace(namespace)
                   .build();
-      wrapper.deleteAllUserRankingByCycleIdAdminV3(operation);
+      wrapper.deleteAllUserRankingByCycleIdAdminV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

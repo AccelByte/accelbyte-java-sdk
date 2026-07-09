@@ -67,13 +67,13 @@ public class GetSlotData implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Slot wrapper = new Slot(sdk);
-      final net.accelbyte.sdk.api.social.operations.slot.GetSlotData operation =
+      final net.accelbyte.sdk.api.social.operations.slot.GetSlotData operationRequest =
           net.accelbyte.sdk.api.social.operations.slot.GetSlotData.builder()
               .namespace(namespace)
               .slotId(slotId)
               .userId(userId)
               .build();
-      final InputStream response = wrapper.getSlotData(operation);
+      final InputStream response = wrapper.getSlotData(operationRequest);
       final File outputFile = new File("response.out");
       java.nio.file.Files.copy(
           response, outputFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);

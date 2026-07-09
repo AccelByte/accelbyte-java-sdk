@@ -61,12 +61,12 @@ public class UpdateTestingFlag implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Namespace wrapper = new Namespace(sdk);
-      final net.accelbyte.sdk.api.basic.operations.namespace.UpdateTestingFlag operation =
+      final net.accelbyte.sdk.api.basic.operations.namespace.UpdateTestingFlag operationRequest =
           net.accelbyte.sdk.api.basic.operations.namespace.UpdateTestingFlag.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, NamespaceTestingFlagUpdate.class))
               .build();
-      final NamespaceInfo response = wrapper.updateTestingFlag(operation);
+      final NamespaceInfo response = wrapper.updateTestingFlag(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

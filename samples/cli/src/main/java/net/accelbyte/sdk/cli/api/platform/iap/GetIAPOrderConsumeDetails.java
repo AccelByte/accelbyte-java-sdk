@@ -61,12 +61,14 @@ public class GetIAPOrderConsumeDetails implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.GetIAPOrderConsumeDetails operation =
-          net.accelbyte.sdk.api.platform.operations.iap.GetIAPOrderConsumeDetails.builder()
-              .iapOrderNo(iapOrderNo)
-              .namespace(namespace)
-              .build();
-      final List<IAPOrderConsumeDetailInfo> response = wrapper.getIAPOrderConsumeDetails(operation);
+      final net.accelbyte.sdk.api.platform.operations.iap.GetIAPOrderConsumeDetails
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.iap.GetIAPOrderConsumeDetails.builder()
+                  .iapOrderNo(iapOrderNo)
+                  .namespace(namespace)
+                  .build();
+      final List<IAPOrderConsumeDetailInfo> response =
+          wrapper.getIAPOrderConsumeDetails(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

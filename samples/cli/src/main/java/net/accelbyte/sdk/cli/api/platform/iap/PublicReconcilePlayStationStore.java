@@ -67,7 +67,7 @@ public class PublicReconcilePlayStationStore implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
       final net.accelbyte.sdk.api.platform.operations.iap.PublicReconcilePlayStationStore
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.iap.PublicReconcilePlayStationStore
                   .builder()
                   .namespace(namespace)
@@ -75,7 +75,7 @@ public class PublicReconcilePlayStationStore implements Callable<Integer> {
                   .body(new ObjectMapper().readValue(body, PlayStationReconcileRequest.class))
                   .build();
       final List<PlayStationReconcileResult> response =
-          wrapper.publicReconcilePlayStationStore(operation);
+          wrapper.publicReconcilePlayStationStore(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

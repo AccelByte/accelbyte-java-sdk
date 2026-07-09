@@ -68,14 +68,14 @@ public class AdminDeletePlayerPublicRecordHandlerV1 implements Callable<Integer>
       final AdminPlayerRecord wrapper = new AdminPlayerRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.admin_player_record
               .AdminDeletePlayerPublicRecordHandlerV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.admin_player_record
                   .AdminDeletePlayerPublicRecordHandlerV1.builder()
                   .key(key)
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      wrapper.adminDeletePlayerPublicRecordHandlerV1(operation);
+      wrapper.adminDeletePlayerPublicRecordHandlerV1(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

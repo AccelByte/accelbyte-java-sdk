@@ -63,14 +63,14 @@ public class AdminGetInventoryConfiguration implements Callable<Integer> {
       final AdminInventoryConfigurations wrapper = new AdminInventoryConfigurations(sdk);
       final net.accelbyte.sdk.api.inventory.operations.admin_inventory_configurations
               .AdminGetInventoryConfiguration
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.inventory.operations.admin_inventory_configurations
                   .AdminGetInventoryConfiguration.builder()
                   .inventoryConfigurationId(inventoryConfigurationId)
                   .namespace(namespace)
                   .build();
       final ApimodelsInventoryConfigurationResp response =
-          wrapper.adminGetInventoryConfiguration(operation);
+          wrapper.adminGetInventoryConfiguration(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

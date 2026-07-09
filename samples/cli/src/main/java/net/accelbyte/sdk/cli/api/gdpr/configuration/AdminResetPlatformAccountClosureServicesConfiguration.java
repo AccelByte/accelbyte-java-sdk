@@ -61,12 +61,12 @@ public class AdminResetPlatformAccountClosureServicesConfiguration implements Ca
       final Configuration wrapper = new Configuration(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.configuration
               .AdminResetPlatformAccountClosureServicesConfiguration
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.configuration
                   .AdminResetPlatformAccountClosureServicesConfiguration.builder()
                   .namespace(namespace)
                   .build();
-      wrapper.adminResetPlatformAccountClosureServicesConfiguration(operation);
+      wrapper.adminResetPlatformAccountClosureServicesConfiguration(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

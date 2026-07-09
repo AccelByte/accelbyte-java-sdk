@@ -73,7 +73,7 @@ public class BulkGetUsersRankingPublicV3 implements Callable<Integer> {
       final LeaderboardDataV3 wrapper = new LeaderboardDataV3(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data_v3
               .BulkGetUsersRankingPublicV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data_v3
                   .BulkGetUsersRankingPublicV3.builder()
                   .leaderboardCode(leaderboardCode)
@@ -82,7 +82,7 @@ public class BulkGetUsersRankingPublicV3 implements Callable<Integer> {
                   .body(new ObjectMapper().readValue(body, ModelsBulkUserIDsRequest.class))
                   .build();
       final ModelsBulkUserRankingResponseV3 response =
-          wrapper.bulkGetUsersRankingPublicV3(operation);
+          wrapper.bulkGetUsersRankingPublicV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -60,12 +60,13 @@ public class PublicEnableBackupCodesV4 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UsersV4 wrapper = new UsersV4(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users_v4.PublicEnableBackupCodesV4 operation =
-          net.accelbyte.sdk.api.iam.operations.users_v4.PublicEnableBackupCodesV4.builder()
-              .namespace(namespace)
-              .languageTag(languageTag)
-              .build();
-      wrapper.publicEnableBackupCodesV4(operation);
+      final net.accelbyte.sdk.api.iam.operations.users_v4.PublicEnableBackupCodesV4
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.users_v4.PublicEnableBackupCodesV4.builder()
+                  .namespace(namespace)
+                  .languageTag(languageTag)
+                  .build();
+      wrapper.publicEnableBackupCodesV4(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

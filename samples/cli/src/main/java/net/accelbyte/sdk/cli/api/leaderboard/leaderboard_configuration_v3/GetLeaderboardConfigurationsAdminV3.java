@@ -73,7 +73,7 @@ public class GetLeaderboardConfigurationsAdminV3 implements Callable<Integer> {
       final LeaderboardConfigurationV3 wrapper = new LeaderboardConfigurationV3(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration_v3
               .GetLeaderboardConfigurationsAdminV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration_v3
                   .GetLeaderboardConfigurationsAdminV3.builder()
                   .namespace(namespace)
@@ -82,7 +82,7 @@ public class GetLeaderboardConfigurationsAdminV3 implements Callable<Integer> {
                   .offset(offset)
                   .build();
       final ModelsGetAllLeaderboardConfigsRespV3 response =
-          wrapper.getLeaderboardConfigurationsAdminV3(operation);
+          wrapper.getLeaderboardConfigurationsAdminV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

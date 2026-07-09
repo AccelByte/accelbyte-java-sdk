@@ -72,7 +72,7 @@ public class AdminGetPeriods implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ChallengeConfiguration wrapper = new ChallengeConfiguration(sdk);
       final net.accelbyte.sdk.api.challenge.operations.challenge_configuration.AdminGetPeriods
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.challenge.operations.challenge_configuration.AdminGetPeriods
                   .builder()
                   .challengeCode(challengeCode)
@@ -80,7 +80,7 @@ public class AdminGetPeriods implements Callable<Integer> {
                   .limit(limit)
                   .offset(offset)
                   .build();
-      final ModelListPeriodsResponse response = wrapper.adminGetPeriods(operation);
+      final ModelListPeriodsResponse response = wrapper.adminGetPeriods(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

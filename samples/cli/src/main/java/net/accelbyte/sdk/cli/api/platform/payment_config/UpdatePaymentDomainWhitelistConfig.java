@@ -63,14 +63,14 @@ public class UpdatePaymentDomainWhitelistConfig implements Callable<Integer> {
       final PaymentConfig wrapper = new PaymentConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_config
               .UpdatePaymentDomainWhitelistConfig
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.payment_config
                   .UpdatePaymentDomainWhitelistConfig.builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, PaymentDomainWhitelistConfigEdit.class))
                   .build();
       final PaymentDomainWhitelistConfigInfo response =
-          wrapper.updatePaymentDomainWhitelistConfig(operation);
+          wrapper.updatePaymentDomainWhitelistConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

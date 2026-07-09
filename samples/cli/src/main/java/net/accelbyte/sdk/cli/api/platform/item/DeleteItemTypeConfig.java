@@ -55,11 +55,11 @@ public class DeleteItemTypeConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Item wrapper = new Item(sdk);
-      final net.accelbyte.sdk.api.platform.operations.item.DeleteItemTypeConfig operation =
+      final net.accelbyte.sdk.api.platform.operations.item.DeleteItemTypeConfig operationRequest =
           net.accelbyte.sdk.api.platform.operations.item.DeleteItemTypeConfig.builder()
               .id(id)
               .build();
-      wrapper.deleteItemTypeConfig(operation);
+      wrapper.deleteItemTypeConfig(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

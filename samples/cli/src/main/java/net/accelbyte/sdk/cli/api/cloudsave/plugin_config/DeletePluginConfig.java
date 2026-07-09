@@ -55,11 +55,12 @@ public class DeletePluginConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PluginConfig wrapper = new PluginConfig(sdk);
-      final net.accelbyte.sdk.api.cloudsave.operations.plugin_config.DeletePluginConfig operation =
-          net.accelbyte.sdk.api.cloudsave.operations.plugin_config.DeletePluginConfig.builder()
-              .namespace(namespace)
-              .build();
-      wrapper.deletePluginConfig(operation);
+      final net.accelbyte.sdk.api.cloudsave.operations.plugin_config.DeletePluginConfig
+          operationRequest =
+              net.accelbyte.sdk.api.cloudsave.operations.plugin_config.DeletePluginConfig.builder()
+                  .namespace(namespace)
+                  .build();
+      wrapper.deletePluginConfig(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

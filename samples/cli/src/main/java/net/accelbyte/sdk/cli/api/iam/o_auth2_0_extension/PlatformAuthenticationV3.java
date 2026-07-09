@@ -121,7 +121,7 @@ public class PlatformAuthenticationV3 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth20Extension wrapper = new OAuth20Extension(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.PlatformAuthenticationV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.PlatformAuthenticationV3
                   .builder()
                   .platformId(platformId)
@@ -139,7 +139,7 @@ public class PlatformAuthenticationV3 implements Callable<Integer> {
                   .openidSigned(openidSigned)
                   .state(state)
                   .build();
-      wrapper.platformAuthenticationV3(operation);
+      wrapper.platformAuthenticationV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -68,7 +68,7 @@ public class AdminUpdateConfigurationTemplateV1 implements Callable<Integer> {
       final ConfigurationTemplate wrapper = new ConfigurationTemplate(sdk);
       final net.accelbyte.sdk.api.session.operations.configuration_template
               .AdminUpdateConfigurationTemplateV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.configuration_template
                   .AdminUpdateConfigurationTemplateV1.builder()
                   .name(name)
@@ -78,7 +78,7 @@ public class AdminUpdateConfigurationTemplateV1 implements Callable<Integer> {
                           .readValue(body, ApimodelsUpdateConfigurationTemplateRequest.class))
                   .build();
       final ApimodelsConfigurationTemplateResponse response =
-          wrapper.adminUpdateConfigurationTemplateV1(operation);
+          wrapper.adminUpdateConfigurationTemplateV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

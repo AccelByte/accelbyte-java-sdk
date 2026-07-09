@@ -67,7 +67,7 @@ public class UpdateGroupCustomAttributesPublicV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Group wrapper = new Group(sdk);
       final net.accelbyte.sdk.api.group.operations.group.UpdateGroupCustomAttributesPublicV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.group.operations.group.UpdateGroupCustomAttributesPublicV2
                   .builder()
                   .groupId(groupId)
@@ -76,7 +76,8 @@ public class UpdateGroupCustomAttributesPublicV2 implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, ModelsUpdateGroupCustomAttributesRequestV1.class))
                   .build();
-      final ModelsGroupResponseV1 response = wrapper.updateGroupCustomAttributesPublicV2(operation);
+      final ModelsGroupResponseV1 response =
+          wrapper.updateGroupCustomAttributesPublicV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

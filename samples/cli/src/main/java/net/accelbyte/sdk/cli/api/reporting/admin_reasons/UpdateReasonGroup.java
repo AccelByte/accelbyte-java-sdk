@@ -66,13 +66,14 @@ public class UpdateReasonGroup implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminReasons wrapper = new AdminReasons(sdk);
-      final net.accelbyte.sdk.api.reporting.operations.admin_reasons.UpdateReasonGroup operation =
-          net.accelbyte.sdk.api.reporting.operations.admin_reasons.UpdateReasonGroup.builder()
-              .groupId(groupId)
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, RestapiUpdateReasonGroupRequest.class))
-              .build();
-      final RestapiReasonGroupResponse response = wrapper.updateReasonGroup(operation);
+      final net.accelbyte.sdk.api.reporting.operations.admin_reasons.UpdateReasonGroup
+          operationRequest =
+              net.accelbyte.sdk.api.reporting.operations.admin_reasons.UpdateReasonGroup.builder()
+                  .groupId(groupId)
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, RestapiUpdateReasonGroupRequest.class))
+                  .build();
+      final RestapiReasonGroupResponse response = wrapper.updateReasonGroup(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

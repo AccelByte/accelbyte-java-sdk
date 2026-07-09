@@ -55,11 +55,11 @@ public class DeleteGoogleIAPConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.DeleteGoogleIAPConfig operation =
+      final net.accelbyte.sdk.api.platform.operations.iap.DeleteGoogleIAPConfig operationRequest =
           net.accelbyte.sdk.api.platform.operations.iap.DeleteGoogleIAPConfig.builder()
               .namespace(namespace)
               .build();
-      wrapper.deleteGoogleIAPConfig(operation);
+      wrapper.deleteGoogleIAPConfig(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

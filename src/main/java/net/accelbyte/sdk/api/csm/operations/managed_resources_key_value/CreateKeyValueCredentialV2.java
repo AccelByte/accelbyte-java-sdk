@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateKeyValueCredentialV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:KEYVALUE:CREDENTIALS [CREATE]`
- *
  * <p>Generates a new credential for an extend app that is already integrated with a KeyValue
  * cluster. Replaces the old credential. Integration status will transition to MODIFYING, then READY
  * when complete. If the same username and password are provided, returns the existing credential

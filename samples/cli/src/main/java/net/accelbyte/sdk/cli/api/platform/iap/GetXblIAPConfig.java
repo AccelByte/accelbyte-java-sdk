@@ -56,11 +56,11 @@ public class GetXblIAPConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.GetXblIAPConfig operation =
+      final net.accelbyte.sdk.api.platform.operations.iap.GetXblIAPConfig operationRequest =
           net.accelbyte.sdk.api.platform.operations.iap.GetXblIAPConfig.builder()
               .namespace(namespace)
               .build();
-      final XblIAPConfigInfo response = wrapper.getXblIAPConfig(operation);
+      final XblIAPConfigInfo response = wrapper.getXblIAPConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

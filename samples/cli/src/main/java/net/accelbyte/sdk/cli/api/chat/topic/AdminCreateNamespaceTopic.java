@@ -61,12 +61,12 @@ public class AdminCreateNamespaceTopic implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Topic wrapper = new Topic(sdk);
-      final net.accelbyte.sdk.api.chat.operations.topic.AdminCreateNamespaceTopic operation =
+      final net.accelbyte.sdk.api.chat.operations.topic.AdminCreateNamespaceTopic operationRequest =
           net.accelbyte.sdk.api.chat.operations.topic.AdminCreateNamespaceTopic.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ApiCreateNamespaceTopicParams.class))
               .build();
-      final ApiCreateTopicResponse response = wrapper.adminCreateNamespaceTopic(operation);
+      final ApiCreateTopicResponse response = wrapper.adminCreateNamespaceTopic(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

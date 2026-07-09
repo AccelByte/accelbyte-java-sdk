@@ -68,7 +68,7 @@ public class PostPlayerBinaryRecordV1 implements Callable<Integer> {
       final PublicPlayerBinaryRecord wrapper = new PublicPlayerBinaryRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.public_player_binary_record
               .PostPlayerBinaryRecordV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.public_player_binary_record
                   .PostPlayerBinaryRecordV1.builder()
                   .namespace(namespace)
@@ -77,7 +77,8 @@ public class PostPlayerBinaryRecordV1 implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, ModelsPublicPlayerBinaryRecordCreate.class))
                   .build();
-      final ModelsUploadBinaryRecordResponse response = wrapper.postPlayerBinaryRecordV1(operation);
+      final ModelsUploadBinaryRecordResponse response =
+          wrapper.postPlayerBinaryRecordV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

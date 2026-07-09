@@ -67,14 +67,14 @@ public class GetPsnEntitlementOwnership implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Platform wrapper = new Platform(sdk);
       final net.accelbyte.sdk.api.platform.operations.platform.GetPsnEntitlementOwnership
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.platform.GetPsnEntitlementOwnership
                   .builder()
                   .entitlementLabel(entitlementLabel)
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, PsnEntitlementOwnershipRequest.class))
                   .build();
-      final Ownership response = wrapper.getPsnEntitlementOwnership(operation);
+      final Ownership response = wrapper.getPsnEntitlementOwnership(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

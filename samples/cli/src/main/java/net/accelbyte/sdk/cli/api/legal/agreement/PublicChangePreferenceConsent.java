@@ -58,14 +58,14 @@ public class PublicChangePreferenceConsent implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Agreement wrapper = new Agreement(sdk);
       final net.accelbyte.sdk.api.legal.operations.agreement.PublicChangePreferenceConsent
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.agreement.PublicChangePreferenceConsent
                   .builder()
                   .body(
                       new ObjectMapper()
                           .readValue(body, new TypeReference<List<AcceptAgreementRequest>>() {}))
                   .build();
-      wrapper.publicChangePreferenceConsent(operation);
+      wrapper.publicChangePreferenceConsent(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

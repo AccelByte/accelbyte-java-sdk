@@ -21,11 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicGetPlayerBlockedByPlayersV1
  *
- * <p>Required valid user authorization
- *
- * <p>load get players who blocked this player in a namespace based on user id
- *
- * <p>Action Code: 50101
+ * <p>Load players who have blocked the current user in a namespace.
  */
 @Getter
 @Setter

@@ -60,12 +60,13 @@ public class DeleteMatchTicket implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final MatchTickets wrapper = new MatchTickets(sdk);
-      final net.accelbyte.sdk.api.match2.operations.match_tickets.DeleteMatchTicket operation =
-          net.accelbyte.sdk.api.match2.operations.match_tickets.DeleteMatchTicket.builder()
-              .namespace(namespace)
-              .ticketid(ticketid)
-              .build();
-      wrapper.deleteMatchTicket(operation);
+      final net.accelbyte.sdk.api.match2.operations.match_tickets.DeleteMatchTicket
+          operationRequest =
+              net.accelbyte.sdk.api.match2.operations.match_tickets.DeleteMatchTicket.builder()
+                  .namespace(namespace)
+                  .ticketid(ticketid)
+                  .build();
+      wrapper.deleteMatchTicket(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

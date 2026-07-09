@@ -68,14 +68,14 @@ public class PartialUpdatePolicy implements Callable<Integer> {
       final BaseLegalPoliciesWithNamespace wrapper = new BaseLegalPoliciesWithNamespace(sdk);
       final net.accelbyte.sdk.api.legal.operations.base_legal_policies_with_namespace
               .PartialUpdatePolicy
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.base_legal_policies_with_namespace
                   .PartialUpdatePolicy.builder()
                   .basePolicyId(basePolicyId)
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, UpdateBasePolicyRequestV2.class))
                   .build();
-      final UpdateBasePolicyResponse response = wrapper.partialUpdatePolicy(operation);
+      final UpdateBasePolicyResponse response = wrapper.partialUpdatePolicy(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

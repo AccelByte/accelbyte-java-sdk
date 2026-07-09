@@ -66,14 +66,14 @@ public class DeleteUserSubscription implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Subscription wrapper = new Subscription(sdk);
       final net.accelbyte.sdk.api.platform.operations.subscription.DeleteUserSubscription
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.subscription.DeleteUserSubscription
                   .builder()
                   .namespace(namespace)
                   .subscriptionId(subscriptionId)
                   .userId(userId)
                   .build();
-      wrapper.deleteUserSubscription(operation);
+      wrapper.deleteUserSubscription(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

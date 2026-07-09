@@ -77,7 +77,7 @@ public class PublicUpdateContentFileLocation implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicContentV2 wrapper = new PublicContentV2(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_content_v2.PublicUpdateContentFileLocation
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.public_content_v2.PublicUpdateContentFileLocation
                   .builder()
                   .channelId(channelId)
@@ -87,7 +87,7 @@ public class PublicUpdateContentFileLocation implements Callable<Integer> {
                   .body(new ObjectMapper().readValue(body, ModelsUpdateFileLocationRequest.class))
                   .build();
       final ModelsUpdateContentResponseV2 response =
-          wrapper.publicUpdateContentFileLocation(operation);
+          wrapper.publicUpdateContentFileLocation(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -88,7 +88,7 @@ public class PublicListAchievements implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Achievements wrapper = new Achievements(sdk);
       final net.accelbyte.sdk.api.achievement.operations.achievements.PublicListAchievements
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.achievement.operations.achievements.PublicListAchievements
                   .builder()
                   .namespace(namespace)
@@ -99,7 +99,8 @@ public class PublicListAchievements implements Callable<Integer> {
                   .tags(tags)
                   .language(language)
                   .build();
-      final ModelsPublicAchievementsResponse response = wrapper.publicListAchievements(operation);
+      final ModelsPublicAchievementsResponse response =
+          wrapper.publicListAchievements(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

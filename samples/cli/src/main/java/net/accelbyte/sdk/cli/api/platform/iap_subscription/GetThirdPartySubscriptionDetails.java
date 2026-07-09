@@ -68,7 +68,7 @@ public class GetThirdPartySubscriptionDetails implements Callable<Integer> {
       final IAPSubscription wrapper = new IAPSubscription(sdk);
       final net.accelbyte.sdk.api.platform.operations.iap_subscription
               .GetThirdPartySubscriptionDetails
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.iap_subscription
                   .GetThirdPartySubscriptionDetails.builder()
                   .id(id)
@@ -76,7 +76,7 @@ public class GetThirdPartySubscriptionDetails implements Callable<Integer> {
                   .userId(userId)
                   .build();
       final ThirdPartySubscriptionTransactionInfo response =
-          wrapper.getThirdPartySubscriptionDetails(operation);
+          wrapper.getThirdPartySubscriptionDetails(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

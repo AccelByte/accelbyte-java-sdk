@@ -76,16 +76,17 @@ public class PublicListContentLikeV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicLikeV2 wrapper = new PublicLikeV2(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.public_like_v2.PublicListContentLikeV2 operation =
-          net.accelbyte.sdk.api.ugc.operations.public_like_v2.PublicListContentLikeV2.builder()
-              .contentId(contentId)
-              .namespace(namespace)
-              .limit(limit)
-              .offset(offset)
-              .sortBy(sortBy)
-              .build();
+      final net.accelbyte.sdk.api.ugc.operations.public_like_v2.PublicListContentLikeV2
+          operationRequest =
+              net.accelbyte.sdk.api.ugc.operations.public_like_v2.PublicListContentLikeV2.builder()
+                  .contentId(contentId)
+                  .namespace(namespace)
+                  .limit(limit)
+                  .offset(offset)
+                  .sortBy(sortBy)
+                  .build();
       final ModelsPaginatedContentLikersResponse response =
-          wrapper.publicListContentLikeV2(operation);
+          wrapper.publicListContentLikeV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

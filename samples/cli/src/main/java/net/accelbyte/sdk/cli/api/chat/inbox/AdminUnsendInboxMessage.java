@@ -66,13 +66,14 @@ public class AdminUnsendInboxMessage implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Inbox wrapper = new Inbox(sdk);
-      final net.accelbyte.sdk.api.chat.operations.inbox.AdminUnsendInboxMessage operation =
+      final net.accelbyte.sdk.api.chat.operations.inbox.AdminUnsendInboxMessage operationRequest =
           net.accelbyte.sdk.api.chat.operations.inbox.AdminUnsendInboxMessage.builder()
               .inbox(inbox)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelsUnsendInboxMessageRequest.class))
               .build();
-      final ModelsUnsendInboxMessageResponse response = wrapper.adminUnsendInboxMessage(operation);
+      final ModelsUnsendInboxMessageResponse response =
+          wrapper.adminUnsendInboxMessage(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

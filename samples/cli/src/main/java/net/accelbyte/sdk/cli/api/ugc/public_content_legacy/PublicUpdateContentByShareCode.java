@@ -78,7 +78,7 @@ public class PublicUpdateContentByShareCode implements Callable<Integer> {
       final PublicContentLegacy wrapper = new PublicContentLegacy(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_content_legacy
               .PublicUpdateContentByShareCode
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.public_content_legacy
                   .PublicUpdateContentByShareCode.builder()
                   .channelId(channelId)
@@ -88,7 +88,7 @@ public class PublicUpdateContentByShareCode implements Callable<Integer> {
                   .body(new ObjectMapper().readValue(body, ModelsUpdateContentRequest.class))
                   .build();
       final ModelsCreateContentResponse response =
-          wrapper.publicUpdateContentByShareCode(operation);
+          wrapper.publicUpdateContentByShareCode(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

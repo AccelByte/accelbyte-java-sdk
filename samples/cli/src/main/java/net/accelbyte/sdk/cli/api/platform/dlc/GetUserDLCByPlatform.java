@@ -66,13 +66,13 @@ public class GetUserDLCByPlatform implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final DLC wrapper = new DLC(sdk);
-      final net.accelbyte.sdk.api.platform.operations.dlc.GetUserDLCByPlatform operation =
+      final net.accelbyte.sdk.api.platform.operations.dlc.GetUserDLCByPlatform operationRequest =
           net.accelbyte.sdk.api.platform.operations.dlc.GetUserDLCByPlatform.builder()
               .namespace(namespace)
               .userId(userId)
               .type(type)
               .build();
-      final UserDLC response = wrapper.getUserDLCByPlatform(operation);
+      final UserDLC response = wrapper.getUserDLCByPlatform(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

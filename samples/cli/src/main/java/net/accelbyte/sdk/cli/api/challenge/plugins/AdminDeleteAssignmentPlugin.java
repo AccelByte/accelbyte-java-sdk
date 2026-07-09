@@ -56,12 +56,12 @@ public class AdminDeleteAssignmentPlugin implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Plugins wrapper = new Plugins(sdk);
       final net.accelbyte.sdk.api.challenge.operations.plugins.AdminDeleteAssignmentPlugin
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.challenge.operations.plugins.AdminDeleteAssignmentPlugin
                   .builder()
                   .namespace(namespace)
                   .build();
-      wrapper.adminDeleteAssignmentPlugin(operation);
+      wrapper.adminDeleteAssignmentPlugin(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

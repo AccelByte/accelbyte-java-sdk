@@ -41,6 +41,10 @@ public class ApimodelReplicaResponse extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer replicaLimit;
 
+  @JsonProperty("rolloutReadyReplicas")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer rolloutReadyReplicas;
+
   @JsonIgnore
   public ApimodelReplicaResponse createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

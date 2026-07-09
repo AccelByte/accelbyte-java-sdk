@@ -69,7 +69,7 @@ public class S2SGetListFinishedPersonalDataRequest implements Callable<Integer> 
       final DataRetrievalS2S wrapper = new DataRetrievalS2S(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.data_retrieval_s2s
               .S2SGetListFinishedPersonalDataRequest
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.data_retrieval_s2s
                   .S2SGetListFinishedPersonalDataRequest.builder()
                   .namespace(namespace)
@@ -77,7 +77,7 @@ public class S2SGetListFinishedPersonalDataRequest implements Callable<Integer> 
                   .start(start)
                   .build();
       final DtoListFinishedDataRequests response =
-          wrapper.s2sGetListFinishedPersonalDataRequest(operation);
+          wrapper.s2sGetListFinishedPersonalDataRequest(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -66,13 +66,13 @@ public class JoinGameSession implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameSession wrapper = new GameSession(sdk);
-      final net.accelbyte.sdk.api.session.operations.game_session.JoinGameSession operation =
+      final net.accelbyte.sdk.api.session.operations.game_session.JoinGameSession operationRequest =
           net.accelbyte.sdk.api.session.operations.game_session.JoinGameSession.builder()
               .namespace(namespace)
               .sessionId(sessionId)
               .body(new ObjectMapper().readValue(body, ApimodelsJoinSessionRequest.class))
               .build();
-      final ApimodelsGameSessionResponse response = wrapper.joinGameSession(operation);
+      final ApimodelsGameSessionResponse response = wrapper.joinGameSession(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

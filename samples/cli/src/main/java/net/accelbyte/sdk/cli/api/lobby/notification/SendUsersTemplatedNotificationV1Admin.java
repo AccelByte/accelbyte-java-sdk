@@ -64,7 +64,7 @@ public class SendUsersTemplatedNotificationV1Admin implements Callable<Integer> 
       final Notification wrapper = new Notification(sdk);
       final net.accelbyte.sdk.api.lobby.operations.notification
               .SendUsersTemplatedNotificationV1Admin
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.notification
                   .SendUsersTemplatedNotificationV1Admin.builder()
                   .namespace(namespace)
@@ -72,7 +72,7 @@ public class SendUsersTemplatedNotificationV1Admin implements Callable<Integer> 
                       new ObjectMapper()
                           .readValue(body, ModelNotificationWithTemplateRequestV1.class))
                   .build();
-      wrapper.sendUsersTemplatedNotificationV1Admin(operation);
+      wrapper.sendUsersTemplatedNotificationV1Admin(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

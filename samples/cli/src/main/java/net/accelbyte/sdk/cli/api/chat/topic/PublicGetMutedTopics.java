@@ -56,11 +56,11 @@ public class PublicGetMutedTopics implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Topic wrapper = new Topic(sdk);
-      final net.accelbyte.sdk.api.chat.operations.topic.PublicGetMutedTopics operation =
+      final net.accelbyte.sdk.api.chat.operations.topic.PublicGetMutedTopics operationRequest =
           net.accelbyte.sdk.api.chat.operations.topic.PublicGetMutedTopics.builder()
               .namespace(namespace)
               .build();
-      final List<ApiMutedTopicResponse> response = wrapper.publicGetMutedTopics(operation);
+      final List<ApiMutedTopicResponse> response = wrapper.publicGetMutedTopics(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

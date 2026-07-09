@@ -65,7 +65,7 @@
 |---|---|---|---|---|
 | `/csm/v2/admin/namespaces/{namespace}/apps` | POST | GetAppListV2 | [GetAppListV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/app_v2/GetAppListV2.java) | [GetAppListV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/app_v2/GetAppListV2.java) |
 | `/csm/v2/admin/namespaces/{namespace}/apps/{app}` | GET | GetAppV2 | [GetAppV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/app_v2/GetAppV2.java) | [GetAppV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/app_v2/GetAppV2.java) |
-| `/csm/v2/admin/namespaces/{namespace}/apps/{app}` | POST | CreateAppV2 | [CreateAppV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/app_v2/CreateAppV2.java) | [CreateAppV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/app_v2/CreateAppV2.java) |
+| [DEPRECATED] `/csm/v2/admin/namespaces/{namespace}/apps/{app}` | POST | CreateAppV2 | [CreateAppV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/app_v2/CreateAppV2.java) | [CreateAppV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/app_v2/CreateAppV2.java) |
 | `/csm/v2/admin/namespaces/{namespace}/apps/{app}` | DELETE | DeleteAppV2 | [DeleteAppV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/app_v2/DeleteAppV2.java) | [DeleteAppV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/app_v2/DeleteAppV2.java) |
 | `/csm/v2/admin/namespaces/{namespace}/apps/{app}` | PATCH | UpdateAppV2 | [UpdateAppV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/app_v2/UpdateAppV2.java) | [UpdateAppV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/app_v2/UpdateAppV2.java) |
 | `/csm/v2/admin/namespaces/{namespace}/apps/{app}/apply` | POST | ApplyAppConfigV2 | [ApplyAppConfigV2](../../src/main/java/net/accelbyte/sdk/api/csm/operations/app_v2/ApplyAppConfigV2.java) | [ApplyAppConfigV2](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/app_v2/ApplyAppConfigV2.java) |
@@ -179,6 +179,22 @@
 | `/csm/v3/admin/namespaces/{namespace}/apps/{app}/subscriptions` | GET | GetNotificationSubscriberListV3 | [GetNotificationSubscriberListV3](../../src/main/java/net/accelbyte/sdk/api/csm/operations/notification_subscription_v3/GetNotificationSubscriberListV3.java) | [GetNotificationSubscriberListV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/notification_subscription_v3/GetNotificationSubscriberListV3.java) |
 | `/csm/v3/admin/namespaces/{namespace}/apps/{app}/subscriptions` | DELETE | DeleteSubscriptionAppNotificationV3 | [DeleteSubscriptionAppNotificationV3](../../src/main/java/net/accelbyte/sdk/api/csm/operations/notification_subscription_v3/DeleteSubscriptionAppNotificationV3.java) | [DeleteSubscriptionAppNotificationV3](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/notification_subscription_v3/DeleteSubscriptionAppNotificationV3.java) |
 
+### App V4 Wrapper:  [AppV4](../../src/main/java/net/accelbyte/sdk/api/csm/wrappers/AppV4.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/csm/v4/admin/namespaces/{namespace}/apps/{app}/debuginfo` | GET | GetAppDebugInfoV4 | [GetAppDebugInfoV4](../../src/main/java/net/accelbyte/sdk/api/csm/operations/app_v4/GetAppDebugInfoV4.java) | [GetAppDebugInfoV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/app_v4/GetAppDebugInfoV4.java) |
+| `/csm/v4/admin/namespaces/{namespace}/apps/{app}/debugmode` | PUT | UpdateAppDebugModeV4 | [UpdateAppDebugModeV4](../../src/main/java/net/accelbyte/sdk/api/csm/operations/app_v4/UpdateAppDebugModeV4.java) | [UpdateAppDebugModeV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/app_v4/UpdateAppDebugModeV4.java) |
+
+### App Status Progress V4 Wrapper:  [AppStatusProgressV4](../../src/main/java/net/accelbyte/sdk/api/csm/wrappers/AppStatusProgressV4.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/csm/v4/admin/namespaces/{namespace}/apps/{app}/status-progress` | GET | GetAppStatusProgressV4 | [GetAppStatusProgressV4](../../src/main/java/net/accelbyte/sdk/api/csm/operations/app_status_progress_v4/GetAppStatusProgressV4.java) | [GetAppStatusProgressV4](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/app_status_progress_v4/GetAppStatusProgressV4.java) |
+
+### App V5 Wrapper:  [AppV5](../../src/main/java/net/accelbyte/sdk/api/csm/wrappers/AppV5.java)
+| Endpoint | Method | ID | Class | Example |
+|---|---|---|---|---|
+| `/csm/v5/admin/namespaces/{namespace}/apps/{app}` | POST | CreateAppV5 | [CreateAppV5](../../src/main/java/net/accelbyte/sdk/api/csm/operations/app_v5/CreateAppV5.java) | [CreateAppV5](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/csm/app_v5/CreateAppV5.java) |
+
 
 &nbsp;  
 
@@ -186,7 +202,10 @@
 
 | Model | Class |
 |---|---|
+| `apimodel.AppDebugInfoResponse` | [ApimodelAppDebugInfoResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelAppDebugInfoResponse.java) |
 | `apimodel.AppItem` | [ApimodelAppItem](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelAppItem.java) |
+| `apimodel.AppItemV5` | [ApimodelAppItemV5](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelAppItemV5.java) |
+| `apimodel.AppStatusProgressStep` | [ApimodelAppStatusProgressStep](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelAppStatusProgressStep.java) |
 | `apimodel.AppUIResponse` | [ApimodelAppUIResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelAppUIResponse.java) |
 | `apimodel.ApplyAppConfigRequest` | [ApimodelApplyAppConfigRequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelApplyAppConfigRequest.java) |
 | `apimodel.ApplyConfigItem` | [ApimodelApplyConfigItem](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelApplyConfigItem.java) |
@@ -200,6 +219,7 @@
 | `apimodel.CSMAppLimitsResponse` | [ApimodelCSMAppLimitsResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelCSMAppLimitsResponse.java) |
 | `apimodel.CreateAppUIRequest` | [ApimodelCreateAppUIRequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelCreateAppUIRequest.java) |
 | `apimodel.CreateAppV2Request` | [ApimodelCreateAppV2Request](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelCreateAppV2Request.java) |
+| `apimodel.CreateAppV5Request` | [ApimodelCreateAppV5Request](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelCreateAppV5Request.java) |
 | `apimodel.CreateDeploymentV2Request` | [ApimodelCreateDeploymentV2Request](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelCreateDeploymentV2Request.java) |
 | `apimodel.CreateDeploymentV2Response` | [ApimodelCreateDeploymentV2Response](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelCreateDeploymentV2Response.java) |
 | `apimodel.CreateKeyValueCredentialRequest` | [ApimodelCreateKeyValueCredentialRequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelCreateKeyValueCredentialRequest.java) |
@@ -219,6 +239,7 @@
 | `apimodel.GetAppImageListV2Response` | [ApimodelGetAppImageListV2Response](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelGetAppImageListV2Response.java) |
 | `apimodel.GetAppListV2Request` | [ApimodelGetAppListV2Request](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelGetAppListV2Request.java) |
 | `apimodel.GetAppListV2Response` | [ApimodelGetAppListV2Response](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelGetAppListV2Response.java) |
+| `apimodel.GetAppStatusProgressResponse` | [ApimodelGetAppStatusProgressResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelGetAppStatusProgressResponse.java) |
 | `apimodel.GetDeploymentListV2DataItem` | [ApimodelGetDeploymentListV2DataItem](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelGetDeploymentListV2DataItem.java) |
 | `apimodel.GetDeploymentListV2Request` | [ApimodelGetDeploymentListV2Request](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelGetDeploymentListV2Request.java) |
 | `apimodel.GetDeploymentListV2Response` | [ApimodelGetDeploymentListV2Response](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelGetDeploymentListV2Response.java) |
@@ -278,8 +299,16 @@
 | `apimodel.UpdateAppV2Request` | [ApimodelUpdateAppV2Request](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelUpdateAppV2Request.java) |
 | `apimodel.UpdateConfigurationV2Request` | [ApimodelUpdateConfigurationV2Request](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelUpdateConfigurationV2Request.java) |
 | `apimodel.UpdateConfigurationV2Response` | [ApimodelUpdateConfigurationV2Response](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelUpdateConfigurationV2Response.java) |
+| `apimodel.UpdateDebugModeRequest` | [ApimodelUpdateDebugModeRequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelUpdateDebugModeRequest.java) |
 | `apimodel.UpdateSecretConfigurationV2Request` | [ApimodelUpdateSecretConfigurationV2Request](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelUpdateSecretConfigurationV2Request.java) |
 | `apimodel.UploadFileResponse` | [ApimodelUploadFileResponse](../../src/main/java/net/accelbyte/sdk/api/csm/models/ApimodelUploadFileResponse.java) |
+| `createappparams.AutoscalingRequest` | [CreateappparamsAutoscalingRequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/CreateappparamsAutoscalingRequest.java) |
+| `createappparams.CPURequest` | [CreateappparamsCPURequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/CreateappparamsCPURequest.java) |
+| `createappparams.MemoryRequest` | [CreateappparamsMemoryRequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/CreateappparamsMemoryRequest.java) |
+| `createappparams.ReplicaRequest` | [CreateappparamsReplicaRequest](../../src/main/java/net/accelbyte/sdk/api/csm/models/CreateappparamsReplicaRequest.java) |
+| `domain.AllowedInterceptedPort` | [DomainAllowedInterceptedPort](../../src/main/java/net/accelbyte/sdk/api/csm/models/DomainAllowedInterceptedPort.java) |
+| `domain.DebugPod` | [DomainDebugPod](../../src/main/java/net/accelbyte/sdk/api/csm/models/DomainDebugPod.java) |
+| `domain.ExposedService` | [DomainExposedService](../../src/main/java/net/accelbyte/sdk/api/csm/models/DomainExposedService.java) |
 | `domain.KeyValueClusterConfig` | [DomainKeyValueClusterConfig](../../src/main/java/net/accelbyte/sdk/api/csm/models/DomainKeyValueClusterConfig.java) |
 | `domain.KeyValueResourceConfiguration` | [DomainKeyValueResourceConfiguration](../../src/main/java/net/accelbyte/sdk/api/csm/models/DomainKeyValueResourceConfiguration.java) |
 | `domain.KeyValueUpdateConfiguration` | [DomainKeyValueUpdateConfiguration](../../src/main/java/net/accelbyte/sdk/api/csm/models/DomainKeyValueUpdateConfiguration.java) |
@@ -314,8 +343,6 @@
 | `generated.UpdateConfigurationV1Request` | [GeneratedUpdateConfigurationV1Request](../../src/main/java/net/accelbyte/sdk/api/csm/models/GeneratedUpdateConfigurationV1Request.java) |
 | `generated.UpdateConfigurationV1Response` | [GeneratedUpdateConfigurationV1Response](../../src/main/java/net/accelbyte/sdk/api/csm/models/GeneratedUpdateConfigurationV1Response.java) |
 | `log.AppMessageDeclaration` | [LogAppMessageDeclaration](../../src/main/java/net/accelbyte/sdk/api/csm/models/LogAppMessageDeclaration.java) |
-| `model.AppRedeploymentDetail` | [ModelAppRedeploymentDetail](../../src/main/java/net/accelbyte/sdk/api/csm/models/ModelAppRedeploymentDetail.java) |
-| `model.AppRedeploymentInfo` | [ModelAppRedeploymentInfo](../../src/main/java/net/accelbyte/sdk/api/csm/models/ModelAppRedeploymentInfo.java) |
 | `model.CSMAutoscalingDefaults` | [ModelCSMAutoscalingDefaults](../../src/main/java/net/accelbyte/sdk/api/csm/models/ModelCSMAutoscalingDefaults.java) |
 | `model.ImageScanFinding` | [ModelImageScanFinding](../../src/main/java/net/accelbyte/sdk/api/csm/models/ModelImageScanFinding.java) |
 | `nosqlresource.NoSQLResourceConfiguration` | [NosqlresourceNoSQLResourceConfiguration](../../src/main/java/net/accelbyte/sdk/api/csm/models/NosqlresourceNoSQLResourceConfiguration.java) |

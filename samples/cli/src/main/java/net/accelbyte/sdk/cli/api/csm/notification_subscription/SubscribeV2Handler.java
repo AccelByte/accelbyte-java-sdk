@@ -67,7 +67,7 @@ public class SubscribeV2Handler implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final NotificationSubscription wrapper = new NotificationSubscription(sdk);
       final net.accelbyte.sdk.api.csm.operations.notification_subscription.SubscribeV2Handler
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.csm.operations.notification_subscription.SubscribeV2Handler
                   .builder()
                   .app(app)
@@ -76,7 +76,7 @@ public class SubscribeV2Handler implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, ApimodelSelfSubscribeNotificationRequest.class))
                   .build();
-      wrapper.subscribeV2Handler(operation);
+      wrapper.subscribeV2Handler(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

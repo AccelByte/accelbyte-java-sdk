@@ -96,19 +96,21 @@ public class QueryIAPClawbackHistory implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Clawback wrapper = new Clawback(sdk);
-      final net.accelbyte.sdk.api.platform.operations.clawback.QueryIAPClawbackHistory operation =
-          net.accelbyte.sdk.api.platform.operations.clawback.QueryIAPClawbackHistory.builder()
-              .namespace(namespace)
-              .endTime(endTime)
-              .eventType(eventType)
-              .externalOrderId(externalOrderId)
-              .limit(limit)
-              .offset(offset)
-              .startTime(startTime)
-              .status(status)
-              .userId(userId)
-              .build();
-      final IAPClawbackPagingSlicedResult response = wrapper.queryIAPClawbackHistory(operation);
+      final net.accelbyte.sdk.api.platform.operations.clawback.QueryIAPClawbackHistory
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.clawback.QueryIAPClawbackHistory.builder()
+                  .namespace(namespace)
+                  .endTime(endTime)
+                  .eventType(eventType)
+                  .externalOrderId(externalOrderId)
+                  .limit(limit)
+                  .offset(offset)
+                  .startTime(startTime)
+                  .status(status)
+                  .userId(userId)
+                  .build();
+      final IAPClawbackPagingSlicedResult response =
+          wrapper.queryIAPClawbackHistory(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

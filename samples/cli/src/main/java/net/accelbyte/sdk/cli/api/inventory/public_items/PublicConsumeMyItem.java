@@ -66,13 +66,14 @@ public class PublicConsumeMyItem implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicItems wrapper = new PublicItems(sdk);
-      final net.accelbyte.sdk.api.inventory.operations.public_items.PublicConsumeMyItem operation =
-          net.accelbyte.sdk.api.inventory.operations.public_items.PublicConsumeMyItem.builder()
-              .inventoryId(inventoryId)
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ApimodelsConsumeItemReq.class))
-              .build();
-      final ApimodelsItemResp response = wrapper.publicConsumeMyItem(operation);
+      final net.accelbyte.sdk.api.inventory.operations.public_items.PublicConsumeMyItem
+          operationRequest =
+              net.accelbyte.sdk.api.inventory.operations.public_items.PublicConsumeMyItem.builder()
+                  .inventoryId(inventoryId)
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, ApimodelsConsumeItemReq.class))
+                  .build();
+      final ApimodelsItemResp response = wrapper.publicConsumeMyItem(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

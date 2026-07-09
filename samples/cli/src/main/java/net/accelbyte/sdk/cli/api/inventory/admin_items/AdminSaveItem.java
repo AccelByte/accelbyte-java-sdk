@@ -66,13 +66,13 @@ public class AdminSaveItem implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminItems wrapper = new AdminItems(sdk);
-      final net.accelbyte.sdk.api.inventory.operations.admin_items.AdminSaveItem operation =
+      final net.accelbyte.sdk.api.inventory.operations.admin_items.AdminSaveItem operationRequest =
           net.accelbyte.sdk.api.inventory.operations.admin_items.AdminSaveItem.builder()
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, ApimodelsSaveItemReq.class))
               .build();
-      final ApimodelsItemResp response = wrapper.adminSaveItem(operation);
+      final ApimodelsItemResp response = wrapper.adminSaveItem(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

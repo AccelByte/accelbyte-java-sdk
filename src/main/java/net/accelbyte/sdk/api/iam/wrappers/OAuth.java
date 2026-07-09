@@ -44,12 +44,12 @@ public class OAuth {
   }
 
   /**
-   * @see PlatformTokenRequestHandler
+   * @see NamespaceScopedPlatformTokenGrant
    * @deprecated
    */
   @Deprecated
-  public OauthmodelTokenResponse platformTokenRequestHandler(PlatformTokenRequestHandler input)
-      throws Exception {
+  public OauthmodelTokenResponse namespaceScopedPlatformTokenGrant(
+      NamespaceScopedPlatformTokenGrant input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

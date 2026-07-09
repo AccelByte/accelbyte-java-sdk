@@ -78,7 +78,7 @@ public class AdminQueryThirdPlatformLinkHistoryV3 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
       final net.accelbyte.sdk.api.iam.operations.users.AdminQueryThirdPlatformLinkHistoryV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.users.AdminQueryThirdPlatformLinkHistoryV3
                   .builder()
                   .namespace(namespace)
@@ -88,7 +88,7 @@ public class AdminQueryThirdPlatformLinkHistoryV3 implements Callable<Integer> {
                   .platformId(platformId)
                   .build();
       final ModelLinkingHistoryResponseWithPaginationV3 response =
-          wrapper.adminQueryThirdPlatformLinkHistoryV3(operation);
+          wrapper.adminQueryThirdPlatformLinkHistoryV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

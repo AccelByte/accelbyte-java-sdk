@@ -66,13 +66,13 @@ public class SaveUserPermission implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.SaveUserPermission operation =
+      final net.accelbyte.sdk.api.iam.operations.users.SaveUserPermission operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.SaveUserPermission.builder()
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, AccountcommonPermissions.class))
               .build();
-      wrapper.saveUserPermission(operation);
+      wrapper.saveUserPermission(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -73,7 +73,7 @@ public class AdminListIntegrationConfigurations implements Callable<Integer> {
       final AdminIntegrationConfigurations wrapper = new AdminIntegrationConfigurations(sdk);
       final net.accelbyte.sdk.api.inventory.operations.admin_integration_configurations
               .AdminListIntegrationConfigurations
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.inventory.operations.admin_integration_configurations
                   .AdminListIntegrationConfigurations.builder()
                   .namespace(namespace)
@@ -82,7 +82,7 @@ public class AdminListIntegrationConfigurations implements Callable<Integer> {
                   .sortBy(sortBy)
                   .build();
       final ApimodelsListIntegrationConfigurationsResp response =
-          wrapper.adminListIntegrationConfigurations(operation);
+          wrapper.adminListIntegrationConfigurations(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -56,11 +56,12 @@ public class PublicGetMyMFAStatusV4 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UsersV4 wrapper = new UsersV4(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users_v4.PublicGetMyMFAStatusV4 operation =
+      final net.accelbyte.sdk.api.iam.operations.users_v4.PublicGetMyMFAStatusV4 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users_v4.PublicGetMyMFAStatusV4.builder()
               .namespace(namespace)
               .build();
-      final ModelUserMFAStatusResponseV4 response = wrapper.publicGetMyMFAStatusV4(operation);
+      final ModelUserMFAStatusResponseV4 response =
+          wrapper.publicGetMyMFAStatusV4(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

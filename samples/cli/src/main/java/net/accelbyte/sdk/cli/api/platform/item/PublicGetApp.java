@@ -76,7 +76,7 @@ public class PublicGetApp implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Item wrapper = new Item(sdk);
-      final net.accelbyte.sdk.api.platform.operations.item.PublicGetApp operation =
+      final net.accelbyte.sdk.api.platform.operations.item.PublicGetApp operationRequest =
           net.accelbyte.sdk.api.platform.operations.item.PublicGetApp.builder()
               .itemId(itemId)
               .namespace(namespace)
@@ -84,7 +84,7 @@ public class PublicGetApp implements Callable<Integer> {
               .region(region)
               .storeId(storeId)
               .build();
-      final AppInfo response = wrapper.publicGetApp(operation);
+      final AppInfo response = wrapper.publicGetApp(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

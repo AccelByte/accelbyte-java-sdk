@@ -76,7 +76,7 @@ public class GetAppImageListV1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Image wrapper = new Image(sdk);
-      final net.accelbyte.sdk.api.csm.operations.image.GetAppImageListV1 operation =
+      final net.accelbyte.sdk.api.csm.operations.image.GetAppImageListV1 operationRequest =
           net.accelbyte.sdk.api.csm.operations.image.GetAppImageListV1.builder()
               .app(app)
               .namespace(namespace)
@@ -84,7 +84,8 @@ public class GetAppImageListV1 implements Callable<Integer> {
               .limit(limit)
               .offset(offset)
               .build();
-      final GeneratedGetAppImageListV1Response response = wrapper.getAppImageListV1(operation);
+      final GeneratedGetAppImageListV1Response response =
+          wrapper.getAppImageListV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

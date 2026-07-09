@@ -67,14 +67,14 @@ public class BulkAddStats implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final StatCycleConfiguration wrapper = new StatCycleConfiguration(sdk);
       final net.accelbyte.sdk.api.social.operations.stat_cycle_configuration.BulkAddStats
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.social.operations.stat_cycle_configuration.BulkAddStats
                   .builder()
                   .cycleId(cycleId)
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, BulkCycleStatsAdd.class))
                   .build();
-      final List<BulkStatCycleOperationResult> response = wrapper.bulkAddStats(operation);
+      final List<BulkStatCycleOperationResult> response = wrapper.bulkAddStats(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -61,12 +61,13 @@ public class UserRejectFriendRequest implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Friends wrapper = new Friends(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.friends.UserRejectFriendRequest operation =
-          net.accelbyte.sdk.api.lobby.operations.friends.UserRejectFriendRequest.builder()
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ModelUserRejectFriendRequest.class))
-              .build();
-      wrapper.userRejectFriendRequest(operation);
+      final net.accelbyte.sdk.api.lobby.operations.friends.UserRejectFriendRequest
+          operationRequest =
+              net.accelbyte.sdk.api.lobby.operations.friends.UserRejectFriendRequest.builder()
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, ModelUserRejectFriendRequest.class))
+                  .build();
+      wrapper.userRejectFriendRequest(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -67,14 +67,14 @@ public class DeleteSubscriptionAppNotificationV2 implements Callable<Integer> {
       final NotificationSubscription wrapper = new NotificationSubscription(sdk);
       final net.accelbyte.sdk.api.csm.operations.notification_subscription
               .DeleteSubscriptionAppNotificationV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.csm.operations.notification_subscription
                   .DeleteSubscriptionAppNotificationV2.builder()
                   .app(app)
                   .namespace(namespace)
                   .subscriptionId(subscriptionId)
                   .build();
-      wrapper.deleteSubscriptionAppNotificationV2(operation);
+      wrapper.deleteSubscriptionAppNotificationV2(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

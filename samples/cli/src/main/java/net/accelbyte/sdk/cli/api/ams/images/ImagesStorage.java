@@ -56,11 +56,11 @@ public class ImagesStorage implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Images wrapper = new Images(sdk);
-      final net.accelbyte.sdk.api.ams.operations.images.ImagesStorage operation =
+      final net.accelbyte.sdk.api.ams.operations.images.ImagesStorage operationRequest =
           net.accelbyte.sdk.api.ams.operations.images.ImagesStorage.builder()
               .namespace(namespace)
               .build();
-      final ApiImageStorage response = wrapper.imagesStorage(operation);
+      final ApiImageStorage response = wrapper.imagesStorage(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

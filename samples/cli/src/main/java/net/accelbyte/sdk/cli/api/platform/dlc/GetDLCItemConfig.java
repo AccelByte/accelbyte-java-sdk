@@ -56,11 +56,11 @@ public class GetDLCItemConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final DLC wrapper = new DLC(sdk);
-      final net.accelbyte.sdk.api.platform.operations.dlc.GetDLCItemConfig operation =
+      final net.accelbyte.sdk.api.platform.operations.dlc.GetDLCItemConfig operationRequest =
           net.accelbyte.sdk.api.platform.operations.dlc.GetDLCItemConfig.builder()
               .namespace(namespace)
               .build();
-      final DLCItemConfigInfo response = wrapper.getDLCItemConfig(operation);
+      final DLCItemConfigInfo response = wrapper.getDLCItemConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

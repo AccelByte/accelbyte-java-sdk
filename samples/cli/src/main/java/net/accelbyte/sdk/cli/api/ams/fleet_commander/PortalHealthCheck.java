@@ -50,9 +50,11 @@ public class PortalHealthCheck implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final FleetCommander wrapper = new FleetCommander(sdk);
-      final net.accelbyte.sdk.api.ams.operations.fleet_commander.PortalHealthCheck operation =
-          net.accelbyte.sdk.api.ams.operations.fleet_commander.PortalHealthCheck.builder().build();
-      wrapper.portalHealthCheck(operation);
+      final net.accelbyte.sdk.api.ams.operations.fleet_commander.PortalHealthCheck
+          operationRequest =
+              net.accelbyte.sdk.api.ams.operations.fleet_commander.PortalHealthCheck.builder()
+                  .build();
+      wrapper.portalHealthCheck(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

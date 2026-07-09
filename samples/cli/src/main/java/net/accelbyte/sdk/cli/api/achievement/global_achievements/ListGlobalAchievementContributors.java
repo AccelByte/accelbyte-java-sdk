@@ -78,7 +78,7 @@ public class ListGlobalAchievementContributors implements Callable<Integer> {
       final GlobalAchievements wrapper = new GlobalAchievements(sdk);
       final net.accelbyte.sdk.api.achievement.operations.global_achievements
               .ListGlobalAchievementContributors
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.achievement.operations.global_achievements
                   .ListGlobalAchievementContributors.builder()
                   .achievementCode(achievementCode)
@@ -88,7 +88,7 @@ public class ListGlobalAchievementContributors implements Callable<Integer> {
                   .sortBy(sortBy)
                   .build();
       final ModelsPaginatedContributorResponse response =
-          wrapper.listGlobalAchievementContributors(operation);
+          wrapper.listGlobalAchievementContributors(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

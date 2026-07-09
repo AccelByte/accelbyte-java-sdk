@@ -73,7 +73,7 @@ public class PublicUpdateUserNamespaceSlotMetadata implements Callable<Integer> 
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Slot wrapper = new Slot(sdk);
       final net.accelbyte.sdk.api.social.operations.slot.PublicUpdateUserNamespaceSlotMetadata
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.social.operations.slot.PublicUpdateUserNamespaceSlotMetadata
                   .builder()
                   .namespace(namespace)
@@ -81,7 +81,7 @@ public class PublicUpdateUserNamespaceSlotMetadata implements Callable<Integer> 
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, SlotMetadataUpdate.class))
                   .build();
-      final SlotInfo response = wrapper.publicUpdateUserNamespaceSlotMetadata(operation);
+      final SlotInfo response = wrapper.publicUpdateUserNamespaceSlotMetadata(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

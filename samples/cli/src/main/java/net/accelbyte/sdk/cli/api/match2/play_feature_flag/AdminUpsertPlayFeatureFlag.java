@@ -62,13 +62,13 @@ public class AdminUpsertPlayFeatureFlag implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PlayFeatureFlag wrapper = new PlayFeatureFlag(sdk);
       final net.accelbyte.sdk.api.match2.operations.play_feature_flag.AdminUpsertPlayFeatureFlag
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.match2.operations.play_feature_flag.AdminUpsertPlayFeatureFlag
                   .builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelsPlayFeatureFlag.class))
                   .build();
-      final ModelsPlayFeatureFlag response = wrapper.adminUpsertPlayFeatureFlag(operation);
+      final ModelsPlayFeatureFlag response = wrapper.adminUpsertPlayFeatureFlag(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

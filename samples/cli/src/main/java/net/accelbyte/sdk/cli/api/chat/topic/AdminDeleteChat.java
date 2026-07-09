@@ -65,13 +65,13 @@ public class AdminDeleteChat implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Topic wrapper = new Topic(sdk);
-      final net.accelbyte.sdk.api.chat.operations.topic.AdminDeleteChat operation =
+      final net.accelbyte.sdk.api.chat.operations.topic.AdminDeleteChat operationRequest =
           net.accelbyte.sdk.api.chat.operations.topic.AdminDeleteChat.builder()
               .chatId(chatId)
               .namespace(namespace)
               .topic(topic)
               .build();
-      wrapper.adminDeleteChat(operation);
+      wrapper.adminDeleteChat(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

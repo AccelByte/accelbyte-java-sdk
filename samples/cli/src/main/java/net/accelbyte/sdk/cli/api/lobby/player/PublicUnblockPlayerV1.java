@@ -61,12 +61,12 @@ public class PublicUnblockPlayerV1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Player wrapper = new Player(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.player.PublicUnblockPlayerV1 operation =
+      final net.accelbyte.sdk.api.lobby.operations.player.PublicUnblockPlayerV1 operationRequest =
           net.accelbyte.sdk.api.lobby.operations.player.PublicUnblockPlayerV1.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelsUnblockPlayerRequest.class))
               .build();
-      wrapper.publicUnblockPlayerV1(operation);
+      wrapper.publicUnblockPlayerV1(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

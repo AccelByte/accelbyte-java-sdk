@@ -82,7 +82,7 @@ public class GetTradeHistoryByCriteria implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final TradeAction wrapper = new TradeAction(sdk);
       final net.accelbyte.sdk.api.platform.operations.trade_action.GetTradeHistoryByCriteria
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.trade_action.GetTradeHistoryByCriteria
                   .builder()
                   .namespace(namespace)
@@ -92,7 +92,8 @@ public class GetTradeHistoryByCriteria implements Callable<Integer> {
                   .type(type)
                   .userId(userId)
                   .build();
-      final TradeActionPagingSlicedResult response = wrapper.getTradeHistoryByCriteria(operation);
+      final TradeActionPagingSlicedResult response =
+          wrapper.getTradeHistoryByCriteria(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

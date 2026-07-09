@@ -57,11 +57,12 @@ public class ExportStats implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final StatConfiguration wrapper = new StatConfiguration(sdk);
-      final net.accelbyte.sdk.api.social.operations.stat_configuration.ExportStats operation =
-          net.accelbyte.sdk.api.social.operations.stat_configuration.ExportStats.builder()
-              .namespace(namespace)
-              .build();
-      final InputStream response = wrapper.exportStats(operation);
+      final net.accelbyte.sdk.api.social.operations.stat_configuration.ExportStats
+          operationRequest =
+              net.accelbyte.sdk.api.social.operations.stat_configuration.ExportStats.builder()
+                  .namespace(namespace)
+                  .build();
+      final InputStream response = wrapper.exportStats(operationRequest);
       final File outputFile = new File("response.out");
       java.nio.file.Files.copy(
           response, outputFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);

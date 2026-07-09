@@ -60,12 +60,13 @@ public class RestoreDLCItemConfigHistory implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final DLC wrapper = new DLC(sdk);
-      final net.accelbyte.sdk.api.platform.operations.dlc.RestoreDLCItemConfigHistory operation =
-          net.accelbyte.sdk.api.platform.operations.dlc.RestoreDLCItemConfigHistory.builder()
-              .id(id)
-              .namespace(namespace)
-              .build();
-      wrapper.restoreDLCItemConfigHistory(operation);
+      final net.accelbyte.sdk.api.platform.operations.dlc.RestoreDLCItemConfigHistory
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.dlc.RestoreDLCItemConfigHistory.builder()
+                  .id(id)
+                  .namespace(namespace)
+                  .build();
+      wrapper.restoreDLCItemConfigHistory(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

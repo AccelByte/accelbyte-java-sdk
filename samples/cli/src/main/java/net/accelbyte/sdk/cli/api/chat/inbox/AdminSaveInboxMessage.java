@@ -61,12 +61,13 @@ public class AdminSaveInboxMessage implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Inbox wrapper = new Inbox(sdk);
-      final net.accelbyte.sdk.api.chat.operations.inbox.AdminSaveInboxMessage operation =
+      final net.accelbyte.sdk.api.chat.operations.inbox.AdminSaveInboxMessage operationRequest =
           net.accelbyte.sdk.api.chat.operations.inbox.AdminSaveInboxMessage.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelsSaveInboxMessageRequest.class))
               .build();
-      final ModelsSaveInboxMessageResponse response = wrapper.adminSaveInboxMessage(operation);
+      final ModelsSaveInboxMessageResponse response =
+          wrapper.adminSaveInboxMessage(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

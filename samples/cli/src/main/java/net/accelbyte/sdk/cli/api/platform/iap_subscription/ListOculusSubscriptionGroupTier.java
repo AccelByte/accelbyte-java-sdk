@@ -63,14 +63,14 @@ public class ListOculusSubscriptionGroupTier implements Callable<Integer> {
       final IAPSubscription wrapper = new IAPSubscription(sdk);
       final net.accelbyte.sdk.api.platform.operations.iap_subscription
               .ListOculusSubscriptionGroupTier
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.iap_subscription
                   .ListOculusSubscriptionGroupTier.builder()
                   .namespace(namespace)
                   .sku(sku)
                   .build();
       final List<ThirdPartySubscriptionTierInfo> response =
-          wrapper.listOculusSubscriptionGroupTier(operation);
+          wrapper.listOculusSubscriptionGroupTier(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

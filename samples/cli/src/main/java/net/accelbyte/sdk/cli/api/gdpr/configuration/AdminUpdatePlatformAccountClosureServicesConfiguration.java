@@ -67,7 +67,7 @@ public class AdminUpdatePlatformAccountClosureServicesConfiguration implements C
       final Configuration wrapper = new Configuration(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.configuration
               .AdminUpdatePlatformAccountClosureServicesConfiguration
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.configuration
                   .AdminUpdatePlatformAccountClosureServicesConfiguration.builder()
                   .namespace(namespace)
@@ -76,7 +76,7 @@ public class AdminUpdatePlatformAccountClosureServicesConfiguration implements C
                           .readValue(body, DtoServiceConfigurationUpdateRequest.class))
                   .build();
       final DtoServiceConfigurationUpdateRequest response =
-          wrapper.adminUpdatePlatformAccountClosureServicesConfiguration(operation);
+          wrapper.adminUpdatePlatformAccountClosureServicesConfiguration(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

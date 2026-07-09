@@ -63,13 +63,14 @@ public class GetGameBinaryRecordV1 implements Callable<Integer> {
       final PublicGameBinaryRecord wrapper = new PublicGameBinaryRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.public_game_binary_record
               .GetGameBinaryRecordV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.public_game_binary_record
                   .GetGameBinaryRecordV1.builder()
                   .key(key)
                   .namespace(namespace)
                   .build();
-      final ModelsGameBinaryRecordResponse response = wrapper.getGameBinaryRecordV1(operation);
+      final ModelsGameBinaryRecordResponse response =
+          wrapper.getGameBinaryRecordV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -66,13 +66,14 @@ public class PublicUpdatePartyPassword implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Party wrapper = new Party(sdk);
-      final net.accelbyte.sdk.api.session.operations.party.PublicUpdatePartyPassword operation =
-          net.accelbyte.sdk.api.session.operations.party.PublicUpdatePartyPassword.builder()
-              .namespace(namespace)
-              .partyId(partyId)
-              .body(new ObjectMapper().readValue(body, ApimodelsUpdatePasswordRequest.class))
-              .build();
-      wrapper.publicUpdatePartyPassword(operation);
+      final net.accelbyte.sdk.api.session.operations.party.PublicUpdatePartyPassword
+          operationRequest =
+              net.accelbyte.sdk.api.session.operations.party.PublicUpdatePartyPassword.builder()
+                  .namespace(namespace)
+                  .partyId(partyId)
+                  .body(new ObjectMapper().readValue(body, ApimodelsUpdatePasswordRequest.class))
+                  .build();
+      wrapper.publicUpdatePartyPassword(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -67,14 +67,15 @@ public class GetUserStagingContentByID implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicStagingContent wrapper = new PublicStagingContent(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_staging_content.GetUserStagingContentByID
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.public_staging_content.GetUserStagingContentByID
                   .builder()
                   .contentId(contentId)
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      final ModelsStagingContentResponse response = wrapper.getUserStagingContentByID(operation);
+      final ModelsStagingContentResponse response =
+          wrapper.getUserStagingContentByID(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

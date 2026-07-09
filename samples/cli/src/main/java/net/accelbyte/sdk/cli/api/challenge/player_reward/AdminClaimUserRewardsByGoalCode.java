@@ -72,7 +72,7 @@ public class AdminClaimUserRewardsByGoalCode implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PlayerReward wrapper = new PlayerReward(sdk);
       final net.accelbyte.sdk.api.challenge.operations.player_reward.AdminClaimUserRewardsByGoalCode
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.challenge.operations.player_reward
                   .AdminClaimUserRewardsByGoalCode.builder()
                   .challengeCode(challengeCode)
@@ -82,7 +82,8 @@ public class AdminClaimUserRewardsByGoalCode implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, ModelClaimUserRewardsByGoalCodeRequest.class))
                   .build();
-      final List<ModelUserReward> response = wrapper.adminClaimUserRewardsByGoalCode(operation);
+      final List<ModelUserReward> response =
+          wrapper.adminClaimUserRewardsByGoalCode(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -62,13 +62,14 @@ public class PublicGetGameSessionPassword implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameSession wrapper = new GameSession(sdk);
       final net.accelbyte.sdk.api.session.operations.game_session.PublicGetGameSessionPassword
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.game_session.PublicGetGameSessionPassword
                   .builder()
                   .namespace(namespace)
                   .sessionId(sessionId)
                   .build();
-      final ApimodelsGetPasswordResponse response = wrapper.publicGetGameSessionPassword(operation);
+      final ApimodelsGetPasswordResponse response =
+          wrapper.publicGetGameSessionPassword(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

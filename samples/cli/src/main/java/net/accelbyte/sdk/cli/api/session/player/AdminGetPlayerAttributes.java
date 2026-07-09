@@ -61,13 +61,14 @@ public class AdminGetPlayerAttributes implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Player wrapper = new Player(sdk);
-      final net.accelbyte.sdk.api.session.operations.player.AdminGetPlayerAttributes operation =
-          net.accelbyte.sdk.api.session.operations.player.AdminGetPlayerAttributes.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .build();
+      final net.accelbyte.sdk.api.session.operations.player.AdminGetPlayerAttributes
+          operationRequest =
+              net.accelbyte.sdk.api.session.operations.player.AdminGetPlayerAttributes.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .build();
       final ApimodelsPlayerAttributesResponseBody response =
-          wrapper.adminGetPlayerAttributes(operation);
+          wrapper.adminGetPlayerAttributes(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

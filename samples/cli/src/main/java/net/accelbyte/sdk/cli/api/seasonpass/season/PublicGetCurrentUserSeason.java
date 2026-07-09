@@ -62,13 +62,13 @@ public class PublicGetCurrentUserSeason implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Season wrapper = new Season(sdk);
       final net.accelbyte.sdk.api.seasonpass.operations.season.PublicGetCurrentUserSeason
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.seasonpass.operations.season.PublicGetCurrentUserSeason
                   .builder()
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      final ClaimableUserSeasonInfo response = wrapper.publicGetCurrentUserSeason(operation);
+      final ClaimableUserSeasonInfo response = wrapper.publicGetCurrentUserSeason(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

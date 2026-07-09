@@ -56,11 +56,12 @@ public class GetPluginConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PluginConfig wrapper = new PluginConfig(sdk);
-      final net.accelbyte.sdk.api.cloudsave.operations.plugin_config.GetPluginConfig operation =
-          net.accelbyte.sdk.api.cloudsave.operations.plugin_config.GetPluginConfig.builder()
-              .namespace(namespace)
-              .build();
-      final ModelsPluginResponse response = wrapper.getPluginConfig(operation);
+      final net.accelbyte.sdk.api.cloudsave.operations.plugin_config.GetPluginConfig
+          operationRequest =
+              net.accelbyte.sdk.api.cloudsave.operations.plugin_config.GetPluginConfig.builder()
+                  .namespace(namespace)
+                  .build();
+      final ModelsPluginResponse response = wrapper.getPluginConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

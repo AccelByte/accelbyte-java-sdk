@@ -61,13 +61,13 @@ public class AdminDeleteAchievement implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Achievements wrapper = new Achievements(sdk);
       final net.accelbyte.sdk.api.achievement.operations.achievements.AdminDeleteAchievement
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.achievement.operations.achievements.AdminDeleteAchievement
                   .builder()
                   .achievementCode(achievementCode)
                   .namespace(namespace)
                   .build();
-      wrapper.adminDeleteAchievement(operation);
+      wrapper.adminDeleteAchievement(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -62,13 +62,13 @@ public class PublicReadPartySessionStorage implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final SessionStorage wrapper = new SessionStorage(sdk);
       final net.accelbyte.sdk.api.session.operations.session_storage.PublicReadPartySessionStorage
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.session_storage.PublicReadPartySessionStorage
                   .builder()
                   .namespace(namespace)
                   .partyId(partyId)
                   .build();
-      final Map<String, ?> response = wrapper.publicReadPartySessionStorage(operation);
+      final Map<String, ?> response = wrapper.publicReadPartySessionStorage(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

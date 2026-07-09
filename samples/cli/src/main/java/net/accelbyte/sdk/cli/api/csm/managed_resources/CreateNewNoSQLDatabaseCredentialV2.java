@@ -68,7 +68,7 @@ public class CreateNewNoSQLDatabaseCredentialV2 implements Callable<Integer> {
       final ManagedResources wrapper = new ManagedResources(sdk);
       final net.accelbyte.sdk.api.csm.operations.managed_resources
               .CreateNewNoSQLDatabaseCredentialV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.csm.operations.managed_resources
                   .CreateNewNoSQLDatabaseCredentialV2.builder()
                   .app(app)
@@ -78,7 +78,7 @@ public class CreateNewNoSQLDatabaseCredentialV2 implements Callable<Integer> {
                           .readValue(body, ApimodelCreateNoSQLDatabaseCredentialRequest.class))
                   .build();
       final ApimodelNoSQLDatabaseCredentialResponse response =
-          wrapper.createNewNoSQLDatabaseCredentialV2(operation);
+          wrapper.createNewNoSQLDatabaseCredentialV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

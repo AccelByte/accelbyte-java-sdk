@@ -13,7 +13,7 @@
 | Endpoint | Method | ID | Class | Example |
 |---|---|---|---|---|
 | `/ams/healthz` | GET | PortalHealthCheck | [PortalHealthCheck](../../src/main/java/net/accelbyte/sdk/api/ams/operations/fleet_commander/PortalHealthCheck.java) | [PortalHealthCheck](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/fleet_commander/PortalHealthCheck.java) |
-| `/ams/version` | GET | Func1 | [Func1](../../src/main/java/net/accelbyte/sdk/api/ams/operations/fleet_commander/Func1.java) | [Func1](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/fleet_commander/Func1.java) |
+| `/ams/version` | GET | VersionInfo | [VersionInfo](../../src/main/java/net/accelbyte/sdk/api/ams/operations/fleet_commander/VersionInfo.java) | [VersionInfo](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/fleet_commander/VersionInfo.java) |
 | `/healthz` | GET | BasicHealthCheck | [BasicHealthCheck](../../src/main/java/net/accelbyte/sdk/api/ams/operations/fleet_commander/BasicHealthCheck.java) | [BasicHealthCheck](../../samples/cli/src/main/java/net/accelbyte/sdk/cli/api/ams/fleet_commander/BasicHealthCheck.java) |
 
 ### Account Wrapper:  [Account](../../src/main/java/net/accelbyte/sdk/api/ams/wrappers/Account.java)

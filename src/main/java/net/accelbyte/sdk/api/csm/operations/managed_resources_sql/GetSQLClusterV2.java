@@ -21,21 +21,19 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetSQLClusterV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:SQL:CLUSTERS [READ]`
- *
  * <p>Get SQL cluster information returns the SQL cluster related information by given
  * studio/publisher namespace.
  *
- * <p>`status` field - indicates the SQL cluster status: - `stopping` : The cluster is in the
- * process of stopping and will soon become inaccessible. - `stopped` : The cluster is stopped and
- * not accessible. - `starting` : The cluster is transitioning from stopped to running, or is
- * rebooting. - `available` : The cluster is accessible. - `updating` : The cluster is being
- * modified and is not yet accessible (e.g., updating min/max ACU). - `creating` : The cluster or
- * instance is being created and is not yet accessible. - `maintenance` : The cluster is undergoing
- * maintenance operations and is not accessible. - `unknown` : The cluster status is not recognized
- * - `configuring-replica` : The cluster is configuring replica instances for multi-AZ deployment. -
- * `deleting` : The cluster is in the process of being deleted and is not accessible. - `failed` :
- * The cluster failed to provision or is in an error state and not accessible.
+ * <p>`status` field - indicates the SQL cluster status: - `starting` : The cluster is transitioning
+ * from stopped to running, or is rebooting. - `creating` : The cluster or instance is being created
+ * and is not yet accessible. - `deleting` : The cluster is in the process of being deleted and is
+ * not accessible. - `maintenance` : The cluster is undergoing maintenance operations and is not
+ * accessible. - `unknown` : The cluster status is not recognized - `configuring-replica` : The
+ * cluster is configuring replica instances for multi-AZ deployment. - `available` : The cluster is
+ * accessible. - `updating` : The cluster is being modified and is not yet accessible (e.g.,
+ * updating min/max ACU). - `failed` : The cluster failed to provision or is in an error state and
+ * not accessible. - `stopping` : The cluster is in the process of stopping and will soon become
+ * inaccessible. - `stopped` : The cluster is stopped and not accessible.
  */
 @Getter
 @Setter

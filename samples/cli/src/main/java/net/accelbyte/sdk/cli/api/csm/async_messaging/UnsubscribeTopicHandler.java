@@ -66,13 +66,14 @@ public class UnsubscribeTopicHandler implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AsyncMessaging wrapper = new AsyncMessaging(sdk);
-      final net.accelbyte.sdk.api.csm.operations.async_messaging.UnsubscribeTopicHandler operation =
-          net.accelbyte.sdk.api.csm.operations.async_messaging.UnsubscribeTopicHandler.builder()
-              .app(app)
-              .namespace(namespace)
-              .topicName(topicName)
-              .build();
-      final ApimodelTopicSubscription response = wrapper.unsubscribeTopicHandler(operation);
+      final net.accelbyte.sdk.api.csm.operations.async_messaging.UnsubscribeTopicHandler
+          operationRequest =
+              net.accelbyte.sdk.api.csm.operations.async_messaging.UnsubscribeTopicHandler.builder()
+                  .app(app)
+                  .namespace(namespace)
+                  .topicName(topicName)
+                  .build();
+      final ApimodelTopicSubscription response = wrapper.unsubscribeTopicHandler(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

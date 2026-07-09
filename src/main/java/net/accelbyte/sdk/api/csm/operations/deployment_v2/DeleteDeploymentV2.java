@@ -20,8 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteDeploymentV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:DEPLOYMENT [DELETE]`
- *
  * <p>Delete Deployment information by given DeploymentID
  *
  * <p>This endpoint will delete release object for the service deployment in the cluster

@@ -62,13 +62,14 @@ public class UpdatePaymentProviderConfig implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PaymentConfig wrapper = new PaymentConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_config.UpdatePaymentProviderConfig
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.payment_config.UpdatePaymentProviderConfig
                   .builder()
                   .id(id)
                   .body(new ObjectMapper().readValue(body, PaymentProviderConfigEdit.class))
                   .build();
-      final PaymentProviderConfigInfo response = wrapper.updatePaymentProviderConfig(operation);
+      final PaymentProviderConfigInfo response =
+          wrapper.updatePaymentProviderConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -66,13 +66,15 @@ public class PublicPromotePartyLeader implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Party wrapper = new Party(sdk);
-      final net.accelbyte.sdk.api.session.operations.party.PublicPromotePartyLeader operation =
-          net.accelbyte.sdk.api.session.operations.party.PublicPromotePartyLeader.builder()
-              .namespace(namespace)
-              .partyId(partyId)
-              .body(new ObjectMapper().readValue(body, ApimodelsPromoteLeaderRequest.class))
-              .build();
-      final ApimodelsPartySessionResponse response = wrapper.publicPromotePartyLeader(operation);
+      final net.accelbyte.sdk.api.session.operations.party.PublicPromotePartyLeader
+          operationRequest =
+              net.accelbyte.sdk.api.session.operations.party.PublicPromotePartyLeader.builder()
+                  .namespace(namespace)
+                  .partyId(partyId)
+                  .body(new ObjectMapper().readValue(body, ApimodelsPromoteLeaderRequest.class))
+                  .build();
+      final ApimodelsPartySessionResponse response =
+          wrapper.publicPromotePartyLeader(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

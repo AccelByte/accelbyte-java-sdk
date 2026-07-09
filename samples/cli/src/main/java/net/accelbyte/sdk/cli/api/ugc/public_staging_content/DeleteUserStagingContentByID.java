@@ -66,14 +66,14 @@ public class DeleteUserStagingContentByID implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicStagingContent wrapper = new PublicStagingContent(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_staging_content.DeleteUserStagingContentByID
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.public_staging_content
                   .DeleteUserStagingContentByID.builder()
                   .contentId(contentId)
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      wrapper.deleteUserStagingContentByID(operation);
+      wrapper.deleteUserStagingContentByID(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

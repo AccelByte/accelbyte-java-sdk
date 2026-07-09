@@ -61,12 +61,13 @@ public class PublicGetPlayerMetric implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final MatchPools wrapper = new MatchPools(sdk);
-      final net.accelbyte.sdk.api.match2.operations.match_pools.PublicGetPlayerMetric operation =
-          net.accelbyte.sdk.api.match2.operations.match_pools.PublicGetPlayerMetric.builder()
-              .namespace(namespace)
-              .pool(pool)
-              .build();
-      final ApiPlayerMetricRecord response = wrapper.publicGetPlayerMetric(operation);
+      final net.accelbyte.sdk.api.match2.operations.match_pools.PublicGetPlayerMetric
+          operationRequest =
+              net.accelbyte.sdk.api.match2.operations.match_pools.PublicGetPlayerMetric.builder()
+                  .namespace(namespace)
+                  .pool(pool)
+                  .build();
+      final ApiPlayerMetricRecord response = wrapper.publicGetPlayerMetric(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -131,7 +131,7 @@ public class AdminQueryParties implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Party wrapper = new Party(sdk);
-      final net.accelbyte.sdk.api.session.operations.party.AdminQueryParties operation =
+      final net.accelbyte.sdk.api.session.operations.party.AdminQueryParties operationRequest =
           net.accelbyte.sdk.api.session.operations.party.AdminQueryParties.builder()
               .namespace(namespace)
               .configurationName(configurationName)
@@ -150,7 +150,7 @@ public class AdminQueryParties implements Callable<Integer> {
               .toTime(toTime)
               .value(value)
               .build();
-      final ApimodelsPartyQueryResponse response = wrapper.adminQueryParties(operation);
+      final ApimodelsPartyQueryResponse response = wrapper.adminQueryParties(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

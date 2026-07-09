@@ -61,12 +61,13 @@ public class PublishSelected implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final CatalogChanges wrapper = new CatalogChanges(sdk);
-      final net.accelbyte.sdk.api.platform.operations.catalog_changes.PublishSelected operation =
-          net.accelbyte.sdk.api.platform.operations.catalog_changes.PublishSelected.builder()
-              .namespace(namespace)
-              .storeId(storeId)
-              .build();
-      final StoreInfo response = wrapper.publishSelected(operation);
+      final net.accelbyte.sdk.api.platform.operations.catalog_changes.PublishSelected
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.catalog_changes.PublishSelected.builder()
+                  .namespace(namespace)
+                  .storeId(storeId)
+                  .build();
+      final StoreInfo response = wrapper.publishSelected(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

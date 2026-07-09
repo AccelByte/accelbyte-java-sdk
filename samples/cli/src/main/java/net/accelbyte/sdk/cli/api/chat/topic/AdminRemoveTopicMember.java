@@ -66,13 +66,14 @@ public class AdminRemoveTopicMember implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Topic wrapper = new Topic(sdk);
-      final net.accelbyte.sdk.api.chat.operations.topic.AdminRemoveTopicMember operation =
+      final net.accelbyte.sdk.api.chat.operations.topic.AdminRemoveTopicMember operationRequest =
           net.accelbyte.sdk.api.chat.operations.topic.AdminRemoveTopicMember.builder()
               .namespace(namespace)
               .topic(topic)
               .userId(userId)
               .build();
-      final MessageActionAddUserToTopicResult response = wrapper.adminRemoveTopicMember(operation);
+      final MessageActionAddUserToTopicResult response =
+          wrapper.adminRemoveTopicMember(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

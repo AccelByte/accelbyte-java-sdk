@@ -70,14 +70,14 @@ public class PlatformUnlink implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.PlatformUnlink operation =
+      final net.accelbyte.sdk.api.iam.operations.users.PlatformUnlink operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.PlatformUnlink.builder()
               .namespace(namespace)
               .platformId(platformId)
               .userId(userId)
               .platformNamespace(platformNamespace != null ? platformNamespace : null)
               .build();
-      wrapper.platformUnlink(operation);
+      wrapper.platformUnlink(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

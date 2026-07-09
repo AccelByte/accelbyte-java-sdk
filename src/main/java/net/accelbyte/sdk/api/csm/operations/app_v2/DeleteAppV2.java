@@ -20,8 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteAppV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [DELETE]`
- *
  * <p>Delete extend app by given {app} name
  *
  * <p>This endpoint will delete app information, configuration, deployments and all related manifest

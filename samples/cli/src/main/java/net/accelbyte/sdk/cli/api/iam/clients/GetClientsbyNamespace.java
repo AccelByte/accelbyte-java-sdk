@@ -56,11 +56,12 @@ public class GetClientsbyNamespace implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Clients wrapper = new Clients(sdk);
-      final net.accelbyte.sdk.api.iam.operations.clients.GetClientsbyNamespace operation =
+      final net.accelbyte.sdk.api.iam.operations.clients.GetClientsbyNamespace operationRequest =
           net.accelbyte.sdk.api.iam.operations.clients.GetClientsbyNamespace.builder()
               .namespace(namespace)
               .build();
-      final List<ClientmodelClientResponse> response = wrapper.getClientsbyNamespace(operation);
+      final List<ClientmodelClientResponse> response =
+          wrapper.getClientsbyNamespace(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

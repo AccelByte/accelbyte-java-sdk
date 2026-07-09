@@ -55,11 +55,11 @@ public class DeleteDLCItemConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final DLC wrapper = new DLC(sdk);
-      final net.accelbyte.sdk.api.platform.operations.dlc.DeleteDLCItemConfig operation =
+      final net.accelbyte.sdk.api.platform.operations.dlc.DeleteDLCItemConfig operationRequest =
           net.accelbyte.sdk.api.platform.operations.dlc.DeleteDLCItemConfig.builder()
               .namespace(namespace)
               .build();
-      wrapper.deleteDLCItemConfig(operation);
+      wrapper.deleteDLCItemConfig(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

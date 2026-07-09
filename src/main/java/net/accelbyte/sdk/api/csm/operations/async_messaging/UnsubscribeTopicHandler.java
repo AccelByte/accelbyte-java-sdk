@@ -21,9 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UnsubscribeTopicHandler
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:ASYNCMESSAGING:SUBSCRIPTIONS
- * [DELETE]`
- *
  * <p>Unsubscribe App queue from a topic by Topic Name.
  */
 @Getter

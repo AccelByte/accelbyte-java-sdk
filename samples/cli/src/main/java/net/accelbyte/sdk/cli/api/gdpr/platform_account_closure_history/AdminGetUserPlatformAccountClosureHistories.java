@@ -79,7 +79,7 @@ public class AdminGetUserPlatformAccountClosureHistories implements Callable<Int
       final PlatformAccountClosureHistory wrapper = new PlatformAccountClosureHistory(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.platform_account_closure_history
               .AdminGetUserPlatformAccountClosureHistories
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.platform_account_closure_history
                   .AdminGetUserPlatformAccountClosureHistories.builder()
                   .namespace(namespace)
@@ -89,7 +89,7 @@ public class AdminGetUserPlatformAccountClosureHistories implements Callable<Int
                   .userId(userId)
                   .build();
       final DtoUserPlatformAccountClosureHistoriesResponse response =
-          wrapper.adminGetUserPlatformAccountClosureHistories(operation);
+          wrapper.adminGetUserPlatformAccountClosureHistories(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

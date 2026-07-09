@@ -71,7 +71,7 @@ public class DeleteContentScreenshot implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicContentLegacy wrapper = new PublicContentLegacy(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_content_legacy.DeleteContentScreenshot
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.public_content_legacy.DeleteContentScreenshot
                   .builder()
                   .contentId(contentId)
@@ -79,7 +79,7 @@ public class DeleteContentScreenshot implements Callable<Integer> {
                   .screenshotId(screenshotId)
                   .userId(userId)
                   .build();
-      wrapper.deleteContentScreenshot(operation);
+      wrapper.deleteContentScreenshot(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

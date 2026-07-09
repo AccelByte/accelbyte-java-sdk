@@ -61,12 +61,12 @@ public class PublicPartyJoinCode implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Party wrapper = new Party(sdk);
-      final net.accelbyte.sdk.api.session.operations.party.PublicPartyJoinCode operation =
+      final net.accelbyte.sdk.api.session.operations.party.PublicPartyJoinCode operationRequest =
           net.accelbyte.sdk.api.session.operations.party.PublicPartyJoinCode.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ApimodelsJoinByCodeRequest.class))
               .build();
-      final ApimodelsPartySessionResponse response = wrapper.publicPartyJoinCode(operation);
+      final ApimodelsPartySessionResponse response = wrapper.publicPartyJoinCode(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

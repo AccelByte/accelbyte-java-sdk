@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * SubscribeAppNotificationV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP:ALERT:SUBSCRIPTION [CREATE]`
- *
  * <p>Subscribe the user(s) an app notification.
  *
  * <p>Request body: - notificationType : type of the app notification to be subscribed - Required. -

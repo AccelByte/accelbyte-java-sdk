@@ -66,13 +66,13 @@ public class SaveSecretV1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Configuration wrapper = new Configuration(sdk);
-      final net.accelbyte.sdk.api.csm.operations.configuration.SaveSecretV1 operation =
+      final net.accelbyte.sdk.api.csm.operations.configuration.SaveSecretV1 operationRequest =
           net.accelbyte.sdk.api.csm.operations.configuration.SaveSecretV1.builder()
               .app(app)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, GeneratedSaveConfigurationV1Request.class))
               .build();
-      final GeneratedSaveConfigurationV1Response response = wrapper.saveSecretV1(operation);
+      final GeneratedSaveConfigurationV1Response response = wrapper.saveSecretV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

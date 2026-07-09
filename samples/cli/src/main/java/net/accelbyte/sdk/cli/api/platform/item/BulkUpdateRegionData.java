@@ -66,13 +66,13 @@ public class BulkUpdateRegionData implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Item wrapper = new Item(sdk);
-      final net.accelbyte.sdk.api.platform.operations.item.BulkUpdateRegionData operation =
+      final net.accelbyte.sdk.api.platform.operations.item.BulkUpdateRegionData operationRequest =
           net.accelbyte.sdk.api.platform.operations.item.BulkUpdateRegionData.builder()
               .namespace(namespace)
               .storeId(storeId)
               .body(new ObjectMapper().readValue(body, BulkRegionDataChangeRequest.class))
               .build();
-      wrapper.bulkUpdateRegionData(operation);
+      wrapper.bulkUpdateRegionData(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

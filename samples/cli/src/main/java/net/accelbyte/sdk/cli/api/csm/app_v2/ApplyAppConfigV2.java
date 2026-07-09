@@ -66,13 +66,13 @@ public class ApplyAppConfigV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AppV2 wrapper = new AppV2(sdk);
-      final net.accelbyte.sdk.api.csm.operations.app_v2.ApplyAppConfigV2 operation =
+      final net.accelbyte.sdk.api.csm.operations.app_v2.ApplyAppConfigV2 operationRequest =
           net.accelbyte.sdk.api.csm.operations.app_v2.ApplyAppConfigV2.builder()
               .app(app)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ApimodelApplyAppConfigRequest.class))
               .build();
-      final ApimodelAppItem response = wrapper.applyAppConfigV2(operation);
+      final ApimodelAppItem response = wrapper.applyAppConfigV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

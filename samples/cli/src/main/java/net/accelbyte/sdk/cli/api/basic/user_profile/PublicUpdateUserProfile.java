@@ -66,13 +66,14 @@ public class PublicUpdateUserProfile implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserProfile wrapper = new UserProfile(sdk);
-      final net.accelbyte.sdk.api.basic.operations.user_profile.PublicUpdateUserProfile operation =
-          net.accelbyte.sdk.api.basic.operations.user_profile.PublicUpdateUserProfile.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .body(new ObjectMapper().readValue(body, UserProfileUpdate.class))
-              .build();
-      final UserProfileInfo response = wrapper.publicUpdateUserProfile(operation);
+      final net.accelbyte.sdk.api.basic.operations.user_profile.PublicUpdateUserProfile
+          operationRequest =
+              net.accelbyte.sdk.api.basic.operations.user_profile.PublicUpdateUserProfile.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .body(new ObjectMapper().readValue(body, UserProfileUpdate.class))
+                  .build();
+      final UserProfileInfo response = wrapper.publicUpdateUserProfile(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

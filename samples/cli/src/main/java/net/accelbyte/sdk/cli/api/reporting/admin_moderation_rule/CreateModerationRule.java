@@ -62,13 +62,13 @@ public class CreateModerationRule implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminModerationRule wrapper = new AdminModerationRule(sdk);
       final net.accelbyte.sdk.api.reporting.operations.admin_moderation_rule.CreateModerationRule
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.reporting.operations.admin_moderation_rule.CreateModerationRule
                   .builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, RestapiModerationRuleRequest.class))
                   .build();
-      wrapper.createModerationRule(operation);
+      wrapper.createModerationRule(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

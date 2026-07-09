@@ -1722,6 +1722,37 @@ $ build/install/cli/bin/cli iam publicProcessWebLinkPlatformV3 \
     --state <state value>
 ```
 
+### Operation PublicWebReauthPlatform
+
+```sh
+$ build/install/cli/bin/cli iam publicWebReauthPlatform \
+    --namespace <namespace value> \
+    --platformId <platformId value> \
+    --clientId <clientId value - optional> \
+    --redirectUri <redirectUri value - optional> \
+    --operation <operation value>
+```
+
+### Operation PublicWebReauthPlatformEstablish
+
+```sh
+$ build/install/cli/bin/cli iam publicWebReauthPlatformEstablish \
+    --namespace <namespace value> \
+    --platformId <platformId value> \
+    --code <code value - optional> \
+    --state <state value>
+```
+
+### Operation PublicWebReauthPlatformProcess
+
+```sh
+$ build/install/cli/bin/cli iam publicWebReauthPlatformProcess \
+    --namespace <namespace value> \
+    --platformId <platformId value> \
+    --code <code value - optional> \
+    --state <state value>
+```
+
 ### Operation PublicGetUsersPlatformInfosV3
 
 ```sh

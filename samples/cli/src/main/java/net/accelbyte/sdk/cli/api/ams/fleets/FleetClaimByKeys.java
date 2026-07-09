@@ -61,12 +61,12 @@ public class FleetClaimByKeys implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Fleets wrapper = new Fleets(sdk);
-      final net.accelbyte.sdk.api.ams.operations.fleets.FleetClaimByKeys operation =
+      final net.accelbyte.sdk.api.ams.operations.fleets.FleetClaimByKeys operationRequest =
           net.accelbyte.sdk.api.ams.operations.fleets.FleetClaimByKeys.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ApiFleetClaimByKeysReq.class))
               .build();
-      final ApiFleetClaimResponse response = wrapper.fleetClaimByKeys(operation);
+      final ApiFleetClaimResponse response = wrapper.fleetClaimByKeys(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

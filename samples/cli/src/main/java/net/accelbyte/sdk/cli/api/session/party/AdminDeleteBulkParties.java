@@ -61,14 +61,14 @@ public class AdminDeleteBulkParties implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Party wrapper = new Party(sdk);
-      final net.accelbyte.sdk.api.session.operations.party.AdminDeleteBulkParties operation =
+      final net.accelbyte.sdk.api.session.operations.party.AdminDeleteBulkParties operationRequest =
           net.accelbyte.sdk.api.session.operations.party.AdminDeleteBulkParties.builder()
               .namespace(namespace)
               .body(
                   new ObjectMapper().readValue(body, ApimodelsDeleteBulkPartySessionRequest.class))
               .build();
       final ApimodelsDeleteBulkPartySessionsAPIResponse response =
-          wrapper.adminDeleteBulkParties(operation);
+          wrapper.adminDeleteBulkParties(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

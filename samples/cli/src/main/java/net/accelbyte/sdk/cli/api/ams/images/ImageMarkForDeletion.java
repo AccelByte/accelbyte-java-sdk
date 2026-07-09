@@ -60,12 +60,12 @@ public class ImageMarkForDeletion implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Images wrapper = new Images(sdk);
-      final net.accelbyte.sdk.api.ams.operations.images.ImageMarkForDeletion operation =
+      final net.accelbyte.sdk.api.ams.operations.images.ImageMarkForDeletion operationRequest =
           net.accelbyte.sdk.api.ams.operations.images.ImageMarkForDeletion.builder()
               .imageID(imageID)
               .namespace(namespace)
               .build();
-      wrapper.imageMarkForDeletion(operation);
+      wrapper.imageMarkForDeletion(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

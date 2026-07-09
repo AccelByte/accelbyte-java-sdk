@@ -76,16 +76,17 @@ public class PublicSearchCreator implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicCreator wrapper = new PublicCreator(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.public_creator.PublicSearchCreator operation =
-          net.accelbyte.sdk.api.ugc.operations.public_creator.PublicSearchCreator.builder()
-              .namespace(namespace)
-              .limit(limit)
-              .offset(offset)
-              .orderby(orderby)
-              .sortby(sortby)
-              .build();
+      final net.accelbyte.sdk.api.ugc.operations.public_creator.PublicSearchCreator
+          operationRequest =
+              net.accelbyte.sdk.api.ugc.operations.public_creator.PublicSearchCreator.builder()
+                  .namespace(namespace)
+                  .limit(limit)
+                  .offset(offset)
+                  .orderby(orderby)
+                  .sortby(sortby)
+                  .build();
       final ModelsPaginatedCreatorOverviewResponse response =
-          wrapper.publicSearchCreator(operation);
+          wrapper.publicSearchCreator(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

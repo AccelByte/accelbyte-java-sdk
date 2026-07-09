@@ -72,7 +72,7 @@ public class GetUserRankingPublicV3 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final LeaderboardDataV3 wrapper = new LeaderboardDataV3(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data_v3.GetUserRankingPublicV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data_v3
                   .GetUserRankingPublicV3.builder()
                   .leaderboardCode(leaderboardCode)
@@ -80,7 +80,7 @@ public class GetUserRankingPublicV3 implements Callable<Integer> {
                   .userId(userId)
                   .previousVersion(previousVersion)
                   .build();
-      final ModelsUserRankingResponseV3 response = wrapper.getUserRankingPublicV3(operation);
+      final ModelsUserRankingResponseV3 response = wrapper.getUserRankingPublicV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

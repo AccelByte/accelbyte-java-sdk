@@ -56,11 +56,12 @@ public class GetNamespacePublisher implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Namespace wrapper = new Namespace(sdk);
-      final net.accelbyte.sdk.api.basic.operations.namespace.GetNamespacePublisher operation =
-          net.accelbyte.sdk.api.basic.operations.namespace.GetNamespacePublisher.builder()
-              .namespace(namespace)
-              .build();
-      final NamespacePublisherInfo response = wrapper.getNamespacePublisher(operation);
+      final net.accelbyte.sdk.api.basic.operations.namespace.GetNamespacePublisher
+          operationRequest =
+              net.accelbyte.sdk.api.basic.operations.namespace.GetNamespacePublisher.builder()
+                  .namespace(namespace)
+                  .build();
+      final NamespacePublisherInfo response = wrapper.getNamespacePublisher(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

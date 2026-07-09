@@ -66,13 +66,15 @@ public class CreateUserFromInvitationV4 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UsersV4 wrapper = new UsersV4(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users_v4.CreateUserFromInvitationV4 operation =
-          net.accelbyte.sdk.api.iam.operations.users_v4.CreateUserFromInvitationV4.builder()
-              .invitationId(invitationId)
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, AccountCreateUserRequestV4.class))
-              .build();
-      final AccountCreateUserResponseV4 response = wrapper.createUserFromInvitationV4(operation);
+      final net.accelbyte.sdk.api.iam.operations.users_v4.CreateUserFromInvitationV4
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.users_v4.CreateUserFromInvitationV4.builder()
+                  .invitationId(invitationId)
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, AccountCreateUserRequestV4.class))
+                  .build();
+      final AccountCreateUserResponseV4 response =
+          wrapper.createUserFromInvitationV4(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

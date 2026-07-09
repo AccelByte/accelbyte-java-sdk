@@ -66,13 +66,13 @@ public class CreateSection implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Section wrapper = new Section(sdk);
-      final net.accelbyte.sdk.api.platform.operations.section.CreateSection operation =
+      final net.accelbyte.sdk.api.platform.operations.section.CreateSection operationRequest =
           net.accelbyte.sdk.api.platform.operations.section.CreateSection.builder()
               .namespace(namespace)
               .storeId(storeId)
               .body(new ObjectMapper().readValue(body, SectionCreate.class))
               .build();
-      final FullSectionInfo response = wrapper.createSection(operation);
+      final FullSectionInfo response = wrapper.createSection(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

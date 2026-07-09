@@ -20,8 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteSubscriptionAppNotificationV3
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP:ALERT:SUBSCRIPTION [DELETE]`
- *
  * <p>Remove a user from the notification subscription using either user ID or email address. Only
  * one of them should be provided.
  */

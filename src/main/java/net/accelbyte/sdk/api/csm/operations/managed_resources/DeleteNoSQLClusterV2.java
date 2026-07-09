@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteNoSQLClusterV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:NOSQL:CLUSTERS [DELETE]`
- *
  * <p>You can only delete the cluster when its status is "available".
  *
  * <p>Deleting the cluster will: - Remove NoSQL integration. - Remove all the data from the NoSQL -

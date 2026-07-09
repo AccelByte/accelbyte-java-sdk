@@ -86,7 +86,7 @@ public class AdminTopicMembers implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Topic wrapper = new Topic(sdk);
-      final net.accelbyte.sdk.api.chat.operations.topic.AdminTopicMembers operation =
+      final net.accelbyte.sdk.api.chat.operations.topic.AdminTopicMembers operationRequest =
           net.accelbyte.sdk.api.chat.operations.topic.AdminTopicMembers.builder()
               .namespace(namespace)
               .topic(topic)
@@ -96,7 +96,8 @@ public class AdminTopicMembers implements Callable<Integer> {
               .offset(offset)
               .shardId(shardId)
               .build();
-      final ModelsTopicMemberWithPaginationResponse response = wrapper.adminTopicMembers(operation);
+      final ModelsTopicMemberWithPaginationResponse response =
+          wrapper.adminTopicMembers(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

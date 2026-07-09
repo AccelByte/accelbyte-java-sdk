@@ -32,7 +32,7 @@ public class PublicGetMessages extends Operation {
   private String path = "/lobby/v1/messages";
 
   private String method = "GET";
-  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
 

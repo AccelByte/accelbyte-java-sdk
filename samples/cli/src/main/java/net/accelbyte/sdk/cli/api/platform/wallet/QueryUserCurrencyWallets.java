@@ -61,12 +61,13 @@ public class QueryUserCurrencyWallets implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Wallet wrapper = new Wallet(sdk);
-      final net.accelbyte.sdk.api.platform.operations.wallet.QueryUserCurrencyWallets operation =
-          net.accelbyte.sdk.api.platform.operations.wallet.QueryUserCurrencyWallets.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .build();
-      final List<CurrencyWallet> response = wrapper.queryUserCurrencyWallets(operation);
+      final net.accelbyte.sdk.api.platform.operations.wallet.QueryUserCurrencyWallets
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.wallet.QueryUserCurrencyWallets.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .build();
+      final List<CurrencyWallet> response = wrapper.queryUserCurrencyWallets(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

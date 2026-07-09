@@ -74,7 +74,7 @@ public class PublicReplaceSessionStorageUserV2 implements Callable<Integer> {
       final SessionStorage wrapper = new SessionStorage(sdk);
       final net.accelbyte.sdk.api.session.operations.session_storage
               .PublicReplaceSessionStorageUserV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.session_storage
                   .PublicReplaceSessionStorageUserV2.builder()
                   .namespace(namespace)
@@ -82,7 +82,7 @@ public class PublicReplaceSessionStorageUserV2 implements Callable<Integer> {
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, new TypeReference<Map<String, ?>>() {}))
                   .build();
-      final Map<String, ?> response = wrapper.publicReplaceSessionStorageUserV2(operation);
+      final Map<String, ?> response = wrapper.publicReplaceSessionStorageUserV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

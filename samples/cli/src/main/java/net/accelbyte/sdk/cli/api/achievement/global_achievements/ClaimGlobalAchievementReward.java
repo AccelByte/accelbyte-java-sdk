@@ -67,14 +67,14 @@ public class ClaimGlobalAchievementReward implements Callable<Integer> {
       final GlobalAchievements wrapper = new GlobalAchievements(sdk);
       final net.accelbyte.sdk.api.achievement.operations.global_achievements
               .ClaimGlobalAchievementReward
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.achievement.operations.global_achievements
                   .ClaimGlobalAchievementReward.builder()
                   .achievementCode(achievementCode)
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      wrapper.claimGlobalAchievementReward(operation);
+      wrapper.claimGlobalAchievementReward(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

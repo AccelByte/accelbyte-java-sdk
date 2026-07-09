@@ -71,14 +71,14 @@ public class PayWithUserWallet implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Wallet wrapper = new Wallet(sdk);
-      final net.accelbyte.sdk.api.platform.operations.wallet.PayWithUserWallet operation =
+      final net.accelbyte.sdk.api.platform.operations.wallet.PayWithUserWallet operationRequest =
           net.accelbyte.sdk.api.platform.operations.wallet.PayWithUserWallet.builder()
               .currencyCode(currencyCode)
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, PaymentRequest.class))
               .build();
-      final PlatformWallet response = wrapper.payWithUserWallet(operation);
+      final PlatformWallet response = wrapper.payWithUserWallet(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

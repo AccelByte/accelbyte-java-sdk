@@ -66,13 +66,13 @@ public class AdminVerifyAccountV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.AdminVerifyAccountV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.users.AdminVerifyAccountV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.AdminVerifyAccountV3.builder()
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, ModelUserVerificationRequest.class))
               .build();
-      wrapper.adminVerifyAccountV3(operation);
+      wrapper.adminVerifyAccountV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -56,11 +56,11 @@ public class CreateItemTypeConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Item wrapper = new Item(sdk);
-      final net.accelbyte.sdk.api.platform.operations.item.CreateItemTypeConfig operation =
+      final net.accelbyte.sdk.api.platform.operations.item.CreateItemTypeConfig operationRequest =
           net.accelbyte.sdk.api.platform.operations.item.CreateItemTypeConfig.builder()
               .body(new ObjectMapper().readValue(body, ItemTypeConfigCreate.class))
               .build();
-      wrapper.createItemTypeConfig(operation);
+      wrapper.createItemTypeConfig(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

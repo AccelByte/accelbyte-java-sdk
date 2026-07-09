@@ -74,7 +74,7 @@ public class PublicListAllMyStatItems implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserStatistic wrapper = new UserStatistic(sdk);
       final net.accelbyte.sdk.api.social.operations.user_statistic.PublicListAllMyStatItems
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.social.operations.user_statistic.PublicListAllMyStatItems
                   .builder()
                   .namespace(namespace)
@@ -83,7 +83,7 @@ public class PublicListAllMyStatItems implements Callable<Integer> {
                   .tags(tags)
                   .build();
       final List<ADTOObjectForUserStatItemValue> response =
-          wrapper.publicListAllMyStatItems(operation);
+          wrapper.publicListAllMyStatItems(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

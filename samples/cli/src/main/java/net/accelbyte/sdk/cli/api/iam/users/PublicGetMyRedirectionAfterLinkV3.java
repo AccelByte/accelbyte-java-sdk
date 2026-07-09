@@ -56,12 +56,13 @@ public class PublicGetMyRedirectionAfterLinkV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.PublicGetMyRedirectionAfterLinkV3 operation =
-          net.accelbyte.sdk.api.iam.operations.users.PublicGetMyRedirectionAfterLinkV3.builder()
-              .oneTimeLinkCode(oneTimeLinkCode)
-              .build();
+      final net.accelbyte.sdk.api.iam.operations.users.PublicGetMyRedirectionAfterLinkV3
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.users.PublicGetMyRedirectionAfterLinkV3.builder()
+                  .oneTimeLinkCode(oneTimeLinkCode)
+                  .build();
       final ModelOneTimeCodeLinkRedirectionResponse response =
-          wrapper.publicGetMyRedirectionAfterLinkV3(operation);
+          wrapper.publicGetMyRedirectionAfterLinkV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UploadAppUIFile
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APPUI [UPDATE]`
- *
  * <p>Uploads a ZIP archive containing App UI static assets (HTML, CSS, JS, etc.). Files are stored
  * in S3 and served with immutable caching.
  */

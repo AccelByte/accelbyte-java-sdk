@@ -66,13 +66,14 @@ public class UpdateUserSlotConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final SlotConfig wrapper = new SlotConfig(sdk);
-      final net.accelbyte.sdk.api.social.operations.slot_config.UpdateUserSlotConfig operation =
-          net.accelbyte.sdk.api.social.operations.slot_config.UpdateUserSlotConfig.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .body(new ObjectMapper().readValue(body, SlotConfigUpdate.class))
-              .build();
-      final UserSlotConfigInfo response = wrapper.updateUserSlotConfig(operation);
+      final net.accelbyte.sdk.api.social.operations.slot_config.UpdateUserSlotConfig
+          operationRequest =
+              net.accelbyte.sdk.api.social.operations.slot_config.UpdateUserSlotConfig.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .body(new ObjectMapper().readValue(body, SlotConfigUpdate.class))
+                  .build();
+      final UserSlotConfigInfo response = wrapper.updateUserSlotConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

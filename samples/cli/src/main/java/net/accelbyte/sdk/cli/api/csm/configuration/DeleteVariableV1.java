@@ -65,13 +65,13 @@ public class DeleteVariableV1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Configuration wrapper = new Configuration(sdk);
-      final net.accelbyte.sdk.api.csm.operations.configuration.DeleteVariableV1 operation =
+      final net.accelbyte.sdk.api.csm.operations.configuration.DeleteVariableV1 operationRequest =
           net.accelbyte.sdk.api.csm.operations.configuration.DeleteVariableV1.builder()
               .app(app)
               .configId(configId)
               .namespace(namespace)
               .build();
-      wrapper.deleteVariableV1(operation);
+      wrapper.deleteVariableV1(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

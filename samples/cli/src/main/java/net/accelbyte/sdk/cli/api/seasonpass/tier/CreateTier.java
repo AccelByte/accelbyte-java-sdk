@@ -66,14 +66,14 @@ public class CreateTier implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Tier wrapper = new Tier(sdk);
-      final net.accelbyte.sdk.api.seasonpass.operations.tier.CreateTier operation =
+      final net.accelbyte.sdk.api.seasonpass.operations.tier.CreateTier operationRequest =
           net.accelbyte.sdk.api.seasonpass.operations.tier.CreateTier.builder()
               .namespace(namespace)
               .seasonId(seasonId)
               .body(new ObjectMapper().readValue(body, TierCreate.class))
               .build();
       final List<net.accelbyte.sdk.api.seasonpass.models.Tier> response =
-          wrapper.createTier(operation);
+          wrapper.createTier(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -66,13 +66,13 @@ public class FulfillRewards implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Fulfillment wrapper = new Fulfillment(sdk);
-      final net.accelbyte.sdk.api.platform.operations.fulfillment.FulfillRewards operation =
+      final net.accelbyte.sdk.api.platform.operations.fulfillment.FulfillRewards operationRequest =
           net.accelbyte.sdk.api.platform.operations.fulfillment.FulfillRewards.builder()
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, RewardsRequest.class))
               .build();
-      wrapper.fulfillRewards(operation);
+      wrapper.fulfillRewards(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

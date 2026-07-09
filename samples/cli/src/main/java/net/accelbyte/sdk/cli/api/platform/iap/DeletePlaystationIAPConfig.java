@@ -55,11 +55,12 @@ public class DeletePlaystationIAPConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.DeletePlaystationIAPConfig operation =
-          net.accelbyte.sdk.api.platform.operations.iap.DeletePlaystationIAPConfig.builder()
-              .namespace(namespace)
-              .build();
-      wrapper.deletePlaystationIAPConfig(operation);
+      final net.accelbyte.sdk.api.platform.operations.iap.DeletePlaystationIAPConfig
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.iap.DeletePlaystationIAPConfig.builder()
+                  .namespace(namespace)
+                  .build();
+      wrapper.deletePlaystationIAPConfig(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

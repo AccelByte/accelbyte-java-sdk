@@ -67,7 +67,7 @@ public class NotificationWithTemplateByUserID implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Notification wrapper = new Notification(sdk);
       final net.accelbyte.sdk.api.lobby.operations.notification.NotificationWithTemplateByUserID
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.notification.NotificationWithTemplateByUserID
                   .builder()
                   .namespace(namespace)
@@ -76,7 +76,7 @@ public class NotificationWithTemplateByUserID implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, ModelNotificationWithTemplateRequest.class))
                   .build();
-      wrapper.notificationWithTemplateByUserID(operation);
+      wrapper.notificationWithTemplateByUserID(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

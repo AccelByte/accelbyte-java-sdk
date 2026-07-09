@@ -68,14 +68,15 @@ public class GetPlayerPublicRecordHandlerV1 implements Callable<Integer> {
       final PublicPlayerRecord wrapper = new PublicPlayerRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.public_player_record
               .GetPlayerPublicRecordHandlerV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.public_player_record
                   .GetPlayerPublicRecordHandlerV1.builder()
                   .key(key)
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      final ModelsPlayerRecordResponse response = wrapper.getPlayerPublicRecordHandlerV1(operation);
+      final ModelsPlayerRecordResponse response =
+          wrapper.getPlayerPublicRecordHandlerV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -66,13 +66,14 @@ public class ApplyUserRedemption implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Campaign wrapper = new Campaign(sdk);
-      final net.accelbyte.sdk.api.platform.operations.campaign.ApplyUserRedemption operation =
-          net.accelbyte.sdk.api.platform.operations.campaign.ApplyUserRedemption.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .body(new ObjectMapper().readValue(body, RedeemRequest.class))
-              .build();
-      final RedeemResult response = wrapper.applyUserRedemption(operation);
+      final net.accelbyte.sdk.api.platform.operations.campaign.ApplyUserRedemption
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.campaign.ApplyUserRedemption.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .body(new ObjectMapper().readValue(body, RedeemRequest.class))
+                  .build();
+      final RedeemResult response = wrapper.applyUserRedemption(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -61,12 +61,12 @@ public class ServerHistory implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Servers wrapper = new Servers(sdk);
-      final net.accelbyte.sdk.api.ams.operations.servers.ServerHistory operation =
+      final net.accelbyte.sdk.api.ams.operations.servers.ServerHistory operationRequest =
           net.accelbyte.sdk.api.ams.operations.servers.ServerHistory.builder()
               .namespace(namespace)
               .serverID(serverID)
               .build();
-      final ApiFleetServerHistoryResponse response = wrapper.serverHistory(operation);
+      final ApiFleetServerHistoryResponse response = wrapper.serverHistory(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

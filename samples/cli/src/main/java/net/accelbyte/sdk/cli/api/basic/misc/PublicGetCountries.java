@@ -61,12 +61,12 @@ public class PublicGetCountries implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Misc wrapper = new Misc(sdk);
-      final net.accelbyte.sdk.api.basic.operations.misc.PublicGetCountries operation =
+      final net.accelbyte.sdk.api.basic.operations.misc.PublicGetCountries operationRequest =
           net.accelbyte.sdk.api.basic.operations.misc.PublicGetCountries.builder()
               .namespace(namespace)
               .lang(lang)
               .build();
-      final List<CountryObject> response = wrapper.publicGetCountries(operation);
+      final List<CountryObject> response = wrapper.publicGetCountries(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

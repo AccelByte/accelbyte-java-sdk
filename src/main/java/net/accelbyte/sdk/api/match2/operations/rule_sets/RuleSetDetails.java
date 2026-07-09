@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * RuleSetDetails
  *
- * <p>Get details for a specific rule set
+ * <p>Get details for a specific rule set, including its name and the rule data used to configure
+ * matchmaking logic.
  */
 @Getter
 @Setter

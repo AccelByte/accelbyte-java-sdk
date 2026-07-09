@@ -76,7 +76,7 @@ public class AdminListTags implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Tags wrapper = new Tags(sdk);
-      final net.accelbyte.sdk.api.achievement.operations.tags.AdminListTags operation =
+      final net.accelbyte.sdk.api.achievement.operations.tags.AdminListTags operationRequest =
           net.accelbyte.sdk.api.achievement.operations.tags.AdminListTags.builder()
               .namespace(namespace)
               .limit(limit)
@@ -84,7 +84,7 @@ public class AdminListTags implements Callable<Integer> {
               .offset(offset)
               .sortBy(sortBy)
               .build();
-      final ModelsPaginatedTagResponse response = wrapper.adminListTags(operation);
+      final ModelsPaginatedTagResponse response = wrapper.adminListTags(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

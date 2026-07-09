@@ -56,11 +56,11 @@ public class GetPlatformDLCConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final DLC wrapper = new DLC(sdk);
-      final net.accelbyte.sdk.api.platform.operations.dlc.GetPlatformDLCConfig operation =
+      final net.accelbyte.sdk.api.platform.operations.dlc.GetPlatformDLCConfig operationRequest =
           net.accelbyte.sdk.api.platform.operations.dlc.GetPlatformDLCConfig.builder()
               .namespace(namespace)
               .build();
-      final PlatformDLCConfigInfo response = wrapper.getPlatformDLCConfig(operation);
+      final PlatformDLCConfigInfo response = wrapper.getPlatformDLCConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

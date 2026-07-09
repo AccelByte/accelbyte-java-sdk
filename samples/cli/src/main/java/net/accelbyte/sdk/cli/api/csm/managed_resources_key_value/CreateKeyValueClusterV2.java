@@ -62,14 +62,15 @@ public class CreateKeyValueClusterV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ManagedResourcesKeyValue wrapper = new ManagedResourcesKeyValue(sdk);
       final net.accelbyte.sdk.api.csm.operations.managed_resources_key_value.CreateKeyValueClusterV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.csm.operations.managed_resources_key_value
                   .CreateKeyValueClusterV2.builder()
                   .namespace(namespace)
                   .body(
                       new ObjectMapper().readValue(body, DomainKeyValueResourceConfiguration.class))
                   .build();
-      final ApimodelKeyValueResourceResponse response = wrapper.createKeyValueClusterV2(operation);
+      final ApimodelKeyValueResourceResponse response =
+          wrapper.createKeyValueClusterV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

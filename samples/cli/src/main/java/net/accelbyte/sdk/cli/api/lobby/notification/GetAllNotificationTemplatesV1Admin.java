@@ -57,13 +57,13 @@ public class GetAllNotificationTemplatesV1Admin implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Notification wrapper = new Notification(sdk);
       final net.accelbyte.sdk.api.lobby.operations.notification.GetAllNotificationTemplatesV1Admin
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.notification.GetAllNotificationTemplatesV1Admin
                   .builder()
                   .namespace(namespace)
                   .build();
       final List<ModelNotificationTemplateResponse> response =
-          wrapper.getAllNotificationTemplatesV1Admin(operation);
+          wrapper.getAllNotificationTemplatesV1Admin(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -56,11 +56,12 @@ public class RollbackPublishedStore implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Store wrapper = new Store(sdk);
-      final net.accelbyte.sdk.api.platform.operations.store.RollbackPublishedStore operation =
-          net.accelbyte.sdk.api.platform.operations.store.RollbackPublishedStore.builder()
-              .namespace(namespace)
-              .build();
-      final StoreInfo response = wrapper.rollbackPublishedStore(operation);
+      final net.accelbyte.sdk.api.platform.operations.store.RollbackPublishedStore
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.store.RollbackPublishedStore.builder()
+                  .namespace(namespace)
+                  .build();
+      final StoreInfo response = wrapper.rollbackPublishedStore(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

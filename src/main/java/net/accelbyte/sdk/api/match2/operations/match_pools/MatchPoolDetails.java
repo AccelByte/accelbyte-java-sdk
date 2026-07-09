@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * MatchPoolDetails
  *
- * <p>Get details for a specific match pool
+ * <p>Get details for a specific match pool, including its configuration such as match function,
+ * ticket expiration, ruleset, and backfill settings.
  */
 @Getter
 @Setter

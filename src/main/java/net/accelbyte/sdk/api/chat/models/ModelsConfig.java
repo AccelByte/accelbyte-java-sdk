@@ -93,6 +93,10 @@ public class ModelsConfig extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Integer maxChatMessageLength;
 
+  @JsonProperty("maxChatMetadataSize")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer maxChatMetadataSize;
+
   @JsonProperty("useDefaultDictionary")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Boolean useDefaultDictionary;

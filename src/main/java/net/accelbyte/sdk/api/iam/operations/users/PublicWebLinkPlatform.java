@@ -21,9 +21,15 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PublicWebLinkPlatform
  *
- * <p>Generates a third party login page which will redirect to the establish API. Supported
- * platforms: - ps4web - xblweb - steamopenid - epicgames - facebook - twitch - google - apple -
- * snapchat - discord - amazon - oculusweb
+ * <p>Generates a redirect to a third party login page for account linking authentication.
+ *
+ * <p>Supported platforms: - ps4web - xblweb - steamopenid - epicgames - facebook - twitch - google
+ * - apple - snapchat - discord - amazon - oculusweb
+ *
+ * <p>## New API version
+ *
+ * <p>This API remains fully functional, but `GET /users/me/platforms/{platformId}/web/reauth` is
+ * recommended for new integrations.
  */
 @Getter
 @Setter

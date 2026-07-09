@@ -63,13 +63,14 @@ public class PublicCheckPaymentOrderPaidStatus implements Callable<Integer> {
       final PaymentStation wrapper = new PaymentStation(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_station
               .PublicCheckPaymentOrderPaidStatus
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.payment_station
                   .PublicCheckPaymentOrderPaidStatus.builder()
                   .namespace(namespace)
                   .paymentOrderNo(paymentOrderNo)
                   .build();
-      final PaymentOrderPaidResult response = wrapper.publicCheckPaymentOrderPaidStatus(operation);
+      final PaymentOrderPaidResult response =
+          wrapper.publicCheckPaymentOrderPaidStatus(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

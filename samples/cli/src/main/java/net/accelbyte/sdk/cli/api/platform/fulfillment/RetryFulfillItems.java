@@ -66,13 +66,14 @@ public class RetryFulfillItems implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Fulfillment wrapper = new Fulfillment(sdk);
-      final net.accelbyte.sdk.api.platform.operations.fulfillment.RetryFulfillItems operation =
-          net.accelbyte.sdk.api.platform.operations.fulfillment.RetryFulfillItems.builder()
-              .namespace(namespace)
-              .transactionId(transactionId)
-              .userId(userId)
-              .build();
-      final FulfillmentV2Result response = wrapper.retryFulfillItems(operation);
+      final net.accelbyte.sdk.api.platform.operations.fulfillment.RetryFulfillItems
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.fulfillment.RetryFulfillItems.builder()
+                  .namespace(namespace)
+                  .transactionId(transactionId)
+                  .userId(userId)
+                  .build();
+      final FulfillmentV2Result response = wrapper.retryFulfillItems(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

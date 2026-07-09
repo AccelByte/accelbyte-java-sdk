@@ -72,7 +72,7 @@ public class UpdateTemplateLocalizationV1Admin implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Notification wrapper = new Notification(sdk);
       final net.accelbyte.sdk.api.lobby.operations.notification.UpdateTemplateLocalizationV1Admin
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.notification.UpdateTemplateLocalizationV1Admin
                   .builder()
                   .namespace(namespace)
@@ -80,7 +80,7 @@ public class UpdateTemplateLocalizationV1Admin implements Callable<Integer> {
                   .templateSlug(templateSlug)
                   .body(new ObjectMapper().readValue(body, ModelUpdateTemplateRequest.class))
                   .build();
-      wrapper.updateTemplateLocalizationV1Admin(operation);
+      wrapper.updateTemplateLocalizationV1Admin(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

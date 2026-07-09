@@ -69,14 +69,15 @@ public class CheckUserSubscriptionSubscribableByItemId implements Callable<Integ
       final Subscription wrapper = new Subscription(sdk);
       final net.accelbyte.sdk.api.platform.operations.subscription
               .CheckUserSubscriptionSubscribableByItemId
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.subscription
                   .CheckUserSubscriptionSubscribableByItemId.builder()
                   .namespace(namespace)
                   .userId(userId)
                   .itemId(itemId)
                   .build();
-      final Subscribable response = wrapper.checkUserSubscriptionSubscribableByItemId(operation);
+      final Subscribable response =
+          wrapper.checkUserSubscriptionSubscribableByItemId(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

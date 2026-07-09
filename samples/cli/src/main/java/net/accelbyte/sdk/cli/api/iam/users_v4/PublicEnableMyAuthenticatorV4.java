@@ -60,12 +60,13 @@ public class PublicEnableMyAuthenticatorV4 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UsersV4 wrapper = new UsersV4(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users_v4.PublicEnableMyAuthenticatorV4 operation =
-          net.accelbyte.sdk.api.iam.operations.users_v4.PublicEnableMyAuthenticatorV4.builder()
-              .namespace(namespace)
-              .code(code != null ? code : null)
-              .build();
-      wrapper.publicEnableMyAuthenticatorV4(operation);
+      final net.accelbyte.sdk.api.iam.operations.users_v4.PublicEnableMyAuthenticatorV4
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.users_v4.PublicEnableMyAuthenticatorV4.builder()
+                  .namespace(namespace)
+                  .code(code != null ? code : null)
+                  .build();
+      wrapper.publicEnableMyAuthenticatorV4(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

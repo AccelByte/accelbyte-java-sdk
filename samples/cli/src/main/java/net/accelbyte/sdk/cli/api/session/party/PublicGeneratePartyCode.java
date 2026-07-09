@@ -61,12 +61,14 @@ public class PublicGeneratePartyCode implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Party wrapper = new Party(sdk);
-      final net.accelbyte.sdk.api.session.operations.party.PublicGeneratePartyCode operation =
-          net.accelbyte.sdk.api.session.operations.party.PublicGeneratePartyCode.builder()
-              .namespace(namespace)
-              .partyId(partyId)
-              .build();
-      final ApimodelsPartySessionResponse response = wrapper.publicGeneratePartyCode(operation);
+      final net.accelbyte.sdk.api.session.operations.party.PublicGeneratePartyCode
+          operationRequest =
+              net.accelbyte.sdk.api.session.operations.party.PublicGeneratePartyCode.builder()
+                  .namespace(namespace)
+                  .partyId(partyId)
+                  .build();
+      final ApimodelsPartySessionResponse response =
+          wrapper.publicGeneratePartyCode(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -66,13 +66,13 @@ public class RetireSeason implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Season wrapper = new Season(sdk);
-      final net.accelbyte.sdk.api.seasonpass.operations.season.RetireSeason operation =
+      final net.accelbyte.sdk.api.seasonpass.operations.season.RetireSeason operationRequest =
           net.accelbyte.sdk.api.seasonpass.operations.season.RetireSeason.builder()
               .namespace(namespace)
               .seasonId(seasonId)
               .force(force)
               .build();
-      final SeasonInfo response = wrapper.retireSeason(operation);
+      final SeasonInfo response = wrapper.retireSeason(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

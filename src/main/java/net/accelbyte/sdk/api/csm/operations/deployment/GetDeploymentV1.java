@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetDeploymentV1
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:DEPLOYMENT [READ]`
- *
  * <p>Get Deployment information by given DeploymentID
  *
  * <p>This endpoint intended to get Deployment information by given Deployment ID from Deployment

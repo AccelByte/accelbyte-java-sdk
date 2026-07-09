@@ -102,20 +102,22 @@ public class GetLikedContent implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicLikeLegacy wrapper = new PublicLikeLegacy(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.public_like_legacy.GetLikedContent operation =
-          net.accelbyte.sdk.api.ugc.operations.public_like_legacy.GetLikedContent.builder()
-              .namespace(namespace)
-              .isofficial(isofficial)
-              .limit(limit)
-              .name(name)
-              .offset(offset)
-              .orderby(orderby)
-              .sortby(sortby)
-              .subtype(subtype)
-              .tags(tags)
-              .type(type)
-              .build();
-      final ModelsPaginatedContentDownloadResponse response = wrapper.getLikedContent(operation);
+      final net.accelbyte.sdk.api.ugc.operations.public_like_legacy.GetLikedContent
+          operationRequest =
+              net.accelbyte.sdk.api.ugc.operations.public_like_legacy.GetLikedContent.builder()
+                  .namespace(namespace)
+                  .isofficial(isofficial)
+                  .limit(limit)
+                  .name(name)
+                  .offset(offset)
+                  .orderby(orderby)
+                  .sortby(sortby)
+                  .subtype(subtype)
+                  .tags(tags)
+                  .type(type)
+                  .build();
+      final ModelsPaginatedContentDownloadResponse response =
+          wrapper.getLikedContent(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

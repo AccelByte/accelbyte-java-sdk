@@ -66,13 +66,14 @@ public class AdminTrustlyUpdateUserIdentity implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.AdminTrustlyUpdateUserIdentity operation =
-          net.accelbyte.sdk.api.iam.operations.users.AdminTrustlyUpdateUserIdentity.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .body(new ObjectMapper().readValue(body, ModelUserIdentityUpdateRequestV3.class))
-              .build();
-      wrapper.adminTrustlyUpdateUserIdentity(operation);
+      final net.accelbyte.sdk.api.iam.operations.users.AdminTrustlyUpdateUserIdentity
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.users.AdminTrustlyUpdateUserIdentity.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .body(new ObjectMapper().readValue(body, ModelUserIdentityUpdateRequestV3.class))
+                  .build();
+      wrapper.adminTrustlyUpdateUserIdentity(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

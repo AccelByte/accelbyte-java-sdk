@@ -63,14 +63,14 @@ public class GetIntegrationAppKeyValueClusterV2 implements Callable<Integer> {
       final ManagedResourcesKeyValue wrapper = new ManagedResourcesKeyValue(sdk);
       final net.accelbyte.sdk.api.csm.operations.managed_resources_key_value
               .GetIntegrationAppKeyValueClusterV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.csm.operations.managed_resources_key_value
                   .GetIntegrationAppKeyValueClusterV2.builder()
                   .app(app)
                   .namespace(namespace)
                   .build();
       final ApimodelGetIntegrationAppKeyValueResponse response =
-          wrapper.getIntegrationAppKeyValueClusterV2(operation);
+          wrapper.getIntegrationAppKeyValueClusterV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

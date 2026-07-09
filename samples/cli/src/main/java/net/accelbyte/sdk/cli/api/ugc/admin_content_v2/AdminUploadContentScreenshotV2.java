@@ -67,7 +67,7 @@ public class AdminUploadContentScreenshotV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminContentV2 wrapper = new AdminContentV2(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminUploadContentScreenshotV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminUploadContentScreenshotV2
                   .builder()
                   .contentId(contentId)
@@ -75,7 +75,7 @@ public class AdminUploadContentScreenshotV2 implements Callable<Integer> {
                   .body(new ObjectMapper().readValue(body, ModelsCreateScreenshotRequest.class))
                   .build();
       final ModelsCreateScreenshotResponse response =
-          wrapper.adminUploadContentScreenshotV2(operation);
+          wrapper.adminUploadContentScreenshotV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

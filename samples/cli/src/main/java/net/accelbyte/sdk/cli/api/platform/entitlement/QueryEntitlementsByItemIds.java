@@ -78,7 +78,7 @@ public class QueryEntitlementsByItemIds implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement.QueryEntitlementsByItemIds
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.entitlement.QueryEntitlementsByItemIds
                   .builder()
                   .namespace(namespace)
@@ -87,7 +87,8 @@ public class QueryEntitlementsByItemIds implements Callable<Integer> {
                   .limit(limit)
                   .offset(offset)
                   .build();
-      final EntitlementPagingSlicedResult response = wrapper.queryEntitlementsByItemIds(operation);
+      final EntitlementPagingSlicedResult response =
+          wrapper.queryEntitlementsByItemIds(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

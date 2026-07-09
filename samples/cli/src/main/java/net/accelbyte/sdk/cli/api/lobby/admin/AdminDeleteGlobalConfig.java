@@ -50,9 +50,9 @@ public class AdminDeleteGlobalConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Admin wrapper = new Admin(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.admin.AdminDeleteGlobalConfig operation =
+      final net.accelbyte.sdk.api.lobby.operations.admin.AdminDeleteGlobalConfig operationRequest =
           net.accelbyte.sdk.api.lobby.operations.admin.AdminDeleteGlobalConfig.builder().build();
-      wrapper.adminDeleteGlobalConfig(operation);
+      wrapper.adminDeleteGlobalConfig(operationRequest);
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

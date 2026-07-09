@@ -78,7 +78,7 @@ public class AdminUploadPlatformCredentials implements Callable<Integer> {
       final PlatformCredential wrapper = new PlatformCredential(sdk);
       final net.accelbyte.sdk.api.session.operations.platform_credential
               .AdminUploadPlatformCredentials
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.platform_credential
                   .AdminUploadPlatformCredentials.builder()
                   .namespace(namespace)
@@ -87,7 +87,7 @@ public class AdminUploadPlatformCredentials implements Callable<Integer> {
                   .file(file != null ? file : null)
                   .password(password != null ? password : null)
                   .build();
-      wrapper.adminUploadPlatformCredentials(operation);
+      wrapper.adminUploadPlatformCredentials(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

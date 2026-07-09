@@ -60,12 +60,12 @@ public class FleetDelete implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Fleets wrapper = new Fleets(sdk);
-      final net.accelbyte.sdk.api.ams.operations.fleets.FleetDelete operation =
+      final net.accelbyte.sdk.api.ams.operations.fleets.FleetDelete operationRequest =
           net.accelbyte.sdk.api.ams.operations.fleets.FleetDelete.builder()
               .fleetID(fleetID)
               .namespace(namespace)
               .build();
-      wrapper.fleetDelete(operation);
+      wrapper.fleetDelete(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

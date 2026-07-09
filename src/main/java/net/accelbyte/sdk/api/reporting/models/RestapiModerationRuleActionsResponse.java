@@ -25,6 +25,10 @@ import net.accelbyte.sdk.core.Model;
 @NoArgsConstructor
 public class RestapiModerationRuleActionsResponse extends Model {
 
+  @JsonProperty("autoResolve")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean autoResolve;
+
   @JsonProperty("banAccount")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private RestapiBanAccountActionResponse banAccount;

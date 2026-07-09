@@ -66,13 +66,14 @@ public class DisableUserEntitlement implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Entitlement wrapper = new Entitlement(sdk);
-      final net.accelbyte.sdk.api.platform.operations.entitlement.DisableUserEntitlement operation =
-          net.accelbyte.sdk.api.platform.operations.entitlement.DisableUserEntitlement.builder()
-              .entitlementId(entitlementId)
-              .namespace(namespace)
-              .userId(userId)
-              .build();
-      final EntitlementInfo response = wrapper.disableUserEntitlement(operation);
+      final net.accelbyte.sdk.api.platform.operations.entitlement.DisableUserEntitlement
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.entitlement.DisableUserEntitlement.builder()
+                  .entitlementId(entitlementId)
+                  .namespace(namespace)
+                  .userId(userId)
+                  .build();
+      final EntitlementInfo response = wrapper.disableUserEntitlement(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -66,13 +66,13 @@ public class ReturnItem implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Item wrapper = new Item(sdk);
-      final net.accelbyte.sdk.api.platform.operations.item.ReturnItem operation =
+      final net.accelbyte.sdk.api.platform.operations.item.ReturnItem operationRequest =
           net.accelbyte.sdk.api.platform.operations.item.ReturnItem.builder()
               .itemId(itemId)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ItemReturnRequest.class))
               .build();
-      wrapper.returnItem(operation);
+      wrapper.returnItem(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

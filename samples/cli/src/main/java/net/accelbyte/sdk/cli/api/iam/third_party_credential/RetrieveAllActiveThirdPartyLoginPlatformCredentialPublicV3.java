@@ -64,13 +64,13 @@ public class RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3
       final ThirdPartyCredential wrapper = new ThirdPartyCredential(sdk);
       final net.accelbyte.sdk.api.iam.operations.third_party_credential
               .RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.third_party_credential
                   .RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3.builder()
                   .namespace(namespace)
                   .build();
       final List<ModelPublicThirdPartyPlatformInfo> response =
-          wrapper.retrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3(operation);
+          wrapper.retrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

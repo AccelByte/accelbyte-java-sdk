@@ -56,11 +56,11 @@ public class GetCatalogConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Store wrapper = new Store(sdk);
-      final net.accelbyte.sdk.api.platform.operations.store.GetCatalogConfig operation =
+      final net.accelbyte.sdk.api.platform.operations.store.GetCatalogConfig operationRequest =
           net.accelbyte.sdk.api.platform.operations.store.GetCatalogConfig.builder()
               .namespace(namespace)
               .build();
-      final CatalogConfigInfo response = wrapper.getCatalogConfig(operation);
+      final CatalogConfigInfo response = wrapper.getCatalogConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

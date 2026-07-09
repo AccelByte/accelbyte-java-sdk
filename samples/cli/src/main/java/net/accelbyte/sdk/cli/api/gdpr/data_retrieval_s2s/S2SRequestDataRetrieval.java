@@ -62,13 +62,14 @@ public class S2SRequestDataRetrieval implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final DataRetrievalS2S wrapper = new DataRetrievalS2S(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.data_retrieval_s2s.S2SRequestDataRetrieval
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.data_retrieval_s2s.S2SRequestDataRetrieval
                   .builder()
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      final ModelsS2SDataRetrievalResponse response = wrapper.s2sRequestDataRetrieval(operation);
+      final ModelsS2SDataRetrievalResponse response =
+          wrapper.s2sRequestDataRetrieval(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -61,12 +61,13 @@ public class MockXblClawbackEvent implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Clawback wrapper = new Clawback(sdk);
-      final net.accelbyte.sdk.api.platform.operations.clawback.MockXblClawbackEvent operation =
-          net.accelbyte.sdk.api.platform.operations.clawback.MockXblClawbackEvent.builder()
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, XblClawbackEvent.class))
-              .build();
-      final ClawbackInfo response = wrapper.mockXblClawbackEvent(operation);
+      final net.accelbyte.sdk.api.platform.operations.clawback.MockXblClawbackEvent
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.clawback.MockXblClawbackEvent.builder()
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, XblClawbackEvent.class))
+                  .build();
+      final ClawbackInfo response = wrapper.mockXblClawbackEvent(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

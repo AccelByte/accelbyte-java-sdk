@@ -82,16 +82,17 @@ public class DownloadInvoiceDetails implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Invoice wrapper = new Invoice(sdk);
-      final net.accelbyte.sdk.api.platform.operations.invoice.DownloadInvoiceDetails operation =
-          net.accelbyte.sdk.api.platform.operations.invoice.DownloadInvoiceDetails.builder()
-              .namespace(namespace)
-              .endTime(endTime)
-              .feature(feature)
-              .itemId(itemId)
-              .itemType(itemType)
-              .startTime(startTime)
-              .build();
-      final InputStream response = wrapper.downloadInvoiceDetails(operation);
+      final net.accelbyte.sdk.api.platform.operations.invoice.DownloadInvoiceDetails
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.invoice.DownloadInvoiceDetails.builder()
+                  .namespace(namespace)
+                  .endTime(endTime)
+                  .feature(feature)
+                  .itemId(itemId)
+                  .itemType(itemType)
+                  .startTime(startTime)
+                  .build();
+      final InputStream response = wrapper.downloadInvoiceDetails(operationRequest);
       final File outputFile = new File("response.out");
       java.nio.file.Files.copy(
           response, outputFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);

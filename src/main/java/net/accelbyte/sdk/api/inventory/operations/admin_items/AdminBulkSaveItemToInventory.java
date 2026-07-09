@@ -51,7 +51,7 @@ public class AdminBulkSaveItemToInventory extends Operation {
       "/inventory/v1/admin/namespaces/{namespace}/users/{userId}/inventories/{inventoryId}/items/bulk";
 
   private String method = "POST";
-  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
 

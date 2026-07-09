@@ -68,7 +68,7 @@ public class GenerateTokenByNewHeadlessAccountV3 implements Callable<Integer> {
       final OAuth20Extension wrapper = new OAuth20Extension(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension
               .GenerateTokenByNewHeadlessAccountV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension
                   .GenerateTokenByNewHeadlessAccountV3.builder()
                   .additionalData(additionalData != null ? additionalData : null)
@@ -76,7 +76,7 @@ public class GenerateTokenByNewHeadlessAccountV3 implements Callable<Integer> {
                   .linkingToken(linkingToken != null ? linkingToken : null)
                   .build();
       final OauthmodelTokenResponseV3 response =
-          wrapper.generateTokenByNewHeadlessAccountV3(operation);
+          wrapper.generateTokenByNewHeadlessAccountV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

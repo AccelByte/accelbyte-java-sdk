@@ -70,14 +70,14 @@ public class AdminPlatformLinkV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.AdminPlatformLinkV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.users.AdminPlatformLinkV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.AdminPlatformLinkV3.builder()
               .namespace(namespace)
               .platformId(platformId)
               .userId(userId)
               .ticket(ticket != null ? ticket : null)
               .build();
-      wrapper.adminPlatformLinkV3(operation);
+      wrapper.adminPlatformLinkV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

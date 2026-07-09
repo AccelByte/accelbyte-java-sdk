@@ -67,14 +67,14 @@ public class PublicUpdateGameSessionPassword implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameSession wrapper = new GameSession(sdk);
       final net.accelbyte.sdk.api.session.operations.game_session.PublicUpdateGameSessionPassword
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.game_session.PublicUpdateGameSessionPassword
                   .builder()
                   .namespace(namespace)
                   .sessionId(sessionId)
                   .body(new ObjectMapper().readValue(body, ApimodelsUpdatePasswordRequest.class))
                   .build();
-      wrapper.publicUpdateGameSessionPassword(operation);
+      wrapper.publicUpdateGameSessionPassword(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -68,14 +68,14 @@ public class ImportStatCycle implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final StatCycleConfiguration wrapper = new StatCycleConfiguration(sdk);
       final net.accelbyte.sdk.api.social.operations.stat_cycle_configuration.ImportStatCycle
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.social.operations.stat_cycle_configuration.ImportStatCycle
                   .builder()
                   .namespace(namespace)
                   .replaceExisting(replaceExisting)
                   .file(file != null ? file : null)
                   .build();
-      final StatImportInfo response = wrapper.importStatCycle(operation);
+      final StatImportInfo response = wrapper.importStatCycle(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

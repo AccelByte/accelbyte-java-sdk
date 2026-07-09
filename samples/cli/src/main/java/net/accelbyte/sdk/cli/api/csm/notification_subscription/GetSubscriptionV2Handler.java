@@ -62,14 +62,14 @@ public class GetSubscriptionV2Handler implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final NotificationSubscription wrapper = new NotificationSubscription(sdk);
       final net.accelbyte.sdk.api.csm.operations.notification_subscription.GetSubscriptionV2Handler
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.csm.operations.notification_subscription
                   .GetSubscriptionV2Handler.builder()
                   .app(app)
                   .namespace(namespace)
                   .build();
       final ApimodelGetNotificationSubscriberStatusResponse response =
-          wrapper.getSubscriptionV2Handler(operation);
+          wrapper.getSubscriptionV2Handler(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -67,14 +67,15 @@ public class AdminGetUnusedReasons implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminReasons wrapper = new AdminReasons(sdk);
       final net.accelbyte.sdk.api.reporting.operations.admin_reasons.AdminGetUnusedReasons
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.reporting.operations.admin_reasons.AdminGetUnusedReasons
                   .builder()
                   .namespace(namespace)
                   .extensionCategory(extensionCategory)
                   .category(category)
                   .build();
-      final RestapiUnusedReasonListResponse response = wrapper.adminGetUnusedReasons(operation);
+      final RestapiUnusedReasonListResponse response =
+          wrapper.adminGetUnusedReasons(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

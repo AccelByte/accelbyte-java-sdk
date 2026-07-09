@@ -97,20 +97,21 @@ public class AdminListContentV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminContentV2 wrapper = new AdminContentV2(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminListContentV2 operation =
-          net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminListContentV2.builder()
-              .namespace(namespace)
-              .isOfficial(isOfficial)
-              .limit(limit)
-              .name(name)
-              .offset(offset)
-              .sortBy(sortBy)
-              .subType(subType)
-              .tags(tags)
-              .type(type)
-              .build();
+      final net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminListContentV2
+          operationRequest =
+              net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminListContentV2.builder()
+                  .namespace(namespace)
+                  .isOfficial(isOfficial)
+                  .limit(limit)
+                  .name(name)
+                  .offset(offset)
+                  .sortBy(sortBy)
+                  .subType(subType)
+                  .tags(tags)
+                  .type(type)
+                  .build();
       final ModelsPaginatedContentDownloadResponseV2 response =
-          wrapper.adminListContentV2(operation);
+          wrapper.adminListContentV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

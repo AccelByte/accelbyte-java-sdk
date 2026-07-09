@@ -62,13 +62,13 @@ public class RetrieveAllActiveThirdPartyLoginPlatformCredentialV3 implements Cal
       final ThirdPartyCredential wrapper = new ThirdPartyCredential(sdk);
       final net.accelbyte.sdk.api.iam.operations.third_party_credential
               .RetrieveAllActiveThirdPartyLoginPlatformCredentialV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.third_party_credential
                   .RetrieveAllActiveThirdPartyLoginPlatformCredentialV3.builder()
                   .namespace(namespace)
                   .build();
       final List<ModelThirdPartyLoginPlatformCredentialResponse> response =
-          wrapper.retrieveAllActiveThirdPartyLoginPlatformCredentialV3(operation);
+          wrapper.retrieveAllActiveThirdPartyLoginPlatformCredentialV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

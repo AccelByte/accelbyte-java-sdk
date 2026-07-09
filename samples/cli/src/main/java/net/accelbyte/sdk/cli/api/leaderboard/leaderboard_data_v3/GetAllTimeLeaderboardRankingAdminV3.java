@@ -41,6 +41,11 @@ public class GetAllTimeLeaderboardRankingAdminV3 implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--includeHiddenUsers"},
+      description = "includeHiddenUsers")
+  Boolean includeHiddenUsers;
+
+  @Option(
       names = {"--limit"},
       description = "limit")
   Integer limit;
@@ -73,16 +78,17 @@ public class GetAllTimeLeaderboardRankingAdminV3 implements Callable<Integer> {
       final LeaderboardDataV3 wrapper = new LeaderboardDataV3(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data_v3
               .GetAllTimeLeaderboardRankingAdminV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data_v3
                   .GetAllTimeLeaderboardRankingAdminV3.builder()
                   .leaderboardCode(leaderboardCode)
                   .namespace(namespace)
+                  .includeHiddenUsers(includeHiddenUsers)
                   .limit(limit)
                   .offset(offset)
                   .build();
       final ModelsGetLeaderboardRankingResp response =
-          wrapper.getAllTimeLeaderboardRankingAdminV3(operation);
+          wrapper.getAllTimeLeaderboardRankingAdminV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

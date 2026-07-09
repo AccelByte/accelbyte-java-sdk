@@ -64,14 +64,14 @@ public class AddTierIntoMetaQuestSubscriptionGroup implements Callable<Integer> 
       final IAPSubscription wrapper = new IAPSubscription(sdk);
       final net.accelbyte.sdk.api.platform.operations.iap_subscription
               .AddTierIntoMetaQuestSubscriptionGroup
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.iap_subscription
                   .AddTierIntoMetaQuestSubscriptionGroup.builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ThirdPartySubscriptionTierCreate.class))
                   .build();
       final ThirdPartySubscriptionTierInfo response =
-          wrapper.addTierIntoMetaQuestSubscriptionGroup(operation);
+          wrapper.addTierIntoMetaQuestSubscriptionGroup(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

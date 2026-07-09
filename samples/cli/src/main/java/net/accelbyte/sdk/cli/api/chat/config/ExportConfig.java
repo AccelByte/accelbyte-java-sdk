@@ -56,11 +56,11 @@ public class ExportConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Config wrapper = new Config(sdk);
-      final net.accelbyte.sdk.api.chat.operations.config.ExportConfig operation =
+      final net.accelbyte.sdk.api.chat.operations.config.ExportConfig operationRequest =
           net.accelbyte.sdk.api.chat.operations.config.ExportConfig.builder()
               .namespace(namespace)
               .build();
-      final List<ModelsConfigExport> response = wrapper.exportConfig(operation);
+      final List<ModelsConfigExport> response = wrapper.exportConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

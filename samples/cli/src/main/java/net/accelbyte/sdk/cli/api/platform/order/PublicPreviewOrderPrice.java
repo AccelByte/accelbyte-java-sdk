@@ -66,13 +66,15 @@ public class PublicPreviewOrderPrice implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Order wrapper = new Order(sdk);
-      final net.accelbyte.sdk.api.platform.operations.order.PublicPreviewOrderPrice operation =
-          net.accelbyte.sdk.api.platform.operations.order.PublicPreviewOrderPrice.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .body(new ObjectMapper().readValue(body, OrderDiscountPreviewRequest.class))
-              .build();
-      final OrderDiscountPreviewResponse response = wrapper.publicPreviewOrderPrice(operation);
+      final net.accelbyte.sdk.api.platform.operations.order.PublicPreviewOrderPrice
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.order.PublicPreviewOrderPrice.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .body(new ObjectMapper().readValue(body, OrderDiscountPreviewRequest.class))
+                  .build();
+      final OrderDiscountPreviewResponse response =
+          wrapper.publicPreviewOrderPrice(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

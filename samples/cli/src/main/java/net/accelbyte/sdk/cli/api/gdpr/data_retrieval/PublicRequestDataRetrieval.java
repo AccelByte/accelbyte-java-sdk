@@ -72,7 +72,7 @@ public class PublicRequestDataRetrieval implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final DataRetrieval wrapper = new DataRetrieval(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.data_retrieval.PublicRequestDataRetrieval
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.data_retrieval.PublicRequestDataRetrieval
                   .builder()
                   .namespace(namespace)
@@ -80,7 +80,8 @@ public class PublicRequestDataRetrieval implements Callable<Integer> {
                   .languageTag(languageTag != null ? languageTag : null)
                   .password(password != null ? password : null)
                   .build();
-      final ModelsDataRetrievalResponse response = wrapper.publicRequestDataRetrieval(operation);
+      final ModelsDataRetrievalResponse response =
+          wrapper.publicRequestDataRetrieval(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -20,8 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * StartNoSQLClusterV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:NOSQL:CLUSTERS [UPDATE]`
- *
  * <p>Start NoSQL cluster. You can only start the cluster when its status is "stopped".
  *
  * <p>Cluster starting process may take some time to complete.

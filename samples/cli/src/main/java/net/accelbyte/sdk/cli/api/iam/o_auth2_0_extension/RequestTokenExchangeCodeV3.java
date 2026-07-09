@@ -72,7 +72,7 @@ public class RequestTokenExchangeCodeV3 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth20Extension wrapper = new OAuth20Extension(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.RequestTokenExchangeCodeV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.RequestTokenExchangeCodeV3
                   .builder()
                   .namespace(namespace)
@@ -81,7 +81,7 @@ public class RequestTokenExchangeCodeV3 implements Callable<Integer> {
                   .clientId(clientId != null ? clientId : null)
                   .build();
       final OauthmodelTargetTokenCodeResponse response =
-          wrapper.requestTokenExchangeCodeV3(operation);
+          wrapper.requestTokenExchangeCodeV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -91,7 +91,7 @@ public class TokenGrant implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth wrapper = new OAuth(sdk);
-      final net.accelbyte.sdk.api.iam.operations.o_auth.TokenGrant operation =
+      final net.accelbyte.sdk.api.iam.operations.o_auth.TokenGrant operationRequest =
           net.accelbyte.sdk.api.iam.operations.o_auth.TokenGrant.builder()
               .code(code != null ? code : null)
               .extendExp(extendExp != null ? extendExp : null)
@@ -102,7 +102,7 @@ public class TokenGrant implements Callable<Integer> {
               .username(username != null ? username : null)
               .grantType(grantType != null ? grantType : null)
               .build();
-      final OauthmodelTokenResponse response = wrapper.tokenGrant(operation);
+      final OauthmodelTokenResponse response = wrapper.tokenGrant(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

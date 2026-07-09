@@ -65,13 +65,14 @@ public class DeleteUserStatItems1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserStatistic wrapper = new UserStatistic(sdk);
-      final net.accelbyte.sdk.api.social.operations.user_statistic.DeleteUserStatItems1 operation =
-          net.accelbyte.sdk.api.social.operations.user_statistic.DeleteUserStatItems1.builder()
-              .namespace(namespace)
-              .statCode(statCode)
-              .userId(userId)
-              .build();
-      wrapper.deleteUserStatItems1(operation);
+      final net.accelbyte.sdk.api.social.operations.user_statistic.DeleteUserStatItems1
+          operationRequest =
+              net.accelbyte.sdk.api.social.operations.user_statistic.DeleteUserStatItems1.builder()
+                  .namespace(namespace)
+                  .statCode(statCode)
+                  .userId(userId)
+                  .build();
+      wrapper.deleteUserStatItems1(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

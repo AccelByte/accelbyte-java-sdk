@@ -57,12 +57,13 @@ public class DeleteSQLClusterV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ManagedResourcesSQL wrapper = new ManagedResourcesSQL(sdk);
       final net.accelbyte.sdk.api.csm.operations.managed_resources_sql.DeleteSQLClusterV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.csm.operations.managed_resources_sql.DeleteSQLClusterV2
                   .builder()
                   .namespace(namespace)
                   .build();
-      final ApimodelDeleteSQLResourceResponse response = wrapper.deleteSQLClusterV2(operation);
+      final ApimodelDeleteSQLResourceResponse response =
+          wrapper.deleteSQLClusterV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -66,7 +66,7 @@ public class SaveSecretV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ConfigurationV2 wrapper = new ConfigurationV2(sdk);
-      final net.accelbyte.sdk.api.csm.operations.configuration_v2.SaveSecretV2 operation =
+      final net.accelbyte.sdk.api.csm.operations.configuration_v2.SaveSecretV2 operationRequest =
           net.accelbyte.sdk.api.csm.operations.configuration_v2.SaveSecretV2.builder()
               .app(app)
               .namespace(namespace)
@@ -74,7 +74,7 @@ public class SaveSecretV2 implements Callable<Integer> {
                   new ObjectMapper()
                       .readValue(body, ApimodelSaveSecretConfigurationV2Request.class))
               .build();
-      final ApimodelSaveConfigurationV2Response response = wrapper.saveSecretV2(operation);
+      final ApimodelSaveConfigurationV2Response response = wrapper.saveSecretV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

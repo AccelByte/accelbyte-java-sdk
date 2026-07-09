@@ -61,12 +61,12 @@ public class SearchItemTypeConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Item wrapper = new Item(sdk);
-      final net.accelbyte.sdk.api.platform.operations.item.SearchItemTypeConfig operation =
+      final net.accelbyte.sdk.api.platform.operations.item.SearchItemTypeConfig operationRequest =
           net.accelbyte.sdk.api.platform.operations.item.SearchItemTypeConfig.builder()
               .clazz(clazz)
               .itemType(itemType)
               .build();
-      final ItemTypeConfigInfo response = wrapper.searchItemTypeConfig(operation);
+      final ItemTypeConfigInfo response = wrapper.searchItemTypeConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

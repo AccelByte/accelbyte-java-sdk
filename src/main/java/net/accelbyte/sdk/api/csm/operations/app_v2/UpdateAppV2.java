@@ -21,9 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UpdateAppV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [UPDATE]`
- *
- * <p>Update app info provided on request body
+ * <p>Update app info provided on request body%!(EXTRA
+ * string=ADMIN:NAMESPACE:{namespace}:EXTEND:APP, string=UPDATE)
  */
 @Getter
 @Setter

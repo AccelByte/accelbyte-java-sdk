@@ -60,12 +60,12 @@ public class SyncOculusDLC implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final DLC wrapper = new DLC(sdk);
-      final net.accelbyte.sdk.api.platform.operations.dlc.SyncOculusDLC operation =
+      final net.accelbyte.sdk.api.platform.operations.dlc.SyncOculusDLC operationRequest =
           net.accelbyte.sdk.api.platform.operations.dlc.SyncOculusDLC.builder()
               .namespace(namespace)
               .userId(userId)
               .build();
-      wrapper.syncOculusDLC(operation);
+      wrapper.syncOculusDLC(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

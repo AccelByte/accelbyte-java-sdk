@@ -65,13 +65,13 @@ public class DeleteAppV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AppV2 wrapper = new AppV2(sdk);
-      final net.accelbyte.sdk.api.csm.operations.app_v2.DeleteAppV2 operation =
+      final net.accelbyte.sdk.api.csm.operations.app_v2.DeleteAppV2 operationRequest =
           net.accelbyte.sdk.api.csm.operations.app_v2.DeleteAppV2.builder()
               .app(app)
               .namespace(namespace)
               .forced(forced)
               .build();
-      wrapper.deleteAppV2(operation);
+      wrapper.deleteAppV2(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

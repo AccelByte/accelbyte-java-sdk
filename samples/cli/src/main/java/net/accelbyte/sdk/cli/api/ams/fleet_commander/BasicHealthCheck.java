@@ -50,9 +50,9 @@ public class BasicHealthCheck implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final FleetCommander wrapper = new FleetCommander(sdk);
-      final net.accelbyte.sdk.api.ams.operations.fleet_commander.BasicHealthCheck operation =
+      final net.accelbyte.sdk.api.ams.operations.fleet_commander.BasicHealthCheck operationRequest =
           net.accelbyte.sdk.api.ams.operations.fleet_commander.BasicHealthCheck.builder().build();
-      wrapper.basicHealthCheck(operation);
+      wrapper.basicHealthCheck(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

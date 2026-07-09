@@ -77,7 +77,7 @@ public class GetThirdPartyPlatformSubscriptionOwnershipByGroupId implements Call
       final IAPSubscription wrapper = new IAPSubscription(sdk);
       final net.accelbyte.sdk.api.platform.operations.iap_subscription
               .GetThirdPartyPlatformSubscriptionOwnershipByGroupId
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.iap_subscription
                   .GetThirdPartyPlatformSubscriptionOwnershipByGroupId.builder()
                   .namespace(namespace)
@@ -86,7 +86,7 @@ public class GetThirdPartyPlatformSubscriptionOwnershipByGroupId implements Call
                   .groupId(groupId)
                   .build();
       final ThirdPartySubscriptionOwnership response =
-          wrapper.getThirdPartyPlatformSubscriptionOwnershipByGroupId(operation);
+          wrapper.getThirdPartyPlatformSubscriptionOwnershipByGroupId(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -59,13 +59,13 @@ public class GetAuthorizationServerMetadataWithNamespace implements Callable<Int
       final OAuth20 wrapper = new OAuth20(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth2_0
               .GetAuthorizationServerMetadataWithNamespace
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.o_auth2_0
                   .GetAuthorizationServerMetadataWithNamespace.builder()
                   .namespace(namespace)
                   .build();
       final OauthcommonASMetadataResponse response =
-          wrapper.getAuthorizationServerMetadataWithNamespace(operation);
+          wrapper.getAuthorizationServerMetadataWithNamespace(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

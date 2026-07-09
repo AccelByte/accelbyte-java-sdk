@@ -97,7 +97,7 @@ public class QueryUserSubscriptions implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Subscription wrapper = new Subscription(sdk);
       final net.accelbyte.sdk.api.platform.operations.subscription.QueryUserSubscriptions
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.subscription.QueryUserSubscriptions
                   .builder()
                   .namespace(namespace)
@@ -110,7 +110,8 @@ public class QueryUserSubscriptions implements Callable<Integer> {
                   .status(status)
                   .subscribedBy(subscribedBy)
                   .build();
-      final SubscriptionPagingSlicedResult response = wrapper.queryUserSubscriptions(operation);
+      final SubscriptionPagingSlicedResult response =
+          wrapper.queryUserSubscriptions(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

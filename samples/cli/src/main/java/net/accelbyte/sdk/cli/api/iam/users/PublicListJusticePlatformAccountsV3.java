@@ -62,14 +62,14 @@ public class PublicListJusticePlatformAccountsV3 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
       final net.accelbyte.sdk.api.iam.operations.users.PublicListJusticePlatformAccountsV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.users.PublicListJusticePlatformAccountsV3
                   .builder()
                   .namespace(namespace)
                   .userId(userId)
                   .build();
       final List<ModelGetUserMappingV3> response =
-          wrapper.publicListJusticePlatformAccountsV3(operation);
+          wrapper.publicListJusticePlatformAccountsV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

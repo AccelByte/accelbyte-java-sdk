@@ -61,12 +61,13 @@ public class PublicGetPublisherUserV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.PublicGetPublisherUserV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.users.PublicGetPublisherUserV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.PublicGetPublisherUserV3.builder()
               .namespace(namespace)
               .userId(userId)
               .build();
-      final ModelGetPublisherUserResponse response = wrapper.publicGetPublisherUserV3(operation);
+      final ModelGetPublisherUserResponse response =
+          wrapper.publicGetPublisherUserV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

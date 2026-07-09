@@ -67,14 +67,14 @@ public class UpdateNotificationTopicV1Admin implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Notification wrapper = new Notification(sdk);
       final net.accelbyte.sdk.api.lobby.operations.notification.UpdateNotificationTopicV1Admin
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.notification.UpdateNotificationTopicV1Admin
                   .builder()
                   .namespace(namespace)
                   .topicName(topicName)
                   .body(new ObjectMapper().readValue(body, ModelUpdateTopicRequest.class))
                   .build();
-      wrapper.updateNotificationTopicV1Admin(operation);
+      wrapper.updateNotificationTopicV1Admin(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

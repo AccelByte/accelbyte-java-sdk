@@ -51,10 +51,11 @@ public class GetPaymentTaxConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PaymentConfig wrapper = new PaymentConfig(sdk);
-      final net.accelbyte.sdk.api.platform.operations.payment_config.GetPaymentTaxConfig operation =
-          net.accelbyte.sdk.api.platform.operations.payment_config.GetPaymentTaxConfig.builder()
-              .build();
-      final PaymentTaxConfigInfo response = wrapper.getPaymentTaxConfig(operation);
+      final net.accelbyte.sdk.api.platform.operations.payment_config.GetPaymentTaxConfig
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.payment_config.GetPaymentTaxConfig.builder()
+                  .build();
+      final PaymentTaxConfigInfo response = wrapper.getPaymentTaxConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

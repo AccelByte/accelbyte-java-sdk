@@ -61,12 +61,12 @@ public class AdminGetUserByUserIdV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.AdminGetUserByUserIdV2 operation =
+      final net.accelbyte.sdk.api.iam.operations.users.AdminGetUserByUserIdV2 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.AdminGetUserByUserIdV2.builder()
               .namespace(namespace)
               .userId(userId)
               .build();
-      final ModelUserResponse response = wrapper.adminGetUserByUserIdV2(operation);
+      final ModelUserResponse response = wrapper.adminGetUserByUserIdV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

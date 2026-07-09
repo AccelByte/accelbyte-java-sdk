@@ -56,9 +56,9 @@ public class GetItemTypeConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Item wrapper = new Item(sdk);
-      final net.accelbyte.sdk.api.platform.operations.item.GetItemTypeConfig operation =
+      final net.accelbyte.sdk.api.platform.operations.item.GetItemTypeConfig operationRequest =
           net.accelbyte.sdk.api.platform.operations.item.GetItemTypeConfig.builder().id(id).build();
-      final ItemTypeConfigInfo response = wrapper.getItemTypeConfig(operation);
+      final ItemTypeConfigInfo response = wrapper.getItemTypeConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

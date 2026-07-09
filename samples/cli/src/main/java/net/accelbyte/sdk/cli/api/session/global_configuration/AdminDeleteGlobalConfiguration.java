@@ -52,11 +52,11 @@ public class AdminDeleteGlobalConfiguration implements Callable<Integer> {
       final GlobalConfiguration wrapper = new GlobalConfiguration(sdk);
       final net.accelbyte.sdk.api.session.operations.global_configuration
               .AdminDeleteGlobalConfiguration
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.global_configuration
                   .AdminDeleteGlobalConfiguration.builder()
                   .build();
-      wrapper.adminDeleteGlobalConfiguration(operation);
+      wrapper.adminDeleteGlobalConfiguration(operationRequest);
       return 0;
     } catch (HttpResponseException e) {
       log.error(String.format("Operation failed with HTTP response %s\n{}", e.getHttpCode()), e);

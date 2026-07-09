@@ -77,13 +77,13 @@ public class PublicGetAsyncStatus extends Operation {
     return true;
   }
 
-  public ModelLinkRequest parseResponse(int code, String contentType, InputStream payload)
+  public ModelReAuthRequest parseResponse(int code, String contentType, InputStream payload)
       throws HttpResponseException, IOException {
     if (code != 200) {
       final String json = Helper.convertInputStreamToString(payload);
       throw new HttpResponseException(code, json);
     }
     final String json = Helper.convertInputStreamToString(payload);
-    return new ModelLinkRequest().createFromJson(json);
+    return new ModelReAuthRequest().createFromJson(json);
   }
 }

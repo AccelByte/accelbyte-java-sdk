@@ -76,15 +76,16 @@ public class GetMyNotifications implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Notification wrapper = new Notification(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.notification.GetMyNotifications operation =
-          net.accelbyte.sdk.api.lobby.operations.notification.GetMyNotifications.builder()
-              .namespace(namespace)
-              .endTime(endTime)
-              .limit(limit)
-              .offset(offset)
-              .startTime(startTime)
-              .build();
-      final ModelNotificationResponse response = wrapper.getMyNotifications(operation);
+      final net.accelbyte.sdk.api.lobby.operations.notification.GetMyNotifications
+          operationRequest =
+              net.accelbyte.sdk.api.lobby.operations.notification.GetMyNotifications.builder()
+                  .namespace(namespace)
+                  .endTime(endTime)
+                  .limit(limit)
+                  .offset(offset)
+                  .startTime(startTime)
+                  .build();
+      final ModelNotificationResponse response = wrapper.getMyNotifications(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -69,7 +69,7 @@ public class AdminBulkPutPlayerRecordsByKeyHandlerV1 implements Callable<Integer
       final AdminPlayerRecord wrapper = new AdminPlayerRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.admin_player_record
               .AdminBulkPutPlayerRecordsByKeyHandlerV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.admin_player_record
                   .AdminBulkPutPlayerRecordsByKeyHandlerV1.builder()
                   .key(key)
@@ -79,7 +79,7 @@ public class AdminBulkPutPlayerRecordsByKeyHandlerV1 implements Callable<Integer
                           .readValue(body, ModelsBulkUpdatePlayerRecordsByKeyRequest.class))
                   .build();
       final List<ModelsBulkUpdatePlayerRecordByKeyResponse> response =
-          wrapper.adminBulkPutPlayerRecordsByKeyHandlerV1(operation);
+          wrapper.adminBulkPutPlayerRecordsByKeyHandlerV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

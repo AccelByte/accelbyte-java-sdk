@@ -66,13 +66,13 @@ public class UpdateConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Config wrapper = new Config(sdk);
-      final net.accelbyte.sdk.api.basic.operations.config.UpdateConfig operation =
+      final net.accelbyte.sdk.api.basic.operations.config.UpdateConfig operationRequest =
           net.accelbyte.sdk.api.basic.operations.config.UpdateConfig.builder()
               .configKey(configKey)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ConfigUpdate.class))
               .build();
-      final ConfigInfo response = wrapper.updateConfig(operation);
+      final ConfigInfo response = wrapper.updateConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

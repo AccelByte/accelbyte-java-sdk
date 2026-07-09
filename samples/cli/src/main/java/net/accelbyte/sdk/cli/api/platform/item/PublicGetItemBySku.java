@@ -81,7 +81,7 @@ public class PublicGetItemBySku implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Item wrapper = new Item(sdk);
-      final net.accelbyte.sdk.api.platform.operations.item.PublicGetItemBySku operation =
+      final net.accelbyte.sdk.api.platform.operations.item.PublicGetItemBySku operationRequest =
           net.accelbyte.sdk.api.platform.operations.item.PublicGetItemBySku.builder()
               .namespace(namespace)
               .autoCalcEstimatedPrice(autoCalcEstimatedPrice)
@@ -90,7 +90,7 @@ public class PublicGetItemBySku implements Callable<Integer> {
               .storeId(storeId)
               .sku(sku)
               .build();
-      final ItemInfo response = wrapper.publicGetItemBySku(operation);
+      final ItemInfo response = wrapper.publicGetItemBySku(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

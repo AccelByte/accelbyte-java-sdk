@@ -61,12 +61,12 @@ public class GetStore implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Store wrapper = new Store(sdk);
-      final net.accelbyte.sdk.api.platform.operations.store.GetStore operation =
+      final net.accelbyte.sdk.api.platform.operations.store.GetStore operationRequest =
           net.accelbyte.sdk.api.platform.operations.store.GetStore.builder()
               .namespace(namespace)
               .storeId(storeId)
               .build();
-      final StoreInfo response = wrapper.getStore(operation);
+      final StoreInfo response = wrapper.getStore(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

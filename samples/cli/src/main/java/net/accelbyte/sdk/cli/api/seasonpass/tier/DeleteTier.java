@@ -65,13 +65,13 @@ public class DeleteTier implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Tier wrapper = new Tier(sdk);
-      final net.accelbyte.sdk.api.seasonpass.operations.tier.DeleteTier operation =
+      final net.accelbyte.sdk.api.seasonpass.operations.tier.DeleteTier operationRequest =
           net.accelbyte.sdk.api.seasonpass.operations.tier.DeleteTier.builder()
               .id(id)
               .namespace(namespace)
               .seasonId(seasonId)
               .build();
-      wrapper.deleteTier(operation);
+      wrapper.deleteTier(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

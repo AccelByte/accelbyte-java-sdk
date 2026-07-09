@@ -65,7 +65,7 @@ public class AdminUpdateNamespaceScopedInputValidations implements Callable<Inte
       final InputValidations wrapper = new InputValidations(sdk);
       final net.accelbyte.sdk.api.iam.operations.input_validations
               .AdminUpdateNamespaceScopedInputValidations
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.input_validations
                   .AdminUpdateNamespaceScopedInputValidations.builder()
                   .namespace(namespace)
@@ -75,7 +75,7 @@ public class AdminUpdateNamespaceScopedInputValidations implements Callable<Inte
                               body,
                               new TypeReference<List<ModelInputValidationUpdatePayload>>() {}))
                   .build();
-      wrapper.adminUpdateNamespaceScopedInputValidations(operation);
+      wrapper.adminUpdateNamespaceScopedInputValidations(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

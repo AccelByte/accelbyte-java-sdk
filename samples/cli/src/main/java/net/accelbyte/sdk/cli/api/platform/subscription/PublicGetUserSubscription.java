@@ -67,14 +67,14 @@ public class PublicGetUserSubscription implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Subscription wrapper = new Subscription(sdk);
       final net.accelbyte.sdk.api.platform.operations.subscription.PublicGetUserSubscription
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.subscription.PublicGetUserSubscription
                   .builder()
                   .namespace(namespace)
                   .subscriptionId(subscriptionId)
                   .userId(userId)
                   .build();
-      final SubscriptionInfo response = wrapper.publicGetUserSubscription(operation);
+      final SubscriptionInfo response = wrapper.publicGetUserSubscription(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

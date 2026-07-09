@@ -114,7 +114,7 @@ public class GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet
       final Telemetry wrapper = new Telemetry(sdk);
       final net.accelbyte.sdk.api.gametelemetry.operations.telemetry
               .GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gametelemetry.operations.telemetry
                   .GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet.builder()
                   .namespace(namespace)
@@ -130,7 +130,7 @@ public class GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet
                   .userId(userId)
                   .build();
       final PagedResponseGetNamespaceEventResponse response =
-          wrapper.getEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet(operation);
+          wrapper.getEventsGameTelemetryV1AdminNamespacesNamespaceEventsGet(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

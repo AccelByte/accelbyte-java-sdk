@@ -60,12 +60,12 @@ public class DeleteTicket implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminTickets wrapper = new AdminTickets(sdk);
-      final net.accelbyte.sdk.api.reporting.operations.admin_tickets.DeleteTicket operation =
+      final net.accelbyte.sdk.api.reporting.operations.admin_tickets.DeleteTicket operationRequest =
           net.accelbyte.sdk.api.reporting.operations.admin_tickets.DeleteTicket.builder()
               .namespace(namespace)
               .ticketId(ticketId)
               .build();
-      wrapper.deleteTicket(operation);
+      wrapper.deleteTicket(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

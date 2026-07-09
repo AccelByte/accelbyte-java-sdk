@@ -61,12 +61,13 @@ public class PublicGetCurrentSeason implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Season wrapper = new Season(sdk);
-      final net.accelbyte.sdk.api.seasonpass.operations.season.PublicGetCurrentSeason operation =
-          net.accelbyte.sdk.api.seasonpass.operations.season.PublicGetCurrentSeason.builder()
-              .namespace(namespace)
-              .language(language)
-              .build();
-      final LocalizedSeasonInfo response = wrapper.publicGetCurrentSeason(operation);
+      final net.accelbyte.sdk.api.seasonpass.operations.season.PublicGetCurrentSeason
+          operationRequest =
+              net.accelbyte.sdk.api.seasonpass.operations.season.PublicGetCurrentSeason.builder()
+                  .namespace(namespace)
+                  .language(language)
+                  .build();
+      final LocalizedSeasonInfo response = wrapper.publicGetCurrentSeason(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

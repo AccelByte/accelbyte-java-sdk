@@ -56,12 +56,12 @@ public class AdminResetInputValidations implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final InputValidations wrapper = new InputValidations(sdk);
       final net.accelbyte.sdk.api.iam.operations.input_validations.AdminResetInputValidations
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.input_validations.AdminResetInputValidations
                   .builder()
                   .field(field)
                   .build();
-      wrapper.adminResetInputValidations(operation);
+      wrapper.adminResetInputValidations(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

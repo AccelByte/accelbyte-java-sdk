@@ -57,13 +57,14 @@ public class BulkAcceptVersionedPolicy implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Agreement wrapper = new Agreement(sdk);
-      final net.accelbyte.sdk.api.legal.operations.agreement.BulkAcceptVersionedPolicy operation =
-          net.accelbyte.sdk.api.legal.operations.agreement.BulkAcceptVersionedPolicy.builder()
-              .body(
-                  new ObjectMapper()
-                      .readValue(body, new TypeReference<List<AcceptAgreementRequest>>() {}))
-              .build();
-      final AcceptAgreementResponse response = wrapper.bulkAcceptVersionedPolicy(operation);
+      final net.accelbyte.sdk.api.legal.operations.agreement.BulkAcceptVersionedPolicy
+          operationRequest =
+              net.accelbyte.sdk.api.legal.operations.agreement.BulkAcceptVersionedPolicy.builder()
+                  .body(
+                      new ObjectMapper()
+                          .readValue(body, new TypeReference<List<AcceptAgreementRequest>>() {}))
+                  .build();
+      final AcceptAgreementResponse response = wrapper.bulkAcceptVersionedPolicy(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

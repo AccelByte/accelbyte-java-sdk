@@ -56,12 +56,12 @@ public class GetUserInfoStatus implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserInfo wrapper = new UserInfo(sdk);
-      final net.accelbyte.sdk.api.legal.operations.user_info.GetUserInfoStatus operation =
+      final net.accelbyte.sdk.api.legal.operations.user_info.GetUserInfoStatus operationRequest =
           net.accelbyte.sdk.api.legal.operations.user_info.GetUserInfoStatus.builder()
               .namespaces(namespaces)
               .build();
       final List<RetrieveUserInfoCacheStatusResponse> response =
-          wrapper.getUserInfoStatus(operation);
+          wrapper.getUserInfoStatus(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

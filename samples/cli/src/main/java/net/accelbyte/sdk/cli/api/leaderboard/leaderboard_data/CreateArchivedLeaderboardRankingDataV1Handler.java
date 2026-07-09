@@ -65,13 +65,13 @@ public class CreateArchivedLeaderboardRankingDataV1Handler implements Callable<I
       final LeaderboardData wrapper = new LeaderboardData(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data
               .CreateArchivedLeaderboardRankingDataV1Handler
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data
                   .CreateArchivedLeaderboardRankingDataV1Handler.builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelsArchiveLeaderboardReq.class))
                   .build();
-      wrapper.createArchivedLeaderboardRankingDataV1Handler(operation);
+      wrapper.createArchivedLeaderboardRankingDataV1Handler(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

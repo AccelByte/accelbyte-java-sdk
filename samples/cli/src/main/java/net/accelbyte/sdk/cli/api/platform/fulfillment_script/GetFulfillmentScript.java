@@ -57,12 +57,12 @@ public class GetFulfillmentScript implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final FulfillmentScript wrapper = new FulfillmentScript(sdk);
       final net.accelbyte.sdk.api.platform.operations.fulfillment_script.GetFulfillmentScript
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.fulfillment_script.GetFulfillmentScript
                   .builder()
                   .id(id)
                   .build();
-      final FulfillmentScriptInfo response = wrapper.getFulfillmentScript(operation);
+      final FulfillmentScriptInfo response = wrapper.getFulfillmentScript(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

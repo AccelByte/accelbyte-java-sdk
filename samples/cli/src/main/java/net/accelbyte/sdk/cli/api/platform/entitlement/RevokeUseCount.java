@@ -71,14 +71,14 @@ public class RevokeUseCount implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Entitlement wrapper = new Entitlement(sdk);
-      final net.accelbyte.sdk.api.platform.operations.entitlement.RevokeUseCount operation =
+      final net.accelbyte.sdk.api.platform.operations.entitlement.RevokeUseCount operationRequest =
           net.accelbyte.sdk.api.platform.operations.entitlement.RevokeUseCount.builder()
               .entitlementId(entitlementId)
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, RevokeUseCountRequest.class))
               .build();
-      final EntitlementInfo response = wrapper.revokeUseCount(operation);
+      final EntitlementInfo response = wrapper.revokeUseCount(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

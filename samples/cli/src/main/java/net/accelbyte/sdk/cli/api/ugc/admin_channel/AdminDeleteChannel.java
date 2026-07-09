@@ -65,13 +65,13 @@ public class AdminDeleteChannel implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminChannel wrapper = new AdminChannel(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.admin_channel.AdminDeleteChannel operation =
+      final net.accelbyte.sdk.api.ugc.operations.admin_channel.AdminDeleteChannel operationRequest =
           net.accelbyte.sdk.api.ugc.operations.admin_channel.AdminDeleteChannel.builder()
               .channelId(channelId)
               .namespace(namespace)
               .userId(userId)
               .build();
-      wrapper.adminDeleteChannel(operation);
+      wrapper.adminDeleteChannel(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

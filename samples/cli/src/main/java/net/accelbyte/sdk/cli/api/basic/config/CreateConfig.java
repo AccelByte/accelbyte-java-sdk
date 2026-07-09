@@ -61,12 +61,12 @@ public class CreateConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Config wrapper = new Config(sdk);
-      final net.accelbyte.sdk.api.basic.operations.config.CreateConfig operation =
+      final net.accelbyte.sdk.api.basic.operations.config.CreateConfig operationRequest =
           net.accelbyte.sdk.api.basic.operations.config.CreateConfig.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ConfigCreate.class))
               .build();
-      final ConfigInfo response = wrapper.createConfig(operation);
+      final ConfigInfo response = wrapper.createConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

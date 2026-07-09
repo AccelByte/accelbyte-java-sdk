@@ -61,12 +61,12 @@ public class UpdateCatalogConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Store wrapper = new Store(sdk);
-      final net.accelbyte.sdk.api.platform.operations.store.UpdateCatalogConfig operation =
+      final net.accelbyte.sdk.api.platform.operations.store.UpdateCatalogConfig operationRequest =
           net.accelbyte.sdk.api.platform.operations.store.UpdateCatalogConfig.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, CatalogConfigUpdate.class))
               .build();
-      final CatalogConfigInfo response = wrapper.updateCatalogConfig(operation);
+      final CatalogConfigInfo response = wrapper.updateCatalogConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

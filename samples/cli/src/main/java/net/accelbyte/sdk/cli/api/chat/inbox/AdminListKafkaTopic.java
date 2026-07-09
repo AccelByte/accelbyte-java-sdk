@@ -56,11 +56,12 @@ public class AdminListKafkaTopic implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Inbox wrapper = new Inbox(sdk);
-      final net.accelbyte.sdk.api.chat.operations.inbox.AdminListKafkaTopic operation =
+      final net.accelbyte.sdk.api.chat.operations.inbox.AdminListKafkaTopic operationRequest =
           net.accelbyte.sdk.api.chat.operations.inbox.AdminListKafkaTopic.builder()
               .namespace(namespace)
               .build();
-      final ModelsGetListTopicKafkaResponse response = wrapper.adminListKafkaTopic(operation);
+      final ModelsGetListTopicKafkaResponse response =
+          wrapper.adminListKafkaTopic(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -61,12 +61,12 @@ public class ImageGet implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Images wrapper = new Images(sdk);
-      final net.accelbyte.sdk.api.ams.operations.images.ImageGet operation =
+      final net.accelbyte.sdk.api.ams.operations.images.ImageGet operationRequest =
           net.accelbyte.sdk.api.ams.operations.images.ImageGet.builder()
               .imageID(imageID)
               .namespace(namespace)
               .build();
-      final ApiImageDetails response = wrapper.imageGet(operation);
+      final ApiImageDetails response = wrapper.imageGet(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

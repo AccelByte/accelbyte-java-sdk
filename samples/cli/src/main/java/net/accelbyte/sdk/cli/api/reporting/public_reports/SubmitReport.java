@@ -61,12 +61,13 @@ public class SubmitReport implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicReports wrapper = new PublicReports(sdk);
-      final net.accelbyte.sdk.api.reporting.operations.public_reports.SubmitReport operation =
-          net.accelbyte.sdk.api.reporting.operations.public_reports.SubmitReport.builder()
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, RestapiSubmitReportRequest.class))
-              .build();
-      final RestapiSubmitReportResponse response = wrapper.submitReport(operation);
+      final net.accelbyte.sdk.api.reporting.operations.public_reports.SubmitReport
+          operationRequest =
+              net.accelbyte.sdk.api.reporting.operations.public_reports.SubmitReport.builder()
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, RestapiSubmitReportRequest.class))
+                  .build();
+      final RestapiSubmitReportResponse response = wrapper.submitReport(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

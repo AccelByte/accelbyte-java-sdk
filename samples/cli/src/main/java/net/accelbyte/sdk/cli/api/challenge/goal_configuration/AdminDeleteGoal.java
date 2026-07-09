@@ -66,14 +66,14 @@ public class AdminDeleteGoal implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GoalConfiguration wrapper = new GoalConfiguration(sdk);
       final net.accelbyte.sdk.api.challenge.operations.goal_configuration.AdminDeleteGoal
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.challenge.operations.goal_configuration.AdminDeleteGoal
                   .builder()
                   .challengeCode(challengeCode)
                   .code(code)
                   .namespace(namespace)
                   .build();
-      wrapper.adminDeleteGoal(operation);
+      wrapper.adminDeleteGoal(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

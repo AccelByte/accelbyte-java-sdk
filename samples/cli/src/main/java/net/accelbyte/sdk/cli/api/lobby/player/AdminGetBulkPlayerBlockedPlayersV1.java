@@ -62,7 +62,7 @@ public class AdminGetBulkPlayerBlockedPlayersV1 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Player wrapper = new Player(sdk);
       final net.accelbyte.sdk.api.lobby.operations.player.AdminGetBulkPlayerBlockedPlayersV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.player.AdminGetBulkPlayerBlockedPlayersV1
                   .builder()
                   .namespace(namespace)
@@ -71,7 +71,7 @@ public class AdminGetBulkPlayerBlockedPlayersV1 implements Callable<Integer> {
                           .readValue(body, ModelsGetBulkAllPlayerBlockedUsersRequest.class))
                   .build();
       final ModelsGetBulkAllPlayerBlockedUsersResponse response =
-          wrapper.adminGetBulkPlayerBlockedPlayersV1(operation);
+          wrapper.adminGetBulkPlayerBlockedPlayersV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -62,12 +62,13 @@ public class PublicGetQRCode implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PaymentStation wrapper = new PaymentStation(sdk);
-      final net.accelbyte.sdk.api.platform.operations.payment_station.PublicGetQRCode operation =
-          net.accelbyte.sdk.api.platform.operations.payment_station.PublicGetQRCode.builder()
-              .namespace(namespace)
-              .code(code)
-              .build();
-      final InputStream response = wrapper.publicGetQRCode(operation);
+      final net.accelbyte.sdk.api.platform.operations.payment_station.PublicGetQRCode
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.payment_station.PublicGetQRCode.builder()
+                  .namespace(namespace)
+                  .code(code)
+                  .build();
+      final InputStream response = wrapper.publicGetQRCode(operationRequest);
       final File outputFile = new File("response.out");
       java.nio.file.Files.copy(
           response, outputFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);

@@ -60,12 +60,13 @@ public class SingleAdminDeleteGroup implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminGroup wrapper = new AdminGroup(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.admin_group.SingleAdminDeleteGroup operation =
-          net.accelbyte.sdk.api.ugc.operations.admin_group.SingleAdminDeleteGroup.builder()
-              .groupId(groupId)
-              .namespace(namespace)
-              .build();
-      wrapper.singleAdminDeleteGroup(operation);
+      final net.accelbyte.sdk.api.ugc.operations.admin_group.SingleAdminDeleteGroup
+          operationRequest =
+              net.accelbyte.sdk.api.ugc.operations.admin_group.SingleAdminDeleteGroup.builder()
+                  .groupId(groupId)
+                  .namespace(namespace)
+                  .build();
+      wrapper.singleAdminDeleteGroup(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

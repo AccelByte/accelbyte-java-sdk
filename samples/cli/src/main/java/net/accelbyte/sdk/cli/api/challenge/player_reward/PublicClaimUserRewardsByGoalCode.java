@@ -68,7 +68,7 @@ public class PublicClaimUserRewardsByGoalCode implements Callable<Integer> {
       final PlayerReward wrapper = new PlayerReward(sdk);
       final net.accelbyte.sdk.api.challenge.operations.player_reward
               .PublicClaimUserRewardsByGoalCode
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.challenge.operations.player_reward
                   .PublicClaimUserRewardsByGoalCode.builder()
                   .challengeCode(challengeCode)
@@ -77,7 +77,8 @@ public class PublicClaimUserRewardsByGoalCode implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, ModelClaimUserRewardsByGoalCodeRequest.class))
                   .build();
-      final List<ModelUserReward> response = wrapper.publicClaimUserRewardsByGoalCode(operation);
+      final List<ModelUserReward> response =
+          wrapper.publicClaimUserRewardsByGoalCode(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

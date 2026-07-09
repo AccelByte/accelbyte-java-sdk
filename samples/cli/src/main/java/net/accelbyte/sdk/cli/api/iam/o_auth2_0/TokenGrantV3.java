@@ -116,7 +116,7 @@ public class TokenGrantV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth20 wrapper = new OAuth20(sdk);
-      final net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenGrantV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenGrantV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenGrantV3.builder()
               .additionalData(additionalData != null ? additionalData : null)
               .clientId(clientId != null ? clientId : null)
@@ -132,7 +132,8 @@ public class TokenGrantV3 implements Callable<Integer> {
               .username(username != null ? username : null)
               .grantType(grantType != null ? grantType : null)
               .build();
-      final OauthmodelTokenWithDeviceCookieResponseV3 response = wrapper.tokenGrantV3(operation);
+      final OauthmodelTokenWithDeviceCookieResponseV3 response =
+          wrapper.tokenGrantV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

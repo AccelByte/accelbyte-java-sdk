@@ -63,13 +63,13 @@ public class AdminRandomizeChallenge implements Callable<Integer> {
       final ChallengeConfiguration wrapper = new ChallengeConfiguration(sdk);
       final net.accelbyte.sdk.api.challenge.operations.challenge_configuration
               .AdminRandomizeChallenge
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.challenge.operations.challenge_configuration
                   .AdminRandomizeChallenge.builder()
                   .challengeCode(challengeCode)
                   .namespace(namespace)
                   .build();
-      final List<ModelSchedule> response = wrapper.adminRandomizeChallenge(operation);
+      final List<ModelSchedule> response = wrapper.adminRandomizeChallenge(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

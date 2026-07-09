@@ -66,13 +66,14 @@ public class AdminCreateContentV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminContentV2 wrapper = new AdminContentV2(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminCreateContentV2 operation =
-          net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminCreateContentV2.builder()
-              .channelId(channelId)
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ModelsAdminContentRequestV2.class))
-              .build();
-      final ModelsCreateContentResponseV2 response = wrapper.adminCreateContentV2(operation);
+      final net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminCreateContentV2
+          operationRequest =
+              net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminCreateContentV2.builder()
+                  .channelId(channelId)
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, ModelsAdminContentRequestV2.class))
+                  .build();
+      final ModelsCreateContentResponseV2 response = wrapper.adminCreateContentV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

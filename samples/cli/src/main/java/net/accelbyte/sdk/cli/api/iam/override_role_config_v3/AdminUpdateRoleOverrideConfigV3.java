@@ -68,14 +68,15 @@ public class AdminUpdateRoleOverrideConfigV3 implements Callable<Integer> {
       final OverrideRoleConfigV3 wrapper = new OverrideRoleConfigV3(sdk);
       final net.accelbyte.sdk.api.iam.operations.override_role_config_v3
               .AdminUpdateRoleOverrideConfigV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.override_role_config_v3
                   .AdminUpdateRoleOverrideConfigV3.builder()
                   .namespace(namespace)
                   .identity(identity)
                   .body(new ObjectMapper().readValue(body, ModelRoleOverrideUpdateRequest.class))
                   .build();
-      final ModelRoleOverrideResponse response = wrapper.adminUpdateRoleOverrideConfigV3(operation);
+      final ModelRoleOverrideResponse response =
+          wrapper.adminUpdateRoleOverrideConfigV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

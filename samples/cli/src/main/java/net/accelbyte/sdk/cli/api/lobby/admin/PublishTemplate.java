@@ -65,13 +65,13 @@ public class PublishTemplate implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Admin wrapper = new Admin(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.admin.PublishTemplate operation =
+      final net.accelbyte.sdk.api.lobby.operations.admin.PublishTemplate operationRequest =
           net.accelbyte.sdk.api.lobby.operations.admin.PublishTemplate.builder()
               .namespace(namespace)
               .templateLanguage(templateLanguage)
               .templateSlug(templateSlug)
               .build();
-      wrapper.publishTemplate(operation);
+      wrapper.publishTemplate(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

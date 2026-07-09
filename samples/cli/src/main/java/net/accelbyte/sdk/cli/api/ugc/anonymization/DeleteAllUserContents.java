@@ -60,12 +60,13 @@ public class DeleteAllUserContents implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Anonymization wrapper = new Anonymization(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.anonymization.DeleteAllUserContents operation =
-          net.accelbyte.sdk.api.ugc.operations.anonymization.DeleteAllUserContents.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .build();
-      wrapper.deleteAllUserContents(operation);
+      final net.accelbyte.sdk.api.ugc.operations.anonymization.DeleteAllUserContents
+          operationRequest =
+              net.accelbyte.sdk.api.ugc.operations.anonymization.DeleteAllUserContents.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .build();
+      wrapper.deleteAllUserContents(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

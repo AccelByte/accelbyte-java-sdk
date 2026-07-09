@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetListOfDeploymentV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:DEPLOYMENT [READ]`
- *
  * <p>Filters the List of Deployments
  *
  * <p>This endpoint intended to get list of Deployment done for the given publisher and game.

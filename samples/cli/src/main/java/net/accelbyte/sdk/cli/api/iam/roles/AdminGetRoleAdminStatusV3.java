@@ -56,11 +56,12 @@ public class AdminGetRoleAdminStatusV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Roles wrapper = new Roles(sdk);
-      final net.accelbyte.sdk.api.iam.operations.roles.AdminGetRoleAdminStatusV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.roles.AdminGetRoleAdminStatusV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.roles.AdminGetRoleAdminStatusV3.builder()
               .roleId(roleId)
               .build();
-      final ModelRoleAdminStatusResponseV3 response = wrapper.adminGetRoleAdminStatusV3(operation);
+      final ModelRoleAdminStatusResponseV3 response =
+          wrapper.adminGetRoleAdminStatusV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -68,7 +68,7 @@ public class GetOtherPlayerPublicRecordHandlerV1 implements Callable<Integer> {
       final PublicPlayerRecord wrapper = new PublicPlayerRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.public_player_record
               .GetOtherPlayerPublicRecordHandlerV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.public_player_record
                   .GetOtherPlayerPublicRecordHandlerV1.builder()
                   .namespace(namespace)
@@ -76,7 +76,7 @@ public class GetOtherPlayerPublicRecordHandlerV1 implements Callable<Integer> {
                   .body(new ObjectMapper().readValue(body, ModelsBulkGetPlayerRecordsRequest.class))
                   .build();
       final ModelsBulkGetPlayerRecordResponse response =
-          wrapper.getOtherPlayerPublicRecordHandlerV1(operation);
+          wrapper.getOtherPlayerPublicRecordHandlerV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

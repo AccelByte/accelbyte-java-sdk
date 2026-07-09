@@ -66,13 +66,13 @@ public class SaveVariableV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ConfigurationV2 wrapper = new ConfigurationV2(sdk);
-      final net.accelbyte.sdk.api.csm.operations.configuration_v2.SaveVariableV2 operation =
+      final net.accelbyte.sdk.api.csm.operations.configuration_v2.SaveVariableV2 operationRequest =
           net.accelbyte.sdk.api.csm.operations.configuration_v2.SaveVariableV2.builder()
               .app(app)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ApimodelSaveConfigurationV2Request.class))
               .build();
-      final ApimodelSaveConfigurationV2Response response = wrapper.saveVariableV2(operation);
+      final ApimodelSaveConfigurationV2Response response = wrapper.saveVariableV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

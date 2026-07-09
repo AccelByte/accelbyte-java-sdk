@@ -74,7 +74,7 @@ public class PublicSubmitUserAccountDeletionRequest implements Callable<Integer>
       final DataDeletion wrapper = new DataDeletion(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.data_deletion
               .PublicSubmitUserAccountDeletionRequest
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.data_deletion
                   .PublicSubmitUserAccountDeletionRequest.builder()
                   .namespace(namespace)
@@ -83,7 +83,7 @@ public class PublicSubmitUserAccountDeletionRequest implements Callable<Integer>
                   .password(password != null ? password : null)
                   .build();
       final ModelsRequestDeleteResponse response =
-          wrapper.publicSubmitUserAccountDeletionRequest(operation);
+          wrapper.publicSubmitUserAccountDeletionRequest(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -97,7 +97,7 @@ public class QueryOrders implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Order wrapper = new Order(sdk);
-      final net.accelbyte.sdk.api.platform.operations.order.QueryOrders operation =
+      final net.accelbyte.sdk.api.platform.operations.order.QueryOrders operationRequest =
           net.accelbyte.sdk.api.platform.operations.order.QueryOrders.builder()
               .namespace(namespace)
               .endTime(endTime)
@@ -109,7 +109,7 @@ public class QueryOrders implements Callable<Integer> {
               .status(status)
               .withTotal(withTotal)
               .build();
-      final OrderPagingResult response = wrapper.queryOrders(operation);
+      final OrderPagingResult response = wrapper.queryOrders(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -56,12 +56,12 @@ public class AdminResetServicesConfiguration implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Configuration wrapper = new Configuration(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.configuration.AdminResetServicesConfiguration
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.configuration.AdminResetServicesConfiguration
                   .builder()
                   .namespace(namespace)
                   .build();
-      wrapper.adminResetServicesConfiguration(operation);
+      wrapper.adminResetServicesConfiguration(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

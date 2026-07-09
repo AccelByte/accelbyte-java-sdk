@@ -76,15 +76,16 @@ public class PublicUpdateAttribute implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameProfile wrapper = new GameProfile(sdk);
-      final net.accelbyte.sdk.api.social.operations.game_profile.PublicUpdateAttribute operation =
-          net.accelbyte.sdk.api.social.operations.game_profile.PublicUpdateAttribute.builder()
-              .attributeName(attributeName)
-              .namespace(namespace)
-              .profileId(profileId)
-              .userId(userId)
-              .body(new ObjectMapper().readValue(body, Attribute.class))
-              .build();
-      final GameProfileInfo response = wrapper.publicUpdateAttribute(operation);
+      final net.accelbyte.sdk.api.social.operations.game_profile.PublicUpdateAttribute
+          operationRequest =
+              net.accelbyte.sdk.api.social.operations.game_profile.PublicUpdateAttribute.builder()
+                  .attributeName(attributeName)
+                  .namespace(namespace)
+                  .profileId(profileId)
+                  .userId(userId)
+                  .body(new ObjectMapper().readValue(body, Attribute.class))
+                  .build();
+      final GameProfileInfo response = wrapper.publicUpdateAttribute(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

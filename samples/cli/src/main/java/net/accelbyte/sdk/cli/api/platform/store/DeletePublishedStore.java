@@ -56,11 +56,11 @@ public class DeletePublishedStore implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Store wrapper = new Store(sdk);
-      final net.accelbyte.sdk.api.platform.operations.store.DeletePublishedStore operation =
+      final net.accelbyte.sdk.api.platform.operations.store.DeletePublishedStore operationRequest =
           net.accelbyte.sdk.api.platform.operations.store.DeletePublishedStore.builder()
               .namespace(namespace)
               .build();
-      final StoreInfo response = wrapper.deletePublishedStore(operation);
+      final StoreInfo response = wrapper.deletePublishedStore(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

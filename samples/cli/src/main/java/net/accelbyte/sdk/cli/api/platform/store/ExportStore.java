@@ -62,12 +62,12 @@ public class ExportStore implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Store wrapper = new Store(sdk);
-      final net.accelbyte.sdk.api.platform.operations.store.ExportStore operation =
+      final net.accelbyte.sdk.api.platform.operations.store.ExportStore operationRequest =
           net.accelbyte.sdk.api.platform.operations.store.ExportStore.builder()
               .namespace(namespace)
               .storeId(storeId)
               .build();
-      final InputStream response = wrapper.exportStore(operation);
+      final InputStream response = wrapper.exportStore(operationRequest);
       final File outputFile = new File("response.out");
       java.nio.file.Files.copy(
           response, outputFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);

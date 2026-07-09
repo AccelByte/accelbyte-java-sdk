@@ -72,7 +72,7 @@ public class PublicSyncPsnDlcInventoryWithMultipleServiceLabels implements Calla
       final DLC wrapper = new DLC(sdk);
       final net.accelbyte.sdk.api.platform.operations.dlc
               .PublicSyncPsnDlcInventoryWithMultipleServiceLabels
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.dlc
                   .PublicSyncPsnDlcInventoryWithMultipleServiceLabels.builder()
                   .namespace(namespace)
@@ -81,7 +81,7 @@ public class PublicSyncPsnDlcInventoryWithMultipleServiceLabels implements Calla
                       new ObjectMapper()
                           .readValue(body, PlayStationDLCSyncMultiServiceLabelsRequest.class))
                   .build();
-      wrapper.publicSyncPsnDlcInventoryWithMultipleServiceLabels(operation);
+      wrapper.publicSyncPsnDlcInventoryWithMultipleServiceLabels(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -82,7 +82,7 @@ public class GetUserSubscriptionActivities implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Subscription wrapper = new Subscription(sdk);
       final net.accelbyte.sdk.api.platform.operations.subscription.GetUserSubscriptionActivities
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.subscription.GetUserSubscriptionActivities
                   .builder()
                   .namespace(namespace)
@@ -93,7 +93,7 @@ public class GetUserSubscriptionActivities implements Callable<Integer> {
                   .subscriptionId(subscriptionId)
                   .build();
       final SubscriptionActivityPagingSlicedResult response =
-          wrapper.getUserSubscriptionActivities(operation);
+          wrapper.getUserSubscriptionActivities(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

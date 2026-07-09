@@ -65,7 +65,7 @@ public class SendMultipleUsersFreeformNotificationV1Admin implements Callable<In
       final Notification wrapper = new Notification(sdk);
       final net.accelbyte.sdk.api.lobby.operations.notification
               .SendMultipleUsersFreeformNotificationV1Admin
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.notification
                   .SendMultipleUsersFreeformNotificationV1Admin.builder()
                   .namespace(namespace)
@@ -73,7 +73,7 @@ public class SendMultipleUsersFreeformNotificationV1Admin implements Callable<In
                       new ObjectMapper()
                           .readValue(body, ModelBulkUsersFreeFormNotificationRequestV1.class))
                   .build();
-      wrapper.sendMultipleUsersFreeformNotificationV1Admin(operation);
+      wrapper.sendMultipleUsersFreeformNotificationV1Admin(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

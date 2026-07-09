@@ -101,7 +101,7 @@ public class AdminQueryBackfill implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Backfill wrapper = new Backfill(sdk);
-      final net.accelbyte.sdk.api.match2.operations.backfill.AdminQueryBackfill operation =
+      final net.accelbyte.sdk.api.match2.operations.backfill.AdminQueryBackfill operationRequest =
           net.accelbyte.sdk.api.match2.operations.backfill.AdminQueryBackfill.builder()
               .namespace(namespace)
               .fromTime(fromTime)
@@ -114,7 +114,7 @@ public class AdminQueryBackfill implements Callable<Integer> {
               .sessionID(sessionID)
               .toTime(toTime)
               .build();
-      final ApiListBackfillQueryResponse response = wrapper.adminQueryBackfill(operation);
+      final ApiListBackfillQueryResponse response = wrapper.adminQueryBackfill(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

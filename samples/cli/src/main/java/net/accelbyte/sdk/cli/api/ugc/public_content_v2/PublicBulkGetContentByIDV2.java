@@ -62,14 +62,14 @@ public class PublicBulkGetContentByIDV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicContentV2 wrapper = new PublicContentV2(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_content_v2.PublicBulkGetContentByIDV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.public_content_v2.PublicBulkGetContentByIDV2
                   .builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelsPublicGetContentBulkRequest.class))
                   .build();
       final List<ModelsContentDownloadResponseV2> response =
-          wrapper.publicBulkGetContentByIDV2(operation);
+          wrapper.publicBulkGetContentByIDV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

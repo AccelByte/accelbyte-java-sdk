@@ -76,7 +76,7 @@ public class AdminGetChannel implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminChannel wrapper = new AdminChannel(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.admin_channel.AdminGetChannel operation =
+      final net.accelbyte.sdk.api.ugc.operations.admin_channel.AdminGetChannel operationRequest =
           net.accelbyte.sdk.api.ugc.operations.admin_channel.AdminGetChannel.builder()
               .namespace(namespace)
               .userId(userId)
@@ -84,7 +84,7 @@ public class AdminGetChannel implements Callable<Integer> {
               .name(name)
               .offset(offset)
               .build();
-      final ModelsPaginatedGetChannelResponse response = wrapper.adminGetChannel(operation);
+      final ModelsPaginatedGetChannelResponse response = wrapper.adminGetChannel(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

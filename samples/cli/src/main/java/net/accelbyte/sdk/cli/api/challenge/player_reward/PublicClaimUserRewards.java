@@ -62,13 +62,13 @@ public class PublicClaimUserRewards implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PlayerReward wrapper = new PlayerReward(sdk);
       final net.accelbyte.sdk.api.challenge.operations.player_reward.PublicClaimUserRewards
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.challenge.operations.player_reward.PublicClaimUserRewards
                   .builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelClaimUserRewardsReq.class))
                   .build();
-      final List<ModelUserReward> response = wrapper.publicClaimUserRewards(operation);
+      final List<ModelUserReward> response = wrapper.publicClaimUserRewards(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

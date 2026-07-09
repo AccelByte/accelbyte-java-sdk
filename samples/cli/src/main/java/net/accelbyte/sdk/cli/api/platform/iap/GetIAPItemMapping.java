@@ -61,12 +61,12 @@ public class GetIAPItemMapping implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.GetIAPItemMapping operation =
+      final net.accelbyte.sdk.api.platform.operations.iap.GetIAPItemMapping operationRequest =
           net.accelbyte.sdk.api.platform.operations.iap.GetIAPItemMapping.builder()
               .namespace(namespace)
               .platform(platform)
               .build();
-      final IAPItemMappingInfo response = wrapper.getIAPItemMapping(operation);
+      final IAPItemMappingInfo response = wrapper.getIAPItemMapping(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

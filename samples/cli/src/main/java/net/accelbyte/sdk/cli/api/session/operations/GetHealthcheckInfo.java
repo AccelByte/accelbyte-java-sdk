@@ -50,9 +50,11 @@ public class GetHealthcheckInfo implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Operations wrapper = new Operations(sdk);
-      final net.accelbyte.sdk.api.session.operations.operations.GetHealthcheckInfo operation =
-          net.accelbyte.sdk.api.session.operations.operations.GetHealthcheckInfo.builder().build();
-      wrapper.getHealthcheckInfo(operation);
+      final net.accelbyte.sdk.api.session.operations.operations.GetHealthcheckInfo
+          operationRequest =
+              net.accelbyte.sdk.api.session.operations.operations.GetHealthcheckInfo.builder()
+                  .build();
+      wrapper.getHealthcheckInfo(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

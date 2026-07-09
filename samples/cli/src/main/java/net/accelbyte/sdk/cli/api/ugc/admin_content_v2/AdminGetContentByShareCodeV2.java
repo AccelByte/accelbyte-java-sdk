@@ -62,14 +62,14 @@ public class AdminGetContentByShareCodeV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminContentV2 wrapper = new AdminContentV2(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminGetContentByShareCodeV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminGetContentByShareCodeV2
                   .builder()
                   .namespace(namespace)
                   .shareCode(shareCode)
                   .build();
       final ModelsContentDownloadResponseV2 response =
-          wrapper.adminGetContentByShareCodeV2(operation);
+          wrapper.adminGetContentByShareCodeV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

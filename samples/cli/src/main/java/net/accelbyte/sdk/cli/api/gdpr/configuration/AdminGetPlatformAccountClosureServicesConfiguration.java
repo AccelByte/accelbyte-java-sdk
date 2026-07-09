@@ -62,13 +62,13 @@ public class AdminGetPlatformAccountClosureServicesConfiguration implements Call
       final Configuration wrapper = new Configuration(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.configuration
               .AdminGetPlatformAccountClosureServicesConfiguration
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.configuration
                   .AdminGetPlatformAccountClosureServicesConfiguration.builder()
                   .namespace(namespace)
                   .build();
       final DtoServicesConfigurationResponse response =
-          wrapper.adminGetPlatformAccountClosureServicesConfiguration(operation);
+          wrapper.adminGetPlatformAccountClosureServicesConfiguration(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

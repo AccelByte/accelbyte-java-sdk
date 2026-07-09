@@ -67,14 +67,15 @@ public class PublicGetAchievement implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Achievements wrapper = new Achievements(sdk);
       final net.accelbyte.sdk.api.achievement.operations.achievements.PublicGetAchievement
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.achievement.operations.achievements.PublicGetAchievement
                   .builder()
                   .achievementCode(achievementCode)
                   .namespace(namespace)
                   .language(language)
                   .build();
-      final ModelsPublicAchievementResponse response = wrapper.publicGetAchievement(operation);
+      final ModelsPublicAchievementResponse response =
+          wrapper.publicGetAchievement(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

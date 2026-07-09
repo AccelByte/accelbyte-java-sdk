@@ -65,13 +65,13 @@ public class PublicForcePlatformLinkV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.PublicForcePlatformLinkV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.users.PublicForcePlatformLinkV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.PublicForcePlatformLinkV3.builder()
               .namespace(namespace)
               .platformId(platformId)
               .ticket(ticket != null ? ticket : null)
               .build();
-      wrapper.publicForcePlatformLinkV3(operation);
+      wrapper.publicForcePlatformLinkV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

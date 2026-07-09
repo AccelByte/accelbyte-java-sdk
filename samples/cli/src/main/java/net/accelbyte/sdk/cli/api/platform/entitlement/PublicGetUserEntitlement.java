@@ -67,14 +67,14 @@ public class PublicGetUserEntitlement implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement.PublicGetUserEntitlement
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.entitlement.PublicGetUserEntitlement
                   .builder()
                   .entitlementId(entitlementId)
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      final EntitlementInfo response = wrapper.publicGetUserEntitlement(operation);
+      final EntitlementInfo response = wrapper.publicGetUserEntitlement(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -80,7 +80,7 @@ public class ListOtherPlayerPublicBinaryRecordsV1 implements Callable<Integer> {
       final PublicPlayerBinaryRecord wrapper = new PublicPlayerBinaryRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.public_player_binary_record
               .ListOtherPlayerPublicBinaryRecordsV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.public_player_binary_record
                   .ListOtherPlayerPublicBinaryRecordsV1.builder()
                   .namespace(namespace)
@@ -90,7 +90,7 @@ public class ListOtherPlayerPublicBinaryRecordsV1 implements Callable<Integer> {
                   .tags(tags)
                   .build();
       final ModelsListPlayerBinaryRecordsResponse response =
-          wrapper.listOtherPlayerPublicBinaryRecordsV1(operation);
+          wrapper.listOtherPlayerPublicBinaryRecordsV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

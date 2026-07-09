@@ -63,13 +63,13 @@ public class DeleteLeaderboardConfigurationAdminV1 implements Callable<Integer> 
       final LeaderboardConfiguration wrapper = new LeaderboardConfiguration(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration
               .DeleteLeaderboardConfigurationAdminV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration
                   .DeleteLeaderboardConfigurationAdminV1.builder()
                   .leaderboardCode(leaderboardCode)
                   .namespace(namespace)
                   .build();
-      wrapper.deleteLeaderboardConfigurationAdminV1(operation);
+      wrapper.deleteLeaderboardConfigurationAdminV1(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

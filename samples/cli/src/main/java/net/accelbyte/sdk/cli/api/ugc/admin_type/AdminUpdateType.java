@@ -66,13 +66,13 @@ public class AdminUpdateType implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminType wrapper = new AdminType(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.admin_type.AdminUpdateType operation =
+      final net.accelbyte.sdk.api.ugc.operations.admin_type.AdminUpdateType operationRequest =
           net.accelbyte.sdk.api.ugc.operations.admin_type.AdminUpdateType.builder()
               .namespace(namespace)
               .typeId(typeId)
               .body(new ObjectMapper().readValue(body, ModelsCreateTypeRequest.class))
               .build();
-      final ModelsCreateTypeResponse response = wrapper.adminUpdateType(operation);
+      final ModelsCreateTypeResponse response = wrapper.adminUpdateType(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

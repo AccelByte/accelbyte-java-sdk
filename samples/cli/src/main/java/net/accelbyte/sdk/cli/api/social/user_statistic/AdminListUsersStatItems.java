@@ -79,7 +79,7 @@ public class AdminListUsersStatItems implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserStatistic wrapper = new UserStatistic(sdk);
       final net.accelbyte.sdk.api.social.operations.user_statistic.AdminListUsersStatItems
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.social.operations.user_statistic.AdminListUsersStatItems
                   .builder()
                   .namespace(namespace)
@@ -89,7 +89,7 @@ public class AdminListUsersStatItems implements Callable<Integer> {
                   .tags(tags)
                   .build();
       final List<ADTOObjectForUserStatItemValue> response =
-          wrapper.adminListUsersStatItems(operation);
+          wrapper.adminListUsersStatItems(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

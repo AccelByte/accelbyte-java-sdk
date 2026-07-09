@@ -77,6 +77,10 @@ public class ModelChallengeResponse extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private List<String> tags;
 
+  @JsonProperty("templateSlots")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private List<ModelChallengeSlotResponse> templateSlots;
+
   @JsonProperty("updatedAt")
   private String updatedAt;
 

@@ -71,14 +71,14 @@ public class SimultaneousLoginV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth20 wrapper = new OAuth20(sdk);
-      final net.accelbyte.sdk.api.iam.operations.o_auth2_0.SimultaneousLoginV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.o_auth2_0.SimultaneousLoginV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.o_auth2_0.SimultaneousLoginV3.builder()
               .simultaneousPlatform(simultaneousPlatform != null ? simultaneousPlatform : null)
               .simultaneousTicket(simultaneousTicket != null ? simultaneousTicket : null)
               .nativePlatform(nativePlatform != null ? nativePlatform : null)
               .nativePlatformTicket(nativePlatformTicket != null ? nativePlatformTicket : null)
               .build();
-      final OauthmodelTokenResponseV3 response = wrapper.simultaneousLoginV3(operation);
+      final OauthmodelTokenResponseV3 response = wrapper.simultaneousLoginV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

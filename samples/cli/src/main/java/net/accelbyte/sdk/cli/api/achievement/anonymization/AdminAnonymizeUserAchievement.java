@@ -61,13 +61,13 @@ public class AdminAnonymizeUserAchievement implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Anonymization wrapper = new Anonymization(sdk);
       final net.accelbyte.sdk.api.achievement.operations.anonymization.AdminAnonymizeUserAchievement
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.achievement.operations.anonymization
                   .AdminAnonymizeUserAchievement.builder()
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      wrapper.adminAnonymizeUserAchievement(operation);
+      wrapper.adminAnonymizeUserAchievement(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

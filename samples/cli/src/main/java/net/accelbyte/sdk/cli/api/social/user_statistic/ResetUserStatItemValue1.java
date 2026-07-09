@@ -67,14 +67,14 @@ public class ResetUserStatItemValue1 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserStatistic wrapper = new UserStatistic(sdk);
       final net.accelbyte.sdk.api.social.operations.user_statistic.ResetUserStatItemValue1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.social.operations.user_statistic.ResetUserStatItemValue1
                   .builder()
                   .namespace(namespace)
                   .statCode(statCode)
                   .userId(userId)
                   .build();
-      final StatItemIncResult response = wrapper.resetUserStatItemValue1(operation);
+      final StatItemIncResult response = wrapper.resetUserStatItemValue1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

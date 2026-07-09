@@ -132,7 +132,7 @@ public class PublicNormalizePaymentReturnUrl implements Callable<Integer> {
       final PaymentStation wrapper = new PaymentStation(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_station
               .PublicNormalizePaymentReturnUrl
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.payment_station
                   .PublicNormalizePaymentReturnUrl.builder()
                   .namespace(namespace)
@@ -152,7 +152,7 @@ public class PublicNormalizePaymentReturnUrl implements Callable<Integer> {
                   .paymentProvider(paymentProvider)
                   .returnUrl(returnUrl)
                   .build();
-      wrapper.publicNormalizePaymentReturnUrl(operation);
+      wrapper.publicNormalizePaymentReturnUrl(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -93,7 +93,7 @@ public class AdminGetUserProgression implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ChallengeProgression wrapper = new ChallengeProgression(sdk);
       final net.accelbyte.sdk.api.challenge.operations.challenge_progression.AdminGetUserProgression
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.challenge.operations.challenge_progression
                   .AdminGetUserProgression.builder()
                   .challengeCode(challengeCode)
@@ -105,7 +105,8 @@ public class AdminGetUserProgression implements Callable<Integer> {
                   .offset(offset)
                   .tags(tags)
                   .build();
-      final ModelUserProgressionResponse response = wrapper.adminGetUserProgression(operation);
+      final ModelUserProgressionResponse response =
+          wrapper.adminGetUserProgression(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

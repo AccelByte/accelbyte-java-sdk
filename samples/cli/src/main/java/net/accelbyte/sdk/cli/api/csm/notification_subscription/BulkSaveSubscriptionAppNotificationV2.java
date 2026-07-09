@@ -69,7 +69,7 @@ public class BulkSaveSubscriptionAppNotificationV2 implements Callable<Integer> 
       final NotificationSubscription wrapper = new NotificationSubscription(sdk);
       final net.accelbyte.sdk.api.csm.operations.notification_subscription
               .BulkSaveSubscriptionAppNotificationV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.csm.operations.notification_subscription
                   .BulkSaveSubscriptionAppNotificationV2.builder()
                   .app(app)
@@ -77,7 +77,7 @@ public class BulkSaveSubscriptionAppNotificationV2 implements Callable<Integer> 
                   .body(new ObjectMapper().readValue(body, ApimodelBulkSubscribeRequest.class))
                   .build();
       final ApimodelGetNotificationSubscriberListResponse response =
-          wrapper.bulkSaveSubscriptionAppNotificationV2(operation);
+          wrapper.bulkSaveSubscriptionAppNotificationV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

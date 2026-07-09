@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminListEnvironmentVariables
  *
- * <p>List of environment variables.
+ * <p>Returns all environment variables currently set for the session service. Useful for debugging
+ * configuration and verifying runtime settings.
  */
 @Getter
 @Setter

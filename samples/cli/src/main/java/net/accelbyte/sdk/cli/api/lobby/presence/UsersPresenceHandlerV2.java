@@ -66,13 +66,15 @@ public class UsersPresenceHandlerV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Presence wrapper = new Presence(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.presence.UsersPresenceHandlerV2 operation =
-          net.accelbyte.sdk.api.lobby.operations.presence.UsersPresenceHandlerV2.builder()
-              .namespace(namespace)
-              .countOnly(countOnly)
-              .body(new ObjectMapper().readValue(body, ModelRequestUserPresence.class))
-              .build();
-      final HandlersGetUsersPresenceResponse response = wrapper.usersPresenceHandlerV2(operation);
+      final net.accelbyte.sdk.api.lobby.operations.presence.UsersPresenceHandlerV2
+          operationRequest =
+              net.accelbyte.sdk.api.lobby.operations.presence.UsersPresenceHandlerV2.builder()
+                  .namespace(namespace)
+                  .countOnly(countOnly)
+                  .body(new ObjectMapper().readValue(body, ModelRequestUserPresence.class))
+                  .build();
+      final HandlersGetUsersPresenceResponse response =
+          wrapper.usersPresenceHandlerV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

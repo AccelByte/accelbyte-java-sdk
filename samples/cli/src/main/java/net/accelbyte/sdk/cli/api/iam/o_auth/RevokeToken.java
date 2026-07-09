@@ -55,11 +55,11 @@ public class RevokeToken implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth wrapper = new OAuth(sdk);
-      final net.accelbyte.sdk.api.iam.operations.o_auth.RevokeToken operation =
+      final net.accelbyte.sdk.api.iam.operations.o_auth.RevokeToken operationRequest =
           net.accelbyte.sdk.api.iam.operations.o_auth.RevokeToken.builder()
               .token(token != null ? token : null)
               .build();
-      wrapper.revokeToken(operation);
+      wrapper.revokeToken(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

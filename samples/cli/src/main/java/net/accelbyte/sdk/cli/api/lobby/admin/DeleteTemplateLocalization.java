@@ -65,13 +65,14 @@ public class DeleteTemplateLocalization implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Admin wrapper = new Admin(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.admin.DeleteTemplateLocalization operation =
-          net.accelbyte.sdk.api.lobby.operations.admin.DeleteTemplateLocalization.builder()
-              .namespace(namespace)
-              .templateLanguage(templateLanguage)
-              .templateSlug(templateSlug)
-              .build();
-      wrapper.deleteTemplateLocalization(operation);
+      final net.accelbyte.sdk.api.lobby.operations.admin.DeleteTemplateLocalization
+          operationRequest =
+              net.accelbyte.sdk.api.lobby.operations.admin.DeleteTemplateLocalization.builder()
+                  .namespace(namespace)
+                  .templateLanguage(templateLanguage)
+                  .templateSlug(templateSlug)
+                  .build();
+      wrapper.deleteTemplateLocalization(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

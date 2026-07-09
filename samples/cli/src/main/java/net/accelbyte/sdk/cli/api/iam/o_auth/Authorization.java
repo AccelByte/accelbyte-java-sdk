@@ -85,7 +85,7 @@ public class Authorization implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth wrapper = new OAuth(sdk);
-      final net.accelbyte.sdk.api.iam.operations.o_auth.Authorization operation =
+      final net.accelbyte.sdk.api.iam.operations.o_auth.Authorization operationRequest =
           net.accelbyte.sdk.api.iam.operations.o_auth.Authorization.builder()
               .login(login != null ? login : null)
               .password(password != null ? password : null)
@@ -95,7 +95,7 @@ public class Authorization implements Callable<Integer> {
               .redirectUri(redirectUri != null ? redirectUri : null)
               .responseType(responseType != null ? responseType : null)
               .build();
-      wrapper.authorization(operation);
+      wrapper.authorization(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

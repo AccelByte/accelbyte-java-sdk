@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getNotificationTopicV1Admin
  *
- * <p>Get topic information by topic name.
- *
- * <p>Action Code: 50215
+ * <p>Get notification topic information by topic name.
  */
 @Getter
 @Setter

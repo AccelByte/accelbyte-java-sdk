@@ -56,11 +56,11 @@ public class PublicSendCodeForwardV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.PublicSendCodeForwardV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.users.PublicSendCodeForwardV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.PublicSendCodeForwardV3.builder()
               .body(new ObjectMapper().readValue(body, ModelSendVerificationCodeRequestV3.class))
               .build();
-      wrapper.publicSendCodeForwardV3(operation);
+      wrapper.publicSendCodeForwardV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -57,12 +57,12 @@ public class TestXsollaConfigById implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PaymentConfig wrapper = new PaymentConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_config.TestXsollaConfigById
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.payment_config.TestXsollaConfigById
                   .builder()
                   .id(id)
                   .build();
-      final TestResult response = wrapper.testXsollaConfigById(operation);
+      final TestResult response = wrapper.testXsollaConfigById(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

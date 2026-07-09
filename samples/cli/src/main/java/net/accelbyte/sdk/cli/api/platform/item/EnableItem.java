@@ -66,13 +66,13 @@ public class EnableItem implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Item wrapper = new Item(sdk);
-      final net.accelbyte.sdk.api.platform.operations.item.EnableItem operation =
+      final net.accelbyte.sdk.api.platform.operations.item.EnableItem operationRequest =
           net.accelbyte.sdk.api.platform.operations.item.EnableItem.builder()
               .itemId(itemId)
               .namespace(namespace)
               .storeId(storeId)
               .build();
-      final FullItemInfo response = wrapper.enableItem(operation);
+      final FullItemInfo response = wrapper.enableItem(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

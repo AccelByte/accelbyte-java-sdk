@@ -71,14 +71,15 @@ public class ConsumeUserEntitlement implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Entitlement wrapper = new Entitlement(sdk);
-      final net.accelbyte.sdk.api.platform.operations.entitlement.ConsumeUserEntitlement operation =
-          net.accelbyte.sdk.api.platform.operations.entitlement.ConsumeUserEntitlement.builder()
-              .entitlementId(entitlementId)
-              .namespace(namespace)
-              .userId(userId)
-              .body(new ObjectMapper().readValue(body, AdminEntitlementDecrement.class))
-              .build();
-      final EntitlementDecrementResult response = wrapper.consumeUserEntitlement(operation);
+      final net.accelbyte.sdk.api.platform.operations.entitlement.ConsumeUserEntitlement
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.entitlement.ConsumeUserEntitlement.builder()
+                  .entitlementId(entitlementId)
+                  .namespace(namespace)
+                  .userId(userId)
+                  .body(new ObjectMapper().readValue(body, AdminEntitlementDecrement.class))
+                  .build();
+      final EntitlementDecrementResult response = wrapper.consumeUserEntitlement(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

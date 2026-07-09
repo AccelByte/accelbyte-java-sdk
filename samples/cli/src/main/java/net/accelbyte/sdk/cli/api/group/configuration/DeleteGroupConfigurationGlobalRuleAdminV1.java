@@ -69,7 +69,7 @@ public class DeleteGroupConfigurationGlobalRuleAdminV1 implements Callable<Integ
       final Configuration wrapper = new Configuration(sdk);
       final net.accelbyte.sdk.api.group.operations.configuration
               .DeleteGroupConfigurationGlobalRuleAdminV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.group.operations.configuration
                   .DeleteGroupConfigurationGlobalRuleAdminV1.builder()
                   .allowedAction(allowedAction)
@@ -77,7 +77,7 @@ public class DeleteGroupConfigurationGlobalRuleAdminV1 implements Callable<Integ
                   .namespace(namespace)
                   .build();
       final ModelsUpdateGroupConfigurationResponseV1 response =
-          wrapper.deleteGroupConfigurationGlobalRuleAdminV1(operation);
+          wrapper.deleteGroupConfigurationGlobalRuleAdminV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

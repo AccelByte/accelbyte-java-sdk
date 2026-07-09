@@ -76,16 +76,17 @@ public class QueryAbnormalTransactions implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.QueryAbnormalTransactions operation =
-          net.accelbyte.sdk.api.platform.operations.iap.QueryAbnormalTransactions.builder()
-              .namespace(namespace)
-              .limit(limit)
-              .offset(offset)
-              .orderId(orderId)
-              .steamId(steamId)
-              .build();
+      final net.accelbyte.sdk.api.platform.operations.iap.QueryAbnormalTransactions
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.iap.QueryAbnormalTransactions.builder()
+                  .namespace(namespace)
+                  .limit(limit)
+                  .offset(offset)
+                  .orderId(orderId)
+                  .steamId(steamId)
+                  .build();
       final SteamAbnormalTransactionPagingSlicedResult response =
-          wrapper.queryAbnormalTransactions(operation);
+          wrapper.queryAbnormalTransactions(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

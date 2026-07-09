@@ -89,7 +89,7 @@ public class PublicListGlobalAchievements implements Callable<Integer> {
       final GlobalAchievements wrapper = new GlobalAchievements(sdk);
       final net.accelbyte.sdk.api.achievement.operations.global_achievements
               .PublicListGlobalAchievements
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.achievement.operations.global_achievements
                   .PublicListGlobalAchievements.builder()
                   .namespace(namespace)
@@ -101,7 +101,7 @@ public class PublicListGlobalAchievements implements Callable<Integer> {
                   .tags(tags)
                   .build();
       final ModelsPaginatedGlobalAchievementResponse response =
-          wrapper.publicListGlobalAchievements(operation);
+          wrapper.publicListGlobalAchievements(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

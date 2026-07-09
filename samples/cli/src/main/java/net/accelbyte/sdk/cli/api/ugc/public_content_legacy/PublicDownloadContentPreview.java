@@ -62,14 +62,14 @@ public class PublicDownloadContentPreview implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicContentLegacy wrapper = new PublicContentLegacy(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_content_legacy.PublicDownloadContentPreview
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.public_content_legacy
                   .PublicDownloadContentPreview.builder()
                   .contentId(contentId)
                   .namespace(namespace)
                   .build();
       final ModelsGetContentPreviewResponse response =
-          wrapper.publicDownloadContentPreview(operation);
+          wrapper.publicDownloadContentPreview(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

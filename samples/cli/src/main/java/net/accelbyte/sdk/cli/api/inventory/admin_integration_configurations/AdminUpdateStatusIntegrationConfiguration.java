@@ -69,7 +69,7 @@ public class AdminUpdateStatusIntegrationConfiguration implements Callable<Integ
       final AdminIntegrationConfigurations wrapper = new AdminIntegrationConfigurations(sdk);
       final net.accelbyte.sdk.api.inventory.operations.admin_integration_configurations
               .AdminUpdateStatusIntegrationConfiguration
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.inventory.operations.admin_integration_configurations
                   .AdminUpdateStatusIntegrationConfiguration.builder()
                   .integrationConfigurationId(integrationConfigurationId)
@@ -79,7 +79,7 @@ public class AdminUpdateStatusIntegrationConfiguration implements Callable<Integ
                           .readValue(body, ApimodelsUpdateStatusIntegrationConfigurationReq.class))
                   .build();
       final ApimodelsIntegrationConfigurationResp response =
-          wrapper.adminUpdateStatusIntegrationConfiguration(operation);
+          wrapper.adminUpdateStatusIntegrationConfiguration(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

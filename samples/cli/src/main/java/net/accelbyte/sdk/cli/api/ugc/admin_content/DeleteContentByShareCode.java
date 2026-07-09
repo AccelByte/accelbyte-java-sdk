@@ -70,14 +70,15 @@ public class DeleteContentByShareCode implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminContent wrapper = new AdminContent(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.admin_content.DeleteContentByShareCode operation =
-          net.accelbyte.sdk.api.ugc.operations.admin_content.DeleteContentByShareCode.builder()
-              .channelId(channelId)
-              .namespace(namespace)
-              .shareCode(shareCode)
-              .userId(userId)
-              .build();
-      wrapper.deleteContentByShareCode(operation);
+      final net.accelbyte.sdk.api.ugc.operations.admin_content.DeleteContentByShareCode
+          operationRequest =
+              net.accelbyte.sdk.api.ugc.operations.admin_content.DeleteContentByShareCode.builder()
+                  .channelId(channelId)
+                  .namespace(namespace)
+                  .shareCode(shareCode)
+                  .userId(userId)
+                  .build();
+      wrapper.deleteContentByShareCode(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

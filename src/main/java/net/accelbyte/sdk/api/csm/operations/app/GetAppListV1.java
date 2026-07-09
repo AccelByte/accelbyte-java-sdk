@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetAppListV1
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [READ]`
- *
  * <p>Gets the List of Apps for AB-Extend Customer
  *
  * <p>Available scenario: - scenario 1: `function-override` - scenario 2: `service-extension` -

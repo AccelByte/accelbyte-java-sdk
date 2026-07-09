@@ -72,7 +72,7 @@ public class AdminGeneratePersonalDataURL implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final DataRetrieval wrapper = new DataRetrieval(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.data_retrieval.AdminGeneratePersonalDataURL
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.data_retrieval.AdminGeneratePersonalDataURL
                   .builder()
                   .namespace(namespace)
@@ -80,7 +80,7 @@ public class AdminGeneratePersonalDataURL implements Callable<Integer> {
                   .userId(userId)
                   .password(password != null ? password : null)
                   .build();
-      final ModelsUserDataURL response = wrapper.adminGeneratePersonalDataURL(operation);
+      final ModelsUserDataURL response = wrapper.adminGeneratePersonalDataURL(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

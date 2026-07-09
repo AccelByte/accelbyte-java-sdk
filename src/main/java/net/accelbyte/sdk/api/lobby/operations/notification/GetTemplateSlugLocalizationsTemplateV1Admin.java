@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getTemplateSlugLocalizationsTemplateV1Admin
  *
- * <p>Get all templates in a namespace
- *
- * <p>Action Code: 50205
+ * <p>Get all localization variants for a given notification template slug.
  */
 @Getter
 @Setter

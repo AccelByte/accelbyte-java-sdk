@@ -56,11 +56,11 @@ public class GetAppleConfigVersion implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.GetAppleConfigVersion operation =
+      final net.accelbyte.sdk.api.platform.operations.iap.GetAppleConfigVersion operationRequest =
           net.accelbyte.sdk.api.platform.operations.iap.GetAppleConfigVersion.builder()
               .namespace(namespace)
               .build();
-      final AppleIAPConfigVersionInfo response = wrapper.getAppleConfigVersion(operation);
+      final AppleIAPConfigVersionInfo response = wrapper.getAppleConfigVersion(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

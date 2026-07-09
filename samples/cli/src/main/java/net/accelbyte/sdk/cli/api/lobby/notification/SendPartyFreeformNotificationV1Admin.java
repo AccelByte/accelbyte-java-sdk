@@ -68,7 +68,7 @@ public class SendPartyFreeformNotificationV1Admin implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Notification wrapper = new Notification(sdk);
       final net.accelbyte.sdk.api.lobby.operations.notification.SendPartyFreeformNotificationV1Admin
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.notification
                   .SendPartyFreeformNotificationV1Admin.builder()
                   .namespace(namespace)
@@ -76,7 +76,7 @@ public class SendPartyFreeformNotificationV1Admin implements Callable<Integer> {
                   .body(
                       new ObjectMapper().readValue(body, ModelFreeFormNotificationRequestV1.class))
                   .build();
-      wrapper.sendPartyFreeformNotificationV1Admin(operation);
+      wrapper.sendPartyFreeformNotificationV1Admin(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

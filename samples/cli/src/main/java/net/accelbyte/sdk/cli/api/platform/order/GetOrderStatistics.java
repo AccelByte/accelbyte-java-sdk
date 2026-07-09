@@ -56,11 +56,11 @@ public class GetOrderStatistics implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Order wrapper = new Order(sdk);
-      final net.accelbyte.sdk.api.platform.operations.order.GetOrderStatistics operation =
+      final net.accelbyte.sdk.api.platform.operations.order.GetOrderStatistics operationRequest =
           net.accelbyte.sdk.api.platform.operations.order.GetOrderStatistics.builder()
               .namespace(namespace)
               .build();
-      final OrderStatistics response = wrapper.getOrderStatistics(operation);
+      final OrderStatistics response = wrapper.getOrderStatistics(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

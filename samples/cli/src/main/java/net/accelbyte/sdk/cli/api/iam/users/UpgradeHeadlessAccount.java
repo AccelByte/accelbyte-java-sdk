@@ -66,13 +66,13 @@ public class UpgradeHeadlessAccount implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.UpgradeHeadlessAccount operation =
+      final net.accelbyte.sdk.api.iam.operations.users.UpgradeHeadlessAccount operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.UpgradeHeadlessAccount.builder()
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, ModelUpgradeHeadlessAccountRequest.class))
               .build();
-      final ModelUserResponse response = wrapper.upgradeHeadlessAccount(operation);
+      final ModelUserResponse response = wrapper.upgradeHeadlessAccount(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

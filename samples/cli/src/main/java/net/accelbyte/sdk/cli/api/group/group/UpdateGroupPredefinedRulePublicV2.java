@@ -72,7 +72,7 @@ public class UpdateGroupPredefinedRulePublicV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Group wrapper = new Group(sdk);
       final net.accelbyte.sdk.api.group.operations.group.UpdateGroupPredefinedRulePublicV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.group.operations.group.UpdateGroupPredefinedRulePublicV2
                   .builder()
                   .allowedAction(allowedAction)
@@ -82,7 +82,8 @@ public class UpdateGroupPredefinedRulePublicV2 implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, ModelsUpdateGroupPredefinedRuleRequestV1.class))
                   .build();
-      final ModelsGroupResponseV1 response = wrapper.updateGroupPredefinedRulePublicV2(operation);
+      final ModelsGroupResponseV1 response =
+          wrapper.updateGroupPredefinedRulePublicV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

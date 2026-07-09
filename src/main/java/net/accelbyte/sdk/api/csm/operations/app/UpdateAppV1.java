@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UpdateAppV1
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [UPDATE]`
- *
  * <p>Update App Partially
  *
  * @deprecated

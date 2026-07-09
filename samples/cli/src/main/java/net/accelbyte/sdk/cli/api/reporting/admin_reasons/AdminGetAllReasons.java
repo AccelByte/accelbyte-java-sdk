@@ -56,11 +56,12 @@ public class AdminGetAllReasons implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminReasons wrapper = new AdminReasons(sdk);
-      final net.accelbyte.sdk.api.reporting.operations.admin_reasons.AdminGetAllReasons operation =
-          net.accelbyte.sdk.api.reporting.operations.admin_reasons.AdminGetAllReasons.builder()
-              .namespace(namespace)
-              .build();
-      final RestapiAdminAllReasonsResponse response = wrapper.adminGetAllReasons(operation);
+      final net.accelbyte.sdk.api.reporting.operations.admin_reasons.AdminGetAllReasons
+          operationRequest =
+              net.accelbyte.sdk.api.reporting.operations.admin_reasons.AdminGetAllReasons.builder()
+                  .namespace(namespace)
+                  .build();
+      final RestapiAdminAllReasonsResponse response = wrapper.adminGetAllReasons(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

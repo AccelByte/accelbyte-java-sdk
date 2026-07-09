@@ -56,11 +56,11 @@ public class GetWalletConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Wallet wrapper = new Wallet(sdk);
-      final net.accelbyte.sdk.api.platform.operations.wallet.GetWalletConfig operation =
+      final net.accelbyte.sdk.api.platform.operations.wallet.GetWalletConfig operationRequest =
           net.accelbyte.sdk.api.platform.operations.wallet.GetWalletConfig.builder()
               .namespace(namespace)
               .build();
-      final WalletConfigInfo response = wrapper.getWalletConfig(operation);
+      final WalletConfigInfo response = wrapper.getWalletConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

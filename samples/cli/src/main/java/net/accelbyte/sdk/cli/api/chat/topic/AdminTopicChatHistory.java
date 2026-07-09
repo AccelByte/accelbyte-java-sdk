@@ -106,7 +106,7 @@ public class AdminTopicChatHistory implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Topic wrapper = new Topic(sdk);
-      final net.accelbyte.sdk.api.chat.operations.topic.AdminTopicChatHistory operation =
+      final net.accelbyte.sdk.api.chat.operations.topic.AdminTopicChatHistory operationRequest =
           net.accelbyte.sdk.api.chat.operations.topic.AdminTopicChatHistory.builder()
               .namespace(namespace)
               .topic(topic)
@@ -121,7 +121,7 @@ public class AdminTopicChatHistory implements Callable<Integer> {
               .unfiltered(unfiltered)
               .build();
       final ModelsChatMessageWithPaginationResponse response =
-          wrapper.adminTopicChatHistory(operation);
+          wrapper.adminTopicChatHistory(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

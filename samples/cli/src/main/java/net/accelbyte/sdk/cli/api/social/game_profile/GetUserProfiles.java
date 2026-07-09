@@ -61,12 +61,12 @@ public class GetUserProfiles implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameProfile wrapper = new GameProfile(sdk);
-      final net.accelbyte.sdk.api.social.operations.game_profile.GetUserProfiles operation =
+      final net.accelbyte.sdk.api.social.operations.game_profile.GetUserProfiles operationRequest =
           net.accelbyte.sdk.api.social.operations.game_profile.GetUserProfiles.builder()
               .namespace(namespace)
               .userId(userId)
               .build();
-      final List<GameProfileHeader> response = wrapper.getUserProfiles(operation);
+      final List<GameProfileHeader> response = wrapper.getUserProfiles(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -72,7 +72,7 @@ public class GrantDaysToSubscription implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Subscription wrapper = new Subscription(sdk);
       final net.accelbyte.sdk.api.platform.operations.subscription.GrantDaysToSubscription
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.subscription.GrantDaysToSubscription
                   .builder()
                   .namespace(namespace)
@@ -80,7 +80,7 @@ public class GrantDaysToSubscription implements Callable<Integer> {
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, GrantSubscriptionDaysRequest.class))
                   .build();
-      final SubscriptionInfo response = wrapper.grantDaysToSubscription(operation);
+      final SubscriptionInfo response = wrapper.grantDaysToSubscription(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

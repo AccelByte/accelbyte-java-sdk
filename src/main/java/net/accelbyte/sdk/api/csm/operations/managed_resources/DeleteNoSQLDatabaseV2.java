@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteNoSQLDatabaseV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:NOSQL:DATABASES [DELETE]`
- *
  * <p>Deletes a NoSQL database and its credentials associated with given extend app and game
  * namespace. The database will be removed from the provisioned NoSQL cluster.
  */

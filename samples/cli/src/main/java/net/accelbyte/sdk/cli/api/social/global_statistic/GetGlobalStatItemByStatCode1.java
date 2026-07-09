@@ -62,13 +62,13 @@ public class GetGlobalStatItemByStatCode1 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GlobalStatistic wrapper = new GlobalStatistic(sdk);
       final net.accelbyte.sdk.api.social.operations.global_statistic.GetGlobalStatItemByStatCode1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.social.operations.global_statistic.GetGlobalStatItemByStatCode1
                   .builder()
                   .namespace(namespace)
                   .statCode(statCode)
                   .build();
-      final GlobalStatItemInfo response = wrapper.getGlobalStatItemByStatCode1(operation);
+      final GlobalStatItemInfo response = wrapper.getGlobalStatItemByStatCode1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

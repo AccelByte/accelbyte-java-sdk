@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateDeploymentV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:DEPLOYMENT [CREATE]`
- *
  * <p>Creates Deployment for extend service
  *
  * <p>This Endpoint will create new deployment and apply all of the secrets and variable as

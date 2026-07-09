@@ -66,13 +66,14 @@ public class CreateDeploymentV1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Deployment wrapper = new Deployment(sdk);
-      final net.accelbyte.sdk.api.csm.operations.deployment.CreateDeploymentV1 operation =
+      final net.accelbyte.sdk.api.csm.operations.deployment.CreateDeploymentV1 operationRequest =
           net.accelbyte.sdk.api.csm.operations.deployment.CreateDeploymentV1.builder()
               .app(app)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, GeneratedCreateDeploymentV1Request.class))
               .build();
-      final GeneratedCreateDeploymentV1Response response = wrapper.createDeploymentV1(operation);
+      final GeneratedCreateDeploymentV1Response response =
+          wrapper.createDeploymentV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

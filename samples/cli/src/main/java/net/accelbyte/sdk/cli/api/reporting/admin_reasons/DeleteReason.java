@@ -60,12 +60,12 @@ public class DeleteReason implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminReasons wrapper = new AdminReasons(sdk);
-      final net.accelbyte.sdk.api.reporting.operations.admin_reasons.DeleteReason operation =
+      final net.accelbyte.sdk.api.reporting.operations.admin_reasons.DeleteReason operationRequest =
           net.accelbyte.sdk.api.reporting.operations.admin_reasons.DeleteReason.builder()
               .namespace(namespace)
               .reasonId(reasonId)
               .build();
-      wrapper.deleteReason(operation);
+      wrapper.deleteReason(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

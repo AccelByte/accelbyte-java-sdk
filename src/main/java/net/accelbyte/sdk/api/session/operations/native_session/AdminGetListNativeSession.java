@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminGetListNativeSession
  *
- * <p>List of native sessions.
+ * <p>Returns paginated list of native platform sessions. Native sessions are synchronized with PSN,
+ * Xbox Live, and Steam platform session systems.
  */
 @Getter
 @Setter

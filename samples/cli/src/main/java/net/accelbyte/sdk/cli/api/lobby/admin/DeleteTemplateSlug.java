@@ -60,12 +60,12 @@ public class DeleteTemplateSlug implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Admin wrapper = new Admin(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.admin.DeleteTemplateSlug operation =
+      final net.accelbyte.sdk.api.lobby.operations.admin.DeleteTemplateSlug operationRequest =
           net.accelbyte.sdk.api.lobby.operations.admin.DeleteTemplateSlug.builder()
               .namespace(namespace)
               .templateSlug(templateSlug)
               .build();
-      wrapper.deleteTemplateSlug(operation);
+      wrapper.deleteTemplateSlug(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

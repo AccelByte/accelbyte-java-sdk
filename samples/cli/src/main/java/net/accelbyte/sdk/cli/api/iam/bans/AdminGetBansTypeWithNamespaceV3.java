@@ -56,11 +56,13 @@ public class AdminGetBansTypeWithNamespaceV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Bans wrapper = new Bans(sdk);
-      final net.accelbyte.sdk.api.iam.operations.bans.AdminGetBansTypeWithNamespaceV3 operation =
-          net.accelbyte.sdk.api.iam.operations.bans.AdminGetBansTypeWithNamespaceV3.builder()
-              .namespace(namespace)
-              .build();
-      final AccountcommonBansV3 response = wrapper.adminGetBansTypeWithNamespaceV3(operation);
+      final net.accelbyte.sdk.api.iam.operations.bans.AdminGetBansTypeWithNamespaceV3
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.bans.AdminGetBansTypeWithNamespaceV3.builder()
+                  .namespace(namespace)
+                  .build();
+      final AccountcommonBansV3 response =
+          wrapper.adminGetBansTypeWithNamespaceV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

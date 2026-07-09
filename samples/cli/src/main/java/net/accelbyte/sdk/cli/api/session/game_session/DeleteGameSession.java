@@ -60,12 +60,13 @@ public class DeleteGameSession implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameSession wrapper = new GameSession(sdk);
-      final net.accelbyte.sdk.api.session.operations.game_session.DeleteGameSession operation =
-          net.accelbyte.sdk.api.session.operations.game_session.DeleteGameSession.builder()
-              .namespace(namespace)
-              .sessionId(sessionId)
-              .build();
-      wrapper.deleteGameSession(operation);
+      final net.accelbyte.sdk.api.session.operations.game_session.DeleteGameSession
+          operationRequest =
+              net.accelbyte.sdk.api.session.operations.game_session.DeleteGameSession.builder()
+                  .namespace(namespace)
+                  .sessionId(sessionId)
+                  .build();
+      wrapper.deleteGameSession(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

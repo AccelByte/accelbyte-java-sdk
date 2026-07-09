@@ -70,7 +70,7 @@ import picocli.CommandLine.Command;
       FleetClaimByKeys.class,
       WatchdogConnect.class,
       UploadURLGet.class,
-      Func1.class,
+      VersionInfo.class,
       BasicHealthCheck.class,
     })
 public class Ams implements Runnable {

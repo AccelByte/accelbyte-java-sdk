@@ -52,11 +52,11 @@ public class GetAggregatePaymentProviders implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PaymentConfig wrapper = new PaymentConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_config.GetAggregatePaymentProviders
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.payment_config.GetAggregatePaymentProviders
                   .builder()
                   .build();
-      final List<String> response = wrapper.getAggregatePaymentProviders(operation);
+      final List<String> response = wrapper.getAggregatePaymentProviders(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

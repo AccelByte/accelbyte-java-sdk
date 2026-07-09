@@ -71,14 +71,15 @@ public class AdminCopyContent implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminContentV2 wrapper = new AdminContentV2(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminCopyContent operation =
-          net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminCopyContent.builder()
-              .channelId(channelId)
-              .contentId(contentId)
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ModelsCopyContentRequest.class))
-              .build();
-      final ModelsContentDownloadResponseV2 response = wrapper.adminCopyContent(operation);
+      final net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminCopyContent
+          operationRequest =
+              net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminCopyContent.builder()
+                  .channelId(channelId)
+                  .contentId(contentId)
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, ModelsCopyContentRequest.class))
+                  .build();
+      final ModelsContentDownloadResponseV2 response = wrapper.adminCopyContent(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

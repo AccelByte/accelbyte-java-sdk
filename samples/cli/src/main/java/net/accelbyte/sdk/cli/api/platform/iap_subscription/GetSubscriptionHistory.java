@@ -77,7 +77,7 @@ public class GetSubscriptionHistory implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAPSubscription wrapper = new IAPSubscription(sdk);
       final net.accelbyte.sdk.api.platform.operations.iap_subscription.GetSubscriptionHistory
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.iap_subscription.GetSubscriptionHistory
                   .builder()
                   .id(id)
@@ -87,7 +87,7 @@ public class GetSubscriptionHistory implements Callable<Integer> {
                   .offset(offset)
                   .build();
       final ThirdPartySubscriptionTransactionHistoryPagingSlicedResult response =
-          wrapper.getSubscriptionHistory(operation);
+          wrapper.getSubscriptionHistory(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -71,7 +71,7 @@ public class GetListOfSecretsV1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Configuration wrapper = new Configuration(sdk);
-      final net.accelbyte.sdk.api.csm.operations.configuration.GetListOfSecretsV1 operation =
+      final net.accelbyte.sdk.api.csm.operations.configuration.GetListOfSecretsV1 operationRequest =
           net.accelbyte.sdk.api.csm.operations.configuration.GetListOfSecretsV1.builder()
               .app(app)
               .namespace(namespace)
@@ -79,7 +79,7 @@ public class GetListOfSecretsV1 implements Callable<Integer> {
               .offset(offset)
               .build();
       final GeneratedGetListOfConfigurationsV1Response response =
-          wrapper.getListOfSecretsV1(operation);
+          wrapper.getListOfSecretsV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

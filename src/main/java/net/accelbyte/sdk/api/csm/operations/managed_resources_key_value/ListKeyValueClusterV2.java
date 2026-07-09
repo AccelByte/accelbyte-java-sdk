@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * ListKeyValueClusterV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:KEYVALUE:CLUSTERS [READ]`
- *
  * <p>List Key-Value clusters by studio/publisher namespace. If `refresh=true`, the service will
  * sync cluster status from the provider (cached).
  */

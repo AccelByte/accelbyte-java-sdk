@@ -62,14 +62,14 @@ public class AdminGetUserContentByShareCode implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminContent wrapper = new AdminContent(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_content.AdminGetUserContentByShareCode
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.admin_content.AdminGetUserContentByShareCode
                   .builder()
                   .namespace(namespace)
                   .shareCode(shareCode)
                   .build();
       final ModelsContentDownloadResponse response =
-          wrapper.adminGetUserContentByShareCode(operation);
+          wrapper.adminGetUserContentByShareCode(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

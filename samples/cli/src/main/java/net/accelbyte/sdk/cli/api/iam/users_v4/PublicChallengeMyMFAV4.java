@@ -66,13 +66,13 @@ public class PublicChallengeMyMFAV4 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UsersV4 wrapper = new UsersV4(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users_v4.PublicChallengeMyMFAV4 operation =
+      final net.accelbyte.sdk.api.iam.operations.users_v4.PublicChallengeMyMFAV4 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users_v4.PublicChallengeMyMFAV4.builder()
               .namespace(namespace)
               .code(code != null ? code : null)
               .factor(factor != null ? factor : null)
               .build();
-      final ModelUserMFATokenResponseV4 response = wrapper.publicChallengeMyMFAV4(operation);
+      final ModelUserMFATokenResponseV4 response = wrapper.publicChallengeMyMFAV4(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

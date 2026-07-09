@@ -149,6 +149,7 @@ $ build/install/cli/bin/cli ams fleetList \
     --namespace <namespace value> \
     --active <active value - optional> \
     --count <count value - optional> \
+    --includeInactiveRegions <includeInactiveRegions value - optional> \
     --name <name value - optional> \
     --offset <offset value - optional> \
     --region <region value - optional> \
@@ -177,7 +178,8 @@ $ build/install/cli/bin/cli ams bulkFleetDelete \
 ```sh
 $ build/install/cli/bin/cli ams fleetGet \
     --fleetID <fleetID value> \
-    --namespace <namespace value>
+    --namespace <namespace value> \
+    --includeInactiveRegions <includeInactiveRegions value - optional>
 ```
 
 ### Operation FleetUpdate
@@ -402,10 +404,10 @@ $ build/install/cli/bin/cli ams watchdogConnect \
 $ build/install/cli/bin/cli ams uploadURLGet
 ```
 
-### Operation Func1
+### Operation VersionInfo
 
 ```sh
-$ build/install/cli/bin/cli ams func1
+$ build/install/cli/bin/cli ams versionInfo
 ```
 
 ### Operation BasicHealthCheck

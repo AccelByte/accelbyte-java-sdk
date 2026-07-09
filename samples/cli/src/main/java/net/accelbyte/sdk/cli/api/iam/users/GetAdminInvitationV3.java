@@ -61,12 +61,12 @@ public class GetAdminInvitationV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.GetAdminInvitationV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.users.GetAdminInvitationV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.GetAdminInvitationV3.builder()
               .invitationId(invitationId)
               .namespace(namespace)
               .build();
-      final ModelUserInvitationV3 response = wrapper.getAdminInvitationV3(operation);
+      final ModelUserInvitationV3 response = wrapper.getAdminInvitationV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

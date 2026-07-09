@@ -57,12 +57,12 @@ public class DeleteRevocationPluginConfig implements Callable<Integer> {
       final ServicePluginConfig wrapper = new ServicePluginConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.service_plugin_config
               .DeleteRevocationPluginConfig
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.service_plugin_config
                   .DeleteRevocationPluginConfig.builder()
                   .namespace(namespace)
                   .build();
-      wrapper.deleteRevocationPluginConfig(operation);
+      wrapper.deleteRevocationPluginConfig(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

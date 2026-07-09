@@ -62,13 +62,14 @@ public class AdminUpdateThirdPartyConfig implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ThirdParty wrapper = new ThirdParty(sdk);
       final net.accelbyte.sdk.api.lobby.operations.third_party.AdminUpdateThirdPartyConfig
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.third_party.AdminUpdateThirdPartyConfig
                   .builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelsUpdateConfigRequest.class))
                   .build();
-      final ModelsUpdateConfigResponse response = wrapper.adminUpdateThirdPartyConfig(operation);
+      final ModelsUpdateConfigResponse response =
+          wrapper.adminUpdateThirdPartyConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

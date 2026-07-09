@@ -67,14 +67,14 @@ public class AdminDeletePlayerBinaryRecordV1 implements Callable<Integer> {
       final AdminPlayerBinaryRecord wrapper = new AdminPlayerBinaryRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.admin_player_binary_record
               .AdminDeletePlayerBinaryRecordV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.admin_player_binary_record
                   .AdminDeletePlayerBinaryRecordV1.builder()
                   .key(key)
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      wrapper.adminDeletePlayerBinaryRecordV1(operation);
+      wrapper.adminDeletePlayerBinaryRecordV1(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -61,12 +61,13 @@ public class InviteGroupPublicV1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GroupMember wrapper = new GroupMember(sdk);
-      final net.accelbyte.sdk.api.group.operations.group_member.InviteGroupPublicV1 operation =
-          net.accelbyte.sdk.api.group.operations.group_member.InviteGroupPublicV1.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .build();
-      final ModelsUserInvitationResponseV1 response = wrapper.inviteGroupPublicV1(operation);
+      final net.accelbyte.sdk.api.group.operations.group_member.InviteGroupPublicV1
+          operationRequest =
+              net.accelbyte.sdk.api.group.operations.group_member.InviteGroupPublicV1.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .build();
+      final ModelsUserInvitationResponseV1 response = wrapper.inviteGroupPublicV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -66,13 +66,15 @@ public class PublicGetUserByPlatformUserIDV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.PublicGetUserByPlatformUserIDV3 operation =
-          net.accelbyte.sdk.api.iam.operations.users.PublicGetUserByPlatformUserIDV3.builder()
-              .namespace(namespace)
-              .platformId(platformId)
-              .platformUserId(platformUserId)
-              .build();
-      final ModelUserResponseV3 response = wrapper.publicGetUserByPlatformUserIDV3(operation);
+      final net.accelbyte.sdk.api.iam.operations.users.PublicGetUserByPlatformUserIDV3
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.users.PublicGetUserByPlatformUserIDV3.builder()
+                  .namespace(namespace)
+                  .platformId(platformId)
+                  .platformUserId(platformUserId)
+                  .build();
+      final ModelUserResponseV3 response =
+          wrapper.publicGetUserByPlatformUserIDV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

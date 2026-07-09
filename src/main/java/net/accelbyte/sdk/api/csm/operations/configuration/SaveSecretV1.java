@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * SaveSecretV1
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:SECRET [CREATE]`
- *
  * <p>Save an environment secret. Request body: - configName : environment secret name - Required. -
  * source : source of the configuration value (plaintext or ssm) - Required. - value : configuration
  * value - Required. - description : description of the configuration - Optional. - applyMask : mask

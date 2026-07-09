@@ -97,20 +97,21 @@ public class PublicListContentV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicContentV2 wrapper = new PublicContentV2(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.public_content_v2.PublicListContentV2 operation =
-          net.accelbyte.sdk.api.ugc.operations.public_content_v2.PublicListContentV2.builder()
-              .namespace(namespace)
-              .isOfficial(isOfficial)
-              .limit(limit)
-              .name(name)
-              .offset(offset)
-              .sortBy(sortBy)
-              .subType(subType)
-              .tags(tags)
-              .type(type)
-              .build();
+      final net.accelbyte.sdk.api.ugc.operations.public_content_v2.PublicListContentV2
+          operationRequest =
+              net.accelbyte.sdk.api.ugc.operations.public_content_v2.PublicListContentV2.builder()
+                  .namespace(namespace)
+                  .isOfficial(isOfficial)
+                  .limit(limit)
+                  .name(name)
+                  .offset(offset)
+                  .sortBy(sortBy)
+                  .subType(subType)
+                  .tags(tags)
+                  .type(type)
+                  .build();
       final ModelsPaginatedContentDownloadResponseV2 response =
-          wrapper.publicListContentV2(operation);
+          wrapper.publicListContentV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

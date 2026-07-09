@@ -60,12 +60,12 @@ public class AdminSyncNativeSession implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Party wrapper = new Party(sdk);
-      final net.accelbyte.sdk.api.session.operations.party.AdminSyncNativeSession operation =
+      final net.accelbyte.sdk.api.session.operations.party.AdminSyncNativeSession operationRequest =
           net.accelbyte.sdk.api.session.operations.party.AdminSyncNativeSession.builder()
               .namespace(namespace)
               .userId(userId)
               .build();
-      wrapper.adminSyncNativeSession(operation);
+      wrapper.adminSyncNativeSession(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

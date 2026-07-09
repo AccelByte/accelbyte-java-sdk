@@ -131,7 +131,7 @@ public class TokenGrantV4 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth20V4 wrapper = new OAuth20V4(sdk);
-      final net.accelbyte.sdk.api.iam.operations.o_auth2_0_v4.TokenGrantV4 operation =
+      final net.accelbyte.sdk.api.iam.operations.o_auth2_0_v4.TokenGrantV4 operationRequest =
           net.accelbyte.sdk.api.iam.operations.o_auth2_0_v4.TokenGrantV4.builder()
               .codeChallenge(codeChallenge)
               .codeChallengeMethod(codeChallengeMethod)
@@ -150,7 +150,8 @@ public class TokenGrantV4 implements Callable<Integer> {
               .username(username != null ? username : null)
               .grantType(grantType != null ? grantType : null)
               .build();
-      final OauthmodelTokenWithDeviceCookieResponseV3 response = wrapper.tokenGrantV4(operation);
+      final OauthmodelTokenWithDeviceCookieResponseV3 response =
+          wrapper.tokenGrantV4(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -62,13 +62,13 @@ public class AdminCreateItemType implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminItemTypes wrapper = new AdminItemTypes(sdk);
       final net.accelbyte.sdk.api.inventory.operations.admin_item_types.AdminCreateItemType
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.inventory.operations.admin_item_types.AdminCreateItemType
                   .builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ApimodelsCreateItemTypeReq.class))
                   .build();
-      final ApimodelsCreateItemTypeResp response = wrapper.adminCreateItemType(operation);
+      final ApimodelsCreateItemTypeResp response = wrapper.adminCreateItemType(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

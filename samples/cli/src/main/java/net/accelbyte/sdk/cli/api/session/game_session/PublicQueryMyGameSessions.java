@@ -72,7 +72,7 @@ public class PublicQueryMyGameSessions implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameSession wrapper = new GameSession(sdk);
       final net.accelbyte.sdk.api.session.operations.game_session.PublicQueryMyGameSessions
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.game_session.PublicQueryMyGameSessions
                   .builder()
                   .namespace(namespace)
@@ -81,7 +81,7 @@ public class PublicQueryMyGameSessions implements Callable<Integer> {
                   .status(status)
                   .build();
       final ApimodelsGameSessionQueryResponse response =
-          wrapper.publicQueryMyGameSessions(operation);
+          wrapper.publicQueryMyGameSessions(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

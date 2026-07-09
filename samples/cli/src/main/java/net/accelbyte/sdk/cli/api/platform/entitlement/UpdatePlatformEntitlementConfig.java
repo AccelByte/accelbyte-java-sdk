@@ -67,7 +67,7 @@ public class UpdatePlatformEntitlementConfig implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement.UpdatePlatformEntitlementConfig
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.entitlement.UpdatePlatformEntitlementConfig
                   .builder()
                   .namespace(namespace)
@@ -75,7 +75,7 @@ public class UpdatePlatformEntitlementConfig implements Callable<Integer> {
                   .body(new ObjectMapper().readValue(body, EntitlementPlatformConfigUpdate.class))
                   .build();
       final EntitlementPlatformConfigInfo response =
-          wrapper.updatePlatformEntitlementConfig(operation);
+          wrapper.updatePlatformEntitlementConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

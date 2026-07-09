@@ -67,14 +67,15 @@ public class SetUserVisibilityV3 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserVisibilityV3 wrapper = new UserVisibilityV3(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.user_visibility_v3.SetUserVisibilityV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.leaderboard.operations.user_visibility_v3.SetUserVisibilityV3
                   .builder()
                   .namespace(namespace)
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, ModelsSetUserVisibilityRequest.class))
                   .build();
-      final ModelsGetUserVisibilityResponse response = wrapper.setUserVisibilityV3(operation);
+      final ModelsGetUserVisibilityResponse response =
+          wrapper.setUserVisibilityV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

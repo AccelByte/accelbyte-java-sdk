@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UpdateKeyValueClusterV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:KEYVALUE:CLUSTERS [UPDATE]`
- *
  * <p>Update Key-Value cluster configuration (maxDataStorageGB, maxECPUPerSecond, profileName). Only
  * allowed when cluster status is AVAILABLE. Process is asynchronous; poll Get Cluster for updated
  * status.

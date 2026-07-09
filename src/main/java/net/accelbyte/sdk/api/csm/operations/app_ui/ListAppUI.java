@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * ListAppUI
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APPUI [READ]`
- *
  * <p>Retrieves a paginated list of App UI instances. Supports filtering by name and pagination
  * using limit/offset.
  */

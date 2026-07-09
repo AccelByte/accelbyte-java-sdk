@@ -67,14 +67,15 @@ public class UpdateKeyValueClusterV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ManagedResourcesKeyValue wrapper = new ManagedResourcesKeyValue(sdk);
       final net.accelbyte.sdk.api.csm.operations.managed_resources_key_value.UpdateKeyValueClusterV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.csm.operations.managed_resources_key_value
                   .UpdateKeyValueClusterV2.builder()
                   .namespace(namespace)
                   .resourceId(resourceId)
                   .body(new ObjectMapper().readValue(body, DomainKeyValueUpdateConfiguration.class))
                   .build();
-      final ApimodelKeyValueResourceResponse response = wrapper.updateKeyValueClusterV2(operation);
+      final ApimodelKeyValueResourceResponse response =
+          wrapper.updateKeyValueClusterV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

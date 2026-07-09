@@ -86,17 +86,19 @@ public class AdminGetClientsByNamespaceV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Clients wrapper = new Clients(sdk);
-      final net.accelbyte.sdk.api.iam.operations.clients.AdminGetClientsByNamespaceV3 operation =
-          net.accelbyte.sdk.api.iam.operations.clients.AdminGetClientsByNamespaceV3.builder()
-              .namespace(namespace)
-              .clientId(clientId)
-              .clientName(clientName)
-              .clientType(clientType)
-              .limit(limit)
-              .offset(offset)
-              .skipLoginQueue(skipLoginQueue)
-              .build();
-      final ClientmodelClientsV3Response response = wrapper.adminGetClientsByNamespaceV3(operation);
+      final net.accelbyte.sdk.api.iam.operations.clients.AdminGetClientsByNamespaceV3
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.clients.AdminGetClientsByNamespaceV3.builder()
+                  .namespace(namespace)
+                  .clientId(clientId)
+                  .clientName(clientName)
+                  .clientType(clientType)
+                  .limit(limit)
+                  .offset(offset)
+                  .skipLoginQueue(skipLoginQueue)
+                  .build();
+      final ClientmodelClientsV3Response response =
+          wrapper.adminGetClientsByNamespaceV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

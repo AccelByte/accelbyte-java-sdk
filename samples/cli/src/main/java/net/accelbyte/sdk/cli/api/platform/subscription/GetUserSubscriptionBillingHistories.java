@@ -83,7 +83,7 @@ public class GetUserSubscriptionBillingHistories implements Callable<Integer> {
       final Subscription wrapper = new Subscription(sdk);
       final net.accelbyte.sdk.api.platform.operations.subscription
               .GetUserSubscriptionBillingHistories
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.subscription
                   .GetUserSubscriptionBillingHistories.builder()
                   .namespace(namespace)
@@ -94,7 +94,7 @@ public class GetUserSubscriptionBillingHistories implements Callable<Integer> {
                   .offset(offset)
                   .build();
       final BillingHistoryPagingSlicedResult response =
-          wrapper.getUserSubscriptionBillingHistories(operation);
+          wrapper.getUserSubscriptionBillingHistories(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

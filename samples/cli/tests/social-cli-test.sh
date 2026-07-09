@@ -163,7 +163,7 @@ eval_tap $? 29 'CreateStatCycle' test.out
 #- 30 BulkGetStatCycle
 ./ng net.accelbyte.sdk.cli.Main social bulkGetStatCycle \
     --namespace "$AB_NAMESPACE" \
-    --body '{"cycleIds": ["4YkHs1cnz1JSDgY1", "TXp38zsCTCrbCbPO", "yNQkT7NvyE3cwyAL"]}' \
+    --body '{"cycleIds": ["TXp38zsCTCrbCbPO", "yNQkT7NvyE3cwyAL", "4YkHs1cnz1JSDgY1"]}' \
     > test.out 2>&1
 eval_tap $? 30 'BulkGetStatCycle' test.out
 
@@ -276,7 +276,7 @@ eval_tap $? 44 'GetStats' test.out
 #- 45 CreateStat
 ./ng net.accelbyte.sdk.cli.Main social createStat \
     --namespace "$AB_NAMESPACE" \
-    --body '{"capCycleOverride": false, "cycleIds": ["MNqq98SjTvhZNkSQ", "rvjj7il35MXbN9oC", "vmEejtGeoyIPa8ZR"], "cycleOverrides": [{"cycleId": "70D0H6BXksUC9b6i", "maximum": 0.9318777091080298, "minimum": 0.18197516540043357}, {"cycleId": "ZC9xv32e8c5csSov", "maximum": 0.23663002965950775, "minimum": 0.27063695102091945}, {"cycleId": "sZNBdte9NDUPVJf6", "maximum": 0.043303642635736384, "minimum": 0.8808316364753352}], "defaultValue": 0.8268336351116538, "description": "0QZxfgPubTDIHrvq", "globalAggregationMethod": "TOTAL", "ignoreAdditionalDataOnValueRejected": false, "incrementOnly": false, "isPublic": true, "maximum": 0.3335754951769271, "minimum": 0.35740132247772305, "name": "jRHpKKTlmVr9XuoJ", "setAsGlobal": false, "setBy": "SERVER", "statCode": "FQSKVPHbn4Xxtu7L", "tags": ["Zqan0nSBJroav91G", "XlvPG6bFYReVHQip", "QRENjEEztx1WsYSi"], "visibility": "SERVERONLY"}' \
+    --body '{"capCycleOverride": false, "cycleIds": ["rvjj7il35MXbN9oC", "MNqq98SjTvhZNkSQ", "vmEejtGeoyIPa8ZR"], "cycleOverrides": [{"cycleId": "70D0H6BXksUC9b6i", "maximum": 0.9318777091080298, "minimum": 0.18197516540043357}, {"cycleId": "ZC9xv32e8c5csSov", "maximum": 0.23663002965950775, "minimum": 0.27063695102091945}, {"cycleId": "sZNBdte9NDUPVJf6", "maximum": 0.043303642635736384, "minimum": 0.8808316364753352}], "defaultValue": 0.8268336351116538, "description": "0QZxfgPubTDIHrvq", "globalAggregationMethod": "TOTAL", "ignoreAdditionalDataOnValueRejected": false, "incrementOnly": false, "isPublic": true, "maximum": 0.3335754951769271, "minimum": 0.35740132247772305, "name": "jRHpKKTlmVr9XuoJ", "setAsGlobal": false, "setBy": "SERVER", "statCode": "FQSKVPHbn4Xxtu7L", "tags": ["Zqan0nSBJroav91G", "XlvPG6bFYReVHQip", "QRENjEEztx1WsYSi"], "visibility": "SERVERONLY"}' \
     > test.out 2>&1
 eval_tap $? 45 'CreateStat' test.out
 
@@ -323,7 +323,7 @@ eval_tap $? 50 'DeleteStat' test.out
 ./ng net.accelbyte.sdk.cli.Main social updateStat \
     --namespace "$AB_NAMESPACE" \
     --statCode 'rQvGgbLdLsFzHkBM' \
-    --body '{"capCycleOverride": true, "cycleIds": ["26yUZNmTBcvrbYCw", "DxHSZjtqXyJ58f7G", "c26SaiGVkydwYWQG"], "cycleOverrides": [{"cycleId": "ZtxFHyPLtI8ilbyD", "maximum": 0.6690689501743559, "minimum": 0.748312213322721}, {"cycleId": "Ij88cekdqCt81P1k", "maximum": 0.3108052510094127, "minimum": 0.0865949199580871}, {"cycleId": "Iovmv9gsR5cJcHm3", "maximum": 0.7163440353849057, "minimum": 0.8292672335645395}], "defaultValue": 0.6027038461092606, "description": "xoRDFuuuySj29a9L", "globalAggregationMethod": "TOTAL", "ignoreAdditionalDataOnValueRejected": false, "incrementOnly": false, "isPublic": false, "maximum": 0.8610884619981739, "minimum": 0.7913415933212115, "name": "2PFAAMwzHPxB1Usk", "setAsGlobal": true, "setBy": "SERVER", "tags": ["J5i0EeDxOgBnhhqE", "sG6vxkfUcmqRRbce", "ntX9y1aZSWMiVi10"], "visibility": "SERVERONLY"}' \
+    --body '{"capCycleOverride": true, "cycleIds": ["26yUZNmTBcvrbYCw", "c26SaiGVkydwYWQG", "DxHSZjtqXyJ58f7G"], "cycleOverrides": [{"cycleId": "ZtxFHyPLtI8ilbyD", "maximum": 0.6690689501743559, "minimum": 0.748312213322721}, {"cycleId": "Ij88cekdqCt81P1k", "maximum": 0.3108052510094127, "minimum": 0.0865949199580871}, {"cycleId": "Iovmv9gsR5cJcHm3", "maximum": 0.7163440353849057, "minimum": 0.8292672335645395}], "defaultValue": 0.6027038461092606, "description": "xoRDFuuuySj29a9L", "globalAggregationMethod": "TOTAL", "ignoreAdditionalDataOnValueRejected": false, "incrementOnly": false, "isPublic": false, "maximum": 0.8610884619981739, "minimum": 0.7913415933212115, "name": "2PFAAMwzHPxB1Usk", "setAsGlobal": true, "setBy": "SERVER", "tags": ["sG6vxkfUcmqRRbce", "ntX9y1aZSWMiVi10", "J5i0EeDxOgBnhhqE"], "visibility": "SERVERONLY"}' \
     > test.out 2>&1
 eval_tap $? 51 'UpdateStat' test.out
 
@@ -468,7 +468,7 @@ eval_tap $? 66 'GetStatCycles1' test.out
 #- 67 BulkGetStatCycle1
 ./ng net.accelbyte.sdk.cli.Main social bulkGetStatCycle1 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"cycleIds": ["ZxkrQDXuNFviMarv", "o5sYadCCFrHHC3Dp", "3bu1bNCtX7W40V6D"]}' \
+    --body '{"cycleIds": ["ZxkrQDXuNFviMarv", "3bu1bNCtX7W40V6D", "o5sYadCCFrHHC3Dp"]}' \
     > test.out 2>&1
 eval_tap $? 67 'BulkGetStatCycle1' test.out
 
@@ -511,7 +511,7 @@ eval_tap $? 72 'BulkResetUserStatItem2' test.out
 #- 73 CreateStat1
 ./ng net.accelbyte.sdk.cli.Main social createStat1 \
     --namespace "$AB_NAMESPACE" \
-    --body '{"capCycleOverride": false, "cycleIds": ["Hhhkg1yLVbLFzHEP", "giPg4x4yiPX6ues1", "DKKoxLE1Y3Dymtj3"], "cycleOverrides": [{"cycleId": "8cM4NTwr0KHaAsmT", "maximum": 0.07754147475854134, "minimum": 0.15287156375859234}, {"cycleId": "52WKi6tArAURt9pl", "maximum": 0.45624912044356647, "minimum": 0.718511593089142}, {"cycleId": "Vq8PdH6hJPUAc0RV", "maximum": 0.3619279324621498, "minimum": 0.8004038449485363}], "defaultValue": 0.11183495026536894, "description": "AgntLMCuaXBWQi6B", "globalAggregationMethod": "MIN", "ignoreAdditionalDataOnValueRejected": true, "incrementOnly": true, "isPublic": false, "maximum": 0.8675410666785492, "minimum": 0.19207262531455693, "name": "2XcrciYNEzvSZIPk", "setAsGlobal": false, "setBy": "CLIENT", "statCode": "gORcz5S5BvmgBLxh", "tags": ["RSse6AAz3S4czz0Q", "4ijFnE3Tam69qSZ7", "PC6f6QkmZXElW9Yf"], "visibility": "SERVERONLY"}' \
+    --body '{"capCycleOverride": false, "cycleIds": ["DKKoxLE1Y3Dymtj3", "Hhhkg1yLVbLFzHEP", "giPg4x4yiPX6ues1"], "cycleOverrides": [{"cycleId": "8cM4NTwr0KHaAsmT", "maximum": 0.07754147475854134, "minimum": 0.15287156375859234}, {"cycleId": "52WKi6tArAURt9pl", "maximum": 0.45624912044356647, "minimum": 0.718511593089142}, {"cycleId": "Vq8PdH6hJPUAc0RV", "maximum": 0.3619279324621498, "minimum": 0.8004038449485363}], "defaultValue": 0.11183495026536894, "description": "AgntLMCuaXBWQi6B", "globalAggregationMethod": "MIN", "ignoreAdditionalDataOnValueRejected": true, "incrementOnly": true, "isPublic": false, "maximum": 0.8675410666785492, "minimum": 0.19207262531455693, "name": "2XcrciYNEzvSZIPk", "setAsGlobal": false, "setBy": "CLIENT", "statCode": "gORcz5S5BvmgBLxh", "tags": ["PC6f6QkmZXElW9Yf", "RSse6AAz3S4czz0Q", "4ijFnE3Tam69qSZ7"], "visibility": "SERVERONLY"}' \
     > test.out 2>&1
 eval_tap $? 73 'CreateStat1' test.out
 
@@ -694,7 +694,7 @@ eval_tap $? 92 'BulkUpdateUserStatItem' test.out
     --namespace "$AB_NAMESPACE" \
     --userId 'iqaZD63xe5rruJVf' \
     --additionalKey 'LGea0ZtlzUcuHAXz' \
-    --body '{"statCodes": ["0UV31MfuGaXsAuGs", "abxJWWSI1ECUo1NP", "ZaSHevO0TQNEI3kf"]}' \
+    --body '{"statCodes": ["abxJWWSI1ECUo1NP", "ZaSHevO0TQNEI3kf", "0UV31MfuGaXsAuGs"]}' \
     > test.out 2>&1
 eval_tap $? 93 'BulkGetOrDefaultByUserId' test.out
 

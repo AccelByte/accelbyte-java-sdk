@@ -62,14 +62,14 @@ public class GetUserGroupInformationPublicV1 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GroupMember wrapper = new GroupMember(sdk);
       final net.accelbyte.sdk.api.group.operations.group_member.GetUserGroupInformationPublicV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.group.operations.group_member.GetUserGroupInformationPublicV1
                   .builder()
                   .namespace(namespace)
                   .userId(userId)
                   .build();
       final ModelsGetUserGroupInformationResponseV1 response =
-          wrapper.getUserGroupInformationPublicV1(operation);
+          wrapper.getUserGroupInformationPublicV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

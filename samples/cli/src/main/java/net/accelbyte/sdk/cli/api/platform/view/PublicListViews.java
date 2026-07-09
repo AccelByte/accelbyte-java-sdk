@@ -71,14 +71,14 @@ public class PublicListViews implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final View wrapper = new View(sdk);
-      final net.accelbyte.sdk.api.platform.operations.view.PublicListViews operation =
+      final net.accelbyte.sdk.api.platform.operations.view.PublicListViews operationRequest =
           net.accelbyte.sdk.api.platform.operations.view.PublicListViews.builder()
               .namespace(namespace)
               .userId(userId)
               .language(language)
               .storeId(storeId)
               .build();
-      final List<ViewInfo> response = wrapper.publicListViews(operation);
+      final List<ViewInfo> response = wrapper.publicListViews(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

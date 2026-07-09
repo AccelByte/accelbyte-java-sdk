@@ -79,7 +79,7 @@ public class ListGameBinaryRecordsV1 implements Callable<Integer> {
       final PublicGameBinaryRecord wrapper = new PublicGameBinaryRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.public_game_binary_record
               .ListGameBinaryRecordsV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.public_game_binary_record
                   .ListGameBinaryRecordsV1.builder()
                   .namespace(namespace)
@@ -89,7 +89,7 @@ public class ListGameBinaryRecordsV1 implements Callable<Integer> {
                   .tags(tags)
                   .build();
       final ModelsListGameBinaryRecordsResponse response =
-          wrapper.listGameBinaryRecordsV1(operation);
+          wrapper.listGameBinaryRecordsV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

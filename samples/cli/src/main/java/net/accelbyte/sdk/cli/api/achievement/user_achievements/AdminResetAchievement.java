@@ -66,14 +66,14 @@ public class AdminResetAchievement implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserAchievements wrapper = new UserAchievements(sdk);
       final net.accelbyte.sdk.api.achievement.operations.user_achievements.AdminResetAchievement
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.achievement.operations.user_achievements.AdminResetAchievement
                   .builder()
                   .achievementCode(achievementCode)
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      wrapper.adminResetAchievement(operation);
+      wrapper.adminResetAchievement(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

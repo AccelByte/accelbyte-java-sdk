@@ -71,14 +71,15 @@ public class PublicUpdateProfile implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameProfile wrapper = new GameProfile(sdk);
-      final net.accelbyte.sdk.api.social.operations.game_profile.PublicUpdateProfile operation =
-          net.accelbyte.sdk.api.social.operations.game_profile.PublicUpdateProfile.builder()
-              .namespace(namespace)
-              .profileId(profileId)
-              .userId(userId)
-              .body(new ObjectMapper().readValue(body, GameProfileRequest.class))
-              .build();
-      final GameProfileInfo response = wrapper.publicUpdateProfile(operation);
+      final net.accelbyte.sdk.api.social.operations.game_profile.PublicUpdateProfile
+          operationRequest =
+              net.accelbyte.sdk.api.social.operations.game_profile.PublicUpdateProfile.builder()
+                  .namespace(namespace)
+                  .profileId(profileId)
+                  .userId(userId)
+                  .body(new ObjectMapper().readValue(body, GameProfileRequest.class))
+                  .build();
+      final GameProfileInfo response = wrapper.publicUpdateProfile(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

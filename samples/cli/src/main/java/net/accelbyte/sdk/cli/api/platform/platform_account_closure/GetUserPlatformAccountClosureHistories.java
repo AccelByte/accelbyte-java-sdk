@@ -64,14 +64,14 @@ public class GetUserPlatformAccountClosureHistories implements Callable<Integer>
       final PlatformAccountClosure wrapper = new PlatformAccountClosure(sdk);
       final net.accelbyte.sdk.api.platform.operations.platform_account_closure
               .GetUserPlatformAccountClosureHistories
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.platform_account_closure
                   .GetUserPlatformAccountClosureHistories.builder()
                   .namespace(namespace)
                   .userId(userId)
                   .build();
       final List<PlatformAccountClosureHistoryInfo> response =
-          wrapper.getUserPlatformAccountClosureHistories(operation);
+          wrapper.getUserPlatformAccountClosureHistories(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -70,14 +70,14 @@ public class AdminGenerateReportV4 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final DevicesV4 wrapper = new DevicesV4(sdk);
-      final net.accelbyte.sdk.api.iam.operations.devices_v4.AdminGenerateReportV4 operation =
+      final net.accelbyte.sdk.api.iam.operations.devices_v4.AdminGenerateReportV4 operationRequest =
           net.accelbyte.sdk.api.iam.operations.devices_v4.AdminGenerateReportV4.builder()
               .namespace(namespace)
               .endDate(endDate)
               .startDate(startDate)
               .deviceType(deviceType)
               .build();
-      wrapper.adminGenerateReportV4(operation);
+      wrapper.adminGenerateReportV4(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

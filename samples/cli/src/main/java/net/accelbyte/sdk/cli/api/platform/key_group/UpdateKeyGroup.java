@@ -66,13 +66,13 @@ public class UpdateKeyGroup implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final KeyGroup wrapper = new KeyGroup(sdk);
-      final net.accelbyte.sdk.api.platform.operations.key_group.UpdateKeyGroup operation =
+      final net.accelbyte.sdk.api.platform.operations.key_group.UpdateKeyGroup operationRequest =
           net.accelbyte.sdk.api.platform.operations.key_group.UpdateKeyGroup.builder()
               .keyGroupId(keyGroupId)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, KeyGroupUpdate.class))
               .build();
-      final KeyGroupInfo response = wrapper.updateKeyGroup(operation);
+      final KeyGroupInfo response = wrapper.updateKeyGroup(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

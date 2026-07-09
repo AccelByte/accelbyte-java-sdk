@@ -21,12 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateNotificationTopicV1Admin
  *
- * <p>Update topic information by topic name.
- *
- * <p>topic should be alphabets, no special char except underscore, uppercase and no spacing. for
- * example: TOPIC_TEST. Already existing topic can not be created
- *
- * <p>Action Code: 50216
+ * <p>Update notification topic information by topic name. Topic name must be uppercase alphabets
+ * and underscores only, no spaces or special characters (e.g. TOPIC_TEST).
  */
 @Getter
 @Setter

@@ -56,11 +56,11 @@ public class GetMyZipCode implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserProfile wrapper = new UserProfile(sdk);
-      final net.accelbyte.sdk.api.basic.operations.user_profile.GetMyZipCode operation =
+      final net.accelbyte.sdk.api.basic.operations.user_profile.GetMyZipCode operationRequest =
           net.accelbyte.sdk.api.basic.operations.user_profile.GetMyZipCode.builder()
               .namespace(namespace)
               .build();
-      final UserZipCode response = wrapper.getMyZipCode(operation);
+      final UserZipCode response = wrapper.getMyZipCode(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

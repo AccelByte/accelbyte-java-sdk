@@ -66,13 +66,14 @@ public class GetFollowedUsers implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicFollow wrapper = new PublicFollow(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.public_follow.GetFollowedUsers operation =
+      final net.accelbyte.sdk.api.ugc.operations.public_follow.GetFollowedUsers operationRequest =
           net.accelbyte.sdk.api.ugc.operations.public_follow.GetFollowedUsers.builder()
               .namespace(namespace)
               .limit(limit)
               .offset(offset)
               .build();
-      final ModelsPaginatedCreatorOverviewResponse response = wrapper.getFollowedUsers(operation);
+      final ModelsPaginatedCreatorOverviewResponse response =
+          wrapper.getFollowedUsers(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

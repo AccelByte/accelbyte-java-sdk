@@ -89,7 +89,7 @@ public class AdminListGlobalAchievements implements Callable<Integer> {
       final GlobalAchievements wrapper = new GlobalAchievements(sdk);
       final net.accelbyte.sdk.api.achievement.operations.global_achievements
               .AdminListGlobalAchievements
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.achievement.operations.global_achievements
                   .AdminListGlobalAchievements.builder()
                   .namespace(namespace)
@@ -101,7 +101,7 @@ public class AdminListGlobalAchievements implements Callable<Integer> {
                   .tags(tags)
                   .build();
       final ModelsPaginatedGlobalAchievementResponse response =
-          wrapper.adminListGlobalAchievements(operation);
+          wrapper.adminListGlobalAchievements(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -67,14 +67,14 @@ public class AdminDeleteUserLinkingHistoryByPlatformIDV3 implements Callable<Int
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
       final net.accelbyte.sdk.api.iam.operations.users.AdminDeleteUserLinkingHistoryByPlatformIDV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.users.AdminDeleteUserLinkingHistoryByPlatformIDV3
                   .builder()
                   .namespace(namespace)
                   .platformId(platformId)
                   .userId(userId)
                   .build();
-      wrapper.adminDeleteUserLinkingHistoryByPlatformIDV3(operation);
+      wrapper.adminDeleteUserLinkingHistoryByPlatformIDV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -63,13 +63,13 @@ public class UpdateSectionPluginConfig implements Callable<Integer> {
       final ServicePluginConfig wrapper = new ServicePluginConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.service_plugin_config
               .UpdateSectionPluginConfig
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.service_plugin_config
                   .UpdateSectionPluginConfig.builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, SectionPluginConfigUpdate.class))
                   .build();
-      final SectionPluginConfigInfo response = wrapper.updateSectionPluginConfig(operation);
+      final SectionPluginConfigInfo response = wrapper.updateSectionPluginConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

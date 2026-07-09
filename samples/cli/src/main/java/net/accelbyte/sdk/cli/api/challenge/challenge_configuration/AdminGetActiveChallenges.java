@@ -73,7 +73,7 @@ public class AdminGetActiveChallenges implements Callable<Integer> {
       final ChallengeConfiguration wrapper = new ChallengeConfiguration(sdk);
       final net.accelbyte.sdk.api.challenge.operations.challenge_configuration
               .AdminGetActiveChallenges
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.challenge.operations.challenge_configuration
                   .AdminGetActiveChallenges.builder()
                   .namespace(namespace)
@@ -81,7 +81,8 @@ public class AdminGetActiveChallenges implements Callable<Integer> {
                   .limit(limit)
                   .offset(offset)
                   .build();
-      final ModelListChallengeResponse response = wrapper.adminGetActiveChallenges(operation);
+      final ModelListChallengeResponse response =
+          wrapper.adminGetActiveChallenges(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

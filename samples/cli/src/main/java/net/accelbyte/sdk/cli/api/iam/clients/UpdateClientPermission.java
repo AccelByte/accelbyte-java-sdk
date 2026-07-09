@@ -61,12 +61,12 @@ public class UpdateClientPermission implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Clients wrapper = new Clients(sdk);
-      final net.accelbyte.sdk.api.iam.operations.clients.UpdateClientPermission operation =
+      final net.accelbyte.sdk.api.iam.operations.clients.UpdateClientPermission operationRequest =
           net.accelbyte.sdk.api.iam.operations.clients.UpdateClientPermission.builder()
               .clientId(clientId)
               .body(new ObjectMapper().readValue(body, AccountcommonClientPermissions.class))
               .build();
-      wrapper.updateClientPermission(operation);
+      wrapper.updateClientPermission(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -61,12 +61,12 @@ public class AdminResetSteamJobTime implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.AdminResetSteamJobTime operation =
+      final net.accelbyte.sdk.api.platform.operations.iap.AdminResetSteamJobTime operationRequest =
           net.accelbyte.sdk.api.platform.operations.iap.AdminResetSteamJobTime.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ResetJobRequest.class))
               .build();
-      final SteamReportJobInfo response = wrapper.adminResetSteamJobTime(operation);
+      final SteamReportJobInfo response = wrapper.adminResetSteamJobTime(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

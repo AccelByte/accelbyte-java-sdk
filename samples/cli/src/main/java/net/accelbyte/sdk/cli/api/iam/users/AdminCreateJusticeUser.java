@@ -66,13 +66,14 @@ public class AdminCreateJusticeUser implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.AdminCreateJusticeUser operation =
+      final net.accelbyte.sdk.api.iam.operations.users.AdminCreateJusticeUser operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.AdminCreateJusticeUser.builder()
               .namespace(namespace)
               .targetNamespace(targetNamespace)
               .userId(userId)
               .build();
-      final ModelCreateJusticeUserResponse response = wrapper.adminCreateJusticeUser(operation);
+      final ModelCreateJusticeUserResponse response =
+          wrapper.adminCreateJusticeUser(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

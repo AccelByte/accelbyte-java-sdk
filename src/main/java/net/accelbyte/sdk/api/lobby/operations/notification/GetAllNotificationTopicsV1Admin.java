@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getAllNotificationTopicsV1Admin
  *
- * <p>Get topic by namespace.
- *
- * <p>Action Code: 50213
+ * <p>Get all notification topics in a namespace.
  */
 @Getter
 @Setter

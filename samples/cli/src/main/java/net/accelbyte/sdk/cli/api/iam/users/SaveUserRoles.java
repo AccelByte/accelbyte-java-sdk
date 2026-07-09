@@ -67,13 +67,13 @@ public class SaveUserRoles implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.SaveUserRoles operation =
+      final net.accelbyte.sdk.api.iam.operations.users.SaveUserRoles operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.SaveUserRoles.builder()
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, new TypeReference<List<String>>() {}))
               .build();
-      wrapper.saveUserRoles(operation);
+      wrapper.saveUserRoles(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

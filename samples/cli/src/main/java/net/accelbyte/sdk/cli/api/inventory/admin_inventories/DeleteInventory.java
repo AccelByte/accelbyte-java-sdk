@@ -66,13 +66,14 @@ public class DeleteInventory implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminInventories wrapper = new AdminInventories(sdk);
-      final net.accelbyte.sdk.api.inventory.operations.admin_inventories.DeleteInventory operation =
-          net.accelbyte.sdk.api.inventory.operations.admin_inventories.DeleteInventory.builder()
-              .inventoryId(inventoryId)
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ApimodelsDeleteInventoryReq.class))
-              .build();
-      wrapper.deleteInventory(operation);
+      final net.accelbyte.sdk.api.inventory.operations.admin_inventories.DeleteInventory
+          operationRequest =
+              net.accelbyte.sdk.api.inventory.operations.admin_inventories.DeleteInventory.builder()
+                  .inventoryId(inventoryId)
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, ApimodelsDeleteInventoryReq.class))
+                  .build();
+      wrapper.deleteInventory(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

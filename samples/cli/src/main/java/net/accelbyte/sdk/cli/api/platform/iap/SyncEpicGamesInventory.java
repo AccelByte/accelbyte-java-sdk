@@ -66,13 +66,14 @@ public class SyncEpicGamesInventory implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.SyncEpicGamesInventory operation =
+      final net.accelbyte.sdk.api.platform.operations.iap.SyncEpicGamesInventory operationRequest =
           net.accelbyte.sdk.api.platform.operations.iap.SyncEpicGamesInventory.builder()
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, EpicGamesReconcileRequest.class))
               .build();
-      final List<EpicGamesReconcileResult> response = wrapper.syncEpicGamesInventory(operation);
+      final List<EpicGamesReconcileResult> response =
+          wrapper.syncEpicGamesInventory(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -61,13 +61,13 @@ public class DeleteGameRecordTTLConfig implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final TTLConfig wrapper = new TTLConfig(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.ttl_config.DeleteGameRecordTTLConfig
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.ttl_config.DeleteGameRecordTTLConfig
                   .builder()
                   .key(key)
                   .namespace(namespace)
                   .build();
-      wrapper.deleteGameRecordTTLConfig(operation);
+      wrapper.deleteGameRecordTTLConfig(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

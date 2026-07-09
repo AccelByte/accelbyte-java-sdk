@@ -71,14 +71,14 @@ public class UpdateView implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final View wrapper = new View(sdk);
-      final net.accelbyte.sdk.api.platform.operations.view.UpdateView operation =
+      final net.accelbyte.sdk.api.platform.operations.view.UpdateView operationRequest =
           net.accelbyte.sdk.api.platform.operations.view.UpdateView.builder()
               .namespace(namespace)
               .viewId(viewId)
               .storeId(storeId)
               .body(new ObjectMapper().readValue(body, ViewUpdate.class))
               .build();
-      final FullViewInfo response = wrapper.updateView(operation);
+      final FullViewInfo response = wrapper.updateView(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

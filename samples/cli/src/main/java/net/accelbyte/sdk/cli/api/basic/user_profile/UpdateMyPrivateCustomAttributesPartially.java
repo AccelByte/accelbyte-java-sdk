@@ -65,13 +65,14 @@ public class UpdateMyPrivateCustomAttributesPartially implements Callable<Intege
       final UserProfile wrapper = new UserProfile(sdk);
       final net.accelbyte.sdk.api.basic.operations.user_profile
               .UpdateMyPrivateCustomAttributesPartially
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.basic.operations.user_profile
                   .UpdateMyPrivateCustomAttributesPartially.builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, new TypeReference<Map<String, ?>>() {}))
                   .build();
-      final Map<String, ?> response = wrapper.updateMyPrivateCustomAttributesPartially(operation);
+      final Map<String, ?> response =
+          wrapper.updateMyPrivateCustomAttributesPartially(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

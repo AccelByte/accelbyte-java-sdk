@@ -69,7 +69,7 @@ public class AdminUpdatePlatformAccountClosureClient implements Callable<Integer
       final PlatformAccountClosureClient wrapper = new PlatformAccountClosureClient(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.platform_account_closure_client
               .AdminUpdatePlatformAccountClosureClient
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.platform_account_closure_client
                   .AdminUpdatePlatformAccountClosureClient.builder()
                   .namespace(namespace)
@@ -78,7 +78,7 @@ public class AdminUpdatePlatformAccountClosureClient implements Callable<Integer
                       new ObjectMapper()
                           .readValue(body, DtoPlatformAccountClosureClientRequest.class))
                   .build();
-      wrapper.adminUpdatePlatformAccountClosureClient(operation);
+      wrapper.adminUpdatePlatformAccountClosureClient(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

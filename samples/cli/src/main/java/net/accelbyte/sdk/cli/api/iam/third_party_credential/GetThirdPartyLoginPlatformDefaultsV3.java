@@ -59,13 +59,13 @@ public class GetThirdPartyLoginPlatformDefaultsV3 implements Callable<Integer> {
       final ThirdPartyCredential wrapper = new ThirdPartyCredential(sdk);
       final net.accelbyte.sdk.api.iam.operations.third_party_credential
               .GetThirdPartyLoginPlatformDefaultsV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.third_party_credential
                   .GetThirdPartyLoginPlatformDefaultsV3.builder()
                   .platformId(platformId)
                   .build();
       final ModelPlatformDefaultsResponse response =
-          wrapper.getThirdPartyLoginPlatformDefaultsV3(operation);
+          wrapper.getThirdPartyLoginPlatformDefaultsV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

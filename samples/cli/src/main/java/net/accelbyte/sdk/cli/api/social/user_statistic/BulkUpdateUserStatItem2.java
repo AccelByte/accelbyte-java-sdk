@@ -73,7 +73,7 @@ public class BulkUpdateUserStatItem2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserStatistic wrapper = new UserStatistic(sdk);
       final net.accelbyte.sdk.api.social.operations.user_statistic.BulkUpdateUserStatItem2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.social.operations.user_statistic.BulkUpdateUserStatItem2
                   .builder()
                   .namespace(namespace)
@@ -83,7 +83,8 @@ public class BulkUpdateUserStatItem2 implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, new TypeReference<List<BulkStatItemUpdate>>() {}))
                   .build();
-      final List<BulkStatOperationResult> response = wrapper.bulkUpdateUserStatItem2(operation);
+      final List<BulkStatOperationResult> response =
+          wrapper.bulkUpdateUserStatItem2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

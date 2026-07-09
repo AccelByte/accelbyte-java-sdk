@@ -69,7 +69,7 @@ public class CreateLocalizedPolicyVersion implements Callable<Integer> {
           new LocalizedPolicyVersionsWithNamespace(sdk);
       final net.accelbyte.sdk.api.legal.operations.localized_policy_versions_with_namespace
               .CreateLocalizedPolicyVersion
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.localized_policy_versions_with_namespace
                   .CreateLocalizedPolicyVersion.builder()
                   .namespace(namespace)
@@ -78,7 +78,7 @@ public class CreateLocalizedPolicyVersion implements Callable<Integer> {
                       new ObjectMapper().readValue(body, CreateLocalizedPolicyVersionRequest.class))
                   .build();
       final CreateLocalizedPolicyVersionResponse response =
-          wrapper.createLocalizedPolicyVersion(operation);
+          wrapper.createLocalizedPolicyVersion(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

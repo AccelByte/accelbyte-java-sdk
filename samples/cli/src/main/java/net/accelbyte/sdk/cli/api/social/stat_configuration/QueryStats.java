@@ -81,7 +81,7 @@ public class QueryStats implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final StatConfiguration wrapper = new StatConfiguration(sdk);
-      final net.accelbyte.sdk.api.social.operations.stat_configuration.QueryStats operation =
+      final net.accelbyte.sdk.api.social.operations.stat_configuration.QueryStats operationRequest =
           net.accelbyte.sdk.api.social.operations.stat_configuration.QueryStats.builder()
               .namespace(namespace)
               .isGlobal(isGlobal)
@@ -90,7 +90,7 @@ public class QueryStats implements Callable<Integer> {
               .offset(offset)
               .keyword(keyword)
               .build();
-      final StatPagingSlicedResult response = wrapper.queryStats(operation);
+      final StatPagingSlicedResult response = wrapper.queryStats(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

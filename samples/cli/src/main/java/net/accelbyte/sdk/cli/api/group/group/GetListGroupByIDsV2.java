@@ -61,12 +61,12 @@ public class GetListGroupByIDsV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Group wrapper = new Group(sdk);
-      final net.accelbyte.sdk.api.group.operations.group.GetListGroupByIDsV2 operation =
+      final net.accelbyte.sdk.api.group.operations.group.GetListGroupByIDsV2 operationRequest =
           net.accelbyte.sdk.api.group.operations.group.GetListGroupByIDsV2.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelsGetGroupListRequestV2.class))
               .build();
-      final ModelsGetGroupsResponseV1 response = wrapper.getListGroupByIDsV2(operation);
+      final ModelsGetGroupsResponseV1 response = wrapper.getListGroupByIDsV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

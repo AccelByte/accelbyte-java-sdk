@@ -62,13 +62,13 @@ public class AdminDeleteGameRecordHandlerV1 implements Callable<Integer> {
       final AdminGameRecord wrapper = new AdminGameRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.admin_game_record
               .AdminDeleteGameRecordHandlerV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.admin_game_record
                   .AdminDeleteGameRecordHandlerV1.builder()
                   .key(key)
                   .namespace(namespace)
                   .build();
-      wrapper.adminDeleteGameRecordHandlerV1(operation);
+      wrapper.adminDeleteGameRecordHandlerV1(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

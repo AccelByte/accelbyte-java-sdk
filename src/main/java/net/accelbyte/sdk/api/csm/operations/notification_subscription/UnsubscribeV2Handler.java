@@ -20,9 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UnsubscribeV2Handler
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP:ALERT:SELF:SUBSCRIPTION
- * [DELETE]`
- *
  * <p>Unsubscribe to app notification
  */
 @Getter

@@ -82,16 +82,17 @@ public class QueryUncategorizedItems implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Item wrapper = new Item(sdk);
-      final net.accelbyte.sdk.api.platform.operations.item.QueryUncategorizedItems operation =
-          net.accelbyte.sdk.api.platform.operations.item.QueryUncategorizedItems.builder()
-              .namespace(namespace)
-              .activeOnly(activeOnly)
-              .limit(limit)
-              .offset(offset)
-              .sortBy(sortBy)
-              .storeId(storeId)
-              .build();
-      final FullItemPagingSlicedResult response = wrapper.queryUncategorizedItems(operation);
+      final net.accelbyte.sdk.api.platform.operations.item.QueryUncategorizedItems
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.item.QueryUncategorizedItems.builder()
+                  .namespace(namespace)
+                  .activeOnly(activeOnly)
+                  .limit(limit)
+                  .offset(offset)
+                  .sortBy(sortBy)
+                  .storeId(storeId)
+                  .build();
+      final FullItemPagingSlicedResult response = wrapper.queryUncategorizedItems(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminUpdateGlobalConfiguration
  *
- * <p>Upsert global configuration data.
+ * <p>Creates or replaces the global configuration. If no configuration exists, a new one is
+ * created. All provided fields are applied.
  */
 @Getter
 @Setter

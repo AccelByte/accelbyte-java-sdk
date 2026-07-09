@@ -60,12 +60,12 @@ public class LoginSSOClient implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final SSO wrapper = new SSO(sdk);
-      final net.accelbyte.sdk.api.iam.operations.sso.LoginSSOClient operation =
+      final net.accelbyte.sdk.api.iam.operations.sso.LoginSSOClient operationRequest =
           net.accelbyte.sdk.api.iam.operations.sso.LoginSSOClient.builder()
               .platformId(platformId)
               .payload(payload)
               .build();
-      wrapper.loginSSOClient(operation);
+      wrapper.loginSSOClient(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

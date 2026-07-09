@@ -66,13 +66,13 @@ public class AdminSendChat implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Topic wrapper = new Topic(sdk);
-      final net.accelbyte.sdk.api.chat.operations.topic.AdminSendChat operation =
+      final net.accelbyte.sdk.api.chat.operations.topic.AdminSendChat operationRequest =
           net.accelbyte.sdk.api.chat.operations.topic.AdminSendChat.builder()
               .namespace(namespace)
               .topic(topic)
               .body(new ObjectMapper().readValue(body, ApiSendChatParams.class))
               .build();
-      final List<ModelsChatMessageResponse> response = wrapper.adminSendChat(operation);
+      final List<ModelsChatMessageResponse> response = wrapper.adminSendChat(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

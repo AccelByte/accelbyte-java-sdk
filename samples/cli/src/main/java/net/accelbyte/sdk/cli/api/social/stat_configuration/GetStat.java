@@ -61,12 +61,12 @@ public class GetStat implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final StatConfiguration wrapper = new StatConfiguration(sdk);
-      final net.accelbyte.sdk.api.social.operations.stat_configuration.GetStat operation =
+      final net.accelbyte.sdk.api.social.operations.stat_configuration.GetStat operationRequest =
           net.accelbyte.sdk.api.social.operations.stat_configuration.GetStat.builder()
               .namespace(namespace)
               .statCode(statCode)
               .build();
-      final StatInfo response = wrapper.getStat(operation);
+      final StatInfo response = wrapper.getStat(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

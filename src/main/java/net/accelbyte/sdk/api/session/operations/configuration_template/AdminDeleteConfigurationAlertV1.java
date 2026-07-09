@@ -20,7 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminDeleteConfigurationAlertV1
  *
- * <p>Delete configuration alert.
+ * <p>Deletes the configuration alert for the specified namespace. After deletion, no alerts are
+ * generated for session configuration issues.
  */
 @Getter
 @Setter

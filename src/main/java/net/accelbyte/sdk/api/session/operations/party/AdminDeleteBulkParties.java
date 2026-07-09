@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminDeleteBulkParties
  *
- * <p>Delete bulk parties.
+ * <p>Permanently deletes multiple party sessions by their IDs. Returns a summary of deleted and
+ * failed sessions.
  */
 @Getter
 @Setter

@@ -60,12 +60,12 @@ public class DeleteConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Config wrapper = new Config(sdk);
-      final net.accelbyte.sdk.api.basic.operations.config.DeleteConfig operation =
+      final net.accelbyte.sdk.api.basic.operations.config.DeleteConfig operationRequest =
           net.accelbyte.sdk.api.basic.operations.config.DeleteConfig.builder()
               .configKey(configKey)
               .namespace(namespace)
               .build();
-      wrapper.deleteConfig(operation);
+      wrapper.deleteConfig(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

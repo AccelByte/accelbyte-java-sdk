@@ -61,12 +61,14 @@ public class AdminGetContentBulk implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminContent wrapper = new AdminContent(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.admin_content.AdminGetContentBulk operation =
-          net.accelbyte.sdk.api.ugc.operations.admin_content.AdminGetContentBulk.builder()
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ModelsAdminGetContentBulkRequest.class))
-              .build();
-      final List<ModelsContentDownloadResponse> response = wrapper.adminGetContentBulk(operation);
+      final net.accelbyte.sdk.api.ugc.operations.admin_content.AdminGetContentBulk
+          operationRequest =
+              net.accelbyte.sdk.api.ugc.operations.admin_content.AdminGetContentBulk.builder()
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, ModelsAdminGetContentBulkRequest.class))
+                  .build();
+      final List<ModelsContentDownloadResponse> response =
+          wrapper.adminGetContentBulk(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

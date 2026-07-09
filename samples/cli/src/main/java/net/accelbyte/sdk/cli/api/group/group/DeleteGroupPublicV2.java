@@ -60,12 +60,12 @@ public class DeleteGroupPublicV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Group wrapper = new Group(sdk);
-      final net.accelbyte.sdk.api.group.operations.group.DeleteGroupPublicV2 operation =
+      final net.accelbyte.sdk.api.group.operations.group.DeleteGroupPublicV2 operationRequest =
           net.accelbyte.sdk.api.group.operations.group.DeleteGroupPublicV2.builder()
               .groupId(groupId)
               .namespace(namespace)
               .build();
-      wrapper.deleteGroupPublicV2(operation);
+      wrapper.deleteGroupPublicV2(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

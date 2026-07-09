@@ -44,6 +44,10 @@ public class ModelsPublicConfigResponse extends Model {
   @JsonProperty("maxChatMessageLength")
   private Integer maxChatMessageLength;
 
+  @JsonProperty("maxChatMetadataSize")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Integer maxChatMetadataSize;
+
   @JsonProperty("spamChatBurst")
   private Integer spamChatBurst;
 

@@ -62,13 +62,13 @@ public class AdminReadSessionStorage implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final SessionStorage wrapper = new SessionStorage(sdk);
       final net.accelbyte.sdk.api.session.operations.session_storage.AdminReadSessionStorage
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.session_storage.AdminReadSessionStorage
                   .builder()
                   .namespace(namespace)
                   .sessionId(sessionId)
                   .build();
-      final Map<String, ?> response = wrapper.adminReadSessionStorage(operation);
+      final Map<String, ?> response = wrapper.adminReadSessionStorage(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

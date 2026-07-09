@@ -66,13 +66,14 @@ public class PostMatchErrorMetric implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final MatchPools wrapper = new MatchPools(sdk);
-      final net.accelbyte.sdk.api.match2.operations.match_pools.PostMatchErrorMetric operation =
-          net.accelbyte.sdk.api.match2.operations.match_pools.PostMatchErrorMetric.builder()
-              .namespace(namespace)
-              .pool(pool)
-              .body(new ObjectMapper().readValue(body, ApiExternalFailureMetricRecord.class))
-              .build();
-      wrapper.postMatchErrorMetric(operation);
+      final net.accelbyte.sdk.api.match2.operations.match_pools.PostMatchErrorMetric
+          operationRequest =
+              net.accelbyte.sdk.api.match2.operations.match_pools.PostMatchErrorMetric.builder()
+                  .namespace(namespace)
+                  .pool(pool)
+                  .body(new ObjectMapper().readValue(body, ApiExternalFailureMetricRecord.class))
+                  .build();
+      wrapper.postMatchErrorMetric(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -76,7 +76,7 @@ public class QueryCampaigns implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Campaign wrapper = new Campaign(sdk);
-      final net.accelbyte.sdk.api.platform.operations.campaign.QueryCampaigns operation =
+      final net.accelbyte.sdk.api.platform.operations.campaign.QueryCampaigns operationRequest =
           net.accelbyte.sdk.api.platform.operations.campaign.QueryCampaigns.builder()
               .namespace(namespace)
               .limit(limit)
@@ -84,7 +84,7 @@ public class QueryCampaigns implements Callable<Integer> {
               .offset(offset)
               .tag(tag)
               .build();
-      final CampaignPagingSlicedResult response = wrapper.queryCampaigns(operation);
+      final CampaignPagingSlicedResult response = wrapper.queryCampaigns(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

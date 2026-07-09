@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateNoSQLClusterV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:NOSQL:CLUSTERS [CREATE]`
- *
  * <p>Provision NoSQL database cluster and instances that can be used by extend apps in game
  * namespace within the studio. Only one NoSQL resource can be created for one studio/publisher
  * namespace.

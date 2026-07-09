@@ -66,13 +66,13 @@ public class BulkDeleteFriends implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Friends wrapper = new Friends(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.friends.BulkDeleteFriends operation =
+      final net.accelbyte.sdk.api.lobby.operations.friends.BulkDeleteFriends operationRequest =
           net.accelbyte.sdk.api.lobby.operations.friends.BulkDeleteFriends.builder()
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, ModelBulkFriendsRequest.class))
               .build();
-      final ModelBulkFriendsResponse response = wrapper.bulkDeleteFriends(operation);
+      final ModelBulkFriendsResponse response = wrapper.bulkDeleteFriends(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

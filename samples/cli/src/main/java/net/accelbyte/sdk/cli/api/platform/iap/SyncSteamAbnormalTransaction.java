@@ -61,12 +61,13 @@ public class SyncSteamAbnormalTransaction implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.SyncSteamAbnormalTransaction operation =
-          net.accelbyte.sdk.api.platform.operations.iap.SyncSteamAbnormalTransaction.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .build();
-      final IAPOrderShortInfo response = wrapper.syncSteamAbnormalTransaction(operation);
+      final net.accelbyte.sdk.api.platform.operations.iap.SyncSteamAbnormalTransaction
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.iap.SyncSteamAbnormalTransaction.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .build();
+      final IAPOrderShortInfo response = wrapper.syncSteamAbnormalTransaction(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

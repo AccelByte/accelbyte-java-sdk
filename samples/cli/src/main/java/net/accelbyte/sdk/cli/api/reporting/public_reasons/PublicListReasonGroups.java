@@ -67,14 +67,15 @@ public class PublicListReasonGroups implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicReasons wrapper = new PublicReasons(sdk);
       final net.accelbyte.sdk.api.reporting.operations.public_reasons.PublicListReasonGroups
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.reporting.operations.public_reasons.PublicListReasonGroups
                   .builder()
                   .namespace(namespace)
                   .limit(limit)
                   .offset(offset)
                   .build();
-      final RestapiReasonGroupListResponse response = wrapper.publicListReasonGroups(operation);
+      final RestapiReasonGroupListResponse response =
+          wrapper.publicListReasonGroups(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

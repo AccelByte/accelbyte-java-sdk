@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminQueryGameSessions
  *
- * <p>Get all game sessions.
+ * <p>Returns paginated list of game sessions matching the provided filter criteria. Supports
+ * filtering by namespace, status, members, and joinability.
  */
 @Getter
 @Setter

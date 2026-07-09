@@ -72,7 +72,7 @@ public class AdminGetListNativeSession implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final NativeSession wrapper = new NativeSession(sdk);
       final net.accelbyte.sdk.api.session.operations.native_session.AdminGetListNativeSession
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.native_session.AdminGetListNativeSession
                   .builder()
                   .namespace(namespace)
@@ -81,7 +81,7 @@ public class AdminGetListNativeSession implements Callable<Integer> {
                   .order(order)
                   .build();
       final ApimodelsNativeSessionPagingResponse response =
-          wrapper.adminGetListNativeSession(operation);
+          wrapper.adminGetListNativeSession(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -61,12 +61,12 @@ public class GetCurrencySummary implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Currency wrapper = new Currency(sdk);
-      final net.accelbyte.sdk.api.platform.operations.currency.GetCurrencySummary operation =
+      final net.accelbyte.sdk.api.platform.operations.currency.GetCurrencySummary operationRequest =
           net.accelbyte.sdk.api.platform.operations.currency.GetCurrencySummary.builder()
               .currencyCode(currencyCode)
               .namespace(namespace)
               .build();
-      final CurrencySummary response = wrapper.getCurrencySummary(operation);
+      final CurrencySummary response = wrapper.getCurrencySummary(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

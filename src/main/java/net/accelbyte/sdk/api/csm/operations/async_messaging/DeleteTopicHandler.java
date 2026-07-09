@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteTopicHandler
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:ASYNCMESSAGING:TOPICS [DELETE]`
- *
  * <p>Delete Async Messaging Topic inside a game namespace given its topic name.
  */
 @Getter

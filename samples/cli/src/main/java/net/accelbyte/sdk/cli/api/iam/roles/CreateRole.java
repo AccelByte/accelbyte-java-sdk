@@ -56,11 +56,11 @@ public class CreateRole implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Roles wrapper = new Roles(sdk);
-      final net.accelbyte.sdk.api.iam.operations.roles.CreateRole operation =
+      final net.accelbyte.sdk.api.iam.operations.roles.CreateRole operationRequest =
           net.accelbyte.sdk.api.iam.operations.roles.CreateRole.builder()
               .body(new ObjectMapper().readValue(body, ModelRoleCreateRequest.class))
               .build();
-      final AccountcommonRole response = wrapper.createRole(operation);
+      final AccountcommonRole response = wrapper.createRole(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -32,7 +32,7 @@ public class AdminConsumeUserItem extends Operation {
       "/inventory/v1/admin/namespaces/{namespace}/users/{userId}/inventories/{inventoryId}/consume";
 
   private String method = "POST";
-  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
 

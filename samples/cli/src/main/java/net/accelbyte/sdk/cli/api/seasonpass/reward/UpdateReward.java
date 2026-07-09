@@ -71,14 +71,14 @@ public class UpdateReward implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Reward wrapper = new Reward(sdk);
-      final net.accelbyte.sdk.api.seasonpass.operations.reward.UpdateReward operation =
+      final net.accelbyte.sdk.api.seasonpass.operations.reward.UpdateReward operationRequest =
           net.accelbyte.sdk.api.seasonpass.operations.reward.UpdateReward.builder()
               .code(code)
               .namespace(namespace)
               .seasonId(seasonId)
               .body(new ObjectMapper().readValue(body, RewardUpdate.class))
               .build();
-      final RewardInfo response = wrapper.updateReward(operation);
+      final RewardInfo response = wrapper.updateReward(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

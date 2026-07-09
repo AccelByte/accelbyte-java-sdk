@@ -63,14 +63,14 @@ public class AdminGetRoleNamespacePermissionV3 implements Callable<Integer> {
       final OverrideRoleConfigV3 wrapper = new OverrideRoleConfigV3(sdk);
       final net.accelbyte.sdk.api.iam.operations.override_role_config_v3
               .AdminGetRoleNamespacePermissionV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.override_role_config_v3
                   .AdminGetRoleNamespacePermissionV3.builder()
                   .namespace(namespace)
                   .roleId(roleId)
                   .build();
       final ModelRolePermissionResponseV3 response =
-          wrapper.adminGetRoleNamespacePermissionV3(operation);
+          wrapper.adminGetRoleNamespacePermissionV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

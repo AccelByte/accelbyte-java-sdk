@@ -20,7 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminDeleteGlobalConfiguration
  *
- * <p>Delete of global configuration data.
+ * <p>Deletes the global configuration. After deletion, the service falls back to default
+ * configuration values.
  */
 @Getter
 @Setter

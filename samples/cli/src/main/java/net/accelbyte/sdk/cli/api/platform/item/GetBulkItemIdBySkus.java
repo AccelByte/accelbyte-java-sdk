@@ -67,13 +67,13 @@ public class GetBulkItemIdBySkus implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Item wrapper = new Item(sdk);
-      final net.accelbyte.sdk.api.platform.operations.item.GetBulkItemIdBySkus operation =
+      final net.accelbyte.sdk.api.platform.operations.item.GetBulkItemIdBySkus operationRequest =
           net.accelbyte.sdk.api.platform.operations.item.GetBulkItemIdBySkus.builder()
               .namespace(namespace)
               .sku(sku)
               .storeId(storeId)
               .build();
-      final List<ItemId> response = wrapper.getBulkItemIdBySkus(operation);
+      final List<ItemId> response = wrapper.getBulkItemIdBySkus(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -20,8 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetExtendFile
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:FILES [READ]`
- *
  * <p>Serves static files provided for extend features, for example: serving App UI files. Files are
  * served with immutable caching headers.
  */

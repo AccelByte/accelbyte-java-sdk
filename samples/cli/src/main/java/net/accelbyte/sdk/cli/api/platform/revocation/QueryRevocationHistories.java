@@ -97,7 +97,7 @@ public class QueryRevocationHistories implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Revocation wrapper = new Revocation(sdk);
       final net.accelbyte.sdk.api.platform.operations.revocation.QueryRevocationHistories
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.revocation.QueryRevocationHistories
                   .builder()
                   .namespace(namespace)
@@ -111,7 +111,7 @@ public class QueryRevocationHistories implements Callable<Integer> {
                   .userId(userId)
                   .build();
       final RevocationHistoryPagingSlicedResult response =
-          wrapper.queryRevocationHistories(operation);
+          wrapper.queryRevocationHistories(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

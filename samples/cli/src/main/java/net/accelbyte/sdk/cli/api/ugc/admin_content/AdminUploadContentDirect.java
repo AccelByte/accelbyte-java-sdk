@@ -66,13 +66,15 @@ public class AdminUploadContentDirect implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminContent wrapper = new AdminContent(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.admin_content.AdminUploadContentDirect operation =
-          net.accelbyte.sdk.api.ugc.operations.admin_content.AdminUploadContentDirect.builder()
-              .channelId(channelId)
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ModelsCreateContentRequest.class))
-              .build();
-      final ModelsCreateContentResponse response = wrapper.adminUploadContentDirect(operation);
+      final net.accelbyte.sdk.api.ugc.operations.admin_content.AdminUploadContentDirect
+          operationRequest =
+              net.accelbyte.sdk.api.ugc.operations.admin_content.AdminUploadContentDirect.builder()
+                  .channelId(channelId)
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, ModelsCreateContentRequest.class))
+                  .build();
+      final ModelsCreateContentResponse response =
+          wrapper.adminUploadContentDirect(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

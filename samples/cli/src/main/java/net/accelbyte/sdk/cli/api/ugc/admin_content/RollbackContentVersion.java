@@ -66,13 +66,15 @@ public class RollbackContentVersion implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminContent wrapper = new AdminContent(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.admin_content.RollbackContentVersion operation =
-          net.accelbyte.sdk.api.ugc.operations.admin_content.RollbackContentVersion.builder()
-              .contentId(contentId)
-              .namespace(namespace)
-              .versionId(versionId)
-              .build();
-      final ModelsContentDownloadResponse response = wrapper.rollbackContentVersion(operation);
+      final net.accelbyte.sdk.api.ugc.operations.admin_content.RollbackContentVersion
+          operationRequest =
+              net.accelbyte.sdk.api.ugc.operations.admin_content.RollbackContentVersion.builder()
+                  .contentId(contentId)
+                  .namespace(namespace)
+                  .versionId(versionId)
+                  .build();
+      final ModelsContentDownloadResponse response =
+          wrapper.rollbackContentVersion(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

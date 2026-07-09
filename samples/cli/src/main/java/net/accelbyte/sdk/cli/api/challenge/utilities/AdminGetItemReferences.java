@@ -61,12 +61,13 @@ public class AdminGetItemReferences implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Utilities wrapper = new Utilities(sdk);
-      final net.accelbyte.sdk.api.challenge.operations.utilities.AdminGetItemReferences operation =
-          net.accelbyte.sdk.api.challenge.operations.utilities.AdminGetItemReferences.builder()
-              .namespace(namespace)
-              .itemId(itemId)
-              .build();
-      final ModelItemReferenceResponse response = wrapper.adminGetItemReferences(operation);
+      final net.accelbyte.sdk.api.challenge.operations.utilities.AdminGetItemReferences
+          operationRequest =
+              net.accelbyte.sdk.api.challenge.operations.utilities.AdminGetItemReferences.builder()
+                  .namespace(namespace)
+                  .itemId(itemId)
+                  .build();
+      final ModelItemReferenceResponse response = wrapper.adminGetItemReferences(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

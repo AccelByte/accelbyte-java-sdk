@@ -61,12 +61,12 @@ public class GetCampaign implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Campaign wrapper = new Campaign(sdk);
-      final net.accelbyte.sdk.api.platform.operations.campaign.GetCampaign operation =
+      final net.accelbyte.sdk.api.platform.operations.campaign.GetCampaign operationRequest =
           net.accelbyte.sdk.api.platform.operations.campaign.GetCampaign.builder()
               .campaignId(campaignId)
               .namespace(namespace)
               .build();
-      final CampaignInfo response = wrapper.getCampaign(operation);
+      final CampaignInfo response = wrapper.getCampaign(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

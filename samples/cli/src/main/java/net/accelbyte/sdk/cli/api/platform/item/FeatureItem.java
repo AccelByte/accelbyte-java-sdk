@@ -71,14 +71,14 @@ public class FeatureItem implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Item wrapper = new Item(sdk);
-      final net.accelbyte.sdk.api.platform.operations.item.FeatureItem operation =
+      final net.accelbyte.sdk.api.platform.operations.item.FeatureItem operationRequest =
           net.accelbyte.sdk.api.platform.operations.item.FeatureItem.builder()
               .feature(feature)
               .itemId(itemId)
               .namespace(namespace)
               .storeId(storeId)
               .build();
-      final FullItemInfo response = wrapper.featureItem(operation);
+      final FullItemInfo response = wrapper.featureItem(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

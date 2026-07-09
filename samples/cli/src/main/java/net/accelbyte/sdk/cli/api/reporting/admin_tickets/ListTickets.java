@@ -96,7 +96,7 @@ public class ListTickets implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminTickets wrapper = new AdminTickets(sdk);
-      final net.accelbyte.sdk.api.reporting.operations.admin_tickets.ListTickets operation =
+      final net.accelbyte.sdk.api.reporting.operations.admin_tickets.ListTickets operationRequest =
           net.accelbyte.sdk.api.reporting.operations.admin_tickets.ListTickets.builder()
               .namespace(namespace)
               .category(category)
@@ -108,7 +108,7 @@ public class ListTickets implements Callable<Integer> {
               .sortBy(sortBy)
               .status(status)
               .build();
-      final RestapiTicketListResponse response = wrapper.listTickets(operation);
+      final RestapiTicketListResponse response = wrapper.listTickets(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -61,12 +61,13 @@ public class PublicVerifyRegistrationCode implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.PublicVerifyRegistrationCode operation =
-          net.accelbyte.sdk.api.iam.operations.users.PublicVerifyRegistrationCode.builder()
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ModelVerifyRegistrationCode.class))
-              .build();
-      wrapper.publicVerifyRegistrationCode(operation);
+      final net.accelbyte.sdk.api.iam.operations.users.PublicVerifyRegistrationCode
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.users.PublicVerifyRegistrationCode.builder()
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, ModelVerifyRegistrationCode.class))
+                  .build();
+      wrapper.publicVerifyRegistrationCode(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

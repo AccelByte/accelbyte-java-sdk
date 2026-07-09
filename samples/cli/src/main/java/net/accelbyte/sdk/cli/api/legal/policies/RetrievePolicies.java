@@ -56,11 +56,11 @@ public class RetrievePolicies implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Policies wrapper = new Policies(sdk);
-      final net.accelbyte.sdk.api.legal.operations.policies.RetrievePolicies operation =
+      final net.accelbyte.sdk.api.legal.operations.policies.RetrievePolicies operationRequest =
           net.accelbyte.sdk.api.legal.operations.policies.RetrievePolicies.builder()
               .countryCode(countryCode)
               .build();
-      final List<RetrievePolicyResponse> response = wrapper.retrievePolicies(operation);
+      final List<RetrievePolicyResponse> response = wrapper.retrievePolicies(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

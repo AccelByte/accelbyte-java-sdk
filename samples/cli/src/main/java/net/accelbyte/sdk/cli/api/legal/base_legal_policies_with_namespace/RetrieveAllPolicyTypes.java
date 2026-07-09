@@ -68,14 +68,15 @@ public class RetrieveAllPolicyTypes implements Callable<Integer> {
       final BaseLegalPoliciesWithNamespace wrapper = new BaseLegalPoliciesWithNamespace(sdk);
       final net.accelbyte.sdk.api.legal.operations.base_legal_policies_with_namespace
               .RetrieveAllPolicyTypes
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.base_legal_policies_with_namespace
                   .RetrieveAllPolicyTypes.builder()
                   .namespace(namespace)
                   .offset(offset)
                   .limit(limit)
                   .build();
-      final List<RetrievePolicyTypeResponse> response = wrapper.retrieveAllPolicyTypes(operation);
+      final List<RetrievePolicyTypeResponse> response =
+          wrapper.retrieveAllPolicyTypes(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

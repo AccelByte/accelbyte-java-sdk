@@ -62,14 +62,14 @@ public class AdminGetAllPlayerSessionAttribute implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Player wrapper = new Player(sdk);
       final net.accelbyte.sdk.api.lobby.operations.player.AdminGetAllPlayerSessionAttribute
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.player.AdminGetAllPlayerSessionAttribute
                   .builder()
                   .namespace(namespace)
                   .userId(userId)
                   .build();
       final ModelsGetAllPlayerSessionAttributeResponse response =
-          wrapper.adminGetAllPlayerSessionAttribute(operation);
+          wrapper.adminGetAllPlayerSessionAttribute(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

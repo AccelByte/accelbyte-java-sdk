@@ -57,12 +57,13 @@ public class GetMyOfflineNotifications implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Notification wrapper = new Notification(sdk);
       final net.accelbyte.sdk.api.lobby.operations.notification.GetMyOfflineNotifications
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.notification.GetMyOfflineNotifications
                   .builder()
                   .namespace(namespace)
                   .build();
-      final ModelNotificationsResponse response = wrapper.getMyOfflineNotifications(operation);
+      final ModelNotificationsResponse response =
+          wrapper.getMyOfflineNotifications(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

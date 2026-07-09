@@ -82,7 +82,7 @@ public class GetUserEntitlementBySku implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement.GetUserEntitlementBySku
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.entitlement.GetUserEntitlementBySku
                   .builder()
                   .namespace(namespace)
@@ -92,7 +92,7 @@ public class GetUserEntitlementBySku implements Callable<Integer> {
                   .platform(platform)
                   .sku(sku)
                   .build();
-      final EntitlementInfo response = wrapper.getUserEntitlementBySku(operation);
+      final EntitlementInfo response = wrapper.getUserEntitlementBySku(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -96,7 +96,7 @@ public class PlatformTokenGrantV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth20 wrapper = new OAuth20(sdk);
-      final net.accelbyte.sdk.api.iam.operations.o_auth2_0.PlatformTokenGrantV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.o_auth2_0.PlatformTokenGrantV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.o_auth2_0.PlatformTokenGrantV3.builder()
               .platformId(platformId)
               .additionalData(additionalData != null ? additionalData : null)
@@ -108,7 +108,7 @@ public class PlatformTokenGrantV3 implements Callable<Integer> {
               .serviceLabel(serviceLabel != null ? serviceLabel : null)
               .skipSetCookie(skipSetCookie != null ? skipSetCookie : null)
               .build();
-      final OauthmodelTokenResponse response = wrapper.platformTokenGrantV3(operation);
+      final OauthmodelTokenResponse response = wrapper.platformTokenGrantV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

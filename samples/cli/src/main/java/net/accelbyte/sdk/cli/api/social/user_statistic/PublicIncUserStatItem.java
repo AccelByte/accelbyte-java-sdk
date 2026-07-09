@@ -71,14 +71,15 @@ public class PublicIncUserStatItem implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserStatistic wrapper = new UserStatistic(sdk);
-      final net.accelbyte.sdk.api.social.operations.user_statistic.PublicIncUserStatItem operation =
-          net.accelbyte.sdk.api.social.operations.user_statistic.PublicIncUserStatItem.builder()
-              .namespace(namespace)
-              .statCode(statCode)
-              .userId(userId)
-              .body(new ObjectMapper().readValue(body, StatItemInc.class))
-              .build();
-      final StatItemIncResult response = wrapper.publicIncUserStatItem(operation);
+      final net.accelbyte.sdk.api.social.operations.user_statistic.PublicIncUserStatItem
+          operationRequest =
+              net.accelbyte.sdk.api.social.operations.user_statistic.PublicIncUserStatItem.builder()
+                  .namespace(namespace)
+                  .statCode(statCode)
+                  .userId(userId)
+                  .body(new ObjectMapper().readValue(body, StatItemInc.class))
+                  .build();
+      final StatItemIncResult response = wrapper.publicIncUserStatItem(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

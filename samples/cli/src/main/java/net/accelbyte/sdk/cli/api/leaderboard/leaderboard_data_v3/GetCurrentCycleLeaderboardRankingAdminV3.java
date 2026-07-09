@@ -47,6 +47,11 @@ public class GetCurrentCycleLeaderboardRankingAdminV3 implements Callable<Intege
   String namespace;
 
   @Option(
+      names = {"--includeHiddenUsers"},
+      description = "includeHiddenUsers")
+  Boolean includeHiddenUsers;
+
+  @Option(
       names = {"--limit"},
       description = "limit")
   Integer limit;
@@ -84,18 +89,19 @@ public class GetCurrentCycleLeaderboardRankingAdminV3 implements Callable<Intege
       final LeaderboardDataV3 wrapper = new LeaderboardDataV3(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data_v3
               .GetCurrentCycleLeaderboardRankingAdminV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data_v3
                   .GetCurrentCycleLeaderboardRankingAdminV3.builder()
                   .cycleId(cycleId)
                   .leaderboardCode(leaderboardCode)
                   .namespace(namespace)
+                  .includeHiddenUsers(includeHiddenUsers)
                   .limit(limit)
                   .offset(offset)
                   .previousVersion(previousVersion)
                   .build();
       final ModelsGetLeaderboardRankingResp response =
-          wrapper.getCurrentCycleLeaderboardRankingAdminV3(operation);
+          wrapper.getCurrentCycleLeaderboardRankingAdminV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

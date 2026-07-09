@@ -66,13 +66,14 @@ public class PreCheckFulfillItem implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Fulfillment wrapper = new Fulfillment(sdk);
-      final net.accelbyte.sdk.api.platform.operations.fulfillment.PreCheckFulfillItem operation =
-          net.accelbyte.sdk.api.platform.operations.fulfillment.PreCheckFulfillItem.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .body(new ObjectMapper().readValue(body, PreCheckFulfillmentRequest.class))
-              .build();
-      final List<FulfillmentItem> response = wrapper.preCheckFulfillItem(operation);
+      final net.accelbyte.sdk.api.platform.operations.fulfillment.PreCheckFulfillItem
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.fulfillment.PreCheckFulfillItem.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .body(new ObjectMapper().readValue(body, PreCheckFulfillmentRequest.class))
+                  .build();
+      final List<FulfillmentItem> response = wrapper.preCheckFulfillItem(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

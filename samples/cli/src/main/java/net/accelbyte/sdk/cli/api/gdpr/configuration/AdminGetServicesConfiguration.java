@@ -57,13 +57,13 @@ public class AdminGetServicesConfiguration implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Configuration wrapper = new Configuration(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.configuration.AdminGetServicesConfiguration
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.configuration.AdminGetServicesConfiguration
                   .builder()
                   .namespace(namespace)
                   .build();
       final DtoServicesConfigurationResponse response =
-          wrapper.adminGetServicesConfiguration(operation);
+          wrapper.adminGetServicesConfiguration(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

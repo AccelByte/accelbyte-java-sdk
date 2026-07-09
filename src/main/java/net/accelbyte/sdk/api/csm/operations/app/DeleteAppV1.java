@@ -20,8 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteAppV1
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [DELETE]`
- *
  * <p>Delete App by given DeploymentID
  *
  * <p>This endpoint intended to delete ECR repo, ECR manifests, service images, uninstall

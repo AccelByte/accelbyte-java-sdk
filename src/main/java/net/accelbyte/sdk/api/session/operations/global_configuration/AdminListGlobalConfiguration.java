@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminListGlobalConfiguration
  *
- * <p>Record of global configuration data.
+ * <p>Returns the current global configuration shared across all namespaces. Includes settings like
+ * maximum active sessions and cleanup intervals.
  */
 @Getter
 @Setter

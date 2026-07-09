@@ -56,11 +56,13 @@ public class AdminGetConfiguration implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminV1 wrapper = new AdminV1(sdk);
-      final net.accelbyte.sdk.api.loginqueue.operations.admin_v1.AdminGetConfiguration operation =
-          net.accelbyte.sdk.api.loginqueue.operations.admin_v1.AdminGetConfiguration.builder()
-              .namespace(namespace)
-              .build();
-      final ApimodelsConfigurationResponse response = wrapper.adminGetConfiguration(operation);
+      final net.accelbyte.sdk.api.loginqueue.operations.admin_v1.AdminGetConfiguration
+          operationRequest =
+              net.accelbyte.sdk.api.loginqueue.operations.admin_v1.AdminGetConfiguration.builder()
+                  .namespace(namespace)
+                  .build();
+      final ApimodelsConfigurationResponse response =
+          wrapper.adminGetConfiguration(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

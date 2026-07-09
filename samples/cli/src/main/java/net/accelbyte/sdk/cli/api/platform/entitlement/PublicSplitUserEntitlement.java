@@ -72,7 +72,7 @@ public class PublicSplitUserEntitlement implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement.PublicSplitUserEntitlement
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.entitlement.PublicSplitUserEntitlement
                   .builder()
                   .entitlementId(entitlementId)
@@ -80,7 +80,7 @@ public class PublicSplitUserEntitlement implements Callable<Integer> {
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, EntitlementSplitRequest.class))
                   .build();
-      final EntitlementSplitResult response = wrapper.publicSplitUserEntitlement(operation);
+      final EntitlementSplitResult response = wrapper.publicSplitUserEntitlement(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

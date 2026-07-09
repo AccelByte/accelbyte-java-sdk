@@ -61,12 +61,14 @@ public class AdminGetBulkUserByEmailAddressV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.AdminGetBulkUserByEmailAddressV3 operation =
-          net.accelbyte.sdk.api.iam.operations.users.AdminGetBulkUserByEmailAddressV3.builder()
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ModelListEmailAddressRequest.class))
-              .build();
-      final ModelListUserResponseV3 response = wrapper.adminGetBulkUserByEmailAddressV3(operation);
+      final net.accelbyte.sdk.api.iam.operations.users.AdminGetBulkUserByEmailAddressV3
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.users.AdminGetBulkUserByEmailAddressV3.builder()
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, ModelListEmailAddressRequest.class))
+                  .build();
+      final ModelListUserResponseV3 response =
+          wrapper.adminGetBulkUserByEmailAddressV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

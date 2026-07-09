@@ -65,13 +65,14 @@ public class CreateUserStatItem implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserStatistic wrapper = new UserStatistic(sdk);
-      final net.accelbyte.sdk.api.social.operations.user_statistic.CreateUserStatItem operation =
-          net.accelbyte.sdk.api.social.operations.user_statistic.CreateUserStatItem.builder()
-              .namespace(namespace)
-              .statCode(statCode)
-              .userId(userId)
-              .build();
-      wrapper.createUserStatItem(operation);
+      final net.accelbyte.sdk.api.social.operations.user_statistic.CreateUserStatItem
+          operationRequest =
+              net.accelbyte.sdk.api.social.operations.user_statistic.CreateUserStatItem.builder()
+                  .namespace(namespace)
+                  .statCode(statCode)
+                  .userId(userId)
+                  .build();
+      wrapper.createUserStatItem(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

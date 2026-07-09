@@ -64,14 +64,14 @@ public class AdminGetPlatformAccountClosureClient implements Callable<Integer> {
       final PlatformAccountClosureClient wrapper = new PlatformAccountClosureClient(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.platform_account_closure_client
               .AdminGetPlatformAccountClosureClient
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.platform_account_closure_client
                   .AdminGetPlatformAccountClosureClient.builder()
                   .namespace(namespace)
                   .platform(platform)
                   .build();
       final DtoPlatformAccountClosureClientResponse response =
-          wrapper.adminGetPlatformAccountClosureClient(operation);
+          wrapper.adminGetPlatformAccountClosureClient(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

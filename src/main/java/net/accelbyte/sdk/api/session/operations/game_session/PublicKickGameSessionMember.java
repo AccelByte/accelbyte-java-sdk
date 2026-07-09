@@ -20,7 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicKickGameSessionMember
  *
- * <p>Kick member from a game session, only leader can kick member.
+ * <p>Removes the specified member from a game session. Only the session leader can kick members.
+ * The kicked member's status is set to KICKED.
  */
 @Getter
 @Setter

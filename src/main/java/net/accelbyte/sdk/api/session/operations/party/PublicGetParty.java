@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicGetParty
  *
- * <p>Get party details.
+ * <p>Returns party session details including members, configuration, and leader. The caller must be
+ * a party member or have admin access.
  */
 @Getter
 @Setter

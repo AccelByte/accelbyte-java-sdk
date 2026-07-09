@@ -56,12 +56,12 @@ public class AdminDeletePlayFeatureFlag implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PlayFeatureFlag wrapper = new PlayFeatureFlag(sdk);
       final net.accelbyte.sdk.api.match2.operations.play_feature_flag.AdminDeletePlayFeatureFlag
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.match2.operations.play_feature_flag.AdminDeletePlayFeatureFlag
                   .builder()
                   .namespace(namespace)
                   .build();
-      wrapper.adminDeletePlayFeatureFlag(operation);
+      wrapper.adminDeletePlayFeatureFlag(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

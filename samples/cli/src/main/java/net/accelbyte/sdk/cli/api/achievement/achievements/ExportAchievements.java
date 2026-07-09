@@ -63,12 +63,13 @@ public class ExportAchievements implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Achievements wrapper = new Achievements(sdk);
-      final net.accelbyte.sdk.api.achievement.operations.achievements.ExportAchievements operation =
-          net.accelbyte.sdk.api.achievement.operations.achievements.ExportAchievements.builder()
-              .namespace(namespace)
-              .tags(tags)
-              .build();
-      final InputStream response = wrapper.exportAchievements(operation);
+      final net.accelbyte.sdk.api.achievement.operations.achievements.ExportAchievements
+          operationRequest =
+              net.accelbyte.sdk.api.achievement.operations.achievements.ExportAchievements.builder()
+                  .namespace(namespace)
+                  .tags(tags)
+                  .build();
+      final InputStream response = wrapper.exportAchievements(operationRequest);
       final File outputFile = new File("response.out");
       java.nio.file.Files.copy(
           response, outputFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);

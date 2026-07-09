@@ -56,11 +56,12 @@ public class TokenIntrospectionV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth20 wrapper = new OAuth20(sdk);
-      final net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenIntrospectionV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenIntrospectionV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.o_auth2_0.TokenIntrospectionV3.builder()
               .token(token != null ? token : null)
               .build();
-      final OauthmodelTokenIntrospectResponse response = wrapper.tokenIntrospectionV3(operation);
+      final OauthmodelTokenIntrospectResponse response =
+          wrapper.tokenIntrospectionV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -73,7 +73,7 @@ public class PutPlayerPublicRecordHandlerV1 implements Callable<Integer> {
       final PublicPlayerRecord wrapper = new PublicPlayerRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.public_player_record
               .PutPlayerPublicRecordHandlerV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.public_player_record
                   .PutPlayerPublicRecordHandlerV1.builder()
                   .key(key)
@@ -81,7 +81,8 @@ public class PutPlayerPublicRecordHandlerV1 implements Callable<Integer> {
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, ModelsPlayerRecordRequest.class))
                   .build();
-      final ModelsPlayerRecordResponse response = wrapper.putPlayerPublicRecordHandlerV1(operation);
+      final ModelsPlayerRecordResponse response =
+          wrapper.putPlayerPublicRecordHandlerV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

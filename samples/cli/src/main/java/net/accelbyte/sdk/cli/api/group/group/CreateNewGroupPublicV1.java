@@ -61,12 +61,12 @@ public class CreateNewGroupPublicV1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Group wrapper = new Group(sdk);
-      final net.accelbyte.sdk.api.group.operations.group.CreateNewGroupPublicV1 operation =
+      final net.accelbyte.sdk.api.group.operations.group.CreateNewGroupPublicV1 operationRequest =
           net.accelbyte.sdk.api.group.operations.group.CreateNewGroupPublicV1.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelsPublicCreateNewGroupRequestV1.class))
               .build();
-      final ModelsGroupResponseV1 response = wrapper.createNewGroupPublicV1(operation);
+      final ModelsGroupResponseV1 response = wrapper.createNewGroupPublicV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

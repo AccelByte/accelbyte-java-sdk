@@ -63,7 +63,7 @@ public class OAuthDynamicClientRegisterWithNamespaceV3 implements Callable<Integ
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth20 wrapper = new OAuth20(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth2_0.OAuthDynamicClientRegisterWithNamespaceV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.o_auth2_0
                   .OAuthDynamicClientRegisterWithNamespaceV3.builder()
                   .namespace(namespace)
@@ -71,7 +71,7 @@ public class OAuthDynamicClientRegisterWithNamespaceV3 implements Callable<Integ
                       new ObjectMapper().readValue(body, OauthmodelClientRegistrationRequest.class))
                   .build();
       final OauthmodelClientRegisterResponse response =
-          wrapper.oAuthDynamicClientRegisterWithNamespaceV3(operation);
+          wrapper.oAuthDynamicClientRegisterWithNamespaceV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

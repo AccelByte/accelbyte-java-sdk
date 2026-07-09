@@ -76,7 +76,7 @@ public class AuthenticateAndLinkForwardV3 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth20Extension wrapper = new OAuth20Extension(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.AuthenticateAndLinkForwardV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.AuthenticateAndLinkForwardV3
                   .builder()
                   .extendExp(extendExp != null ? extendExp : null)
@@ -85,7 +85,7 @@ public class AuthenticateAndLinkForwardV3 implements Callable<Integer> {
                   .password(password != null ? password : null)
                   .username(username != null ? username : null)
                   .build();
-      wrapper.authenticateAndLinkForwardV3(operation);
+      wrapper.authenticateAndLinkForwardV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

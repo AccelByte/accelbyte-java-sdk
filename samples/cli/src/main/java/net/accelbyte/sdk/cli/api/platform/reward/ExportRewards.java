@@ -57,11 +57,11 @@ public class ExportRewards implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Reward wrapper = new Reward(sdk);
-      final net.accelbyte.sdk.api.platform.operations.reward.ExportRewards operation =
+      final net.accelbyte.sdk.api.platform.operations.reward.ExportRewards operationRequest =
           net.accelbyte.sdk.api.platform.operations.reward.ExportRewards.builder()
               .namespace(namespace)
               .build();
-      final InputStream response = wrapper.exportRewards(operation);
+      final InputStream response = wrapper.exportRewards(operationRequest);
       final File outputFile = new File("response.out");
       java.nio.file.Files.copy(
           response, outputFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);

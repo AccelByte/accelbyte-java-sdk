@@ -61,12 +61,12 @@ public class Get implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminConfigurations wrapper = new AdminConfigurations(sdk);
-      final net.accelbyte.sdk.api.reporting.operations.admin_configurations.Get operation =
+      final net.accelbyte.sdk.api.reporting.operations.admin_configurations.Get operationRequest =
           net.accelbyte.sdk.api.reporting.operations.admin_configurations.Get.builder()
               .namespace(namespace)
               .category(category)
               .build();
-      final RestapiConfigResponse response = wrapper.get(operation);
+      final RestapiConfigResponse response = wrapper.get(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

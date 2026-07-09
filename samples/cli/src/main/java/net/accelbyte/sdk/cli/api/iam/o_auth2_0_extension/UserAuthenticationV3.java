@@ -81,7 +81,7 @@ public class UserAuthenticationV3 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth20Extension wrapper = new OAuth20Extension(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.UserAuthenticationV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.UserAuthenticationV3
                   .builder()
                   .clientId(clientId != null ? clientId : null)
@@ -91,7 +91,7 @@ public class UserAuthenticationV3 implements Callable<Integer> {
                   .requestId(requestId != null ? requestId : null)
                   .userName(userName != null ? userName : null)
                   .build();
-      wrapper.userAuthenticationV3(operation);
+      wrapper.userAuthenticationV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

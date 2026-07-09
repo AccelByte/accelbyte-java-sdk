@@ -69,7 +69,7 @@ public class AdminBulkGetPlayerRecordsByUserIDsHandlerV1 implements Callable<Int
       final AdminPlayerRecord wrapper = new AdminPlayerRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.admin_player_record
               .AdminBulkGetPlayerRecordsByUserIDsHandlerV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.admin_player_record
                   .AdminBulkGetPlayerRecordsByUserIDsHandlerV1.builder()
                   .key(key)
@@ -77,7 +77,7 @@ public class AdminBulkGetPlayerRecordsByUserIDsHandlerV1 implements Callable<Int
                   .body(new ObjectMapper().readValue(body, ModelsBulkUserIDsRequest.class))
                   .build();
       final ModelsBulkGetPlayerRecordResponse response =
-          wrapper.adminBulkGetPlayerRecordsByUserIDsHandlerV1(operation);
+          wrapper.adminBulkGetPlayerRecordsByUserIDsHandlerV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

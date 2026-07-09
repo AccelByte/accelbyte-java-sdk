@@ -61,12 +61,13 @@ public class PublicDisableMyAuthenticatorV4 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UsersV4 wrapper = new UsersV4(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users_v4.PublicDisableMyAuthenticatorV4 operation =
-          net.accelbyte.sdk.api.iam.operations.users_v4.PublicDisableMyAuthenticatorV4.builder()
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ModelDisableMFARequest.class))
-              .build();
-      wrapper.publicDisableMyAuthenticatorV4(operation);
+      final net.accelbyte.sdk.api.iam.operations.users_v4.PublicDisableMyAuthenticatorV4
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.users_v4.PublicDisableMyAuthenticatorV4.builder()
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, ModelDisableMFARequest.class))
+                  .build();
+      wrapper.publicDisableMyAuthenticatorV4(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

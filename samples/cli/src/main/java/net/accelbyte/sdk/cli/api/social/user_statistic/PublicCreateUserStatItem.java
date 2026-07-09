@@ -66,14 +66,14 @@ public class PublicCreateUserStatItem implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserStatistic wrapper = new UserStatistic(sdk);
       final net.accelbyte.sdk.api.social.operations.user_statistic.PublicCreateUserStatItem
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.social.operations.user_statistic.PublicCreateUserStatItem
                   .builder()
                   .namespace(namespace)
                   .statCode(statCode)
                   .userId(userId)
                   .build();
-      wrapper.publicCreateUserStatItem(operation);
+      wrapper.publicCreateUserStatItem(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

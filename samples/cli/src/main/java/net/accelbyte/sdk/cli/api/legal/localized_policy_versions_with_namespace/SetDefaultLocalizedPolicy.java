@@ -63,13 +63,13 @@ public class SetDefaultLocalizedPolicy implements Callable<Integer> {
           new LocalizedPolicyVersionsWithNamespace(sdk);
       final net.accelbyte.sdk.api.legal.operations.localized_policy_versions_with_namespace
               .SetDefaultLocalizedPolicy
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.localized_policy_versions_with_namespace
                   .SetDefaultLocalizedPolicy.builder()
                   .localizedPolicyVersionId(localizedPolicyVersionId)
                   .namespace(namespace)
                   .build();
-      wrapper.setDefaultLocalizedPolicy(operation);
+      wrapper.setDefaultLocalizedPolicy(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

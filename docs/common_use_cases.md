@@ -750,7 +750,7 @@ final AccountCreateUserRequestV4 newUser =
         .displayName(userDisplayName)
         .country(userCountry)
         .dateOfBirth(userDateOfBirth)
-        .uniqueDisplayName(userName)
+        .uniqueDisplayName(userUniqueDisplayName)
         .username(userName)
         .build();
 
@@ -771,7 +771,7 @@ final AccountCreateTestUserRequestV4 createUser =
         .username(userName)
         .country(userCountry)
         .dateOfBirth(userDateOfBirth)
-        .uniqueDisplayName(userName)
+        .uniqueDisplayName(userUniqueDisplayName)
         .build();
 
 final AccountCreateUserResponseV4 createUserResult =
@@ -1458,10 +1458,7 @@ final ApimodelsPartySessionResponse publicPartyJoinCodeResult =
 ```java
 final ApimodelsPartyQueryResponse partyData =
     partyWrapper.adminQueryParties(
-        AdminQueryParties.builder()
-            .partyID(partyId)
-            .namespace(namespace)
-            .build());
+        AdminQueryParties.builder().partyID(partyId).namespace(namespace).build());
 ```
 
 ### User leave a party

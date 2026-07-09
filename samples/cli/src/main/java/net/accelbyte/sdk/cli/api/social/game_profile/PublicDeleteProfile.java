@@ -65,13 +65,14 @@ public class PublicDeleteProfile implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameProfile wrapper = new GameProfile(sdk);
-      final net.accelbyte.sdk.api.social.operations.game_profile.PublicDeleteProfile operation =
-          net.accelbyte.sdk.api.social.operations.game_profile.PublicDeleteProfile.builder()
-              .namespace(namespace)
-              .profileId(profileId)
-              .userId(userId)
-              .build();
-      wrapper.publicDeleteProfile(operation);
+      final net.accelbyte.sdk.api.social.operations.game_profile.PublicDeleteProfile
+          operationRequest =
+              net.accelbyte.sdk.api.social.operations.game_profile.PublicDeleteProfile.builder()
+                  .namespace(namespace)
+                  .profileId(profileId)
+                  .userId(userId)
+                  .build();
+      wrapper.publicDeleteProfile(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

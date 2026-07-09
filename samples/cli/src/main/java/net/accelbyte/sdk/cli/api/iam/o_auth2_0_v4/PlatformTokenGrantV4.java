@@ -106,21 +106,22 @@ public class PlatformTokenGrantV4 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth20V4 wrapper = new OAuth20V4(sdk);
-      final net.accelbyte.sdk.api.iam.operations.o_auth2_0_v4.PlatformTokenGrantV4 operation =
-          net.accelbyte.sdk.api.iam.operations.o_auth2_0_v4.PlatformTokenGrantV4.builder()
-              .platformId(platformId)
-              .codeChallenge(codeChallenge)
-              .codeChallengeMethod(codeChallengeMethod)
-              .additionalData(additionalData != null ? additionalData : null)
-              .clientId(clientId != null ? clientId : null)
-              .createHeadless(createHeadless != null ? createHeadless : null)
-              .deviceId(deviceId != null ? deviceId : null)
-              .macAddress(macAddress != null ? macAddress : null)
-              .platformToken(platformToken != null ? platformToken : null)
-              .serviceLabel(serviceLabel != null ? serviceLabel : null)
-              .skipSetCookie(skipSetCookie != null ? skipSetCookie : null)
-              .build();
-      final OauthmodelTokenResponseV3 response = wrapper.platformTokenGrantV4(operation);
+      final net.accelbyte.sdk.api.iam.operations.o_auth2_0_v4.PlatformTokenGrantV4
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.o_auth2_0_v4.PlatformTokenGrantV4.builder()
+                  .platformId(platformId)
+                  .codeChallenge(codeChallenge)
+                  .codeChallengeMethod(codeChallengeMethod)
+                  .additionalData(additionalData != null ? additionalData : null)
+                  .clientId(clientId != null ? clientId : null)
+                  .createHeadless(createHeadless != null ? createHeadless : null)
+                  .deviceId(deviceId != null ? deviceId : null)
+                  .macAddress(macAddress != null ? macAddress : null)
+                  .platformToken(platformToken != null ? platformToken : null)
+                  .serviceLabel(serviceLabel != null ? serviceLabel : null)
+                  .skipSetCookie(skipSetCookie != null ? skipSetCookie : null)
+                  .build();
+      final OauthmodelTokenResponseV3 response = wrapper.platformTokenGrantV4(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

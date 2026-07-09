@@ -66,13 +66,14 @@ public class BulkFetchStatItems implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserStatistic wrapper = new UserStatistic(sdk);
-      final net.accelbyte.sdk.api.social.operations.user_statistic.BulkFetchStatItems operation =
-          net.accelbyte.sdk.api.social.operations.user_statistic.BulkFetchStatItems.builder()
-              .namespace(namespace)
-              .statCode(statCode)
-              .userIds(userIds)
-              .build();
-      final List<UserStatItemInfo> response = wrapper.bulkFetchStatItems(operation);
+      final net.accelbyte.sdk.api.social.operations.user_statistic.BulkFetchStatItems
+          operationRequest =
+              net.accelbyte.sdk.api.social.operations.user_statistic.BulkFetchStatItems.builder()
+                  .namespace(namespace)
+                  .statCode(statCode)
+                  .userIds(userIds)
+                  .build();
+      final List<UserStatItemInfo> response = wrapper.bulkFetchStatItems(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

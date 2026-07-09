@@ -66,13 +66,13 @@ public class RevokeItemsV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Fulfillment wrapper = new Fulfillment(sdk);
-      final net.accelbyte.sdk.api.platform.operations.fulfillment.RevokeItemsV3 operation =
+      final net.accelbyte.sdk.api.platform.operations.fulfillment.RevokeItemsV3 operationRequest =
           net.accelbyte.sdk.api.platform.operations.fulfillment.RevokeItemsV3.builder()
               .namespace(namespace)
               .transactionId(transactionId)
               .userId(userId)
               .build();
-      final RevokeFulfillmentV2Result response = wrapper.revokeItemsV3(operation);
+      final RevokeFulfillmentV2Result response = wrapper.revokeItemsV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

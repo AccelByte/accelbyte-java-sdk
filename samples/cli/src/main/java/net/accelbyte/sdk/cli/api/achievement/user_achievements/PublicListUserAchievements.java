@@ -89,7 +89,7 @@ public class PublicListUserAchievements implements Callable<Integer> {
       final UserAchievements wrapper = new UserAchievements(sdk);
       final net.accelbyte.sdk.api.achievement.operations.user_achievements
               .PublicListUserAchievements
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.achievement.operations.user_achievements
                   .PublicListUserAchievements.builder()
                   .namespace(namespace)
@@ -101,7 +101,7 @@ public class PublicListUserAchievements implements Callable<Integer> {
                   .tags(tags)
                   .build();
       final ModelsPaginatedUserAchievementResponse response =
-          wrapper.publicListUserAchievements(operation);
+          wrapper.publicListUserAchievements(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

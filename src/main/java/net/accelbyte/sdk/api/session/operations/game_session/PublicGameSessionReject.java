@@ -20,7 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicGameSessionReject
  *
- * <p>Reject a game session invitation.
+ * <p>Rejects a pending game session invitation. The caller must have INVITED status. The session
+ * invitation will be marked as REJECTED.
  */
 @Getter
 @Setter

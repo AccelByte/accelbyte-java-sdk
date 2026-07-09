@@ -66,13 +66,13 @@ public class AdminSetDSReady implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameSession wrapper = new GameSession(sdk);
-      final net.accelbyte.sdk.api.session.operations.game_session.AdminSetDSReady operation =
+      final net.accelbyte.sdk.api.session.operations.game_session.AdminSetDSReady operationRequest =
           net.accelbyte.sdk.api.session.operations.game_session.AdminSetDSReady.builder()
               .namespace(namespace)
               .sessionId(sessionId)
               .body(new ObjectMapper().readValue(body, ApimodelsSetDSReadyRequest.class))
               .build();
-      wrapper.adminSetDSReady(operation);
+      wrapper.adminSetDSReady(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

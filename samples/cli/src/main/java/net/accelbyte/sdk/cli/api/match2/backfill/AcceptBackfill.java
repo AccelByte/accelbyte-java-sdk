@@ -66,13 +66,13 @@ public class AcceptBackfill implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Backfill wrapper = new Backfill(sdk);
-      final net.accelbyte.sdk.api.match2.operations.backfill.AcceptBackfill operation =
+      final net.accelbyte.sdk.api.match2.operations.backfill.AcceptBackfill operationRequest =
           net.accelbyte.sdk.api.match2.operations.backfill.AcceptBackfill.builder()
               .backfillID(backfillID)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ApiBackFillAcceptRequest.class))
               .build();
-      final ModelsGameSession response = wrapper.acceptBackfill(operation);
+      final ModelsGameSession response = wrapper.acceptBackfill(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

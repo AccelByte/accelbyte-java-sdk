@@ -57,12 +57,12 @@ public class AdminDeleteConfigurationAlertV1 implements Callable<Integer> {
       final ConfigurationTemplate wrapper = new ConfigurationTemplate(sdk);
       final net.accelbyte.sdk.api.session.operations.configuration_template
               .AdminDeleteConfigurationAlertV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.configuration_template
                   .AdminDeleteConfigurationAlertV1.builder()
                   .namespace(namespace)
                   .build();
-      wrapper.adminDeleteConfigurationAlertV1(operation);
+      wrapper.adminDeleteConfigurationAlertV1(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -141,28 +141,30 @@ public class AdminQueryGameSessions implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameSession wrapper = new GameSession(sdk);
-      final net.accelbyte.sdk.api.session.operations.game_session.AdminQueryGameSessions operation =
-          net.accelbyte.sdk.api.session.operations.game_session.AdminQueryGameSessions.builder()
-              .namespace(namespace)
-              .configurationName(configurationName)
-              .dsPodName(dsPodName)
-              .fromTime(fromTime)
-              .gameMode(gameMode)
-              .isPersistent(isPersistent)
-              .isSoftDeleted(isSoftDeleted)
-              .joinability(joinability)
-              .limit(limit)
-              .matchPool(matchPool)
-              .memberID(memberID)
-              .offset(offset)
-              .order(order)
-              .orderBy(orderBy)
-              .sessionID(sessionID)
-              .status(status)
-              .statusV2(statusV2)
-              .toTime(toTime)
-              .build();
-      final ApimodelsGameSessionQueryResponse response = wrapper.adminQueryGameSessions(operation);
+      final net.accelbyte.sdk.api.session.operations.game_session.AdminQueryGameSessions
+          operationRequest =
+              net.accelbyte.sdk.api.session.operations.game_session.AdminQueryGameSessions.builder()
+                  .namespace(namespace)
+                  .configurationName(configurationName)
+                  .dsPodName(dsPodName)
+                  .fromTime(fromTime)
+                  .gameMode(gameMode)
+                  .isPersistent(isPersistent)
+                  .isSoftDeleted(isSoftDeleted)
+                  .joinability(joinability)
+                  .limit(limit)
+                  .matchPool(matchPool)
+                  .memberID(memberID)
+                  .offset(offset)
+                  .order(order)
+                  .orderBy(orderBy)
+                  .sessionID(sessionID)
+                  .status(status)
+                  .statusV2(statusV2)
+                  .toTime(toTime)
+                  .build();
+      final ApimodelsGameSessionQueryResponse response =
+          wrapper.adminQueryGameSessions(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

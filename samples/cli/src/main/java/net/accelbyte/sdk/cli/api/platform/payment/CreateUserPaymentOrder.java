@@ -66,13 +66,14 @@ public class CreateUserPaymentOrder implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Payment wrapper = new Payment(sdk);
-      final net.accelbyte.sdk.api.platform.operations.payment.CreateUserPaymentOrder operation =
-          net.accelbyte.sdk.api.platform.operations.payment.CreateUserPaymentOrder.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .body(new ObjectMapper().readValue(body, PaymentOrderCreate.class))
-              .build();
-      final PaymentOrderInfo response = wrapper.createUserPaymentOrder(operation);
+      final net.accelbyte.sdk.api.platform.operations.payment.CreateUserPaymentOrder
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.payment.CreateUserPaymentOrder.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .body(new ObjectMapper().readValue(body, PaymentOrderCreate.class))
+                  .build();
+      final PaymentOrderInfo response = wrapper.createUserPaymentOrder(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

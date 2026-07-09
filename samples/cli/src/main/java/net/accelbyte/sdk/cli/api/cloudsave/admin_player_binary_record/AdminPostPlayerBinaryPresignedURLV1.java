@@ -73,7 +73,7 @@ public class AdminPostPlayerBinaryPresignedURLV1 implements Callable<Integer> {
       final AdminPlayerBinaryRecord wrapper = new AdminPlayerBinaryRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.admin_player_binary_record
               .AdminPostPlayerBinaryPresignedURLV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.admin_player_binary_record
                   .AdminPostPlayerBinaryPresignedURLV1.builder()
                   .key(key)
@@ -82,7 +82,7 @@ public class AdminPostPlayerBinaryPresignedURLV1 implements Callable<Integer> {
                   .body(new ObjectMapper().readValue(body, ModelsUploadBinaryRecordRequest.class))
                   .build();
       final ModelsUploadBinaryRecordResponse response =
-          wrapper.adminPostPlayerBinaryPresignedURLV1(operation);
+          wrapper.adminPostPlayerBinaryPresignedURLV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

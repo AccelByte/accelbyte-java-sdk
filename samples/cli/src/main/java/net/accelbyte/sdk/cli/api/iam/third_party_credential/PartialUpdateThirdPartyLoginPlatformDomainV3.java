@@ -70,7 +70,7 @@ public class PartialUpdateThirdPartyLoginPlatformDomainV3 implements Callable<In
       final ThirdPartyCredential wrapper = new ThirdPartyCredential(sdk);
       final net.accelbyte.sdk.api.iam.operations.third_party_credential
               .PartialUpdateThirdPartyLoginPlatformDomainV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.third_party_credential
                   .PartialUpdateThirdPartyLoginPlatformDomainV3.builder()
                   .namespace(namespace)
@@ -78,7 +78,7 @@ public class PartialUpdateThirdPartyLoginPlatformDomainV3 implements Callable<In
                   .body(new ObjectMapper().readValue(body, ModelPlatformDomainPatchRequest.class))
                   .build();
       final ModelPlatformDomainResponse response =
-          wrapper.partialUpdateThirdPartyLoginPlatformDomainV3(operation);
+          wrapper.partialUpdateThirdPartyLoginPlatformDomainV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

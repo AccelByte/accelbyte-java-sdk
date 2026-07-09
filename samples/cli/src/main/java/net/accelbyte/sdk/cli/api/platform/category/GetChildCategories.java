@@ -66,13 +66,13 @@ public class GetChildCategories implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Category wrapper = new Category(sdk);
-      final net.accelbyte.sdk.api.platform.operations.category.GetChildCategories operation =
+      final net.accelbyte.sdk.api.platform.operations.category.GetChildCategories operationRequest =
           net.accelbyte.sdk.api.platform.operations.category.GetChildCategories.builder()
               .categoryPath(categoryPath)
               .namespace(namespace)
               .storeId(storeId)
               .build();
-      final List<FullCategoryInfo> response = wrapper.getChildCategories(operation);
+      final List<FullCategoryInfo> response = wrapper.getChildCategories(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

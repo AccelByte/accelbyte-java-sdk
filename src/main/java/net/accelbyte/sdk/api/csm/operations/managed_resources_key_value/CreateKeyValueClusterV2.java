@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateKeyValueClusterV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:KEYVALUE:CLUSTERS [CREATE]`
- *
  * <p>Provision Key-Value cluster using AWS Valkey Serverless that can be used by extend apps in
  * game namespace within the studio.
  *

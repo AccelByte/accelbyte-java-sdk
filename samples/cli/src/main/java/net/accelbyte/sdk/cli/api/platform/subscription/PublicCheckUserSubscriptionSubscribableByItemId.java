@@ -70,7 +70,7 @@ public class PublicCheckUserSubscriptionSubscribableByItemId implements Callable
       final Subscription wrapper = new Subscription(sdk);
       final net.accelbyte.sdk.api.platform.operations.subscription
               .PublicCheckUserSubscriptionSubscribableByItemId
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.subscription
                   .PublicCheckUserSubscriptionSubscribableByItemId.builder()
                   .namespace(namespace)
@@ -78,7 +78,7 @@ public class PublicCheckUserSubscriptionSubscribableByItemId implements Callable
                   .itemId(itemId)
                   .build();
       final Subscribable response =
-          wrapper.publicCheckUserSubscriptionSubscribableByItemId(operation);
+          wrapper.publicCheckUserSubscriptionSubscribableByItemId(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

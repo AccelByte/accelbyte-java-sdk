@@ -82,7 +82,7 @@ public class AdminListSchedulesByGoal implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Schedules wrapper = new Schedules(sdk);
       final net.accelbyte.sdk.api.challenge.operations.schedules.AdminListSchedulesByGoal
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.challenge.operations.schedules.AdminListSchedulesByGoal
                   .builder()
                   .challengeCode(challengeCode)
@@ -92,7 +92,8 @@ public class AdminListSchedulesByGoal implements Callable<Integer> {
                   .offset(offset)
                   .userId(userId)
                   .build();
-      final ModelListScheduleByGoalResponse response = wrapper.adminListSchedulesByGoal(operation);
+      final ModelListScheduleByGoalResponse response =
+          wrapper.adminListSchedulesByGoal(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

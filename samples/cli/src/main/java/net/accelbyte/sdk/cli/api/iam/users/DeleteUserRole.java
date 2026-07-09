@@ -65,13 +65,13 @@ public class DeleteUserRole implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.DeleteUserRole operation =
+      final net.accelbyte.sdk.api.iam.operations.users.DeleteUserRole operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.DeleteUserRole.builder()
               .namespace(namespace)
               .roleId(roleId)
               .userId(userId)
               .build();
-      wrapper.deleteUserRole(operation);
+      wrapper.deleteUserRole(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

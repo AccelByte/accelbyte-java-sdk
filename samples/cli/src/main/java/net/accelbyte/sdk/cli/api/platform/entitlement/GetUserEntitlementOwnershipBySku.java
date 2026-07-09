@@ -77,7 +77,7 @@ public class GetUserEntitlementOwnershipBySku implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement.GetUserEntitlementOwnershipBySku
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.entitlement.GetUserEntitlementOwnershipBySku
                   .builder()
                   .namespace(namespace)
@@ -86,7 +86,7 @@ public class GetUserEntitlementOwnershipBySku implements Callable<Integer> {
                   .platform(platform)
                   .sku(sku)
                   .build();
-      final TimedOwnership response = wrapper.getUserEntitlementOwnershipBySku(operation);
+      final TimedOwnership response = wrapper.getUserEntitlementOwnershipBySku(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

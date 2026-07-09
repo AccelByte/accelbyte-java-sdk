@@ -72,7 +72,7 @@ public class ListPlayerRecordHandlerV1 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminPlayerRecord wrapper = new AdminPlayerRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.admin_player_record.ListPlayerRecordHandlerV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.admin_player_record
                   .ListPlayerRecordHandlerV1.builder()
                   .namespace(namespace)
@@ -81,7 +81,7 @@ public class ListPlayerRecordHandlerV1 implements Callable<Integer> {
                   .query(query)
                   .build();
       final ModelsListPlayerRecordKeysResponse response =
-          wrapper.listPlayerRecordHandlerV1(operation);
+          wrapper.listPlayerRecordHandlerV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

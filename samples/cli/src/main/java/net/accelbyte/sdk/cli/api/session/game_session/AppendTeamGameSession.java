@@ -66,13 +66,16 @@ public class AppendTeamGameSession implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameSession wrapper = new GameSession(sdk);
-      final net.accelbyte.sdk.api.session.operations.game_session.AppendTeamGameSession operation =
-          net.accelbyte.sdk.api.session.operations.game_session.AppendTeamGameSession.builder()
-              .namespace(namespace)
-              .sessionId(sessionId)
-              .body(new ObjectMapper().readValue(body, ApimodelsAppendTeamGameSessionRequest.class))
-              .build();
-      final ApimodelsGameSessionResponse response = wrapper.appendTeamGameSession(operation);
+      final net.accelbyte.sdk.api.session.operations.game_session.AppendTeamGameSession
+          operationRequest =
+              net.accelbyte.sdk.api.session.operations.game_session.AppendTeamGameSession.builder()
+                  .namespace(namespace)
+                  .sessionId(sessionId)
+                  .body(
+                      new ObjectMapper()
+                          .readValue(body, ApimodelsAppendTeamGameSessionRequest.class))
+                  .build();
+      final ApimodelsGameSessionResponse response = wrapper.appendTeamGameSession(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

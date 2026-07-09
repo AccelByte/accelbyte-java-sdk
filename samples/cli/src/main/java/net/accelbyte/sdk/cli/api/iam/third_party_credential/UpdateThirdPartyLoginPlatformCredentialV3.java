@@ -69,7 +69,7 @@ public class UpdateThirdPartyLoginPlatformCredentialV3 implements Callable<Integ
       final ThirdPartyCredential wrapper = new ThirdPartyCredential(sdk);
       final net.accelbyte.sdk.api.iam.operations.third_party_credential
               .UpdateThirdPartyLoginPlatformCredentialV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.third_party_credential
                   .UpdateThirdPartyLoginPlatformCredentialV3.builder()
                   .namespace(namespace)
@@ -79,7 +79,7 @@ public class UpdateThirdPartyLoginPlatformCredentialV3 implements Callable<Integ
                           .readValue(body, ModelThirdPartyLoginPlatformCredentialRequest.class))
                   .build();
       final ModelThirdPartyLoginPlatformCredentialResponse response =
-          wrapper.updateThirdPartyLoginPlatformCredentialV3(operation);
+          wrapper.updateThirdPartyLoginPlatformCredentialV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

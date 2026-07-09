@@ -55,11 +55,11 @@ public class DeleteOculusIAPConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.DeleteOculusIAPConfig operation =
+      final net.accelbyte.sdk.api.platform.operations.iap.DeleteOculusIAPConfig operationRequest =
           net.accelbyte.sdk.api.platform.operations.iap.DeleteOculusIAPConfig.builder()
               .namespace(namespace)
               .build();
-      wrapper.deleteOculusIAPConfig(operation);
+      wrapper.deleteOculusIAPConfig(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

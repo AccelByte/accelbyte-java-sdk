@@ -56,11 +56,12 @@ public class AdminGetXRayConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final XRayConfig wrapper = new XRayConfig(sdk);
-      final net.accelbyte.sdk.api.match2.operations.x_ray_config.AdminGetXRayConfig operation =
-          net.accelbyte.sdk.api.match2.operations.x_ray_config.AdminGetXRayConfig.builder()
-              .namespace(namespace)
-              .build();
-      final ModelsXRayConfigHttpResponse response = wrapper.adminGetXRayConfig(operation);
+      final net.accelbyte.sdk.api.match2.operations.x_ray_config.AdminGetXRayConfig
+          operationRequest =
+              net.accelbyte.sdk.api.match2.operations.x_ray_config.AdminGetXRayConfig.builder()
+                  .namespace(namespace)
+                  .build();
+      final ModelsXRayConfigHttpResponse response = wrapper.adminGetXRayConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

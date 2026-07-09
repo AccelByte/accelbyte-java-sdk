@@ -65,13 +65,13 @@ public class PublicPartyCancel implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Party wrapper = new Party(sdk);
-      final net.accelbyte.sdk.api.session.operations.party.PublicPartyCancel operation =
+      final net.accelbyte.sdk.api.session.operations.party.PublicPartyCancel operationRequest =
           net.accelbyte.sdk.api.session.operations.party.PublicPartyCancel.builder()
               .namespace(namespace)
               .partyId(partyId)
               .userId(userId)
               .build();
-      wrapper.publicPartyCancel(operation);
+      wrapper.publicPartyCancel(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

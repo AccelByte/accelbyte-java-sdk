@@ -63,14 +63,14 @@ public class BulkGetPlayerRecordSizeHandlerV1 implements Callable<Integer> {
       final AdminPlayerRecord wrapper = new AdminPlayerRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.admin_player_record
               .BulkGetPlayerRecordSizeHandlerV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.admin_player_record
                   .BulkGetPlayerRecordSizeHandlerV1.builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelsBulkUserKeyRequest.class))
                   .build();
       final ModelsBulkGetPlayerRecordSizeResponse response =
-          wrapper.bulkGetPlayerRecordSizeHandlerV1(operation);
+          wrapper.bulkGetPlayerRecordSizeHandlerV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

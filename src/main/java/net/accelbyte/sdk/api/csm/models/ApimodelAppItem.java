@@ -77,6 +77,9 @@ public class ApimodelAppItem extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String description;
 
+  @JsonProperty("enableDebugMode")
+  private Boolean enableDebugMode;
+
   @JsonProperty("gameName")
   private String gameName;
 
@@ -90,10 +93,6 @@ public class ApimodelAppItem extends Model {
   @JsonProperty("message")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String message;
-
-  @JsonProperty("redeploymentInfo")
-  @JsonInclude(JsonInclude.Include.NON_NULL)
-  private ModelAppRedeploymentInfo redeploymentInfo;
 
   @JsonProperty("replica")
   @JsonInclude(JsonInclude.Include.NON_NULL)

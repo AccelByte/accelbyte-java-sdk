@@ -55,11 +55,11 @@ public class AdminGetBackupCodesV4 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UsersV4 wrapper = new UsersV4(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users_v4.AdminGetBackupCodesV4 operation =
+      final net.accelbyte.sdk.api.iam.operations.users_v4.AdminGetBackupCodesV4 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users_v4.AdminGetBackupCodesV4.builder()
               .languageTag(languageTag)
               .build();
-      wrapper.adminGetBackupCodesV4(operation);
+      wrapper.adminGetBackupCodesV4(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

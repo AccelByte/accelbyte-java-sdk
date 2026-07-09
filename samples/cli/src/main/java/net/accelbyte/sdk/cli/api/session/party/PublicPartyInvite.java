@@ -66,13 +66,13 @@ public class PublicPartyInvite implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Party wrapper = new Party(sdk);
-      final net.accelbyte.sdk.api.session.operations.party.PublicPartyInvite operation =
+      final net.accelbyte.sdk.api.session.operations.party.PublicPartyInvite operationRequest =
           net.accelbyte.sdk.api.session.operations.party.PublicPartyInvite.builder()
               .namespace(namespace)
               .partyId(partyId)
               .body(new ObjectMapper().readValue(body, ApimodelsSessionInviteRequest.class))
               .build();
-      final ApimodelsSessionInviteResponse response = wrapper.publicPartyInvite(operation);
+      final ApimodelsSessionInviteResponse response = wrapper.publicPartyInvite(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

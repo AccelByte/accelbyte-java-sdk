@@ -63,14 +63,14 @@ public class AdminSyncPlatformCredentials implements Callable<Integer> {
       final PlatformCredential wrapper = new PlatformCredential(sdk);
       final net.accelbyte.sdk.api.session.operations.platform_credential
               .AdminSyncPlatformCredentials
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.platform_credential
                   .AdminSyncPlatformCredentials.builder()
                   .namespace(namespace)
                   .platformId(platformId)
                   .build();
       final ApimodelsXblCertificateResponseBody response =
-          wrapper.adminSyncPlatformCredentials(operation);
+          wrapper.adminSyncPlatformCredentials(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

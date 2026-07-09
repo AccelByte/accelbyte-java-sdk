@@ -62,7 +62,7 @@ public class PublicGetBulkPlayerCurrentPlatform implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Player wrapper = new Player(sdk);
       final net.accelbyte.sdk.api.session.operations.player.PublicGetBulkPlayerCurrentPlatform
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.player.PublicGetBulkPlayerCurrentPlatform
                   .builder()
                   .namespace(namespace)
@@ -71,7 +71,7 @@ public class PublicGetBulkPlayerCurrentPlatform implements Callable<Integer> {
                           .readValue(body, ApimodelsPlayersCurrentPlatformRequest.class))
                   .build();
       final ApimodelsPlayersCurrentPlatformResponse response =
-          wrapper.publicGetBulkPlayerCurrentPlatform(operation);
+          wrapper.publicGetBulkPlayerCurrentPlatform(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

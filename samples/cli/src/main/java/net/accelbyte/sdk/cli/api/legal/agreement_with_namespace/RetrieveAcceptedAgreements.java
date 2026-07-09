@@ -68,7 +68,7 @@ public class RetrieveAcceptedAgreements implements Callable<Integer> {
       final AgreementWithNamespace wrapper = new AgreementWithNamespace(sdk);
       final net.accelbyte.sdk.api.legal.operations.agreement_with_namespace
               .RetrieveAcceptedAgreements
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.agreement_with_namespace
                   .RetrieveAcceptedAgreements.builder()
                   .namespace(namespace)
@@ -76,7 +76,7 @@ public class RetrieveAcceptedAgreements implements Callable<Integer> {
                   .excludeOtherNamespacesPolicies(excludeOtherNamespacesPolicies)
                   .build();
       final List<RetrieveAcceptedAgreementResponse> response =
-          wrapper.retrieveAcceptedAgreements(operation);
+          wrapper.retrieveAcceptedAgreements(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -46,6 +46,11 @@ public class FleetList implements Callable<Integer> {
   Integer count;
 
   @Option(
+      names = {"--includeInactiveRegions"},
+      description = "includeInactiveRegions")
+  Boolean includeInactiveRegions;
+
+  @Option(
       names = {"--name"},
       description = "name")
   String name;
@@ -91,18 +96,19 @@ public class FleetList implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Fleets wrapper = new Fleets(sdk);
-      final net.accelbyte.sdk.api.ams.operations.fleets.FleetList operation =
+      final net.accelbyte.sdk.api.ams.operations.fleets.FleetList operationRequest =
           net.accelbyte.sdk.api.ams.operations.fleets.FleetList.builder()
               .namespace(namespace)
               .active(active)
               .count(count)
+              .includeInactiveRegions(includeInactiveRegions)
               .name(name)
               .offset(offset)
               .region(region)
               .sortBy(sortBy)
               .sortDirection(sortDirection)
               .build();
-      final ApiFleetListResponse response = wrapper.fleetList(operation);
+      final ApiFleetListResponse response = wrapper.fleetList(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

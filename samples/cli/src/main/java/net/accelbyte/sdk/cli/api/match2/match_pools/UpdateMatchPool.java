@@ -66,13 +66,13 @@ public class UpdateMatchPool implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final MatchPools wrapper = new MatchPools(sdk);
-      final net.accelbyte.sdk.api.match2.operations.match_pools.UpdateMatchPool operation =
+      final net.accelbyte.sdk.api.match2.operations.match_pools.UpdateMatchPool operationRequest =
           net.accelbyte.sdk.api.match2.operations.match_pools.UpdateMatchPool.builder()
               .namespace(namespace)
               .pool(pool)
               .body(new ObjectMapper().readValue(body, ApiMatchPoolConfig.class))
               .build();
-      final ApiMatchPool response = wrapper.updateMatchPool(operation);
+      final ApiMatchPool response = wrapper.updateMatchPool(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

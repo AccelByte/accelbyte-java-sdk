@@ -72,17 +72,18 @@ public class AdminBulkRemoveItems implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminItems wrapper = new AdminItems(sdk);
-      final net.accelbyte.sdk.api.inventory.operations.admin_items.AdminBulkRemoveItems operation =
-          net.accelbyte.sdk.api.inventory.operations.admin_items.AdminBulkRemoveItems.builder()
-              .inventoryId(inventoryId)
-              .namespace(namespace)
-              .userId(userId)
-              .body(
-                  new ObjectMapper()
-                      .readValue(
-                          body, new TypeReference<List<ApimodelsRemoveInventoryItemReq>>() {}))
-              .build();
-      final List<ApimodelsUpdateItemResp> response = wrapper.adminBulkRemoveItems(operation);
+      final net.accelbyte.sdk.api.inventory.operations.admin_items.AdminBulkRemoveItems
+          operationRequest =
+              net.accelbyte.sdk.api.inventory.operations.admin_items.AdminBulkRemoveItems.builder()
+                  .inventoryId(inventoryId)
+                  .namespace(namespace)
+                  .userId(userId)
+                  .body(
+                      new ObjectMapper()
+                          .readValue(
+                              body, new TypeReference<List<ApimodelsRemoveInventoryItemReq>>() {}))
+                  .build();
+      final List<ApimodelsUpdateItemResp> response = wrapper.adminBulkRemoveItems(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

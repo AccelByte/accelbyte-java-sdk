@@ -60,12 +60,12 @@ public class PurgeExpiredSection implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Section wrapper = new Section(sdk);
-      final net.accelbyte.sdk.api.platform.operations.section.PurgeExpiredSection operation =
+      final net.accelbyte.sdk.api.platform.operations.section.PurgeExpiredSection operationRequest =
           net.accelbyte.sdk.api.platform.operations.section.PurgeExpiredSection.builder()
               .namespace(namespace)
               .storeId(storeId)
               .build();
-      wrapper.purgeExpiredSection(operation);
+      wrapper.purgeExpiredSection(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

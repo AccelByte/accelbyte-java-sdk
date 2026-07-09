@@ -60,12 +60,13 @@ public class DeleteTiedStat implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final StatConfiguration wrapper = new StatConfiguration(sdk);
-      final net.accelbyte.sdk.api.social.operations.stat_configuration.DeleteTiedStat operation =
-          net.accelbyte.sdk.api.social.operations.stat_configuration.DeleteTiedStat.builder()
-              .namespace(namespace)
-              .statCode(statCode)
-              .build();
-      wrapper.deleteTiedStat(operation);
+      final net.accelbyte.sdk.api.social.operations.stat_configuration.DeleteTiedStat
+          operationRequest =
+              net.accelbyte.sdk.api.social.operations.stat_configuration.DeleteTiedStat.builder()
+                  .namespace(namespace)
+                  .statCode(statCode)
+                  .build();
+      wrapper.deleteTiedStat(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

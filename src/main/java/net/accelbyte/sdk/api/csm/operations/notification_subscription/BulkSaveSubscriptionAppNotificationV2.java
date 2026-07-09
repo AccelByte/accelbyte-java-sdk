@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * BulkSaveSubscriptionAppNotificationV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP:ALERT:SUBSCRIPTION [UPDATE]`
- *
  * <p>Bulk update of users subscribed to an app's notifications.
  *
  * <p>Request body: - notificationType : type of the app notification to be subscribed - Required. -

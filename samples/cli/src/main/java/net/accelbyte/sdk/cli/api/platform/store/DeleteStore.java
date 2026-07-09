@@ -61,12 +61,12 @@ public class DeleteStore implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Store wrapper = new Store(sdk);
-      final net.accelbyte.sdk.api.platform.operations.store.DeleteStore operation =
+      final net.accelbyte.sdk.api.platform.operations.store.DeleteStore operationRequest =
           net.accelbyte.sdk.api.platform.operations.store.DeleteStore.builder()
               .namespace(namespace)
               .storeId(storeId)
               .build();
-      final StoreInfo response = wrapper.deleteStore(operation);
+      final StoreInfo response = wrapper.deleteStore(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

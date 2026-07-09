@@ -66,13 +66,14 @@ public class SyncSteamIAPByTransaction implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.SyncSteamIAPByTransaction operation =
-          net.accelbyte.sdk.api.platform.operations.iap.SyncSteamIAPByTransaction.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .body(new ObjectMapper().readValue(body, SteamSyncByTransactionRequest.class))
-              .build();
-      final IAPOrderShortInfo response = wrapper.syncSteamIAPByTransaction(operation);
+      final net.accelbyte.sdk.api.platform.operations.iap.SyncSteamIAPByTransaction
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.iap.SyncSteamIAPByTransaction.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .body(new ObjectMapper().readValue(body, SteamSyncByTransactionRequest.class))
+                  .build();
+      final IAPOrderShortInfo response = wrapper.syncSteamIAPByTransaction(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

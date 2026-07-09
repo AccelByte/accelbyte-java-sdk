@@ -61,12 +61,12 @@ public class UpdateWalletConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Wallet wrapper = new Wallet(sdk);
-      final net.accelbyte.sdk.api.platform.operations.wallet.UpdateWalletConfig operation =
+      final net.accelbyte.sdk.api.platform.operations.wallet.UpdateWalletConfig operationRequest =
           net.accelbyte.sdk.api.platform.operations.wallet.UpdateWalletConfig.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, WalletConfigUpdate.class))
               .build();
-      final WalletConfigInfo response = wrapper.updateWalletConfig(operation);
+      final WalletConfigInfo response = wrapper.updateWalletConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

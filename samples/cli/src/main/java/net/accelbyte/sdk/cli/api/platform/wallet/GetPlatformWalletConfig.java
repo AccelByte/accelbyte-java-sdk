@@ -61,12 +61,13 @@ public class GetPlatformWalletConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Wallet wrapper = new Wallet(sdk);
-      final net.accelbyte.sdk.api.platform.operations.wallet.GetPlatformWalletConfig operation =
-          net.accelbyte.sdk.api.platform.operations.wallet.GetPlatformWalletConfig.builder()
-              .namespace(namespace)
-              .platform(platform)
-              .build();
-      final PlatformWalletConfigInfo response = wrapper.getPlatformWalletConfig(operation);
+      final net.accelbyte.sdk.api.platform.operations.wallet.GetPlatformWalletConfig
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.wallet.GetPlatformWalletConfig.builder()
+                  .namespace(namespace)
+                  .platform(platform)
+                  .build();
+      final PlatformWalletConfigInfo response = wrapper.getPlatformWalletConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

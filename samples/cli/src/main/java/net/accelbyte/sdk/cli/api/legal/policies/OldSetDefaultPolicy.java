@@ -55,11 +55,11 @@ public class OldSetDefaultPolicy implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Policies wrapper = new Policies(sdk);
-      final net.accelbyte.sdk.api.legal.operations.policies.OldSetDefaultPolicy operation =
+      final net.accelbyte.sdk.api.legal.operations.policies.OldSetDefaultPolicy operationRequest =
           net.accelbyte.sdk.api.legal.operations.policies.OldSetDefaultPolicy.builder()
               .policyId(policyId)
               .build();
-      wrapper.oldSetDefaultPolicy(operation);
+      wrapper.oldSetDefaultPolicy(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

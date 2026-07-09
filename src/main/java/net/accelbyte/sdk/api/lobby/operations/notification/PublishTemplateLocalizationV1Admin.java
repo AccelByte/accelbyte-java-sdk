@@ -20,9 +20,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publishTemplateLocalizationV1Admin
  *
- * <p>Publish notification template draft. Empty draft can not be published.
- *
- * <p>Action Code: 50210
+ * <p>Publish a notification template draft. Empty drafts cannot be published.
  */
 @Getter
 @Setter

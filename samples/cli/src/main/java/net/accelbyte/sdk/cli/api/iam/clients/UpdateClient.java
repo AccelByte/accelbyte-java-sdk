@@ -61,12 +61,12 @@ public class UpdateClient implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Clients wrapper = new Clients(sdk);
-      final net.accelbyte.sdk.api.iam.operations.clients.UpdateClient operation =
+      final net.accelbyte.sdk.api.iam.operations.clients.UpdateClient operationRequest =
           net.accelbyte.sdk.api.iam.operations.clients.UpdateClient.builder()
               .clientId(clientId)
               .body(new ObjectMapper().readValue(body, ClientmodelClientUpdateRequest.class))
               .build();
-      final ClientmodelClientResponse response = wrapper.updateClient(operation);
+      final ClientmodelClientResponse response = wrapper.updateClient(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

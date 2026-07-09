@@ -61,12 +61,12 @@ public class UserRequestFriend implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Friends wrapper = new Friends(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.friends.UserRequestFriend operation =
+      final net.accelbyte.sdk.api.lobby.operations.friends.UserRequestFriend operationRequest =
           net.accelbyte.sdk.api.lobby.operations.friends.UserRequestFriend.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelUserRequestFriendRequest.class))
               .build();
-      wrapper.userRequestFriend(operation);
+      wrapper.userRequestFriend(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

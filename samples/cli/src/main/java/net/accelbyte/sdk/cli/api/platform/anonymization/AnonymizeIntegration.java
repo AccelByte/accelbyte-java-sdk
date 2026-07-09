@@ -60,12 +60,13 @@ public class AnonymizeIntegration implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Anonymization wrapper = new Anonymization(sdk);
-      final net.accelbyte.sdk.api.platform.operations.anonymization.AnonymizeIntegration operation =
-          net.accelbyte.sdk.api.platform.operations.anonymization.AnonymizeIntegration.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .build();
-      wrapper.anonymizeIntegration(operation);
+      final net.accelbyte.sdk.api.platform.operations.anonymization.AnonymizeIntegration
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.anonymization.AnonymizeIntegration.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .build();
+      wrapper.anonymizeIntegration(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

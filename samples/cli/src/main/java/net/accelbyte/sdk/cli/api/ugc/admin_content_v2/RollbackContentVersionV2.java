@@ -67,14 +67,15 @@ public class RollbackContentVersionV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminContentV2 wrapper = new AdminContentV2(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_content_v2.RollbackContentVersionV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.admin_content_v2.RollbackContentVersionV2
                   .builder()
                   .contentId(contentId)
                   .namespace(namespace)
                   .versionId(versionId)
                   .build();
-      final ModelsContentDownloadResponse response = wrapper.rollbackContentVersionV2(operation);
+      final ModelsContentDownloadResponse response =
+          wrapper.rollbackContentVersionV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -21,12 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * createNotificationTopicV1Admin
  *
- * <p>Create new notification topic.
- *
- * <p>topic should be alphabets, no special char except underscore, uppercase and no spacing. for
- * example: TOPIC_TEST. Already existing topic can not be created
- *
- * <p>Action Code: 50214
+ * <p>Create new notification topic. Topic name must be uppercase alphabets and underscores only, no
+ * spaces or special characters (e.g. TOPIC_TEST). Already existing topics cannot be created again.
  */
 @Getter
 @Setter

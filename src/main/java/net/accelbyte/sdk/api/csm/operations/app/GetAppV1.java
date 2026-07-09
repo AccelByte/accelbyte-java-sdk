@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetAppV1
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [READ]`
- *
  * <p>Gets the App By Name
  *
  * @deprecated

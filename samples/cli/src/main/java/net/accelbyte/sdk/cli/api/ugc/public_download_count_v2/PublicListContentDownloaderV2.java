@@ -83,7 +83,7 @@ public class PublicListContentDownloaderV2 implements Callable<Integer> {
       final PublicDownloadCountV2 wrapper = new PublicDownloadCountV2(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_download_count_v2
               .PublicListContentDownloaderV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.public_download_count_v2
                   .PublicListContentDownloaderV2.builder()
                   .contentId(contentId)
@@ -94,7 +94,7 @@ public class PublicListContentDownloaderV2 implements Callable<Integer> {
                   .userId(userId)
                   .build();
       final ModelsPaginatedContentDownloaderResponse response =
-          wrapper.publicListContentDownloaderV2(operation);
+          wrapper.publicListContentDownloaderV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

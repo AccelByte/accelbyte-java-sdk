@@ -61,12 +61,14 @@ public class GeDLCDurableRewardShortMap implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final DLC wrapper = new DLC(sdk);
-      final net.accelbyte.sdk.api.platform.operations.dlc.GeDLCDurableRewardShortMap operation =
-          net.accelbyte.sdk.api.platform.operations.dlc.GeDLCDurableRewardShortMap.builder()
-              .namespace(namespace)
-              .dlcType(dlcType)
-              .build();
-      final DLCConfigRewardShortInfo response = wrapper.geDLCDurableRewardShortMap(operation);
+      final net.accelbyte.sdk.api.platform.operations.dlc.GeDLCDurableRewardShortMap
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.dlc.GeDLCDurableRewardShortMap.builder()
+                  .namespace(namespace)
+                  .dlcType(dlcType)
+                  .build();
+      final DLCConfigRewardShortInfo response =
+          wrapper.geDLCDurableRewardShortMap(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

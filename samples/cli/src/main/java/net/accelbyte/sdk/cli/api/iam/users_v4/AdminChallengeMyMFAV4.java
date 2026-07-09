@@ -61,12 +61,12 @@ public class AdminChallengeMyMFAV4 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UsersV4 wrapper = new UsersV4(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users_v4.AdminChallengeMyMFAV4 operation =
+      final net.accelbyte.sdk.api.iam.operations.users_v4.AdminChallengeMyMFAV4 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users_v4.AdminChallengeMyMFAV4.builder()
               .code(code != null ? code : null)
               .factor(factor != null ? factor : null)
               .build();
-      final ModelUserMFATokenResponseV4 response = wrapper.adminChallengeMyMFAV4(operation);
+      final ModelUserMFATokenResponseV4 response = wrapper.adminChallengeMyMFAV4(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

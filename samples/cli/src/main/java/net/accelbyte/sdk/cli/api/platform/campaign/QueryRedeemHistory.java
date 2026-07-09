@@ -81,7 +81,7 @@ public class QueryRedeemHistory implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Campaign wrapper = new Campaign(sdk);
-      final net.accelbyte.sdk.api.platform.operations.campaign.QueryRedeemHistory operation =
+      final net.accelbyte.sdk.api.platform.operations.campaign.QueryRedeemHistory operationRequest =
           net.accelbyte.sdk.api.platform.operations.campaign.QueryRedeemHistory.builder()
               .campaignId(campaignId)
               .namespace(namespace)
@@ -90,7 +90,7 @@ public class QueryRedeemHistory implements Callable<Integer> {
               .offset(offset)
               .userId(userId)
               .build();
-      final RedeemHistoryPagingSlicedResult response = wrapper.queryRedeemHistory(operation);
+      final RedeemHistoryPagingSlicedResult response = wrapper.queryRedeemHistory(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminReconcileMaxActiveSession
  *
- * <p>Reconcile Max Active Session.
+ * <p>Reconciles the max active session count for the specified configuration template. Scans active
+ * sessions and updates the counter to reflect the actual count.
  */
 @Getter
 @Setter

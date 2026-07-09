@@ -60,12 +60,13 @@ public class DeleteUserSlotConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final SlotConfig wrapper = new SlotConfig(sdk);
-      final net.accelbyte.sdk.api.social.operations.slot_config.DeleteUserSlotConfig operation =
-          net.accelbyte.sdk.api.social.operations.slot_config.DeleteUserSlotConfig.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .build();
-      wrapper.deleteUserSlotConfig(operation);
+      final net.accelbyte.sdk.api.social.operations.slot_config.DeleteUserSlotConfig
+          operationRequest =
+              net.accelbyte.sdk.api.social.operations.slot_config.DeleteUserSlotConfig.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .build();
+      wrapper.deleteUserSlotConfig(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

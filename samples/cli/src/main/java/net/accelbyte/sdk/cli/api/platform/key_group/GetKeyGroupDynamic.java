@@ -61,12 +61,13 @@ public class GetKeyGroupDynamic implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final KeyGroup wrapper = new KeyGroup(sdk);
-      final net.accelbyte.sdk.api.platform.operations.key_group.GetKeyGroupDynamic operation =
-          net.accelbyte.sdk.api.platform.operations.key_group.GetKeyGroupDynamic.builder()
-              .keyGroupId(keyGroupId)
-              .namespace(namespace)
-              .build();
-      final KeyGroupDynamicInfo response = wrapper.getKeyGroupDynamic(operation);
+      final net.accelbyte.sdk.api.platform.operations.key_group.GetKeyGroupDynamic
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.key_group.GetKeyGroupDynamic.builder()
+                  .keyGroupId(keyGroupId)
+                  .namespace(namespace)
+                  .build();
+      final KeyGroupDynamicInfo response = wrapper.getKeyGroupDynamic(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

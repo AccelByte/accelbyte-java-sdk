@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetAppListV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [READ]`
- *
  * <p>Get list of extend apps on a given game namespace
  */
 @Getter

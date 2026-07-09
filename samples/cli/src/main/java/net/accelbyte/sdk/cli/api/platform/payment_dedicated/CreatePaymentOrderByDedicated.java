@@ -63,13 +63,14 @@ public class CreatePaymentOrderByDedicated implements Callable<Integer> {
       final PaymentDedicated wrapper = new PaymentDedicated(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_dedicated
               .CreatePaymentOrderByDedicated
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.payment_dedicated
                   .CreatePaymentOrderByDedicated.builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ExternalPaymentOrderCreate.class))
                   .build();
-      final PaymentOrderCreateResult response = wrapper.createPaymentOrderByDedicated(operation);
+      final PaymentOrderCreateResult response =
+          wrapper.createPaymentOrderByDedicated(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

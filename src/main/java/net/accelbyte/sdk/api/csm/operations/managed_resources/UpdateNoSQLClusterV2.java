@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UpdateNoSQLClusterV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:NOSQL:CLUSTERS [UPDATE]`
- *
  * <p>Update NoSQL cluster configurations such as min/max DCU (Database Capacity Units) for the
  * NoSQL cluster in the given studio/publisher namespace. The cluster must be in an available state
  * to allow configuration updates.

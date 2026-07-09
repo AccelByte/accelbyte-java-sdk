@@ -74,7 +74,7 @@ public class UpdateGroupConfigurationGlobalRuleAdminV1 implements Callable<Integ
       final Configuration wrapper = new Configuration(sdk);
       final net.accelbyte.sdk.api.group.operations.configuration
               .UpdateGroupConfigurationGlobalRuleAdminV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.group.operations.configuration
                   .UpdateGroupConfigurationGlobalRuleAdminV1.builder()
                   .allowedAction(allowedAction)
@@ -86,7 +86,7 @@ public class UpdateGroupConfigurationGlobalRuleAdminV1 implements Callable<Integ
                               body, ModelsUpdateGroupConfigurationGlobalRulesRequestV1.class))
                   .build();
       final ModelsUpdateGroupConfigurationResponseV1 response =
-          wrapper.updateGroupConfigurationGlobalRuleAdminV1(operation);
+          wrapper.updateGroupConfigurationGlobalRuleAdminV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

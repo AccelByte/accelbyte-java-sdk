@@ -61,12 +61,13 @@ public class CreateReasonGroup implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminReasons wrapper = new AdminReasons(sdk);
-      final net.accelbyte.sdk.api.reporting.operations.admin_reasons.CreateReasonGroup operation =
-          net.accelbyte.sdk.api.reporting.operations.admin_reasons.CreateReasonGroup.builder()
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, RestapiCreateReasonGroupRequest.class))
-              .build();
-      final RestapiReasonGroupResponse response = wrapper.createReasonGroup(operation);
+      final net.accelbyte.sdk.api.reporting.operations.admin_reasons.CreateReasonGroup
+          operationRequest =
+              net.accelbyte.sdk.api.reporting.operations.admin_reasons.CreateReasonGroup.builder()
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, RestapiCreateReasonGroupRequest.class))
+                  .build();
+      final RestapiReasonGroupResponse response = wrapper.createReasonGroup(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

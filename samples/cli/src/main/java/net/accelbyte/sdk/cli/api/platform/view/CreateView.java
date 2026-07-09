@@ -66,13 +66,13 @@ public class CreateView implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final View wrapper = new View(sdk);
-      final net.accelbyte.sdk.api.platform.operations.view.CreateView operation =
+      final net.accelbyte.sdk.api.platform.operations.view.CreateView operationRequest =
           net.accelbyte.sdk.api.platform.operations.view.CreateView.builder()
               .namespace(namespace)
               .storeId(storeId)
               .body(new ObjectMapper().readValue(body, ViewCreate.class))
               .build();
-      final FullViewInfo response = wrapper.createView(operation);
+      final FullViewInfo response = wrapper.createView(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

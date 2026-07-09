@@ -58,13 +58,13 @@ public class GetKeyValueClusterLimitConfigV2 implements Callable<Integer> {
       final ManagedResourcesKeyValue wrapper = new ManagedResourcesKeyValue(sdk);
       final net.accelbyte.sdk.api.csm.operations.managed_resources_key_value
               .GetKeyValueClusterLimitConfigV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.csm.operations.managed_resources_key_value
                   .GetKeyValueClusterLimitConfigV2.builder()
                   .namespace(namespace)
                   .build();
       final DomainKeyValueClusterConfig response =
-          wrapper.getKeyValueClusterLimitConfigV2(operation);
+          wrapper.getKeyValueClusterLimitConfigV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

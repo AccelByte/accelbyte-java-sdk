@@ -63,14 +63,14 @@ public class AdminValidateXboxBPCertFile implements Callable<Integer> {
       final PlatformAccountClosureClient wrapper = new PlatformAccountClosureClient(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.platform_account_closure_client
               .AdminValidateXboxBPCertFile
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.platform_account_closure_client
                   .AdminValidateXboxBPCertFile.builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, DtoXboxBPCertValidationRequest.class))
                   .build();
       final DtoXboxBPCertValidationResponse response =
-          wrapper.adminValidateXboxBPCertFile(operation);
+          wrapper.adminValidateXboxBPCertFile(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

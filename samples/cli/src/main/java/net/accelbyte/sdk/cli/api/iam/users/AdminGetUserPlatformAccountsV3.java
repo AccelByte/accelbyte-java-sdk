@@ -86,18 +86,19 @@ public class AdminGetUserPlatformAccountsV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.AdminGetUserPlatformAccountsV3 operation =
-          net.accelbyte.sdk.api.iam.operations.users.AdminGetUserPlatformAccountsV3.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .after(after)
-              .before(before)
-              .limit(limit)
-              .platformId(platformId)
-              .targetNamespace(targetNamespace)
-              .build();
+      final net.accelbyte.sdk.api.iam.operations.users.AdminGetUserPlatformAccountsV3
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.users.AdminGetUserPlatformAccountsV3.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .after(after)
+                  .before(before)
+                  .limit(limit)
+                  .platformId(platformId)
+                  .targetNamespace(targetNamespace)
+                  .build();
       final AccountcommonUserLinkedPlatformsResponseV3 response =
-          wrapper.adminGetUserPlatformAccountsV3(operation);
+          wrapper.adminGetUserPlatformAccountsV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

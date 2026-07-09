@@ -123,24 +123,26 @@ public class QueryUserEntitlements implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Entitlement wrapper = new Entitlement(sdk);
-      final net.accelbyte.sdk.api.platform.operations.entitlement.QueryUserEntitlements operation =
-          net.accelbyte.sdk.api.platform.operations.entitlement.QueryUserEntitlements.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .activeOnly(activeOnly)
-              .appType(appType)
-              .collectionId(collectionId)
-              .entitlementClazz(entitlementClazz)
-              .entitlementName(entitlementName)
-              .features(features)
-              .fuzzyMatchName(fuzzyMatchName)
-              .ignoreActiveDate(ignoreActiveDate)
-              .itemId(itemId)
-              .limit(limit)
-              .offset(offset)
-              .origin(origin)
-              .build();
-      final EntitlementPagingSlicedResult response = wrapper.queryUserEntitlements(operation);
+      final net.accelbyte.sdk.api.platform.operations.entitlement.QueryUserEntitlements
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.entitlement.QueryUserEntitlements.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .activeOnly(activeOnly)
+                  .appType(appType)
+                  .collectionId(collectionId)
+                  .entitlementClazz(entitlementClazz)
+                  .entitlementName(entitlementName)
+                  .features(features)
+                  .fuzzyMatchName(fuzzyMatchName)
+                  .ignoreActiveDate(ignoreActiveDate)
+                  .itemId(itemId)
+                  .limit(limit)
+                  .offset(offset)
+                  .origin(origin)
+                  .build();
+      final EntitlementPagingSlicedResult response =
+          wrapper.queryUserEntitlements(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

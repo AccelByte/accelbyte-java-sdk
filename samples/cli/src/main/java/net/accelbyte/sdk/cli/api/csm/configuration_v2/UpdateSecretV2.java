@@ -71,7 +71,7 @@ public class UpdateSecretV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ConfigurationV2 wrapper = new ConfigurationV2(sdk);
-      final net.accelbyte.sdk.api.csm.operations.configuration_v2.UpdateSecretV2 operation =
+      final net.accelbyte.sdk.api.csm.operations.configuration_v2.UpdateSecretV2 operationRequest =
           net.accelbyte.sdk.api.csm.operations.configuration_v2.UpdateSecretV2.builder()
               .app(app)
               .configId(configId)
@@ -80,7 +80,8 @@ public class UpdateSecretV2 implements Callable<Integer> {
                   new ObjectMapper()
                       .readValue(body, ApimodelUpdateSecretConfigurationV2Request.class))
               .build();
-      final ApimodelUpdateConfigurationV2Response response = wrapper.updateSecretV2(operation);
+      final ApimodelUpdateConfigurationV2Response response =
+          wrapper.updateSecretV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

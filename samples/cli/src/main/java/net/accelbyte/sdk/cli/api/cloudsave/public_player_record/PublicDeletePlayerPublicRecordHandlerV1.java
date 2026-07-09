@@ -63,13 +63,13 @@ public class PublicDeletePlayerPublicRecordHandlerV1 implements Callable<Integer
       final PublicPlayerRecord wrapper = new PublicPlayerRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.public_player_record
               .PublicDeletePlayerPublicRecordHandlerV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.public_player_record
                   .PublicDeletePlayerPublicRecordHandlerV1.builder()
                   .key(key)
                   .namespace(namespace)
                   .build();
-      wrapper.publicDeletePlayerPublicRecordHandlerV1(operation);
+      wrapper.publicDeletePlayerPublicRecordHandlerV1(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

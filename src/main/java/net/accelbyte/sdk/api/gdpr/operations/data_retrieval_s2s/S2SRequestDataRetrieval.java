@@ -23,7 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Scope: account
  *
- * <p>Submit user personal data retrieval request.
+ * <p>Submit user's personal data request.
  *
  * <p>**Limitation:** This API only accepts requests with a publisher userId and does not support
  * game userId requests at this time.

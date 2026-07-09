@@ -74,7 +74,7 @@ public class GetAllTimeLeaderboardRankingPublicV1 implements Callable<Integer> {
       final LeaderboardData wrapper = new LeaderboardData(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data
               .GetAllTimeLeaderboardRankingPublicV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data
                   .GetAllTimeLeaderboardRankingPublicV1.builder()
                   .leaderboardCode(leaderboardCode)
@@ -83,7 +83,7 @@ public class GetAllTimeLeaderboardRankingPublicV1 implements Callable<Integer> {
                   .offset(offset)
                   .build();
       final ModelsGetLeaderboardRankingResp response =
-          wrapper.getAllTimeLeaderboardRankingPublicV1(operation);
+          wrapper.getAllTimeLeaderboardRankingPublicV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

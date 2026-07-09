@@ -79,7 +79,7 @@ public class GetTemplateSlugLocalizationsTemplateV1Admin implements Callable<Int
       final Notification wrapper = new Notification(sdk);
       final net.accelbyte.sdk.api.lobby.operations.notification
               .GetTemplateSlugLocalizationsTemplateV1Admin
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.notification
                   .GetTemplateSlugLocalizationsTemplateV1Admin.builder()
                   .namespace(namespace)
@@ -89,7 +89,7 @@ public class GetTemplateSlugLocalizationsTemplateV1Admin implements Callable<Int
                   .limit(limit)
                   .build();
       final ModelGetAllNotificationTemplateSlugResp response =
-          wrapper.getTemplateSlugLocalizationsTemplateV1Admin(operation);
+          wrapper.getTemplateSlugLocalizationsTemplateV1Admin(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetNotificationSubscriberListV3
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP:ALERT:SUBSCRIPTION [READ]`
- *
  * <p>Request param: - notificationType : type of the subscribed app notification - values: - all -
  * app-down - critical-vulnerability
  *

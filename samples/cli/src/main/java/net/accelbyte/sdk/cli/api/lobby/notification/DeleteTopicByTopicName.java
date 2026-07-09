@@ -60,12 +60,13 @@ public class DeleteTopicByTopicName implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Notification wrapper = new Notification(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.notification.DeleteTopicByTopicName operation =
-          net.accelbyte.sdk.api.lobby.operations.notification.DeleteTopicByTopicName.builder()
-              .namespace(namespace)
-              .topic(topic)
-              .build();
-      wrapper.deleteTopicByTopicName(operation);
+      final net.accelbyte.sdk.api.lobby.operations.notification.DeleteTopicByTopicName
+          operationRequest =
+              net.accelbyte.sdk.api.lobby.operations.notification.DeleteTopicByTopicName.builder()
+                  .namespace(namespace)
+                  .topic(topic)
+                  .build();
+      wrapper.deleteTopicByTopicName(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

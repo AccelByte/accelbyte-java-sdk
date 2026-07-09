@@ -61,12 +61,12 @@ public class GetItemDynamicData implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Item wrapper = new Item(sdk);
-      final net.accelbyte.sdk.api.platform.operations.item.GetItemDynamicData operation =
+      final net.accelbyte.sdk.api.platform.operations.item.GetItemDynamicData operationRequest =
           net.accelbyte.sdk.api.platform.operations.item.GetItemDynamicData.builder()
               .itemId(itemId)
               .namespace(namespace)
               .build();
-      final ItemDynamicDataInfo response = wrapper.getItemDynamicData(operation);
+      final ItemDynamicDataInfo response = wrapper.getItemDynamicData(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

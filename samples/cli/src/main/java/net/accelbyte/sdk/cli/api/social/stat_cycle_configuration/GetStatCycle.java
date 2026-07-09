@@ -62,13 +62,13 @@ public class GetStatCycle implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final StatCycleConfiguration wrapper = new StatCycleConfiguration(sdk);
       final net.accelbyte.sdk.api.social.operations.stat_cycle_configuration.GetStatCycle
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.social.operations.stat_cycle_configuration.GetStatCycle
                   .builder()
                   .cycleId(cycleId)
                   .namespace(namespace)
                   .build();
-      final StatCycleInfo response = wrapper.getStatCycle(operation);
+      final StatCycleInfo response = wrapper.getStatCycle(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

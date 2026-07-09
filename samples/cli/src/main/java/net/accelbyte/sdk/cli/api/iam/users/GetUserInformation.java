@@ -61,12 +61,12 @@ public class GetUserInformation implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.GetUserInformation operation =
+      final net.accelbyte.sdk.api.iam.operations.users.GetUserInformation operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.GetUserInformation.builder()
               .namespace(namespace)
               .userId(userId)
               .build();
-      final ModelUserInformation response = wrapper.getUserInformation(operation);
+      final ModelUserInformation response = wrapper.getUserInformation(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

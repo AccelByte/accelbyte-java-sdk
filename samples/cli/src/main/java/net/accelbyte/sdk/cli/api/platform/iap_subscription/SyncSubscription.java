@@ -66,13 +66,14 @@ public class SyncSubscription implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAPSubscription wrapper = new IAPSubscription(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap_subscription.SyncSubscription operation =
-          net.accelbyte.sdk.api.platform.operations.iap_subscription.SyncSubscription.builder()
-              .id(id)
-              .namespace(namespace)
-              .userId(userId)
-              .build();
-      final ThirdPartyUserSubscriptionInfo response = wrapper.syncSubscription(operation);
+      final net.accelbyte.sdk.api.platform.operations.iap_subscription.SyncSubscription
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.iap_subscription.SyncSubscription.builder()
+                  .id(id)
+                  .namespace(namespace)
+                  .userId(userId)
+                  .build();
+      final ThirdPartyUserSubscriptionInfo response = wrapper.syncSubscription(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

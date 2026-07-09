@@ -69,7 +69,7 @@ public class UpdateLeaderboardConfigurationAdminV3 implements Callable<Integer> 
       final LeaderboardConfigurationV3 wrapper = new LeaderboardConfigurationV3(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration_v3
               .UpdateLeaderboardConfigurationAdminV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration_v3
                   .UpdateLeaderboardConfigurationAdminV3.builder()
                   .leaderboardCode(leaderboardCode)
@@ -78,7 +78,7 @@ public class UpdateLeaderboardConfigurationAdminV3 implements Callable<Integer> 
                       new ObjectMapper().readValue(body, ModelsUpdateLeaderboardConfigReqV3.class))
                   .build();
       final ModelsGetLeaderboardConfigRespV3 response =
-          wrapper.updateLeaderboardConfigurationAdminV3(operation);
+          wrapper.updateLeaderboardConfigurationAdminV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

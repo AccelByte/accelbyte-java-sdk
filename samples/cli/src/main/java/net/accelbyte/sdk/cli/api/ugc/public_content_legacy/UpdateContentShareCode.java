@@ -77,7 +77,7 @@ public class UpdateContentShareCode implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicContentLegacy wrapper = new PublicContentLegacy(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_content_legacy.UpdateContentShareCode
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.public_content_legacy.UpdateContentShareCode
                   .builder()
                   .channelId(channelId)
@@ -87,7 +87,7 @@ public class UpdateContentShareCode implements Callable<Integer> {
                   .body(
                       new ObjectMapper().readValue(body, ModelsUpdateContentShareCodeRequest.class))
                   .build();
-      final ModelsCreateContentResponse response = wrapper.updateContentShareCode(operation);
+      final ModelsCreateContentResponse response = wrapper.updateContentShareCode(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

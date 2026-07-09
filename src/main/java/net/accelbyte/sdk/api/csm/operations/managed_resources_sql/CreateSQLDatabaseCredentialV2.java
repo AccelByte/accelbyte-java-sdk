@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateSQLDatabaseCredentialV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:SQL:DATABASECREDENTIALS [CREATE]`
- *
  * <p>Creates a new database credential for the customer. This will soft-delete the old credential
  * and create a new one.
  */

@@ -68,7 +68,7 @@ public class GetNotificationSubscriberListV3 implements Callable<Integer> {
       final NotificationSubscriptionV3 wrapper = new NotificationSubscriptionV3(sdk);
       final net.accelbyte.sdk.api.csm.operations.notification_subscription_v3
               .GetNotificationSubscriberListV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.csm.operations.notification_subscription_v3
                   .GetNotificationSubscriberListV3.builder()
                   .app(app)
@@ -76,7 +76,7 @@ public class GetNotificationSubscriberListV3 implements Callable<Integer> {
                   .notificationType(notificationType)
                   .build();
       final ApimodelGetNotificationSubscriberListResponseV2 response =
-          wrapper.getNotificationSubscriberListV3(operation);
+          wrapper.getNotificationSubscriberListV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

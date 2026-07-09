@@ -71,14 +71,17 @@ public class GetListOfDeploymentV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final DeploymentV2 wrapper = new DeploymentV2(sdk);
-      final net.accelbyte.sdk.api.csm.operations.deployment_v2.GetListOfDeploymentV2 operation =
-          net.accelbyte.sdk.api.csm.operations.deployment_v2.GetListOfDeploymentV2.builder()
-              .namespace(namespace)
-              .limit(limit)
-              .offset(offset)
-              .body(new ObjectMapper().readValue(body, ApimodelGetDeploymentListV2Request.class))
-              .build();
-      final ApimodelGetDeploymentListV2Response response = wrapper.getListOfDeploymentV2(operation);
+      final net.accelbyte.sdk.api.csm.operations.deployment_v2.GetListOfDeploymentV2
+          operationRequest =
+              net.accelbyte.sdk.api.csm.operations.deployment_v2.GetListOfDeploymentV2.builder()
+                  .namespace(namespace)
+                  .limit(limit)
+                  .offset(offset)
+                  .body(
+                      new ObjectMapper().readValue(body, ApimodelGetDeploymentListV2Request.class))
+                  .build();
+      final ApimodelGetDeploymentListV2Response response =
+          wrapper.getListOfDeploymentV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -70,7 +70,7 @@ public class AdminGetArchivedLeaderboardRankingDataV1Handler implements Callable
       final LeaderboardData wrapper = new LeaderboardData(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data
               .AdminGetArchivedLeaderboardRankingDataV1Handler
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data
                   .AdminGetArchivedLeaderboardRankingDataV1Handler.builder()
                   .namespace(namespace)
@@ -78,7 +78,7 @@ public class AdminGetArchivedLeaderboardRankingDataV1Handler implements Callable
                   .leaderboardCodes(leaderboardCodes)
                   .build();
       final List<ModelsArchiveLeaderboardSignedURLResponse> response =
-          wrapper.adminGetArchivedLeaderboardRankingDataV1Handler(operation);
+          wrapper.adminGetArchivedLeaderboardRankingDataV1Handler(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

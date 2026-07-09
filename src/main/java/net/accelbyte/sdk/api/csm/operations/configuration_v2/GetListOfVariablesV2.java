@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * GetListOfVariablesV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:VARIABLE [READ]`
- *
  * <p>Get list of environment variables per app Available Deployment Status: `deployed` = app config
  * is already deployed `undeployed` = app config is not deployed yet and need restart and deploy of
  * the app to be deployed

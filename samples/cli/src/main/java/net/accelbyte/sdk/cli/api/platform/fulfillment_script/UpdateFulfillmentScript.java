@@ -62,13 +62,13 @@ public class UpdateFulfillmentScript implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final FulfillmentScript wrapper = new FulfillmentScript(sdk);
       final net.accelbyte.sdk.api.platform.operations.fulfillment_script.UpdateFulfillmentScript
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.fulfillment_script.UpdateFulfillmentScript
                   .builder()
                   .id(id)
                   .body(new ObjectMapper().readValue(body, FulfillmentScriptUpdate.class))
                   .build();
-      final FulfillmentScriptInfo response = wrapper.updateFulfillmentScript(operation);
+      final FulfillmentScriptInfo response = wrapper.updateFulfillmentScript(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

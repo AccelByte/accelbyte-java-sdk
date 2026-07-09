@@ -66,14 +66,15 @@ public class AdminListInvitationHistoriesV4 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UsersV4 wrapper = new UsersV4(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users_v4.AdminListInvitationHistoriesV4 operation =
-          net.accelbyte.sdk.api.iam.operations.users_v4.AdminListInvitationHistoriesV4.builder()
-              .limit(limit)
-              .namespace(namespace)
-              .offset(offset)
-              .build();
+      final net.accelbyte.sdk.api.iam.operations.users_v4.AdminListInvitationHistoriesV4
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.users_v4.AdminListInvitationHistoriesV4.builder()
+                  .limit(limit)
+                  .namespace(namespace)
+                  .offset(offset)
+                  .build();
       final ModelListInvitationHistoriesV4Response response =
-          wrapper.adminListInvitationHistoriesV4(operation);
+          wrapper.adminListInvitationHistoriesV4(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

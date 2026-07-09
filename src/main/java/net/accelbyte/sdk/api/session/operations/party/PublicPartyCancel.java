@@ -20,7 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicPartyCancel
  *
- * <p>Cancel a party invitation.
+ * <p>Cancels a pending party invitation sent to the specified user. Only the party leader or the
+ * inviting member can cancel the invitation.
  */
 @Getter
 @Setter

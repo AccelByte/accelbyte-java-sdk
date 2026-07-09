@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * appendTeamGameSession
  *
- * <p>Append new member or team to session. Please use patchUpdateGameSession instead
+ * <p>**Deprecated.** Appends new members or teams to a game session. Use PATCH updateGameSession
+ * instead, which supports partial updates and is more efficient.
  *
  * @deprecated
  */

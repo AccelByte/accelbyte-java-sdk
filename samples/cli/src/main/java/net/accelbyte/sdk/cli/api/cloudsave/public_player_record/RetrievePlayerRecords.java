@@ -73,7 +73,7 @@ public class RetrievePlayerRecords implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicPlayerRecord wrapper = new PublicPlayerRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.public_player_record.RetrievePlayerRecords
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.public_player_record.RetrievePlayerRecords
                   .builder()
                   .namespace(namespace)
@@ -81,7 +81,8 @@ public class RetrievePlayerRecords implements Callable<Integer> {
                   .offset(offset)
                   .tags(tags)
                   .build();
-      final ModelsListPlayerRecordKeysResponse response = wrapper.retrievePlayerRecords(operation);
+      final ModelsListPlayerRecordKeysResponse response =
+          wrapper.retrievePlayerRecords(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

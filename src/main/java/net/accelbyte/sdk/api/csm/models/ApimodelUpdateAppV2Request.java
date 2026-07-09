@@ -29,6 +29,10 @@ public class ApimodelUpdateAppV2Request extends Model {
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private String description;
 
+  @JsonProperty("enableDebugMode")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private Boolean enableDebugMode;
+
   @JsonIgnore
   public ApimodelUpdateAppV2Request createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

@@ -148,7 +148,7 @@ public class QueryItemsV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Item wrapper = new Item(sdk);
-      final net.accelbyte.sdk.api.platform.operations.item.QueryItemsV2 operation =
+      final net.accelbyte.sdk.api.platform.operations.item.QueryItemsV2 operationRequest =
           net.accelbyte.sdk.api.platform.operations.item.QueryItemsV2.builder()
               .namespace(namespace)
               .appType(appType)
@@ -170,7 +170,7 @@ public class QueryItemsV2 implements Callable<Integer> {
               .targetNamespace(targetNamespace)
               .withTotal(withTotal)
               .build();
-      final FullItemPagingResult response = wrapper.queryItemsV2(operation);
+      final FullItemPagingResult response = wrapper.queryItemsV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

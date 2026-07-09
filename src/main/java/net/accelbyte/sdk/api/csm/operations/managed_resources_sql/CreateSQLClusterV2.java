@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateSQLClusterV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:SQL:CLUSTERS [CREATE]`
- *
  * <p>Provision SQL database cluster and instances that can be used by extend apps in game namespace
  * within the studio. Only one SQL resource can be created for one studio/publisher namespace.
  *

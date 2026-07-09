@@ -68,7 +68,7 @@ public class AdminUpdateAchievementListOrder implements Callable<Integer> {
       final Achievements wrapper = new Achievements(sdk);
       final net.accelbyte.sdk.api.achievement.operations.achievements
               .AdminUpdateAchievementListOrder
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.achievement.operations.achievements
                   .AdminUpdateAchievementListOrder.builder()
                   .achievementCode(achievementCode)
@@ -76,7 +76,7 @@ public class AdminUpdateAchievementListOrder implements Callable<Integer> {
                   .body(
                       new ObjectMapper().readValue(body, ModelsAchievementOrderUpdateRequest.class))
                   .build();
-      wrapper.adminUpdateAchievementListOrder(operation);
+      wrapper.adminUpdateAchievementListOrder(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

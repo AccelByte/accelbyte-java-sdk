@@ -66,13 +66,13 @@ public class SyncOrders implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OrderDedicated wrapper = new OrderDedicated(sdk);
-      final net.accelbyte.sdk.api.platform.operations.order_dedicated.SyncOrders operation =
+      final net.accelbyte.sdk.api.platform.operations.order_dedicated.SyncOrders operationRequest =
           net.accelbyte.sdk.api.platform.operations.order_dedicated.SyncOrders.builder()
               .nextEvaluatedKey(nextEvaluatedKey)
               .end(end)
               .start(start)
               .build();
-      final OrderSyncResult response = wrapper.syncOrders(operation);
+      final OrderSyncResult response = wrapper.syncOrders(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

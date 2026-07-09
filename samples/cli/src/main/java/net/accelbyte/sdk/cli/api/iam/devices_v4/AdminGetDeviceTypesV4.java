@@ -56,11 +56,11 @@ public class AdminGetDeviceTypesV4 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final DevicesV4 wrapper = new DevicesV4(sdk);
-      final net.accelbyte.sdk.api.iam.operations.devices_v4.AdminGetDeviceTypesV4 operation =
+      final net.accelbyte.sdk.api.iam.operations.devices_v4.AdminGetDeviceTypesV4 operationRequest =
           net.accelbyte.sdk.api.iam.operations.devices_v4.AdminGetDeviceTypesV4.builder()
               .namespace(namespace)
               .build();
-      final ModelDeviceTypesResponseV4 response = wrapper.adminGetDeviceTypesV4(operation);
+      final ModelDeviceTypesResponseV4 response = wrapper.adminGetDeviceTypesV4(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -82,7 +82,7 @@ public class AdminListInventories implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminInventories wrapper = new AdminInventories(sdk);
       final net.accelbyte.sdk.api.inventory.operations.admin_inventories.AdminListInventories
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.inventory.operations.admin_inventories.AdminListInventories
                   .builder()
                   .namespace(namespace)
@@ -92,7 +92,7 @@ public class AdminListInventories implements Callable<Integer> {
                   .sortBy(sortBy)
                   .userId(userId)
                   .build();
-      final ApimodelsListInventoryResp response = wrapper.adminListInventories(operation);
+      final ApimodelsListInventoryResp response = wrapper.adminListInventories(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -66,13 +66,13 @@ public class CountOfPurchasedItem implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Order wrapper = new Order(sdk);
-      final net.accelbyte.sdk.api.platform.operations.order.CountOfPurchasedItem operation =
+      final net.accelbyte.sdk.api.platform.operations.order.CountOfPurchasedItem operationRequest =
           net.accelbyte.sdk.api.platform.operations.order.CountOfPurchasedItem.builder()
               .namespace(namespace)
               .userId(userId)
               .itemId(itemId)
               .build();
-      final PurchasedItemCount response = wrapper.countOfPurchasedItem(operation);
+      final PurchasedItemCount response = wrapper.countOfPurchasedItem(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

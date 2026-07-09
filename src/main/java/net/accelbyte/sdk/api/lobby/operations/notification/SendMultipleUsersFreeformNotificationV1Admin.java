@@ -21,7 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * sendMultipleUsersFreeformNotificationV1Admin
  *
- * <p>Sends notification to multiple user. Action Code: 50211
+ * <p>Sends freeform notification to multiple users by user ID list.
  */
 @Getter
 @Setter

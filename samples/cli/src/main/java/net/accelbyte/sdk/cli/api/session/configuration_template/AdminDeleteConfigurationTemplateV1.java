@@ -62,13 +62,13 @@ public class AdminDeleteConfigurationTemplateV1 implements Callable<Integer> {
       final ConfigurationTemplate wrapper = new ConfigurationTemplate(sdk);
       final net.accelbyte.sdk.api.session.operations.configuration_template
               .AdminDeleteConfigurationTemplateV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.configuration_template
                   .AdminDeleteConfigurationTemplateV1.builder()
                   .name(name)
                   .namespace(namespace)
                   .build();
-      wrapper.adminDeleteConfigurationTemplateV1(operation);
+      wrapper.adminDeleteConfigurationTemplateV1(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

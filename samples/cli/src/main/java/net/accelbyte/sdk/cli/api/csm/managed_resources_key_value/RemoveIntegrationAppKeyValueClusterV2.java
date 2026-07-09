@@ -63,13 +63,13 @@ public class RemoveIntegrationAppKeyValueClusterV2 implements Callable<Integer> 
       final ManagedResourcesKeyValue wrapper = new ManagedResourcesKeyValue(sdk);
       final net.accelbyte.sdk.api.csm.operations.managed_resources_key_value
               .RemoveIntegrationAppKeyValueClusterV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.csm.operations.managed_resources_key_value
                   .RemoveIntegrationAppKeyValueClusterV2.builder()
                   .app(app)
                   .namespace(namespace)
                   .build();
-      wrapper.removeIntegrationAppKeyValueClusterV2(operation);
+      wrapper.removeIntegrationAppKeyValueClusterV2(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

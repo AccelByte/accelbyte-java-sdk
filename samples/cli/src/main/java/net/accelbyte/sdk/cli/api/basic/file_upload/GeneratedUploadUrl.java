@@ -66,13 +66,13 @@ public class GeneratedUploadUrl implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final FileUpload wrapper = new FileUpload(sdk);
-      final net.accelbyte.sdk.api.basic.operations.file_upload.GeneratedUploadUrl operation =
+      final net.accelbyte.sdk.api.basic.operations.file_upload.GeneratedUploadUrl operationRequest =
           net.accelbyte.sdk.api.basic.operations.file_upload.GeneratedUploadUrl.builder()
               .folder(folder)
               .namespace(namespace)
               .fileType(fileType)
               .build();
-      final FileUploadUrlInfo response = wrapper.generatedUploadUrl(operation);
+      final FileUploadUrlInfo response = wrapper.generatedUploadUrl(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

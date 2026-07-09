@@ -76,7 +76,7 @@ public class AddUserPermission implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.AddUserPermission operation =
+      final net.accelbyte.sdk.api.iam.operations.users.AddUserPermission operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.AddUserPermission.builder()
               .action(action)
               .namespace(namespace)
@@ -84,7 +84,7 @@ public class AddUserPermission implements Callable<Integer> {
               .userId(userId)
               .body(new ObjectMapper().readValue(body, ModelUpdatePermissionScheduleRequest.class))
               .build();
-      wrapper.addUserPermission(operation);
+      wrapper.addUserPermission(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

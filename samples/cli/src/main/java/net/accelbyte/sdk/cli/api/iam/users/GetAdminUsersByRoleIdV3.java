@@ -76,7 +76,7 @@ public class GetAdminUsersByRoleIdV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.GetAdminUsersByRoleIdV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.users.GetAdminUsersByRoleIdV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.GetAdminUsersByRoleIdV3.builder()
               .namespace(namespace)
               .roleId(roleId)
@@ -85,7 +85,7 @@ public class GetAdminUsersByRoleIdV3 implements Callable<Integer> {
               .limit(limit)
               .build();
       final ModelGetUsersResponseWithPaginationV3 response =
-          wrapper.getAdminUsersByRoleIdV3(operation);
+          wrapper.getAdminUsersByRoleIdV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

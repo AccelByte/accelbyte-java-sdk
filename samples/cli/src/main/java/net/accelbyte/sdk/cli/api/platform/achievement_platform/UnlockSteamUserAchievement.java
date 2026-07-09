@@ -68,14 +68,14 @@ public class UnlockSteamUserAchievement implements Callable<Integer> {
       final AchievementPlatform wrapper = new AchievementPlatform(sdk);
       final net.accelbyte.sdk.api.platform.operations.achievement_platform
               .UnlockSteamUserAchievement
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.achievement_platform
                   .UnlockSteamUserAchievement.builder()
                   .namespace(namespace)
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, SteamAchievementUpdateRequest.class))
                   .build();
-      wrapper.unlockSteamUserAchievement(operation);
+      wrapper.unlockSteamUserAchievement(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

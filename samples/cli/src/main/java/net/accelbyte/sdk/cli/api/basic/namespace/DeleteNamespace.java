@@ -56,11 +56,11 @@ public class DeleteNamespace implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Namespace wrapper = new Namespace(sdk);
-      final net.accelbyte.sdk.api.basic.operations.namespace.DeleteNamespace operation =
+      final net.accelbyte.sdk.api.basic.operations.namespace.DeleteNamespace operationRequest =
           net.accelbyte.sdk.api.basic.operations.namespace.DeleteNamespace.builder()
               .namespace(namespace)
               .build();
-      final NamespaceInfo response = wrapper.deleteNamespace(operation);
+      final NamespaceInfo response = wrapper.deleteNamespace(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

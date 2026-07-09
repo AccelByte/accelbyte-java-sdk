@@ -41,9 +41,9 @@ public class ChallengeProgression {
   }
 
   /**
-   * @see EvaluateMyProgress
+   * @see PublicEvaluateMyProgress
    */
-  public void evaluateMyProgress(EvaluateMyProgress input) throws Exception {
+  public void publicEvaluateMyProgress(PublicEvaluateMyProgress input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

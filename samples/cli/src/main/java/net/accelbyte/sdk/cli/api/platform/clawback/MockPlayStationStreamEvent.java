@@ -62,13 +62,13 @@ public class MockPlayStationStreamEvent implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Clawback wrapper = new Clawback(sdk);
       final net.accelbyte.sdk.api.platform.operations.clawback.MockPlayStationStreamEvent
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.clawback.MockPlayStationStreamEvent
                   .builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, StreamEvent.class))
                   .build();
-      final ClawbackInfo response = wrapper.mockPlayStationStreamEvent(operation);
+      final ClawbackInfo response = wrapper.mockPlayStationStreamEvent(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -66,13 +66,13 @@ public class AdminAddUserPermissionsV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.AdminAddUserPermissionsV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.users.AdminAddUserPermissionsV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.AdminAddUserPermissionsV3.builder()
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, AccountcommonPermissions.class))
               .build();
-      wrapper.adminAddUserPermissionsV3(operation);
+      wrapper.adminAddUserPermissionsV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

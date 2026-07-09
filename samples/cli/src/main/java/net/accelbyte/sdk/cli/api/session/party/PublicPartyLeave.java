@@ -60,12 +60,12 @@ public class PublicPartyLeave implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Party wrapper = new Party(sdk);
-      final net.accelbyte.sdk.api.session.operations.party.PublicPartyLeave operation =
+      final net.accelbyte.sdk.api.session.operations.party.PublicPartyLeave operationRequest =
           net.accelbyte.sdk.api.session.operations.party.PublicPartyLeave.builder()
               .namespace(namespace)
               .partyId(partyId)
               .build();
-      wrapper.publicPartyLeave(operation);
+      wrapper.publicPartyLeave(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

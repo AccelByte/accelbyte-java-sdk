@@ -71,14 +71,14 @@ public class UpdateChannel implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicChannel wrapper = new PublicChannel(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.public_channel.UpdateChannel operation =
+      final net.accelbyte.sdk.api.ugc.operations.public_channel.UpdateChannel operationRequest =
           net.accelbyte.sdk.api.ugc.operations.public_channel.UpdateChannel.builder()
               .channelId(channelId)
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, ModelsUpdateChannelRequest.class))
               .build();
-      final ModelsChannelResponse response = wrapper.updateChannel(operation);
+      final ModelsChannelResponse response = wrapper.updateChannel(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

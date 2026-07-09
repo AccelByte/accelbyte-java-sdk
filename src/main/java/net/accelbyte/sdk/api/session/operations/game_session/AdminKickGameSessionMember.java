@@ -20,7 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminKickGameSessionMember
  *
- * <p>Kick member from a game session.
+ * <p>Removes the specified member from a game session and sets their status to KICKED. Can be used
+ * by admins to forcefully remove members.
  */
 @Getter
 @Setter

@@ -62,13 +62,13 @@ public class UnpublishPolicyVersion implements Callable<Integer> {
       final PolicyVersionsWithNamespace wrapper = new PolicyVersionsWithNamespace(sdk);
       final net.accelbyte.sdk.api.legal.operations.policy_versions_with_namespace
               .UnpublishPolicyVersion
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.policy_versions_with_namespace
                   .UnpublishPolicyVersion.builder()
                   .namespace(namespace)
                   .policyVersionId(policyVersionId)
                   .build();
-      wrapper.unpublishPolicyVersion(operation);
+      wrapper.unpublishPolicyVersion(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

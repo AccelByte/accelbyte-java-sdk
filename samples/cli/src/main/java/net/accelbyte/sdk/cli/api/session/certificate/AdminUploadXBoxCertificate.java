@@ -78,7 +78,7 @@ public class AdminUploadXBoxCertificate implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Certificate wrapper = new Certificate(sdk);
       final net.accelbyte.sdk.api.session.operations.certificate.AdminUploadXBoxCertificate
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.certificate.AdminUploadXBoxCertificate
                   .builder()
                   .namespace(namespace)
@@ -87,7 +87,8 @@ public class AdminUploadXBoxCertificate implements Callable<Integer> {
                   .file(file != null ? file : null)
                   .password(password != null ? password : null)
                   .build();
-      final ModelsPlatformCredentials response = wrapper.adminUploadXBoxCertificate(operation);
+      final ModelsPlatformCredentials response =
+          wrapper.adminUploadXBoxCertificate(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

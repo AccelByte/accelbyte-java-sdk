@@ -91,7 +91,7 @@ public class QueryImportHistory implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Store wrapper = new Store(sdk);
-      final net.accelbyte.sdk.api.platform.operations.store.QueryImportHistory operation =
+      final net.accelbyte.sdk.api.platform.operations.store.QueryImportHistory operationRequest =
           net.accelbyte.sdk.api.platform.operations.store.QueryImportHistory.builder()
               .namespace(namespace)
               .storeId(storeId)
@@ -102,7 +102,7 @@ public class QueryImportHistory implements Callable<Integer> {
               .start(start)
               .success(success)
               .build();
-      final ImportStoreHistoryPagingResult response = wrapper.queryImportHistory(operation);
+      final ImportStoreHistoryPagingResult response = wrapper.queryImportHistory(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

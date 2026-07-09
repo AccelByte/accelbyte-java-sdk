@@ -66,13 +66,14 @@ public class CheckSeasonPurchasable implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Season wrapper = new Season(sdk);
-      final net.accelbyte.sdk.api.seasonpass.operations.season.CheckSeasonPurchasable operation =
-          net.accelbyte.sdk.api.seasonpass.operations.season.CheckSeasonPurchasable.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .body(new ObjectMapper().readValue(body, UserPurchasable.class))
-              .build();
-      wrapper.checkSeasonPurchasable(operation);
+      final net.accelbyte.sdk.api.seasonpass.operations.season.CheckSeasonPurchasable
+          operationRequest =
+              net.accelbyte.sdk.api.seasonpass.operations.season.CheckSeasonPurchasable.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .body(new ObjectMapper().readValue(body, UserPurchasable.class))
+                  .build();
+      wrapper.checkSeasonPurchasable(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

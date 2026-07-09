@@ -56,11 +56,11 @@ public class InfoSupportedInstances implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AMSInfo wrapper = new AMSInfo(sdk);
-      final net.accelbyte.sdk.api.ams.operations.ams_info.InfoSupportedInstances operation =
+      final net.accelbyte.sdk.api.ams.operations.ams_info.InfoSupportedInstances operationRequest =
           net.accelbyte.sdk.api.ams.operations.ams_info.InfoSupportedInstances.builder()
               .namespace(namespace)
               .build();
-      final ApiInstanceTypesResponse response = wrapper.infoSupportedInstances(operation);
+      final ApiInstanceTypesResponse response = wrapper.infoSupportedInstances(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

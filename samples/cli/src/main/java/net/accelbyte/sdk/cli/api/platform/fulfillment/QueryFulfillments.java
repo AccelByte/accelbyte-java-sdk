@@ -91,18 +91,19 @@ public class QueryFulfillments implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Fulfillment wrapper = new Fulfillment(sdk);
-      final net.accelbyte.sdk.api.platform.operations.fulfillment.QueryFulfillments operation =
-          net.accelbyte.sdk.api.platform.operations.fulfillment.QueryFulfillments.builder()
-              .namespace(namespace)
-              .endTime(endTime)
-              .limit(limit)
-              .offset(offset)
-              .startTime(startTime)
-              .state(state)
-              .transactionId(transactionId)
-              .userId(userId)
-              .build();
-      final FulfillmentPagingSlicedResult response = wrapper.queryFulfillments(operation);
+      final net.accelbyte.sdk.api.platform.operations.fulfillment.QueryFulfillments
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.fulfillment.QueryFulfillments.builder()
+                  .namespace(namespace)
+                  .endTime(endTime)
+                  .limit(limit)
+                  .offset(offset)
+                  .startTime(startTime)
+                  .state(state)
+                  .transactionId(transactionId)
+                  .userId(userId)
+                  .build();
+      final FulfillmentPagingSlicedResult response = wrapper.queryFulfillments(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

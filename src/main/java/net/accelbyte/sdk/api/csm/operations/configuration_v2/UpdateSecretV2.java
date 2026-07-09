@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UpdateSecretV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:SECRET [UPDATE]`
- *
  * <p>Update an environment secret. Secret will always be masked. Request body: - value :
  * configuration value - Required. - description : description of the configuration - Optional.
  */

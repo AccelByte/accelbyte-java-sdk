@@ -62,14 +62,14 @@ public class GetTradeHistoryByTransactionId implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final TradeAction wrapper = new TradeAction(sdk);
       final net.accelbyte.sdk.api.platform.operations.trade_action.GetTradeHistoryByTransactionId
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.trade_action.GetTradeHistoryByTransactionId
                   .builder()
                   .namespace(namespace)
                   .transactionId(transactionId)
                   .build();
       final TradeChainActionHistoryInfo response =
-          wrapper.getTradeHistoryByTransactionId(operation);
+          wrapper.getTradeHistoryByTransactionId(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

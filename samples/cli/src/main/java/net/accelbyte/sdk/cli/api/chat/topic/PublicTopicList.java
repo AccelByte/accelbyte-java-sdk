@@ -71,14 +71,14 @@ public class PublicTopicList implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Topic wrapper = new Topic(sdk);
-      final net.accelbyte.sdk.api.chat.operations.topic.PublicTopicList operation =
+      final net.accelbyte.sdk.api.chat.operations.topic.PublicTopicList operationRequest =
           net.accelbyte.sdk.api.chat.operations.topic.PublicTopicList.builder()
               .namespace(namespace)
               .limit(limit)
               .offset(offset)
               .topicType(topicType)
               .build();
-      final List<ModelsChatMessageResponse> response = wrapper.publicTopicList(operation);
+      final List<ModelsChatMessageResponse> response = wrapper.publicTopicList(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

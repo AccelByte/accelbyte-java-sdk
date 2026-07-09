@@ -68,14 +68,14 @@ public class PutGameRecordConcurrentHandlerV1 implements Callable<Integer> {
       final ConcurrentRecord wrapper = new ConcurrentRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.concurrent_record
               .PutGameRecordConcurrentHandlerV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.concurrent_record
                   .PutGameRecordConcurrentHandlerV1.builder()
                   .key(key)
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelsConcurrentRecordRequest.class))
                   .build();
-      wrapper.putGameRecordConcurrentHandlerV1(operation);
+      wrapper.putGameRecordConcurrentHandlerV1(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

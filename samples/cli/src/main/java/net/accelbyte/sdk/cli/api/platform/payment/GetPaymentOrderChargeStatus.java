@@ -62,13 +62,14 @@ public class GetPaymentOrderChargeStatus implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Payment wrapper = new Payment(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment.GetPaymentOrderChargeStatus
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.payment.GetPaymentOrderChargeStatus
                   .builder()
                   .namespace(namespace)
                   .paymentOrderNo(paymentOrderNo)
                   .build();
-      final PaymentOrderChargeStatus response = wrapper.getPaymentOrderChargeStatus(operation);
+      final PaymentOrderChargeStatus response =
+          wrapper.getPaymentOrderChargeStatus(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

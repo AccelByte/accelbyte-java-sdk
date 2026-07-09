@@ -68,14 +68,15 @@ public class GetPlayerBinaryRecordV1 implements Callable<Integer> {
       final PublicPlayerBinaryRecord wrapper = new PublicPlayerBinaryRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.public_player_binary_record
               .GetPlayerBinaryRecordV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.public_player_binary_record
                   .GetPlayerBinaryRecordV1.builder()
                   .key(key)
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      final ModelsPlayerBinaryRecordResponse response = wrapper.getPlayerBinaryRecordV1(operation);
+      final ModelsPlayerBinaryRecordResponse response =
+          wrapper.getPlayerBinaryRecordV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

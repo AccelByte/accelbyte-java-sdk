@@ -34,6 +34,9 @@ public class ModelsChatMessageResponse extends Model {
   @JsonProperty("message")
   private String message;
 
+  @JsonProperty("metadata")
+  private String metadata;
+
   @JsonProperty("readAt")
   @JsonInclude(JsonInclude.Include.NON_NULL)
   private Long readAt;

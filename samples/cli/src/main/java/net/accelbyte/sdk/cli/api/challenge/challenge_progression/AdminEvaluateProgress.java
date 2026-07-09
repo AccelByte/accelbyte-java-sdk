@@ -73,7 +73,7 @@ public class AdminEvaluateProgress implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ChallengeProgression wrapper = new ChallengeProgression(sdk);
       final net.accelbyte.sdk.api.challenge.operations.challenge_progression.AdminEvaluateProgress
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.challenge.operations.challenge_progression.AdminEvaluateProgress
                   .builder()
                   .namespace(namespace)
@@ -83,7 +83,7 @@ public class AdminEvaluateProgress implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, ModelEvaluatePlayerProgressionRequest.class))
                   .build();
-      wrapper.adminEvaluateProgress(operation);
+      wrapper.adminEvaluateProgress(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

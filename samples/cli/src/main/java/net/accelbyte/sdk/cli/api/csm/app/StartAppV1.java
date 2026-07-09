@@ -66,13 +66,13 @@ public class StartAppV1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final App wrapper = new App(sdk);
-      final net.accelbyte.sdk.api.csm.operations.app.StartAppV1 operation =
+      final net.accelbyte.sdk.api.csm.operations.app.StartAppV1 operationRequest =
           net.accelbyte.sdk.api.csm.operations.app.StartAppV1.builder()
               .app(app)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, GeneratedStartAppV1Request.class))
               .build();
-      final GeneratedStartAppV1Response response = wrapper.startAppV1(operation);
+      final GeneratedStartAppV1Response response = wrapper.startAppV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

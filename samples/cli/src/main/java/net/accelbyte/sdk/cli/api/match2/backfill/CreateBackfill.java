@@ -61,12 +61,12 @@ public class CreateBackfill implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Backfill wrapper = new Backfill(sdk);
-      final net.accelbyte.sdk.api.match2.operations.backfill.CreateBackfill operation =
+      final net.accelbyte.sdk.api.match2.operations.backfill.CreateBackfill operationRequest =
           net.accelbyte.sdk.api.match2.operations.backfill.CreateBackfill.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ApiBackFillCreateRequest.class))
               .build();
-      final ApiBackfillCreateResponse response = wrapper.createBackfill(operation);
+      final ApiBackfillCreateResponse response = wrapper.createBackfill(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

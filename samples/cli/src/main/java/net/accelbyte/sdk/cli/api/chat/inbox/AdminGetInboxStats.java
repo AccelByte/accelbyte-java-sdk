@@ -62,12 +62,12 @@ public class AdminGetInboxStats implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Inbox wrapper = new Inbox(sdk);
-      final net.accelbyte.sdk.api.chat.operations.inbox.AdminGetInboxStats operation =
+      final net.accelbyte.sdk.api.chat.operations.inbox.AdminGetInboxStats operationRequest =
           net.accelbyte.sdk.api.chat.operations.inbox.AdminGetInboxStats.builder()
               .namespace(namespace)
               .messageId(messageId)
               .build();
-      final ModelsGetInboxStatsResponse response = wrapper.adminGetInboxStats(operation);
+      final ModelsGetInboxStatsResponse response = wrapper.adminGetInboxStats(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

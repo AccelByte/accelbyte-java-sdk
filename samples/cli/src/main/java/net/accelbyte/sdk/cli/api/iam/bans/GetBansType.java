@@ -51,9 +51,9 @@ public class GetBansType implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Bans wrapper = new Bans(sdk);
-      final net.accelbyte.sdk.api.iam.operations.bans.GetBansType operation =
+      final net.accelbyte.sdk.api.iam.operations.bans.GetBansType operationRequest =
           net.accelbyte.sdk.api.iam.operations.bans.GetBansType.builder().build();
-      final AccountcommonBans response = wrapper.getBansType(operation);
+      final AccountcommonBans response = wrapper.getBansType(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

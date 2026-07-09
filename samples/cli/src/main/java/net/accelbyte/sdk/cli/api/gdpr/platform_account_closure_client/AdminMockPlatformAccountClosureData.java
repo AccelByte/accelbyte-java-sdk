@@ -68,7 +68,7 @@ public class AdminMockPlatformAccountClosureData implements Callable<Integer> {
       final PlatformAccountClosureClient wrapper = new PlatformAccountClosureClient(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.platform_account_closure_client
               .AdminMockPlatformAccountClosureData
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.platform_account_closure_client
                   .AdminMockPlatformAccountClosureData.builder()
                   .namespace(namespace)
@@ -77,7 +77,7 @@ public class AdminMockPlatformAccountClosureData implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, DtoPlatformAccountClosureMockRequest.class))
                   .build();
-      wrapper.adminMockPlatformAccountClosureData(operation);
+      wrapper.adminMockPlatformAccountClosureData(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

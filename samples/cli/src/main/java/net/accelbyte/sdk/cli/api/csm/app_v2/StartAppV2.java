@@ -60,12 +60,12 @@ public class StartAppV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AppV2 wrapper = new AppV2(sdk);
-      final net.accelbyte.sdk.api.csm.operations.app_v2.StartAppV2 operation =
+      final net.accelbyte.sdk.api.csm.operations.app_v2.StartAppV2 operationRequest =
           net.accelbyte.sdk.api.csm.operations.app_v2.StartAppV2.builder()
               .app(app)
               .namespace(namespace)
               .build();
-      wrapper.startAppV2(operation);
+      wrapper.startAppV2(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

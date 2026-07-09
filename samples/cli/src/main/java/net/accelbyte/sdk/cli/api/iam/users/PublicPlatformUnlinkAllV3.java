@@ -60,12 +60,12 @@ public class PublicPlatformUnlinkAllV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.PublicPlatformUnlinkAllV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.users.PublicPlatformUnlinkAllV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.PublicPlatformUnlinkAllV3.builder()
               .namespace(namespace)
               .platformId(platformId)
               .build();
-      wrapper.publicPlatformUnlinkAllV3(operation);
+      wrapper.publicPlatformUnlinkAllV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

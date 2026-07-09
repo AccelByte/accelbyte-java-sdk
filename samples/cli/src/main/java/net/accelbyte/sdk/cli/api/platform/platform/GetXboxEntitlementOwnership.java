@@ -67,14 +67,14 @@ public class GetXboxEntitlementOwnership implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Platform wrapper = new Platform(sdk);
       final net.accelbyte.sdk.api.platform.operations.platform.GetXboxEntitlementOwnership
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.platform.GetXboxEntitlementOwnership
                   .builder()
                   .namespace(namespace)
                   .productSku(productSku)
                   .body(new ObjectMapper().readValue(body, XblEntitlementOwnershipRequest.class))
                   .build();
-      final PlatformOwnership response = wrapper.getXboxEntitlementOwnership(operation);
+      final PlatformOwnership response = wrapper.getXboxEntitlementOwnership(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -63,14 +63,14 @@ public class BulkGetMyBinaryRecordV1 implements Callable<Integer> {
       final PublicPlayerBinaryRecord wrapper = new PublicPlayerBinaryRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.public_player_binary_record
               .BulkGetMyBinaryRecordV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.public_player_binary_record
                   .BulkGetMyBinaryRecordV1.builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelsBulkGetPlayerRecordsRequest.class))
                   .build();
       final ModelsBulkGetPlayerBinaryRecordResponse response =
-          wrapper.bulkGetMyBinaryRecordV1(operation);
+          wrapper.bulkGetMyBinaryRecordV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

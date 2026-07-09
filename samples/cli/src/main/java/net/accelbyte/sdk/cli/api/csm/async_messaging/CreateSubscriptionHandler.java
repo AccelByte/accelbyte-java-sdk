@@ -67,7 +67,7 @@ public class CreateSubscriptionHandler implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AsyncMessaging wrapper = new AsyncMessaging(sdk);
       final net.accelbyte.sdk.api.csm.operations.async_messaging.CreateSubscriptionHandler
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.csm.operations.async_messaging.CreateSubscriptionHandler
                   .builder()
                   .app(app)
@@ -75,7 +75,7 @@ public class CreateSubscriptionHandler implements Callable<Integer> {
                   .body(new ObjectMapper().readValue(body, ApimodelCreateSubscriptionRequest.class))
                   .build();
       final ApimodelCreateSubscriptionResponse response =
-          wrapper.createSubscriptionHandler(operation);
+          wrapper.createSubscriptionHandler(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

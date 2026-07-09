@@ -66,13 +66,14 @@ public class AdminSendInboxMessage implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Inbox wrapper = new Inbox(sdk);
-      final net.accelbyte.sdk.api.chat.operations.inbox.AdminSendInboxMessage operation =
+      final net.accelbyte.sdk.api.chat.operations.inbox.AdminSendInboxMessage operationRequest =
           net.accelbyte.sdk.api.chat.operations.inbox.AdminSendInboxMessage.builder()
               .messageId(messageId)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelsSendInboxMessageRequest.class))
               .build();
-      final ModelsSendInboxMessageResponse response = wrapper.adminSendInboxMessage(operation);
+      final ModelsSendInboxMessageResponse response =
+          wrapper.adminSendInboxMessage(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

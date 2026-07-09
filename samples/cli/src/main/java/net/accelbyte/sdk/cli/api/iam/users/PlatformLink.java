@@ -70,14 +70,14 @@ public class PlatformLink implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.PlatformLink operation =
+      final net.accelbyte.sdk.api.iam.operations.users.PlatformLink operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.PlatformLink.builder()
               .namespace(namespace)
               .platformId(platformId)
               .userId(userId)
               .ticket(ticket != null ? ticket : null)
               .build();
-      wrapper.platformLink(operation);
+      wrapper.platformLink(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -118,7 +118,7 @@ public class PublicSearchContent implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicContentLegacy wrapper = new PublicContentLegacy(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_content_legacy.PublicSearchContent
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.public_content_legacy.PublicSearchContent
                   .builder()
                   .namespace(namespace)
@@ -136,7 +136,7 @@ public class PublicSearchContent implements Callable<Integer> {
                   .userId(userId)
                   .build();
       final ModelsPaginatedContentDownloadResponse response =
-          wrapper.publicSearchContent(operation);
+          wrapper.publicSearchContent(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

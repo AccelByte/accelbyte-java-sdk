@@ -60,12 +60,12 @@ public class PublicRevokePartyCode implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Party wrapper = new Party(sdk);
-      final net.accelbyte.sdk.api.session.operations.party.PublicRevokePartyCode operation =
+      final net.accelbyte.sdk.api.session.operations.party.PublicRevokePartyCode operationRequest =
           net.accelbyte.sdk.api.session.operations.party.PublicRevokePartyCode.builder()
               .namespace(namespace)
               .partyId(partyId)
               .build();
-      wrapper.publicRevokePartyCode(operation);
+      wrapper.publicRevokePartyCode(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

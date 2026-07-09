@@ -56,11 +56,11 @@ public class GetSteamIAPConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.GetSteamIAPConfig operation =
+      final net.accelbyte.sdk.api.platform.operations.iap.GetSteamIAPConfig operationRequest =
           net.accelbyte.sdk.api.platform.operations.iap.GetSteamIAPConfig.builder()
               .namespace(namespace)
               .build();
-      final SteamIAPConfig response = wrapper.getSteamIAPConfig(operation);
+      final SteamIAPConfig response = wrapper.getSteamIAPConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

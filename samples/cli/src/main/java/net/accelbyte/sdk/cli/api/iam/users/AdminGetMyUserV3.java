@@ -51,9 +51,9 @@ public class AdminGetMyUserV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.AdminGetMyUserV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.users.AdminGetMyUserV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.AdminGetMyUserV3.builder().build();
-      final ModelUserResponseV3 response = wrapper.adminGetMyUserV3(operation);
+      final ModelUserResponseV3 response = wrapper.adminGetMyUserV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

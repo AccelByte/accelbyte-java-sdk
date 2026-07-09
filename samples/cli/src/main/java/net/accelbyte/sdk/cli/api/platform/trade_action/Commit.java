@@ -61,12 +61,12 @@ public class Commit implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final TradeAction wrapper = new TradeAction(sdk);
-      final net.accelbyte.sdk.api.platform.operations.trade_action.Commit operation =
+      final net.accelbyte.sdk.api.platform.operations.trade_action.Commit operationRequest =
           net.accelbyte.sdk.api.platform.operations.trade_action.Commit.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, TradeChainedActionCommitRequest.class))
               .build();
-      final TradeChainActionHistoryInfo response = wrapper.commit(operation);
+      final TradeChainActionHistoryInfo response = wrapper.commit(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

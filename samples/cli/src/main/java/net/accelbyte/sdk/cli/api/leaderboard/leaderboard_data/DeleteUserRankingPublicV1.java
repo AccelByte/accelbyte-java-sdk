@@ -66,14 +66,14 @@ public class DeleteUserRankingPublicV1 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final LeaderboardData wrapper = new LeaderboardData(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data.DeleteUserRankingPublicV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.leaderboard.operations.leaderboard_data
                   .DeleteUserRankingPublicV1.builder()
                   .leaderboardCode(leaderboardCode)
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      wrapper.deleteUserRankingPublicV1(operation);
+      wrapper.deleteUserRankingPublicV1(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

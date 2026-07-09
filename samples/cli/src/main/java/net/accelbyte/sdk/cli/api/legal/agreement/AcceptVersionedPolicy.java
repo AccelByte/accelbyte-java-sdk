@@ -55,11 +55,12 @@ public class AcceptVersionedPolicy implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Agreement wrapper = new Agreement(sdk);
-      final net.accelbyte.sdk.api.legal.operations.agreement.AcceptVersionedPolicy operation =
-          net.accelbyte.sdk.api.legal.operations.agreement.AcceptVersionedPolicy.builder()
-              .localizedPolicyVersionId(localizedPolicyVersionId)
-              .build();
-      wrapper.acceptVersionedPolicy(operation);
+      final net.accelbyte.sdk.api.legal.operations.agreement.AcceptVersionedPolicy
+          operationRequest =
+              net.accelbyte.sdk.api.legal.operations.agreement.AcceptVersionedPolicy.builder()
+                  .localizedPolicyVersionId(localizedPolicyVersionId)
+                  .build();
+      wrapper.acceptVersionedPolicy(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

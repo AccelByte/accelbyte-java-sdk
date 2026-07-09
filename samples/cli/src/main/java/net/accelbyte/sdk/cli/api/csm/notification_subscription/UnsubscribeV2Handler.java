@@ -61,13 +61,13 @@ public class UnsubscribeV2Handler implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final NotificationSubscription wrapper = new NotificationSubscription(sdk);
       final net.accelbyte.sdk.api.csm.operations.notification_subscription.UnsubscribeV2Handler
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.csm.operations.notification_subscription.UnsubscribeV2Handler
                   .builder()
                   .app(app)
                   .namespace(namespace)
                   .build();
-      wrapper.unsubscribeV2Handler(operation);
+      wrapper.unsubscribeV2Handler(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

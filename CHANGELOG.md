@@ -1,3 +1,9 @@
+<a name="v0.82.0"></a>
+## [v0.82.0]
+### fix
+- **:**  breaking change in iam validation requires uniqueDisplayName to omit underscore 
+
+
 <a name="v0.81.0"></a>
 ## [v0.81.0]
 ### fix

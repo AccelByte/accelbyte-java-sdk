@@ -67,14 +67,14 @@ public class PublishPolicyVersion implements Callable<Integer> {
       final PolicyVersionsWithNamespace wrapper = new PolicyVersionsWithNamespace(sdk);
       final net.accelbyte.sdk.api.legal.operations.policy_versions_with_namespace
               .PublishPolicyVersion
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.policy_versions_with_namespace
                   .PublishPolicyVersion.builder()
                   .namespace(namespace)
                   .policyVersionId(policyVersionId)
                   .shouldNotify(shouldNotify)
                   .build();
-      wrapper.publishPolicyVersion(operation);
+      wrapper.publishPolicyVersion(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

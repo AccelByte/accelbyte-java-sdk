@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateAppV1
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [CREATE]`
- *
  * <p>Creates new App for AB-Extend Customers
  *
  * <p>Available scenario: - scenario 1: `function-override` - scenario 2: `service-extension` -

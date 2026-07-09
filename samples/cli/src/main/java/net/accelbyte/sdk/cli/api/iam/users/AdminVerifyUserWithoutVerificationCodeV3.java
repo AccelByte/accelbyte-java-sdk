@@ -62,13 +62,13 @@ public class AdminVerifyUserWithoutVerificationCodeV3 implements Callable<Intege
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
       final net.accelbyte.sdk.api.iam.operations.users.AdminVerifyUserWithoutVerificationCodeV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.users.AdminVerifyUserWithoutVerificationCodeV3
                   .builder()
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      wrapper.adminVerifyUserWithoutVerificationCodeV3(operation);
+      wrapper.adminVerifyUserWithoutVerificationCodeV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

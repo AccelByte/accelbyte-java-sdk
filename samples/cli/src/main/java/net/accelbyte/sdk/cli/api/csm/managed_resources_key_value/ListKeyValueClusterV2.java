@@ -62,14 +62,14 @@ public class ListKeyValueClusterV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ManagedResourcesKeyValue wrapper = new ManagedResourcesKeyValue(sdk);
       final net.accelbyte.sdk.api.csm.operations.managed_resources_key_value.ListKeyValueClusterV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.csm.operations.managed_resources_key_value.ListKeyValueClusterV2
                   .builder()
                   .namespace(namespace)
                   .refresh(refresh)
                   .build();
       final ApimodelKeyValueResourceListResponse response =
-          wrapper.listKeyValueClusterV2(operation);
+          wrapper.listKeyValueClusterV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

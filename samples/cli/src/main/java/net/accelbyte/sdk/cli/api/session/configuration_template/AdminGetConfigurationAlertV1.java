@@ -58,12 +58,13 @@ public class AdminGetConfigurationAlertV1 implements Callable<Integer> {
       final ConfigurationTemplate wrapper = new ConfigurationTemplate(sdk);
       final net.accelbyte.sdk.api.session.operations.configuration_template
               .AdminGetConfigurationAlertV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.configuration_template
                   .AdminGetConfigurationAlertV1.builder()
                   .namespace(namespace)
                   .build();
-      final ApimodelsConfigAlertResponse response = wrapper.adminGetConfigurationAlertV1(operation);
+      final ApimodelsConfigAlertResponse response =
+          wrapper.adminGetConfigurationAlertV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -68,7 +68,7 @@ public class BulkGetPlayerPublicRecordHandlerV1 implements Callable<Integer> {
       final PublicPlayerRecord wrapper = new PublicPlayerRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.public_player_record
               .BulkGetPlayerPublicRecordHandlerV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.public_player_record
                   .BulkGetPlayerPublicRecordHandlerV1.builder()
                   .key(key)
@@ -76,7 +76,7 @@ public class BulkGetPlayerPublicRecordHandlerV1 implements Callable<Integer> {
                   .body(new ObjectMapper().readValue(body, ModelsBulkUserIDsRequest.class))
                   .build();
       final ModelsBulkGetPlayerRecordResponse response =
-          wrapper.bulkGetPlayerPublicRecordHandlerV1(operation);
+          wrapper.bulkGetPlayerPublicRecordHandlerV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

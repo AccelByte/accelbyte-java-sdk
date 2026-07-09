@@ -66,13 +66,13 @@ public class PublicMuteUser implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Topic wrapper = new Topic(sdk);
-      final net.accelbyte.sdk.api.chat.operations.topic.PublicMuteUser operation =
+      final net.accelbyte.sdk.api.chat.operations.topic.PublicMuteUser operationRequest =
           net.accelbyte.sdk.api.chat.operations.topic.PublicMuteUser.builder()
               .namespace(namespace)
               .topic(topic)
               .body(new ObjectMapper().readValue(body, ApiMuteUserRequest.class))
               .build();
-      wrapper.publicMuteUser(operation);
+      wrapper.publicMuteUser(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

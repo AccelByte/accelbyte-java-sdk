@@ -68,14 +68,15 @@ public class RefundPaymentOrderByDedicated implements Callable<Integer> {
       final PaymentDedicated wrapper = new PaymentDedicated(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_dedicated
               .RefundPaymentOrderByDedicated
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.payment_dedicated
                   .RefundPaymentOrderByDedicated.builder()
                   .namespace(namespace)
                   .paymentOrderNo(paymentOrderNo)
                   .body(new ObjectMapper().readValue(body, PaymentOrderRefund.class))
                   .build();
-      final PaymentOrderRefundResult response = wrapper.refundPaymentOrderByDedicated(operation);
+      final PaymentOrderRefundResult response =
+          wrapper.refundPaymentOrderByDedicated(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

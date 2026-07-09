@@ -66,14 +66,14 @@ public class PublicUnlockAchievement implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserAchievements wrapper = new UserAchievements(sdk);
       final net.accelbyte.sdk.api.achievement.operations.user_achievements.PublicUnlockAchievement
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.achievement.operations.user_achievements.PublicUnlockAchievement
                   .builder()
                   .achievementCode(achievementCode)
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      wrapper.publicUnlockAchievement(operation);
+      wrapper.publicUnlockAchievement(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

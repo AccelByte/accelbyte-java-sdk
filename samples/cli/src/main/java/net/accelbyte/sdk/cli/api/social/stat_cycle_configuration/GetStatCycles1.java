@@ -87,7 +87,7 @@ public class GetStatCycles1 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final StatCycleConfiguration wrapper = new StatCycleConfiguration(sdk);
       final net.accelbyte.sdk.api.social.operations.stat_cycle_configuration.GetStatCycles1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.social.operations.stat_cycle_configuration.GetStatCycles1
                   .builder()
                   .namespace(namespace)
@@ -98,7 +98,7 @@ public class GetStatCycles1 implements Callable<Integer> {
                   .sortBy(sortBy)
                   .status(status)
                   .build();
-      final StatCyclePagingSlicedResult response = wrapper.getStatCycles1(operation);
+      final StatCyclePagingSlicedResult response = wrapper.getStatCycles1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

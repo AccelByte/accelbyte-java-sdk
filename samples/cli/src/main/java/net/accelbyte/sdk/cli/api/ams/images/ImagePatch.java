@@ -66,13 +66,13 @@ public class ImagePatch implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Images wrapper = new Images(sdk);
-      final net.accelbyte.sdk.api.ams.operations.images.ImagePatch operation =
+      final net.accelbyte.sdk.api.ams.operations.images.ImagePatch operationRequest =
           net.accelbyte.sdk.api.ams.operations.images.ImagePatch.builder()
               .imageID(imageID)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ApiImageUpdate.class))
               .build();
-      final ApiImageDetails response = wrapper.imagePatch(operation);
+      final ApiImageDetails response = wrapper.imagePatch(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

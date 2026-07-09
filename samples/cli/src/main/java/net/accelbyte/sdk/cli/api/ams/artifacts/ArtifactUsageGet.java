@@ -56,11 +56,11 @@ public class ArtifactUsageGet implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Artifacts wrapper = new Artifacts(sdk);
-      final net.accelbyte.sdk.api.ams.operations.artifacts.ArtifactUsageGet operation =
+      final net.accelbyte.sdk.api.ams.operations.artifacts.ArtifactUsageGet operationRequest =
           net.accelbyte.sdk.api.ams.operations.artifacts.ArtifactUsageGet.builder()
               .namespace(namespace)
               .build();
-      final ApiArtifactUsageResponse response = wrapper.artifactUsageGet(operation);
+      final ApiArtifactUsageResponse response = wrapper.artifactUsageGet(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

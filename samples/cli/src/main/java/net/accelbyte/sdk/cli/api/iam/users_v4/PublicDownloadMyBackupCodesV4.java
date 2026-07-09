@@ -57,11 +57,12 @@ public class PublicDownloadMyBackupCodesV4 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UsersV4 wrapper = new UsersV4(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users_v4.PublicDownloadMyBackupCodesV4 operation =
-          net.accelbyte.sdk.api.iam.operations.users_v4.PublicDownloadMyBackupCodesV4.builder()
-              .namespace(namespace)
-              .build();
-      final InputStream response = wrapper.publicDownloadMyBackupCodesV4(operation);
+      final net.accelbyte.sdk.api.iam.operations.users_v4.PublicDownloadMyBackupCodesV4
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.users_v4.PublicDownloadMyBackupCodesV4.builder()
+                  .namespace(namespace)
+                  .build();
+      final InputStream response = wrapper.publicDownloadMyBackupCodesV4(operationRequest);
       final File outputFile = new File("response.out");
       java.nio.file.Files.copy(
           response, outputFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);

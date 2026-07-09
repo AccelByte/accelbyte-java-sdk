@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * joinGameSession
  *
- * <p>Join a game session.
+ * <p>Joins a game session. For PASSWORD_PROTECTED sessions, the request body must include the
+ * session password. The session must have OPEN or INVITE_ONLY joinability and available slots.
  */
 @Getter
 @Setter

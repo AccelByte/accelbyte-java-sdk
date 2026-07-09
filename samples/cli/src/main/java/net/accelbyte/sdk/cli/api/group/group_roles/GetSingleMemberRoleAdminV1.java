@@ -62,13 +62,14 @@ public class GetSingleMemberRoleAdminV1 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GroupRoles wrapper = new GroupRoles(sdk);
       final net.accelbyte.sdk.api.group.operations.group_roles.GetSingleMemberRoleAdminV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.group.operations.group_roles.GetSingleMemberRoleAdminV1
                   .builder()
                   .memberRoleId(memberRoleId)
                   .namespace(namespace)
                   .build();
-      final ModelsMemberRoleResponseV1 response = wrapper.getSingleMemberRoleAdminV1(operation);
+      final ModelsMemberRoleResponseV1 response =
+          wrapper.getSingleMemberRoleAdminV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

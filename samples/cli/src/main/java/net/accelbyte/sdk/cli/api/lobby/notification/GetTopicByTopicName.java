@@ -61,12 +61,13 @@ public class GetTopicByTopicName implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Notification wrapper = new Notification(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.notification.GetTopicByTopicName operation =
-          net.accelbyte.sdk.api.lobby.operations.notification.GetTopicByTopicName.builder()
-              .namespace(namespace)
-              .topic(topic)
-              .build();
-      final ModelNotificationTopicResponse response = wrapper.getTopicByTopicName(operation);
+      final net.accelbyte.sdk.api.lobby.operations.notification.GetTopicByTopicName
+          operationRequest =
+              net.accelbyte.sdk.api.lobby.operations.notification.GetTopicByTopicName.builder()
+                  .namespace(namespace)
+                  .topic(topic)
+                  .build();
+      final ModelNotificationTopicResponse response = wrapper.getTopicByTopicName(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

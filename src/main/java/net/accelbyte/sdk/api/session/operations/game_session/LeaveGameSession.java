@@ -20,7 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * leaveGameSession
  *
- * <p>Leave a game session.
+ * <p>Leaves a game session, removing the caller from the member list. If the caller is the leader,
+ * leadership transfers to another active member.
  */
 @Getter
 @Setter

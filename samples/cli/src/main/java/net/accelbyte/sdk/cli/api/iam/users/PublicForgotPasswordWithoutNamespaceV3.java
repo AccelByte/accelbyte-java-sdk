@@ -58,7 +58,7 @@ public class PublicForgotPasswordWithoutNamespaceV3 implements Callable<Integer>
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
       final net.accelbyte.sdk.api.iam.operations.users.PublicForgotPasswordWithoutNamespaceV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.users.PublicForgotPasswordWithoutNamespaceV3
                   .builder()
                   .body(
@@ -66,7 +66,7 @@ public class PublicForgotPasswordWithoutNamespaceV3 implements Callable<Integer>
                           .readValue(body, ModelForgotPasswordWithoutNamespaceRequestV3.class))
                   .build();
       final ModelForgotPasswordResponseV3 response =
-          wrapper.publicForgotPasswordWithoutNamespaceV3(operation);
+          wrapper.publicForgotPasswordWithoutNamespaceV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

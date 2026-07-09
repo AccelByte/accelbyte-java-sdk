@@ -50,9 +50,9 @@ public class AuthCheck implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Auth wrapper = new Auth(sdk);
-      final net.accelbyte.sdk.api.ams.operations.auth.AuthCheck operation =
+      final net.accelbyte.sdk.api.ams.operations.auth.AuthCheck operationRequest =
           net.accelbyte.sdk.api.ams.operations.auth.AuthCheck.builder().build();
-      wrapper.authCheck(operation);
+      wrapper.authCheck(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

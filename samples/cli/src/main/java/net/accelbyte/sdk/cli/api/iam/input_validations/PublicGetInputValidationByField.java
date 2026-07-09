@@ -57,13 +57,13 @@ public class PublicGetInputValidationByField implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final InputValidations wrapper = new InputValidations(sdk);
       final net.accelbyte.sdk.api.iam.operations.input_validations.PublicGetInputValidationByField
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.input_validations.PublicGetInputValidationByField
                   .builder()
                   .field(field)
                   .build();
       final ModelInputValidationConfigVersion response =
-          wrapper.publicGetInputValidationByField(operation);
+          wrapper.publicGetInputValidationByField(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

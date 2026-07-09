@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateNewNoSQLDatabaseCredentialV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:NOSQL:DATABASECREDENTIALS [CREATE]`
- *
  * <p>Creates a new database credential for the customer. This will soft-delete the old credential
  * and create a new one.
  *

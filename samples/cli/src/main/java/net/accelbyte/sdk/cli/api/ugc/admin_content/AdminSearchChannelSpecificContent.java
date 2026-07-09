@@ -123,7 +123,7 @@ public class AdminSearchChannelSpecificContent implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminContent wrapper = new AdminContent(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_content.AdminSearchChannelSpecificContent
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.admin_content.AdminSearchChannelSpecificContent
                   .builder()
                   .channelId(channelId)
@@ -142,7 +142,7 @@ public class AdminSearchChannelSpecificContent implements Callable<Integer> {
                   .userId(userId)
                   .build();
       final ModelsPaginatedContentDownloadResponse response =
-          wrapper.adminSearchChannelSpecificContent(operation);
+          wrapper.adminSearchChannelSpecificContent(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

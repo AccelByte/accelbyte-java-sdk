@@ -68,7 +68,7 @@ public class IntegrateAppKeyValueClusterV2 implements Callable<Integer> {
       final ManagedResourcesKeyValue wrapper = new ManagedResourcesKeyValue(sdk);
       final net.accelbyte.sdk.api.csm.operations.managed_resources_key_value
               .IntegrateAppKeyValueClusterV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.csm.operations.managed_resources_key_value
                   .IntegrateAppKeyValueClusterV2.builder()
                   .app(app)
@@ -77,7 +77,7 @@ public class IntegrateAppKeyValueClusterV2 implements Callable<Integer> {
                       new ObjectMapper().readValue(body, ApimodelIntegrateAppKeyValueRequest.class))
                   .build();
       final ApimodelIntegrateAppKeyValueResponse response =
-          wrapper.integrateAppKeyValueClusterV2(operation);
+          wrapper.integrateAppKeyValueClusterV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

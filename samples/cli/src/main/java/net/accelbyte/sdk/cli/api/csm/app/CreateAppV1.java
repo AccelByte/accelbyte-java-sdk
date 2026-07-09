@@ -66,13 +66,13 @@ public class CreateAppV1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final App wrapper = new App(sdk);
-      final net.accelbyte.sdk.api.csm.operations.app.CreateAppV1 operation =
+      final net.accelbyte.sdk.api.csm.operations.app.CreateAppV1 operationRequest =
           net.accelbyte.sdk.api.csm.operations.app.CreateAppV1.builder()
               .app(app)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, GeneratedCreateAppV1Request.class))
               .build();
-      final GeneratedCreateAppV1Response response = wrapper.createAppV1(operation);
+      final GeneratedCreateAppV1Response response = wrapper.createAppV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

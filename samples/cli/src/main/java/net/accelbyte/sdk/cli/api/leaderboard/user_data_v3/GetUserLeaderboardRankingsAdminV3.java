@@ -78,7 +78,7 @@ public class GetUserLeaderboardRankingsAdminV3 implements Callable<Integer> {
       final UserDataV3 wrapper = new UserDataV3(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.user_data_v3
               .GetUserLeaderboardRankingsAdminV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.leaderboard.operations.user_data_v3
                   .GetUserLeaderboardRankingsAdminV3.builder()
                   .namespace(namespace)
@@ -88,7 +88,7 @@ public class GetUserLeaderboardRankingsAdminV3 implements Callable<Integer> {
                   .previousVersion(previousVersion)
                   .build();
       final ModelsGetAllUserLeaderboardsRespV3 response =
-          wrapper.getUserLeaderboardRankingsAdminV3(operation);
+          wrapper.getUserLeaderboardRankingsAdminV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

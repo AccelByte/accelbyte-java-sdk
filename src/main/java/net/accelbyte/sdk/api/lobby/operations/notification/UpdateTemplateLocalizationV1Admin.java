@@ -21,9 +21,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * updateTemplateLocalizationV1Admin
  *
- * <p>Update template localization
- *
- * <p>Action Code: 50208
+ * <p>Update the content and subject of an existing notification template localization.
  */
 @Getter
 @Setter

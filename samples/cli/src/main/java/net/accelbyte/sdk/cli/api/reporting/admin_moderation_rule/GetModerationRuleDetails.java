@@ -63,13 +63,14 @@ public class GetModerationRuleDetails implements Callable<Integer> {
       final AdminModerationRule wrapper = new AdminModerationRule(sdk);
       final net.accelbyte.sdk.api.reporting.operations.admin_moderation_rule
               .GetModerationRuleDetails
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.reporting.operations.admin_moderation_rule
                   .GetModerationRuleDetails.builder()
                   .namespace(namespace)
                   .ruleId(ruleId)
                   .build();
-      final RestapiModerationRuleResponse response = wrapper.getModerationRuleDetails(operation);
+      final RestapiModerationRuleResponse response =
+          wrapper.getModerationRuleDetails(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

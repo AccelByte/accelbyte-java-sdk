@@ -61,13 +61,13 @@ public class DeleteSSOLoginPlatformCredentialV3 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final SSOCredential wrapper = new SSOCredential(sdk);
       final net.accelbyte.sdk.api.iam.operations.sso_credential.DeleteSSOLoginPlatformCredentialV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.sso_credential.DeleteSSOLoginPlatformCredentialV3
                   .builder()
                   .namespace(namespace)
                   .platformId(platformId)
                   .build();
-      wrapper.deleteSSOLoginPlatformCredentialV3(operation);
+      wrapper.deleteSSOLoginPlatformCredentialV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

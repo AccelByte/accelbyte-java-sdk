@@ -71,14 +71,15 @@ public class AdminQueryTagV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AccountIdentifierTag wrapper = new AccountIdentifierTag(sdk);
-      final net.accelbyte.sdk.api.iam.operations.account_identifier_tag.AdminQueryTagV3 operation =
-          net.accelbyte.sdk.api.iam.operations.account_identifier_tag.AdminQueryTagV3.builder()
-              .namespace(namespace)
-              .limit(limit)
-              .offset(offset)
-              .tagName(tagName)
-              .build();
-      final AccountcommonTagsGetResponseV3 response = wrapper.adminQueryTagV3(operation);
+      final net.accelbyte.sdk.api.iam.operations.account_identifier_tag.AdminQueryTagV3
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.account_identifier_tag.AdminQueryTagV3.builder()
+                  .namespace(namespace)
+                  .limit(limit)
+                  .offset(offset)
+                  .tagName(tagName)
+                  .build();
+      final AccountcommonTagsGetResponseV3 response = wrapper.adminQueryTagV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -1380,7 +1380,7 @@ public class Users {
   /**
    * @see PublicGetAsyncStatus
    */
-  public ModelLinkRequest publicGetAsyncStatus(PublicGetAsyncStatus input) throws Exception {
+  public ModelReAuthRequest publicGetAsyncStatus(PublicGetAsyncStatus input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
@@ -1618,8 +1618,38 @@ public class Users {
   /**
    * @see PublicProcessWebLinkPlatformV3
    */
-  public ModelLinkRequest publicProcessWebLinkPlatformV3(PublicProcessWebLinkPlatformV3 input)
+  public ModelReAuthRequest publicProcessWebLinkPlatformV3(PublicProcessWebLinkPlatformV3 input)
       throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicWebReauthPlatform
+   */
+  public ModelWebLinkingResponse publicWebReauthPlatform(PublicWebReauthPlatform input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicWebReauthPlatformEstablish
+   */
+  public String publicWebReauthPlatformEstablish(PublicWebReauthPlatformEstablish input)
+      throws Exception {
+    final HttpResponse httpResponse = sdk.runRequest(input);
+    return input.parseResponse(
+        httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());
+  }
+
+  /**
+   * @see PublicWebReauthPlatformProcess
+   */
+  public ModelWebReauthProcessResponse publicWebReauthPlatformProcess(
+      PublicWebReauthPlatformProcess input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     return input.parseResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

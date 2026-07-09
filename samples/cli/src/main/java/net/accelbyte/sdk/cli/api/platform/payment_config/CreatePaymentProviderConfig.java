@@ -57,12 +57,13 @@ public class CreatePaymentProviderConfig implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PaymentConfig wrapper = new PaymentConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_config.CreatePaymentProviderConfig
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.payment_config.CreatePaymentProviderConfig
                   .builder()
                   .body(new ObjectMapper().readValue(body, PaymentProviderConfigEdit.class))
                   .build();
-      final PaymentProviderConfigInfo response = wrapper.createPaymentProviderConfig(operation);
+      final PaymentProviderConfigInfo response =
+          wrapper.createPaymentProviderConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

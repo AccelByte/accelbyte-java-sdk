@@ -62,13 +62,14 @@ public class RequestTargetTokenResponseV4 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth20V4 wrapper = new OAuth20V4(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth2_0_v4.RequestTargetTokenResponseV4
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.o_auth2_0_v4.RequestTargetTokenResponseV4
                   .builder()
                   .additionalData(additionalData != null ? additionalData : null)
                   .code(code != null ? code : null)
                   .build();
-      final OauthmodelTokenResponseV3 response = wrapper.requestTargetTokenResponseV4(operation);
+      final OauthmodelTokenResponseV3 response =
+          wrapper.requestTargetTokenResponseV4(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

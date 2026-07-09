@@ -72,7 +72,7 @@ public class AdminListItemTypes implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminItemTypes wrapper = new AdminItemTypes(sdk);
       final net.accelbyte.sdk.api.inventory.operations.admin_item_types.AdminListItemTypes
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.inventory.operations.admin_item_types.AdminListItemTypes
                   .builder()
                   .namespace(namespace)
@@ -80,7 +80,7 @@ public class AdminListItemTypes implements Callable<Integer> {
                   .offset(offset)
                   .sortBy(sortBy)
                   .build();
-      final ApimodelsListItemTypesResp response = wrapper.adminListItemTypes(operation);
+      final ApimodelsListItemTypesResp response = wrapper.adminListItemTypes(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

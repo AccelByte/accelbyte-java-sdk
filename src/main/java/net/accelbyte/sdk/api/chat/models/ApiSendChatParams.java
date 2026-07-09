@@ -28,6 +28,9 @@ public class ApiSendChatParams extends Model {
   @JsonProperty("message")
   private String message;
 
+  @JsonProperty("metadata")
+  private String metadata;
+
   @JsonIgnore
   public ApiSendChatParams createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

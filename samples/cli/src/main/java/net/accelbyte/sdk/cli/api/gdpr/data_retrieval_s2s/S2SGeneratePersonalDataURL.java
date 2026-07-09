@@ -67,14 +67,14 @@ public class S2SGeneratePersonalDataURL implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final DataRetrievalS2S wrapper = new DataRetrievalS2S(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.data_retrieval_s2s.S2SGeneratePersonalDataURL
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.data_retrieval_s2s.S2SGeneratePersonalDataURL
                   .builder()
                   .namespace(namespace)
                   .requestDate(requestDate)
                   .userId(userId)
                   .build();
-      final ModelsS2SUserDataURL response = wrapper.s2sGeneratePersonalDataURL(operation);
+      final ModelsS2SUserDataURL response = wrapper.s2sGeneratePersonalDataURL(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

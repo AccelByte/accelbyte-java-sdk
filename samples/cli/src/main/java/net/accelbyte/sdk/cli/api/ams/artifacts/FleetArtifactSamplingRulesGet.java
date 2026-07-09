@@ -61,13 +61,14 @@ public class FleetArtifactSamplingRulesGet implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Artifacts wrapper = new Artifacts(sdk);
-      final net.accelbyte.sdk.api.ams.operations.artifacts.FleetArtifactSamplingRulesGet operation =
-          net.accelbyte.sdk.api.ams.operations.artifacts.FleetArtifactSamplingRulesGet.builder()
-              .fleetID(fleetID)
-              .namespace(namespace)
-              .build();
+      final net.accelbyte.sdk.api.ams.operations.artifacts.FleetArtifactSamplingRulesGet
+          operationRequest =
+              net.accelbyte.sdk.api.ams.operations.artifacts.FleetArtifactSamplingRulesGet.builder()
+                  .fleetID(fleetID)
+                  .namespace(namespace)
+                  .build();
       final ApiFleetArtifactsSampleRules response =
-          wrapper.fleetArtifactSamplingRulesGet(operation);
+          wrapper.fleetArtifactSamplingRulesGet(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

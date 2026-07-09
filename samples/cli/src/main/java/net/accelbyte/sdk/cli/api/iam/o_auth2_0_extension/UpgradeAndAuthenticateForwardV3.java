@@ -61,13 +61,13 @@ public class UpgradeAndAuthenticateForwardV3 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth20Extension wrapper = new OAuth20Extension(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.UpgradeAndAuthenticateForwardV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension
                   .UpgradeAndAuthenticateForwardV3.builder()
                   .clientId(clientId != null ? clientId : null)
                   .upgradeSuccessToken(upgradeSuccessToken != null ? upgradeSuccessToken : null)
                   .build();
-      wrapper.upgradeAndAuthenticateForwardV3(operation);
+      wrapper.upgradeAndAuthenticateForwardV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

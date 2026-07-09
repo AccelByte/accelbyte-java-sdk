@@ -86,7 +86,7 @@ public class QueryUserOrders implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Order wrapper = new Order(sdk);
-      final net.accelbyte.sdk.api.platform.operations.order.QueryUserOrders operation =
+      final net.accelbyte.sdk.api.platform.operations.order.QueryUserOrders operationRequest =
           net.accelbyte.sdk.api.platform.operations.order.QueryUserOrders.builder()
               .namespace(namespace)
               .userId(userId)
@@ -96,7 +96,7 @@ public class QueryUserOrders implements Callable<Integer> {
               .offset(offset)
               .status(status)
               .build();
-      final OrderPagingSlicedResult response = wrapper.queryUserOrders(operation);
+      final OrderPagingSlicedResult response = wrapper.queryUserOrders(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

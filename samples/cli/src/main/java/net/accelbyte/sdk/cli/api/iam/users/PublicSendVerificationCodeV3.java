@@ -61,12 +61,14 @@ public class PublicSendVerificationCodeV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.PublicSendVerificationCodeV3 operation =
-          net.accelbyte.sdk.api.iam.operations.users.PublicSendVerificationCodeV3.builder()
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ModelSendVerificationCodeRequestV3.class))
-              .build();
-      wrapper.publicSendVerificationCodeV3(operation);
+      final net.accelbyte.sdk.api.iam.operations.users.PublicSendVerificationCodeV3
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.users.PublicSendVerificationCodeV3.builder()
+                  .namespace(namespace)
+                  .body(
+                      new ObjectMapper().readValue(body, ModelSendVerificationCodeRequestV3.class))
+                  .build();
+      wrapper.publicSendVerificationCodeV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

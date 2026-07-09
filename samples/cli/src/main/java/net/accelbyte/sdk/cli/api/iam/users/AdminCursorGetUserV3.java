@@ -61,12 +61,12 @@ public class AdminCursorGetUserV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.AdminCursorGetUserV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.users.AdminCursorGetUserV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.AdminCursorGetUserV3.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelCursorGetUserRequest.class))
               .build();
-      final ModelCursorGetUserResponse response = wrapper.adminCursorGetUserV3(operation);
+      final ModelCursorGetUserResponse response = wrapper.adminCursorGetUserV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

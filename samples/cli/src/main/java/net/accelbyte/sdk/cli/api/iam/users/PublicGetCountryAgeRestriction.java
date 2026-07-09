@@ -61,12 +61,14 @@ public class PublicGetCountryAgeRestriction implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.PublicGetCountryAgeRestriction operation =
-          net.accelbyte.sdk.api.iam.operations.users.PublicGetCountryAgeRestriction.builder()
-              .countryCode(countryCode)
-              .namespace(namespace)
-              .build();
-      final AccountcommonCountry response = wrapper.publicGetCountryAgeRestriction(operation);
+      final net.accelbyte.sdk.api.iam.operations.users.PublicGetCountryAgeRestriction
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.users.PublicGetCountryAgeRestriction.builder()
+                  .countryCode(countryCode)
+                  .namespace(namespace)
+                  .build();
+      final AccountcommonCountry response =
+          wrapper.publicGetCountryAgeRestriction(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -76,15 +76,6 @@ $ build/install/cli/bin/cli csm getAppV2 \
     --namespace <namespace value>
 ```
 
-### Operation CreateAppV2
-
-```sh
-$ build/install/cli/bin/cli csm createAppV2 \
-    --app <app value> \
-    --namespace <namespace value> \
-    --body <json string for request body>
-```
-
 ### Operation DeleteAppV2
 
 ```sh
@@ -661,8 +652,8 @@ $ build/install/cli/bin/cli csm getNoSQLAppListV2 \
     --resourceId <resourceId value> \
     --studioName <studioName value> \
     --appName <appName value - optional> \
+    --gameNamespace <gameNamespace value - optional> \
     --limit <limit value - optional> \
-    --namespace <namespace value - optional> \
     --offset <offset value - optional>
 ```
 
@@ -683,5 +674,39 @@ $ build/install/cli/bin/cli csm deleteSubscriptionAppNotificationV3 \
     --namespace <namespace value> \
     --emailAddress <emailAddress value - optional> \
     --userId <userId value - optional>
+```
+
+### Operation GetAppDebugInfoV4
+
+```sh
+$ build/install/cli/bin/cli csm getAppDebugInfoV4 \
+    --app <app value> \
+    --namespace <namespace value>
+```
+
+### Operation UpdateAppDebugModeV4
+
+```sh
+$ build/install/cli/bin/cli csm updateAppDebugModeV4 \
+    --app <app value> \
+    --namespace <namespace value> \
+    --body <json string for request body>
+```
+
+### Operation GetAppStatusProgressV4
+
+```sh
+$ build/install/cli/bin/cli csm getAppStatusProgressV4 \
+    --app <app value> \
+    --namespace <namespace value>
+```
+
+### Operation CreateAppV5
+
+```sh
+$ build/install/cli/bin/cli csm createAppV5 \
+    --app <app value> \
+    --namespace <namespace value> \
+    --body <json string for request body>
 ```
 

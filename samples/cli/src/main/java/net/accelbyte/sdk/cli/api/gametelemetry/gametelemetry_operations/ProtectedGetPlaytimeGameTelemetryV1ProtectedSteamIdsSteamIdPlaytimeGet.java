@@ -66,13 +66,14 @@ public class ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytime
       final GametelemetryOperations wrapper = new GametelemetryOperations(sdk);
       final net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations
               .ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations
                   .ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet.builder()
                   .steamId(steamId)
                   .build();
       final PlayTimeResponse response =
-          wrapper.protectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet(operation);
+          wrapper.protectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimeGet(
+              operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

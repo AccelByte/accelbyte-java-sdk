@@ -62,7 +62,7 @@ public class AdminDeleteBulkGameSessions implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameSession wrapper = new GameSession(sdk);
       final net.accelbyte.sdk.api.session.operations.game_session.AdminDeleteBulkGameSessions
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.game_session.AdminDeleteBulkGameSessions
                   .builder()
                   .namespace(namespace)
@@ -71,7 +71,7 @@ public class AdminDeleteBulkGameSessions implements Callable<Integer> {
                           .readValue(body, ApimodelsDeleteBulkGameSessionRequest.class))
                   .build();
       final ApimodelsDeleteBulkGameSessionsAPIResponse response =
-          wrapper.adminDeleteBulkGameSessions(operation);
+          wrapper.adminDeleteBulkGameSessions(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -67,14 +67,15 @@ public class AdminGetRecentTeamPlayer implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final RecentPlayer wrapper = new RecentPlayer(sdk);
       final net.accelbyte.sdk.api.session.operations.recent_player.AdminGetRecentTeamPlayer
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.recent_player.AdminGetRecentTeamPlayer
                   .builder()
                   .namespace(namespace)
                   .limit(limit)
                   .userId(userId)
                   .build();
-      final ModelsRecentPlayerQueryResponse response = wrapper.adminGetRecentTeamPlayer(operation);
+      final ModelsRecentPlayerQueryResponse response =
+          wrapper.adminGetRecentTeamPlayer(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

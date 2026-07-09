@@ -71,14 +71,14 @@ public class DefeatureItem implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Item wrapper = new Item(sdk);
-      final net.accelbyte.sdk.api.platform.operations.item.DefeatureItem operation =
+      final net.accelbyte.sdk.api.platform.operations.item.DefeatureItem operationRequest =
           net.accelbyte.sdk.api.platform.operations.item.DefeatureItem.builder()
               .feature(feature)
               .itemId(itemId)
               .namespace(namespace)
               .storeId(storeId)
               .build();
-      final FullItemInfo response = wrapper.defeatureItem(operation);
+      final FullItemInfo response = wrapper.defeatureItem(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

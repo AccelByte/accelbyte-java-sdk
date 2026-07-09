@@ -68,7 +68,7 @@ public class CreateKeyValueCredentialV2 implements Callable<Integer> {
       final ManagedResourcesKeyValue wrapper = new ManagedResourcesKeyValue(sdk);
       final net.accelbyte.sdk.api.csm.operations.managed_resources_key_value
               .CreateKeyValueCredentialV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.csm.operations.managed_resources_key_value
                   .CreateKeyValueCredentialV2.builder()
                   .app(app)
@@ -78,7 +78,7 @@ public class CreateKeyValueCredentialV2 implements Callable<Integer> {
                           .readValue(body, ApimodelCreateKeyValueCredentialRequest.class))
                   .build();
       final ApimodelCreateKeyValueCredentialResponse response =
-          wrapper.createKeyValueCredentialV2(operation);
+          wrapper.createKeyValueCredentialV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

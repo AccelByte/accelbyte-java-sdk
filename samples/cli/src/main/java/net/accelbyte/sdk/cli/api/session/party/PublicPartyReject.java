@@ -60,12 +60,12 @@ public class PublicPartyReject implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Party wrapper = new Party(sdk);
-      final net.accelbyte.sdk.api.session.operations.party.PublicPartyReject operation =
+      final net.accelbyte.sdk.api.session.operations.party.PublicPartyReject operationRequest =
           net.accelbyte.sdk.api.session.operations.party.PublicPartyReject.builder()
               .namespace(namespace)
               .partyId(partyId)
               .build();
-      wrapper.publicPartyReject(operation);
+      wrapper.publicPartyReject(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

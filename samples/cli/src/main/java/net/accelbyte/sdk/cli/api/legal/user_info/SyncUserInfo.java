@@ -55,11 +55,11 @@ public class SyncUserInfo implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserInfo wrapper = new UserInfo(sdk);
-      final net.accelbyte.sdk.api.legal.operations.user_info.SyncUserInfo operation =
+      final net.accelbyte.sdk.api.legal.operations.user_info.SyncUserInfo operationRequest =
           net.accelbyte.sdk.api.legal.operations.user_info.SyncUserInfo.builder()
               .namespace(namespace)
               .build();
-      wrapper.syncUserInfo(operation);
+      wrapper.syncUserInfo(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

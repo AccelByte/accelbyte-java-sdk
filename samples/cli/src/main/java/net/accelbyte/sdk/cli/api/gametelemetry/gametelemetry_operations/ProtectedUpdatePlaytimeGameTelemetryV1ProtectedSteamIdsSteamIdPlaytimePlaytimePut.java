@@ -71,7 +71,7 @@ public class ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlayt
       final GametelemetryOperations wrapper = new GametelemetryOperations(sdk);
       final net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations
               .ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations
                   .ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut
                   .builder()
@@ -80,7 +80,7 @@ public class ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlayt
                   .build();
       final PlayTimeResponse response =
           wrapper.protectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlaytimePut(
-              operation);
+              operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

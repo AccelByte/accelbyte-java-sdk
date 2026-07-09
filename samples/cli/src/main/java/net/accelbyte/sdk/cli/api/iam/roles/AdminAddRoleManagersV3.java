@@ -61,12 +61,12 @@ public class AdminAddRoleManagersV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Roles wrapper = new Roles(sdk);
-      final net.accelbyte.sdk.api.iam.operations.roles.AdminAddRoleManagersV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.roles.AdminAddRoleManagersV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.roles.AdminAddRoleManagersV3.builder()
               .roleId(roleId)
               .body(new ObjectMapper().readValue(body, ModelRoleManagersRequestV3.class))
               .build();
-      wrapper.adminAddRoleManagersV3(operation);
+      wrapper.adminAddRoleManagersV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -72,7 +72,7 @@ public class CreateContentDirect implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicContentLegacy wrapper = new PublicContentLegacy(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_content_legacy.CreateContentDirect
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.public_content_legacy.CreateContentDirect
                   .builder()
                   .channelId(channelId)
@@ -80,7 +80,7 @@ public class CreateContentDirect implements Callable<Integer> {
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, ModelsCreateContentRequest.class))
                   .build();
-      final ModelsCreateContentResponse response = wrapper.createContentDirect(operation);
+      final ModelsCreateContentResponse response = wrapper.createContentDirect(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

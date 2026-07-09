@@ -59,13 +59,13 @@ public class AdminGetNamespaceScopedInputValidations implements Callable<Integer
       final InputValidations wrapper = new InputValidations(sdk);
       final net.accelbyte.sdk.api.iam.operations.input_validations
               .AdminGetNamespaceScopedInputValidations
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.input_validations
                   .AdminGetNamespaceScopedInputValidations.builder()
                   .namespace(namespace)
                   .build();
       final ModelInputValidationsResponse response =
-          wrapper.adminGetNamespaceScopedInputValidations(operation);
+          wrapper.adminGetNamespaceScopedInputValidations(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

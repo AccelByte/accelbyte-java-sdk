@@ -57,13 +57,13 @@ public class ValidateOneTimeLinkingCodeV3 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth20Extension wrapper = new OAuth20Extension(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.ValidateOneTimeLinkingCodeV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.ValidateOneTimeLinkingCodeV3
                   .builder()
                   .oneTimeLinkCode(oneTimeLinkCode != null ? oneTimeLinkCode : null)
                   .build();
       final OauthmodelOneTimeLinkingCodeValidationResponse response =
-          wrapper.validateOneTimeLinkingCodeV3(operation);
+          wrapper.validateOneTimeLinkingCodeV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

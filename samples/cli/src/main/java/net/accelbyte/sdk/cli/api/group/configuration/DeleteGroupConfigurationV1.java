@@ -61,13 +61,13 @@ public class DeleteGroupConfigurationV1 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Configuration wrapper = new Configuration(sdk);
       final net.accelbyte.sdk.api.group.operations.configuration.DeleteGroupConfigurationV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.group.operations.configuration.DeleteGroupConfigurationV1
                   .builder()
                   .configurationCode(configurationCode)
                   .namespace(namespace)
                   .build();
-      wrapper.deleteGroupConfigurationV1(operation);
+      wrapper.deleteGroupConfigurationV1(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -81,7 +81,7 @@ public class ListReports implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminReports wrapper = new AdminReports(sdk);
-      final net.accelbyte.sdk.api.reporting.operations.admin_reports.ListReports operation =
+      final net.accelbyte.sdk.api.reporting.operations.admin_reports.ListReports operationRequest =
           net.accelbyte.sdk.api.reporting.operations.admin_reports.ListReports.builder()
               .namespace(namespace)
               .category(category)
@@ -90,7 +90,7 @@ public class ListReports implements Callable<Integer> {
               .reportedUserId(reportedUserId)
               .sortBy(sortBy)
               .build();
-      final RestapiReportListResponse response = wrapper.listReports(operation);
+      final RestapiReportListResponse response = wrapper.listReports(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -71,14 +71,14 @@ public class UpdateSection implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Section wrapper = new Section(sdk);
-      final net.accelbyte.sdk.api.platform.operations.section.UpdateSection operation =
+      final net.accelbyte.sdk.api.platform.operations.section.UpdateSection operationRequest =
           net.accelbyte.sdk.api.platform.operations.section.UpdateSection.builder()
               .namespace(namespace)
               .sectionId(sectionId)
               .storeId(storeId)
               .body(new ObjectMapper().readValue(body, SectionUpdate.class))
               .build();
-      final FullSectionInfo response = wrapper.updateSection(operation);
+      final FullSectionInfo response = wrapper.updateSection(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

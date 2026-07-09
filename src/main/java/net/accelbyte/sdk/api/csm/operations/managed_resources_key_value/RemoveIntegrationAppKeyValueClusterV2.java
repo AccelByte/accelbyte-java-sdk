@@ -20,8 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * RemoveIntegrationAppKeyValueClusterV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:KEYVALUE:INTEGRATE [DELETE]`
- *
  * <p>Remove integration of an extend app with a cluster. Removes key-value env/secret from app,
  * deletes credential and AWS user.
  */

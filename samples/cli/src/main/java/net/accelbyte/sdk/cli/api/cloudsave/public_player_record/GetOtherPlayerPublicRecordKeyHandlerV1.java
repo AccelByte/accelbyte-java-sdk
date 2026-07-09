@@ -80,7 +80,7 @@ public class GetOtherPlayerPublicRecordKeyHandlerV1 implements Callable<Integer>
       final PublicPlayerRecord wrapper = new PublicPlayerRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.public_player_record
               .GetOtherPlayerPublicRecordKeyHandlerV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.public_player_record
                   .GetOtherPlayerPublicRecordKeyHandlerV1.builder()
                   .namespace(namespace)
@@ -90,7 +90,7 @@ public class GetOtherPlayerPublicRecordKeyHandlerV1 implements Callable<Integer>
                   .tags(tags)
                   .build();
       final ModelsListPlayerRecordKeysResponse response =
-          wrapper.getOtherPlayerPublicRecordKeyHandlerV1(operation);
+          wrapper.getOtherPlayerPublicRecordKeyHandlerV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

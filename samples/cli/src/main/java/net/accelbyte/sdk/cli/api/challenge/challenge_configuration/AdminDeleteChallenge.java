@@ -61,13 +61,13 @@ public class AdminDeleteChallenge implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ChallengeConfiguration wrapper = new ChallengeConfiguration(sdk);
       final net.accelbyte.sdk.api.challenge.operations.challenge_configuration.AdminDeleteChallenge
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.challenge.operations.challenge_configuration
                   .AdminDeleteChallenge.builder()
                   .challengeCode(challengeCode)
                   .namespace(namespace)
                   .build();
-      wrapper.adminDeleteChallenge(operation);
+      wrapper.adminDeleteChallenge(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

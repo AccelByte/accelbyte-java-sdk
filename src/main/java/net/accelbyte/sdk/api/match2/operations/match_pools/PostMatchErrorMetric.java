@@ -21,7 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * PostMatchErrorMetric
  *
- * <p>Post metrics for external flow failure in a specific match pool
+ * <p>Post metrics for external flow failure in a specific match pool.
+ *
+ * <p>Records an external match error metric for the given match pool. Used to track failures from
+ * custom (gRPC) match functions during the matchmaking process.
  */
 @Getter
 @Setter

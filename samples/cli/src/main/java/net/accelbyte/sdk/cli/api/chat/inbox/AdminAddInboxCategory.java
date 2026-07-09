@@ -61,12 +61,13 @@ public class AdminAddInboxCategory implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Inbox wrapper = new Inbox(sdk);
-      final net.accelbyte.sdk.api.chat.operations.inbox.AdminAddInboxCategory operation =
+      final net.accelbyte.sdk.api.chat.operations.inbox.AdminAddInboxCategory operationRequest =
           net.accelbyte.sdk.api.chat.operations.inbox.AdminAddInboxCategory.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelsAddInboxCategoryRequest.class))
               .build();
-      final ModelsAddInboxCategoryResponse response = wrapper.adminAddInboxCategory(operation);
+      final ModelsAddInboxCategoryResponse response =
+          wrapper.adminAddInboxCategory(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

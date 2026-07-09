@@ -73,7 +73,7 @@ public class PublicReconcilePlayStationStoreWithMultipleServiceLabels implements
       final IAP wrapper = new IAP(sdk);
       final net.accelbyte.sdk.api.platform.operations.iap
               .PublicReconcilePlayStationStoreWithMultipleServiceLabels
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.iap
                   .PublicReconcilePlayStationStoreWithMultipleServiceLabels.builder()
                   .namespace(namespace)
@@ -83,7 +83,7 @@ public class PublicReconcilePlayStationStoreWithMultipleServiceLabels implements
                           .readValue(body, PlayStationMultiServiceLabelsReconcileRequest.class))
                   .build();
       final List<PlayStationReconcileResult> response =
-          wrapper.publicReconcilePlayStationStoreWithMultipleServiceLabels(operation);
+          wrapper.publicReconcilePlayStationStoreWithMultipleServiceLabels(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

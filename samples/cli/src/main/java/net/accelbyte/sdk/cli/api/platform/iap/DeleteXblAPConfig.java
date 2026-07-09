@@ -55,11 +55,11 @@ public class DeleteXblAPConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.DeleteXblAPConfig operation =
+      final net.accelbyte.sdk.api.platform.operations.iap.DeleteXblAPConfig operationRequest =
           net.accelbyte.sdk.api.platform.operations.iap.DeleteXblAPConfig.builder()
               .namespace(namespace)
               .build();
-      wrapper.deleteXblAPConfig(operation);
+      wrapper.deleteXblAPConfig(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

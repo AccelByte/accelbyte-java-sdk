@@ -62,7 +62,7 @@ public class AdminGetContentBulkByShareCodesV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminContentV2 wrapper = new AdminContentV2(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminGetContentBulkByShareCodesV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.admin_content_v2
                   .AdminGetContentBulkByShareCodesV2.builder()
                   .namespace(namespace)
@@ -71,7 +71,7 @@ public class AdminGetContentBulkByShareCodesV2 implements Callable<Integer> {
                           .readValue(body, ModelsGetContentBulkByShareCodesRequest.class))
                   .build();
       final List<ModelsContentDownloadResponseV2> response =
-          wrapper.adminGetContentBulkByShareCodesV2(operation);
+          wrapper.adminGetContentBulkByShareCodesV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

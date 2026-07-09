@@ -56,11 +56,11 @@ public class PublicGetNamespaces implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Namespace wrapper = new Namespace(sdk);
-      final net.accelbyte.sdk.api.basic.operations.namespace.PublicGetNamespaces operation =
+      final net.accelbyte.sdk.api.basic.operations.namespace.PublicGetNamespaces operationRequest =
           net.accelbyte.sdk.api.basic.operations.namespace.PublicGetNamespaces.builder()
               .activeOnly(activeOnly)
               .build();
-      final List<NamespaceInfo> response = wrapper.publicGetNamespaces(operation);
+      final List<NamespaceInfo> response = wrapper.publicGetNamespaces(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

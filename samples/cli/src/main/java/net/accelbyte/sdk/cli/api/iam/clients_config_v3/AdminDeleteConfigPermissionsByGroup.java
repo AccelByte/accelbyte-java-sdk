@@ -63,7 +63,7 @@ public class AdminDeleteConfigPermissionsByGroup implements Callable<Integer> {
       final ClientsConfigV3 wrapper = new ClientsConfigV3(sdk);
       final net.accelbyte.sdk.api.iam.operations.clients_config_v3
               .AdminDeleteConfigPermissionsByGroup
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.clients_config_v3
                   .AdminDeleteConfigPermissionsByGroup.builder()
                   .forceDelete(forceDelete)
@@ -71,7 +71,7 @@ public class AdminDeleteConfigPermissionsByGroup implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, ClientmodelPermissionSetDeleteGroupRequest.class))
                   .build();
-      wrapper.adminDeleteConfigPermissionsByGroup(operation);
+      wrapper.adminDeleteConfigPermissionsByGroup(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

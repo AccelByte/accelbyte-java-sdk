@@ -71,14 +71,15 @@ public class UpdateAdyenConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PaymentConfig wrapper = new PaymentConfig(sdk);
-      final net.accelbyte.sdk.api.platform.operations.payment_config.UpdateAdyenConfig operation =
-          net.accelbyte.sdk.api.platform.operations.payment_config.UpdateAdyenConfig.builder()
-              .id(id)
-              .sandbox(sandbox)
-              .validate(validate)
-              .body(new ObjectMapper().readValue(body, AdyenConfig.class))
-              .build();
-      final PaymentMerchantConfigInfo response = wrapper.updateAdyenConfig(operation);
+      final net.accelbyte.sdk.api.platform.operations.payment_config.UpdateAdyenConfig
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.payment_config.UpdateAdyenConfig.builder()
+                  .id(id)
+                  .sandbox(sandbox)
+                  .validate(validate)
+                  .body(new ObjectMapper().readValue(body, AdyenConfig.class))
+                  .build();
+      final PaymentMerchantConfigInfo response = wrapper.updateAdyenConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

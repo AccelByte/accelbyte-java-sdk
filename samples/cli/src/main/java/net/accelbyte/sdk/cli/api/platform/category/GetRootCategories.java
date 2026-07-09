@@ -61,12 +61,12 @@ public class GetRootCategories implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Category wrapper = new Category(sdk);
-      final net.accelbyte.sdk.api.platform.operations.category.GetRootCategories operation =
+      final net.accelbyte.sdk.api.platform.operations.category.GetRootCategories operationRequest =
           net.accelbyte.sdk.api.platform.operations.category.GetRootCategories.builder()
               .namespace(namespace)
               .storeId(storeId)
               .build();
-      final List<FullCategoryInfo> response = wrapper.getRootCategories(operation);
+      final List<FullCategoryInfo> response = wrapper.getRootCategories(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

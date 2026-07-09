@@ -67,7 +67,7 @@ public class RequestOneTimeLinkingCodeV3 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth20Extension wrapper = new OAuth20Extension(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.RequestOneTimeLinkingCodeV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.RequestOneTimeLinkingCodeV3
                   .builder()
                   .redirectUri(redirectUri != null ? redirectUri : null)
@@ -75,7 +75,7 @@ public class RequestOneTimeLinkingCodeV3 implements Callable<Integer> {
                   .platformId(platformId != null ? platformId : null)
                   .build();
       final OauthmodelOneTimeLinkingCodeResponse response =
-          wrapper.requestOneTimeLinkingCodeV3(operation);
+          wrapper.requestOneTimeLinkingCodeV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -56,11 +56,11 @@ public class RefreshTicket implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final TicketV1 wrapper = new TicketV1(sdk);
-      final net.accelbyte.sdk.api.loginqueue.operations.ticket_v1.RefreshTicket operation =
+      final net.accelbyte.sdk.api.loginqueue.operations.ticket_v1.RefreshTicket operationRequest =
           net.accelbyte.sdk.api.loginqueue.operations.ticket_v1.RefreshTicket.builder()
               .namespace(namespace)
               .build();
-      final ApimodelsRefreshTicketResponse response = wrapper.refreshTicket(operation);
+      final ApimodelsRefreshTicketResponse response = wrapper.refreshTicket(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

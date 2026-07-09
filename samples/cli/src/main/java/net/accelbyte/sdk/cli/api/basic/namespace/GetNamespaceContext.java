@@ -61,12 +61,12 @@ public class GetNamespaceContext implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Namespace wrapper = new Namespace(sdk);
-      final net.accelbyte.sdk.api.basic.operations.namespace.GetNamespaceContext operation =
+      final net.accelbyte.sdk.api.basic.operations.namespace.GetNamespaceContext operationRequest =
           net.accelbyte.sdk.api.basic.operations.namespace.GetNamespaceContext.builder()
               .namespace(namespace)
               .refreshOnCacheMiss(refreshOnCacheMiss)
               .build();
-      final NamespaceContext response = wrapper.getNamespaceContext(operation);
+      final NamespaceContext response = wrapper.getNamespaceContext(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -60,12 +60,12 @@ public class EnableUser implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.EnableUser operation =
+      final net.accelbyte.sdk.api.iam.operations.users.EnableUser operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.EnableUser.builder()
               .namespace(namespace)
               .userId(userId)
               .build();
-      wrapper.enableUser(operation);
+      wrapper.enableUser(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

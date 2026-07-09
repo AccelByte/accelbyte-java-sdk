@@ -63,7 +63,7 @@ public class PublicGetContentBulkByShareCodes implements Callable<Integer> {
       final PublicContentLegacy wrapper = new PublicContentLegacy(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_content_legacy
               .PublicGetContentBulkByShareCodes
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.public_content_legacy
                   .PublicGetContentBulkByShareCodes.builder()
                   .namespace(namespace)
@@ -72,7 +72,7 @@ public class PublicGetContentBulkByShareCodes implements Callable<Integer> {
                           .readValue(body, ModelsGetContentBulkByShareCodesRequest.class))
                   .build();
       final List<ModelsContentDownloadResponse> response =
-          wrapper.publicGetContentBulkByShareCodes(operation);
+          wrapper.publicGetContentBulkByShareCodes(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -73,7 +73,7 @@ public class AdminBulkSaveItemToInventory implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminItems wrapper = new AdminItems(sdk);
       final net.accelbyte.sdk.api.inventory.operations.admin_items.AdminBulkSaveItemToInventory
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.inventory.operations.admin_items.AdminBulkSaveItemToInventory
                   .builder()
                   .inventoryId(inventoryId)
@@ -85,7 +85,7 @@ public class AdminBulkSaveItemToInventory implements Callable<Integer> {
                               body, new TypeReference<List<ApimodelsSaveItemToInventoryReq>>() {}))
                   .build();
       final List<ApimodelsBulkSaveItemResp> response =
-          wrapper.adminBulkSaveItemToInventory(operation);
+          wrapper.adminBulkSaveItemToInventory(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

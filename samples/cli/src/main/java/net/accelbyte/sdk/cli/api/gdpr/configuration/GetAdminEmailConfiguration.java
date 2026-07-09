@@ -57,12 +57,12 @@ public class GetAdminEmailConfiguration implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Configuration wrapper = new Configuration(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.configuration.GetAdminEmailConfiguration
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.configuration.GetAdminEmailConfiguration
                   .builder()
                   .namespace(namespace)
                   .build();
-      final List<String> response = wrapper.getAdminEmailConfiguration(operation);
+      final List<String> response = wrapper.getAdminEmailConfiguration(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

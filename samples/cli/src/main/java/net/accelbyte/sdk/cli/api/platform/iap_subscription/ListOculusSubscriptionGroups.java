@@ -57,13 +57,13 @@ public class ListOculusSubscriptionGroups implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAPSubscription wrapper = new IAPSubscription(sdk);
       final net.accelbyte.sdk.api.platform.operations.iap_subscription.ListOculusSubscriptionGroups
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.iap_subscription
                   .ListOculusSubscriptionGroups.builder()
                   .namespace(namespace)
                   .build();
       final List<ThirdPartySubscriptionGroupInfo> response =
-          wrapper.listOculusSubscriptionGroups(operation);
+          wrapper.listOculusSubscriptionGroups(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

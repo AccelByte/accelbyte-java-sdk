@@ -67,7 +67,7 @@ public class PublicUpgradeHeadlessAccountWithVerificationCodeV4 implements Calla
       final UsersV4 wrapper = new UsersV4(sdk);
       final net.accelbyte.sdk.api.iam.operations.users_v4
               .PublicUpgradeHeadlessAccountWithVerificationCodeV4
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.users_v4
                   .PublicUpgradeHeadlessAccountWithVerificationCodeV4.builder()
                   .namespace(namespace)
@@ -78,7 +78,7 @@ public class PublicUpgradeHeadlessAccountWithVerificationCodeV4 implements Calla
                               AccountUpgradeHeadlessAccountWithVerificationCodeRequestV4.class))
                   .build();
       final AccountUserResponseV4 response =
-          wrapper.publicUpgradeHeadlessAccountWithVerificationCodeV4(operation);
+          wrapper.publicUpgradeHeadlessAccountWithVerificationCodeV4(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

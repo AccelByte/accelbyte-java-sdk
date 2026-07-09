@@ -72,7 +72,7 @@ public class PublicListUserIDByPlatformUserIDsV4 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UsersV4 wrapper = new UsersV4(sdk);
       final net.accelbyte.sdk.api.iam.operations.users_v4.PublicListUserIDByPlatformUserIDsV4
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.users_v4.PublicListUserIDByPlatformUserIDsV4
                   .builder()
                   .namespace(namespace)
@@ -81,7 +81,7 @@ public class PublicListUserIDByPlatformUserIDsV4 implements Callable<Integer> {
                   .body(new ObjectMapper().readValue(body, ModelPlatformUserIDRequestV4.class))
                   .build();
       final AccountcommonUserPlatforms response =
-          wrapper.publicListUserIDByPlatformUserIDsV4(operation);
+          wrapper.publicListUserIDByPlatformUserIDsV4(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

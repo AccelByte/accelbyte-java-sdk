@@ -65,13 +65,14 @@ public class SingleAdminDeleteContent implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminContent wrapper = new AdminContent(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.admin_content.SingleAdminDeleteContent operation =
-          net.accelbyte.sdk.api.ugc.operations.admin_content.SingleAdminDeleteContent.builder()
-              .channelId(channelId)
-              .contentId(contentId)
-              .namespace(namespace)
-              .build();
-      wrapper.singleAdminDeleteContent(operation);
+      final net.accelbyte.sdk.api.ugc.operations.admin_content.SingleAdminDeleteContent
+          operationRequest =
+              net.accelbyte.sdk.api.ugc.operations.admin_content.SingleAdminDeleteContent.builder()
+                  .channelId(channelId)
+                  .contentId(contentId)
+                  .namespace(namespace)
+                  .build();
+      wrapper.singleAdminDeleteContent(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

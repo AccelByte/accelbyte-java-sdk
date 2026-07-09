@@ -76,15 +76,16 @@ public class PublicListSchedules implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Schedules wrapper = new Schedules(sdk);
-      final net.accelbyte.sdk.api.challenge.operations.schedules.PublicListSchedules operation =
-          net.accelbyte.sdk.api.challenge.operations.schedules.PublicListSchedules.builder()
-              .challengeCode(challengeCode)
-              .namespace(namespace)
-              .dateTime(dateTime)
-              .limit(limit)
-              .offset(offset)
-              .build();
-      final ModelListSchedulesResponse response = wrapper.publicListSchedules(operation);
+      final net.accelbyte.sdk.api.challenge.operations.schedules.PublicListSchedules
+          operationRequest =
+              net.accelbyte.sdk.api.challenge.operations.schedules.PublicListSchedules.builder()
+                  .challengeCode(challengeCode)
+                  .namespace(namespace)
+                  .dateTime(dateTime)
+                  .limit(limit)
+                  .offset(offset)
+                  .build();
+      final ModelListSchedulesResponse response = wrapper.publicListSchedules(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

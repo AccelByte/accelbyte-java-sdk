@@ -66,14 +66,14 @@ public class AdminCancelUserPersonalDataRequest implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final DataRetrieval wrapper = new DataRetrieval(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.data_retrieval.AdminCancelUserPersonalDataRequest
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.data_retrieval
                   .AdminCancelUserPersonalDataRequest.builder()
                   .namespace(namespace)
                   .requestDate(requestDate)
                   .userId(userId)
                   .build();
-      wrapper.adminCancelUserPersonalDataRequest(operation);
+      wrapper.adminCancelUserPersonalDataRequest(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

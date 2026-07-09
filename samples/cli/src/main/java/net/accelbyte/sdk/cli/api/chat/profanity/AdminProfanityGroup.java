@@ -66,13 +66,13 @@ public class AdminProfanityGroup implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Profanity wrapper = new Profanity(sdk);
-      final net.accelbyte.sdk.api.chat.operations.profanity.AdminProfanityGroup operation =
+      final net.accelbyte.sdk.api.chat.operations.profanity.AdminProfanityGroup operationRequest =
           net.accelbyte.sdk.api.chat.operations.profanity.AdminProfanityGroup.builder()
               .namespace(namespace)
               .limit(limit)
               .offset(offset)
               .build();
-      final List<ModelsDictionaryGroup> response = wrapper.adminProfanityGroup(operation);
+      final List<ModelsDictionaryGroup> response = wrapper.adminProfanityGroup(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

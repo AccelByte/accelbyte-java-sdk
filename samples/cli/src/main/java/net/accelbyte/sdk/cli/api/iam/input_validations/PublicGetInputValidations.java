@@ -62,14 +62,14 @@ public class PublicGetInputValidations implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final InputValidations wrapper = new InputValidations(sdk);
       final net.accelbyte.sdk.api.iam.operations.input_validations.PublicGetInputValidations
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.input_validations.PublicGetInputValidations
                   .builder()
                   .defaultOnEmpty(defaultOnEmpty)
                   .languageCode(languageCode)
                   .build();
       final ModelInputValidationsPublicResponse response =
-          wrapper.publicGetInputValidations(operation);
+          wrapper.publicGetInputValidations(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

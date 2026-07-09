@@ -67,7 +67,7 @@ public class UpdateGameSessionBackfillTicketID implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameSession wrapper = new GameSession(sdk);
       final net.accelbyte.sdk.api.session.operations.game_session.UpdateGameSessionBackfillTicketID
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.game_session
                   .UpdateGameSessionBackfillTicketID.builder()
                   .namespace(namespace)
@@ -77,7 +77,7 @@ public class UpdateGameSessionBackfillTicketID implements Callable<Integer> {
                           .readValue(body, ApimodelsUpdateGameSessionBackfillRequest.class))
                   .build();
       final ApimodelsGameSessionResponse response =
-          wrapper.updateGameSessionBackfillTicketID(operation);
+          wrapper.updateGameSessionBackfillTicketID(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -61,12 +61,12 @@ public class EnableCode implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Campaign wrapper = new Campaign(sdk);
-      final net.accelbyte.sdk.api.platform.operations.campaign.EnableCode operation =
+      final net.accelbyte.sdk.api.platform.operations.campaign.EnableCode operationRequest =
           net.accelbyte.sdk.api.platform.operations.campaign.EnableCode.builder()
               .code(code)
               .namespace(namespace)
               .build();
-      final CodeInfo response = wrapper.enableCode(operation);
+      final CodeInfo response = wrapper.enableCode(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

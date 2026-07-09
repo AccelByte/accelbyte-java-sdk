@@ -66,13 +66,13 @@ public class CloneSeason implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Season wrapper = new Season(sdk);
-      final net.accelbyte.sdk.api.seasonpass.operations.season.CloneSeason operation =
+      final net.accelbyte.sdk.api.seasonpass.operations.season.CloneSeason operationRequest =
           net.accelbyte.sdk.api.seasonpass.operations.season.CloneSeason.builder()
               .namespace(namespace)
               .seasonId(seasonId)
               .body(new ObjectMapper().readValue(body, SeasonCloneRequest.class))
               .build();
-      final SeasonInfo response = wrapper.cloneSeason(operation);
+      final SeasonInfo response = wrapper.cloneSeason(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -39,6 +39,7 @@ public class FleetList extends Operation {
 
   private Boolean active;
   private Integer count;
+  private Boolean includeInactiveRegions;
   private String name;
   private Integer offset;
   private String region;
@@ -55,6 +56,7 @@ public class FleetList extends Operation {
       String namespace,
       Boolean active,
       Integer count,
+      Boolean includeInactiveRegions,
       String name,
       Integer offset,
       String region,
@@ -63,6 +65,7 @@ public class FleetList extends Operation {
     this.namespace = namespace;
     this.active = active;
     this.count = count;
+    this.includeInactiveRegions = includeInactiveRegions;
     this.name = name;
     this.offset = offset;
     this.region = region;
@@ -87,6 +90,11 @@ public class FleetList extends Operation {
     queryParams.put(
         "active", this.active == null ? null : Arrays.asList(String.valueOf(this.active)));
     queryParams.put("count", this.count == null ? null : Arrays.asList(String.valueOf(this.count)));
+    queryParams.put(
+        "includeInactiveRegions",
+        this.includeInactiveRegions == null
+            ? null
+            : Arrays.asList(String.valueOf(this.includeInactiveRegions)));
     queryParams.put("name", this.name == null ? null : Arrays.asList(this.name));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
@@ -120,6 +128,7 @@ public class FleetList extends Operation {
     Map<String, String> result = new HashMap<>();
     result.put("active", "None");
     result.put("count", "None");
+    result.put("includeInactiveRegions", "None");
     result.put("name", "None");
     result.put("offset", "None");
     result.put("region", "None");

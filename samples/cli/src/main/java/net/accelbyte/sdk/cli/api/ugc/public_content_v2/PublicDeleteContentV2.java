@@ -70,14 +70,15 @@ public class PublicDeleteContentV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicContentV2 wrapper = new PublicContentV2(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.public_content_v2.PublicDeleteContentV2 operation =
-          net.accelbyte.sdk.api.ugc.operations.public_content_v2.PublicDeleteContentV2.builder()
-              .channelId(channelId)
-              .contentId(contentId)
-              .namespace(namespace)
-              .userId(userId)
-              .build();
-      wrapper.publicDeleteContentV2(operation);
+      final net.accelbyte.sdk.api.ugc.operations.public_content_v2.PublicDeleteContentV2
+          operationRequest =
+              net.accelbyte.sdk.api.ugc.operations.public_content_v2.PublicDeleteContentV2.builder()
+                  .channelId(channelId)
+                  .contentId(contentId)
+                  .namespace(namespace)
+                  .userId(userId)
+                  .build();
+      wrapper.publicDeleteContentV2(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

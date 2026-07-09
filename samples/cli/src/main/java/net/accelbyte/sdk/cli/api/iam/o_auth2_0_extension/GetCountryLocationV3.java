@@ -52,11 +52,12 @@ public class GetCountryLocationV3 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth20Extension wrapper = new OAuth20Extension(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.GetCountryLocationV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension.GetCountryLocationV3
                   .builder()
                   .build();
-      final OauthmodelCountryLocationResponse response = wrapper.getCountryLocationV3(operation);
+      final OauthmodelCountryLocationResponse response =
+          wrapper.getCountryLocationV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -81,7 +81,7 @@ public class QueryWallets implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Wallet wrapper = new Wallet(sdk);
-      final net.accelbyte.sdk.api.platform.operations.wallet.QueryWallets operation =
+      final net.accelbyte.sdk.api.platform.operations.wallet.QueryWallets operationRequest =
           net.accelbyte.sdk.api.platform.operations.wallet.QueryWallets.builder()
               .namespace(namespace)
               .currencyCode(currencyCode)
@@ -90,7 +90,7 @@ public class QueryWallets implements Callable<Integer> {
               .origin(origin)
               .userId(userId)
               .build();
-      final WalletPagingSlicedResult response = wrapper.queryWallets(operation);
+      final WalletPagingSlicedResult response = wrapper.queryWallets(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

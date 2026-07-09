@@ -67,7 +67,7 @@ public class AdminUpdatePartyAttributesV1 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final LobbyOperations wrapper = new LobbyOperations(sdk);
       final net.accelbyte.sdk.api.lobby.operations.lobby_operations.AdminUpdatePartyAttributesV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.lobby_operations.AdminUpdatePartyAttributesV1
                   .builder()
                   .namespace(namespace)
@@ -76,7 +76,7 @@ public class AdminUpdatePartyAttributesV1 implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, ModelsPartyPUTCustomAttributesRequest.class))
                   .build();
-      final ModelsPartyData response = wrapper.adminUpdatePartyAttributesV1(operation);
+      final ModelsPartyData response = wrapper.adminUpdatePartyAttributesV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

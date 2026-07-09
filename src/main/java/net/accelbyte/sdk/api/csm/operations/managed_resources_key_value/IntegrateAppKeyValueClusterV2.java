@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * IntegrateAppKeyValueClusterV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:KEYVALUE:INTEGRATE [CREATE]`
- *
  * <p>Integrate an Extend App with an existing KeyValue cluster. Injects REDIS_HOST, REDIS_PORT,
  * REDIS_USERNAME, REDIS_PASSWORD to the app config.
  */

@@ -76,7 +76,7 @@ public class GetSlugTemplate implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Admin wrapper = new Admin(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.admin.GetSlugTemplate operation =
+      final net.accelbyte.sdk.api.lobby.operations.admin.GetSlugTemplate operationRequest =
           net.accelbyte.sdk.api.lobby.operations.admin.GetSlugTemplate.builder()
               .namespace(namespace)
               .templateSlug(templateSlug)
@@ -84,7 +84,7 @@ public class GetSlugTemplate implements Callable<Integer> {
               .before(before)
               .limit(limit)
               .build();
-      final ModelTemplateLocalizationResponse response = wrapper.getSlugTemplate(operation);
+      final ModelTemplateLocalizationResponse response = wrapper.getSlugTemplate(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

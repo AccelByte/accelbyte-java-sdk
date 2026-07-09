@@ -78,7 +78,7 @@ public class AuthenticationWithPlatformLinkV3 implements Callable<Integer> {
       final OAuth20Extension wrapper = new OAuth20Extension(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension
               .AuthenticationWithPlatformLinkV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.o_auth2_0_extension
                   .AuthenticationWithPlatformLinkV3.builder()
                   .extendExp(extendExp != null ? extendExp : null)
@@ -88,7 +88,7 @@ public class AuthenticationWithPlatformLinkV3 implements Callable<Integer> {
                   .username(username != null ? username : null)
                   .build();
       final OauthmodelTokenResponseV3 response =
-          wrapper.authenticationWithPlatformLinkV3(operation);
+          wrapper.authenticationWithPlatformLinkV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

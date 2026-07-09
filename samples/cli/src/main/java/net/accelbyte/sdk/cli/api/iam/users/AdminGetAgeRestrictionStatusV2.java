@@ -56,12 +56,13 @@ public class AdminGetAgeRestrictionStatusV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.AdminGetAgeRestrictionStatusV2 operation =
-          net.accelbyte.sdk.api.iam.operations.users.AdminGetAgeRestrictionStatusV2.builder()
-              .namespace(namespace)
-              .build();
+      final net.accelbyte.sdk.api.iam.operations.users.AdminGetAgeRestrictionStatusV2
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.users.AdminGetAgeRestrictionStatusV2.builder()
+                  .namespace(namespace)
+                  .build();
       final ModelAgeRestrictionResponse response =
-          wrapper.adminGetAgeRestrictionStatusV2(operation);
+          wrapper.adminGetAgeRestrictionStatusV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -23,11 +23,8 @@ import net.accelbyte.sdk.core.util.Helper;
  *
  * <p>Create new notification template. Include handlebars {{key}} for replaceable contexts. The key
  * inside handlebars will be the key to be replaced when sending notification. Already existing
- * template with the same slug and language can not be created.
- *
- * <p>Check model description for detailed input restrictions.
- *
- * <p>Action Code: 50204
+ * template with the same slug and language can not be created. Check model description for detailed
+ * input restrictions.
  */
 @Getter
 @Setter

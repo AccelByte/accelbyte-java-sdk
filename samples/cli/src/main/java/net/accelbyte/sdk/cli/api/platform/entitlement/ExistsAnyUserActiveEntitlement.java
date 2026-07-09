@@ -85,7 +85,7 @@ public class ExistsAnyUserActiveEntitlement implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement.ExistsAnyUserActiveEntitlement
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.entitlement.ExistsAnyUserActiveEntitlement
                   .builder()
                   .namespace(namespace)
@@ -95,7 +95,7 @@ public class ExistsAnyUserActiveEntitlement implements Callable<Integer> {
                   .platform(platform)
                   .skus(skus)
                   .build();
-      final Ownership response = wrapper.existsAnyUserActiveEntitlement(operation);
+      final Ownership response = wrapper.existsAnyUserActiveEntitlement(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

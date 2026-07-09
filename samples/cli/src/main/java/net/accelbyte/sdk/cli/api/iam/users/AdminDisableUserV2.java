@@ -66,13 +66,13 @@ public class AdminDisableUserV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.AdminDisableUserV2 operation =
+      final net.accelbyte.sdk.api.iam.operations.users.AdminDisableUserV2 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.AdminDisableUserV2.builder()
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, ModelDisableUserRequest.class))
               .build();
-      wrapper.adminDisableUserV2(operation);
+      wrapper.adminDisableUserV2(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

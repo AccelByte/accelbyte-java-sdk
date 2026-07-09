@@ -62,13 +62,13 @@ public class DeleteBasePolicy implements Callable<Integer> {
       final BaseLegalPoliciesWithNamespace wrapper = new BaseLegalPoliciesWithNamespace(sdk);
       final net.accelbyte.sdk.api.legal.operations.base_legal_policies_with_namespace
               .DeleteBasePolicy
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.base_legal_policies_with_namespace
                   .DeleteBasePolicy.builder()
                   .basePolicyId(basePolicyId)
                   .namespace(namespace)
                   .build();
-      wrapper.deleteBasePolicy(operation);
+      wrapper.deleteBasePolicy(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

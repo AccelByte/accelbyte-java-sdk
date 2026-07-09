@@ -77,7 +77,7 @@ public class AdminUpdateUserContentV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminContentV2 wrapper = new AdminContentV2(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminUpdateUserContentV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminUpdateUserContentV2
                   .builder()
                   .channelId(channelId)
@@ -86,7 +86,8 @@ public class AdminUpdateUserContentV2 implements Callable<Integer> {
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, ModelsAdminUpdateContentRequestV2.class))
                   .build();
-      final ModelsUpdateContentResponseV2 response = wrapper.adminUpdateUserContentV2(operation);
+      final ModelsUpdateContentResponseV2 response =
+          wrapper.adminUpdateUserContentV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -71,14 +71,14 @@ public class UpdateApp implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Item wrapper = new Item(sdk);
-      final net.accelbyte.sdk.api.platform.operations.item.UpdateApp operation =
+      final net.accelbyte.sdk.api.platform.operations.item.UpdateApp operationRequest =
           net.accelbyte.sdk.api.platform.operations.item.UpdateApp.builder()
               .itemId(itemId)
               .namespace(namespace)
               .storeId(storeId)
               .body(new ObjectMapper().readValue(body, AppUpdate.class))
               .build();
-      final FullAppInfo response = wrapper.updateApp(operation);
+      final FullAppInfo response = wrapper.updateApp(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

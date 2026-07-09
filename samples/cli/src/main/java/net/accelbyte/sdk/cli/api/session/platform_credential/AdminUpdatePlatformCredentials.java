@@ -63,7 +63,7 @@ public class AdminUpdatePlatformCredentials implements Callable<Integer> {
       final PlatformCredential wrapper = new PlatformCredential(sdk);
       final net.accelbyte.sdk.api.session.operations.platform_credential
               .AdminUpdatePlatformCredentials
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.platform_credential
                   .AdminUpdatePlatformCredentials.builder()
                   .namespace(namespace)
@@ -71,7 +71,8 @@ public class AdminUpdatePlatformCredentials implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, ApimodelsPutPlatformCredentialsRequest.class))
                   .build();
-      final ModelsPlatformCredentials response = wrapper.adminUpdatePlatformCredentials(operation);
+      final ModelsPlatformCredentials response =
+          wrapper.adminUpdatePlatformCredentials(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

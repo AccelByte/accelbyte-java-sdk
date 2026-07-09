@@ -66,13 +66,14 @@ public class TicketStatistic implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminTickets wrapper = new AdminTickets(sdk);
-      final net.accelbyte.sdk.api.reporting.operations.admin_tickets.TicketStatistic operation =
-          net.accelbyte.sdk.api.reporting.operations.admin_tickets.TicketStatistic.builder()
-              .namespace(namespace)
-              .extensionCategory(extensionCategory)
-              .category(category)
-              .build();
-      final RestapiTicketStatisticResponse response = wrapper.ticketStatistic(operation);
+      final net.accelbyte.sdk.api.reporting.operations.admin_tickets.TicketStatistic
+          operationRequest =
+              net.accelbyte.sdk.api.reporting.operations.admin_tickets.TicketStatistic.builder()
+                  .namespace(namespace)
+                  .extensionCategory(extensionCategory)
+                  .category(category)
+                  .build();
+      final RestapiTicketStatisticResponse response = wrapper.ticketStatistic(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

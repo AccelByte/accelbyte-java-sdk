@@ -123,7 +123,7 @@ public class SearchChannelSpecificContent implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicContentLegacy wrapper = new PublicContentLegacy(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_content_legacy.SearchChannelSpecificContent
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.public_content_legacy
                   .SearchChannelSpecificContent.builder()
                   .channelId(channelId)
@@ -142,7 +142,7 @@ public class SearchChannelSpecificContent implements Callable<Integer> {
                   .userId(userId)
                   .build();
       final ModelsPaginatedContentDownloadResponse response =
-          wrapper.searchChannelSpecificContent(operation);
+          wrapper.searchChannelSpecificContent(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

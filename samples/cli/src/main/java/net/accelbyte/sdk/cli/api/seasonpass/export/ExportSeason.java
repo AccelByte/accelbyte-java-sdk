@@ -57,11 +57,11 @@ public class ExportSeason implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Export wrapper = new Export(sdk);
-      final net.accelbyte.sdk.api.seasonpass.operations.export.ExportSeason operation =
+      final net.accelbyte.sdk.api.seasonpass.operations.export.ExportSeason operationRequest =
           net.accelbyte.sdk.api.seasonpass.operations.export.ExportSeason.builder()
               .namespace(namespace)
               .build();
-      final InputStream response = wrapper.exportSeason(operation);
+      final InputStream response = wrapper.exportSeason(operationRequest);
       final File outputFile = new File("response.out");
       java.nio.file.Files.copy(
           response, outputFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);

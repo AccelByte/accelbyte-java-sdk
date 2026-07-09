@@ -69,7 +69,7 @@ public class BulkGetOtherPlayerPublicBinaryRecordsV1 implements Callable<Integer
       final PublicPlayerBinaryRecord wrapper = new PublicPlayerBinaryRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.public_player_binary_record
               .BulkGetOtherPlayerPublicBinaryRecordsV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.public_player_binary_record
                   .BulkGetOtherPlayerPublicBinaryRecordsV1.builder()
                   .namespace(namespace)
@@ -77,7 +77,7 @@ public class BulkGetOtherPlayerPublicBinaryRecordsV1 implements Callable<Integer
                   .body(new ObjectMapper().readValue(body, ModelsBulkGetPlayerRecordsRequest.class))
                   .build();
       final ModelsBulkGetPlayerBinaryRecordResponse response =
-          wrapper.bulkGetOtherPlayerPublicBinaryRecordsV1(operation);
+          wrapper.bulkGetOtherPlayerPublicBinaryRecordsV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -57,12 +57,12 @@ public class GetNoSQLAccessTunnelV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ManagedResources wrapper = new ManagedResources(sdk);
       final net.accelbyte.sdk.api.csm.operations.managed_resources.GetNoSQLAccessTunnelV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.csm.operations.managed_resources.GetNoSQLAccessTunnelV2
                   .builder()
                   .namespace(namespace)
                   .build();
-      final ApimodelTunnelInfoResponse response = wrapper.getNoSQLAccessTunnelV2(operation);
+      final ApimodelTunnelInfoResponse response = wrapper.getNoSQLAccessTunnelV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

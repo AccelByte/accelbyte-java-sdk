@@ -71,7 +71,7 @@ public class PublicDeletePaymentAccount implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PaymentAccount wrapper = new PaymentAccount(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_account.PublicDeletePaymentAccount
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.payment_account.PublicDeletePaymentAccount
                   .builder()
                   .id(id)
@@ -79,7 +79,7 @@ public class PublicDeletePaymentAccount implements Callable<Integer> {
                   .type(type)
                   .userId(userId)
                   .build();
-      wrapper.publicDeletePaymentAccount(operation);
+      wrapper.publicDeletePaymentAccount(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

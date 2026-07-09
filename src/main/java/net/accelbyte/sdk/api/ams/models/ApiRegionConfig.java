@@ -40,6 +40,10 @@ public class ApiRegionConfig extends Model {
   @JsonProperty("region")
   private String region;
 
+  @JsonProperty("state")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
+  private String state;
+
   @JsonIgnore
   public ApiRegionConfig createFromJson(String json) throws JsonProcessingException {
     return new ObjectMapper().readValue(json, this.getClass());

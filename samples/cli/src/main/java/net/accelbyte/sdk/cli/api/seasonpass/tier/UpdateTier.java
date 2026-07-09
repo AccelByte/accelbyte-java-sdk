@@ -71,14 +71,15 @@ public class UpdateTier implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Tier wrapper = new Tier(sdk);
-      final net.accelbyte.sdk.api.seasonpass.operations.tier.UpdateTier operation =
+      final net.accelbyte.sdk.api.seasonpass.operations.tier.UpdateTier operationRequest =
           net.accelbyte.sdk.api.seasonpass.operations.tier.UpdateTier.builder()
               .id(id)
               .namespace(namespace)
               .seasonId(seasonId)
               .body(new ObjectMapper().readValue(body, TierInput.class))
               .build();
-      final net.accelbyte.sdk.api.seasonpass.models.Tier response = wrapper.updateTier(operation);
+      final net.accelbyte.sdk.api.seasonpass.models.Tier response =
+          wrapper.updateTier(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

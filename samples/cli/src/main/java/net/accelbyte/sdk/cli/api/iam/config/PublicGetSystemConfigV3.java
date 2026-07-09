@@ -51,9 +51,10 @@ public class PublicGetSystemConfigV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Config wrapper = new Config(sdk);
-      final net.accelbyte.sdk.api.iam.operations.config.PublicGetSystemConfigV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.config.PublicGetSystemConfigV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.config.PublicGetSystemConfigV3.builder().build();
-      final ModelInternalConfigResponseV3 response = wrapper.publicGetSystemConfigV3(operation);
+      final ModelInternalConfigResponseV3 response =
+          wrapper.publicGetSystemConfigV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

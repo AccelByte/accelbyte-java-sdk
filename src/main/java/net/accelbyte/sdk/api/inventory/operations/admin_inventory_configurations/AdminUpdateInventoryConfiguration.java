@@ -33,7 +33,7 @@ public class AdminUpdateInventoryConfiguration extends Operation {
       "/inventory/v1/admin/namespaces/{namespace}/inventoryConfigurations/{inventoryConfigurationId}";
 
   private String method = "PUT";
-  private List<String> consumes = Arrays.asList("application/json");
+  private List<String> consumes = Arrays.asList();
   private List<String> produces = Arrays.asList("application/json");
   private String locationQuery = null;
 

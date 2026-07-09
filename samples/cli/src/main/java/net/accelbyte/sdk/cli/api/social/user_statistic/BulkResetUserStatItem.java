@@ -62,14 +62,16 @@ public class BulkResetUserStatItem implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserStatistic wrapper = new UserStatistic(sdk);
-      final net.accelbyte.sdk.api.social.operations.user_statistic.BulkResetUserStatItem operation =
-          net.accelbyte.sdk.api.social.operations.user_statistic.BulkResetUserStatItem.builder()
-              .namespace(namespace)
-              .body(
-                  new ObjectMapper()
-                      .readValue(body, new TypeReference<List<BulkUserStatItemReset>>() {}))
-              .build();
-      final List<BulkStatOperationResult> response = wrapper.bulkResetUserStatItem(operation);
+      final net.accelbyte.sdk.api.social.operations.user_statistic.BulkResetUserStatItem
+          operationRequest =
+              net.accelbyte.sdk.api.social.operations.user_statistic.BulkResetUserStatItem.builder()
+                  .namespace(namespace)
+                  .body(
+                      new ObjectMapper()
+                          .readValue(body, new TypeReference<List<BulkUserStatItemReset>>() {}))
+                  .build();
+      final List<BulkStatOperationResult> response =
+          wrapper.bulkResetUserStatItem(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -81,16 +81,17 @@ public class ListTopicsHandler implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AsyncMessaging wrapper = new AsyncMessaging(sdk);
-      final net.accelbyte.sdk.api.csm.operations.async_messaging.ListTopicsHandler operation =
-          net.accelbyte.sdk.api.csm.operations.async_messaging.ListTopicsHandler.builder()
-              .namespace(namespace)
-              .fuzzyTopicName(fuzzyTopicName)
-              .isSubscribedByAppName(isSubscribedByAppName)
-              .isUnsubscribedByAppName(isUnsubscribedByAppName)
-              .limit(limit)
-              .offset(offset)
-              .build();
-      final ApimodelListTopicsResponse response = wrapper.listTopicsHandler(operation);
+      final net.accelbyte.sdk.api.csm.operations.async_messaging.ListTopicsHandler
+          operationRequest =
+              net.accelbyte.sdk.api.csm.operations.async_messaging.ListTopicsHandler.builder()
+                  .namespace(namespace)
+                  .fuzzyTopicName(fuzzyTopicName)
+                  .isSubscribedByAppName(isSubscribedByAppName)
+                  .isUnsubscribedByAppName(isUnsubscribedByAppName)
+                  .limit(limit)
+                  .offset(offset)
+                  .build();
+      final ApimodelListTopicsResponse response = wrapper.listTopicsHandler(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -66,13 +66,14 @@ public class PublicMoveMyItems implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicItems wrapper = new PublicItems(sdk);
-      final net.accelbyte.sdk.api.inventory.operations.public_items.PublicMoveMyItems operation =
-          net.accelbyte.sdk.api.inventory.operations.public_items.PublicMoveMyItems.builder()
-              .inventoryId(inventoryId)
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ApimodelsMoveItemsReq.class))
-              .build();
-      final ApimodelsMoveItemsResp response = wrapper.publicMoveMyItems(operation);
+      final net.accelbyte.sdk.api.inventory.operations.public_items.PublicMoveMyItems
+          operationRequest =
+              net.accelbyte.sdk.api.inventory.operations.public_items.PublicMoveMyItems.builder()
+                  .inventoryId(inventoryId)
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, ApimodelsMoveItemsReq.class))
+                  .build();
+      final ApimodelsMoveItemsResp response = wrapper.publicMoveMyItems(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

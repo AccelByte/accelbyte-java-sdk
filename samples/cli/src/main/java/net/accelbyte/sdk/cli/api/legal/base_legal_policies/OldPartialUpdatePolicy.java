@@ -62,13 +62,13 @@ public class OldPartialUpdatePolicy implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final BaseLegalPolicies wrapper = new BaseLegalPolicies(sdk);
       final net.accelbyte.sdk.api.legal.operations.base_legal_policies.OldPartialUpdatePolicy
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.base_legal_policies.OldPartialUpdatePolicy
                   .builder()
                   .basePolicyId(basePolicyId)
                   .body(new ObjectMapper().readValue(body, UpdateBasePolicyRequest.class))
                   .build();
-      final UpdateBasePolicyResponse response = wrapper.oldPartialUpdatePolicy(operation);
+      final UpdateBasePolicyResponse response = wrapper.oldPartialUpdatePolicy(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

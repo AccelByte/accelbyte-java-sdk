@@ -63,14 +63,14 @@ public class RetrieveAllPoliciesFromBasePolicy implements Callable<Integer> {
       final BaseLegalPoliciesWithNamespace wrapper = new BaseLegalPoliciesWithNamespace(sdk);
       final net.accelbyte.sdk.api.legal.operations.base_legal_policies_with_namespace
               .RetrieveAllPoliciesFromBasePolicy
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.base_legal_policies_with_namespace
                   .RetrieveAllPoliciesFromBasePolicy.builder()
                   .basePolicyId(basePolicyId)
                   .namespace(namespace)
                   .build();
       final List<RetrievePoliciesFromBasePolicyResponse> response =
-          wrapper.retrieveAllPoliciesFromBasePolicy(operation);
+          wrapper.retrieveAllPoliciesFromBasePolicy(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

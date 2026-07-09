@@ -61,12 +61,12 @@ public class OldUpdatePolicy implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Policies wrapper = new Policies(sdk);
-      final net.accelbyte.sdk.api.legal.operations.policies.OldUpdatePolicy operation =
+      final net.accelbyte.sdk.api.legal.operations.policies.OldUpdatePolicy operationRequest =
           net.accelbyte.sdk.api.legal.operations.policies.OldUpdatePolicy.builder()
               .policyId(policyId)
               .body(new ObjectMapper().readValue(body, UpdatePolicyRequest.class))
               .build();
-      wrapper.oldUpdatePolicy(operation);
+      wrapper.oldUpdatePolicy(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

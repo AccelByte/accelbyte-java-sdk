@@ -57,12 +57,13 @@ public class GetPaymentMerchantConfig1 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PaymentConfig wrapper = new PaymentConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.payment_config.GetPaymentMerchantConfig1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.payment_config.GetPaymentMerchantConfig1
                   .builder()
                   .id(id)
                   .build();
-      final PaymentMerchantConfigInfo response = wrapper.getPaymentMerchantConfig1(operation);
+      final PaymentMerchantConfigInfo response =
+          wrapper.getPaymentMerchantConfig1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

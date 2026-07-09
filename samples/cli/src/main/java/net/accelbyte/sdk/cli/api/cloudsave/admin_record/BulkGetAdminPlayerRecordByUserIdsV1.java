@@ -68,7 +68,7 @@ public class BulkGetAdminPlayerRecordByUserIdsV1 implements Callable<Integer> {
       final AdminRecord wrapper = new AdminRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.admin_record
               .BulkGetAdminPlayerRecordByUserIdsV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.admin_record
                   .BulkGetAdminPlayerRecordByUserIdsV1.builder()
                   .key(key)
@@ -76,7 +76,7 @@ public class BulkGetAdminPlayerRecordByUserIdsV1 implements Callable<Integer> {
                   .body(new ObjectMapper().readValue(body, ModelsBulkUserIDsRequest.class))
                   .build();
       final ModelsBulkGetAdminPlayerRecordResponse response =
-          wrapper.bulkGetAdminPlayerRecordByUserIdsV1(operation);
+          wrapper.bulkGetAdminPlayerRecordByUserIdsV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

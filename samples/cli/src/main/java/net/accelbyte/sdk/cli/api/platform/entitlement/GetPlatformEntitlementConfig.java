@@ -62,14 +62,14 @@ public class GetPlatformEntitlementConfig implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement.GetPlatformEntitlementConfig
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.entitlement.GetPlatformEntitlementConfig
                   .builder()
                   .namespace(namespace)
                   .platform(platform)
                   .build();
       final EntitlementPlatformConfigInfo response =
-          wrapper.getPlatformEntitlementConfig(operation);
+          wrapper.getPlatformEntitlementConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

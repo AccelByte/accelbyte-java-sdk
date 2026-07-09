@@ -67,7 +67,7 @@ public class AdminApproveStagingContent implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminStagingContent wrapper = new AdminStagingContent(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_staging_content.AdminApproveStagingContent
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.admin_staging_content.AdminApproveStagingContent
                   .builder()
                   .contentId(contentId)
@@ -75,7 +75,8 @@ public class AdminApproveStagingContent implements Callable<Integer> {
                   .body(
                       new ObjectMapper().readValue(body, ModelsApproveStagingContentRequest.class))
                   .build();
-      final ModelsStagingContentResponse response = wrapper.adminApproveStagingContent(operation);
+      final ModelsStagingContentResponse response =
+          wrapper.adminApproveStagingContent(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

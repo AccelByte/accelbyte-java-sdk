@@ -61,12 +61,13 @@ public class GetNoSQLDatabaseV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ManagedResources wrapper = new ManagedResources(sdk);
-      final net.accelbyte.sdk.api.csm.operations.managed_resources.GetNoSQLDatabaseV2 operation =
-          net.accelbyte.sdk.api.csm.operations.managed_resources.GetNoSQLDatabaseV2.builder()
-              .app(app)
-              .namespace(namespace)
-              .build();
-      final ApimodelNoSQLDatabaseResponse response = wrapper.getNoSQLDatabaseV2(operation);
+      final net.accelbyte.sdk.api.csm.operations.managed_resources.GetNoSQLDatabaseV2
+          operationRequest =
+              net.accelbyte.sdk.api.csm.operations.managed_resources.GetNoSQLDatabaseV2.builder()
+                  .app(app)
+                  .namespace(namespace)
+                  .build();
+      final ApimodelNoSQLDatabaseResponse response = wrapper.getNoSQLDatabaseV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

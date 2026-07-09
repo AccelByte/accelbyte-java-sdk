@@ -71,14 +71,14 @@ public class Verify2faCodeV4 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth20V4 wrapper = new OAuth20V4(sdk);
-      final net.accelbyte.sdk.api.iam.operations.o_auth2_0_v4.Verify2faCodeV4 operation =
+      final net.accelbyte.sdk.api.iam.operations.o_auth2_0_v4.Verify2faCodeV4 operationRequest =
           net.accelbyte.sdk.api.iam.operations.o_auth2_0_v4.Verify2faCodeV4.builder()
               .code(code != null ? code : null)
               .factor(factor != null ? factor : null)
               .mfaToken(mfaToken != null ? mfaToken : null)
               .rememberDevice(rememberDevice != null ? rememberDevice : null)
               .build();
-      final OauthmodelTokenResponseV3 response = wrapper.verify2faCodeV4(operation);
+      final OauthmodelTokenResponseV3 response = wrapper.verify2faCodeV4(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

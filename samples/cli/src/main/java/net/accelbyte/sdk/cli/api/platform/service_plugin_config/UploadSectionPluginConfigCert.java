@@ -64,13 +64,14 @@ public class UploadSectionPluginConfigCert implements Callable<Integer> {
       final ServicePluginConfig wrapper = new ServicePluginConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.service_plugin_config
               .UploadSectionPluginConfigCert
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.service_plugin_config
                   .UploadSectionPluginConfigCert.builder()
                   .namespace(namespace)
                   .file(file != null ? file : null)
                   .build();
-      final SectionPluginConfigInfo response = wrapper.uploadSectionPluginConfigCert(operation);
+      final SectionPluginConfigInfo response =
+          wrapper.uploadSectionPluginConfigCert(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

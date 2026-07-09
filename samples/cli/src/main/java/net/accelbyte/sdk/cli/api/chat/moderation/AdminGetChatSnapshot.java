@@ -61,12 +61,12 @@ public class AdminGetChatSnapshot implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Moderation wrapper = new Moderation(sdk);
-      final net.accelbyte.sdk.api.chat.operations.moderation.AdminGetChatSnapshot operation =
+      final net.accelbyte.sdk.api.chat.operations.moderation.AdminGetChatSnapshot operationRequest =
           net.accelbyte.sdk.api.chat.operations.moderation.AdminGetChatSnapshot.builder()
               .chatId(chatId)
               .namespace(namespace)
               .build();
-      final ModelsChatSnapshots response = wrapper.adminGetChatSnapshot(operation);
+      final ModelsChatSnapshots response = wrapper.adminGetChatSnapshot(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -71,14 +71,14 @@ public class MatchPoolList implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final MatchPools wrapper = new MatchPools(sdk);
-      final net.accelbyte.sdk.api.match2.operations.match_pools.MatchPoolList operation =
+      final net.accelbyte.sdk.api.match2.operations.match_pools.MatchPoolList operationRequest =
           net.accelbyte.sdk.api.match2.operations.match_pools.MatchPoolList.builder()
               .namespace(namespace)
               .limit(limit)
               .name(name)
               .offset(offset)
               .build();
-      final ApiListMatchPoolsResponse response = wrapper.matchPoolList(operation);
+      final ApiListMatchPoolsResponse response = wrapper.matchPoolList(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

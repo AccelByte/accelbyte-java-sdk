@@ -81,7 +81,7 @@ public class GetEstimatedPrice implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Item wrapper = new Item(sdk);
-      final net.accelbyte.sdk.api.platform.operations.item.GetEstimatedPrice operation =
+      final net.accelbyte.sdk.api.platform.operations.item.GetEstimatedPrice operationRequest =
           net.accelbyte.sdk.api.platform.operations.item.GetEstimatedPrice.builder()
               .namespace(namespace)
               .platform(platform)
@@ -90,7 +90,7 @@ public class GetEstimatedPrice implements Callable<Integer> {
               .itemIds(itemIds)
               .userId(userId)
               .build();
-      final List<EstimatedPriceInfo> response = wrapper.getEstimatedPrice(operation);
+      final List<EstimatedPriceInfo> response = wrapper.getEstimatedPrice(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

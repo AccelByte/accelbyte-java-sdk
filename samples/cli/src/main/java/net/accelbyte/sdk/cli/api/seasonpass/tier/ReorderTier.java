@@ -71,14 +71,15 @@ public class ReorderTier implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Tier wrapper = new Tier(sdk);
-      final net.accelbyte.sdk.api.seasonpass.operations.tier.ReorderTier operation =
+      final net.accelbyte.sdk.api.seasonpass.operations.tier.ReorderTier operationRequest =
           net.accelbyte.sdk.api.seasonpass.operations.tier.ReorderTier.builder()
               .id(id)
               .namespace(namespace)
               .seasonId(seasonId)
               .body(new ObjectMapper().readValue(body, TierReorder.class))
               .build();
-      final net.accelbyte.sdk.api.seasonpass.models.Tier response = wrapper.reorderTier(operation);
+      final net.accelbyte.sdk.api.seasonpass.models.Tier response =
+          wrapper.reorderTier(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -66,13 +66,13 @@ public class PublicUnmuteUser implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Topic wrapper = new Topic(sdk);
-      final net.accelbyte.sdk.api.chat.operations.topic.PublicUnmuteUser operation =
+      final net.accelbyte.sdk.api.chat.operations.topic.PublicUnmuteUser operationRequest =
           net.accelbyte.sdk.api.chat.operations.topic.PublicUnmuteUser.builder()
               .namespace(namespace)
               .topic(topic)
               .body(new ObjectMapper().readValue(body, ApiUnmuteUserRequest.class))
               .build();
-      wrapper.publicUnmuteUser(operation);
+      wrapper.publicUnmuteUser(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

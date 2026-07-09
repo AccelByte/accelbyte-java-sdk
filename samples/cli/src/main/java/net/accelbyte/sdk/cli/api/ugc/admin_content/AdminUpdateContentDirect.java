@@ -76,15 +76,17 @@ public class AdminUpdateContentDirect implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminContent wrapper = new AdminContent(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.admin_content.AdminUpdateContentDirect operation =
-          net.accelbyte.sdk.api.ugc.operations.admin_content.AdminUpdateContentDirect.builder()
-              .channelId(channelId)
-              .contentId(contentId)
-              .namespace(namespace)
-              .userId(userId)
-              .body(new ObjectMapper().readValue(body, ModelsCreateContentRequest.class))
-              .build();
-      final ModelsCreateContentResponse response = wrapper.adminUpdateContentDirect(operation);
+      final net.accelbyte.sdk.api.ugc.operations.admin_content.AdminUpdateContentDirect
+          operationRequest =
+              net.accelbyte.sdk.api.ugc.operations.admin_content.AdminUpdateContentDirect.builder()
+                  .channelId(channelId)
+                  .contentId(contentId)
+                  .namespace(namespace)
+                  .userId(userId)
+                  .body(new ObjectMapper().readValue(body, ModelsCreateContentRequest.class))
+                  .build();
+      final ModelsCreateContentResponse response =
+          wrapper.adminUpdateContentDirect(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

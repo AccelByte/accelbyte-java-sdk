@@ -63,14 +63,14 @@ public class PublicListUserAllPlatformAccountsDistinctV3 implements Callable<Int
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
       final net.accelbyte.sdk.api.iam.operations.users.PublicListUserAllPlatformAccountsDistinctV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.users.PublicListUserAllPlatformAccountsDistinctV3
                   .builder()
                   .namespace(namespace)
                   .userId(userId)
                   .build();
       final AccountcommonDistinctPlatformResponseV3 response =
-          wrapper.publicListUserAllPlatformAccountsDistinctV3(operation);
+          wrapper.publicListUserAllPlatformAccountsDistinctV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

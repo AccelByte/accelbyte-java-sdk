@@ -71,14 +71,15 @@ public class UpdateVariableV1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Configuration wrapper = new Configuration(sdk);
-      final net.accelbyte.sdk.api.csm.operations.configuration.UpdateVariableV1 operation =
+      final net.accelbyte.sdk.api.csm.operations.configuration.UpdateVariableV1 operationRequest =
           net.accelbyte.sdk.api.csm.operations.configuration.UpdateVariableV1.builder()
               .app(app)
               .configId(configId)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, GeneratedUpdateConfigurationV1Request.class))
               .build();
-      final GeneratedUpdateConfigurationV1Response response = wrapper.updateVariableV1(operation);
+      final GeneratedUpdateConfigurationV1Response response =
+          wrapper.updateVariableV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

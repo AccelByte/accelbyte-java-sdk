@@ -57,12 +57,12 @@ public class OldSetDefaultLocalizedPolicy implements Callable<Integer> {
       final LocalizedPolicyVersions wrapper = new LocalizedPolicyVersions(sdk);
       final net.accelbyte.sdk.api.legal.operations.localized_policy_versions
               .OldSetDefaultLocalizedPolicy
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.localized_policy_versions
                   .OldSetDefaultLocalizedPolicy.builder()
                   .localizedPolicyVersionId(localizedPolicyVersionId)
                   .build();
-      wrapper.oldSetDefaultLocalizedPolicy(operation);
+      wrapper.oldSetDefaultLocalizedPolicy(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

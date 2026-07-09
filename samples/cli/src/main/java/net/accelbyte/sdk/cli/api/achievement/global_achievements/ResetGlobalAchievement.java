@@ -61,13 +61,13 @@ public class ResetGlobalAchievement implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GlobalAchievements wrapper = new GlobalAchievements(sdk);
       final net.accelbyte.sdk.api.achievement.operations.global_achievements.ResetGlobalAchievement
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.achievement.operations.global_achievements
                   .ResetGlobalAchievement.builder()
                   .achievementCode(achievementCode)
                   .namespace(namespace)
                   .build();
-      wrapper.resetGlobalAchievement(operation);
+      wrapper.resetGlobalAchievement(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

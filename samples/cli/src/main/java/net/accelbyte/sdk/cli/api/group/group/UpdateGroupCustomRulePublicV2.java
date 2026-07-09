@@ -66,13 +66,17 @@ public class UpdateGroupCustomRulePublicV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Group wrapper = new Group(sdk);
-      final net.accelbyte.sdk.api.group.operations.group.UpdateGroupCustomRulePublicV2 operation =
-          net.accelbyte.sdk.api.group.operations.group.UpdateGroupCustomRulePublicV2.builder()
-              .groupId(groupId)
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ModelsUpdateGroupCustomRuleRequestV1.class))
-              .build();
-      final ModelsGroupResponseV1 response = wrapper.updateGroupCustomRulePublicV2(operation);
+      final net.accelbyte.sdk.api.group.operations.group.UpdateGroupCustomRulePublicV2
+          operationRequest =
+              net.accelbyte.sdk.api.group.operations.group.UpdateGroupCustomRulePublicV2.builder()
+                  .groupId(groupId)
+                  .namespace(namespace)
+                  .body(
+                      new ObjectMapper()
+                          .readValue(body, ModelsUpdateGroupCustomRuleRequestV1.class))
+                  .build();
+      final ModelsGroupResponseV1 response =
+          wrapper.updateGroupCustomRulePublicV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

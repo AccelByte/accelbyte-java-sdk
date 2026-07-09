@@ -65,13 +65,14 @@ public class SendMFAAuthenticationCode implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth20 wrapper = new OAuth20(sdk);
-      final net.accelbyte.sdk.api.iam.operations.o_auth2_0.SendMFAAuthenticationCode operation =
-          net.accelbyte.sdk.api.iam.operations.o_auth2_0.SendMFAAuthenticationCode.builder()
-              .clientId(clientId != null ? clientId : null)
-              .factor(factor != null ? factor : null)
-              .mfaToken(mfaToken != null ? mfaToken : null)
-              .build();
-      wrapper.sendMFAAuthenticationCode(operation);
+      final net.accelbyte.sdk.api.iam.operations.o_auth2_0.SendMFAAuthenticationCode
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.o_auth2_0.SendMFAAuthenticationCode.builder()
+                  .clientId(clientId != null ? clientId : null)
+                  .factor(factor != null ? factor : null)
+                  .mfaToken(mfaToken != null ? mfaToken : null)
+                  .build();
+      wrapper.sendMFAAuthenticationCode(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

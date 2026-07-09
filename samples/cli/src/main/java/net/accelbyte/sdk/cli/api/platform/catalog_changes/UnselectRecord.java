@@ -65,13 +65,14 @@ public class UnselectRecord implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final CatalogChanges wrapper = new CatalogChanges(sdk);
-      final net.accelbyte.sdk.api.platform.operations.catalog_changes.UnselectRecord operation =
-          net.accelbyte.sdk.api.platform.operations.catalog_changes.UnselectRecord.builder()
-              .changeId(changeId)
-              .namespace(namespace)
-              .storeId(storeId)
-              .build();
-      wrapper.unselectRecord(operation);
+      final net.accelbyte.sdk.api.platform.operations.catalog_changes.UnselectRecord
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.catalog_changes.UnselectRecord.builder()
+                  .changeId(changeId)
+                  .namespace(namespace)
+                  .storeId(storeId)
+                  .build();
+      wrapper.unselectRecord(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -62,7 +62,7 @@ public class AdminSetProfanityRuleForNamespace implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Profanity wrapper = new Profanity(sdk);
       final net.accelbyte.sdk.api.lobby.operations.profanity.AdminSetProfanityRuleForNamespace
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.profanity.AdminSetProfanityRuleForNamespace
                   .builder()
                   .namespace(namespace)
@@ -70,7 +70,7 @@ public class AdminSetProfanityRuleForNamespace implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, ModelsAdminSetProfanityRuleForNamespaceRequest.class))
                   .build();
-      wrapper.adminSetProfanityRuleForNamespace(operation);
+      wrapper.adminSetProfanityRuleForNamespace(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

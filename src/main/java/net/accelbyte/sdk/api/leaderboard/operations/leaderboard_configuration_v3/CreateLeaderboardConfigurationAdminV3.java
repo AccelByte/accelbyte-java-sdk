@@ -41,6 +41,9 @@ import net.accelbyte.sdk.core.util.Helper;
  * <p>* statCode: Stat Code is related with statistic code in statistic service. (required).
  *
  * <p>* cycleIds: Statistic cycle ids that will be tracked in the leaderboard. (required).
+ *
+ * <p>* enableServerHiddenFilter: if true, the leaderboard will filter hidden users on server side.
+ * If false, the leaderboard will not filter hidden users. default is false. (optional).
  */
 @Getter
 @Setter

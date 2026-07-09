@@ -65,13 +65,13 @@ public class RevokeUserV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth20 wrapper = new OAuth20(sdk);
-      final net.accelbyte.sdk.api.iam.operations.o_auth2_0.RevokeUserV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.o_auth2_0.RevokeUserV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.o_auth2_0.RevokeUserV3.builder()
               .namespace(namespace)
               .userId(userId)
               .includeGameNamespace(includeGameNamespace)
               .build();
-      wrapper.revokeUserV3(operation);
+      wrapper.revokeUserV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

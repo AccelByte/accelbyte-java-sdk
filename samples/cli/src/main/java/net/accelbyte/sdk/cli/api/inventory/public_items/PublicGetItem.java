@@ -71,14 +71,14 @@ public class PublicGetItem implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicItems wrapper = new PublicItems(sdk);
-      final net.accelbyte.sdk.api.inventory.operations.public_items.PublicGetItem operation =
+      final net.accelbyte.sdk.api.inventory.operations.public_items.PublicGetItem operationRequest =
           net.accelbyte.sdk.api.inventory.operations.public_items.PublicGetItem.builder()
               .inventoryId(inventoryId)
               .namespace(namespace)
               .slotId(slotId)
               .sourceItemId(sourceItemId)
               .build();
-      final ApimodelsItemResp response = wrapper.publicGetItem(operation);
+      final ApimodelsItemResp response = wrapper.publicGetItem(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

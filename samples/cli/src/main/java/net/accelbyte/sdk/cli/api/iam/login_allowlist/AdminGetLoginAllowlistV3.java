@@ -57,12 +57,13 @@ public class AdminGetLoginAllowlistV3 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final LoginAllowlist wrapper = new LoginAllowlist(sdk);
       final net.accelbyte.sdk.api.iam.operations.login_allowlist.AdminGetLoginAllowlistV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.login_allowlist.AdminGetLoginAllowlistV3
                   .builder()
                   .namespace(namespace)
                   .build();
-      final ModelLoginAllowlistResponse response = wrapper.adminGetLoginAllowlistV3(operation);
+      final ModelLoginAllowlistResponse response =
+          wrapper.adminGetLoginAllowlistV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

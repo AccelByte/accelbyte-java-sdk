@@ -61,12 +61,12 @@ public class DeleteUserProfile implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserProfile wrapper = new UserProfile(sdk);
-      final net.accelbyte.sdk.api.basic.operations.user_profile.DeleteUserProfile operation =
+      final net.accelbyte.sdk.api.basic.operations.user_profile.DeleteUserProfile operationRequest =
           net.accelbyte.sdk.api.basic.operations.user_profile.DeleteUserProfile.builder()
               .namespace(namespace)
               .userId(userId)
               .build();
-      final UserProfilePrivateInfo response = wrapper.deleteUserProfile(operation);
+      final UserProfilePrivateInfo response = wrapper.deleteUserProfile(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -78,7 +78,7 @@ public class GetUserEntitlementOwnershipByItemId implements Callable<Integer> {
       final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement
               .GetUserEntitlementOwnershipByItemId
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.entitlement
                   .GetUserEntitlementOwnershipByItemId.builder()
                   .namespace(namespace)
@@ -87,7 +87,7 @@ public class GetUserEntitlementOwnershipByItemId implements Callable<Integer> {
                   .platform(platform)
                   .itemId(itemId)
                   .build();
-      final TimedOwnership response = wrapper.getUserEntitlementOwnershipByItemId(operation);
+      final TimedOwnership response = wrapper.getUserEntitlementOwnershipByItemId(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

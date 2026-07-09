@@ -57,13 +57,13 @@ public class PublicGetPlayerBlockedPlayersV1 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Player wrapper = new Player(sdk);
       final net.accelbyte.sdk.api.lobby.operations.player.PublicGetPlayerBlockedPlayersV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.player.PublicGetPlayerBlockedPlayersV1
                   .builder()
                   .namespace(namespace)
                   .build();
       final ModelsGetAllPlayerBlockedUsersResponse response =
-          wrapper.publicGetPlayerBlockedPlayersV1(operation);
+          wrapper.publicGetPlayerBlockedPlayersV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

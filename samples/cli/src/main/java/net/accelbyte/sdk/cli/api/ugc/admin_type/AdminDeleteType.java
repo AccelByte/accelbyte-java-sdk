@@ -60,12 +60,12 @@ public class AdminDeleteType implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminType wrapper = new AdminType(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.admin_type.AdminDeleteType operation =
+      final net.accelbyte.sdk.api.ugc.operations.admin_type.AdminDeleteType operationRequest =
           net.accelbyte.sdk.api.ugc.operations.admin_type.AdminDeleteType.builder()
               .namespace(namespace)
               .typeId(typeId)
               .build();
-      wrapper.adminDeleteType(operation);
+      wrapper.adminDeleteType(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

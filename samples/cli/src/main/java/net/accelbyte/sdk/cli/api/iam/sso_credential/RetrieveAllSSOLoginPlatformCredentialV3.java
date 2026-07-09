@@ -69,7 +69,7 @@ public class RetrieveAllSSOLoginPlatformCredentialV3 implements Callable<Integer
       final SSOCredential wrapper = new SSOCredential(sdk);
       final net.accelbyte.sdk.api.iam.operations.sso_credential
               .RetrieveAllSSOLoginPlatformCredentialV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.sso_credential
                   .RetrieveAllSSOLoginPlatformCredentialV3.builder()
                   .namespace(namespace)
@@ -77,7 +77,7 @@ public class RetrieveAllSSOLoginPlatformCredentialV3 implements Callable<Integer
                   .offset(offset)
                   .build();
       final List<ModelSSOPlatformCredentialResponse> response =
-          wrapper.retrieveAllSSOLoginPlatformCredentialV3(operation);
+          wrapper.retrieveAllSSOLoginPlatformCredentialV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

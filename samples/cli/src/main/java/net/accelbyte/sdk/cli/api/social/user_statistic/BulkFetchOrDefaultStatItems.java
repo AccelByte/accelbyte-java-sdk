@@ -68,7 +68,7 @@ public class BulkFetchOrDefaultStatItems implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserStatistic wrapper = new UserStatistic(sdk);
       final net.accelbyte.sdk.api.social.operations.user_statistic.BulkFetchOrDefaultStatItems
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.social.operations.user_statistic.BulkFetchOrDefaultStatItems
                   .builder()
                   .namespace(namespace)
@@ -76,7 +76,7 @@ public class BulkFetchOrDefaultStatItems implements Callable<Integer> {
                   .userIds(userIds)
                   .build();
       final List<ADTOObjectForUserStatItemValue> response =
-          wrapper.bulkFetchOrDefaultStatItems(operation);
+          wrapper.bulkFetchOrDefaultStatItems(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

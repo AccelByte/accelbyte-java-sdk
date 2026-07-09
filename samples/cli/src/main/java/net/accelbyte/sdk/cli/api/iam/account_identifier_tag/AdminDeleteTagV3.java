@@ -60,12 +60,13 @@ public class AdminDeleteTagV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AccountIdentifierTag wrapper = new AccountIdentifierTag(sdk);
-      final net.accelbyte.sdk.api.iam.operations.account_identifier_tag.AdminDeleteTagV3 operation =
-          net.accelbyte.sdk.api.iam.operations.account_identifier_tag.AdminDeleteTagV3.builder()
-              .namespace(namespace)
-              .tagId(tagId)
-              .build();
-      wrapper.adminDeleteTagV3(operation);
+      final net.accelbyte.sdk.api.iam.operations.account_identifier_tag.AdminDeleteTagV3
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.account_identifier_tag.AdminDeleteTagV3.builder()
+                  .namespace(namespace)
+                  .tagId(tagId)
+                  .build();
+      wrapper.adminDeleteTagV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

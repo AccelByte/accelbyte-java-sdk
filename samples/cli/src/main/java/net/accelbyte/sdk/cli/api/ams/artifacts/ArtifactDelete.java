@@ -60,12 +60,12 @@ public class ArtifactDelete implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Artifacts wrapper = new Artifacts(sdk);
-      final net.accelbyte.sdk.api.ams.operations.artifacts.ArtifactDelete operation =
+      final net.accelbyte.sdk.api.ams.operations.artifacts.ArtifactDelete operationRequest =
           net.accelbyte.sdk.api.ams.operations.artifacts.ArtifactDelete.builder()
               .artifactID(artifactID)
               .namespace(namespace)
               .build();
-      wrapper.artifactDelete(operation);
+      wrapper.artifactDelete(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

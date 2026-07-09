@@ -66,13 +66,13 @@ public class QoSRegionsUpdate implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AMSQoS wrapper = new AMSQoS(sdk);
-      final net.accelbyte.sdk.api.ams.operations.ams_qo_s.QoSRegionsUpdate operation =
+      final net.accelbyte.sdk.api.ams.operations.ams_qo_s.QoSRegionsUpdate operationRequest =
           net.accelbyte.sdk.api.ams.operations.ams_qo_s.QoSRegionsUpdate.builder()
               .namespace(namespace)
               .region(region)
               .body(new ObjectMapper().readValue(body, ApiUpdateServerRequest.class))
               .build();
-      wrapper.qoSRegionsUpdate(operation);
+      wrapper.qoSRegionsUpdate(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

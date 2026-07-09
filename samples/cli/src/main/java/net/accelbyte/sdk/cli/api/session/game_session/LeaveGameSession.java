@@ -60,12 +60,13 @@ public class LeaveGameSession implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameSession wrapper = new GameSession(sdk);
-      final net.accelbyte.sdk.api.session.operations.game_session.LeaveGameSession operation =
-          net.accelbyte.sdk.api.session.operations.game_session.LeaveGameSession.builder()
-              .namespace(namespace)
-              .sessionId(sessionId)
-              .build();
-      wrapper.leaveGameSession(operation);
+      final net.accelbyte.sdk.api.session.operations.game_session.LeaveGameSession
+          operationRequest =
+              net.accelbyte.sdk.api.session.operations.game_session.LeaveGameSession.builder()
+                  .namespace(namespace)
+                  .sessionId(sessionId)
+                  .build();
+      wrapper.leaveGameSession(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

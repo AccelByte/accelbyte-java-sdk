@@ -61,12 +61,12 @@ public class UpdateItemTypeConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Item wrapper = new Item(sdk);
-      final net.accelbyte.sdk.api.platform.operations.item.UpdateItemTypeConfig operation =
+      final net.accelbyte.sdk.api.platform.operations.item.UpdateItemTypeConfig operationRequest =
           net.accelbyte.sdk.api.platform.operations.item.UpdateItemTypeConfig.builder()
               .id(id)
               .body(new ObjectMapper().readValue(body, ItemTypeConfigUpdate.class))
               .build();
-      final ItemTypeConfigInfo response = wrapper.updateItemTypeConfig(operation);
+      final ItemTypeConfigInfo response = wrapper.updateItemTypeConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -62,13 +62,13 @@ public class OldRetrievePolicyCountry implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final BaseLegalPolicies wrapper = new BaseLegalPolicies(sdk);
       final net.accelbyte.sdk.api.legal.operations.base_legal_policies.OldRetrievePolicyCountry
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.base_legal_policies.OldRetrievePolicyCountry
                   .builder()
                   .basePolicyId(basePolicyId)
                   .countryCode(countryCode)
                   .build();
-      final RetrievePolicyResponse response = wrapper.oldRetrievePolicyCountry(operation);
+      final RetrievePolicyResponse response = wrapper.oldRetrievePolicyCountry(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -55,11 +55,11 @@ public class PublicVerifyUserByLinkV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.PublicVerifyUserByLinkV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.users.PublicVerifyUserByLinkV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.PublicVerifyUserByLinkV3.builder()
               .code(code)
               .build();
-      wrapper.publicVerifyUserByLinkV3(operation);
+      wrapper.publicVerifyUserByLinkV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

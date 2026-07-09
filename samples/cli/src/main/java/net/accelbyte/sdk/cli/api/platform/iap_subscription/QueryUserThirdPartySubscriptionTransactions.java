@@ -94,7 +94,7 @@ public class QueryUserThirdPartySubscriptionTransactions implements Callable<Int
       final IAPSubscription wrapper = new IAPSubscription(sdk);
       final net.accelbyte.sdk.api.platform.operations.iap_subscription
               .QueryUserThirdPartySubscriptionTransactions
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.iap_subscription
                   .QueryUserThirdPartySubscriptionTransactions.builder()
                   .namespace(namespace)
@@ -107,7 +107,7 @@ public class QueryUserThirdPartySubscriptionTransactions implements Callable<Int
                   .productId(productId)
                   .build();
       final ThirdPartySubscriptionTransactionPagingSlicedResult response =
-          wrapper.queryUserThirdPartySubscriptionTransactions(operation);
+          wrapper.queryUserThirdPartySubscriptionTransactions(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

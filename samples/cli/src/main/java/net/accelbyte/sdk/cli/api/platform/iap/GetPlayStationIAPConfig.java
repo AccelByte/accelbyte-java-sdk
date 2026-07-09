@@ -56,11 +56,11 @@ public class GetPlayStationIAPConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.GetPlayStationIAPConfig operation =
+      final net.accelbyte.sdk.api.platform.operations.iap.GetPlayStationIAPConfig operationRequest =
           net.accelbyte.sdk.api.platform.operations.iap.GetPlayStationIAPConfig.builder()
               .namespace(namespace)
               .build();
-      final PlayStationIAPConfigInfo response = wrapper.getPlayStationIAPConfig(operation);
+      final PlayStationIAPConfigInfo response = wrapper.getPlayStationIAPConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

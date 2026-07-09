@@ -70,14 +70,14 @@ public class ArtifactBulkDelete implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Artifacts wrapper = new Artifacts(sdk);
-      final net.accelbyte.sdk.api.ams.operations.artifacts.ArtifactBulkDelete operation =
+      final net.accelbyte.sdk.api.ams.operations.artifacts.ArtifactBulkDelete operationRequest =
           net.accelbyte.sdk.api.ams.operations.artifacts.ArtifactBulkDelete.builder()
               .namespace(namespace)
               .artifactType(artifactType)
               .fleetId(fleetId)
               .uploadedBefore(uploadedBefore)
               .build();
-      wrapper.artifactBulkDelete(operation);
+      wrapper.artifactBulkDelete(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -80,7 +80,7 @@ public class AdminPutAdminPlayerRecordConcurrentHandlerV1 implements Callable<In
       final AdminConcurrentRecord wrapper = new AdminConcurrentRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.admin_concurrent_record
               .AdminPutAdminPlayerRecordConcurrentHandlerV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.admin_concurrent_record
                   .AdminPutAdminPlayerRecordConcurrentHandlerV1.builder()
                   .key(key)
@@ -92,7 +92,7 @@ public class AdminPutAdminPlayerRecordConcurrentHandlerV1 implements Callable<In
                           .readValue(body, ModelsAdminPlayerConcurrentRecordRequest.class))
                   .build();
       final ModelsPlayerRecordConcurrentUpdateResponse response =
-          wrapper.adminPutAdminPlayerRecordConcurrentHandlerV1(operation);
+          wrapper.adminPutAdminPlayerRecordConcurrentHandlerV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

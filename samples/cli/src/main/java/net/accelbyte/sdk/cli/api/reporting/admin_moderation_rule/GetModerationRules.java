@@ -77,7 +77,7 @@ public class GetModerationRules implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminModerationRule wrapper = new AdminModerationRule(sdk);
       final net.accelbyte.sdk.api.reporting.operations.admin_moderation_rule.GetModerationRules
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.reporting.operations.admin_moderation_rule.GetModerationRules
                   .builder()
                   .namespace(namespace)
@@ -86,7 +86,7 @@ public class GetModerationRules implements Callable<Integer> {
                   .limit(limit)
                   .offset(offset)
                   .build();
-      final RestapiModerationRulesList response = wrapper.getModerationRules(operation);
+      final RestapiModerationRulesList response = wrapper.getModerationRules(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

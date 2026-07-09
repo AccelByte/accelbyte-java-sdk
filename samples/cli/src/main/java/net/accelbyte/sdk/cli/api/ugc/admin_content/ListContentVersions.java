@@ -61,12 +61,14 @@ public class ListContentVersions implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminContent wrapper = new AdminContent(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.admin_content.ListContentVersions operation =
-          net.accelbyte.sdk.api.ugc.operations.admin_content.ListContentVersions.builder()
-              .contentId(contentId)
-              .namespace(namespace)
-              .build();
-      final ModelsListContentVersionsResponse response = wrapper.listContentVersions(operation);
+      final net.accelbyte.sdk.api.ugc.operations.admin_content.ListContentVersions
+          operationRequest =
+              net.accelbyte.sdk.api.ugc.operations.admin_content.ListContentVersions.builder()
+                  .contentId(contentId)
+                  .namespace(namespace)
+                  .build();
+      final ModelsListContentVersionsResponse response =
+          wrapper.listContentVersions(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

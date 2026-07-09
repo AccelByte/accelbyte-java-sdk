@@ -82,7 +82,7 @@ public class GetUserEntitlementByItemId implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement.GetUserEntitlementByItemId
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.entitlement.GetUserEntitlementByItemId
                   .builder()
                   .namespace(namespace)
@@ -92,7 +92,7 @@ public class GetUserEntitlementByItemId implements Callable<Integer> {
                   .platform(platform)
                   .itemId(itemId)
                   .build();
-      final EntitlementInfo response = wrapper.getUserEntitlementByItemId(operation);
+      final EntitlementInfo response = wrapper.getUserEntitlementByItemId(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -60,12 +60,12 @@ public class DeleteRuleSet implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final RuleSets wrapper = new RuleSets(sdk);
-      final net.accelbyte.sdk.api.match2.operations.rule_sets.DeleteRuleSet operation =
+      final net.accelbyte.sdk.api.match2.operations.rule_sets.DeleteRuleSet operationRequest =
           net.accelbyte.sdk.api.match2.operations.rule_sets.DeleteRuleSet.builder()
               .namespace(namespace)
               .ruleset(ruleset)
               .build();
-      wrapper.deleteRuleSet(operation);
+      wrapper.deleteRuleSet(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

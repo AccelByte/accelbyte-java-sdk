@@ -76,7 +76,7 @@ public class PublicGetUserBanHistoryV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.PublicGetUserBanHistoryV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.users.PublicGetUserBanHistoryV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.PublicGetUserBanHistoryV3.builder()
               .namespace(namespace)
               .userId(userId)
@@ -84,7 +84,8 @@ public class PublicGetUserBanHistoryV3 implements Callable<Integer> {
               .limit(limit)
               .offset(offset)
               .build();
-      final ModelGetUserBanV3Response response = wrapper.publicGetUserBanHistoryV3(operation);
+      final ModelGetUserBanV3Response response =
+          wrapper.publicGetUserBanHistoryV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

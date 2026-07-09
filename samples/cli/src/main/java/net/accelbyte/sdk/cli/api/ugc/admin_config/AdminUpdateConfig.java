@@ -66,13 +66,13 @@ public class AdminUpdateConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminConfig wrapper = new AdminConfig(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.admin_config.AdminUpdateConfig operation =
+      final net.accelbyte.sdk.api.ugc.operations.admin_config.AdminUpdateConfig operationRequest =
           net.accelbyte.sdk.api.ugc.operations.admin_config.AdminUpdateConfig.builder()
               .key(key)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelsUpdateConfigRequest.class))
               .build();
-      wrapper.adminUpdateConfig(operation);
+      wrapper.adminUpdateConfig(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -72,7 +72,7 @@ public class DeleteSubscriptionAppNotificationV3 implements Callable<Integer> {
       final NotificationSubscriptionV3 wrapper = new NotificationSubscriptionV3(sdk);
       final net.accelbyte.sdk.api.csm.operations.notification_subscription_v3
               .DeleteSubscriptionAppNotificationV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.csm.operations.notification_subscription_v3
                   .DeleteSubscriptionAppNotificationV3.builder()
                   .app(app)
@@ -80,7 +80,7 @@ public class DeleteSubscriptionAppNotificationV3 implements Callable<Integer> {
                   .emailAddress(emailAddress)
                   .userId(userId)
                   .build();
-      wrapper.deleteSubscriptionAppNotificationV3(operation);
+      wrapper.deleteSubscriptionAppNotificationV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

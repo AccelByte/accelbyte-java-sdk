@@ -60,12 +60,13 @@ public class AdminDeleteChatSnapshot implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Moderation wrapper = new Moderation(sdk);
-      final net.accelbyte.sdk.api.chat.operations.moderation.AdminDeleteChatSnapshot operation =
-          net.accelbyte.sdk.api.chat.operations.moderation.AdminDeleteChatSnapshot.builder()
-              .chatId(chatId)
-              .namespace(namespace)
-              .build();
-      wrapper.adminDeleteChatSnapshot(operation);
+      final net.accelbyte.sdk.api.chat.operations.moderation.AdminDeleteChatSnapshot
+          operationRequest =
+              net.accelbyte.sdk.api.chat.operations.moderation.AdminDeleteChatSnapshot.builder()
+                  .chatId(chatId)
+                  .namespace(namespace)
+                  .build();
+      wrapper.adminDeleteChatSnapshot(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

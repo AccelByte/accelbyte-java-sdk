@@ -56,12 +56,12 @@ public class AdminChannelTopicSummary implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Topic wrapper = new Topic(sdk);
-      final net.accelbyte.sdk.api.chat.operations.topic.AdminChannelTopicSummary operation =
+      final net.accelbyte.sdk.api.chat.operations.topic.AdminChannelTopicSummary operationRequest =
           net.accelbyte.sdk.api.chat.operations.topic.AdminChannelTopicSummary.builder()
               .namespace(namespace)
               .build();
       final ModelsChannelTopicSummaryResponse response =
-          wrapper.adminChannelTopicSummary(operation);
+          wrapper.adminChannelTopicSummary(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

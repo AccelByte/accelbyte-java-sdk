@@ -61,12 +61,12 @@ public class CreateAppUI implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AppUI wrapper = new AppUI(sdk);
-      final net.accelbyte.sdk.api.csm.operations.app_ui.CreateAppUI operation =
+      final net.accelbyte.sdk.api.csm.operations.app_ui.CreateAppUI operationRequest =
           net.accelbyte.sdk.api.csm.operations.app_ui.CreateAppUI.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ApimodelCreateAppUIRequest.class))
               .build();
-      final ApimodelAppUIResponse response = wrapper.createAppUI(operation);
+      final ApimodelAppUIResponse response = wrapper.createAppUI(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

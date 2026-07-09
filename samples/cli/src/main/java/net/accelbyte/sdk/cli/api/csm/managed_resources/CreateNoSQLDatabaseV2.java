@@ -66,13 +66,17 @@ public class CreateNoSQLDatabaseV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ManagedResources wrapper = new ManagedResources(sdk);
-      final net.accelbyte.sdk.api.csm.operations.managed_resources.CreateNoSQLDatabaseV2 operation =
-          net.accelbyte.sdk.api.csm.operations.managed_resources.CreateNoSQLDatabaseV2.builder()
-              .app(app)
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ApimodelCreateNoSQLAppDatabaseRequest.class))
-              .build();
-      final ApimodelNoSQLDatabaseResponse response = wrapper.createNoSQLDatabaseV2(operation);
+      final net.accelbyte.sdk.api.csm.operations.managed_resources.CreateNoSQLDatabaseV2
+          operationRequest =
+              net.accelbyte.sdk.api.csm.operations.managed_resources.CreateNoSQLDatabaseV2.builder()
+                  .app(app)
+                  .namespace(namespace)
+                  .body(
+                      new ObjectMapper()
+                          .readValue(body, ApimodelCreateNoSQLAppDatabaseRequest.class))
+                  .build();
+      final ApimodelNoSQLDatabaseResponse response =
+          wrapper.createNoSQLDatabaseV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

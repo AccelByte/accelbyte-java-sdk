@@ -62,13 +62,13 @@ public class GetLootBoxGrpcInfo implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ServicePluginConfig wrapper = new ServicePluginConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.service_plugin_config.GetLootBoxGrpcInfo
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.service_plugin_config.GetLootBoxGrpcInfo
                   .builder()
                   .namespace(namespace)
                   .force(force)
                   .build();
-      final GrpcServerInfo response = wrapper.getLootBoxGrpcInfo(operation);
+      final GrpcServerInfo response = wrapper.getLootBoxGrpcInfo(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

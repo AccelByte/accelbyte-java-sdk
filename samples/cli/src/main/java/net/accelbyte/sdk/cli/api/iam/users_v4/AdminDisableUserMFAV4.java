@@ -66,13 +66,13 @@ public class AdminDisableUserMFAV4 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UsersV4 wrapper = new UsersV4(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users_v4.AdminDisableUserMFAV4 operation =
+      final net.accelbyte.sdk.api.iam.operations.users_v4.AdminDisableUserMFAV4 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users_v4.AdminDisableUserMFAV4.builder()
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, ModelDisableMFARequest.class))
               .build();
-      wrapper.adminDisableUserMFAV4(operation);
+      wrapper.adminDisableUserMFAV4(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

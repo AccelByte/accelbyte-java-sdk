@@ -61,12 +61,12 @@ public class MatchPoolMetric implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final MatchPools wrapper = new MatchPools(sdk);
-      final net.accelbyte.sdk.api.match2.operations.match_pools.MatchPoolMetric operation =
+      final net.accelbyte.sdk.api.match2.operations.match_pools.MatchPoolMetric operationRequest =
           net.accelbyte.sdk.api.match2.operations.match_pools.MatchPoolMetric.builder()
               .namespace(namespace)
               .pool(pool)
               .build();
-      final ApiTicketMetricResultRecord response = wrapper.matchPoolMetric(operation);
+      final ApiTicketMetricResultRecord response = wrapper.matchPoolMetric(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

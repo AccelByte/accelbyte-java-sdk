@@ -66,13 +66,13 @@ public class ImportRewards implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Reward wrapper = new Reward(sdk);
-      final net.accelbyte.sdk.api.platform.operations.reward.ImportRewards operation =
+      final net.accelbyte.sdk.api.platform.operations.reward.ImportRewards operationRequest =
           net.accelbyte.sdk.api.platform.operations.reward.ImportRewards.builder()
               .namespace(namespace)
               .replaceExisting(replaceExisting)
               .file(file != null ? file : null)
               .build();
-      wrapper.importRewards(operation);
+      wrapper.importRewards(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

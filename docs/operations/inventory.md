@@ -119,6 +119,7 @@
 | `apimodels.CreateTagResp` | [ApimodelsCreateTagResp](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsCreateTagResp.java) |
 | `apimodels.DeleteInventoryReq` | [ApimodelsDeleteInventoryReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsDeleteInventoryReq.java) |
 | `apimodels.ErrorResponse` | [ApimodelsErrorResponse](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsErrorResponse.java) |
+| `apimodels.IntegrationConfigurationReq` | [ApimodelsIntegrationConfigurationReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsIntegrationConfigurationReq.java) |
 | `apimodels.IntegrationConfigurationResp` | [ApimodelsIntegrationConfigurationResp](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsIntegrationConfigurationResp.java) |
 | `apimodels.InventoryConfig` | [ApimodelsInventoryConfig](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsInventoryConfig.java) |
 | `apimodels.InventoryConfigurationReq` | [ApimodelsInventoryConfigurationReq](../../src/main/java/net/accelbyte/sdk/api/inventory/models/ApimodelsInventoryConfigurationReq.java) |

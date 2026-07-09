@@ -61,13 +61,13 @@ public class AnonymizeSubscription implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Anonymization wrapper = new Anonymization(sdk);
       final net.accelbyte.sdk.api.platform.operations.anonymization.AnonymizeSubscription
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.anonymization.AnonymizeSubscription
                   .builder()
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      wrapper.anonymizeSubscription(operation);
+      wrapper.anonymizeSubscription(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

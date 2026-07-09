@@ -67,7 +67,7 @@ public class AdminSaveUserRoleV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.AdminSaveUserRoleV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.users.AdminSaveUserRoleV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.AdminSaveUserRoleV3.builder()
               .namespace(namespace)
               .userId(userId)
@@ -75,7 +75,7 @@ public class AdminSaveUserRoleV3 implements Callable<Integer> {
                   new ObjectMapper()
                       .readValue(body, new TypeReference<List<ModelNamespaceRoleRequest>>() {}))
               .build();
-      wrapper.adminSaveUserRoleV3(operation);
+      wrapper.adminSaveUserRoleV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

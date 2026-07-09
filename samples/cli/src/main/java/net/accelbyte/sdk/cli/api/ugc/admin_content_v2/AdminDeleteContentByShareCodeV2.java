@@ -71,7 +71,7 @@ public class AdminDeleteContentByShareCodeV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminContentV2 wrapper = new AdminContentV2(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminDeleteContentByShareCodeV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminDeleteContentByShareCodeV2
                   .builder()
                   .channelId(channelId)
@@ -79,7 +79,7 @@ public class AdminDeleteContentByShareCodeV2 implements Callable<Integer> {
                   .shareCode(shareCode)
                   .userId(userId)
                   .build();
-      wrapper.adminDeleteContentByShareCodeV2(operation);
+      wrapper.adminDeleteContentByShareCodeV2(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

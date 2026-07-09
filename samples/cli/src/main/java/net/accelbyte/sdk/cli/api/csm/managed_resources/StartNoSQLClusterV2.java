@@ -55,11 +55,12 @@ public class StartNoSQLClusterV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ManagedResources wrapper = new ManagedResources(sdk);
-      final net.accelbyte.sdk.api.csm.operations.managed_resources.StartNoSQLClusterV2 operation =
-          net.accelbyte.sdk.api.csm.operations.managed_resources.StartNoSQLClusterV2.builder()
-              .namespace(namespace)
-              .build();
-      wrapper.startNoSQLClusterV2(operation);
+      final net.accelbyte.sdk.api.csm.operations.managed_resources.StartNoSQLClusterV2
+          operationRequest =
+              net.accelbyte.sdk.api.csm.operations.managed_resources.StartNoSQLClusterV2.builder()
+                  .namespace(namespace)
+                  .build();
+      wrapper.startNoSQLClusterV2(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -67,7 +67,7 @@ public class AdminGetAdminPlayerRecordV1 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminRecord wrapper = new AdminRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.admin_record.AdminGetAdminPlayerRecordV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.admin_record.AdminGetAdminPlayerRecordV1
                   .builder()
                   .key(key)
@@ -75,7 +75,7 @@ public class AdminGetAdminPlayerRecordV1 implements Callable<Integer> {
                   .userId(userId)
                   .build();
       final ModelsAdminPlayerRecordResponse response =
-          wrapper.adminGetAdminPlayerRecordV1(operation);
+          wrapper.adminGetAdminPlayerRecordV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

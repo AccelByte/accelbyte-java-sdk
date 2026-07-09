@@ -62,14 +62,14 @@ public class AdminGetContentByContentIDV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminContentV2 wrapper = new AdminContentV2(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminGetContentByContentIDV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminGetContentByContentIDV2
                   .builder()
                   .contentId(contentId)
                   .namespace(namespace)
                   .build();
       final ModelsContentDownloadResponseV2 response =
-          wrapper.adminGetContentByContentIDV2(operation);
+          wrapper.adminGetContentByContentIDV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

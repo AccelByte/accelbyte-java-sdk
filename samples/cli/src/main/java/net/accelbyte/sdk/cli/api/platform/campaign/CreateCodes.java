@@ -66,13 +66,13 @@ public class CreateCodes implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Campaign wrapper = new Campaign(sdk);
-      final net.accelbyte.sdk.api.platform.operations.campaign.CreateCodes operation =
+      final net.accelbyte.sdk.api.platform.operations.campaign.CreateCodes operationRequest =
           net.accelbyte.sdk.api.platform.operations.campaign.CreateCodes.builder()
               .campaignId(campaignId)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, CodeCreate.class))
               .build();
-      final CodeCreateResult response = wrapper.createCodes(operation);
+      final CodeCreateResult response = wrapper.createCodes(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

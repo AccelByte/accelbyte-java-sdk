@@ -57,11 +57,11 @@ public class AdminExportConfigV1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Config wrapper = new Config(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.config.AdminExportConfigV1 operation =
+      final net.accelbyte.sdk.api.lobby.operations.config.AdminExportConfigV1 operationRequest =
           net.accelbyte.sdk.api.lobby.operations.config.AdminExportConfigV1.builder()
               .namespace(namespace)
               .build();
-      final InputStream response = wrapper.adminExportConfigV1(operation);
+      final InputStream response = wrapper.adminExportConfigV1(operationRequest);
       final File outputFile = new File("response.out");
       java.nio.file.Files.copy(
           response, outputFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);

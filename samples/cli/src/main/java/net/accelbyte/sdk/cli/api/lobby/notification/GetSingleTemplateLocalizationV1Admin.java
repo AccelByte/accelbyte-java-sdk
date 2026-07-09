@@ -68,14 +68,15 @@ public class GetSingleTemplateLocalizationV1Admin implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Notification wrapper = new Notification(sdk);
       final net.accelbyte.sdk.api.lobby.operations.notification.GetSingleTemplateLocalizationV1Admin
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.notification
                   .GetSingleTemplateLocalizationV1Admin.builder()
                   .namespace(namespace)
                   .templateLanguage(templateLanguage)
                   .templateSlug(templateSlug)
                   .build();
-      final ModelLocalization response = wrapper.getSingleTemplateLocalizationV1Admin(operation);
+      final ModelLocalization response =
+          wrapper.getSingleTemplateLocalizationV1Admin(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

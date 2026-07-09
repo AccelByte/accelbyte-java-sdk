@@ -41,6 +41,11 @@ public class FleetGet implements Callable<Integer> {
   String namespace;
 
   @Option(
+      names = {"--includeInactiveRegions"},
+      description = "includeInactiveRegions")
+  Boolean includeInactiveRegions;
+
+  @Option(
       names = {"--logging"},
       description = "logger")
   boolean logging;
@@ -61,12 +66,13 @@ public class FleetGet implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Fleets wrapper = new Fleets(sdk);
-      final net.accelbyte.sdk.api.ams.operations.fleets.FleetGet operation =
+      final net.accelbyte.sdk.api.ams.operations.fleets.FleetGet operationRequest =
           net.accelbyte.sdk.api.ams.operations.fleets.FleetGet.builder()
               .fleetID(fleetID)
               .namespace(namespace)
+              .includeInactiveRegions(includeInactiveRegions)
               .build();
-      final ApiFleetGetResponse response = wrapper.fleetGet(operation);
+      final ApiFleetGetResponse response = wrapper.fleetGet(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

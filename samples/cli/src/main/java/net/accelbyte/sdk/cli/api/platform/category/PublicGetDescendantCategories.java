@@ -72,7 +72,7 @@ public class PublicGetDescendantCategories implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Category wrapper = new Category(sdk);
       final net.accelbyte.sdk.api.platform.operations.category.PublicGetDescendantCategories
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.category.PublicGetDescendantCategories
                   .builder()
                   .categoryPath(categoryPath)
@@ -80,7 +80,7 @@ public class PublicGetDescendantCategories implements Callable<Integer> {
                   .language(language)
                   .storeId(storeId)
                   .build();
-      final List<CategoryInfo> response = wrapper.publicGetDescendantCategories(operation);
+      final List<CategoryInfo> response = wrapper.publicGetDescendantCategories(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

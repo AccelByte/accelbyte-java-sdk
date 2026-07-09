@@ -63,12 +63,12 @@ public class ExportStoreByCSV implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Store wrapper = new Store(sdk);
-      final net.accelbyte.sdk.api.platform.operations.store.ExportStoreByCSV operation =
+      final net.accelbyte.sdk.api.platform.operations.store.ExportStoreByCSV operationRequest =
           net.accelbyte.sdk.api.platform.operations.store.ExportStoreByCSV.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ExportStoreToCSVRequest.class))
               .build();
-      final InputStream response = wrapper.exportStoreByCSV(operation);
+      final InputStream response = wrapper.exportStoreByCSV(operationRequest);
       final File outputFile = new File("response.out");
       java.nio.file.Files.copy(
           response, outputFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);

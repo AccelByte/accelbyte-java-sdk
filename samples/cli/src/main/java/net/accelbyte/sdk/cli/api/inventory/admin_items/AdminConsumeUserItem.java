@@ -76,15 +76,16 @@ public class AdminConsumeUserItem implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminItems wrapper = new AdminItems(sdk);
-      final net.accelbyte.sdk.api.inventory.operations.admin_items.AdminConsumeUserItem operation =
-          net.accelbyte.sdk.api.inventory.operations.admin_items.AdminConsumeUserItem.builder()
-              .inventoryId(inventoryId)
-              .namespace(namespace)
-              .userId(userId)
-              .dateRangeValidation(dateRangeValidation)
-              .body(new ObjectMapper().readValue(body, ApimodelsConsumeItemReq.class))
-              .build();
-      final ApimodelsItemResp response = wrapper.adminConsumeUserItem(operation);
+      final net.accelbyte.sdk.api.inventory.operations.admin_items.AdminConsumeUserItem
+          operationRequest =
+              net.accelbyte.sdk.api.inventory.operations.admin_items.AdminConsumeUserItem.builder()
+                  .inventoryId(inventoryId)
+                  .namespace(namespace)
+                  .userId(userId)
+                  .dateRangeValidation(dateRangeValidation)
+                  .body(new ObjectMapper().readValue(body, ApimodelsConsumeItemReq.class))
+                  .build();
+      final ApimodelsItemResp response = wrapper.adminConsumeUserItem(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

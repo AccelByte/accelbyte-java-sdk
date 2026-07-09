@@ -61,12 +61,12 @@ public class GetCatalogDefinition implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Store wrapper = new Store(sdk);
-      final net.accelbyte.sdk.api.platform.operations.store.GetCatalogDefinition operation =
+      final net.accelbyte.sdk.api.platform.operations.store.GetCatalogDefinition operationRequest =
           net.accelbyte.sdk.api.platform.operations.store.GetCatalogDefinition.builder()
               .namespace(namespace)
               .catalogType(catalogType)
               .build();
-      final List<CatalogDefinitionInfo> response = wrapper.getCatalogDefinition(operation);
+      final List<CatalogDefinitionInfo> response = wrapper.getCatalogDefinition(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

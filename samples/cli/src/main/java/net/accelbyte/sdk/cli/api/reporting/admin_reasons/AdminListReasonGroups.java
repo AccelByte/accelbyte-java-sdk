@@ -67,14 +67,15 @@ public class AdminListReasonGroups implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminReasons wrapper = new AdminReasons(sdk);
       final net.accelbyte.sdk.api.reporting.operations.admin_reasons.AdminListReasonGroups
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.reporting.operations.admin_reasons.AdminListReasonGroups
                   .builder()
                   .namespace(namespace)
                   .limit(limit)
                   .offset(offset)
                   .build();
-      final RestapiReasonGroupListResponse response = wrapper.adminListReasonGroups(operation);
+      final RestapiReasonGroupListResponse response =
+          wrapper.adminListReasonGroups(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

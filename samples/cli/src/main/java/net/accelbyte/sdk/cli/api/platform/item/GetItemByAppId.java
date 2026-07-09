@@ -71,14 +71,14 @@ public class GetItemByAppId implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Item wrapper = new Item(sdk);
-      final net.accelbyte.sdk.api.platform.operations.item.GetItemByAppId operation =
+      final net.accelbyte.sdk.api.platform.operations.item.GetItemByAppId operationRequest =
           net.accelbyte.sdk.api.platform.operations.item.GetItemByAppId.builder()
               .namespace(namespace)
               .activeOnly(activeOnly)
               .storeId(storeId)
               .appId(appId)
               .build();
-      final FullItemInfo response = wrapper.getItemByAppId(operation);
+      final FullItemInfo response = wrapper.getItemByAppId(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

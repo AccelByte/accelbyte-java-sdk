@@ -66,14 +66,15 @@ public class AdminSyncOculusSubscriptions implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.AdminSyncOculusSubscriptions operation =
-          net.accelbyte.sdk.api.platform.operations.iap.AdminSyncOculusSubscriptions.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .body(new ObjectMapper().readValue(body, OculusSubscriptionSyncRequest.class))
-              .build();
+      final net.accelbyte.sdk.api.platform.operations.iap.AdminSyncOculusSubscriptions
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.iap.AdminSyncOculusSubscriptions.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .body(new ObjectMapper().readValue(body, OculusSubscriptionSyncRequest.class))
+                  .build();
       final List<ThirdPartySubscriptionTransactionInfo> response =
-          wrapper.adminSyncOculusSubscriptions(operation);
+          wrapper.adminSyncOculusSubscriptions(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

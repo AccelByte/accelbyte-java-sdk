@@ -61,12 +61,13 @@ public class CreateMatchFunction implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final MatchFunctions wrapper = new MatchFunctions(sdk);
-      final net.accelbyte.sdk.api.match2.operations.match_functions.CreateMatchFunction operation =
-          net.accelbyte.sdk.api.match2.operations.match_functions.CreateMatchFunction.builder()
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ApiMatchFunctionRequest.class))
-              .build();
-      wrapper.createMatchFunction(operation);
+      final net.accelbyte.sdk.api.match2.operations.match_functions.CreateMatchFunction
+          operationRequest =
+              net.accelbyte.sdk.api.match2.operations.match_functions.CreateMatchFunction.builder()
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, ApiMatchFunctionRequest.class))
+                  .build();
+      wrapper.createMatchFunction(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

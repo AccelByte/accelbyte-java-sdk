@@ -83,7 +83,7 @@ public class PublicListMyStatCycleItems implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserStatisticCycle wrapper = new UserStatisticCycle(sdk);
       final net.accelbyte.sdk.api.social.operations.user_statistic_cycle.PublicListMyStatCycleItems
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.social.operations.user_statistic_cycle
                   .PublicListMyStatCycleItems.builder()
                   .cycleId(cycleId)
@@ -94,7 +94,7 @@ public class PublicListMyStatCycleItems implements Callable<Integer> {
                   .statCodes(statCodes)
                   .build();
       final UserStatCycleItemPagingSlicedResult response =
-          wrapper.publicListMyStatCycleItems(operation);
+          wrapper.publicListMyStatCycleItems(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

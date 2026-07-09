@@ -68,14 +68,14 @@ public class UpdateAppResourcesResourceLimitFormV2 implements Callable<Integer> 
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AppV2 wrapper = new AppV2(sdk);
       final net.accelbyte.sdk.api.csm.operations.app_v2.UpdateAppResourcesResourceLimitFormV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.csm.operations.app_v2.UpdateAppResourcesResourceLimitFormV2
                   .builder()
                   .app(app)
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ApimodelIncreaseLimitFormRequest.class))
                   .build();
-      wrapper.updateAppResourcesResourceLimitFormV2(operation);
+      wrapper.updateAppResourcesResourceLimitFormV2(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -62,7 +62,7 @@ public class AdminVerifyMessageProfanityResponse implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Profanity wrapper = new Profanity(sdk);
       final net.accelbyte.sdk.api.lobby.operations.profanity.AdminVerifyMessageProfanityResponse
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.profanity.AdminVerifyMessageProfanityResponse
                   .builder()
                   .namespace(namespace)
@@ -71,7 +71,7 @@ public class AdminVerifyMessageProfanityResponse implements Callable<Integer> {
                           .readValue(body, ModelsAdminVerifyMessageProfanityRequest.class))
                   .build();
       final ModelsAdminVerifyMessageProfanityResponse response =
-          wrapper.adminVerifyMessageProfanityResponse(operation);
+          wrapper.adminVerifyMessageProfanityResponse(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

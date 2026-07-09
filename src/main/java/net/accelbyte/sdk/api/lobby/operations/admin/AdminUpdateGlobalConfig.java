@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminUpdateGlobalConfig
  *
- * <p>Upsert global configuration data.
+ * <p>Overwrite existing global configuration with the provided values. Creates the record if it
+ * does not exist.
  *
  * @deprecated
  */

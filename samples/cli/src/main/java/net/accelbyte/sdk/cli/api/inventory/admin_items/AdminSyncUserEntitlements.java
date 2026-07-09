@@ -61,13 +61,13 @@ public class AdminSyncUserEntitlements implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminItems wrapper = new AdminItems(sdk);
       final net.accelbyte.sdk.api.inventory.operations.admin_items.AdminSyncUserEntitlements
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.inventory.operations.admin_items.AdminSyncUserEntitlements
                   .builder()
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      wrapper.adminSyncUserEntitlements(operation);
+      wrapper.adminSyncUserEntitlements(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

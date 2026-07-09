@@ -66,13 +66,14 @@ public class UpdateTopicByTopicName implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Notification wrapper = new Notification(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.notification.UpdateTopicByTopicName operation =
-          net.accelbyte.sdk.api.lobby.operations.notification.UpdateTopicByTopicName.builder()
-              .namespace(namespace)
-              .topic(topic)
-              .body(new ObjectMapper().readValue(body, ModelUpdateTopicRequest.class))
-              .build();
-      wrapper.updateTopicByTopicName(operation);
+      final net.accelbyte.sdk.api.lobby.operations.notification.UpdateTopicByTopicName
+          operationRequest =
+              net.accelbyte.sdk.api.lobby.operations.notification.UpdateTopicByTopicName.builder()
+                  .namespace(namespace)
+                  .topic(topic)
+                  .body(new ObjectMapper().readValue(body, ModelUpdateTopicRequest.class))
+                  .build();
+      wrapper.updateTopicByTopicName(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

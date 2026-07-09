@@ -63,13 +63,13 @@ public class PublicCancelUserAccountDeletionRequest implements Callable<Integer>
       final DataDeletion wrapper = new DataDeletion(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.data_deletion
               .PublicCancelUserAccountDeletionRequest
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.data_deletion
                   .PublicCancelUserAccountDeletionRequest.builder()
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      wrapper.publicCancelUserAccountDeletionRequest(operation);
+      wrapper.publicCancelUserAccountDeletionRequest(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

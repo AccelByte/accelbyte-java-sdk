@@ -61,12 +61,12 @@ public class GetTicketBoothID implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Ticket wrapper = new Ticket(sdk);
-      final net.accelbyte.sdk.api.platform.operations.ticket.GetTicketBoothID operation =
+      final net.accelbyte.sdk.api.platform.operations.ticket.GetTicketBoothID operationRequest =
           net.accelbyte.sdk.api.platform.operations.ticket.GetTicketBoothID.builder()
               .boothName(boothName)
               .namespace(namespace)
               .build();
-      final TicketBoothID response = wrapper.getTicketBoothID(operation);
+      final TicketBoothID response = wrapper.getTicketBoothID(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

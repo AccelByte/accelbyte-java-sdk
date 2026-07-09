@@ -74,7 +74,7 @@ public class PreCheckRevokeUserEntitlementByUseCount implements Callable<Integer
       final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement
               .PreCheckRevokeUserEntitlementByUseCount
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.entitlement
                   .PreCheckRevokeUserEntitlementByUseCount.builder()
                   .entitlementId(entitlementId)
@@ -83,7 +83,7 @@ public class PreCheckRevokeUserEntitlementByUseCount implements Callable<Integer
                   .quantity(quantity)
                   .build();
       final EntitlementPrechekResult response =
-          wrapper.preCheckRevokeUserEntitlementByUseCount(operation);
+          wrapper.preCheckRevokeUserEntitlementByUseCount(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

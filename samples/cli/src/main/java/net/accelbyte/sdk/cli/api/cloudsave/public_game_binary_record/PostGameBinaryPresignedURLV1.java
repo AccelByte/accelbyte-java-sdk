@@ -68,7 +68,7 @@ public class PostGameBinaryPresignedURLV1 implements Callable<Integer> {
       final PublicGameBinaryRecord wrapper = new PublicGameBinaryRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.public_game_binary_record
               .PostGameBinaryPresignedURLV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.public_game_binary_record
                   .PostGameBinaryPresignedURLV1.builder()
                   .key(key)
@@ -76,7 +76,7 @@ public class PostGameBinaryPresignedURLV1 implements Callable<Integer> {
                   .body(new ObjectMapper().readValue(body, ModelsUploadBinaryRecordRequest.class))
                   .build();
       final ModelsUploadBinaryRecordResponse response =
-          wrapper.postGameBinaryPresignedURLV1(operation);
+          wrapper.postGameBinaryPresignedURLV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

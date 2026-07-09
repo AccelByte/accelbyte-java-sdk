@@ -66,13 +66,13 @@ public class UpdateSeason implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Season wrapper = new Season(sdk);
-      final net.accelbyte.sdk.api.seasonpass.operations.season.UpdateSeason operation =
+      final net.accelbyte.sdk.api.seasonpass.operations.season.UpdateSeason operationRequest =
           net.accelbyte.sdk.api.seasonpass.operations.season.UpdateSeason.builder()
               .namespace(namespace)
               .seasonId(seasonId)
               .body(new ObjectMapper().readValue(body, SeasonUpdate.class))
               .build();
-      final SeasonInfo response = wrapper.updateSeason(operation);
+      final SeasonInfo response = wrapper.updateSeason(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

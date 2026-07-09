@@ -77,7 +77,7 @@ public class AdminListStagingContents implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminStagingContent wrapper = new AdminStagingContent(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_staging_content.AdminListStagingContents
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.admin_staging_content.AdminListStagingContents
                   .builder()
                   .namespace(namespace)
@@ -87,7 +87,7 @@ public class AdminListStagingContents implements Callable<Integer> {
                   .status(status)
                   .build();
       final ModelsPaginatedListStagingContentResponse response =
-          wrapper.adminListStagingContents(operation);
+          wrapper.adminListStagingContents(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

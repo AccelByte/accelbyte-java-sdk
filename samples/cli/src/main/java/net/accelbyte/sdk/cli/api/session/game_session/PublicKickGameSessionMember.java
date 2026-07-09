@@ -66,14 +66,14 @@ public class PublicKickGameSessionMember implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameSession wrapper = new GameSession(sdk);
       final net.accelbyte.sdk.api.session.operations.game_session.PublicKickGameSessionMember
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.game_session.PublicKickGameSessionMember
                   .builder()
                   .memberId(memberId)
                   .namespace(namespace)
                   .sessionId(sessionId)
                   .build();
-      wrapper.publicKickGameSessionMember(operation);
+      wrapper.publicKickGameSessionMember(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

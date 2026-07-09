@@ -67,7 +67,7 @@ public class DevelopmentServerConfigurationPatch implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Development wrapper = new Development(sdk);
       final net.accelbyte.sdk.api.ams.operations.development.DevelopmentServerConfigurationPatch
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ams.operations.development.DevelopmentServerConfigurationPatch
                   .builder()
                   .developmentServerConfigID(developmentServerConfigID)
@@ -76,7 +76,7 @@ public class DevelopmentServerConfigurationPatch implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, ApiDevelopmentServerConfigurationUpdateRequest.class))
                   .build();
-      wrapper.developmentServerConfigurationPatch(operation);
+      wrapper.developmentServerConfigurationPatch(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

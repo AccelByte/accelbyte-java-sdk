@@ -67,7 +67,7 @@ public class GetUserGroupStatusInformationV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GroupMember wrapper = new GroupMember(sdk);
       final net.accelbyte.sdk.api.group.operations.group_member.GetUserGroupStatusInformationV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.group.operations.group_member.GetUserGroupStatusInformationV2
                   .builder()
                   .groupId(groupId)
@@ -75,7 +75,7 @@ public class GetUserGroupStatusInformationV2 implements Callable<Integer> {
                   .userId(userId)
                   .build();
       final ModelsGetUserGroupInformationResponseV1 response =
-          wrapper.getUserGroupStatusInformationV2(operation);
+          wrapper.getUserGroupStatusInformationV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

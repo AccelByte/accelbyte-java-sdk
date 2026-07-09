@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteAppImagesV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:IMAGE [DELETE]`
- *
  * <p>Deletes list of provided image tags from the app image repository
  */
 @Getter

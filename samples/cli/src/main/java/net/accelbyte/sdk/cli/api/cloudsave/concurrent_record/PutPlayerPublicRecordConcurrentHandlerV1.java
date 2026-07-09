@@ -79,7 +79,7 @@ public class PutPlayerPublicRecordConcurrentHandlerV1 implements Callable<Intege
       final ConcurrentRecord wrapper = new ConcurrentRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.concurrent_record
               .PutPlayerPublicRecordConcurrentHandlerV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.concurrent_record
                   .PutPlayerPublicRecordConcurrentHandlerV1.builder()
                   .key(key)
@@ -89,7 +89,7 @@ public class PutPlayerPublicRecordConcurrentHandlerV1 implements Callable<Intege
                   .body(new ObjectMapper().readValue(body, ModelsConcurrentRecordRequest.class))
                   .build();
       final ModelsPlayerRecordConcurrentUpdateResponse response =
-          wrapper.putPlayerPublicRecordConcurrentHandlerV1(operation);
+          wrapper.putPlayerPublicRecordConcurrentHandlerV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

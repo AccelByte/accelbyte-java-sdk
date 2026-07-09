@@ -61,12 +61,13 @@ public class AdminPostTagHandlerV1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminTags wrapper = new AdminTags(sdk);
-      final net.accelbyte.sdk.api.cloudsave.operations.admin_tags.AdminPostTagHandlerV1 operation =
-          net.accelbyte.sdk.api.cloudsave.operations.admin_tags.AdminPostTagHandlerV1.builder()
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ModelsTagRequest.class))
-              .build();
-      wrapper.adminPostTagHandlerV1(operation);
+      final net.accelbyte.sdk.api.cloudsave.operations.admin_tags.AdminPostTagHandlerV1
+          operationRequest =
+              net.accelbyte.sdk.api.cloudsave.operations.admin_tags.AdminPostTagHandlerV1.builder()
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, ModelsTagRequest.class))
+                  .build();
+      wrapper.adminPostTagHandlerV1(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

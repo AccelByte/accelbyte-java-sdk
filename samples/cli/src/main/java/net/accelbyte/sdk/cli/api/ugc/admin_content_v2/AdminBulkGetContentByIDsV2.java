@@ -62,14 +62,14 @@ public class AdminBulkGetContentByIDsV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminContentV2 wrapper = new AdminContentV2(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminBulkGetContentByIDsV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminBulkGetContentByIDsV2
                   .builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelsAdminGetContentBulkRequest.class))
                   .build();
       final List<ModelsContentDownloadResponseV2> response =
-          wrapper.adminBulkGetContentByIDsV2(operation);
+          wrapper.adminBulkGetContentByIDsV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

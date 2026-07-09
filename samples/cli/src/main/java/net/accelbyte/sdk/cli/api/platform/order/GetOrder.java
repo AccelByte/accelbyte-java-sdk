@@ -61,12 +61,12 @@ public class GetOrder implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Order wrapper = new Order(sdk);
-      final net.accelbyte.sdk.api.platform.operations.order.GetOrder operation =
+      final net.accelbyte.sdk.api.platform.operations.order.GetOrder operationRequest =
           net.accelbyte.sdk.api.platform.operations.order.GetOrder.builder()
               .namespace(namespace)
               .orderNo(orderNo)
               .build();
-      final OrderInfo response = wrapper.getOrder(operation);
+      final OrderInfo response = wrapper.getOrder(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

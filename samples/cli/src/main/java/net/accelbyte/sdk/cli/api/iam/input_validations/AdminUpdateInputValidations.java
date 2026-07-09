@@ -58,7 +58,7 @@ public class AdminUpdateInputValidations implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final InputValidations wrapper = new InputValidations(sdk);
       final net.accelbyte.sdk.api.iam.operations.input_validations.AdminUpdateInputValidations
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.input_validations.AdminUpdateInputValidations
                   .builder()
                   .body(
@@ -67,7 +67,7 @@ public class AdminUpdateInputValidations implements Callable<Integer> {
                               body,
                               new TypeReference<List<ModelInputValidationUpdatePayload>>() {}))
                   .build();
-      wrapper.adminUpdateInputValidations(operation);
+      wrapper.adminUpdateInputValidations(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

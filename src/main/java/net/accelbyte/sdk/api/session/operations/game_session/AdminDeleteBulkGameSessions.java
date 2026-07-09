@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminDeleteBulkGameSessions
  *
- * <p>Delete bulk game sessions.
+ * <p>Permanently deletes multiple game sessions by their IDs. Returns a summary of deleted and
+ * failed sessions. Any allocated dedicated servers are released.
  */
 @Getter
 @Setter

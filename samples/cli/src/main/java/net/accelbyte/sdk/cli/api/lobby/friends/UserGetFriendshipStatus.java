@@ -61,13 +61,14 @@ public class UserGetFriendshipStatus implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Friends wrapper = new Friends(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.friends.UserGetFriendshipStatus operation =
-          net.accelbyte.sdk.api.lobby.operations.friends.UserGetFriendshipStatus.builder()
-              .friendId(friendId)
-              .namespace(namespace)
-              .build();
+      final net.accelbyte.sdk.api.lobby.operations.friends.UserGetFriendshipStatus
+          operationRequest =
+              net.accelbyte.sdk.api.lobby.operations.friends.UserGetFriendshipStatus.builder()
+                  .friendId(friendId)
+                  .namespace(namespace)
+                  .build();
       final ModelUserGetFriendshipStatusResponse response =
-          wrapper.userGetFriendshipStatus(operation);
+          wrapper.userGetFriendshipStatus(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

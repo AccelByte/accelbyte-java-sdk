@@ -73,7 +73,7 @@ public class AdminPutPlayerBinaryRecordV1 implements Callable<Integer> {
       final AdminPlayerBinaryRecord wrapper = new AdminPlayerBinaryRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.admin_player_binary_record
               .AdminPutPlayerBinaryRecordV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.admin_player_binary_record
                   .AdminPutPlayerBinaryRecordV1.builder()
                   .key(key)
@@ -82,7 +82,7 @@ public class AdminPutPlayerBinaryRecordV1 implements Callable<Integer> {
                   .body(new ObjectMapper().readValue(body, ModelsBinaryRecordRequest.class))
                   .build();
       final ModelsPlayerBinaryRecordResponse response =
-          wrapper.adminPutPlayerBinaryRecordV1(operation);
+          wrapper.adminPutPlayerBinaryRecordV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -126,7 +126,7 @@ public class AdminSearchUserV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.AdminSearchUserV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.users.AdminSearchUserV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.AdminSearchUserV3.builder()
               .namespace(namespace)
               .by(by)
@@ -145,7 +145,7 @@ public class AdminSearchUserV3 implements Callable<Integer> {
               .testAccount(testAccount)
               .build();
       final ModelSearchUsersResponseWithPaginationV3 response =
-          wrapper.adminSearchUserV3(operation);
+          wrapper.adminSearchUserV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

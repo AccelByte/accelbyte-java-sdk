@@ -61,12 +61,12 @@ public class AdminUpdateRoleV4 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Roles wrapper = new Roles(sdk);
-      final net.accelbyte.sdk.api.iam.operations.roles.AdminUpdateRoleV4 operation =
+      final net.accelbyte.sdk.api.iam.operations.roles.AdminUpdateRoleV4 operationRequest =
           net.accelbyte.sdk.api.iam.operations.roles.AdminUpdateRoleV4.builder()
               .roleId(roleId)
               .body(new ObjectMapper().readValue(body, ModelRoleV4Request.class))
               .build();
-      final ModelRoleV4Response response = wrapper.adminUpdateRoleV4(operation);
+      final ModelRoleV4Response response = wrapper.adminUpdateRoleV4(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

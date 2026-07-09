@@ -67,7 +67,7 @@ public class GetUserIncomingFriendsWithTime implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Friends wrapper = new Friends(sdk);
       final net.accelbyte.sdk.api.lobby.operations.friends.GetUserIncomingFriendsWithTime
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.friends.GetUserIncomingFriendsWithTime
                   .builder()
                   .namespace(namespace)
@@ -75,7 +75,7 @@ public class GetUserIncomingFriendsWithTime implements Callable<Integer> {
                   .offset(offset)
                   .build();
       final List<ModelLoadIncomingFriendsWithTimeResponse> response =
-          wrapper.getUserIncomingFriendsWithTime(operation);
+          wrapper.getUserIncomingFriendsWithTime(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

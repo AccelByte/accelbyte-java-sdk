@@ -61,13 +61,13 @@ public class AdminDeleteAdminGameRecordV1 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminRecord wrapper = new AdminRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.admin_record.AdminDeleteAdminGameRecordV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.admin_record.AdminDeleteAdminGameRecordV1
                   .builder()
                   .key(key)
                   .namespace(namespace)
                   .build();
-      wrapper.adminDeleteAdminGameRecordV1(operation);
+      wrapper.adminDeleteAdminGameRecordV1(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

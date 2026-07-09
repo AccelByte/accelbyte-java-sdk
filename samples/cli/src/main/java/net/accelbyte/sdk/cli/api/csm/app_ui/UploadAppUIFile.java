@@ -72,14 +72,14 @@ public class UploadAppUIFile implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AppUI wrapper = new AppUI(sdk);
-      final net.accelbyte.sdk.api.csm.operations.app_ui.UploadAppUIFile operation =
+      final net.accelbyte.sdk.api.csm.operations.app_ui.UploadAppUIFile operationRequest =
           net.accelbyte.sdk.api.csm.operations.app_ui.UploadAppUIFile.builder()
               .appUiName(appUiName)
               .namespace(namespace)
               .version(version)
               .file(file != null ? file : null)
               .build();
-      final ApimodelUploadFileResponse response = wrapper.uploadAppUIFile(operation);
+      final ApimodelUploadFileResponse response = wrapper.uploadAppUIFile(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -56,11 +56,12 @@ public class GetPublishedStoreBackup implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Store wrapper = new Store(sdk);
-      final net.accelbyte.sdk.api.platform.operations.store.GetPublishedStoreBackup operation =
-          net.accelbyte.sdk.api.platform.operations.store.GetPublishedStoreBackup.builder()
-              .namespace(namespace)
-              .build();
-      final StoreBackupInfo response = wrapper.getPublishedStoreBackup(operation);
+      final net.accelbyte.sdk.api.platform.operations.store.GetPublishedStoreBackup
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.store.GetPublishedStoreBackup.builder()
+                  .namespace(namespace)
+                  .build();
+      final StoreBackupInfo response = wrapper.getPublishedStoreBackup(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

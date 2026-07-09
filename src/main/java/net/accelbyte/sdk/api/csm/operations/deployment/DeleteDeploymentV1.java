@@ -20,8 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteDeploymentV1
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:DEPLOYMENT [DELETE]`
- *
  * <p>Delete Deployment information by given DeploymentID
  *
  * <p>This endpoint intended to delete helm release object and update the deleted_at in DB by given

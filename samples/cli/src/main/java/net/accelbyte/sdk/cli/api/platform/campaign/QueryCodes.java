@@ -97,7 +97,7 @@ public class QueryCodes implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Campaign wrapper = new Campaign(sdk);
-      final net.accelbyte.sdk.api.platform.operations.campaign.QueryCodes operation =
+      final net.accelbyte.sdk.api.platform.operations.campaign.QueryCodes operationRequest =
           net.accelbyte.sdk.api.platform.operations.campaign.QueryCodes.builder()
               .campaignId(campaignId)
               .namespace(namespace)
@@ -109,7 +109,7 @@ public class QueryCodes implements Callable<Integer> {
               .offset(offset)
               .withBatchName(withBatchName)
               .build();
-      final CodeInfoPagingSlicedResult response = wrapper.queryCodes(operation);
+      final CodeInfoPagingSlicedResult response = wrapper.queryCodes(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

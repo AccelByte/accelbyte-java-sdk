@@ -62,13 +62,14 @@ public class AdminCreateAssignmentPlugin implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Plugins wrapper = new Plugins(sdk);
       final net.accelbyte.sdk.api.challenge.operations.plugins.AdminCreateAssignmentPlugin
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.challenge.operations.plugins.AdminCreateAssignmentPlugin
                   .builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelPluginAssignmentRequest.class))
                   .build();
-      final ModelPluginAssignmentResponse response = wrapper.adminCreateAssignmentPlugin(operation);
+      final ModelPluginAssignmentResponse response =
+          wrapper.adminCreateAssignmentPlugin(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

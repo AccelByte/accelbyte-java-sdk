@@ -92,7 +92,7 @@ public class OldRetrieveLatestPoliciesByNamespaceAndCountryPublic implements Cal
       final Policies wrapper = new Policies(sdk);
       final net.accelbyte.sdk.api.legal.operations.policies
               .OldRetrieveLatestPoliciesByNamespaceAndCountryPublic
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.policies
                   .OldRetrieveLatestPoliciesByNamespaceAndCountryPublic.builder()
                   .countryCode(countryCode)
@@ -104,7 +104,7 @@ public class OldRetrieveLatestPoliciesByNamespaceAndCountryPublic implements Cal
                   .visibleOnly(visibleOnly)
                   .build();
       final List<RetrievePolicyPublicResponse> response =
-          wrapper.oldRetrieveLatestPoliciesByNamespaceAndCountryPublic(operation);
+          wrapper.oldRetrieveLatestPoliciesByNamespaceAndCountryPublic(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -68,7 +68,7 @@ public class AdminUpdateProfileUpdateStrategyV3 implements Callable<Integer> {
       final ProfileUpdateStrategy wrapper = new ProfileUpdateStrategy(sdk);
       final net.accelbyte.sdk.api.iam.operations.profile_update_strategy
               .AdminUpdateProfileUpdateStrategyV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.profile_update_strategy
                   .AdminUpdateProfileUpdateStrategyV3.builder()
                   .namespace(namespace)
@@ -78,7 +78,7 @@ public class AdminUpdateProfileUpdateStrategyV3 implements Callable<Integer> {
                           .readValue(body, ModelUpdateProfileUpdateStrategyConfigRequest.class))
                   .build();
       final ModelSimpleProfileUpdateStrategyConfigs response =
-          wrapper.adminUpdateProfileUpdateStrategyV3(operation);
+          wrapper.adminUpdateProfileUpdateStrategyV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

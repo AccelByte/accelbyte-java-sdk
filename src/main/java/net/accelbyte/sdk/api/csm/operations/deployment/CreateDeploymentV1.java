@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateDeploymentV1
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:DEPLOYMENT [CREATE]`
- *
  * <p>Creates Deployment for extend service
  *
  * <p>This endpoint intended to apply the helm release or deploying the custom service image. Logic

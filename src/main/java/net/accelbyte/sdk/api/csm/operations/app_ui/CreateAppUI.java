@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateAppUI
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APPUI [CREATE]`
- *
  * <p>Creates a new App UI configuration. The App UI can be hosted either by AccelByte (default) or
  * externally.
  */

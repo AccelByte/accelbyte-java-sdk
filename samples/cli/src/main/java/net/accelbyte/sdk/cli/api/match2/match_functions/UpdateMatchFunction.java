@@ -66,13 +66,14 @@ public class UpdateMatchFunction implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final MatchFunctions wrapper = new MatchFunctions(sdk);
-      final net.accelbyte.sdk.api.match2.operations.match_functions.UpdateMatchFunction operation =
-          net.accelbyte.sdk.api.match2.operations.match_functions.UpdateMatchFunction.builder()
-              .name(name)
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ApiMatchFunctionRequest.class))
-              .build();
-      final ApiMatchFunctionConfig response = wrapper.updateMatchFunction(operation);
+      final net.accelbyte.sdk.api.match2.operations.match_functions.UpdateMatchFunction
+          operationRequest =
+              net.accelbyte.sdk.api.match2.operations.match_functions.UpdateMatchFunction.builder()
+                  .name(name)
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, ApiMatchFunctionRequest.class))
+                  .build();
+      final ApiMatchFunctionConfig response = wrapper.updateMatchFunction(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

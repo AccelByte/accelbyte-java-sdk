@@ -62,7 +62,7 @@ public class CreateXrayBulkTicketObservability implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final XRay wrapper = new XRay(sdk);
       final net.accelbyte.sdk.api.sessionhistory.operations.x_ray.CreateXrayBulkTicketObservability
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.sessionhistory.operations.x_ray
                   .CreateXrayBulkTicketObservability.builder()
                   .namespace(namespace)
@@ -71,7 +71,7 @@ public class CreateXrayBulkTicketObservability implements Callable<Integer> {
                           .readValue(body, ApimodelsXRayBulkTicketObservabilityRequest.class))
                   .build();
       final ApimodelsXRayBulkTicketObservabilityResponse response =
-          wrapper.createXrayBulkTicketObservability(operation);
+          wrapper.createXrayBulkTicketObservability(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -61,12 +61,12 @@ public class CreateSeason implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Season wrapper = new Season(sdk);
-      final net.accelbyte.sdk.api.seasonpass.operations.season.CreateSeason operation =
+      final net.accelbyte.sdk.api.seasonpass.operations.season.CreateSeason operationRequest =
           net.accelbyte.sdk.api.seasonpass.operations.season.CreateSeason.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, SeasonCreate.class))
               .build();
-      final SeasonInfo response = wrapper.createSeason(operation);
+      final SeasonInfo response = wrapper.createSeason(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

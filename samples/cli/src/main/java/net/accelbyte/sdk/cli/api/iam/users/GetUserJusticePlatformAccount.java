@@ -66,14 +66,15 @@ public class GetUserJusticePlatformAccount implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.GetUserJusticePlatformAccount operation =
-          net.accelbyte.sdk.api.iam.operations.users.GetUserJusticePlatformAccount.builder()
-              .namespace(namespace)
-              .targetNamespace(targetNamespace)
-              .userId(userId)
-              .build();
+      final net.accelbyte.sdk.api.iam.operations.users.GetUserJusticePlatformAccount
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.users.GetUserJusticePlatformAccount.builder()
+                  .namespace(namespace)
+                  .targetNamespace(targetNamespace)
+                  .userId(userId)
+                  .build();
       final ModelGetUserJusticePlatformAccountResponse response =
-          wrapper.getUserJusticePlatformAccount(operation);
+          wrapper.getUserJusticePlatformAccount(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

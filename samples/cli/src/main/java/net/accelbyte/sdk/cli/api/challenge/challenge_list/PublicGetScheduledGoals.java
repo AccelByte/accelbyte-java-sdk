@@ -83,7 +83,7 @@ public class PublicGetScheduledGoals implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ChallengeList wrapper = new ChallengeList(sdk);
       final net.accelbyte.sdk.api.challenge.operations.challenge_list.PublicGetScheduledGoals
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.challenge.operations.challenge_list.PublicGetScheduledGoals
                   .builder()
                   .challengeCode(challengeCode)
@@ -93,7 +93,7 @@ public class PublicGetScheduledGoals implements Callable<Integer> {
                   .sortBy(sortBy)
                   .tags(tags)
                   .build();
-      final ModelGetGoalsResponse response = wrapper.publicGetScheduledGoals(operation);
+      final ModelGetGoalsResponse response = wrapper.publicGetScheduledGoals(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

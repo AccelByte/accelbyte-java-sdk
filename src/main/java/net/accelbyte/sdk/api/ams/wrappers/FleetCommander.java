@@ -30,9 +30,9 @@ public class FleetCommander {
   }
 
   /**
-   * @see Func1
+   * @see VersionInfo
    */
-  public void func1(Func1 input) throws Exception {
+  public void versionInfo(VersionInfo input) throws Exception {
     final HttpResponse httpResponse = sdk.runRequest(input);
     input.handleEmptyResponse(
         httpResponse.getCode(), httpResponse.getContentType(), httpResponse.getPayload());

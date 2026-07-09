@@ -61,12 +61,12 @@ public class CreateCampaign implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Campaign wrapper = new Campaign(sdk);
-      final net.accelbyte.sdk.api.platform.operations.campaign.CreateCampaign operation =
+      final net.accelbyte.sdk.api.platform.operations.campaign.CreateCampaign operationRequest =
           net.accelbyte.sdk.api.platform.operations.campaign.CreateCampaign.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, CampaignCreate.class))
               .build();
-      final CampaignInfo response = wrapper.createCampaign(operation);
+      final CampaignInfo response = wrapper.createCampaign(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -56,11 +56,12 @@ public class AdminAccountLinkTokenGet implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Account wrapper = new Account(sdk);
-      final net.accelbyte.sdk.api.ams.operations.account.AdminAccountLinkTokenGet operation =
+      final net.accelbyte.sdk.api.ams.operations.account.AdminAccountLinkTokenGet operationRequest =
           net.accelbyte.sdk.api.ams.operations.account.AdminAccountLinkTokenGet.builder()
               .namespace(namespace)
               .build();
-      final ApiAccountLinkTokenResponse response = wrapper.adminAccountLinkTokenGet(operation);
+      final ApiAccountLinkTokenResponse response =
+          wrapper.adminAccountLinkTokenGet(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

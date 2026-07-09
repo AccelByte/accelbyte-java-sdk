@@ -76,7 +76,7 @@ public class PublicGetItemByAppId implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Item wrapper = new Item(sdk);
-      final net.accelbyte.sdk.api.platform.operations.item.PublicGetItemByAppId operation =
+      final net.accelbyte.sdk.api.platform.operations.item.PublicGetItemByAppId operationRequest =
           net.accelbyte.sdk.api.platform.operations.item.PublicGetItemByAppId.builder()
               .namespace(namespace)
               .language(language)
@@ -84,7 +84,7 @@ public class PublicGetItemByAppId implements Callable<Integer> {
               .storeId(storeId)
               .appId(appId)
               .build();
-      final ItemInfo response = wrapper.publicGetItemByAppId(operation);
+      final ItemInfo response = wrapper.publicGetItemByAppId(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

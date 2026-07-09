@@ -77,7 +77,7 @@ public class GetThirdPartyPlatformSubscriptionOwnershipByProductId implements Ca
       final IAPSubscription wrapper = new IAPSubscription(sdk);
       final net.accelbyte.sdk.api.platform.operations.iap_subscription
               .GetThirdPartyPlatformSubscriptionOwnershipByProductId
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.iap_subscription
                   .GetThirdPartyPlatformSubscriptionOwnershipByProductId.builder()
                   .namespace(namespace)
@@ -86,7 +86,7 @@ public class GetThirdPartyPlatformSubscriptionOwnershipByProductId implements Ca
                   .productId(productId)
                   .build();
       final ThirdPartySubscriptionOwnership response =
-          wrapper.getThirdPartyPlatformSubscriptionOwnershipByProductId(operation);
+          wrapper.getThirdPartyPlatformSubscriptionOwnershipByProductId(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

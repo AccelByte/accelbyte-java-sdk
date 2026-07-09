@@ -21,7 +21,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * adminQueryParties
  *
- * <p>Query parties.
+ * <p>Returns paginated list of party sessions matching the provided filter criteria. Supports
+ * filtering by namespace, members, leader, and joinability mode.
  */
 @Getter
 @Setter

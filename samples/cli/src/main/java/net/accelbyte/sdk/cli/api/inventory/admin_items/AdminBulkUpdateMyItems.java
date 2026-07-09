@@ -73,7 +73,7 @@ public class AdminBulkUpdateMyItems implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminItems wrapper = new AdminItems(sdk);
       final net.accelbyte.sdk.api.inventory.operations.admin_items.AdminBulkUpdateMyItems
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.inventory.operations.admin_items.AdminBulkUpdateMyItems
                   .builder()
                   .inventoryId(inventoryId)
@@ -84,7 +84,8 @@ public class AdminBulkUpdateMyItems implements Callable<Integer> {
                           .readValue(
                               body, new TypeReference<List<ApimodelsAdminUpdateItemReq>>() {}))
                   .build();
-      final List<ApimodelsUpdateItemResp> response = wrapper.adminBulkUpdateMyItems(operation);
+      final List<ApimodelsUpdateItemResp> response =
+          wrapper.adminBulkUpdateMyItems(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

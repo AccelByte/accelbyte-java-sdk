@@ -71,14 +71,15 @@ public class UpdateScreenshotsV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicContentV2 wrapper = new PublicContentV2(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.public_content_v2.UpdateScreenshotsV2 operation =
-          net.accelbyte.sdk.api.ugc.operations.public_content_v2.UpdateScreenshotsV2.builder()
-              .contentId(contentId)
-              .namespace(namespace)
-              .userId(userId)
-              .body(new ObjectMapper().readValue(body, ModelsUpdateScreenshotRequest.class))
-              .build();
-      final ModelsUpdateScreenshotResponse response = wrapper.updateScreenshotsV2(operation);
+      final net.accelbyte.sdk.api.ugc.operations.public_content_v2.UpdateScreenshotsV2
+          operationRequest =
+              net.accelbyte.sdk.api.ugc.operations.public_content_v2.UpdateScreenshotsV2.builder()
+                  .contentId(contentId)
+                  .namespace(namespace)
+                  .userId(userId)
+                  .body(new ObjectMapper().readValue(body, ModelsUpdateScreenshotRequest.class))
+                  .build();
+      final ModelsUpdateScreenshotResponse response = wrapper.updateScreenshotsV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

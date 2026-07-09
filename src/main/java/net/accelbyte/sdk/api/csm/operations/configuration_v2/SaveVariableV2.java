@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * SaveVariableV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:VARIABLE [CREATE]`
- *
  * <p>Save an environment variable. Request body: - configName : environment variable name -
  * Required. - source : source of the configuration value (plaintext or ssm) - Required. - value :
  * configuration value - Required. - description : description of the configuration - Optional. -

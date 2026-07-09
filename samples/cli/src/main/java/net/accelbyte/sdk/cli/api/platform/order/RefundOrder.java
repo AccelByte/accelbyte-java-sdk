@@ -66,13 +66,13 @@ public class RefundOrder implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Order wrapper = new Order(sdk);
-      final net.accelbyte.sdk.api.platform.operations.order.RefundOrder operation =
+      final net.accelbyte.sdk.api.platform.operations.order.RefundOrder operationRequest =
           net.accelbyte.sdk.api.platform.operations.order.RefundOrder.builder()
               .namespace(namespace)
               .orderNo(orderNo)
               .body(new ObjectMapper().readValue(body, OrderRefundCreate.class))
               .build();
-      final OrderInfo response = wrapper.refundOrder(operation);
+      final OrderInfo response = wrapper.refundOrder(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

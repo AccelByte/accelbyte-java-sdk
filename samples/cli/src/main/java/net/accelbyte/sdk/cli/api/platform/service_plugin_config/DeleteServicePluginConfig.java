@@ -57,12 +57,12 @@ public class DeleteServicePluginConfig implements Callable<Integer> {
       final ServicePluginConfig wrapper = new ServicePluginConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.service_plugin_config
               .DeleteServicePluginConfig
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.service_plugin_config
                   .DeleteServicePluginConfig.builder()
                   .namespace(namespace)
                   .build();
-      wrapper.deleteServicePluginConfig(operation);
+      wrapper.deleteServicePluginConfig(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

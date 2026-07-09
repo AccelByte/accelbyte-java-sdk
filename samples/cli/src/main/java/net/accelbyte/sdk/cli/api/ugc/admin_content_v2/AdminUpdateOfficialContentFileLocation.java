@@ -74,7 +74,7 @@ public class AdminUpdateOfficialContentFileLocation implements Callable<Integer>
       final AdminContentV2 wrapper = new AdminContentV2(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_content_v2
               .AdminUpdateOfficialContentFileLocation
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.admin_content_v2
                   .AdminUpdateOfficialContentFileLocation.builder()
                   .channelId(channelId)
@@ -83,7 +83,7 @@ public class AdminUpdateOfficialContentFileLocation implements Callable<Integer>
                   .body(new ObjectMapper().readValue(body, ModelsUpdateFileLocationRequest.class))
                   .build();
       final ModelsUpdateContentResponseV2 response =
-          wrapper.adminUpdateOfficialContentFileLocation(operation);
+          wrapper.adminUpdateOfficialContentFileLocation(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

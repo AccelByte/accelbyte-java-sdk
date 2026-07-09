@@ -62,13 +62,13 @@ public class CreateNotificationTemplateV1Admin implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Notification wrapper = new Notification(sdk);
       final net.accelbyte.sdk.api.lobby.operations.notification.CreateNotificationTemplateV1Admin
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.notification.CreateNotificationTemplateV1Admin
                   .builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelCreateTemplateRequest.class))
                   .build();
-      wrapper.createNotificationTemplateV1Admin(operation);
+      wrapper.createNotificationTemplateV1Admin(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

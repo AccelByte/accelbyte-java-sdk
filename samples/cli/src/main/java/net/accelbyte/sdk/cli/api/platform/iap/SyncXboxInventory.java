@@ -66,13 +66,13 @@ public class SyncXboxInventory implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.SyncXboxInventory operation =
+      final net.accelbyte.sdk.api.platform.operations.iap.SyncXboxInventory operationRequest =
           net.accelbyte.sdk.api.platform.operations.iap.SyncXboxInventory.builder()
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, XblReconcileRequest.class))
               .build();
-      final List<XblReconcileResult> response = wrapper.syncXboxInventory(operation);
+      final List<XblReconcileResult> response = wrapper.syncXboxInventory(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

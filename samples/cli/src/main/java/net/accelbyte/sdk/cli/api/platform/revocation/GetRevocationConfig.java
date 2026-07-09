@@ -56,11 +56,12 @@ public class GetRevocationConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Revocation wrapper = new Revocation(sdk);
-      final net.accelbyte.sdk.api.platform.operations.revocation.GetRevocationConfig operation =
-          net.accelbyte.sdk.api.platform.operations.revocation.GetRevocationConfig.builder()
-              .namespace(namespace)
-              .build();
-      final RevocationConfigInfo response = wrapper.getRevocationConfig(operation);
+      final net.accelbyte.sdk.api.platform.operations.revocation.GetRevocationConfig
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.revocation.GetRevocationConfig.builder()
+                  .namespace(namespace)
+                  .build();
+      final RevocationConfigInfo response = wrapper.getRevocationConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

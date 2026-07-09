@@ -66,14 +66,15 @@ public class GetUserFriendsWithPlatform implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Friends wrapper = new Friends(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.friends.GetUserFriendsWithPlatform operation =
-          net.accelbyte.sdk.api.lobby.operations.friends.GetUserFriendsWithPlatform.builder()
-              .namespace(namespace)
-              .limit(limit)
-              .offset(offset)
-              .build();
+      final net.accelbyte.sdk.api.lobby.operations.friends.GetUserFriendsWithPlatform
+          operationRequest =
+              net.accelbyte.sdk.api.lobby.operations.friends.GetUserFriendsWithPlatform.builder()
+                  .namespace(namespace)
+                  .limit(limit)
+                  .offset(offset)
+                  .build();
       final ModelListBulkUserPlatformsResponse response =
-          wrapper.getUserFriendsWithPlatform(operation);
+          wrapper.getUserFriendsWithPlatform(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

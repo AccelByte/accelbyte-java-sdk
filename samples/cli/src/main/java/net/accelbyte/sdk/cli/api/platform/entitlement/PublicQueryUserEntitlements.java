@@ -99,7 +99,7 @@ public class PublicQueryUserEntitlements implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement.PublicQueryUserEntitlements
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.entitlement.PublicQueryUserEntitlements
                   .builder()
                   .namespace(namespace)
@@ -112,7 +112,8 @@ public class PublicQueryUserEntitlements implements Callable<Integer> {
                   .limit(limit)
                   .offset(offset)
                   .build();
-      final EntitlementPagingSlicedResult response = wrapper.publicQueryUserEntitlements(operation);
+      final EntitlementPagingSlicedResult response =
+          wrapper.publicQueryUserEntitlements(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

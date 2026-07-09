@@ -72,7 +72,7 @@ public class AdminGetOfficialGroupContentsV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminGroup wrapper = new AdminGroup(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_group.AdminGetOfficialGroupContentsV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.admin_group.AdminGetOfficialGroupContentsV2
                   .builder()
                   .groupId(groupId)
@@ -81,7 +81,7 @@ public class AdminGetOfficialGroupContentsV2 implements Callable<Integer> {
                   .offset(offset)
                   .build();
       final ModelsPaginatedContentDownloadResponseV2 response =
-          wrapper.adminGetOfficialGroupContentsV2(operation);
+          wrapper.adminGetOfficialGroupContentsV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

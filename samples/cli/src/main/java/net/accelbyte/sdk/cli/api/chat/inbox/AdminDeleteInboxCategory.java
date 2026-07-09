@@ -60,12 +60,12 @@ public class AdminDeleteInboxCategory implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Inbox wrapper = new Inbox(sdk);
-      final net.accelbyte.sdk.api.chat.operations.inbox.AdminDeleteInboxCategory operation =
+      final net.accelbyte.sdk.api.chat.operations.inbox.AdminDeleteInboxCategory operationRequest =
           net.accelbyte.sdk.api.chat.operations.inbox.AdminDeleteInboxCategory.builder()
               .category(category)
               .namespace(namespace)
               .build();
-      wrapper.adminDeleteInboxCategory(operation);
+      wrapper.adminDeleteInboxCategory(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

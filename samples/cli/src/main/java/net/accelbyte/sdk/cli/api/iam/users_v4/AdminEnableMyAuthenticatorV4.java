@@ -55,11 +55,12 @@ public class AdminEnableMyAuthenticatorV4 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UsersV4 wrapper = new UsersV4(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users_v4.AdminEnableMyAuthenticatorV4 operation =
-          net.accelbyte.sdk.api.iam.operations.users_v4.AdminEnableMyAuthenticatorV4.builder()
-              .code(code != null ? code : null)
-              .build();
-      wrapper.adminEnableMyAuthenticatorV4(operation);
+      final net.accelbyte.sdk.api.iam.operations.users_v4.AdminEnableMyAuthenticatorV4
+          operationRequest =
+              net.accelbyte.sdk.api.iam.operations.users_v4.AdminEnableMyAuthenticatorV4.builder()
+                  .code(code != null ? code : null)
+                  .build();
+      wrapper.adminEnableMyAuthenticatorV4(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

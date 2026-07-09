@@ -63,13 +63,13 @@ public class DeleteThirdPartyLoginPlatformCredentialV3 implements Callable<Integ
       final ThirdPartyCredential wrapper = new ThirdPartyCredential(sdk);
       final net.accelbyte.sdk.api.iam.operations.third_party_credential
               .DeleteThirdPartyLoginPlatformCredentialV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.third_party_credential
                   .DeleteThirdPartyLoginPlatformCredentialV3.builder()
                   .namespace(namespace)
                   .platformId(platformId)
                   .build();
-      wrapper.deleteThirdPartyLoginPlatformCredentialV3(operation);
+      wrapper.deleteThirdPartyLoginPlatformCredentialV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

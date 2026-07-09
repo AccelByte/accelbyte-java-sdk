@@ -57,11 +57,11 @@ public class DownloadCSVTemplates implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Store wrapper = new Store(sdk);
-      final net.accelbyte.sdk.api.platform.operations.store.DownloadCSVTemplates operation =
+      final net.accelbyte.sdk.api.platform.operations.store.DownloadCSVTemplates operationRequest =
           net.accelbyte.sdk.api.platform.operations.store.DownloadCSVTemplates.builder()
               .namespace(namespace)
               .build();
-      final InputStream response = wrapper.downloadCSVTemplates(operation);
+      final InputStream response = wrapper.downloadCSVTemplates(operationRequest);
       final File outputFile = new File("response.out");
       java.nio.file.Files.copy(
           response, outputFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);

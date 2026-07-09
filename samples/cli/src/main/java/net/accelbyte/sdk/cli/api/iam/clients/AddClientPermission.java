@@ -65,13 +65,13 @@ public class AddClientPermission implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Clients wrapper = new Clients(sdk);
-      final net.accelbyte.sdk.api.iam.operations.clients.AddClientPermission operation =
+      final net.accelbyte.sdk.api.iam.operations.clients.AddClientPermission operationRequest =
           net.accelbyte.sdk.api.iam.operations.clients.AddClientPermission.builder()
               .action(action)
               .clientId(clientId)
               .resource(resource)
               .build();
-      wrapper.addClientPermission(operation);
+      wrapper.addClientPermission(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

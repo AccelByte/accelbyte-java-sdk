@@ -64,13 +64,14 @@ public class UplodLootBoxPluginConfigCert implements Callable<Integer> {
       final ServicePluginConfig wrapper = new ServicePluginConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.service_plugin_config
               .UplodLootBoxPluginConfigCert
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.service_plugin_config
                   .UplodLootBoxPluginConfigCert.builder()
                   .namespace(namespace)
                   .file(file != null ? file : null)
                   .build();
-      final LootBoxPluginConfigInfo response = wrapper.uplodLootBoxPluginConfigCert(operation);
+      final LootBoxPluginConfigInfo response =
+          wrapper.uplodLootBoxPluginConfigCert(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

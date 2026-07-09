@@ -61,12 +61,12 @@ public class RuleSetDetails implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final RuleSets wrapper = new RuleSets(sdk);
-      final net.accelbyte.sdk.api.match2.operations.rule_sets.RuleSetDetails operation =
+      final net.accelbyte.sdk.api.match2.operations.rule_sets.RuleSetDetails operationRequest =
           net.accelbyte.sdk.api.match2.operations.rule_sets.RuleSetDetails.builder()
               .namespace(namespace)
               .ruleset(ruleset)
               .build();
-      final ApiRuleSetPayload response = wrapper.ruleSetDetails(operation);
+      final ApiRuleSetPayload response = wrapper.ruleSetDetails(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

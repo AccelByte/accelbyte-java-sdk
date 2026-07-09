@@ -9,8 +9,11 @@
 package net.accelbyte.sdk.cli.wrapper;
 
 import net.accelbyte.sdk.cli.api.csm.app.*;
+import net.accelbyte.sdk.cli.api.csm.app_status_progress_v4.*;
 import net.accelbyte.sdk.cli.api.csm.app_ui.*;
 import net.accelbyte.sdk.cli.api.csm.app_v2.*;
+import net.accelbyte.sdk.cli.api.csm.app_v4.*;
+import net.accelbyte.sdk.cli.api.csm.app_v5.*;
 import net.accelbyte.sdk.cli.api.csm.async_messaging.*;
 import net.accelbyte.sdk.cli.api.csm.configuration.*;
 import net.accelbyte.sdk.cli.api.csm.configuration_v2.*;
@@ -135,6 +138,10 @@ import picocli.CommandLine.Command;
       GetNoSQLAppListV2.class,
       GetNotificationSubscriberListV3.class,
       DeleteSubscriptionAppNotificationV3.class,
+      GetAppDebugInfoV4.class,
+      UpdateAppDebugModeV4.class,
+      GetAppStatusProgressV4.class,
+      CreateAppV5.class,
     })
 public class Csm implements Runnable {
 

@@ -304,6 +304,50 @@ $ build/install/cli/bin/cli gdpr publicCancelMyAccountDeletionRequest
 $ build/install/cli/bin/cli gdpr publicGetMyAccountDeletionStatus
 ```
 
+### Operation PublicSubmitMyHeadlessDeletionRequest
+
+```sh
+$ build/install/cli/bin/cli gdpr publicSubmitMyHeadlessDeletionRequest
+```
+
+### Operation PublicSubmitMyHeadlessPersonalDataRequest
+
+```sh
+$ build/install/cli/bin/cli gdpr publicSubmitMyHeadlessPersonalDataRequest \
+    --email <email value - optional> \
+    --languageTag <languageTag value - optional>
+```
+
+### Operation PublicGenerateMyHeadlessPersonalDataURL
+
+```sh
+$ build/install/cli/bin/cli gdpr publicGenerateMyHeadlessPersonalDataURL \
+    --requestDate <requestDate value>
+```
+
+### Operation PublicGetMyPersonalDataRequests
+
+```sh
+$ build/install/cli/bin/cli gdpr publicGetMyPersonalDataRequests
+```
+
+### Operation PublicSubmitMyPersonalDataRequest
+
+```sh
+$ build/install/cli/bin/cli gdpr publicSubmitMyPersonalDataRequest \
+    --email <email value - optional> \
+    --languageTag <languageTag value - optional> \
+    --platformId <platformId value> \
+    --platformToken <platformToken value>
+```
+
+### Operation PublicCancelMyPersonalDataRequest
+
+```sh
+$ build/install/cli/bin/cli gdpr publicCancelMyPersonalDataRequest \
+    --requestDate <requestDate value>
+```
+
 ### Operation S2SGetListFinishedAccountDeletionRequest
 
 ```sh

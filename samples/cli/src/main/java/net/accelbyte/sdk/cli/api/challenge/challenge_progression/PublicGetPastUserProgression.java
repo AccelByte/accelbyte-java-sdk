@@ -89,7 +89,7 @@ public class PublicGetPastUserProgression implements Callable<Integer> {
       final ChallengeProgression wrapper = new ChallengeProgression(sdk);
       final net.accelbyte.sdk.api.challenge.operations.challenge_progression
               .PublicGetPastUserProgression
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.challenge.operations.challenge_progression
                   .PublicGetPastUserProgression.builder()
                   .challengeCode(challengeCode)
@@ -100,7 +100,8 @@ public class PublicGetPastUserProgression implements Callable<Integer> {
                   .offset(offset)
                   .tags(tags)
                   .build();
-      final ModelUserProgressionResponse response = wrapper.publicGetPastUserProgression(operation);
+      final ModelUserProgressionResponse response =
+          wrapper.publicGetPastUserProgression(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -51,9 +51,9 @@ public class AdminGetAllConfigV1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Config wrapper = new Config(sdk);
-      final net.accelbyte.sdk.api.match2.operations.config.AdminGetAllConfigV1 operation =
+      final net.accelbyte.sdk.api.match2.operations.config.AdminGetAllConfigV1 operationRequest =
           net.accelbyte.sdk.api.match2.operations.config.AdminGetAllConfigV1.builder().build();
-      final ApiNamespaceConfigList response = wrapper.adminGetAllConfigV1(operation);
+      final ApiNamespaceConfigList response = wrapper.adminGetAllConfigV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

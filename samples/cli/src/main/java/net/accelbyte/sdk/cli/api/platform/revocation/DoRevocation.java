@@ -66,13 +66,13 @@ public class DoRevocation implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Revocation wrapper = new Revocation(sdk);
-      final net.accelbyte.sdk.api.platform.operations.revocation.DoRevocation operation =
+      final net.accelbyte.sdk.api.platform.operations.revocation.DoRevocation operationRequest =
           net.accelbyte.sdk.api.platform.operations.revocation.DoRevocation.builder()
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, RevocationRequest.class))
               .build();
-      final RevocationResult response = wrapper.doRevocation(operation);
+      final RevocationResult response = wrapper.doRevocation(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

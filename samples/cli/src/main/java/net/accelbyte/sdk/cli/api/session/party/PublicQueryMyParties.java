@@ -71,14 +71,14 @@ public class PublicQueryMyParties implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Party wrapper = new Party(sdk);
-      final net.accelbyte.sdk.api.session.operations.party.PublicQueryMyParties operation =
+      final net.accelbyte.sdk.api.session.operations.party.PublicQueryMyParties operationRequest =
           net.accelbyte.sdk.api.session.operations.party.PublicQueryMyParties.builder()
               .namespace(namespace)
               .order(order)
               .orderBy(orderBy)
               .status(status)
               .build();
-      final ApimodelsPartyQueryResponse response = wrapper.publicQueryMyParties(operation);
+      final ApimodelsPartyQueryResponse response = wrapper.publicQueryMyParties(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

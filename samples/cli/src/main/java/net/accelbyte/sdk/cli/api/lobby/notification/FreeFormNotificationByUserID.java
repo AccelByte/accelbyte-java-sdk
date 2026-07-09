@@ -67,14 +67,14 @@ public class FreeFormNotificationByUserID implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Notification wrapper = new Notification(sdk);
       final net.accelbyte.sdk.api.lobby.operations.notification.FreeFormNotificationByUserID
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.notification.FreeFormNotificationByUserID
                   .builder()
                   .namespace(namespace)
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, ModelFreeFormNotificationRequest.class))
                   .build();
-      wrapper.freeFormNotificationByUserID(operation);
+      wrapper.freeFormNotificationByUserID(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

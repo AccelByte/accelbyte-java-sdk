@@ -40,6 +40,7 @@ public class GetCurrentCycleLeaderboardRankingAdminV3 extends Operation {
 
   private String leaderboardCode;
   private String namespace;
+  private Boolean includeHiddenUsers;
   private Integer limit;
   private Integer offset;
   private Integer previousVersion;
@@ -56,12 +57,14 @@ public class GetCurrentCycleLeaderboardRankingAdminV3 extends Operation {
       String cycleId,
       String leaderboardCode,
       String namespace,
+      Boolean includeHiddenUsers,
       Integer limit,
       Integer offset,
       Integer previousVersion) {
     this.cycleId = cycleId;
     this.leaderboardCode = leaderboardCode;
     this.namespace = namespace;
+    this.includeHiddenUsers = includeHiddenUsers;
     this.limit = limit;
     this.offset = offset;
     this.previousVersion = previousVersion;
@@ -87,6 +90,11 @@ public class GetCurrentCycleLeaderboardRankingAdminV3 extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "includeHiddenUsers",
+        this.includeHiddenUsers == null
+            ? null
+            : Arrays.asList(String.valueOf(this.includeHiddenUsers)));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
@@ -123,6 +131,7 @@ public class GetCurrentCycleLeaderboardRankingAdminV3 extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("includeHiddenUsers", "None");
     result.put("limit", "None");
     result.put("offset", "None");
     result.put("previousVersion", "None");

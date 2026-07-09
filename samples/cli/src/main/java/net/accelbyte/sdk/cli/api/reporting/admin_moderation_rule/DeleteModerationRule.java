@@ -61,13 +61,13 @@ public class DeleteModerationRule implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminModerationRule wrapper = new AdminModerationRule(sdk);
       final net.accelbyte.sdk.api.reporting.operations.admin_moderation_rule.DeleteModerationRule
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.reporting.operations.admin_moderation_rule.DeleteModerationRule
                   .builder()
                   .namespace(namespace)
                   .ruleId(ruleId)
                   .build();
-      wrapper.deleteModerationRule(operation);
+      wrapper.deleteModerationRule(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -66,13 +66,13 @@ public class AdminResetPasswordV3 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.AdminResetPasswordV3 operation =
+      final net.accelbyte.sdk.api.iam.operations.users.AdminResetPasswordV3 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.AdminResetPasswordV3.builder()
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, ModelUserPasswordUpdateV3Request.class))
               .build();
-      wrapper.adminResetPasswordV3(operation);
+      wrapper.adminResetPasswordV3(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

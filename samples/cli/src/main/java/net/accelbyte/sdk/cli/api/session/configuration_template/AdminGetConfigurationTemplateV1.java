@@ -63,14 +63,14 @@ public class AdminGetConfigurationTemplateV1 implements Callable<Integer> {
       final ConfigurationTemplate wrapper = new ConfigurationTemplate(sdk);
       final net.accelbyte.sdk.api.session.operations.configuration_template
               .AdminGetConfigurationTemplateV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.configuration_template
                   .AdminGetConfigurationTemplateV1.builder()
                   .name(name)
                   .namespace(namespace)
                   .build();
       final ApimodelsConfigurationTemplateResponse response =
-          wrapper.adminGetConfigurationTemplateV1(operation);
+          wrapper.adminGetConfigurationTemplateV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

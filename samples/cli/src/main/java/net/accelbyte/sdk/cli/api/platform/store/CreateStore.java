@@ -61,12 +61,12 @@ public class CreateStore implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Store wrapper = new Store(sdk);
-      final net.accelbyte.sdk.api.platform.operations.store.CreateStore operation =
+      final net.accelbyte.sdk.api.platform.operations.store.CreateStore operationRequest =
           net.accelbyte.sdk.api.platform.operations.store.CreateStore.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, StoreCreate.class))
               .build();
-      final StoreInfo response = wrapper.createStore(operation);
+      final StoreInfo response = wrapper.createStore(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

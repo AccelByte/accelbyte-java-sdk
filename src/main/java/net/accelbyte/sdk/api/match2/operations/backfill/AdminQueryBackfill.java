@@ -21,7 +21,10 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * AdminQueryBackfill
  *
- * <p>Admin Query backfill ticket
+ * <p>Admin Query backfill ticket.
+ *
+ * <p>Supports filtering by session ID, match pool, time range, active status, player ID, and
+ * region. Use pagination parameters offset and limit to control result size.
  */
 @Getter
 @Setter

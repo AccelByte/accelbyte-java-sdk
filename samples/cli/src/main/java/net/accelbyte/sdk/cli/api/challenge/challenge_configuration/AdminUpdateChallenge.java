@@ -67,14 +67,14 @@ public class AdminUpdateChallenge implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ChallengeConfiguration wrapper = new ChallengeConfiguration(sdk);
       final net.accelbyte.sdk.api.challenge.operations.challenge_configuration.AdminUpdateChallenge
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.challenge.operations.challenge_configuration
                   .AdminUpdateChallenge.builder()
                   .challengeCode(challengeCode)
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelUpdateChallengeRequest.class))
                   .build();
-      final ModelChallengeResponse response = wrapper.adminUpdateChallenge(operation);
+      final ModelChallengeResponse response = wrapper.adminUpdateChallenge(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

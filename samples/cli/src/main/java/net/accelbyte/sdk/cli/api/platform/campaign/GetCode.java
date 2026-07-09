@@ -71,14 +71,14 @@ public class GetCode implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Campaign wrapper = new Campaign(sdk);
-      final net.accelbyte.sdk.api.platform.operations.campaign.GetCode operation =
+      final net.accelbyte.sdk.api.platform.operations.campaign.GetCode operationRequest =
           net.accelbyte.sdk.api.platform.operations.campaign.GetCode.builder()
               .code(code)
               .namespace(namespace)
               .redeemable(redeemable)
               .withBatchName(withBatchName)
               .build();
-      final CodeInfo response = wrapper.getCode(operation);
+      final CodeInfo response = wrapper.getCode(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

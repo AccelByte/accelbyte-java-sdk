@@ -66,14 +66,14 @@ public class PublicGameSessionCancel implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameSession wrapper = new GameSession(sdk);
       final net.accelbyte.sdk.api.session.operations.game_session.PublicGameSessionCancel
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.game_session.PublicGameSessionCancel
                   .builder()
                   .namespace(namespace)
                   .sessionId(sessionId)
                   .userId(userId)
                   .build();
-      wrapper.publicGameSessionCancel(operation);
+      wrapper.publicGameSessionCancel(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -55,11 +55,11 @@ public class DeleteIAPItemConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.DeleteIAPItemConfig operation =
+      final net.accelbyte.sdk.api.platform.operations.iap.DeleteIAPItemConfig operationRequest =
           net.accelbyte.sdk.api.platform.operations.iap.DeleteIAPItemConfig.builder()
               .namespace(namespace)
               .build();
-      wrapper.deleteIAPItemConfig(operation);
+      wrapper.deleteIAPItemConfig(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

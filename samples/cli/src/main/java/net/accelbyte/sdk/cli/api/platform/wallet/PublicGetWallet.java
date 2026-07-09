@@ -66,13 +66,13 @@ public class PublicGetWallet implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Wallet wrapper = new Wallet(sdk);
-      final net.accelbyte.sdk.api.platform.operations.wallet.PublicGetWallet operation =
+      final net.accelbyte.sdk.api.platform.operations.wallet.PublicGetWallet operationRequest =
           net.accelbyte.sdk.api.platform.operations.wallet.PublicGetWallet.builder()
               .currencyCode(currencyCode)
               .namespace(namespace)
               .userId(userId)
               .build();
-      final PlatformWallet response = wrapper.publicGetWallet(operation);
+      final PlatformWallet response = wrapper.publicGetWallet(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

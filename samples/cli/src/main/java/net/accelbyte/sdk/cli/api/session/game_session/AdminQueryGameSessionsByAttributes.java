@@ -63,14 +63,14 @@ public class AdminQueryGameSessionsByAttributes implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameSession wrapper = new GameSession(sdk);
       final net.accelbyte.sdk.api.session.operations.game_session.AdminQueryGameSessionsByAttributes
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.game_session
                   .AdminQueryGameSessionsByAttributes.builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, new TypeReference<Map<String, ?>>() {}))
                   .build();
       final ApimodelsGameSessionQueryResponse response =
-          wrapper.adminQueryGameSessionsByAttributes(operation);
+          wrapper.adminQueryGameSessionsByAttributes(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

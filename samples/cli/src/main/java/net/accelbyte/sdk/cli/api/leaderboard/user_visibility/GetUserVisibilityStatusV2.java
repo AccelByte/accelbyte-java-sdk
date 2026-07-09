@@ -67,14 +67,15 @@ public class GetUserVisibilityStatusV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserVisibility wrapper = new UserVisibility(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.user_visibility.GetUserVisibilityStatusV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.leaderboard.operations.user_visibility.GetUserVisibilityStatusV2
                   .builder()
                   .leaderboardCode(leaderboardCode)
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      final ModelsGetUserVisibilityResponse response = wrapper.getUserVisibilityStatusV2(operation);
+      final ModelsGetUserVisibilityResponse response =
+          wrapper.getUserVisibilityStatusV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

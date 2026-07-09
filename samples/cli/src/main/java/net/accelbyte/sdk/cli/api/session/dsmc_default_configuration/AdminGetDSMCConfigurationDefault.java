@@ -53,11 +53,12 @@ public class AdminGetDSMCConfigurationDefault implements Callable<Integer> {
       final DSMCDefaultConfiguration wrapper = new DSMCDefaultConfiguration(sdk);
       final net.accelbyte.sdk.api.session.operations.dsmc_default_configuration
               .AdminGetDSMCConfigurationDefault
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.dsmc_default_configuration
                   .AdminGetDSMCConfigurationDefault.builder()
                   .build();
-      final ModelsDefaultDSMCConfig response = wrapper.adminGetDSMCConfigurationDefault(operation);
+      final ModelsDefaultDSMCConfig response =
+          wrapper.adminGetDSMCConfigurationDefault(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

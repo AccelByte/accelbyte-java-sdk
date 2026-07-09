@@ -73,7 +73,7 @@ public class InitiateExportAgreementsToCSV implements Callable<Integer> {
       final AgreementWithNamespace wrapper = new AgreementWithNamespace(sdk);
       final net.accelbyte.sdk.api.legal.operations.agreement_with_namespace
               .InitiateExportAgreementsToCSV
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.agreement_with_namespace
                   .InitiateExportAgreementsToCSV.builder()
                   .namespace(namespace)
@@ -82,7 +82,7 @@ public class InitiateExportAgreementsToCSV implements Callable<Integer> {
                   .start(start)
                   .build();
       final InitiateExportAgreementsToCSVResponse response =
-          wrapper.initiateExportAgreementsToCSV(operation);
+          wrapper.initiateExportAgreementsToCSV(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

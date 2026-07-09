@@ -66,13 +66,13 @@ public class PublicCancelUserOrder implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Order wrapper = new Order(sdk);
-      final net.accelbyte.sdk.api.platform.operations.order.PublicCancelUserOrder operation =
+      final net.accelbyte.sdk.api.platform.operations.order.PublicCancelUserOrder operationRequest =
           net.accelbyte.sdk.api.platform.operations.order.PublicCancelUserOrder.builder()
               .namespace(namespace)
               .orderNo(orderNo)
               .userId(userId)
               .build();
-      final OrderInfo response = wrapper.publicCancelUserOrder(operation);
+      final OrderInfo response = wrapper.publicCancelUserOrder(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -61,12 +61,12 @@ public class AdminAccountLink implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Account wrapper = new Account(sdk);
-      final net.accelbyte.sdk.api.ams.operations.account.AdminAccountLink operation =
+      final net.accelbyte.sdk.api.ams.operations.account.AdminAccountLink operationRequest =
           net.accelbyte.sdk.api.ams.operations.account.AdminAccountLink.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ApiAccountLinkRequest.class))
               .build();
-      final ApiAccountLinkResponse response = wrapper.adminAccountLink(operation);
+      final ApiAccountLinkResponse response = wrapper.adminAccountLink(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

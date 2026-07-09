@@ -66,13 +66,13 @@ public class StopAppV1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final App wrapper = new App(sdk);
-      final net.accelbyte.sdk.api.csm.operations.app.StopAppV1 operation =
+      final net.accelbyte.sdk.api.csm.operations.app.StopAppV1 operationRequest =
           net.accelbyte.sdk.api.csm.operations.app.StopAppV1.builder()
               .app(app)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, GeneratedStopAppV1Request.class))
               .build();
-      final GeneratedStopAppV1Response response = wrapper.stopAppV1(operation);
+      final GeneratedStopAppV1Response response = wrapper.stopAppV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

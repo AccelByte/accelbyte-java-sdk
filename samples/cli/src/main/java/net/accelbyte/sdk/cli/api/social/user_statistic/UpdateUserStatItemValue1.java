@@ -77,7 +77,7 @@ public class UpdateUserStatItemValue1 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserStatistic wrapper = new UserStatistic(sdk);
       final net.accelbyte.sdk.api.social.operations.user_statistic.UpdateUserStatItemValue1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.social.operations.user_statistic.UpdateUserStatItemValue1
                   .builder()
                   .namespace(namespace)
@@ -86,7 +86,7 @@ public class UpdateUserStatItemValue1 implements Callable<Integer> {
                   .additionalKey(additionalKey)
                   .body(new ObjectMapper().readValue(body, StatItemUpdate.class))
                   .build();
-      final StatItemIncResult response = wrapper.updateUserStatItemValue1(operation);
+      final StatItemIncResult response = wrapper.updateUserStatItemValue1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

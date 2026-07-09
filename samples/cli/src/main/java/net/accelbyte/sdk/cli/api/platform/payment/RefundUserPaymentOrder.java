@@ -71,14 +71,15 @@ public class RefundUserPaymentOrder implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Payment wrapper = new Payment(sdk);
-      final net.accelbyte.sdk.api.platform.operations.payment.RefundUserPaymentOrder operation =
-          net.accelbyte.sdk.api.platform.operations.payment.RefundUserPaymentOrder.builder()
-              .namespace(namespace)
-              .paymentOrderNo(paymentOrderNo)
-              .userId(userId)
-              .body(new ObjectMapper().readValue(body, PaymentOrderRefund.class))
-              .build();
-      final PaymentOrderInfo response = wrapper.refundUserPaymentOrder(operation);
+      final net.accelbyte.sdk.api.platform.operations.payment.RefundUserPaymentOrder
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.payment.RefundUserPaymentOrder.builder()
+                  .namespace(namespace)
+                  .paymentOrderNo(paymentOrderNo)
+                  .userId(userId)
+                  .body(new ObjectMapper().readValue(body, PaymentOrderRefund.class))
+                  .build();
+      final PaymentOrderInfo response = wrapper.refundUserPaymentOrder(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

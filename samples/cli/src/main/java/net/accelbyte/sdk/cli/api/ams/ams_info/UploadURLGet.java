@@ -50,9 +50,9 @@ public class UploadURLGet implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AMSInfo wrapper = new AMSInfo(sdk);
-      final net.accelbyte.sdk.api.ams.operations.ams_info.UploadURLGet operation =
+      final net.accelbyte.sdk.api.ams.operations.ams_info.UploadURLGet operationRequest =
           net.accelbyte.sdk.api.ams.operations.ams_info.UploadURLGet.builder().build();
-      wrapper.uploadURLGet(operation);
+      wrapper.uploadURLGet(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -83,16 +83,18 @@ public class PublicListMyStatItems implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserStatistic wrapper = new UserStatistic(sdk);
-      final net.accelbyte.sdk.api.social.operations.user_statistic.PublicListMyStatItems operation =
-          net.accelbyte.sdk.api.social.operations.user_statistic.PublicListMyStatItems.builder()
-              .namespace(namespace)
-              .limit(limit)
-              .offset(offset)
-              .sortBy(sortBy)
-              .statCodes(statCodes)
-              .tags(tags)
-              .build();
-      final UserStatItemPagingSlicedResult response = wrapper.publicListMyStatItems(operation);
+      final net.accelbyte.sdk.api.social.operations.user_statistic.PublicListMyStatItems
+          operationRequest =
+              net.accelbyte.sdk.api.social.operations.user_statistic.PublicListMyStatItems.builder()
+                  .namespace(namespace)
+                  .limit(limit)
+                  .offset(offset)
+                  .sortBy(sortBy)
+                  .statCodes(statCodes)
+                  .tags(tags)
+                  .build();
+      final UserStatItemPagingSlicedResult response =
+          wrapper.publicListMyStatItems(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

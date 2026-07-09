@@ -106,7 +106,7 @@ public class ImageList implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Images wrapper = new Images(sdk);
-      final net.accelbyte.sdk.api.ams.operations.images.ImageList operation =
+      final net.accelbyte.sdk.api.ams.operations.images.ImageList operationRequest =
           net.accelbyte.sdk.api.ams.operations.images.ImageList.builder()
               .namespace(namespace)
               .count(count)
@@ -120,7 +120,7 @@ public class ImageList implements Callable<Integer> {
               .tag(tag)
               .targetArchitecture(targetArchitecture)
               .build();
-      final ApiImageList response = wrapper.imageList(operation);
+      final ApiImageList response = wrapper.imageList(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

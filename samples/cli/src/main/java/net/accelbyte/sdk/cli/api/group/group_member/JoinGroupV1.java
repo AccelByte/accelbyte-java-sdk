@@ -61,12 +61,12 @@ public class JoinGroupV1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GroupMember wrapper = new GroupMember(sdk);
-      final net.accelbyte.sdk.api.group.operations.group_member.JoinGroupV1 operation =
+      final net.accelbyte.sdk.api.group.operations.group_member.JoinGroupV1 operationRequest =
           net.accelbyte.sdk.api.group.operations.group_member.JoinGroupV1.builder()
               .groupId(groupId)
               .namespace(namespace)
               .build();
-      final ModelsJoinGroupResponseV1 response = wrapper.joinGroupV1(operation);
+      final ModelsJoinGroupResponseV1 response = wrapper.joinGroupV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

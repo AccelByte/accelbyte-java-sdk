@@ -66,13 +66,13 @@ public class FleetUpdate implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Fleets wrapper = new Fleets(sdk);
-      final net.accelbyte.sdk.api.ams.operations.fleets.FleetUpdate operation =
+      final net.accelbyte.sdk.api.ams.operations.fleets.FleetUpdate operationRequest =
           net.accelbyte.sdk.api.ams.operations.fleets.FleetUpdate.builder()
               .fleetID(fleetID)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ApiFleetParameters.class))
               .build();
-      wrapper.fleetUpdate(operation);
+      wrapper.fleetUpdate(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

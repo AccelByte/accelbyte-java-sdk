@@ -67,14 +67,15 @@ public class PublicGetUserByPlatformUserIDV4 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UsersV4 wrapper = new UsersV4(sdk);
       final net.accelbyte.sdk.api.iam.operations.users_v4.PublicGetUserByPlatformUserIDV4
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.users_v4.PublicGetUserByPlatformUserIDV4
                   .builder()
                   .namespace(namespace)
                   .platformId(platformId)
                   .platformUserId(platformUserId)
                   .build();
-      final ModelUserResponseV3 response = wrapper.publicGetUserByPlatformUserIDV4(operation);
+      final ModelUserResponseV3 response =
+          wrapper.publicGetUserByPlatformUserIDV4(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

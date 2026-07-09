@@ -61,12 +61,12 @@ public class UpdateOculusIAPConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.UpdateOculusIAPConfig operation =
+      final net.accelbyte.sdk.api.platform.operations.iap.UpdateOculusIAPConfig operationRequest =
           net.accelbyte.sdk.api.platform.operations.iap.UpdateOculusIAPConfig.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, OculusIAPConfigRequest.class))
               .build();
-      final OculusIAPConfigInfo response = wrapper.updateOculusIAPConfig(operation);
+      final OculusIAPConfigInfo response = wrapper.updateOculusIAPConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

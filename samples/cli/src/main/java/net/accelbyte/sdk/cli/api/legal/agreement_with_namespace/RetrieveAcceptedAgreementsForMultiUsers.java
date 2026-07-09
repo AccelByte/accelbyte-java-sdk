@@ -64,14 +64,14 @@ public class RetrieveAcceptedAgreementsForMultiUsers implements Callable<Integer
       final AgreementWithNamespace wrapper = new AgreementWithNamespace(sdk);
       final net.accelbyte.sdk.api.legal.operations.agreement_with_namespace
               .RetrieveAcceptedAgreementsForMultiUsers
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.agreement_with_namespace
                   .RetrieveAcceptedAgreementsForMultiUsers.builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, UsersAgreementsRequest.class))
                   .build();
       final List<UserAgreementsResponse> response =
-          wrapper.retrieveAcceptedAgreementsForMultiUsers(operation);
+          wrapper.retrieveAcceptedAgreementsForMultiUsers(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

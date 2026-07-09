@@ -56,12 +56,12 @@ public class DeleteNamespaceSlotConfig implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final SlotConfig wrapper = new SlotConfig(sdk);
       final net.accelbyte.sdk.api.social.operations.slot_config.DeleteNamespaceSlotConfig
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.social.operations.slot_config.DeleteNamespaceSlotConfig
                   .builder()
                   .namespace(namespace)
                   .build();
-      wrapper.deleteNamespaceSlotConfig(operation);
+      wrapper.deleteNamespaceSlotConfig(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

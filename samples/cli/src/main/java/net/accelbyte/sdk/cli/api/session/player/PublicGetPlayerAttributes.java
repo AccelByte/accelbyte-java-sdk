@@ -56,12 +56,13 @@ public class PublicGetPlayerAttributes implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Player wrapper = new Player(sdk);
-      final net.accelbyte.sdk.api.session.operations.player.PublicGetPlayerAttributes operation =
-          net.accelbyte.sdk.api.session.operations.player.PublicGetPlayerAttributes.builder()
-              .namespace(namespace)
-              .build();
+      final net.accelbyte.sdk.api.session.operations.player.PublicGetPlayerAttributes
+          operationRequest =
+              net.accelbyte.sdk.api.session.operations.player.PublicGetPlayerAttributes.builder()
+                  .namespace(namespace)
+                  .build();
       final ApimodelsPlayerAttributesResponseBody response =
-          wrapper.publicGetPlayerAttributes(operation);
+          wrapper.publicGetPlayerAttributes(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

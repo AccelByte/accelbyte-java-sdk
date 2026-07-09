@@ -67,7 +67,7 @@ public class PublicPromoteGameSessionLeader implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final GameSession wrapper = new GameSession(sdk);
       final net.accelbyte.sdk.api.session.operations.game_session.PublicPromoteGameSessionLeader
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.game_session.PublicPromoteGameSessionLeader
                   .builder()
                   .namespace(namespace)
@@ -75,7 +75,7 @@ public class PublicPromoteGameSessionLeader implements Callable<Integer> {
                   .body(new ObjectMapper().readValue(body, ApimodelsPromoteLeaderRequest.class))
                   .build();
       final ApimodelsGameSessionResponse response =
-          wrapper.publicPromoteGameSessionLeader(operation);
+          wrapper.publicPromoteGameSessionLeader(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

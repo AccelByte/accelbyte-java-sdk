@@ -59,7 +59,7 @@ public class AdminCreateExtensionCategory implements Callable<Integer> {
           new AdminExtensionCategoriesAndAutoModerationActions(sdk);
       final net.accelbyte.sdk.api.reporting.operations
               .admin_extension_categories_and_auto_moderation_actions.AdminCreateExtensionCategory
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.reporting.operations
                   .admin_extension_categories_and_auto_moderation_actions
                   .AdminCreateExtensionCategory.builder()
@@ -67,7 +67,7 @@ public class AdminCreateExtensionCategory implements Callable<Integer> {
                       new ObjectMapper().readValue(body, RestapiExtensionCategoryApiRequest.class))
                   .build();
       final RestapiExtensionCategoryApiResponse response =
-          wrapper.adminCreateExtensionCategory(operation);
+          wrapper.adminCreateExtensionCategory(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -125,6 +125,16 @@ $ build/install/cli/bin/cli challenge adminListSchedulesByGoal \
     --userId <userId value - optional>
 ```
 
+### Operation AdminMoveGoalToSlot
+
+```sh
+$ build/install/cli/bin/cli challenge adminMoveGoalToSlot \
+    --challengeCode <challengeCode value> \
+    --code <code value> \
+    --namespace <namespace value> \
+    --body <json string for request body>
+```
+
 ### Operation AdminGetPeriods
 
 ```sh
@@ -153,6 +163,14 @@ $ build/install/cli/bin/cli challenge adminListSchedules \
     --limit <limit value - optional> \
     --offset <offset value - optional> \
     --userId <userId value - optional>
+```
+
+### Operation AdminGetChallengeSlots
+
+```sh
+$ build/install/cli/bin/cli challenge adminGetChallengeSlots \
+    --challengeCode <challengeCode value> \
+    --namespace <namespace value>
 ```
 
 ### Operation AdminDeleteTiedChallenge
@@ -268,10 +286,10 @@ $ build/install/cli/bin/cli challenge adminClaimUserRewards \
     --body <json string for request body>
 ```
 
-### Operation GetChallenges
+### Operation PublicGetChallenges
 
 ```sh
-$ build/install/cli/bin/cli challenge getChallenges \
+$ build/install/cli/bin/cli challenge publicGetChallenges \
     --namespace <namespace value> \
     --keyword <keyword value - optional> \
     --limit <limit value - optional> \
@@ -324,10 +342,10 @@ $ build/install/cli/bin/cli challenge publicClaimUserRewardsByGoalCode \
     --body <json string for request body>
 ```
 
-### Operation EvaluateMyProgress
+### Operation PublicEvaluateMyProgress
 
 ```sh
-$ build/install/cli/bin/cli challenge evaluateMyProgress \
+$ build/install/cli/bin/cli challenge publicEvaluateMyProgress \
     --namespace <namespace value> \
     --challengeCode <challengeCode value - optional> \
     --includeOneTimeEvent <includeOneTimeEvent value - optional>

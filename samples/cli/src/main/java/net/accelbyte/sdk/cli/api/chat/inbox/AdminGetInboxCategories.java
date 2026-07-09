@@ -56,12 +56,12 @@ public class AdminGetInboxCategories implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Inbox wrapper = new Inbox(sdk);
-      final net.accelbyte.sdk.api.chat.operations.inbox.AdminGetInboxCategories operation =
+      final net.accelbyte.sdk.api.chat.operations.inbox.AdminGetInboxCategories operationRequest =
           net.accelbyte.sdk.api.chat.operations.inbox.AdminGetInboxCategories.builder()
               .namespace(namespace)
               .build();
       final List<ModelsGetInboxCategoriesResponseItem> response =
-          wrapper.adminGetInboxCategories(operation);
+          wrapper.adminGetInboxCategories(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

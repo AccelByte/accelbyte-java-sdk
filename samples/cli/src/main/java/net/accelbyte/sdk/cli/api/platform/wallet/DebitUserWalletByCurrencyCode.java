@@ -72,7 +72,7 @@ public class DebitUserWalletByCurrencyCode implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Wallet wrapper = new Wallet(sdk);
       final net.accelbyte.sdk.api.platform.operations.wallet.DebitUserWalletByCurrencyCode
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.wallet.DebitUserWalletByCurrencyCode
                   .builder()
                   .currencyCode(currencyCode)
@@ -80,7 +80,7 @@ public class DebitUserWalletByCurrencyCode implements Callable<Integer> {
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, DebitByCurrencyCodeRequest.class))
                   .build();
-      final WalletInfo response = wrapper.debitUserWalletByCurrencyCode(operation);
+      final WalletInfo response = wrapper.debitUserWalletByCurrencyCode(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

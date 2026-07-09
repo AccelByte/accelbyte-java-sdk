@@ -75,7 +75,7 @@ public class PublicUpdateInsertSessionStorageUserV2 implements Callable<Integer>
       final SessionStorage wrapper = new SessionStorage(sdk);
       final net.accelbyte.sdk.api.session.operations.session_storage
               .PublicUpdateInsertSessionStorageUserV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.session_storage
                   .PublicUpdateInsertSessionStorageUserV2.builder()
                   .namespace(namespace)
@@ -83,7 +83,8 @@ public class PublicUpdateInsertSessionStorageUserV2 implements Callable<Integer>
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, new TypeReference<Map<String, ?>>() {}))
                   .build();
-      final Map<String, ?> response = wrapper.publicUpdateInsertSessionStorageUserV2(operation);
+      final Map<String, ?> response =
+          wrapper.publicUpdateInsertSessionStorageUserV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

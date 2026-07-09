@@ -66,13 +66,14 @@ public class PublicBanTopicMembers implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Topic wrapper = new Topic(sdk);
-      final net.accelbyte.sdk.api.chat.operations.topic.PublicBanTopicMembers operation =
+      final net.accelbyte.sdk.api.chat.operations.topic.PublicBanTopicMembers operationRequest =
           net.accelbyte.sdk.api.chat.operations.topic.PublicBanTopicMembers.builder()
               .namespace(namespace)
               .topic(topic)
               .body(new ObjectMapper().readValue(body, ModelsPublicBanTopicMembersRequest.class))
               .build();
-      final ModelsPublicBanTopicMembersResponse response = wrapper.publicBanTopicMembers(operation);
+      final ModelsPublicBanTopicMembersResponse response =
+          wrapper.publicBanTopicMembers(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

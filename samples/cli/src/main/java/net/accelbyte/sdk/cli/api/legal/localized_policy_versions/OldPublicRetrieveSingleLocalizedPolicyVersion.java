@@ -60,13 +60,13 @@ public class OldPublicRetrieveSingleLocalizedPolicyVersion implements Callable<I
       final LocalizedPolicyVersions wrapper = new LocalizedPolicyVersions(sdk);
       final net.accelbyte.sdk.api.legal.operations.localized_policy_versions
               .OldPublicRetrieveSingleLocalizedPolicyVersion
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.localized_policy_versions
                   .OldPublicRetrieveSingleLocalizedPolicyVersion.builder()
                   .localizedPolicyVersionId(localizedPolicyVersionId)
                   .build();
       final RetrieveLocalizedPolicyVersionPublicResponse response =
-          wrapper.oldPublicRetrieveSingleLocalizedPolicyVersion(operation);
+          wrapper.oldPublicRetrieveSingleLocalizedPolicyVersion(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

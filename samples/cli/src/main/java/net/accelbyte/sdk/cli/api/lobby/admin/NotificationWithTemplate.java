@@ -61,12 +61,12 @@ public class NotificationWithTemplate implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Admin wrapper = new Admin(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.admin.NotificationWithTemplate operation =
+      final net.accelbyte.sdk.api.lobby.operations.admin.NotificationWithTemplate operationRequest =
           net.accelbyte.sdk.api.lobby.operations.admin.NotificationWithTemplate.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelNotificationWithTemplateRequest.class))
               .build();
-      wrapper.notificationWithTemplate(operation);
+      wrapper.notificationWithTemplate(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

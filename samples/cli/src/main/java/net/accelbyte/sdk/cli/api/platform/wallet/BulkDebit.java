@@ -62,14 +62,14 @@ public class BulkDebit implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Wallet wrapper = new Wallet(sdk);
-      final net.accelbyte.sdk.api.platform.operations.wallet.BulkDebit operation =
+      final net.accelbyte.sdk.api.platform.operations.wallet.BulkDebit operationRequest =
           net.accelbyte.sdk.api.platform.operations.wallet.BulkDebit.builder()
               .namespace(namespace)
               .body(
                   new ObjectMapper()
                       .readValue(body, new TypeReference<List<BulkDebitRequest>>() {}))
               .build();
-      final BulkDebitResult response = wrapper.bulkDebit(operation);
+      final BulkDebitResult response = wrapper.bulkDebit(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

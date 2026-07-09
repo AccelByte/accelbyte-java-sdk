@@ -63,14 +63,14 @@ public class ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost implements Ca
       final GametelemetryOperations wrapper = new GametelemetryOperations(sdk);
       final net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations
               .ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gametelemetry.operations.gametelemetry_operations
                   .ProtectedSaveEventsGameTelemetryV1ProtectedEventsPost.builder()
                   .body(
                       new ObjectMapper()
                           .readValue(body, new TypeReference<List<TelemetryBody>>() {}))
                   .build();
-      wrapper.protectedSaveEventsGameTelemetryV1ProtectedEventsPost(operation);
+      wrapper.protectedSaveEventsGameTelemetryV1ProtectedEventsPost(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

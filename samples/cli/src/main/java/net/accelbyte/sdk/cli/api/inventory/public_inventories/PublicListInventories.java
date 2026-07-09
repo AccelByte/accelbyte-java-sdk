@@ -77,7 +77,7 @@ public class PublicListInventories implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicInventories wrapper = new PublicInventories(sdk);
       final net.accelbyte.sdk.api.inventory.operations.public_inventories.PublicListInventories
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.inventory.operations.public_inventories.PublicListInventories
                   .builder()
                   .namespace(namespace)
@@ -86,7 +86,7 @@ public class PublicListInventories implements Callable<Integer> {
                   .offset(offset)
                   .sortBy(sortBy)
                   .build();
-      final ApimodelsListInventoryResp response = wrapper.publicListInventories(operation);
+      final ApimodelsListInventoryResp response = wrapper.publicListInventories(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

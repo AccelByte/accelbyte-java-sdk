@@ -62,13 +62,13 @@ public class DeleteAdminEmailConfiguration implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Configuration wrapper = new Configuration(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.configuration.DeleteAdminEmailConfiguration
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.configuration.DeleteAdminEmailConfiguration
                   .builder()
                   .namespace(namespace)
                   .emails(emails)
                   .build();
-      wrapper.deleteAdminEmailConfiguration(operation);
+      wrapper.deleteAdminEmailConfiguration(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

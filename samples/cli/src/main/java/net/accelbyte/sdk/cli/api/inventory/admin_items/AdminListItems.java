@@ -86,7 +86,7 @@ public class AdminListItems implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminItems wrapper = new AdminItems(sdk);
-      final net.accelbyte.sdk.api.inventory.operations.admin_items.AdminListItems operation =
+      final net.accelbyte.sdk.api.inventory.operations.admin_items.AdminListItems operationRequest =
           net.accelbyte.sdk.api.inventory.operations.admin_items.AdminListItems.builder()
               .inventoryId(inventoryId)
               .namespace(namespace)
@@ -96,7 +96,7 @@ public class AdminListItems implements Callable<Integer> {
               .sourceItemId(sourceItemId)
               .tags(tags)
               .build();
-      final ApimodelsListItemResp response = wrapper.adminListItems(operation);
+      final ApimodelsListItemResp response = wrapper.adminListItems(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

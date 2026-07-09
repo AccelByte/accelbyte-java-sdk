@@ -62,13 +62,13 @@ public class GetGameRecordsBulk implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicGameRecord wrapper = new PublicGameRecord(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.public_game_record.GetGameRecordsBulk
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.public_game_record.GetGameRecordsBulk
                   .builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelsBulkGetGameRecordRequest.class))
                   .build();
-      final ModelsBulkGetGameRecordResponse response = wrapper.getGameRecordsBulk(operation);
+      final ModelsBulkGetGameRecordResponse response = wrapper.getGameRecordsBulk(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

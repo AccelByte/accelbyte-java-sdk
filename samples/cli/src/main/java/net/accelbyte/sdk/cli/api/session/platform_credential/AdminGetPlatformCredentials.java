@@ -57,12 +57,13 @@ public class AdminGetPlatformCredentials implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PlatformCredential wrapper = new PlatformCredential(sdk);
       final net.accelbyte.sdk.api.session.operations.platform_credential.AdminGetPlatformCredentials
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.platform_credential
                   .AdminGetPlatformCredentials.builder()
                   .namespace(namespace)
                   .build();
-      final ModelsPlatformCredentials response = wrapper.adminGetPlatformCredentials(operation);
+      final ModelsPlatformCredentials response =
+          wrapper.adminGetPlatformCredentials(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

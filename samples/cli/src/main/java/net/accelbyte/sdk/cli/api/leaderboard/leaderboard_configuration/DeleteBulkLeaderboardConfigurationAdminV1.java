@@ -64,14 +64,14 @@ public class DeleteBulkLeaderboardConfigurationAdminV1 implements Callable<Integ
       final LeaderboardConfiguration wrapper = new LeaderboardConfiguration(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration
               .DeleteBulkLeaderboardConfigurationAdminV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration
                   .DeleteBulkLeaderboardConfigurationAdminV1.builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelsDeleteBulkLeaderboardsReq.class))
                   .build();
       final ModelsDeleteBulkLeaderboardsResp response =
-          wrapper.deleteBulkLeaderboardConfigurationAdminV1(operation);
+          wrapper.deleteBulkLeaderboardConfigurationAdminV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

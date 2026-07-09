@@ -60,12 +60,12 @@ public class DeleteUser implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.DeleteUser operation =
+      final net.accelbyte.sdk.api.iam.operations.users.DeleteUser operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.DeleteUser.builder()
               .namespace(namespace)
               .userId(userId)
               .build();
-      wrapper.deleteUser(operation);
+      wrapper.deleteUser(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

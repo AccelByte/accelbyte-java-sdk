@@ -59,13 +59,13 @@ public class AdminCreateModAction implements Callable<Integer> {
           new AdminExtensionCategoriesAndAutoModerationActions(sdk);
       final net.accelbyte.sdk.api.reporting.operations
               .admin_extension_categories_and_auto_moderation_actions.AdminCreateModAction
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.reporting.operations
                   .admin_extension_categories_and_auto_moderation_actions.AdminCreateModAction
                   .builder()
                   .body(new ObjectMapper().readValue(body, RestapiActionApiRequest.class))
                   .build();
-      final RestapiActionApiResponse response = wrapper.adminCreateModAction(operation);
+      final RestapiActionApiResponse response = wrapper.adminCreateModAction(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -66,13 +66,13 @@ public class RejectBackfill implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Backfill wrapper = new Backfill(sdk);
-      final net.accelbyte.sdk.api.match2.operations.backfill.RejectBackfill operation =
+      final net.accelbyte.sdk.api.match2.operations.backfill.RejectBackfill operationRequest =
           net.accelbyte.sdk.api.match2.operations.backfill.RejectBackfill.builder()
               .backfillID(backfillID)
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ApiBackFillRejectRequest.class))
               .build();
-      wrapper.rejectBackfill(operation);
+      wrapper.rejectBackfill(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

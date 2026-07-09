@@ -83,7 +83,7 @@ public class RetrieveAllUsersByPolicyVersion implements Callable<Integer> {
       final AgreementWithNamespace wrapper = new AgreementWithNamespace(sdk);
       final net.accelbyte.sdk.api.legal.operations.agreement_with_namespace
               .RetrieveAllUsersByPolicyVersion
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.agreement_with_namespace
                   .RetrieveAllUsersByPolicyVersion.builder()
                   .namespace(namespace)
@@ -94,7 +94,7 @@ public class RetrieveAllUsersByPolicyVersion implements Callable<Integer> {
                   .policyVersionId(policyVersionId)
                   .build();
       final PagedRetrieveUserAcceptedAgreementResponse response =
-          wrapper.retrieveAllUsersByPolicyVersion(operation);
+          wrapper.retrieveAllUsersByPolicyVersion(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

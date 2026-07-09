@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateNoSQLDatabaseV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:NOSQL:DATABASES [CREATE]`
- *
  * <p>Creates a NoSQL database along with its credentials associated with given extend app. The
  * database will be created in the provisioned NoSQL cluster.
  *

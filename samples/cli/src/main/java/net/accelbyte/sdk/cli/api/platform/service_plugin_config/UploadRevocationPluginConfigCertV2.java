@@ -64,14 +64,14 @@ public class UploadRevocationPluginConfigCertV2 implements Callable<Integer> {
       final ServicePluginConfig wrapper = new ServicePluginConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.service_plugin_config
               .UploadRevocationPluginConfigCertV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.service_plugin_config
                   .UploadRevocationPluginConfigCertV2.builder()
                   .namespace(namespace)
                   .file(file != null ? file : null)
                   .build();
       final RevocationPluginConfigInfo response =
-          wrapper.uploadRevocationPluginConfigCertV2(operation);
+          wrapper.uploadRevocationPluginConfigCertV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

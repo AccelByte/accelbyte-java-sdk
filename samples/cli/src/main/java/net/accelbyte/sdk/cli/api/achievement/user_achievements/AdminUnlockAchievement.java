@@ -66,14 +66,14 @@ public class AdminUnlockAchievement implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserAchievements wrapper = new UserAchievements(sdk);
       final net.accelbyte.sdk.api.achievement.operations.user_achievements.AdminUnlockAchievement
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.achievement.operations.user_achievements.AdminUnlockAchievement
                   .builder()
                   .achievementCode(achievementCode)
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      wrapper.adminUnlockAchievement(operation);
+      wrapper.adminUnlockAchievement(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

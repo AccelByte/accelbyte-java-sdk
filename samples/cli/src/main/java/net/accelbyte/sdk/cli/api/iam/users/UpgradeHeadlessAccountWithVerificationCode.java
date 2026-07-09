@@ -68,7 +68,7 @@ public class UpgradeHeadlessAccountWithVerificationCode implements Callable<Inte
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
       final net.accelbyte.sdk.api.iam.operations.users.UpgradeHeadlessAccountWithVerificationCode
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.users.UpgradeHeadlessAccountWithVerificationCode
                   .builder()
                   .namespace(namespace)
@@ -79,7 +79,7 @@ public class UpgradeHeadlessAccountWithVerificationCode implements Callable<Inte
                               body, ModelUpgradeHeadlessAccountWithVerificationCodeRequest.class))
                   .build();
       final ModelUserResponse response =
-          wrapper.upgradeHeadlessAccountWithVerificationCode(operation);
+          wrapper.upgradeHeadlessAccountWithVerificationCode(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -65,13 +65,13 @@ public class DeletePass implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Pass wrapper = new Pass(sdk);
-      final net.accelbyte.sdk.api.seasonpass.operations.pass.DeletePass operation =
+      final net.accelbyte.sdk.api.seasonpass.operations.pass.DeletePass operationRequest =
           net.accelbyte.sdk.api.seasonpass.operations.pass.DeletePass.builder()
               .code(code)
               .namespace(namespace)
               .seasonId(seasonId)
               .build();
-      wrapper.deletePass(operation);
+      wrapper.deletePass(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

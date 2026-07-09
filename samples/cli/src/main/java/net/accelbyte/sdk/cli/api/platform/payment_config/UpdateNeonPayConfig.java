@@ -71,14 +71,15 @@ public class UpdateNeonPayConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PaymentConfig wrapper = new PaymentConfig(sdk);
-      final net.accelbyte.sdk.api.platform.operations.payment_config.UpdateNeonPayConfig operation =
-          net.accelbyte.sdk.api.platform.operations.payment_config.UpdateNeonPayConfig.builder()
-              .id(id)
-              .sandbox(sandbox)
-              .validate(validate)
-              .body(new ObjectMapper().readValue(body, NeonPayConfig.class))
-              .build();
-      final PaymentMerchantConfigInfo response = wrapper.updateNeonPayConfig(operation);
+      final net.accelbyte.sdk.api.platform.operations.payment_config.UpdateNeonPayConfig
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.payment_config.UpdateNeonPayConfig.builder()
+                  .id(id)
+                  .sandbox(sandbox)
+                  .validate(validate)
+                  .body(new ObjectMapper().readValue(body, NeonPayConfig.class))
+                  .build();
+      final PaymentMerchantConfigInfo response = wrapper.updateNeonPayConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

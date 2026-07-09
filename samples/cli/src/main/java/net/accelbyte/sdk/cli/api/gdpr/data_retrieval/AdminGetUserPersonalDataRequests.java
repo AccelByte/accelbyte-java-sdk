@@ -72,7 +72,7 @@ public class AdminGetUserPersonalDataRequests implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final DataRetrieval wrapper = new DataRetrieval(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.data_retrieval.AdminGetUserPersonalDataRequests
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.data_retrieval.AdminGetUserPersonalDataRequests
                   .builder()
                   .namespace(namespace)
@@ -81,7 +81,7 @@ public class AdminGetUserPersonalDataRequests implements Callable<Integer> {
                   .offset(offset)
                   .build();
       final ModelsUserPersonalDataResponse response =
-          wrapper.adminGetUserPersonalDataRequests(operation);
+          wrapper.adminGetUserPersonalDataRequests(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

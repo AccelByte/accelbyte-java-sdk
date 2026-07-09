@@ -62,13 +62,13 @@ public class PublicGetCustomAttributesInfo implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserProfile wrapper = new UserProfile(sdk);
       final net.accelbyte.sdk.api.basic.operations.user_profile.PublicGetCustomAttributesInfo
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.basic.operations.user_profile.PublicGetCustomAttributesInfo
                   .builder()
                   .namespace(namespace)
                   .userId(userId)
                   .build();
-      final Map<String, ?> response = wrapper.publicGetCustomAttributesInfo(operation);
+      final Map<String, ?> response = wrapper.publicGetCustomAttributesInfo(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

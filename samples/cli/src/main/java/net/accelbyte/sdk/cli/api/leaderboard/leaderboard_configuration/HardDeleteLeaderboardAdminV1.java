@@ -62,13 +62,13 @@ public class HardDeleteLeaderboardAdminV1 implements Callable<Integer> {
       final LeaderboardConfiguration wrapper = new LeaderboardConfiguration(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration
               .HardDeleteLeaderboardAdminV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration
                   .HardDeleteLeaderboardAdminV1.builder()
                   .leaderboardCode(leaderboardCode)
                   .namespace(namespace)
                   .build();
-      wrapper.hardDeleteLeaderboardAdminV1(operation);
+      wrapper.hardDeleteLeaderboardAdminV1(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -60,12 +60,12 @@ public class AdminDeleteTag implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminTag wrapper = new AdminTag(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.admin_tag.AdminDeleteTag operation =
+      final net.accelbyte.sdk.api.ugc.operations.admin_tag.AdminDeleteTag operationRequest =
           net.accelbyte.sdk.api.ugc.operations.admin_tag.AdminDeleteTag.builder()
               .namespace(namespace)
               .tagId(tagId)
               .build();
-      wrapper.adminDeleteTag(operation);
+      wrapper.adminDeleteTag(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

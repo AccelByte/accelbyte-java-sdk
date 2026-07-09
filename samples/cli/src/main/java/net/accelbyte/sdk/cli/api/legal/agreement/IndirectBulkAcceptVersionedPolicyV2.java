@@ -78,7 +78,7 @@ public class IndirectBulkAcceptVersionedPolicyV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Agreement wrapper = new Agreement(sdk);
       final net.accelbyte.sdk.api.legal.operations.agreement.IndirectBulkAcceptVersionedPolicyV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.agreement.IndirectBulkAcceptVersionedPolicyV2
                   .builder()
                   .clientId(clientId)
@@ -90,7 +90,7 @@ public class IndirectBulkAcceptVersionedPolicyV2 implements Callable<Integer> {
                           .readValue(body, new TypeReference<List<AcceptAgreementRequest>>() {}))
                   .build();
       final AcceptAgreementResponse response =
-          wrapper.indirectBulkAcceptVersionedPolicyV2(operation);
+          wrapper.indirectBulkAcceptVersionedPolicyV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

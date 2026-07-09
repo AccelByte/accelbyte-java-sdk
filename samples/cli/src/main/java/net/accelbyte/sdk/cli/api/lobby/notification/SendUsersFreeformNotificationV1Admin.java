@@ -63,14 +63,14 @@ public class SendUsersFreeformNotificationV1Admin implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Notification wrapper = new Notification(sdk);
       final net.accelbyte.sdk.api.lobby.operations.notification.SendUsersFreeformNotificationV1Admin
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.notification
                   .SendUsersFreeformNotificationV1Admin.builder()
                   .namespace(namespace)
                   .body(
                       new ObjectMapper().readValue(body, ModelFreeFormNotificationRequestV1.class))
                   .build();
-      wrapper.sendUsersFreeformNotificationV1Admin(operation);
+      wrapper.sendUsersFreeformNotificationV1Admin(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

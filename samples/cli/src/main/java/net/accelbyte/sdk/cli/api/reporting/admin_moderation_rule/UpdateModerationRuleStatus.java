@@ -68,7 +68,7 @@ public class UpdateModerationRuleStatus implements Callable<Integer> {
       final AdminModerationRule wrapper = new AdminModerationRule(sdk);
       final net.accelbyte.sdk.api.reporting.operations.admin_moderation_rule
               .UpdateModerationRuleStatus
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.reporting.operations.admin_moderation_rule
                   .UpdateModerationRuleStatus.builder()
                   .namespace(namespace)
@@ -76,7 +76,7 @@ public class UpdateModerationRuleStatus implements Callable<Integer> {
                   .body(
                       new ObjectMapper().readValue(body, RestapiModerationRuleActiveRequest.class))
                   .build();
-      wrapper.updateModerationRuleStatus(operation);
+      wrapper.updateModerationRuleStatus(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -60,12 +60,12 @@ public class DeleteDeploymentV1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Deployment wrapper = new Deployment(sdk);
-      final net.accelbyte.sdk.api.csm.operations.deployment.DeleteDeploymentV1 operation =
+      final net.accelbyte.sdk.api.csm.operations.deployment.DeleteDeploymentV1 operationRequest =
           net.accelbyte.sdk.api.csm.operations.deployment.DeleteDeploymentV1.builder()
               .deploymentId(deploymentId)
               .namespace(namespace)
               .build();
-      wrapper.deleteDeploymentV1(operation);
+      wrapper.deleteDeploymentV1(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * CreateTopicHandler
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:ASYNCMESSAGING:TOPICS [CREATE]`
- *
  * <p>Create New Async Messaging Topic, the topic name is unique inside a game namespace.
  */
 @Getter

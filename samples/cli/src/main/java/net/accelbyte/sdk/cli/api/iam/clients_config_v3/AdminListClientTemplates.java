@@ -52,11 +52,12 @@ public class AdminListClientTemplates implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ClientsConfigV3 wrapper = new ClientsConfigV3(sdk);
       final net.accelbyte.sdk.api.iam.operations.clients_config_v3.AdminListClientTemplates
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.clients_config_v3.AdminListClientTemplates
                   .builder()
                   .build();
-      final ClientmodelListTemplatesResponse response = wrapper.adminListClientTemplates(operation);
+      final ClientmodelListTemplatesResponse response =
+          wrapper.adminListClientTemplates(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

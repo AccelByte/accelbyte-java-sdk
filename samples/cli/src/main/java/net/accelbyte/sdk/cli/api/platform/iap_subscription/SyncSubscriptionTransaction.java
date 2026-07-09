@@ -67,7 +67,7 @@ public class SyncSubscriptionTransaction implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAPSubscription wrapper = new IAPSubscription(sdk);
       final net.accelbyte.sdk.api.platform.operations.iap_subscription.SyncSubscriptionTransaction
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.iap_subscription.SyncSubscriptionTransaction
                   .builder()
                   .id(id)
@@ -75,7 +75,7 @@ public class SyncSubscriptionTransaction implements Callable<Integer> {
                   .userId(userId)
                   .build();
       final ThirdPartySubscriptionTransactionInfo response =
-          wrapper.syncSubscriptionTransaction(operation);
+          wrapper.syncSubscriptionTransaction(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

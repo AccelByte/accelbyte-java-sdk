@@ -21,8 +21,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * UpdateSQLClusterV2
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:SQL:CLUSTERS [UPDATE]`
- *
  * <p>Update SQL cluster configurations such as min/max ACU (AuroraDB Capacity Units) for the SQL
  * cluster in the given studio/publisher namespace. The cluster must be in an available state to
  * allow configuration updates.

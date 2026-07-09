@@ -62,13 +62,14 @@ public class DeleteKeyValueClusterV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ManagedResourcesKeyValue wrapper = new ManagedResourcesKeyValue(sdk);
       final net.accelbyte.sdk.api.csm.operations.managed_resources_key_value.DeleteKeyValueClusterV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.csm.operations.managed_resources_key_value
                   .DeleteKeyValueClusterV2.builder()
                   .namespace(namespace)
                   .resourceId(resourceId)
                   .build();
-      final ApimodelKeyValueResourceResponse response = wrapper.deleteKeyValueClusterV2(operation);
+      final ApimodelKeyValueResourceResponse response =
+          wrapper.deleteKeyValueClusterV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

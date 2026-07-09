@@ -71,14 +71,14 @@ public class ListAppUI implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AppUI wrapper = new AppUI(sdk);
-      final net.accelbyte.sdk.api.csm.operations.app_ui.ListAppUI operation =
+      final net.accelbyte.sdk.api.csm.operations.app_ui.ListAppUI operationRequest =
           net.accelbyte.sdk.api.csm.operations.app_ui.ListAppUI.builder()
               .namespace(namespace)
               .limit(limit)
               .name(name)
               .offset(offset)
               .build();
-      final ApimodelListAppUIResponse response = wrapper.listAppUI(operation);
+      final ApimodelListAppUIResponse response = wrapper.listAppUI(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -61,12 +61,12 @@ public class GetGameNamespaces implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Namespace wrapper = new Namespace(sdk);
-      final net.accelbyte.sdk.api.basic.operations.namespace.GetGameNamespaces operation =
+      final net.accelbyte.sdk.api.basic.operations.namespace.GetGameNamespaces operationRequest =
           net.accelbyte.sdk.api.basic.operations.namespace.GetGameNamespaces.builder()
               .namespace(namespace)
               .activeOnly(activeOnly)
               .build();
-      final List<NamespaceInfo> response = wrapper.getGameNamespaces(operation);
+      final List<NamespaceInfo> response = wrapper.getGameNamespaces(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

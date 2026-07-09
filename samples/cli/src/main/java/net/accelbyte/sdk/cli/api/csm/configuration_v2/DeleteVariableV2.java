@@ -65,13 +65,14 @@ public class DeleteVariableV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ConfigurationV2 wrapper = new ConfigurationV2(sdk);
-      final net.accelbyte.sdk.api.csm.operations.configuration_v2.DeleteVariableV2 operation =
-          net.accelbyte.sdk.api.csm.operations.configuration_v2.DeleteVariableV2.builder()
-              .app(app)
-              .configId(configId)
-              .namespace(namespace)
-              .build();
-      wrapper.deleteVariableV2(operation);
+      final net.accelbyte.sdk.api.csm.operations.configuration_v2.DeleteVariableV2
+          operationRequest =
+              net.accelbyte.sdk.api.csm.operations.configuration_v2.DeleteVariableV2.builder()
+                  .app(app)
+                  .configId(configId)
+                  .namespace(namespace)
+                  .build();
+      wrapper.deleteVariableV2(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

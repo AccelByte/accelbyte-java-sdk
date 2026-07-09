@@ -61,12 +61,13 @@ public class TestPayPalConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PaymentConfig wrapper = new PaymentConfig(sdk);
-      final net.accelbyte.sdk.api.platform.operations.payment_config.TestPayPalConfig operation =
-          net.accelbyte.sdk.api.platform.operations.payment_config.TestPayPalConfig.builder()
-              .sandbox(sandbox)
-              .body(new ObjectMapper().readValue(body, PayPalConfig.class))
-              .build();
-      final TestResult response = wrapper.testPayPalConfig(operation);
+      final net.accelbyte.sdk.api.platform.operations.payment_config.TestPayPalConfig
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.payment_config.TestPayPalConfig.builder()
+                  .sandbox(sandbox)
+                  .body(new ObjectMapper().readValue(body, PayPalConfig.class))
+                  .build();
+      final TestResult response = wrapper.testPayPalConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -63,14 +63,14 @@ public class RetrieveActiveOIDCClientsPublicV3 implements Callable<Integer> {
       final ThirdPartyCredential wrapper = new ThirdPartyCredential(sdk);
       final net.accelbyte.sdk.api.iam.operations.third_party_credential
               .RetrieveActiveOIDCClientsPublicV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.third_party_credential
                   .RetrieveActiveOIDCClientsPublicV3.builder()
                   .namespace(namespace)
                   .clientId(clientId)
                   .build();
       final List<ModelPublicThirdPartyPlatformInfo> response =
-          wrapper.retrieveActiveOIDCClientsPublicV3(operation);
+          wrapper.retrieveActiveOIDCClientsPublicV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

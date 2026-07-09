@@ -69,7 +69,7 @@ public class S2SGetListFinishedAccountDeletionRequest implements Callable<Intege
       final DataDeletionS2S wrapper = new DataDeletionS2S(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.data_deletion_s2s
               .S2SGetListFinishedAccountDeletionRequest
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.data_deletion_s2s
                   .S2SGetListFinishedAccountDeletionRequest.builder()
                   .namespace(namespace)
@@ -77,7 +77,7 @@ public class S2SGetListFinishedAccountDeletionRequest implements Callable<Intege
                   .start(start)
                   .build();
       final DtoListFinishedDataDeletion response =
-          wrapper.s2sGetListFinishedAccountDeletionRequest(operation);
+          wrapper.s2sGetListFinishedAccountDeletionRequest(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

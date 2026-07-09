@@ -67,14 +67,14 @@ public class UpdateStatCycle implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final StatCycleConfiguration wrapper = new StatCycleConfiguration(sdk);
       final net.accelbyte.sdk.api.social.operations.stat_cycle_configuration.UpdateStatCycle
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.social.operations.stat_cycle_configuration.UpdateStatCycle
                   .builder()
                   .cycleId(cycleId)
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, StatCycleUpdate.class))
                   .build();
-      final StatCycleInfo response = wrapper.updateStatCycle(operation);
+      final StatCycleInfo response = wrapper.updateStatCycle(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

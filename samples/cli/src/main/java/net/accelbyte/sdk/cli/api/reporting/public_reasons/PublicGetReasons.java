@@ -76,15 +76,16 @@ public class PublicGetReasons implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicReasons wrapper = new PublicReasons(sdk);
-      final net.accelbyte.sdk.api.reporting.operations.public_reasons.PublicGetReasons operation =
-          net.accelbyte.sdk.api.reporting.operations.public_reasons.PublicGetReasons.builder()
-              .namespace(namespace)
-              .group(group)
-              .limit(limit)
-              .offset(offset)
-              .title(title)
-              .build();
-      final RestapiPublicReasonListResponse response = wrapper.publicGetReasons(operation);
+      final net.accelbyte.sdk.api.reporting.operations.public_reasons.PublicGetReasons
+          operationRequest =
+              net.accelbyte.sdk.api.reporting.operations.public_reasons.PublicGetReasons.builder()
+                  .namespace(namespace)
+                  .group(group)
+                  .limit(limit)
+                  .offset(offset)
+                  .title(title)
+                  .build();
+      final RestapiPublicReasonListResponse response = wrapper.publicGetReasons(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -58,7 +58,7 @@ public class AdminUpdateGlobalConfiguration implements Callable<Integer> {
       final GlobalConfiguration wrapper = new GlobalConfiguration(sdk);
       final net.accelbyte.sdk.api.session.operations.global_configuration
               .AdminUpdateGlobalConfiguration
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.global_configuration
                   .AdminUpdateGlobalConfiguration.builder()
                   .body(
@@ -66,7 +66,7 @@ public class AdminUpdateGlobalConfiguration implements Callable<Integer> {
                           .readValue(body, ApimodelsPutGlobalConfigurationRequest.class))
                   .build();
       final ApimodelsGlobalConfigurationResponse response =
-          wrapper.adminUpdateGlobalConfiguration(operation);
+          wrapper.adminUpdateGlobalConfiguration(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

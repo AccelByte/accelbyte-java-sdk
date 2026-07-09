@@ -67,7 +67,7 @@ public class UpdateTicketResolutions implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminTickets wrapper = new AdminTickets(sdk);
       final net.accelbyte.sdk.api.reporting.operations.admin_tickets.UpdateTicketResolutions
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.reporting.operations.admin_tickets.UpdateTicketResolutions
                   .builder()
                   .namespace(namespace)
@@ -76,7 +76,7 @@ public class UpdateTicketResolutions implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, RestapiUpdateTicketResolutionsRequest.class))
                   .build();
-      final RestapiTicketResponse response = wrapper.updateTicketResolutions(operation);
+      final RestapiTicketResponse response = wrapper.updateTicketResolutions(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

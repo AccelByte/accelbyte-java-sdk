@@ -61,12 +61,12 @@ public class GetUserSlotConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final SlotConfig wrapper = new SlotConfig(sdk);
-      final net.accelbyte.sdk.api.social.operations.slot_config.GetUserSlotConfig operation =
+      final net.accelbyte.sdk.api.social.operations.slot_config.GetUserSlotConfig operationRequest =
           net.accelbyte.sdk.api.social.operations.slot_config.GetUserSlotConfig.builder()
               .namespace(namespace)
               .userId(userId)
               .build();
-      final UserSlotConfigInfo response = wrapper.getUserSlotConfig(operation);
+      final UserSlotConfigInfo response = wrapper.getUserSlotConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -66,13 +66,13 @@ public class RedeemCode implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Fulfillment wrapper = new Fulfillment(sdk);
-      final net.accelbyte.sdk.api.platform.operations.fulfillment.RedeemCode operation =
+      final net.accelbyte.sdk.api.platform.operations.fulfillment.RedeemCode operationRequest =
           net.accelbyte.sdk.api.platform.operations.fulfillment.RedeemCode.builder()
               .namespace(namespace)
               .userId(userId)
               .body(new ObjectMapper().readValue(body, FulfillCodeRequest.class))
               .build();
-      final FulfillmentResult response = wrapper.redeemCode(operation);
+      final FulfillmentResult response = wrapper.redeemCode(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

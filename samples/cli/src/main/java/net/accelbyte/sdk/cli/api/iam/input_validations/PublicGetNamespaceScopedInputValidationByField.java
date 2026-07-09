@@ -65,14 +65,14 @@ public class PublicGetNamespaceScopedInputValidationByField implements Callable<
       final InputValidations wrapper = new InputValidations(sdk);
       final net.accelbyte.sdk.api.iam.operations.input_validations
               .PublicGetNamespaceScopedInputValidationByField
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.input_validations
                   .PublicGetNamespaceScopedInputValidationByField.builder()
                   .field(field)
                   .namespace(namespace)
                   .build();
       final ModelInputValidationConfigVersion response =
-          wrapper.publicGetNamespaceScopedInputValidationByField(operation);
+          wrapper.publicGetNamespaceScopedInputValidationByField(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -51,9 +51,9 @@ public class AdminGetLogConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Config wrapper = new Config(sdk);
-      final net.accelbyte.sdk.api.session.operations.config.AdminGetLogConfig operation =
+      final net.accelbyte.sdk.api.session.operations.config.AdminGetLogConfig operationRequest =
           net.accelbyte.sdk.api.session.operations.config.AdminGetLogConfig.builder().build();
-      final LogconfigConfiguration response = wrapper.adminGetLogConfig(operation);
+      final LogconfigConfiguration response = wrapper.adminGetLogConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

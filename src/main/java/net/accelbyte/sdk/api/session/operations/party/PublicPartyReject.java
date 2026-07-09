@@ -20,7 +20,8 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * publicPartyReject
  *
- * <p>Reject a party invitation.
+ * <p>Rejects a pending party invitation. The caller must have INVITED status. Once rejected, the
+ * caller must be re-invited to rejoin.
  */
 @Getter
 @Setter

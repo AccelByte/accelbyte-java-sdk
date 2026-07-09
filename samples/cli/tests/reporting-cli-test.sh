@@ -202,7 +202,7 @@ eval_tap $? 21 'AdminSubmitReport' test.out
 #- 22 CreateModerationRule
 ./ng net.accelbyte.sdk.cli.Main reporting createModerationRule \
     --namespace "$AB_NAMESPACE" \
-    --body '{"action": "HideContent", "actions": {"banAccount": {"comment": "6BXksUC9b6i5lZC9", "duration": 47, "reason": "Qgb3boLQQ1MzH7Qm", "skipNotif": false, "type": "Bdte9NDUPVJf6c2Z"}, "deleteChat": false, "extensionActionIds": ["QZxfgPubTDIHrvqA", "ThuwjRHpKKTlmVr9", "XuoJbRFQSKVPHbn4"], "hideContent": false}, "active": true, "category": "UGC", "extensionCategory": "QUhAEtrmjqU6YE3p", "reason": "4lSck0ZHn5GI39YB", "threshold": 69}' \
+    --body '{"action": "HideContent", "actions": {"autoResolve": true, "banAccount": {"comment": "BXksUC9b6i5lZC9x", "duration": 44, "reason": "gb3boLQQ1MzH7Qm8", "skipNotif": false, "type": "Bdte9NDUPVJf6c2Z"}, "deleteChat": false, "extensionActionIds": ["QZxfgPubTDIHrvqA", "ThuwjRHpKKTlmVr9", "XuoJbRFQSKVPHbn4"], "hideContent": false}, "active": true, "category": "UGC", "extensionCategory": "QUhAEtrmjqU6YE3p", "reason": "4lSck0ZHn5GI39YB", "threshold": 69}' \
     > test.out 2>&1
 eval_tap $? 22 'CreateModerationRule' test.out
 
@@ -210,7 +210,7 @@ eval_tap $? 22 'CreateModerationRule' test.out
 ./ng net.accelbyte.sdk.cli.Main reporting updateModerationRule \
     --namespace "$AB_NAMESPACE" \
     --ruleId '91GXlvPG6bFYReVH' \
-    --body '{"action": "HideContent", "actions": {"banAccount": {"comment": "d9sogWa24CKNS0Gq", "duration": 97, "reason": "GGSyEW4ZJJ42d3PB", "skipNotif": false, "type": "go5QB65lSAiYnNjk"}, "deleteChat": false, "extensionActionIds": ["qMrj3oZk03QXcKMD", "YDDxHSZjtqXyJ58f", "7Gc26SaiGVkydwYW"], "hideContent": true}, "active": false, "category": "UGC", "extensionCategory": "6yUZNmTBcvrbYCwZ", "reason": "txFHyPLtI8ilbyDP", "threshold": 95}' \
+    --body '{"action": "HideContent", "actions": {"autoResolve": false, "banAccount": {"comment": "pcCx9Zw5D2L7vIYh", "duration": 68, "reason": "vUfHQvsHXNUNe4mh", "skipNotif": false, "type": "dN8S48l9lyNApflx"}, "deleteChat": true, "extensionActionIds": ["ZrQvGgbLdLsFzHkB", "Mr1yrOMlNFSrUEir", "njX9fDmIbeZxzfTc"], "hideContent": true}, "active": false, "category": "UGC", "extensionCategory": "6yUZNmTBcvrbYCwZ", "reason": "txFHyPLtI8ilbyDP", "threshold": 95}' \
     > test.out 2>&1
 eval_tap $? 23 'UpdateModerationRule' test.out
 

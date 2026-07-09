@@ -62,13 +62,14 @@ public class AdminGetRoleSourceV3 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OverrideRoleConfigV3 wrapper = new OverrideRoleConfigV3(sdk);
       final net.accelbyte.sdk.api.iam.operations.override_role_config_v3.AdminGetRoleSourceV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.override_role_config_v3.AdminGetRoleSourceV3
                   .builder()
                   .namespace(namespace)
                   .identity(identity)
                   .build();
-      final ModelRoleOverrideSourceResponse response = wrapper.adminGetRoleSourceV3(operation);
+      final ModelRoleOverrideSourceResponse response =
+          wrapper.adminGetRoleSourceV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

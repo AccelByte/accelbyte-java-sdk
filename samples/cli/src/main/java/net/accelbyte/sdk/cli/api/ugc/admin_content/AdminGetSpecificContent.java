@@ -61,12 +61,14 @@ public class AdminGetSpecificContent implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminContent wrapper = new AdminContent(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.admin_content.AdminGetSpecificContent operation =
-          net.accelbyte.sdk.api.ugc.operations.admin_content.AdminGetSpecificContent.builder()
-              .contentId(contentId)
-              .namespace(namespace)
-              .build();
-      final ModelsContentDownloadResponse response = wrapper.adminGetSpecificContent(operation);
+      final net.accelbyte.sdk.api.ugc.operations.admin_content.AdminGetSpecificContent
+          operationRequest =
+              net.accelbyte.sdk.api.ugc.operations.admin_content.AdminGetSpecificContent.builder()
+                  .contentId(contentId)
+                  .namespace(namespace)
+                  .build();
+      final ModelsContentDownloadResponse response =
+          wrapper.adminGetSpecificContent(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

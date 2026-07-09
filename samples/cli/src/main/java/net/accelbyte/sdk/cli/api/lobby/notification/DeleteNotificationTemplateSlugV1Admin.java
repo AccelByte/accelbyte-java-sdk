@@ -63,13 +63,13 @@ public class DeleteNotificationTemplateSlugV1Admin implements Callable<Integer> 
       final Notification wrapper = new Notification(sdk);
       final net.accelbyte.sdk.api.lobby.operations.notification
               .DeleteNotificationTemplateSlugV1Admin
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.lobby.operations.notification
                   .DeleteNotificationTemplateSlugV1Admin.builder()
                   .namespace(namespace)
                   .templateSlug(templateSlug)
                   .build();
-      wrapper.deleteNotificationTemplateSlugV1Admin(operation);
+      wrapper.deleteNotificationTemplateSlugV1Admin(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -56,11 +56,12 @@ public class AdminGetThirdPartyConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ThirdParty wrapper = new ThirdParty(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.third_party.AdminGetThirdPartyConfig operation =
-          net.accelbyte.sdk.api.lobby.operations.third_party.AdminGetThirdPartyConfig.builder()
-              .namespace(namespace)
-              .build();
-      final ModelsGetConfigResponse response = wrapper.adminGetThirdPartyConfig(operation);
+      final net.accelbyte.sdk.api.lobby.operations.third_party.AdminGetThirdPartyConfig
+          operationRequest =
+              net.accelbyte.sdk.api.lobby.operations.third_party.AdminGetThirdPartyConfig.builder()
+                  .namespace(namespace)
+                  .build();
+      final ModelsGetConfigResponse response = wrapper.adminGetThirdPartyConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

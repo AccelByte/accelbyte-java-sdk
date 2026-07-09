@@ -72,7 +72,7 @@ public class AdminGetListPersonalDataRequest implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final DataRetrieval wrapper = new DataRetrieval(sdk);
       final net.accelbyte.sdk.api.gdpr.operations.data_retrieval.AdminGetListPersonalDataRequest
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.gdpr.operations.data_retrieval.AdminGetListPersonalDataRequest
                   .builder()
                   .namespace(namespace)
@@ -81,7 +81,7 @@ public class AdminGetListPersonalDataRequest implements Callable<Integer> {
                   .requestDate(requestDate)
                   .build();
       final ModelsListPersonalDataResponse response =
-          wrapper.adminGetListPersonalDataRequest(operation);
+          wrapper.adminGetListPersonalDataRequest(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

@@ -56,11 +56,11 @@ public class InfoRegions implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AMSInfo wrapper = new AMSInfo(sdk);
-      final net.accelbyte.sdk.api.ams.operations.ams_info.InfoRegions operation =
+      final net.accelbyte.sdk.api.ams.operations.ams_info.InfoRegions operationRequest =
           net.accelbyte.sdk.api.ams.operations.ams_info.InfoRegions.builder()
               .namespace(namespace)
               .build();
-      final ApiAMSRegionsResponse response = wrapper.infoRegions(operation);
+      final ApiAMSRegionsResponse response = wrapper.infoRegions(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

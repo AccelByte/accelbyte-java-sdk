@@ -66,13 +66,14 @@ public class PublicGetChatSnapshot implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Moderation wrapper = new Moderation(sdk);
-      final net.accelbyte.sdk.api.chat.operations.moderation.PublicGetChatSnapshot operation =
-          net.accelbyte.sdk.api.chat.operations.moderation.PublicGetChatSnapshot.builder()
-              .chatId(chatId)
-              .namespace(namespace)
-              .topic(topic)
-              .build();
-      final ModelsChatSnapshots response = wrapper.publicGetChatSnapshot(operation);
+      final net.accelbyte.sdk.api.chat.operations.moderation.PublicGetChatSnapshot
+          operationRequest =
+              net.accelbyte.sdk.api.chat.operations.moderation.PublicGetChatSnapshot.builder()
+                  .chatId(chatId)
+                  .namespace(namespace)
+                  .topic(topic)
+                  .build();
+      final ModelsChatSnapshots response = wrapper.publicGetChatSnapshot(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

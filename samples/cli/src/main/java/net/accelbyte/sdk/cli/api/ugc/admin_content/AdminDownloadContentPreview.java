@@ -62,14 +62,14 @@ public class AdminDownloadContentPreview implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminContent wrapper = new AdminContent(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_content.AdminDownloadContentPreview
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.admin_content.AdminDownloadContentPreview
                   .builder()
                   .contentId(contentId)
                   .namespace(namespace)
                   .build();
       final ModelsGetContentPreviewResponse response =
-          wrapper.adminDownloadContentPreview(operation);
+          wrapper.adminDownloadContentPreview(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

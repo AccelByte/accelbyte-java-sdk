@@ -61,12 +61,14 @@ public class PublicGetRecentPlayer implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final RecentPlayer wrapper = new RecentPlayer(sdk);
-      final net.accelbyte.sdk.api.session.operations.recent_player.PublicGetRecentPlayer operation =
-          net.accelbyte.sdk.api.session.operations.recent_player.PublicGetRecentPlayer.builder()
-              .namespace(namespace)
-              .limit(limit)
-              .build();
-      final ModelsRecentPlayerQueryResponse response = wrapper.publicGetRecentPlayer(operation);
+      final net.accelbyte.sdk.api.session.operations.recent_player.PublicGetRecentPlayer
+          operationRequest =
+              net.accelbyte.sdk.api.session.operations.recent_player.PublicGetRecentPlayer.builder()
+                  .namespace(namespace)
+                  .limit(limit)
+                  .build();
+      final ModelsRecentPlayerQueryResponse response =
+          wrapper.publicGetRecentPlayer(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

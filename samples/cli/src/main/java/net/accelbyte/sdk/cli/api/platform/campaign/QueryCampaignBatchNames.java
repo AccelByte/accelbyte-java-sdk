@@ -71,14 +71,16 @@ public class QueryCampaignBatchNames implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Campaign wrapper = new Campaign(sdk);
-      final net.accelbyte.sdk.api.platform.operations.campaign.QueryCampaignBatchNames operation =
-          net.accelbyte.sdk.api.platform.operations.campaign.QueryCampaignBatchNames.builder()
-              .campaignId(campaignId)
-              .namespace(namespace)
-              .batchName(batchName)
-              .limit(limit)
-              .build();
-      final List<CampaignBatchNameInfo> response = wrapper.queryCampaignBatchNames(operation);
+      final net.accelbyte.sdk.api.platform.operations.campaign.QueryCampaignBatchNames
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.campaign.QueryCampaignBatchNames.builder()
+                  .campaignId(campaignId)
+                  .namespace(namespace)
+                  .batchName(batchName)
+                  .limit(limit)
+                  .build();
+      final List<CampaignBatchNameInfo> response =
+          wrapper.queryCampaignBatchNames(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

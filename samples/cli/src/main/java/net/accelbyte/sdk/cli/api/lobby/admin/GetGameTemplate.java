@@ -56,11 +56,11 @@ public class GetGameTemplate implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Admin wrapper = new Admin(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.admin.GetGameTemplate operation =
+      final net.accelbyte.sdk.api.lobby.operations.admin.GetGameTemplate operationRequest =
           net.accelbyte.sdk.api.lobby.operations.admin.GetGameTemplate.builder()
               .namespace(namespace)
               .build();
-      final List<ModelTemplateResponse> response = wrapper.getGameTemplate(operation);
+      final List<ModelTemplateResponse> response = wrapper.getGameTemplate(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

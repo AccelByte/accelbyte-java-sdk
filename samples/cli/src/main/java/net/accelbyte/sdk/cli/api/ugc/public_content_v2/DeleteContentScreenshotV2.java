@@ -71,7 +71,7 @@ public class DeleteContentScreenshotV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicContentV2 wrapper = new PublicContentV2(sdk);
       final net.accelbyte.sdk.api.ugc.operations.public_content_v2.DeleteContentScreenshotV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.public_content_v2.DeleteContentScreenshotV2
                   .builder()
                   .contentId(contentId)
@@ -79,7 +79,7 @@ public class DeleteContentScreenshotV2 implements Callable<Integer> {
                   .screenshotId(screenshotId)
                   .userId(userId)
                   .build();
-      wrapper.deleteContentScreenshotV2(operation);
+      wrapper.deleteContentScreenshotV2(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

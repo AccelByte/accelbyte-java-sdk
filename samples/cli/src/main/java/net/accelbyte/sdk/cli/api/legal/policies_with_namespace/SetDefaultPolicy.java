@@ -61,13 +61,13 @@ public class SetDefaultPolicy implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PoliciesWithNamespace wrapper = new PoliciesWithNamespace(sdk);
       final net.accelbyte.sdk.api.legal.operations.policies_with_namespace.SetDefaultPolicy
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.policies_with_namespace.SetDefaultPolicy
                   .builder()
                   .namespace(namespace)
                   .policyId(policyId)
                   .build();
-      wrapper.setDefaultPolicy(operation);
+      wrapper.setDefaultPolicy(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

@@ -63,7 +63,7 @@ public class AdminCreateIntegrationConfiguration implements Callable<Integer> {
       final AdminIntegrationConfigurations wrapper = new AdminIntegrationConfigurations(sdk);
       final net.accelbyte.sdk.api.inventory.operations.admin_integration_configurations
               .AdminCreateIntegrationConfiguration
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.inventory.operations.admin_integration_configurations
                   .AdminCreateIntegrationConfiguration.builder()
                   .namespace(namespace)
@@ -72,7 +72,7 @@ public class AdminCreateIntegrationConfiguration implements Callable<Integer> {
                           .readValue(body, ApimodelsCreateIntegrationConfigurationReq.class))
                   .build();
       final ApimodelsIntegrationConfigurationResp response =
-          wrapper.adminCreateIntegrationConfiguration(operation);
+          wrapper.adminCreateIntegrationConfiguration(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

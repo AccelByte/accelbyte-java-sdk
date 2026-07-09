@@ -65,14 +65,14 @@ public class RetrieveSingleLocalizedPolicyVersion implements Callable<Integer> {
           new LocalizedPolicyVersionsWithNamespace(sdk);
       final net.accelbyte.sdk.api.legal.operations.localized_policy_versions_with_namespace
               .RetrieveSingleLocalizedPolicyVersion
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.localized_policy_versions_with_namespace
                   .RetrieveSingleLocalizedPolicyVersion.builder()
                   .localizedPolicyVersionId(localizedPolicyVersionId)
                   .namespace(namespace)
                   .build();
       final RetrieveLocalizedPolicyVersionResponse response =
-          wrapper.retrieveSingleLocalizedPolicyVersion(operation);
+          wrapper.retrieveSingleLocalizedPolicyVersion(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

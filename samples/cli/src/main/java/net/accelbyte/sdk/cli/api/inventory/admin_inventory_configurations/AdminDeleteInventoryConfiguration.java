@@ -62,13 +62,13 @@ public class AdminDeleteInventoryConfiguration implements Callable<Integer> {
       final AdminInventoryConfigurations wrapper = new AdminInventoryConfigurations(sdk);
       final net.accelbyte.sdk.api.inventory.operations.admin_inventory_configurations
               .AdminDeleteInventoryConfiguration
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.inventory.operations.admin_inventory_configurations
                   .AdminDeleteInventoryConfiguration.builder()
                   .inventoryConfigurationId(inventoryConfigurationId)
                   .namespace(namespace)
                   .build();
-      wrapper.adminDeleteInventoryConfiguration(operation);
+      wrapper.adminDeleteInventoryConfiguration(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

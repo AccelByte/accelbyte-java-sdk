@@ -63,7 +63,7 @@ public class BulkResetUserStatItem2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final UserStatistic wrapper = new UserStatistic(sdk);
       final net.accelbyte.sdk.api.social.operations.user_statistic.BulkResetUserStatItem2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.social.operations.user_statistic.BulkResetUserStatItem2
                   .builder()
                   .namespace(namespace)
@@ -71,7 +71,8 @@ public class BulkResetUserStatItem2 implements Callable<Integer> {
                       new ObjectMapper()
                           .readValue(body, new TypeReference<List<BulkUserStatItemReset>>() {}))
                   .build();
-      final List<BulkStatOperationResult> response = wrapper.bulkResetUserStatItem2(operation);
+      final List<BulkStatOperationResult> response =
+          wrapper.bulkResetUserStatItem2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

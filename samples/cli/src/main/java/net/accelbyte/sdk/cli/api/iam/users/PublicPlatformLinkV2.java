@@ -70,14 +70,14 @@ public class PublicPlatformLinkV2 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.PublicPlatformLinkV2 operation =
+      final net.accelbyte.sdk.api.iam.operations.users.PublicPlatformLinkV2 operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.PublicPlatformLinkV2.builder()
               .namespace(namespace)
               .platformId(platformId)
               .userId(userId)
               .ticket(ticket != null ? ticket : null)
               .build();
-      wrapper.publicPlatformLinkV2(operation);
+      wrapper.publicPlatformLinkV2(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

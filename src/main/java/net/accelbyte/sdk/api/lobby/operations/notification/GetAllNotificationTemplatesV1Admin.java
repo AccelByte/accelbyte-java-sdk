@@ -23,9 +23,7 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * getAllNotificationTemplatesV1Admin
  *
- * <p>Get all templates in a namespace
- *
- * <p>Action Code: 50203
+ * <p>Get all notification templates in a namespace.
  */
 @Getter
 @Setter

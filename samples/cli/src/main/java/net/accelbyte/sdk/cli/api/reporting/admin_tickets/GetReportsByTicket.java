@@ -71,14 +71,15 @@ public class GetReportsByTicket implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminTickets wrapper = new AdminTickets(sdk);
-      final net.accelbyte.sdk.api.reporting.operations.admin_tickets.GetReportsByTicket operation =
-          net.accelbyte.sdk.api.reporting.operations.admin_tickets.GetReportsByTicket.builder()
-              .namespace(namespace)
-              .ticketId(ticketId)
-              .limit(limit)
-              .offset(offset)
-              .build();
-      final RestapiReportListResponse response = wrapper.getReportsByTicket(operation);
+      final net.accelbyte.sdk.api.reporting.operations.admin_tickets.GetReportsByTicket
+          operationRequest =
+              net.accelbyte.sdk.api.reporting.operations.admin_tickets.GetReportsByTicket.builder()
+                  .namespace(namespace)
+                  .ticketId(ticketId)
+                  .limit(limit)
+                  .offset(offset)
+                  .build();
+      final RestapiReportListResponse response = wrapper.getReportsByTicket(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

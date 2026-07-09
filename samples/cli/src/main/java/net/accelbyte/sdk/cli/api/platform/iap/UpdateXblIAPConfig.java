@@ -61,12 +61,12 @@ public class UpdateXblIAPConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.UpdateXblIAPConfig operation =
+      final net.accelbyte.sdk.api.platform.operations.iap.UpdateXblIAPConfig operationRequest =
           net.accelbyte.sdk.api.platform.operations.iap.UpdateXblIAPConfig.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, XblIAPConfigRequest.class))
               .build();
-      final XblIAPConfigInfo response = wrapper.updateXblIAPConfig(operation);
+      final XblIAPConfigInfo response = wrapper.updateXblIAPConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

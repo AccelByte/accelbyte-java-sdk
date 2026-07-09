@@ -64,14 +64,14 @@ public class CreateLeaderboardConfigurationAdminV3 implements Callable<Integer> 
       final LeaderboardConfigurationV3 wrapper = new LeaderboardConfigurationV3(sdk);
       final net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration_v3
               .CreateLeaderboardConfigurationAdminV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.leaderboard.operations.leaderboard_configuration_v3
                   .CreateLeaderboardConfigurationAdminV3.builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ModelsLeaderboardConfigReqV3.class))
                   .build();
       final ModelsGetLeaderboardConfigRespV3 response =
-          wrapper.createLeaderboardConfigurationAdminV3(operation);
+          wrapper.createLeaderboardConfigurationAdminV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

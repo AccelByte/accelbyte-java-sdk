@@ -61,12 +61,12 @@ public class GetEntitlement implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Entitlement wrapper = new Entitlement(sdk);
-      final net.accelbyte.sdk.api.platform.operations.entitlement.GetEntitlement operation =
+      final net.accelbyte.sdk.api.platform.operations.entitlement.GetEntitlement operationRequest =
           net.accelbyte.sdk.api.platform.operations.entitlement.GetEntitlement.builder()
               .entitlementId(entitlementId)
               .namespace(namespace)
               .build();
-      final EntitlementInfo response = wrapper.getEntitlement(operation);
+      final EntitlementInfo response = wrapper.getEntitlement(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

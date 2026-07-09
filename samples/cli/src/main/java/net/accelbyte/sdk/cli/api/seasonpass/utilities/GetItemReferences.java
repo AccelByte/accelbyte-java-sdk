@@ -61,12 +61,13 @@ public class GetItemReferences implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Utilities wrapper = new Utilities(sdk);
-      final net.accelbyte.sdk.api.seasonpass.operations.utilities.GetItemReferences operation =
-          net.accelbyte.sdk.api.seasonpass.operations.utilities.GetItemReferences.builder()
-              .namespace(namespace)
-              .itemId(itemId)
-              .build();
-      final ItemReferenceInfo response = wrapper.getItemReferences(operation);
+      final net.accelbyte.sdk.api.seasonpass.operations.utilities.GetItemReferences
+          operationRequest =
+              net.accelbyte.sdk.api.seasonpass.operations.utilities.GetItemReferences.builder()
+                  .namespace(namespace)
+                  .itemId(itemId)
+                  .build();
+      final ItemReferenceInfo response = wrapper.getItemReferences(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

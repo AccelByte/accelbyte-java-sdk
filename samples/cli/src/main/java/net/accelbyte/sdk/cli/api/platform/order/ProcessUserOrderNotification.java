@@ -71,14 +71,15 @@ public class ProcessUserOrderNotification implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Order wrapper = new Order(sdk);
-      final net.accelbyte.sdk.api.platform.operations.order.ProcessUserOrderNotification operation =
-          net.accelbyte.sdk.api.platform.operations.order.ProcessUserOrderNotification.builder()
-              .namespace(namespace)
-              .orderNo(orderNo)
-              .userId(userId)
-              .body(new ObjectMapper().readValue(body, TradeNotification.class))
-              .build();
-      wrapper.processUserOrderNotification(operation);
+      final net.accelbyte.sdk.api.platform.operations.order.ProcessUserOrderNotification
+          operationRequest =
+              net.accelbyte.sdk.api.platform.operations.order.ProcessUserOrderNotification.builder()
+                  .namespace(namespace)
+                  .orderNo(orderNo)
+                  .userId(userId)
+                  .body(new ObjectMapper().readValue(body, TradeNotification.class))
+                  .build();
+      wrapper.processUserOrderNotification(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

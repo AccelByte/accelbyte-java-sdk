@@ -63,14 +63,14 @@ public class AdminCreateChainingOperations implements Callable<Integer> {
       final AdminChainingOperations wrapper = new AdminChainingOperations(sdk);
       final net.accelbyte.sdk.api.inventory.operations.admin_chaining_operations
               .AdminCreateChainingOperations
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.inventory.operations.admin_chaining_operations
                   .AdminCreateChainingOperations.builder()
                   .namespace(namespace)
                   .body(new ObjectMapper().readValue(body, ApimodelsChainingOperationReq.class))
                   .build();
       final ApimodelsChainingOperationResp response =
-          wrapper.adminCreateChainingOperations(operation);
+          wrapper.adminCreateChainingOperations(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

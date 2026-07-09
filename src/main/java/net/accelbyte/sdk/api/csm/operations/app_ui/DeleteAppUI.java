@@ -20,8 +20,6 @@ import net.accelbyte.sdk.core.util.Helper;
 /**
  * DeleteAppUI
  *
- * <p>Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APPUI [DELETE]`
- *
  * <p>Permanently deletes an App UI instance and schedules cleanup of associated S3 assets.
  */
 @Getter

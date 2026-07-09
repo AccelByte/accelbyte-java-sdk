@@ -72,7 +72,7 @@ public class AdminUpdateContentHideStatusV2 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminContentV2 wrapper = new AdminContentV2(sdk);
       final net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminUpdateContentHideStatusV2
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ugc.operations.admin_content_v2.AdminUpdateContentHideStatusV2
                   .builder()
                   .contentId(contentId)
@@ -81,7 +81,7 @@ public class AdminUpdateContentHideStatusV2 implements Callable<Integer> {
                   .body(new ObjectMapper().readValue(body, ModelsHideContentRequest.class))
                   .build();
       final ModelsCreateContentResponseV2 response =
-          wrapper.adminUpdateContentHideStatusV2(operation);
+          wrapper.adminUpdateContentHideStatusV2(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

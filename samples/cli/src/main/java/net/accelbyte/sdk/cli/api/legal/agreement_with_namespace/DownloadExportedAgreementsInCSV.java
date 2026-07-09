@@ -63,14 +63,14 @@ public class DownloadExportedAgreementsInCSV implements Callable<Integer> {
       final AgreementWithNamespace wrapper = new AgreementWithNamespace(sdk);
       final net.accelbyte.sdk.api.legal.operations.agreement_with_namespace
               .DownloadExportedAgreementsInCSV
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.agreement_with_namespace
                   .DownloadExportedAgreementsInCSV.builder()
                   .namespace(namespace)
                   .exportId(exportId)
                   .build();
       final DownloadExportedAgreementsInCSVResponse response =
-          wrapper.downloadExportedAgreementsInCSV(operation);
+          wrapper.downloadExportedAgreementsInCSV(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

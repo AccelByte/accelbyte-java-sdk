@@ -71,14 +71,14 @@ public class PublicGetCategory implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Category wrapper = new Category(sdk);
-      final net.accelbyte.sdk.api.platform.operations.category.PublicGetCategory operation =
+      final net.accelbyte.sdk.api.platform.operations.category.PublicGetCategory operationRequest =
           net.accelbyte.sdk.api.platform.operations.category.PublicGetCategory.builder()
               .categoryPath(categoryPath)
               .namespace(namespace)
               .language(language)
               .storeId(storeId)
               .build();
-      final CategoryInfo response = wrapper.publicGetCategory(operation);
+      final CategoryInfo response = wrapper.publicGetCategory(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

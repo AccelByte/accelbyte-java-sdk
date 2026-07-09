@@ -66,13 +66,13 @@ public class GetType implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicType wrapper = new PublicType(sdk);
-      final net.accelbyte.sdk.api.ugc.operations.public_type.GetType operation =
+      final net.accelbyte.sdk.api.ugc.operations.public_type.GetType operationRequest =
           net.accelbyte.sdk.api.ugc.operations.public_type.GetType.builder()
               .namespace(namespace)
               .limit(limit)
               .offset(offset)
               .build();
-      final ModelsPaginatedGetTypeResponse response = wrapper.getType(operation);
+      final ModelsPaginatedGetTypeResponse response = wrapper.getType(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

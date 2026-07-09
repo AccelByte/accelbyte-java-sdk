@@ -67,14 +67,14 @@ public class PublicListTagsHandlerV1 implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final PublicTags wrapper = new PublicTags(sdk);
       final net.accelbyte.sdk.api.cloudsave.operations.public_tags.PublicListTagsHandlerV1
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.cloudsave.operations.public_tags.PublicListTagsHandlerV1
                   .builder()
                   .namespace(namespace)
                   .limit(limit)
                   .offset(offset)
                   .build();
-      final ModelsListTagsResponse response = wrapper.publicListTagsHandlerV1(operation);
+      final ModelsListTagsResponse response = wrapper.publicListTagsHandlerV1(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

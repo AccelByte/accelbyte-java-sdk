@@ -53,12 +53,12 @@ public class AdminListEnvironmentVariables implements Callable<Integer> {
       final EnvironmentVariable wrapper = new EnvironmentVariable(sdk);
       final net.accelbyte.sdk.api.session.operations.environment_variable
               .AdminListEnvironmentVariables
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.session.operations.environment_variable
                   .AdminListEnvironmentVariables.builder()
                   .build();
       final ApimodelsEnvironmentVariableListResponse response =
-          wrapper.adminListEnvironmentVariables(operation);
+          wrapper.adminListEnvironmentVariables(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

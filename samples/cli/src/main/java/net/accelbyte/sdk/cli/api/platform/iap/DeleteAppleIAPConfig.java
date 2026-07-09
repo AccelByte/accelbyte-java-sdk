@@ -55,11 +55,11 @@ public class DeleteAppleIAPConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.DeleteAppleIAPConfig operation =
+      final net.accelbyte.sdk.api.platform.operations.iap.DeleteAppleIAPConfig operationRequest =
           net.accelbyte.sdk.api.platform.operations.iap.DeleteAppleIAPConfig.builder()
               .namespace(namespace)
               .build();
-      wrapper.deleteAppleIAPConfig(operation);
+      wrapper.deleteAppleIAPConfig(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

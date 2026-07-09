@@ -71,7 +71,7 @@ public class AdminChannelTopicList implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Topic wrapper = new Topic(sdk);
-      final net.accelbyte.sdk.api.chat.operations.topic.AdminChannelTopicList operation =
+      final net.accelbyte.sdk.api.chat.operations.topic.AdminChannelTopicList operationRequest =
           net.accelbyte.sdk.api.chat.operations.topic.AdminChannelTopicList.builder()
               .namespace(namespace)
               .limit(limit)
@@ -79,7 +79,7 @@ public class AdminChannelTopicList implements Callable<Integer> {
               .topicName(topicName)
               .build();
       final ModelsChannelTopicWithPaginationResponse response =
-          wrapper.adminChannelTopicList(operation);
+          wrapper.adminChannelTopicList(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

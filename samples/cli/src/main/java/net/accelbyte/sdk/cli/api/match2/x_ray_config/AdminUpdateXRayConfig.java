@@ -61,12 +61,13 @@ public class AdminUpdateXRayConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final XRayConfig wrapper = new XRayConfig(sdk);
-      final net.accelbyte.sdk.api.match2.operations.x_ray_config.AdminUpdateXRayConfig operation =
-          net.accelbyte.sdk.api.match2.operations.x_ray_config.AdminUpdateXRayConfig.builder()
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ModelsXRayConfigHttpUpdateRequest.class))
-              .build();
-      wrapper.adminUpdateXRayConfig(operation);
+      final net.accelbyte.sdk.api.match2.operations.x_ray_config.AdminUpdateXRayConfig
+          operationRequest =
+              net.accelbyte.sdk.api.match2.operations.x_ray_config.AdminUpdateXRayConfig.builder()
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, ModelsXRayConfigHttpUpdateRequest.class))
+                  .build();
+      wrapper.adminUpdateXRayConfig(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

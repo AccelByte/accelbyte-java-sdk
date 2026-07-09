@@ -69,14 +69,15 @@ public class PublicGetUserAppEntitlementOwnershipByAppId implements Callable<Int
       final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement
               .PublicGetUserAppEntitlementOwnershipByAppId
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.entitlement
                   .PublicGetUserAppEntitlementOwnershipByAppId.builder()
                   .namespace(namespace)
                   .userId(userId)
                   .appId(appId)
                   .build();
-      final Ownership response = wrapper.publicGetUserAppEntitlementOwnershipByAppId(operation);
+      final Ownership response =
+          wrapper.publicGetUserAppEntitlementOwnershipByAppId(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

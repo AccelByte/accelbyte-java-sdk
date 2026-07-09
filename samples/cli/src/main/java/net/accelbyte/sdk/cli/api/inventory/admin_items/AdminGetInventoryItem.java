@@ -71,14 +71,15 @@ public class AdminGetInventoryItem implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminItems wrapper = new AdminItems(sdk);
-      final net.accelbyte.sdk.api.inventory.operations.admin_items.AdminGetInventoryItem operation =
-          net.accelbyte.sdk.api.inventory.operations.admin_items.AdminGetInventoryItem.builder()
-              .inventoryId(inventoryId)
-              .namespace(namespace)
-              .slotId(slotId)
-              .sourceItemId(sourceItemId)
-              .build();
-      final ApimodelsItemResp response = wrapper.adminGetInventoryItem(operation);
+      final net.accelbyte.sdk.api.inventory.operations.admin_items.AdminGetInventoryItem
+          operationRequest =
+              net.accelbyte.sdk.api.inventory.operations.admin_items.AdminGetInventoryItem.builder()
+                  .inventoryId(inventoryId)
+                  .namespace(namespace)
+                  .slotId(slotId)
+                  .sourceItemId(sourceItemId)
+                  .build();
+      final ApimodelsItemResp response = wrapper.adminGetInventoryItem(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

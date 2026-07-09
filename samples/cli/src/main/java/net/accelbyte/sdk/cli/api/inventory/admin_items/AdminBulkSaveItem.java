@@ -67,15 +67,16 @@ public class AdminBulkSaveItem implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AdminItems wrapper = new AdminItems(sdk);
-      final net.accelbyte.sdk.api.inventory.operations.admin_items.AdminBulkSaveItem operation =
-          net.accelbyte.sdk.api.inventory.operations.admin_items.AdminBulkSaveItem.builder()
-              .namespace(namespace)
-              .userId(userId)
-              .body(
-                  new ObjectMapper()
-                      .readValue(body, new TypeReference<List<ApimodelsSaveItemReq>>() {}))
-              .build();
-      final List<ApimodelsBulkSaveItemResp> response = wrapper.adminBulkSaveItem(operation);
+      final net.accelbyte.sdk.api.inventory.operations.admin_items.AdminBulkSaveItem
+          operationRequest =
+              net.accelbyte.sdk.api.inventory.operations.admin_items.AdminBulkSaveItem.builder()
+                  .namespace(namespace)
+                  .userId(userId)
+                  .body(
+                      new ObjectMapper()
+                          .readValue(body, new TypeReference<List<ApimodelsSaveItemReq>>() {}))
+                  .build();
+      final List<ApimodelsBulkSaveItemResp> response = wrapper.adminBulkSaveItem(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

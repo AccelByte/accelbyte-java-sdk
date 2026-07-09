@@ -61,12 +61,13 @@ public class CreateTopicHandler implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final AsyncMessaging wrapper = new AsyncMessaging(sdk);
-      final net.accelbyte.sdk.api.csm.operations.async_messaging.CreateTopicHandler operation =
-          net.accelbyte.sdk.api.csm.operations.async_messaging.CreateTopicHandler.builder()
-              .namespace(namespace)
-              .body(new ObjectMapper().readValue(body, ApimodelCreateTopicRequest.class))
-              .build();
-      final ApimodelTopicResponse response = wrapper.createTopicHandler(operation);
+      final net.accelbyte.sdk.api.csm.operations.async_messaging.CreateTopicHandler
+          operationRequest =
+              net.accelbyte.sdk.api.csm.operations.async_messaging.CreateTopicHandler.builder()
+                  .namespace(namespace)
+                  .body(new ObjectMapper().readValue(body, ApimodelCreateTopicRequest.class))
+                  .build();
+      final ApimodelTopicResponse response = wrapper.createTopicHandler(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

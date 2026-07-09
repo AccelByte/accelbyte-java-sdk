@@ -61,12 +61,13 @@ public class PublicValidateUserInput implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Users wrapper = new Users(sdk);
-      final net.accelbyte.sdk.api.iam.operations.users.PublicValidateUserInput operation =
+      final net.accelbyte.sdk.api.iam.operations.users.PublicValidateUserInput operationRequest =
           net.accelbyte.sdk.api.iam.operations.users.PublicValidateUserInput.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ModelUserInputValidationRequest.class))
               .build();
-      final ModelUserInputValidationResponse response = wrapper.publicValidateUserInput(operation);
+      final ModelUserInputValidationResponse response =
+          wrapper.publicValidateUserInput(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

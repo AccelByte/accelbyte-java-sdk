@@ -72,7 +72,7 @@ public class RetrieveLatestPoliciesByNamespaceAndCountryPublic implements Callab
       final PoliciesWithNamespaceV2 wrapper = new PoliciesWithNamespaceV2(sdk);
       final net.accelbyte.sdk.api.legal.operations.policies_with_namespace_v2
               .RetrieveLatestPoliciesByNamespaceAndCountryPublic
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.policies_with_namespace_v2
                   .RetrieveLatestPoliciesByNamespaceAndCountryPublic.builder()
                   .countryCode(countryCode)
@@ -80,7 +80,7 @@ public class RetrieveLatestPoliciesByNamespaceAndCountryPublic implements Callab
                   .clientId(clientId)
                   .build();
       final List<RetrieveSimplePolicyPublicResponseV2> response =
-          wrapper.retrieveLatestPoliciesByNamespaceAndCountryPublic(operation);
+          wrapper.retrieveLatestPoliciesByNamespaceAndCountryPublic(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

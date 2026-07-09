@@ -62,12 +62,12 @@ public class UpdateAppleP8File implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.UpdateAppleP8File operation =
+      final net.accelbyte.sdk.api.platform.operations.iap.UpdateAppleP8File operationRequest =
           net.accelbyte.sdk.api.platform.operations.iap.UpdateAppleP8File.builder()
               .namespace(namespace)
               .file(file != null ? file : null)
               .build();
-      final AppleIAPConfigInfo response = wrapper.updateAppleP8File(operation);
+      final AppleIAPConfigInfo response = wrapper.updateAppleP8File(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

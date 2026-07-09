@@ -62,14 +62,14 @@ public class DevelopmentServerConfigurationGet implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Development wrapper = new Development(sdk);
       final net.accelbyte.sdk.api.ams.operations.development.DevelopmentServerConfigurationGet
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.ams.operations.development.DevelopmentServerConfigurationGet
                   .builder()
                   .developmentServerConfigID(developmentServerConfigID)
                   .namespace(namespace)
                   .build();
       final ApiDevelopmentServerConfigurationGetResponse response =
-          wrapper.developmentServerConfigurationGet(operation);
+          wrapper.developmentServerConfigurationGet(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

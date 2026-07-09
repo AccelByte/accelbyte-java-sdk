@@ -57,12 +57,12 @@ public class GetLootBoxPluginConfig implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final ServicePluginConfig wrapper = new ServicePluginConfig(sdk);
       final net.accelbyte.sdk.api.platform.operations.service_plugin_config.GetLootBoxPluginConfig
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.service_plugin_config.GetLootBoxPluginConfig
                   .builder()
                   .namespace(namespace)
                   .build();
-      final LootBoxPluginConfigInfo response = wrapper.getLootBoxPluginConfig(operation);
+      final LootBoxPluginConfigInfo response = wrapper.getLootBoxPluginConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

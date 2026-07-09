@@ -65,13 +65,14 @@ public class AdminJoinPartyV1 implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final LobbyOperations wrapper = new LobbyOperations(sdk);
-      final net.accelbyte.sdk.api.lobby.operations.lobby_operations.AdminJoinPartyV1 operation =
-          net.accelbyte.sdk.api.lobby.operations.lobby_operations.AdminJoinPartyV1.builder()
-              .namespace(namespace)
-              .partyId(partyId)
-              .userId(userId)
-              .build();
-      wrapper.adminJoinPartyV1(operation);
+      final net.accelbyte.sdk.api.lobby.operations.lobby_operations.AdminJoinPartyV1
+          operationRequest =
+              net.accelbyte.sdk.api.lobby.operations.lobby_operations.AdminJoinPartyV1.builder()
+                  .namespace(namespace)
+                  .partyId(partyId)
+                  .userId(userId)
+                  .build();
+      wrapper.adminJoinPartyV1(operationRequest);
       log.info("Operation successful");
       return 0;
     } catch (HttpResponseException e) {

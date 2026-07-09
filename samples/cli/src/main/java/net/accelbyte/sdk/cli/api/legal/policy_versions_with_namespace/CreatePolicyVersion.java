@@ -68,14 +68,14 @@ public class CreatePolicyVersion implements Callable<Integer> {
       final PolicyVersionsWithNamespace wrapper = new PolicyVersionsWithNamespace(sdk);
       final net.accelbyte.sdk.api.legal.operations.policy_versions_with_namespace
               .CreatePolicyVersion
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.legal.operations.policy_versions_with_namespace
                   .CreatePolicyVersion.builder()
                   .namespace(namespace)
                   .policyId(policyId)
                   .body(new ObjectMapper().readValue(body, CreatePolicyVersionRequest.class))
                   .build();
-      final CreatePolicyVersionResponse response = wrapper.createPolicyVersion(operation);
+      final CreatePolicyVersionResponse response = wrapper.createPolicyVersion(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

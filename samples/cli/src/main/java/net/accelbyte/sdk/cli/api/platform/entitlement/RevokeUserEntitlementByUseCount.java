@@ -72,7 +72,7 @@ public class RevokeUserEntitlementByUseCount implements Callable<Integer> {
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Entitlement wrapper = new Entitlement(sdk);
       final net.accelbyte.sdk.api.platform.operations.entitlement.RevokeUserEntitlementByUseCount
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.platform.operations.entitlement.RevokeUserEntitlementByUseCount
                   .builder()
                   .entitlementId(entitlementId)
@@ -80,7 +80,7 @@ public class RevokeUserEntitlementByUseCount implements Callable<Integer> {
                   .userId(userId)
                   .body(new ObjectMapper().readValue(body, RevokeUseCountRequest.class))
                   .build();
-      final EntitlementIfc response = wrapper.revokeUserEntitlementByUseCount(operation);
+      final EntitlementIfc response = wrapper.revokeUserEntitlementByUseCount(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

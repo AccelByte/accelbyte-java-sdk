@@ -66,13 +66,13 @@ public class UpdateRuleSet implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final RuleSets wrapper = new RuleSets(sdk);
-      final net.accelbyte.sdk.api.match2.operations.rule_sets.UpdateRuleSet operation =
+      final net.accelbyte.sdk.api.match2.operations.rule_sets.UpdateRuleSet operationRequest =
           net.accelbyte.sdk.api.match2.operations.rule_sets.UpdateRuleSet.builder()
               .namespace(namespace)
               .ruleset(ruleset)
               .body(new ObjectMapper().readValue(body, ApiRuleSetPayload.class))
               .build();
-      final ApiRuleSetPayload response = wrapper.updateRuleSet(operation);
+      final ApiRuleSetPayload response = wrapper.updateRuleSet(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

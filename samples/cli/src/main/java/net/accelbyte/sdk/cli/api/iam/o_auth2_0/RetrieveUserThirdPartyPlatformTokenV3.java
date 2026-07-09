@@ -68,7 +68,7 @@ public class RetrieveUserThirdPartyPlatformTokenV3 implements Callable<Integer> 
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final OAuth20 wrapper = new OAuth20(sdk);
       final net.accelbyte.sdk.api.iam.operations.o_auth2_0.RetrieveUserThirdPartyPlatformTokenV3
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.iam.operations.o_auth2_0.RetrieveUserThirdPartyPlatformTokenV3
                   .builder()
                   .namespace(namespace)
@@ -76,7 +76,7 @@ public class RetrieveUserThirdPartyPlatformTokenV3 implements Callable<Integer> 
                   .userId(userId)
                   .build();
       final OauthmodelTokenThirdPartyResponse response =
-          wrapper.retrieveUserThirdPartyPlatformTokenV3(operation);
+          wrapper.retrieveUserThirdPartyPlatformTokenV3(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

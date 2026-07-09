@@ -39,6 +39,7 @@ public class GetAllTimeLeaderboardRankingAdminV3 extends Operation {
   private String leaderboardCode;
 
   private String namespace;
+  private Boolean includeHiddenUsers;
   private Integer limit;
   private Integer offset;
 
@@ -50,9 +51,14 @@ public class GetAllTimeLeaderboardRankingAdminV3 extends Operation {
   // @deprecated 2022-08-29 - All args constructor may cause problems. Use builder instead.
   @Deprecated
   public GetAllTimeLeaderboardRankingAdminV3(
-      String leaderboardCode, String namespace, Integer limit, Integer offset) {
+      String leaderboardCode,
+      String namespace,
+      Boolean includeHiddenUsers,
+      Integer limit,
+      Integer offset) {
     this.leaderboardCode = leaderboardCode;
     this.namespace = namespace;
+    this.includeHiddenUsers = includeHiddenUsers;
     this.limit = limit;
     this.offset = offset;
 
@@ -74,6 +80,11 @@ public class GetAllTimeLeaderboardRankingAdminV3 extends Operation {
   @Override
   public Map<String, List<String>> getQueryParams() {
     Map<String, List<String>> queryParams = new HashMap<>();
+    queryParams.put(
+        "includeHiddenUsers",
+        this.includeHiddenUsers == null
+            ? null
+            : Arrays.asList(String.valueOf(this.includeHiddenUsers)));
     queryParams.put("limit", this.limit == null ? null : Arrays.asList(String.valueOf(this.limit)));
     queryParams.put(
         "offset", this.offset == null ? null : Arrays.asList(String.valueOf(this.offset)));
@@ -104,6 +115,7 @@ public class GetAllTimeLeaderboardRankingAdminV3 extends Operation {
   @Override
   protected Map<String, String> getCollectionFormatMap() {
     Map<String, String> result = new HashMap<>();
+    result.put("includeHiddenUsers", "None");
     result.put("limit", "None");
     result.put("offset", "None");
     return result;

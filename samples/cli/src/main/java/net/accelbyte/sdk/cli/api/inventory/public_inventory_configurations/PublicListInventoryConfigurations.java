@@ -78,7 +78,7 @@ public class PublicListInventoryConfigurations implements Callable<Integer> {
       final PublicInventoryConfigurations wrapper = new PublicInventoryConfigurations(sdk);
       final net.accelbyte.sdk.api.inventory.operations.public_inventory_configurations
               .PublicListInventoryConfigurations
-          operation =
+          operationRequest =
               net.accelbyte.sdk.api.inventory.operations.public_inventory_configurations
                   .PublicListInventoryConfigurations.builder()
                   .namespace(namespace)
@@ -88,7 +88,7 @@ public class PublicListInventoryConfigurations implements Callable<Integer> {
                   .sortBy(sortBy)
                   .build();
       final ApimodelsListInventoryConfigurationsResp response =
-          wrapper.publicListInventoryConfigurations(operation);
+          wrapper.publicListInventoryConfigurations(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

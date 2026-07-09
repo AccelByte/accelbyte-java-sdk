@@ -61,12 +61,13 @@ public class CreateClientByNamespace implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Clients wrapper = new Clients(sdk);
-      final net.accelbyte.sdk.api.iam.operations.clients.CreateClientByNamespace operation =
+      final net.accelbyte.sdk.api.iam.operations.clients.CreateClientByNamespace operationRequest =
           net.accelbyte.sdk.api.iam.operations.clients.CreateClientByNamespace.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, ClientmodelClientCreateRequest.class))
               .build();
-      final ClientmodelClientCreationResponse response = wrapper.createClientByNamespace(operation);
+      final ClientmodelClientCreationResponse response =
+          wrapper.createClientByNamespace(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

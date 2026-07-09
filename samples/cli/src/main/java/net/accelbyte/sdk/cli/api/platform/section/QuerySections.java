@@ -86,7 +86,7 @@ public class QuerySections implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final Section wrapper = new Section(sdk);
-      final net.accelbyte.sdk.api.platform.operations.section.QuerySections operation =
+      final net.accelbyte.sdk.api.platform.operations.section.QuerySections operationRequest =
           net.accelbyte.sdk.api.platform.operations.section.QuerySections.builder()
               .namespace(namespace)
               .end(end)
@@ -96,7 +96,7 @@ public class QuerySections implements Callable<Integer> {
               .storeId(storeId)
               .viewId(viewId)
               .build();
-      final SectionPagingSlicedResult response = wrapper.querySections(operation);
+      final SectionPagingSlicedResult response = wrapper.querySections(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);

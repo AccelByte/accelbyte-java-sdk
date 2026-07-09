@@ -61,12 +61,12 @@ public class UpdateIAPItemConfig implements Callable<Integer> {
           new AccelByteSDK(
               httpClient, CLITokenRepositoryImpl.getInstance(), new DefaultConfigRepository());
       final IAP wrapper = new IAP(sdk);
-      final net.accelbyte.sdk.api.platform.operations.iap.UpdateIAPItemConfig operation =
+      final net.accelbyte.sdk.api.platform.operations.iap.UpdateIAPItemConfig operationRequest =
           net.accelbyte.sdk.api.platform.operations.iap.UpdateIAPItemConfig.builder()
               .namespace(namespace)
               .body(new ObjectMapper().readValue(body, IAPItemConfigUpdate.class))
               .build();
-      final IAPItemConfigInfo response = wrapper.updateIAPItemConfig(operation);
+      final IAPItemConfigInfo response = wrapper.updateIAPItemConfig(operationRequest);
       final String responseString =
           new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(response);
       log.info("Operation successful\n{}", responseString);
